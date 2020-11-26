@@ -6,7 +6,7 @@
 //
 
 #include "Example_102.h"
-#include "../Global/Function/GFunction.h"
+#include "../Global/Function/GFunc.h"
 
 //! 이진 탐색을 시작한다
 int E102_BinarySearch(int *a_pnValues, int a_nLeft, int a_nRight, int a_nTarget);

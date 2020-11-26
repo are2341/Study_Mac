@@ -6,7 +6,7 @@
 //
 
 #include "Example_091.h"
-#include "../Global/Function/GFunction.h"
+#include "../Global/Function/GFunc.h"
 
 //! 선형 탐색을 시작한다
 int E091_LinearSearch(int *a_pnValues, int a_nSize, int a_nTarget);

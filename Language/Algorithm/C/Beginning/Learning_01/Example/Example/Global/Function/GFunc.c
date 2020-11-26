@@ -1,11 +1,11 @@
 //
-//  GFunction.c
+//  GFunc.c
 //  Example
 //
 //  Created by 이상동 on 2020/11/26.
 //
 
-#include "GFunction.h"
+#include "GFunc.h"
 
 //! 배열을 초기화한다
 void G_InitArray(int *a_pnValues, int a_nSize) {
