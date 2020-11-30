@@ -16,4 +16,7 @@ void G_InitArray(int *a_pnValues, int a_nSize);
 //! 배열을 출력한다
 void G_PrintArray(const int *a_pnValues, int a_nSize);
 
+//! 값을 교환한다
+void G_Swap(int *a_pnLhs, int *a_pnRhs);
+
 #endif /* GFunc_h */

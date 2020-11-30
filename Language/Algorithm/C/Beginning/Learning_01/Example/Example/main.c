@@ -11,6 +11,7 @@
 #include "Example_070/Example_070.h"
 #include "Example_091/Example_091.h"
 #include "Example_102/Example_102.h"
+#include "Example_142/Example_142.h"
 
 //! 메인 함수
 int main(const int argc, const char **args) {
@@ -19,9 +20,10 @@ int main(const int argc, const char **args) {
 //	Example_058(argc, args);
 //	Example_063(argc, args);
 //	Example_067(argc, args);
-	Example_070(argc, args);
+//	Example_070(argc, args);
 //	Example_091(argc, args);
 //	Example_102(argc, args);
+	Example_142(argc, args);
 	
 	return 0;
 }

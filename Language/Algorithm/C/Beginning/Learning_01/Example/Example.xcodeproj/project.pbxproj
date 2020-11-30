@@ -15,6 +15,7 @@
 		FE270FCB256EE6A200A76122 /* Example_091.c in Sources */ = {isa = PBXBuildFile; fileRef = FE270FCA256EE6A200A76122 /* Example_091.c */; };
 		FE2AD7ED256FE61F00C4A6E2 /* Example_070.c in Sources */ = {isa = PBXBuildFile; fileRef = FE2AD7EC256FE61F00C4A6E2 /* Example_070.c */; };
 		FEC202F1256FB3EC00DF2F6E /* Example_058.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC202F0256FB3EC00DF2F6E /* Example_058.c */; };
+		FEFBA6C9257505B30031CBBA /* Example_142.c in Sources */ = {isa = PBXBuildFile; fileRef = FEFBA6C8257505B30031CBBA /* Example_142.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		FE2AD7EC256FE61F00C4A6E2 /* Example_070.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example_070.c; sourceTree = "<group>"; };
 		FEC202EF256FB3EC00DF2F6E /* Example_058.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example_058.h; sourceTree = "<group>"; };
 		FEC202F0256FB3EC00DF2F6E /* Example_058.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example_058.c; sourceTree = "<group>"; };
+		FEFBA6C7257505B30031CBBA /* Example_142.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example_142.h; sourceTree = "<group>"; };
+		FEFBA6C8257505B30031CBBA /* Example_142.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example_142.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 				FE2AD7EA256FE5F300C4A6E2 /* Example_070 */,
 				FE270FC8256EE68F00A76122 /* Example_091 */,
 				FE270FBE256EE2D400A76122 /* Example_102 */,
+				FEFBA6C6257505930031CBBA /* Example_142 */,
 				FE270FAF256EE27C00A76122 /* main.c */,
 			);
 			path = Example;
@@ -171,6 +175,15 @@
 			path = Example_058;
 			sourceTree = "<group>";
 		};
+		FEFBA6C6257505930031CBBA /* Example_142 */ = {
+			isa = PBXGroup;
+			children = (
+				FEFBA6C7257505B30031CBBA /* Example_142.h */,
+				FEFBA6C8257505B30031CBBA /* Example_142.c */,
+			);
+			path = Example_142;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,6 +248,7 @@
 				FE0B3051256FE4CB00A15243 /* Example_067.c in Sources */,
 				FE270FCB256EE6A200A76122 /* Example_091.c in Sources */,
 				FEC202F1256FB3EC00DF2F6E /* Example_058.c in Sources */,
+				FEFBA6C9257505B30031CBBA /* Example_142.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

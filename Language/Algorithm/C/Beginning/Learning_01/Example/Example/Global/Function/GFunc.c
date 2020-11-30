@@ -22,3 +22,10 @@ void G_PrintArray(const int *a_pnValues, int a_nSize) {
 	
 	printf("\n");
 }
+
+//! 값을 교환한다
+void G_Swap(int *a_pnLhs, int *a_pnRhs) {
+	int nTemp = *a_pnLhs;
+	*a_pnLhs = *a_pnRhs;
+	*a_pnRhs = nTemp;
+}
