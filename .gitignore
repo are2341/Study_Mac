@@ -1,3 +1,5 @@
+**/__pycache__
+
 Engine/Unity/3.x/Beginning/Learning_01/Example/.vs
 Engine/Unity/3.x/Beginning/Learning_01/Example/.vscode
 Engine/Unity/3.x/Beginning/Learning_01/Example/Builds
@@ -6,9 +8,9 @@ Engine/Unity/3.x/Beginning/Learning_01/Example/Library
 Engine/Unity/3.x/Beginning/Learning_01/Example/Temp
 Engine/Unity/3.x/Beginning/Learning_01/Example/obj
 
-Language/C#/Beginning/Learning_01/Example/.vs
-Language/C#/Beginning/Learning_01/Example/.vscode
-Language/C#/Beginning/Learning_01/Example/Example/bin
-Language/C#/Beginning/Learning_01/Example/Example/obj
-
-Language/Python/Learning_01/Example/E01/Example_043/__pycache__
+Language/C#/Learning_01/Example/.vs
+Language/C#/Learning_01/Example/.vscode
+Language/C#/Learning_01/Example/E01/bin
+Language/C#/Learning_01/Example/E01/obj
+Language/C#/Learning_01/Example/E02/bin
+Language/C#/Learning_01/Example/E02/obj
