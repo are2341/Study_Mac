@@ -8,7 +8,7 @@
 #ifndef KGDefine_hpp
 #define KGDefine_hpp
 
-#include <iostream>
-#include <cassert>
+#include <stdio.h>
+#include <assert.h>
 
 #endif /* KGDefine_hpp */

@@ -5,6 +5,7 @@
  * :
  * - E01 (뇌를 자극하는 C# 5.0 프로그래밍)
  * - E02 (이것이 C# 이다)
+ * - E03 (Head First C#)
  */
 namespace E01 {
 	class Program {

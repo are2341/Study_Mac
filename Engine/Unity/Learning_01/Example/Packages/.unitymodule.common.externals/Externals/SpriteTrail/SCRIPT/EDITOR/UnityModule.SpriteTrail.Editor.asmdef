@@ -1,0 +1,18 @@
+{
+    "name": "UnityModule.SpriteTrail.Editor",
+    "rootNamespace": "",
+    "references": [
+        "UnityModule.Common.Externals"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
