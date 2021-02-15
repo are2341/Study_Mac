@@ -200,6 +200,7 @@ public static partial class CPlatformOptsSetter {
 	[MenuItem("Tools/Utility/Setup/ProjOpts")]
 	public static void SetupProjOpts() {
 		string oSearch = KCEditorDefine.DS_DEFINE_S_NEVER_USE_THIS;
+		CFunc.CopyDir(KCEditorDefine.B_ABS_DIR_P_SRC_PYTHON_SCRIPTS, KCEditorDefine.B_ABS_DIR_P_DEST_PYTHON_SCRIPTS, false);
 
 		for(int i = 0; i < KCEditorDefine.B_SCRIPT_P_INFOS.Length; ++i) {
 			var stPathInfo = KCEditorDefine.B_SCRIPT_P_INFOS[i];

@@ -90,8 +90,8 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		lock(KCDefine.U_LOCK_OBJ_SCHEDULE_M_UPDATE) {
 			int nIdx = m_oCallbackInfoList.ExFindValue((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(a_oKey));
 
-			// 콜백 추가가 가능 할 경우
-			if(nIdx <= KCDefine.B_IDX_INVALID) {
+			// 콜백이 없을 경우
+			if(!m_oCallbackInfoList.ExIsValidIdx(nIdx)) {
 				m_oAddCallbackInfoList.ExAddValue(new STCallbackInfo() {
 					m_oKey = a_oKey,
 					m_oCallback = a_oCallback	
@@ -105,8 +105,8 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		int nID = a_oComponent.GetInstanceID();
 		int nIdx = m_oComponentInfoList.ExFindValue((a_stComponentInfo) => nID == a_stComponentInfo.m_nID);
 
-		// 컴포넌트 추가가 가능 할 경우
-		if(nIdx <= KCDefine.B_IDX_INVALID) {
+		// 컴포넌트가 없을 경우
+		if(!m_oComponentInfoList.ExIsValidIdx(nIdx)) {
 			m_oAddComponentInfoList.ExAddValue(new STComponentInfo() {
 				m_nID = nID,
 				m_oComponent = a_oComponent	
@@ -177,11 +177,10 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		}
 
 		for(int i = 0; i < m_oRemoveComponentInfoList.Count; ++i) {
-			int nIdx = m_oComponentInfoList.ExFindValue((a_stComponentInfo) => a_stComponentInfo.m_nID == m_oRemoveComponentInfoList[i].m_nID);
-
 			var oComponent = m_oRemoveComponentInfoList[i].m_oComponent as CComponent;
 			oComponent.ScheduleCallback = null;
 
+			int nIdx = m_oComponentInfoList.ExFindValue((a_stComponentInfo) => a_stComponentInfo.m_nID == m_oRemoveComponentInfoList[i].m_nID);
 			m_oComponentInfoList.ExRemoveValueAt(nIdx);
 		}
 

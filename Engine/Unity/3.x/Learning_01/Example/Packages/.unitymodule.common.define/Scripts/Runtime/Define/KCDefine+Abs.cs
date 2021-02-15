@@ -167,7 +167,7 @@ public static partial class KCDefine {
 
 	public const string B_PLATFORM_N_IOS = "iOS";
 	public const string B_PLATFORM_N_ANDROID = "Android";
-
+	
 	public const string B_PLATFORM_N_GOOGLE = "Google";
 	public const string B_PLATFORM_N_ONE_STORE = "OneStore";
 	public const string B_PLATFORM_N_GALAXY_STORE = "GalaxyStore";

@@ -80,14 +80,9 @@ public static class CScriptableObjCreator {
 			m_oBranch = "master",
 			m_oSourceRoot = "00011.Sample_Unity",
 			m_oWorkspaceRoot = "/Users/dante/Documents/jenkins/workspace",
-
-			m_oDebugDistPath = "/Users/dante/Documents/jenkins/builds",
-			m_oReleaseDistPath = "/Users/dante/Documents/jenkins/builds",
-			m_oAdhocDistPath = "/Users/dante/Documents/jenkins/builds",
-			m_oStoreDistPath = "/Users/dante/Documents/jenkins/builds",
-
+			
 			m_oBuildToken = "JenkinsBuild",
-			m_oAccessToken = "11caaf9bb7c04bdd391eb92d9dc24c14f9",
+			m_oAccessToken = "11736e2ed3cbca541394372e057ad0ba5a",
 
 			m_oBuildURLFormat = "http://localhost:8080/{0}/buildWithParameters"
 		});

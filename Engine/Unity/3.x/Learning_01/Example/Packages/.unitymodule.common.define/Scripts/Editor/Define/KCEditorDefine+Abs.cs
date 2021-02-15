@@ -155,7 +155,6 @@ public static partial class KCEditorDefine {
 	public const string B_KEY_JENKINS_SRC = "Src";
 	public const string B_KEY_JENKINS_PROJ_NAME = "ProjName";
 	public const string B_KEY_JENKINS_PROJ_PATH = "ProjPath";
-	public const string B_KEY_JENKINS_DIST_PATH = "DistPath";
 	public const string B_KEY_JENKINS_BUNDLE_ID = "BundleID";
 	public const string B_KEY_JENKINS_PROFILE_ID = "ProfileID";
 	public const string B_KEY_JENKINS_PLATFORM = "Platform";
@@ -297,6 +296,8 @@ public static partial class KCEditorDefine {
 
 	public static readonly string B_ABS_DIR_P_ASSETS = $"{Application.dataPath}/";
 	public static readonly string B_ABS_DIR_P_PACKAGES = $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}../Packages/";
+	public static readonly string B_ABS_DIR_P_EXTERNAL_DATAS = $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}../ExternalDatas/";
+	public static readonly string B_ABS_DIR_P_TABLES = $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}../../Tables/";
 	public static readonly string B_ABS_DIR_P_UNITY_ENGINE = $"{EditorApplication.applicationPath}/";
 
 	public static readonly string B_ABS_DIR_P_SAMPLE_SCENE = $"{KCEditorDefine.B_ABS_DIR_P_PACKAGES}.UnityModule.Common/Scenes/{KCDefine.B_SCENE_N_SAMPLE}.unity";
@@ -322,6 +323,9 @@ public static partial class KCEditorDefine {
 
 	public static readonly string B_ABS_DIR_P_STUDY_TEMPLATES = $"{KCEditorDefine.B_ABS_DIR_P_PACKAGES}.UnityModule.Study/Templates/";
 	public static readonly string B_ABS_DIR_P_STUDY_SCRIPT_TEMPLATES = $"{KCEditorDefine.B_ABS_DIR_P_STUDY_TEMPLATES}Scripts/";
+
+	public static readonly string B_ABS_DIR_P_SRC_PYTHON_SCRIPTS = $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}../UnityPackages/Templates/Scripts/Python";
+	public static readonly string B_ABS_DIR_P_DEST_PYTHON_SCRIPTS = $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}../../Scripts/Python";
 	
 	public static readonly string B_ABS_PKGS_P_2D_TOOLKIT = $"{KCEditorDefine.B_ABS_DIR_P_UNITY_PACKAGES}/2DToolkit-v2.5.8.unitypackage";
 	public static readonly string B_ABS_PKGS_P_BITMAP_FONT_IMPORTER = $"{KCEditorDefine.B_ABS_DIR_P_UNITY_PACKAGES}/BitmapFontImporter-v2.4.1.unitypackage";
@@ -547,7 +551,12 @@ public static partial class KCEditorDefine {
 	};
 
 	public static readonly KeyValuePair<string, string>[] B_TABLE_P_INFOS = new KeyValuePair<string, string>[] {
+		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}T_ItemInfoTable.json", $"{KCEditorDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_ITEM_INFO}.json"),
+		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}T_ItemInfoTable.json", $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}{KCEditorDefine.B_DIR_P_UNITY_PROJ}Resources/{KCDefine.U_TABLE_P_G_ITEM_INFO}.json"),
+
 		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}{KCDefine.B_DIR_P_VALUE_INFO_ROOT}T_ValueTable_Common.csv", $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}{KCEditorDefine.B_DIR_P_UNITY_PROJ}Resources/{KCDefine.U_TABLE_P_G_COMMON_VALUE}.csv"),
+
+		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}{KCDefine.B_DIR_P_STRING_INFO_ROOT}T_StringTable.xlsx", $"{KCEditorDefine.B_ABS_DIR_P_TABLES}StringTable.xlsx"),
 		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}{KCDefine.B_DIR_P_STRING_INFO_ROOT}T_StringTable_Common.csv", $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}{KCEditorDefine.B_DIR_P_UNITY_PROJ}Resources/{KCDefine.U_TABLE_P_G_COMMON_STRING}.csv"),
 		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}{KCDefine.B_DIR_P_STRING_INFO_ROOT}T_StringTable_Common_{SystemLanguage.Korean}.csv", $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}{KCEditorDefine.B_DIR_P_UNITY_PROJ}Resources/{KCDefine.U_TABLE_P_G_KOREAN_COMMON_STRING}.csv"),
 		new KeyValuePair<string, string>($"{KCEditorDefine.B_ABS_DIR_P_TABLE_TEMPLATES}{KCDefine.B_DIR_P_STRING_INFO_ROOT}T_StringTable_Common_{SystemLanguage.English}.csv", $"{KCEditorDefine.B_ABS_DIR_P_ASSETS}{KCEditorDefine.B_DIR_P_UNITY_PROJ}Resources/{KCDefine.U_TABLE_P_G_ENGLISH_COMMON_STRING}.csv")

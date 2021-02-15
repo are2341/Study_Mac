@@ -14,12 +14,7 @@ public struct STJenkinsInfo {
 	public string m_oBranch;
 	public string m_oSourceRoot;
 	public string m_oWorkspaceRoot;
-
-	public string m_oDebugDistPath;
-	public string m_oReleaseDistPath;
-	public string m_oAdhocDistPath;
-	public string m_oStoreDistPath;
-
+	
 	public string m_oBuildToken;
 	public string m_oAccessToken;
 	public string m_oBuildURLFormat;

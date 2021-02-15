@@ -566,7 +566,7 @@ public abstract partial class CSceneManager : CComponent {
 					int nIdx = oExtraUIObjNames.ExFindValue((a_oObjName) => oUIObjs[i].name.ExIsEquals(a_oObjName));
 
 					// 추가 UI 객체 일 경우
-					if(nIdx <= KCDefine.B_IDX_INVALID) {
+					if(!oExtraUIObjNames.ExIsValidIdx(nIdx)) {
 						var oTrans = oUIObjs[i].transform as RectTransform;
 						oTrans.pivot = stPivot;
 						oTrans.anchorMin = KCDefine.B_ANCHOR_MIDDLE_CENTER;

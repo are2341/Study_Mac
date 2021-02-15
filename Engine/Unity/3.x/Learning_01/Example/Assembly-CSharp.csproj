@@ -40,6 +40,7 @@
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\Global\Define\KDefine+GameCenter.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\Global\Define\KDefine+AgreeScene.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\Global\Define\KDefine+Type.cs" />
+     <Compile Include="Assets\01.UnityProject\Scripts\Runtime\E01\Example_052\Example_052.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\SubMenuScene\CSubMenuSceneManager.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\Global\Utility\External\MessagePack\CMsgPackResolver.MSG_PACK_ENABLE.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\Global\Function\Func+Global.cs" />
@@ -83,11 +84,31 @@
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\SubSplashScene\CSubSplashSceneManager.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\Global\Define\KDefine+IntroScene.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\Global\Define\KDefine+Global.cs" />
-     <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\Global\Define\KDefine+InitScene.cs" />
-     <Compile Include="Assets\01.UnityProject\Scripts\Runtime\E01\Example_052\Example_052.cs" />
      <Compile Include="Assets\01.UnityProject\Scripts\Runtime\E01\Example_124\Example_124.cs" />
+     <Compile Include="Assets\01.UnityProject\Scripts\Runtime\00.AutoCreate\Global\Define\KDefine+InitScene.cs" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\01.UnityProject\Resources\Datas\AgreeScene\AS_Services_Korean.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\01.UnityProject\Resources\Datas\AgreeScene\AS_Privacy_Korean.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -311,31 +332,31 @@
         <HintPath>/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Packages/.unitymodule.common.externals/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.unitymodule.common.externals/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.unitymodule.common.externals/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/PackageCache/com.unity.burst@1.4.4/Unity.Burst.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.4.4/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2020.2.4f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -689,100 +710,100 @@
         <HintPath>/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.quicksearch">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Google.Play.Core">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Google.Play.Core.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Google.Play.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Google.Play.Review">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Google.Play.Review.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Google.Play.Review.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Google.Android.AppBundle.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Google.Android.AppBundle.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Google.Android.AppBundle.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Google.Play.Common">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Google.Play.Common.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Google.Play.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

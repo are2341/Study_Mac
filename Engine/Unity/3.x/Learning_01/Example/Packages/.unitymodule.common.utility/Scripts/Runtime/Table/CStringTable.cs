@@ -37,6 +37,7 @@ public class CStringTable : CSingleton<CStringTable> {
 
 	//! 문자열을 로드한다
 	public Dictionary<string, string> LoadStrings(string a_oCSVString) {
+		CAccess.Assert(a_oCSVString.ExIsValid());
 		var oStringInfoList = CSVParser.Parse(a_oCSVString);
 
 		for(int i = 0; i < oStringInfoList.Count; ++i) {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if STUDY_MODULE_ENABLE
 //! 스터디 씬 관리자
 public abstract class CStudySceneManager : CSceneManager {
 	#region 함수
@@ -34,4 +33,3 @@ public abstract class CStudySceneManager : CSceneManager {
 	}
 	#endregion			// 함수
 }
-#endif			// #if STUDY_MODULE_ENABLE

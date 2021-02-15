@@ -131,7 +131,7 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 #endif			// #if UNITY_IOS
 
 		int nIdx = oAdsIDList.ExFindValue((a_oTestAdsID) => a_oAdsID.ExIsEquals(a_oTestAdsID));
-		return nIdx > KCDefine.B_IDX_INVALID;
+		return oAdsIDList.ExIsValidIdx(nIdx);
 	}
 
 	//! 업데이트 필요 여부를 검사한다

@@ -6,12 +6,12 @@ using UnityEngine;
 //! 판매 상품 정보
 [System.Serializable]
 public struct STSaleProductInfo {
-	[HideInInspector] public int m_nID;
+	public EPriceType m_ePriceType;
+	public EPriceKinds m_ePriceKinds;
 
 	public string m_oName;
 	public string m_oDesc;
 
-	public EPriceType m_ePriceType;
 	public List<STSaleItemInfo> m_oSaleItemInfoList;
 }
 
@@ -27,18 +27,6 @@ public class CSaleProductInfoTable : CScriptableObj<CSaleProductInfoTable> {
 	#endregion			// 프로퍼티
 
 	#region 함수
-	//! 초기화
-	public override void Awake() {
-		base.Awake();
-
-		for(int i = 0; i < m_oSaleProductInfoList.Count; ++i) {
-			var stSaleProductInfo = m_oSaleProductInfoList[i];
-			stSaleProductInfo.m_nID = i;
-
-			m_oSaleProductInfoList[i] = stSaleProductInfo;
-		}
-	}
-
 	//! 판매 아이템 정보 포함 여부를 검사한다
 	public bool IsContainsSaleItemInfo(int a_nID, EItemKinds a_eItemKinds) {
 		return this.TryGetSaleItemInfo(a_nID, a_eItemKinds, out STSaleItemInfo stSaleItemInfo);
@@ -52,13 +40,17 @@ public class CSaleProductInfoTable : CScriptableObj<CSaleProductInfoTable> {
 
 	//! 판매 상품 정보를 반환한다
 	public STSaleProductInfo GetSaleProductInfo(int a_nID) {
-		CAccess.Assert(this.TryGetSaleProductInfo(a_nID, out STSaleProductInfo stSaleProductInfo));
+		bool bIsValid = this.TryGetSaleProductInfo(a_nID, out STSaleProductInfo stSaleProductInfo);
+		CAccess.Assert(bIsValid);
+
 		return stSaleProductInfo;
 	}
 
 	//! 판매 아이템 정보를 반환한다
 	public STSaleItemInfo GetSaleItemInfo(int a_nID, EItemKinds a_eItemKinds) {
-		CAccess.Assert(this.TryGetSaleItemInfo(a_nID, a_eItemKinds, out STSaleItemInfo stSaleItemInfo));
+		bool bIsValid = this.TryGetSaleItemInfo(a_nID, a_eItemKinds, out STSaleItemInfo stSaleItemInfo);
+		CAccess.Assert(bIsValid);
+
 		return stSaleItemInfo;
 	}
 
@@ -70,12 +62,16 @@ public class CSaleProductInfoTable : CScriptableObj<CSaleProductInfoTable> {
 
 	//! 판매 아이템 정보를 반환한다
 	public bool TryGetSaleItemInfo(int a_nID, EItemKinds a_eItemKinds, out STSaleItemInfo a_stOutSaleItemInfo) {
-		CAccess.Assert(this.TryGetSaleProductInfo(a_nID, out STSaleProductInfo stSaleProductInfo));
+		// 판매 상품 정보가 존재 할 경우
+		if(this.TryGetSaleProductInfo(a_nID, out STSaleProductInfo stSaleProductInfo)) {
+			int nIdx = stSaleProductInfo.m_oSaleItemInfoList.ExFindValue((a_stSaleItemInfo) => a_stSaleItemInfo.m_eItemKinds == a_eItemKinds);
+			a_stOutSaleItemInfo = stSaleProductInfo.m_oSaleItemInfoList.ExIsValidIdx(nIdx) ? stSaleProductInfo.m_oSaleItemInfoList[nIdx] : default(STSaleItemInfo);
 
-		int nIdx = stSaleProductInfo.m_oSaleItemInfoList.ExFindValue((a_stSaleItemInfo) => a_stSaleItemInfo.m_eItemKinds == a_eItemKinds);
-		a_stOutSaleItemInfo = stSaleProductInfo.m_oSaleItemInfoList.ExIsValidIdx(nIdx) ? stSaleProductInfo.m_oSaleItemInfoList[nIdx] : default(STSaleItemInfo);
+			return stSaleProductInfo.m_oSaleItemInfoList.ExIsValidIdx(nIdx);
+		}
 
-		return stSaleProductInfo.m_oSaleItemInfoList.ExIsValidIdx(nIdx);
+		a_stOutSaleItemInfo = default(STSaleItemInfo);
+		return false;
 	}
 	#endregion			// 함수
 }

@@ -103,6 +103,7 @@ public class CValueTable : CSingleton<CValueTable> {
 
 	//! 값을 로드한다
 	public List<object> LoadValues(string a_oCSVString) {
+		CAccess.Assert(a_oCSVString.ExIsValid());
 		var oValueInfoList = CSVParser.Parse(a_oCSVString);
 
 		for(int i = 0; i < oValueInfoList.Count; ++i) {

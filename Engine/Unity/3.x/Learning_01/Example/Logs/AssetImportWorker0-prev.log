@@ -8,1131 +8,289 @@ Using pre-set license
 -name
 AssetImportWorker0
 -projectPath
-/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example
+/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50791
-Successfully changed project path to: /Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example
-/Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example
+54694
+Successfully changed project path to: /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
+/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 173.73 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 389.23 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.4f1 (becced5a802b)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /Users/dante/Workspace/Studies/Mac/Engine/Unity/Learning_01/Example/Assets
+[Subsystems] Discovering subsystems at path /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets
 GfxDevice: creating device client; threaded=0
-2021-02-14 16:34:15.009 Unity[8883:103741] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-02-14 16:34:15.009 Unity[8883:103741] Metal devices available: 1
-2021-02-14 16:34:15.009 Unity[8883:103741] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-02-14 16:34:15.012 Unity[8883:103741] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-15 20:17:39.218 Unity[52109:425893] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-15 20:17:39.218 Unity[52109:425893] Metal devices available: 1
+2021-02-15 20:17:39.219 Unity[52109:425893] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-15 20:17:39.230 Unity[52109:425893] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56883
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56109
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.001077 seconds.
+Registered in 0.001431 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 166.22 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 328.89 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.400 seconds
+- Completed reload, in 10.453 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007594 seconds.
+Registered in 0.017125 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 168.72 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 131.02 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.653 seconds
+- Completed reload, in  3.305 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Launching external process: /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 1.10 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 1.11 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4223 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 292.5 MB.
-System memory in use after: 291.8 MB.
+Unloading 4176 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 287.5 MB.
+System memory in use after: 287.2 MB.
 
-Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 4678.
-Total: 6.254597 ms (FindLiveObjects: 0.700740 ms CreateObjectMapping: 0.459114 ms MarkObjects: 4.142998 ms  DeleteObjects: 0.948708 ms)
+Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4637.
+Total: 4.868581 ms (FindLiveObjects: 0.546621 ms CreateObjectMapping: 0.226775 ms MarkObjects: 3.636658 ms  DeleteObjects: 0.456925 ms)
+
+========================================================================
+Received Prepare
+Switching render pipeline 00000000000000000000000000000000 -> cab42b6f5cac74949bd593abeb8a71ef
+Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 9.57 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 90 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 207.3 MB.
+System memory in use after: 207.0 MB.
+
+Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 4688.
+Total: 9.353510 ms (FindLiveObjects: 1.290312 ms CreateObjectMapping: 0.639682 ms MarkObjects: 6.501564 ms  DeleteObjects: 0.919420 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/01.UnityProject/Scenes/E01/01.TitleScene 1.unity
-  artifactKey: Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/01.TitleScene 1.unity using Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f570e0dd063080495c1dbe04cbdc941') in 0.018278 seconds
-  Import took 0.036081 seconds .
+  path: Packages/unitymodule.common.externals
+  artifactKey: Guid(bfe377bcb28f473b6cfe4f4227b2d41c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/unitymodule.common.externals using Guid(bfe377bcb28f473b6cfe4f4227b2d41c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33fb732b57d69506f8279306ce48da3b') in 0.040870 seconds
+  Import took 0.054998 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 81.490421 seconds.
-  path: Assets/01.UnityProject/Scenes/E01/Example_052.unity
-  artifactKey: Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/Example_052.unity using Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9249e2136bbaf159977c45e9cc2f1c9a') in 0.011896 seconds
-  Import took 0.042126 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.038229 seconds.
-  path: Assets/01.UnityProject/Scenes/E01/E01_Example_052.unity
-  artifactKey: Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/E01_Example_052.unity using Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '471071efb3a1f7accad4239e717e25a1') in 0.017488 seconds
-  Import took 0.043515 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 34.381864 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime
-  artifactKey: Guid(fcc5f8ee77f3a47cea9fff83c729212b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime using Guid(fcc5f8ee77f3a47cea9fff83c729212b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54a906d2ea90c0b9d1b23280580e1e68') in 0.001595 seconds
-  Import took 0.031728 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004855 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime
-  artifactKey: Guid(fcc5f8ee77f3a47cea9fff83c729212b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime using Guid(fcc5f8ee77f3a47cea9fff83c729212b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54a906d2ea90c0b9d1b23280580e1e68') in 0.001244 seconds
-  Import took 0.024734 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.874553 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime/E01
-  artifactKey: Guid(664e245f675fb497b95a5b6953815c07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime/E01 using Guid(664e245f675fb497b95a5b6953815c07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9080f872ee9c4f5ede75f1f8a73cfb21') in 0.018594 seconds
-  Import took 0.042791 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 26.197490 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime/E01/Example_052
-  artifactKey: Guid(b15148525c13742a3b2f327fd45efa6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime/E01/Example_052 using Guid(b15148525c13742a3b2f327fd45efa6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c5972c339028cbf6ad7683344dd0b1a') in 0.003117 seconds
-  Import took 0.040775 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 22.963097 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime/E01/Example_052/Example_052.cs
-  artifactKey: Guid(e90bc0596920643cab37358b15e7e48f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime/E01/Example_052/Example_052.cs using Guid(e90bc0596920643cab37358b15e7e48f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34065c2e634f6d815e3c3c037a9f8c8a') in 0.518094 seconds
-  Import took 0.530297 seconds .
+  Time since last request: 13.743124 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edc3feb264a98656617d3c2cb59c8f16') in 0.005771 seconds
+  Import took 0.021522 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.008354 seconds.
+Registered in 0.004449 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.10 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.99 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.109 seconds
+- Completed reload, in  2.070 seconds
 Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 1.05 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 293.6 MB.
-System memory in use after: 293.0 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 6.230679 ms (FindLiveObjects: 0.773120 ms CreateObjectMapping: 0.468033 ms MarkObjects: 4.173957 ms  DeleteObjects: 0.813476 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 5.90 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 210.4 MB.
-System memory in use after: 209.8 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.805890 ms (FindLiveObjects: 0.740212 ms CreateObjectMapping: 0.432638 ms MarkObjects: 3.805000 ms  DeleteObjects: 0.826369 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 8.06 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 210.5 MB.
-System memory in use after: 209.9 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.224142 ms (FindLiveObjects: 0.657425 ms CreateObjectMapping: 0.254801 ms MarkObjects: 3.558444 ms  DeleteObjects: 0.750719 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 7.18 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 210.6 MB.
-System memory in use after: 210.0 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 6.690700 ms (FindLiveObjects: 0.759949 ms CreateObjectMapping: 0.460445 ms MarkObjects: 4.387545 ms  DeleteObjects: 1.080030 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 7.09 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 210.8 MB.
-System memory in use after: 210.2 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.357460 ms (FindLiveObjects: 0.561952 ms CreateObjectMapping: 0.267730 ms MarkObjects: 3.700137 ms  DeleteObjects: 0.824183 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 5.99 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 210.9 MB.
-System memory in use after: 210.3 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.453947 ms (FindLiveObjects: 0.816646 ms CreateObjectMapping: 0.288569 ms MarkObjects: 3.499464 ms  DeleteObjects: 0.846424 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.39 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 211.0 MB.
-System memory in use after: 210.4 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.618750 ms (FindLiveObjects: 0.698199 ms CreateObjectMapping: 0.455760 ms MarkObjects: 3.695341 ms  DeleteObjects: 0.767389 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.66 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 211.1 MB.
-System memory in use after: 210.5 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 6.169759 ms (FindLiveObjects: 0.712033 ms CreateObjectMapping: 0.450471 ms MarkObjects: 4.202849 ms  DeleteObjects: 0.802296 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 5.84 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 211.2 MB.
-System memory in use after: 210.6 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.026431 ms (FindLiveObjects: 0.586732 ms CreateObjectMapping: 0.248808 ms MarkObjects: 3.411113 ms  DeleteObjects: 0.777606 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.28 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 211.3 MB.
-System memory in use after: 210.7 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4713.
-Total: 5.944102 ms (FindLiveObjects: 0.717901 ms CreateObjectMapping: 0.435141 ms MarkObjects: 4.007720 ms  DeleteObjects: 0.779854 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 21.361270 seconds.
-  path: Assets/01.UnityProject/Scenes/E01/E01.Example_052.unity
-  artifactKey: Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/E01.Example_052.unity using Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '080af3b2a3e32e1ebbe507f9e79875f6') in 0.037867 seconds
-  Import took 0.056497 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.028009 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.23 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  7.063 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.07 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 295.2 MB.
-System memory in use after: 294.7 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4747.
-Total: 7.071654 ms (FindLiveObjects: 0.935676 ms CreateObjectMapping: 0.544220 ms MarkObjects: 4.604106 ms  DeleteObjects: 0.984902 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 14.30 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 212.1 MB.
-System memory in use after: 211.5 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4747.
-Total: 24.929223 ms (FindLiveObjects: 1.132702 ms CreateObjectMapping: 0.533672 ms MarkObjects: 21.918131 ms  DeleteObjects: 1.341127 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005171 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.23 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.726 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.15 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 296.0 MB.
-System memory in use after: 295.3 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4781.
-Total: 29.864058 ms (FindLiveObjects: 15.676668 ms CreateObjectMapping: 3.436492 ms MarkObjects: 9.240475 ms  DeleteObjects: 1.490122 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 5.91 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 212.8 MB.
-System memory in use after: 212.2 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4781.
-Total: 5.492457 ms (FindLiveObjects: 0.616349 ms CreateObjectMapping: 0.331783 ms MarkObjects: 3.721558 ms  DeleteObjects: 0.819830 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005166 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.39 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.253 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.68 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 296.5 MB.
-System memory in use after: 295.9 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4815.
-Total: 6.425639 ms (FindLiveObjects: 0.820271 ms CreateObjectMapping: 0.484394 ms MarkObjects: 4.351838 ms  DeleteObjects: 0.767423 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007870 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.12 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.502 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.05 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 297.1 MB.
-System memory in use after: 296.5 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4849.
-Total: 10.213712 ms (FindLiveObjects: 0.793369 ms CreateObjectMapping: 0.523867 ms MarkObjects: 6.016101 ms  DeleteObjects: 2.876716 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.96 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 213.9 MB.
-System memory in use after: 213.3 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4849.
-Total: 8.941017 ms (FindLiveObjects: 1.427144 ms CreateObjectMapping: 0.609759 ms MarkObjects: 5.534267 ms  DeleteObjects: 1.366743 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 355.547893 seconds.
-  path: Assets/01.UnityProject/Scenes/E01/E01.Example_052.unity
-  artifactKey: Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/E01.Example_052.unity using Guid(ac855be259d6449be87d9fdf501da687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6d0c0feb5784a656eb16c7d4a610034') in 0.052270 seconds
-  Import took 0.084688 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.149014 seconds.
-  path: Assets/01.UnityProject/Scenes/E01/E01.Example_052 1.unity
-  artifactKey: Guid(b375cc5a8f7e040a6a49c82d5b7d027f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/E01.Example_052 1.unity using Guid(b375cc5a8f7e040a6a49c82d5b7d027f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd8ec20a08fb66ab8b08df1cf27c46c2') in 0.018009 seconds
-  Import took 0.050910 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.211423 seconds.
-  path: Assets/01.UnityProject/Scenes/E01/E01.Example_124.unity
-  artifactKey: Guid(b375cc5a8f7e040a6a49c82d5b7d027f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scenes/E01/E01.Example_124.unity using Guid(b375cc5a8f7e040a6a49c82d5b7d027f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd2dde519afd7c61576d257425949b9d') in 0.010669 seconds
-  Import took 0.052704 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.424992 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime/E01/Example_124
-  artifactKey: Guid(6185abd76c1354cb1a39ffffb9cc702e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime/E01/Example_124 using Guid(6185abd76c1354cb1a39ffffb9cc702e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7212ae82d2f9029495682604848acc27') in 0.017386 seconds
-  Import took 0.047159 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.993580 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime/E01/Example_124/Example_124.cs
-  artifactKey: Guid(18520f4ace13c4ead8aa6b73ab97d093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime/E01/Example_124/Example_124.cs using Guid(18520f4ace13c4ead8aa6b73ab97d093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b419623f4ee37238f7290535fee31da0') in 0.009918 seconds
-  Import took 0.042422 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006146 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.121 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.12 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 297.8 MB.
-System memory in use after: 297.2 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 5.981568 ms (FindLiveObjects: 0.749563 ms CreateObjectMapping: 0.421790 ms MarkObjects: 3.894125 ms  DeleteObjects: 0.914312 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 5.46 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 214.6 MB.
-System memory in use after: 214.0 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 11.092852 ms (FindLiveObjects: 0.784039 ms CreateObjectMapping: 0.725265 ms MarkObjects: 8.323244 ms  DeleteObjects: 1.257754 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.22 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 214.7 MB.
-System memory in use after: 214.1 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 6.248471 ms (FindLiveObjects: 1.016040 ms CreateObjectMapping: 0.354753 ms MarkObjects: 3.970654 ms  DeleteObjects: 0.904810 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 17.71 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 214.8 MB.
-System memory in use after: 214.2 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 6.461966 ms (FindLiveObjects: 0.789054 ms CreateObjectMapping: 0.509342 ms MarkObjects: 4.296816 ms  DeleteObjects: 0.864303 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 8.37 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 214.9 MB.
-System memory in use after: 214.3 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 5.909827 ms (FindLiveObjects: 0.717692 ms CreateObjectMapping: 0.428692 ms MarkObjects: 3.958533 ms  DeleteObjects: 0.802289 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.67 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.0 MB.
-System memory in use after: 214.4 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 8.029411 ms (FindLiveObjects: 1.441216 ms CreateObjectMapping: 0.545728 ms MarkObjects: 5.247164 ms  DeleteObjects: 0.793082 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.66 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.1 MB.
-System memory in use after: 214.5 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 7.325658 ms (FindLiveObjects: 0.933157 ms CreateObjectMapping: 0.375104 ms MarkObjects: 5.117235 ms  DeleteObjects: 0.897741 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 6.49 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.2 MB.
-System memory in use after: 214.6 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 6.216115 ms (FindLiveObjects: 0.771825 ms CreateObjectMapping: 0.440606 ms MarkObjects: 4.177816 ms  DeleteObjects: 0.823631 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 9.72 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.3 MB.
-System memory in use after: 214.7 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 8.956288 ms (FindLiveObjects: 1.324739 ms CreateObjectMapping: 0.473147 ms MarkObjects: 5.913130 ms  DeleteObjects: 1.242390 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 5.43 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.4 MB.
-System memory in use after: 214.8 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4884.
-Total: 6.064510 ms (FindLiveObjects: 0.883878 ms CreateObjectMapping: 0.585194 ms MarkObjects: 3.750895 ms  DeleteObjects: 0.841708 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007907 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.06 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  4.002 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 299.3 MB.
-System memory in use after: 298.7 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4918.
-Total: 4.819288 ms (FindLiveObjects: 0.511471 ms CreateObjectMapping: 0.205668 ms MarkObjects: 3.339334 ms  DeleteObjects: 0.761056 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 12.11 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 216.1 MB.
-System memory in use after: 215.5 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4918.
-Total: 7.062135 ms (FindLiveObjects: 0.837337 ms CreateObjectMapping: 0.356842 ms MarkObjects: 4.950344 ms  DeleteObjects: 0.914753 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 173.253061 seconds.
-  path: Assets/01.UnityProject/Scripts/Runtime/E01/Example_124/Example_124.cs
-  artifactKey: Guid(18520f4ace13c4ead8aa6b73ab97d093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/01.UnityProject/Scripts/Runtime/E01/Example_124/Example_124.cs using Guid(18520f4ace13c4ead8aa6b73ab97d093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7deba5a132e5f1c67a7ff1f5295c523') in 0.027658 seconds
-  Import took 0.061763 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004907 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.19 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.610 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 1.13 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 300.0 MB.
-System memory in use after: 299.4 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4952.
-Total: 15.432122 ms (FindLiveObjects: 3.487094 ms CreateObjectMapping: 1.357917 ms MarkObjects: 9.542400 ms  DeleteObjects: 1.035277 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.69 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 216.8 MB.
-System memory in use after: 216.2 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4952.
-Total: 6.862038 ms (FindLiveObjects: 0.864030 ms CreateObjectMapping: 0.501701 ms MarkObjects: 4.351865 ms  DeleteObjects: 1.142364 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004617 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
 Refreshing native plugins compatible for Editor in 1.02 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.146 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.04 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 300.6 MB.
-System memory in use after: 300.0 MB.
+Unloading 4099 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 291.6 MB.
+System memory in use after: 290.7 MB.
 
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 5.796523 ms (FindLiveObjects: 0.846893 ms CreateObjectMapping: 0.371870 ms MarkObjects: 3.732340 ms  DeleteObjects: 0.842992 ms)
+Unloading 56 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 6.598275 ms (FindLiveObjects: 0.772914 ms CreateObjectMapping: 0.363325 ms MarkObjects: 4.627483 ms  DeleteObjects: 0.830396 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 5.63 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.18 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 217.4 MB.
-System memory in use after: 216.8 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.4 MB.
+System memory in use after: 207.6 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 5.273377 ms (FindLiveObjects: 0.572795 ms CreateObjectMapping: 0.259463 ms MarkObjects: 3.640534 ms  DeleteObjects: 0.797411 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 6.001897 ms (FindLiveObjects: 0.520286 ms CreateObjectMapping: 0.247396 ms MarkObjects: 4.064838 ms  DeleteObjects: 1.166787 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 6.25 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.70 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 217.5 MB.
-System memory in use after: 216.9 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.5 MB.
+System memory in use after: 207.7 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 8.370446 ms (FindLiveObjects: 1.643670 ms CreateObjectMapping: 0.644383 ms MarkObjects: 4.744434 ms  DeleteObjects: 1.332975 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 4.960117 ms (FindLiveObjects: 0.501138 ms CreateObjectMapping: 0.224922 ms MarkObjects: 3.421242 ms  DeleteObjects: 0.809929 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Refreshing native plugins compatible for Editor in 5.06 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 217.6 MB.
-System memory in use after: 217.0 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.7 MB.
+System memory in use after: 207.8 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 7.076824 ms (FindLiveObjects: 0.735303 ms CreateObjectMapping: 0.571980 ms MarkObjects: 4.953373 ms  DeleteObjects: 0.814415 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.66 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 217.7 MB.
-System memory in use after: 217.1 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 6.068697 ms (FindLiveObjects: 0.749469 ms CreateObjectMapping: 0.443986 ms MarkObjects: 3.964729 ms  DeleteObjects: 0.907513 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 5.128404 ms (FindLiveObjects: 0.485680 ms CreateObjectMapping: 0.227353 ms MarkObjects: 3.439358 ms  DeleteObjects: 0.972984 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 7.19 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.12 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 217.8 MB.
-System memory in use after: 217.2 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.7 MB.
+System memory in use after: 207.9 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 6.596246 ms (FindLiveObjects: 0.908433 ms CreateObjectMapping: 0.479986 ms MarkObjects: 4.389766 ms  DeleteObjects: 0.814843 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 5.144839 ms (FindLiveObjects: 0.545203 ms CreateObjectMapping: 0.269266 ms MarkObjects: 3.511843 ms  DeleteObjects: 0.815692 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.69 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.26 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 217.9 MB.
-System memory in use after: 217.3 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.9 MB.
+System memory in use after: 208.0 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 6.060947 ms (FindLiveObjects: 0.797271 ms CreateObjectMapping: 0.441568 ms MarkObjects: 3.907707 ms  DeleteObjects: 0.912811 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 5.329885 ms (FindLiveObjects: 0.718837 ms CreateObjectMapping: 0.355359 ms MarkObjects: 3.431590 ms  DeleteObjects: 0.818745 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.35 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.10 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.0 MB.
-System memory in use after: 217.4 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.0 MB.
+System memory in use after: 208.2 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 10.837612 ms (FindLiveObjects: 1.462123 ms CreateObjectMapping: 0.599208 ms MarkObjects: 7.362945 ms  DeleteObjects: 1.409858 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 4.988447 ms (FindLiveObjects: 0.501327 ms CreateObjectMapping: 0.227554 ms MarkObjects: 3.460607 ms  DeleteObjects: 0.796240 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 5.43 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.85 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.1 MB.
-System memory in use after: 217.5 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.1 MB.
+System memory in use after: 208.3 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 6.509329 ms (FindLiveObjects: 0.757079 ms CreateObjectMapping: 0.447029 ms MarkObjects: 4.468641 ms  DeleteObjects: 0.833635 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 5.358697 ms (FindLiveObjects: 0.506399 ms CreateObjectMapping: 0.236070 ms MarkObjects: 3.769850 ms  DeleteObjects: 0.842876 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 6.56 ms, found 1 plugins.
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.10 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.2 MB.
-System memory in use after: 217.6 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.2 MB.
+System memory in use after: 208.4 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 4986.
-Total: 6.492918 ms (FindLiveObjects: 0.879006 ms CreateObjectMapping: 0.390414 ms MarkObjects: 4.215277 ms  DeleteObjects: 1.004649 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4722.
+Total: 5.005583 ms (FindLiveObjects: 0.498069 ms CreateObjectMapping: 0.230946 ms MarkObjects: 3.442725 ms  DeleteObjects: 0.831238 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2926.475202 seconds.
+  path: Packages/unitymodule.common
+  artifactKey: Guid(1f946a679b2d684c5b8efcf32efbe1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/unitymodule.common using Guid(1f946a679b2d684c5b8efcf32efbe1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26940d3486d2ac493574f73d294596d8') in 0.023939 seconds
+  Import took 0.110244 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004646 seconds.
+Registered in 0.008322 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.90 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 1.53 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.312 seconds
+- Completed reload, in  2.397 seconds
 Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.35 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 2.01 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 302.1 MB.
-System memory in use after: 301.4 MB.
+Unloading 4099 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 293.3 MB.
+System memory in use after: 292.5 MB.
 
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 5020.
-Total: 24.024065 ms (FindLiveObjects: 8.995507 ms CreateObjectMapping: 2.237305 ms MarkObjects: 11.597557 ms  DeleteObjects: 1.180900 ms)
+Unloading 56 unused Assets to reduce memory usage. Loaded Objects now: 4756.
+Total: 9.071417 ms (FindLiveObjects: 1.164129 ms CreateObjectMapping: 0.558426 ms MarkObjects: 5.961385 ms  DeleteObjects: 1.384782 ms)
 
 ========================================================================
 Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 13.27 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 5.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.9 MB.
-System memory in use after: 218.2 MB.
+Unloading 54 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 210.1 MB.
+System memory in use after: 209.3 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 5020.
-Total: 8.128043 ms (FindLiveObjects: 0.854397 ms CreateObjectMapping: 0.438434 ms MarkObjects: 5.856715 ms  DeleteObjects: 0.976226 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 4756.
+Total: 5.430268 ms (FindLiveObjects: 0.533160 ms CreateObjectMapping: 0.220653 ms MarkObjects: 3.833823 ms  DeleteObjects: 0.839637 ms)
 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005586 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.826 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.09 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 302.7 MB.
-System memory in use after: 302.1 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 5054.
-Total: 9.844966 ms (FindLiveObjects: 0.838026 ms CreateObjectMapping: 0.582394 ms MarkObjects: 7.619698 ms  DeleteObjects: 0.801770 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 22.45 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 219.5 MB.
-System memory in use after: 218.9 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 5054.
-Total: 6.856359 ms (FindLiveObjects: 1.464500 ms CreateObjectMapping: 0.611640 ms MarkObjects: 3.891815 ms  DeleteObjects: 0.886004 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004902 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.65 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  4.034 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 1.13 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 303.4 MB.
-System memory in use after: 302.8 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 5088.
-Total: 6.350878 ms (FindLiveObjects: 0.809372 ms CreateObjectMapping: 0.357910 ms MarkObjects: 4.338931 ms  DeleteObjects: 0.842617 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.24 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 220.2 MB.
-System memory in use after: 219.6 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 5088.
-Total: 7.310485 ms (FindLiveObjects: 0.932745 ms CreateObjectMapping: 0.478798 ms MarkObjects: 4.767085 ms  DeleteObjects: 1.128008 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005317 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.73 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.581 seconds
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 1.09 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 304.0 MB.
-System memory in use after: 303.4 MB.
-
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 5122.
-Total: 8.067095 ms (FindLiveObjects: 1.444724 ms CreateObjectMapping: 0.666073 ms MarkObjects: 5.139419 ms  DeleteObjects: 0.814475 ms)
-
-========================================================================
-Received Prepare
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (SoftMaskable)': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 7.45 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 220.8 MB.
-System memory in use after: 220.2 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 5122.
-Total: 6.380927 ms (FindLiveObjects: 0.921844 ms CreateObjectMapping: 0.468772 ms MarkObjects: 4.069670 ms  DeleteObjects: 0.917094 ms)
-
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file

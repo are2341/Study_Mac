@@ -61,13 +61,17 @@ public class CProductInfoTable : CScriptableObj<CProductInfoTable> {
 
 	//! 상품 정보를 반환한다
 	public STProductInfo GetProductInfo(int a_nIdx) {
-		CAccess.Assert(this.TryGetProductInfo(a_nIdx, out STProductInfo stProductInfo));
+		bool bIsValid = this.TryGetProductInfo(a_nIdx, out STProductInfo stProductInfo);
+		CAccess.Assert(bIsValid);
+
 		return stProductInfo;
 	}
 
 	//! 상품 정보를 반환한다
 	public STProductInfo GetProductInfo(string a_oID) {
-		CAccess.Assert(this.TryGetProductInfo(a_oID, out STProductInfo stProductInfo));
+		bool bIsValid = this.TryGetProductInfo(a_oID, out STProductInfo stProductInfo);
+		CAccess.Assert(bIsValid);
+
 		return stProductInfo;
 	}
 

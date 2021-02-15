@@ -29,8 +29,8 @@ public class CNavStackManager : CSingleton<CNavStackManager> {
 		int nID = a_oComponent.GetInstanceID();
 		int nIdx = m_oComponentInfoList.ExFindValue((a_stComponentInfo) => nID == a_stComponentInfo.m_nID);
 
-		// 컴포넌트 추가가 가능 할 경우
-		if(nIdx <= KCDefine.B_IDX_INVALID) {
+		// 컴포넌트가 없을 경우
+		if(!m_oComponentInfoList.ExIsValidIdx(nIdx)) {
 			m_oComponentInfoList.Add(new STComponentInfo() {
 				m_nID = nID, 
 				m_oComponent = a_oComponent
@@ -46,7 +46,7 @@ public class CNavStackManager : CSingleton<CNavStackManager> {
 		int nID = a_oComponent.GetInstanceID();
 		int nIdx = m_oComponentInfoList.ExFindValue((a_stComponentInfo) => nID == a_stComponentInfo.m_nID);
 
-		// 컴포넌트 제거가 가능 할 경우
+		// 컴포넌트가 존재 할 경우
 		if(m_oComponentInfoList.ExIsValidIdx(nIdx)) {
 			for(int i = nIdx; i < m_oComponentInfoList.Count; ++i) {
 				var oComponent = m_oComponentInfoList[i].m_oComponent as CComponent;

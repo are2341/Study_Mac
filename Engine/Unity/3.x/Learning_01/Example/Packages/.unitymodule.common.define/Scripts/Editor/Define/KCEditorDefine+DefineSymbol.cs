@@ -125,6 +125,8 @@ public static partial class KCEditorDefine {
 	public const string DS_DEFINE_S_SPRITE_SHAPES_ENABLE = "SPRITE_SHAPES_ENABLE";
 	public const string DS_DEFINE_S_PIXELS_PERFECT_ENABLE = "PIXELS_PERFECT_ENABLE";
 	public const string DS_DEFINE_S_DYNAMIC_BATCHING_ENABLE = "DYNAMIC_BATCHING_ENABLE";
+
+	public const string DS_DEFINE_S_DIRECT_3D_12_ENABLE = "DIRECT_3D_12_ENABLE";
 	// 렌더링 }
 
 	// 태그 관리자 {
@@ -152,12 +154,10 @@ public static partial class KCEditorDefine {
 	// 플랫폼 {
 	public const string DS_DEFINE_S_MAC = "MAC";
 	public const string DS_DEFINE_S_WNDS = "WNDS";
-
+	
 	public const string DS_DEFINE_S_GOOGLE = "GOOGLE";
 	public const string DS_DEFINE_S_ONE_STORE = "ONE_STORE";
 	public const string DS_DEFINE_S_GALAXY_STORE = "GALAXY_STORE";
-
-	public const string DS_DEFINE_S_DIRECT_3D_12_ENABLE = "DIRECT_3D_12_ENABLE";
 	// 플랫폼 }
 
 	// 테스트 {
