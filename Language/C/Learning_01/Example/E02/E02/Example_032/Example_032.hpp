@@ -10,7 +10,9 @@
 
 #include "../Global/Define/KGDefine.hpp"
 
-//! Example 32
-void Example_032(const int argc, const char **args);
+namespace EXAMPLE_032 {
+	//! Example 32
+	void Example_032(const int argc, const char **args);
+}
 
 #endif /* Example_032_hpp */

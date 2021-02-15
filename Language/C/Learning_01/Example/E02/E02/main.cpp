@@ -9,6 +9,6 @@
 
 //! 메인 함수
 int main(const int argc, const char **args) {
-	printf("Hello, World!\n");
+	EXAMPLE_032::Example_032(argc, args);
 	return 0;
 }

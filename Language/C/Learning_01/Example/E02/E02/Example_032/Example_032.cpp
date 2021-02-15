@@ -7,7 +7,9 @@
 
 #include "Example_032.hpp"
 
-//! Example 32
-void Example_032(const int argc, const char **args) {
-	printf("Hello, World!\n");
+namespace EXAMPLE_032 {
+	//! Example 32
+	void Example_032(const int argc, const char **args) {
+		printf("Hello, World!\n");
+	}
 }

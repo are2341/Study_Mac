@@ -20,6 +20,6 @@
  */
 //! 메인 함수
 int main(const int argc, const char **args) {
-	Example_030(argc, args);
+	EXAMPLE_030::Example_030(argc, args);
 	return 0;
 }

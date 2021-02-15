@@ -9,5 +9,6 @@
 
 //! 메인 함수
 int main(const int argc, const char **args) {
+	EXAMPLE_025::Example_025(argc, args);
 	return 0;
 }

@@ -7,4 +7,7 @@
    <FileRef
       location = "group:E02/E02.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:E03/E03.xcodeproj">
+   </FileRef>
 </Workspace>
