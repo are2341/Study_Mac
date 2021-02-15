@@ -687,14 +687,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityModule.Study.Define.csproj">
-      <Project>{9f94c3a4-88a2-4c29-faf5-fdb7e8db84b3}</Project>
-      <Name>UnityModule.Study.Define</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityModule.Study.Utility.csproj">
-      <Project>{ca540018-2713-9671-1c3d-d8bdb7a67f22}</Project>
-      <Name>UnityModule.Study.Utility</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityModule.Common.Define.csproj">
       <Project>{5c6dfc2c-ad82-6424-02c2-4819f75e7748}</Project>
       <Name>UnityModule.Common.Define</Name>

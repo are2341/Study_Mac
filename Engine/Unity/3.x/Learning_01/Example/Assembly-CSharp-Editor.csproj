@@ -901,10 +901,6 @@
       <Project>{5ded73f9-cfd1-95e4-7aeb-8ee2f7715039}</Project>
       <Name>Coffee.UnmaskForUGUI</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityModule.Study.csproj">
-      <Project>{d809ee16-0c38-725c-8289-1910f2ffd67c}</Project>
-      <Name>UnityModule.Study</Name>
-    </ProjectReference>
     <ProjectReference Include="Coffee.UIParticle.Demo.csproj">
       <Project>{344cde6c-ad29-d3d6-2797-5b7b1dbc9a66}</Project>
       <Name>Coffee.UIParticle.Demo</Name>

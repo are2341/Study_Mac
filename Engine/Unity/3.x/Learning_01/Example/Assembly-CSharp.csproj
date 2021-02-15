@@ -851,10 +851,6 @@
       <Project>{3c749921-5b5a-b826-c16b-285dcff0f3ba}</Project>
       <Name>UnityModule.Common.Func</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityModule.Study.Define.csproj">
-      <Project>{9f94c3a4-88a2-4c29-faf5-fdb7e8db84b3}</Project>
-      <Name>UnityModule.Study.Define</Name>
-    </ProjectReference>
     <ProjectReference Include="MessagePack.csproj">
       <Project>{767dcee7-c32c-a0a2-9874-de9f34d501c2}</Project>
       <Name>MessagePack</Name>
@@ -914,10 +910,6 @@
     <ProjectReference Include="Coffee.UnmaskForUGUI.csproj">
       <Project>{5ded73f9-cfd1-95e4-7aeb-8ee2f7715039}</Project>
       <Name>Coffee.UnmaskForUGUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityModule.Study.csproj">
-      <Project>{d809ee16-0c38-725c-8289-1910f2ffd67c}</Project>
-      <Name>UnityModule.Study</Name>
     </ProjectReference>
     <ProjectReference Include="Coffee.UIParticle.Demo.csproj">
       <Project>{344cde6c-ad29-d3d6-2797-5b7b1dbc9a66}</Project>
@@ -979,9 +971,9 @@
       <Project>{e3c2aba7-4604-276b-5741-8fe8adde9989}</Project>
       <Name>UnityModule.SignInWithApple.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityModule.Study.Utility.csproj">
-      <Project>{ca540018-2713-9671-1c3d-d8bdb7a67f22}</Project>
-      <Name>UnityModule.Study.Utility</Name>
+    <ProjectReference Include="UnityModule.Study.csproj">
+      <Project>{d809ee16-0c38-725c-8289-1910f2ffd67c}</Project>
+      <Name>UnityModule.Study</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
