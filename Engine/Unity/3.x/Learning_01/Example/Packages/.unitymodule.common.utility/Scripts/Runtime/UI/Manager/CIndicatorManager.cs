@@ -25,7 +25,7 @@ public class CIndicatorManager : CSingleton<CIndicatorManager> {
 
 			// 블라인드 UI 를 출력한다
 			if(a_bIsShowBlindUI) {
-				var oParent = CSceneManager.ScreenTopmostUIRoot ?? CSceneManager.TopmostUIRoot;
+				var oParent = CSceneManager.ScreenTopmostUIs ?? CSceneManager.TopmostUIs;
 				CSceneManager.ShowTouchResponder(oParent, KCDefine.U_OBJ_N_INDICATOR_TOUCH_RESPONDER, KCDefine.U_DEF_COLOR_INDICATOR_BG, null, true);
 			}
 		}

@@ -7,6 +7,7 @@ using UnityEngine;
 public class CStringTable : CSingleton<CStringTable> {
 	#region 변수
 	private Dictionary<string, string> m_oStringList = new Dictionary<string, string>();
+	private Dictionary<ulong, string> m_oEnumStringList = new Dictionary<ulong, string>();
 	#endregion			// 변수
 
 	#region 함수
@@ -68,4 +69,34 @@ public class CStringTable : CSingleton<CStringTable> {
 		}
 	}
 	#endregion			// 함수
+
+	#region 제네릭 함수
+	//! 열거형 문자열을 반환한다
+	public string GetEnumString<T>(T a_tKey) where T : struct {
+		ulong nKey = (ulong)typeof(T).GetHashCode() << (sizeof(int) * KCDefine.B_UNIT_BYTE_TO_BIT);
+		return m_oEnumStringList.ExGetValue(nKey + (ulong)a_tKey.GetHashCode(), string.Empty);
+	}
+
+	//! 열거형 문자열을 추가한다
+	public void AddEnumString<T>(T a_tKey, string a_oString, bool a_bIsReplace = false) where T : struct {
+		ulong nKey = (ulong)typeof(T).GetHashCode() << (sizeof(int) * KCDefine.B_UNIT_BYTE_TO_BIT);
+		nKey += (ulong)a_tKey.GetHashCode();
+
+		// 대체 모드 일 경우
+		if(a_bIsReplace) {
+			m_oEnumStringList.ExReplaceValue(nKey, a_oString);
+		} else {
+			m_oEnumStringList.ExAddValue(nKey, a_oString);
+		}		
+	}
+
+	//! 열거형 문자열을 로드한다
+	public void LoadEnumStrings<T>(bool a_bIsReplace = false) where T : struct {
+		var oEnumValues = CAccess.GetEnumValues<T>();
+
+		for(int i = 0; i < oEnumValues.Length; ++i) {
+			this.AddEnumString(oEnumValues[i], oEnumValues[i].ToString(), a_bIsReplace);
+		}
+	}
+	#endregion			// 제네릭 함수
 }

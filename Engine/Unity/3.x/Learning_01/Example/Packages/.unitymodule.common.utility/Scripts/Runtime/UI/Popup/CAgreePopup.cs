@@ -11,10 +11,12 @@ public class CAgreePopup : CPopup {
 
 	private string m_oServicesURL = string.Empty;
 	private string m_oPrivacyURL = string.Empty;
+	#endregion			// 변수
 
+	#region UI 변수
 	private Image m_oServicesImg = null;
 	private Image m_oPrivacyImg = null;
-	#endregion			// 변수
+	#endregion			// UI 변수
 
 	#region 객체
 	[SerializeField] private GameObject m_oNormUI = null;

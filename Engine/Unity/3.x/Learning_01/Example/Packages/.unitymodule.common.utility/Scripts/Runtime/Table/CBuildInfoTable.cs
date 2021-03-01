@@ -12,7 +12,7 @@ public struct STJenkinsInfo {
 	public string m_oUserID;
 
 	public string m_oBranch;
-	public string m_oSourceRoot;
+	public string m_oSrcRoot;
 	public string m_oWorkspaceRoot;
 	
 	public string m_oBuildToken;

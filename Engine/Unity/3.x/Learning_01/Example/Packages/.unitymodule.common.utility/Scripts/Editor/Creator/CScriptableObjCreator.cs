@@ -78,7 +78,7 @@ public static class CScriptableObjCreator {
 			m_oUserID = "dante",
 
 			m_oBranch = "master",
-			m_oSourceRoot = "00011.Sample_Unity",
+			m_oSrcRoot = "00011.Sample_Unity",
 			m_oWorkspaceRoot = "/Users/dante/Documents/jenkins/workspace",
 			
 			m_oBuildToken = "JenkinsBuild",

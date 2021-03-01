@@ -1,7 +1,7 @@
 Using pre-set license
 
  COMMAND LINE ARGUMENTS:
-/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MacOS/Unity
+/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
@@ -12,40 +12,480 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55699
+49877
 Successfully changed project path to: /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
 /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 236.82 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 233.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.2.4f1 (becced5a802b)
-[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Resources/UnitySubsystems
+Initialize engine version: 2020.2.5f1 (e2c53f129de5)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets
 GfxDevice: creating device client; threaded=0
-2021-02-15 22:01:42.205 Unity[60397:510926] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-02-15 22:01:42.205 Unity[60397:510926] Metal devices available: 1
-2021-02-15 22:01:42.205 Unity[60397:510926] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-02-15 22:01:42.206 Unity[60397:510926] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-23 22:33:36.144 Unity[5781:33062] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-23 22:33:36.144 Unity[5781:33062] Metal devices available: 1
+2021-02-23 22:33:36.144 Unity[5781:33062] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-23 22:33:36.145 Unity[5781:33062] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Initialize mono
-Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Managed'
-Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56397
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56781
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.015253 seconds.
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.001747 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 629.73 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 131.43 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in 24.111 seconds
+- Completed reload, in  9.042 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.010381 seconds.
+Registered in 0.008859 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 337.61 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.318 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Switching render pipeline 00000000000000000000000000000000 -> cab42b6f5cac74949bd593abeb8a71ef
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Launching external process: /Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.95 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4260 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 297.7 MB.
+System memory in use after: 297.9 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 4735.
+Total: 5.464466 ms (FindLiveObjects: 0.786387 ms CreateObjectMapping: 0.382725 ms MarkObjects: 4.152880 ms  DeleteObjects: 0.101340 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29f2a2471e7245fbc0aa931fa5cf45b7') in 0.019075 seconds
+  Import took 0.040871 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004691 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.232 seconds
+Platform modules already initialized, skipping
+Switching render pipeline 00000000000000000000000000000000 -> cab42b6f5cac74949bd593abeb8a71ef
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4096 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 291.9 MB.
+System memory in use after: 292.2 MB.
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 5.974372 ms (FindLiveObjects: 0.850515 ms CreateObjectMapping: 0.372926 ms MarkObjects: 4.701809 ms  DeleteObjects: 0.046468 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.47 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.3 MB.
+System memory in use after: 208.6 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 7.335095 ms (FindLiveObjects: 0.754023 ms CreateObjectMapping: 0.545010 ms MarkObjects: 5.992035 ms  DeleteObjects: 0.040811 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 8.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.5 MB.
+System memory in use after: 208.7 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 4.661908 ms (FindLiveObjects: 0.601164 ms CreateObjectMapping: 0.236915 ms MarkObjects: 3.793801 ms  DeleteObjects: 0.027013 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 7.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.6 MB.
+System memory in use after: 208.8 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 4.870190 ms (FindLiveObjects: 0.690207 ms CreateObjectMapping: 0.439750 ms MarkObjects: 3.705120 ms  DeleteObjects: 0.032950 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.16 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.7 MB.
+System memory in use after: 209.0 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 6.270255 ms (FindLiveObjects: 1.305236 ms CreateObjectMapping: 0.586728 ms MarkObjects: 4.349504 ms  DeleteObjects: 0.026140 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.17 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 208.9 MB.
+System memory in use after: 209.1 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 4.680676 ms (FindLiveObjects: 0.531539 ms CreateObjectMapping: 0.242956 ms MarkObjects: 3.876171 ms  DeleteObjects: 0.027110 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.24 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.0 MB.
+System memory in use after: 209.2 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 7.284394 ms (FindLiveObjects: 1.348707 ms CreateObjectMapping: 0.617477 ms MarkObjects: 5.281853 ms  DeleteObjects: 0.033227 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.27 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.1 MB.
+System memory in use after: 209.4 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 5.137318 ms (FindLiveObjects: 0.750621 ms CreateObjectMapping: 0.469797 ms MarkObjects: 3.887475 ms  DeleteObjects: 0.026570 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 9.38 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.3 MB.
+System memory in use after: 209.5 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 7.479892 ms (FindLiveObjects: 1.748908 ms CreateObjectMapping: 0.948252 ms MarkObjects: 4.753571 ms  DeleteObjects: 0.026658 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 5.53 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 29 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.4 MB.
+System memory in use after: 209.7 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4769.
+Total: 5.523872 ms (FindLiveObjects: 0.698367 ms CreateObjectMapping: 0.452785 ms MarkObjects: 4.336224 ms  DeleteObjects: 0.033138 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 95.304017 seconds.
+  path: Assets/01.UnityProject
+  artifactKey: Guid(7ee1f25ddf05b4ec790db6f7b9875cfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject using Guid(7ee1f25ddf05b4ec790db6f7b9875cfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69ceaa418aea83b7c613968a43a98600') in 0.009106 seconds
+  Import took 0.023305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.804935 seconds.
+  path: Assets/01.UnityProject/00.AutoCreate
+  artifactKey: Guid(689a2f90a07404df0b3b33ab9c350c1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/00.AutoCreate using Guid(689a2f90a07404df0b3b33ab9c350c1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efc8cbe814e1202c43fdd4d63b7f73d0') in 0.001769 seconds
+  Import took 0.025627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.709264 seconds.
+  path: Assets/00.AutoCreate
+  artifactKey: Guid(27936223bc4214ea4923c5be42e2b9c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate using Guid(27936223bc4214ea4923c5be42e2b9c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66bb30be8f3e79f8d95d57a5d7e99f0d') in 0.001515 seconds
+  Import took 0.016493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.066354 seconds.
+  path: Assets/01.UnityProject/Resources
+  artifactKey: Guid(3d0e2a1f1507649fc8360ea9fd0e8fa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources using Guid(3d0e2a1f1507649fc8360ea9fd0e8fa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26a5b71e35ef064a379a0e38fcf4b86b') in 0.001584 seconds
+  Import took 0.021098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.967948 seconds.
+  path: Assets/01.UnityProject/Resources/Datas
+  artifactKey: Guid(c8d78847a2b7f4be3be208d68f2a6aa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Datas using Guid(c8d78847a2b7f4be3be208d68f2a6aa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e8cc7affb639983a72777b86b6a76aa') in 0.001721 seconds
+  Import took 0.017931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.975733 seconds.
+  path: Assets/01.UnityProject/Resources/Datas/AgreeScene
+  artifactKey: Guid(a916594f2bd88497ca176d62597f5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Datas/AgreeScene using Guid(a916594f2bd88497ca176d62597f5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bda0d9b0c69ccfb9f5f9d4717f3eb93') in 0.001113 seconds
+  Import took 0.010627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.138129 seconds.
+  path: Assets/01.UnityProject/Resources/Fonts
+  artifactKey: Guid(0c96cd514b24a4074a424df283ffdc0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Fonts using Guid(0c96cd514b24a4074a424df283ffdc0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0f6028c5b84faffa44b856a954ab467') in 0.001611 seconds
+  Import took 0.024033 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.934214 seconds.
+  path: Assets/01.UnityProject/Resources/Fonts/Global
+  artifactKey: Guid(e7b285bd23c5f465190c2a28268b733f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Fonts/Global using Guid(e7b285bd23c5f465190c2a28268b733f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6788b190be4ccc6ef3996b7f1a392e8') in 0.001739 seconds
+  Import took 0.021151 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.181583 seconds.
+  path: Assets/01.UnityProject/Resources/Icons
+  artifactKey: Guid(0248ef9925636449abd517460d52b571) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Icons using Guid(0248ef9925636449abd517460d52b571) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '036ae33d8f2202657e04774be1ac7e77') in 0.001349 seconds
+  Import took 0.016916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.659761 seconds.
+  path: Assets/01.UnityProject/Resources/Icons/Android
+  artifactKey: Guid(48553c13afe25448d9d4803b5e3d50c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Icons/Android using Guid(48553c13afe25448d9d4803b5e3d50c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27417425abb369ca85217ba000ea25e9') in 0.001695 seconds
+  Import took 0.013551 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.502561 seconds.
+  path: Assets/01.UnityProject/Resources/Icons/Android/App
+  artifactKey: Guid(54b4a4324e0f947b38cd442e9bd8b073) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Icons/Android/App using Guid(54b4a4324e0f947b38cd442e9bd8b073) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a93eea4c8ac4e04b52853cdfa7444d6d') in 0.011338 seconds
+  Import took 0.032336 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.501131 seconds.
+  path: Assets/01.UnityProject/Resources/Pipelines
+  artifactKey: Guid(98ea2d8d097814c94b0a5c62f6205719) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Pipelines using Guid(98ea2d8d097814c94b0a5c62f6205719) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5732d76ec689b9a9a178762c8367381b') in 0.001701 seconds
+  Import took 0.042684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.433623 seconds.
+  path: Assets/01.UnityProject/Resources/Pipelines/Global
+  artifactKey: Guid(e87445facc1464702994211f4a791910) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Pipelines/Global using Guid(e87445facc1464702994211f4a791910) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dddad71d23f2bcba1d63522c4162540') in 0.007143 seconds
+  Import took 0.031346 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.567243 seconds.
+  path: Assets/01.UnityProject/Resources/Scriptables
+  artifactKey: Guid(1654fb290a1f5487e85e1ceb654b25b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Scriptables using Guid(1654fb290a1f5487e85e1ceb654b25b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77c11f1bfb2fe5c43f83af2654f3274d') in 0.008268 seconds
+  Import took 0.034466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.379505 seconds.
+  path: Assets/01.UnityProject/Resources/Scriptables/Global
+  artifactKey: Guid(c37914854452f4a2097800eadf257cd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Scriptables/Global using Guid(c37914854452f4a2097800eadf257cd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ba142a09dd5f28c1b5dbdfef8244c56') in 0.009496 seconds
+  Import took 0.028842 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.424821 seconds.
+  path: Assets/01.UnityProject/Resources/SpriteAtlases
+  artifactKey: Guid(ce45e87f906bc4f6e983c2c7e7bca8b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/SpriteAtlases using Guid(ce45e87f906bc4f6e983c2c7e7bca8b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dc4421f2ac24f121c2ba02575f0e529') in 0.001537 seconds
+  Import took 0.019765 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.477756 seconds.
+  path: Assets/01.UnityProject/Resources/SpriteAtlases/Global
+  artifactKey: Guid(f3e432378b59c4da19969d58e1bb318c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/SpriteAtlases/Global using Guid(f3e432378b59c4da19969d58e1bb318c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d36cc0c6618e897880f5636a6a87330') in 0.006645 seconds
+  Import took 0.032926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.943762 seconds.
+  path: Assets/01.UnityProject/Resources/Tables
+  artifactKey: Guid(f44c8f923191e455288b8e9cafdcd809) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Tables using Guid(f44c8f923191e455288b8e9cafdcd809) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51f46e48135feae5c9349e1425622f54') in 0.001785 seconds
+  Import took 0.020306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.504268 seconds.
+  path: Assets/01.UnityProject/Resources/Tables/Global
+  artifactKey: Guid(ce17cee5610ac45aaadf7df3c41c79ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Resources/Tables/Global using Guid(ce17cee5610ac45aaadf7df3c41c79ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a0b1b4db12bc7b4b9b038237e871120') in 0.004666 seconds
+  Import took 0.033753 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.531716 seconds.
+  path: Assets/01.UnityProject/Scripts
+  artifactKey: Guid(eb71ba2575c50409ca57cf73a25575fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts using Guid(eb71ba2575c50409ca57cf73a25575fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10fc294ee638684e9f67a7f3a978c0dc') in 0.001257 seconds
+  Import took 0.024440 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.205113 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime
+  artifactKey: Guid(fcc5f8ee77f3a47cea9fff83c729212b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime using Guid(fcc5f8ee77f3a47cea9fff83c729212b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b2654b7a915bfee7ad0cd9180bfb4f6') in 0.005065 seconds
+  Import took 0.019806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.758727 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/00.AutoCreate
+  artifactKey: Guid(610399672f87a4bce92aa7a34d68ba56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/00.AutoCreate using Guid(610399672f87a4bce92aa7a34d68ba56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5d0d415bebac922ec909773acc13ef5') in 0.001246 seconds
+  Import took 0.019419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.299188 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/E01
+  artifactKey: Guid(664e245f675fb497b95a5b6953815c07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/E01 using Guid(664e245f675fb497b95a5b6953815c07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ef0b25676b40c0ec669f1996c63373f') in 0.006011 seconds
+  Import took 0.032801 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.172363 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/E02
+  artifactKey: Guid(6bc4ef9ca477d46d68c9355607fb3e43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/E02 using Guid(6bc4ef9ca477d46d68c9355607fb3e43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d017e89ef200350792104ad243c019d') in 0.008123 seconds
+  Import took 0.025338 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.200212 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global
+  artifactKey: Guid(857f3be5b5a4742c2ac24c9da02556b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global using Guid(857f3be5b5a4742c2ac24c9da02556b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1624bca98934da5258d96cf54b2888d7') in 0.012577 seconds
+  Import took 0.028870 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.465419 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/SubTitleScene
+  artifactKey: Guid(8d73ca21f8b5543a08af387076eb4a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/SubTitleScene using Guid(8d73ca21f8b5543a08af387076eb4a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c0c11065c8b4dd8ec351145672493b7') in 0.001602 seconds
+  Import took 0.026822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.590639 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global/Access
+  artifactKey: Guid(e56a7b66b04244c8f9195d4038974c59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global/Access using Guid(e56a7b66b04244c8f9195d4038974c59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad037f8868f1b2acf889d5e7ad50701c') in 0.001523 seconds
+  Import took 0.024126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.275944 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global/Define
+  artifactKey: Guid(ac00ec2d34069409ab6eab14c7ba1dc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global/Define using Guid(ac00ec2d34069409ab6eab14c7ba1dc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfa2f081b0f327aaa5699e60ee396f1f') in 0.001934 seconds
+  Import took 0.031366 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.726097 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+Enum.cs
+  artifactKey: Guid(17967616ec37b4ab7a0bf99bf64b20b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+Enum.cs using Guid(17967616ec37b4ab7a0bf99bf64b20b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d34a88d5252cdc2591182f9c11e03ef') in 0.783880 seconds
+  Import took 0.794510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000326 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+GameCenter.cs
+  artifactKey: Guid(e4dd8e54248fa4e8fafe58629115feba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+GameCenter.cs using Guid(e4dd8e54248fa4e8fafe58629115feba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7257346a18b04f4cb385e431cacacbc6') in 0.005550 seconds
+  Import took 0.018218 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.413477 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+Global.cs
+  artifactKey: Guid(b2cd2d8d2f23e4b72921c10ae50fce38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+Global.cs using Guid(b2cd2d8d2f23e4b72921c10ae50fce38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77ecf713786ca690594884a982f552e9') in 0.004822 seconds
+  Import took 0.016248 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.970693 seconds.
+  path: Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+StringTable.cs
+  artifactKey: Guid(8b558f2ac806e4eb09254215a02d4907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/Scripts/Runtime/Global/Define/KDefine+StringTable.cs using Guid(8b558f2ac806e4eb09254215a02d4907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4762e1cdac8482c73fbc86b6116d9e4') in 0.005198 seconds
+  Import took 0.031210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.523705 seconds.
+  path: Assets/01.UnityProject/README.md
+  artifactKey: Guid(d10bd7b73ec844a659dfc62fd0cc546d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.UnityProject/README.md using Guid(d10bd7b73ec844a659dfc62fd0cc546d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c45a670453efa4614ad63d58cb17d56') in 3.840680 seconds
+  Import took 3.863223 seconds .
+

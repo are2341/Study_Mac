@@ -12,7 +12,7 @@ public abstract class CStudySceneManager : CSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
-			var oBackBtn = CFactory.CreateCloneObj<Button>(KSDefine.SS_OBJ_N_BACK_BTN, KSDefine.SS_OBJ_P_BACK_BTN, this.SubTopUIRoot, KSDefine.SS_POS_BACK_BTN);
+			var oBackBtn = CFactory.CreateCloneObj<Button>(KSDefine.SS_OBJ_N_BACK_BTN, KSDefine.SS_OBJ_P_BACK_BTN, this.SubTopUIs, KSDefine.SS_POS_BACK_BTN);
 			oBackBtn.onClick.AddListener(this.OnTouchBackBtn);
 		}
 	}

@@ -42,7 +42,7 @@ public class CAssetImporter : AssetPostprocessor {
 #endif			// #if ALPHA_IS_TRANSPARENCY_ENABLE
 
 		// 포인트 필터가 필요 할 경우
-		if(oTextureImporter.assetPath.ExIsContains(KCEditorDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER)) {
+		if(oTextureImporter.assetPath.ExIsContains(KCDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER)) {
 			oTextureImporter.filterMode = FilterMode.Point;
 		} else {
 			oTextureImporter.filterMode = FilterMode.Bilinear;
@@ -52,7 +52,7 @@ public class CAssetImporter : AssetPostprocessor {
 		if(oTextureImporter.textureType == TextureImporterType.Default || oTextureImporter.textureType == TextureImporterType.Sprite) {
 			// 기본 텍스처 옵션을 설정한다 {
 			var stDefSettings = oTextureImporter.GetDefaultPlatformTextureSettings();
-			stDefSettings.format = oTextureImporter.assetPath.ExIsContains(KCEditorDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER) ? TextureImporterFormat.RGBA32 : TextureImporterFormat.Automatic;
+			stDefSettings.format = oTextureImporter.assetPath.ExIsContains(KCDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER) ? TextureImporterFormat.RGBA32 : TextureImporterFormat.Automatic;
 			stDefSettings.overridden = false;
 
 			oTextureImporter.SetPlatformTextureSettings(stDefSettings);

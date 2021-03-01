@@ -396,6 +396,28 @@ public static partial class CExtension {
 		CExtension.DoStableSort(a_oSender, oValues, KCDefine.B_VALUE_INT_0, a_oSender.Count - KCDefine.B_VALUE_INT_1, a_oCompare);
 	}
 
+	//! 리스트를 복사한다
+	public static void ExCopyTo<T>(this List<T> a_oSender, List<T> a_oDestValueList, System.Func<T, T> a_oCallback) {
+		CAccess.Assert(a_oSender != null && a_oDestValueList != null && a_oCallback != null);
+		a_oDestValueList.Clear();
+
+		for(int i = 0; i < a_oSender.Count; ++i) {
+			var tValue = a_oCallback(a_oSender[i]);
+			a_oDestValueList.Add(tValue);
+		}
+	}
+
+	//! 딕셔너리를 복사한다
+	public static void ExCopyTo<Key, Value>(this Dictionary<Key, Value> a_oSender, Dictionary<Key, Value> a_oDestValueList, System.Func<Value, Value> a_oCallback) {
+		CAccess.Assert(a_oSender != null && a_oDestValueList != null && a_oCallback != null);
+		a_oDestValueList.Clear();
+
+		foreach(var stKeyValue in a_oSender) {
+			var tValue = a_oCallback(stKeyValue.Value);
+			a_oDestValueList.Add(stKeyValue.Key, tValue);
+		}
+	}
+
 	//! 1 차원 배열 => 2 차원 배열로 복사한다
 	public static void ExCopyToMultiArray<T>(this T[] a_oSender, T[,] a_oDestValues) {
 		CAccess.Assert(a_oSender != null && a_oDestValues != null);
@@ -441,14 +463,14 @@ public static partial class CExtension {
 		return oConvertValues;
 	}
 
-	//! 문자열 => 열거형으로 변환한다
-	public static T ExToEnum<T>(this string a_oSender, bool a_bIsIgnoreCase = false) where T : struct {
+	//! 문자열 => 열거형 값으로 변환한다
+	public static T ExToEnumValue<T>(this string a_oSender, bool a_bIsIgnoreCase = false) where T : struct {
 		return (T)System.Enum.Parse(typeof(T), a_oSender, a_bIsIgnoreCase);
 	}
 
-	//! 문자열 => 열거형으로 변환한다
-	public static bool ExToTryEnum<T>(this string a_oSender, out T a_tEnum, bool a_bIsIgnoreCase = false) where T : struct {
-		return System.Enum.TryParse<T>(a_oSender, a_bIsIgnoreCase, out a_tEnum);
+	//! 문자열 => 열거형 값으로 변환한다
+	public static bool ExToTryEnumValue<T>(this string a_oSender, out T a_tEnumValue, bool a_bIsIgnoreCase = false) where T : struct {
+		return System.Enum.TryParse<T>(a_oSender, a_bIsIgnoreCase, out a_tEnumValue);
 	}
 
 	//! 배열 => 문자열로 변환한다

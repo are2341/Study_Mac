@@ -62,37 +62,37 @@ public abstract partial class CSceneManager : CComponent {
 	// UI 루트
 	public GameObject SubUITop { get; private set; } = null;
 	public GameObject SubUIBase { get; private set; } = null;
-	public GameObject SubUIRoot { get; private set; } = null;
-	public GameObject SubAnchorUIRoot { get; private set; } = null;
+	public GameObject SubUIs { get; private set; } = null;
+	public GameObject SubAnchorUIs { get; private set; } = null;
 
 	// 고정 UI 루트
-	public GameObject SubLeftUIRoot { get; private set; } = null;
-	public GameObject SubRightUIRoot { get; private set; } = null;
-	public GameObject SubTopUIRoot { get; private set; } = null;
-	public GameObject SubBottomUIRoot { get; private set; } = null;
+	public GameObject SubLeftUIs { get; private set; } = null;
+	public GameObject SubRightUIs { get; private set; } = null;
+	public GameObject SubTopUIs { get; private set; } = null;
+	public GameObject SubBottomUIs { get; private set; } = null;
 
 	// 팝업 UI 루트
-	public GameObject SubPopupUIRoot { get; private set; } = null;
-	public GameObject SubTopmostUIRoot { get; private set; } = null;
+	public GameObject SubPopupUIs { get; private set; } = null;
+	public GameObject SubTopmostUIs { get; private set; } = null;
 
 	// 객체 루트
 	public GameObject SubBase { get; private set; } = null;
 	public GameObject SubObjBase { get; private set; } = null;
-	public GameObject SubObjRoot { get; private set; } = null;
-	public GameObject SubAnchorObjRoot { get; private set; } = null;
+	public GameObject SubObjs { get; private set; } = null;
+	public GameObject SubAnchorObjs { get; private set; } = null;
 
 	// 고정 객체 루트
-	public GameObject SubLeftObjRoot { get; private set; } = null;
-	public GameObject SubRightObjRoot { get; private set; } = null;
-	public GameObject SubTopObjRoot { get; private set; } = null;
-	public GameObject SubBottomObjRoot { get; private set; } = null;
+	public GameObject SubLeftObjs { get; private set; } = null;
+	public GameObject SubRightObjs { get; private set; } = null;
+	public GameObject SubTopObjs { get; private set; } = null;
+	public GameObject SubBottomObjs { get; private set; } = null;
 
 	// 객체 캔버스 루트
 	public GameObject SubObjCanvasTop { get; private set; } = null;
 	public GameObject SubObjCanvasBase { get; private set; } = null;
-	public GameObject SubCanvasObjRoot { get; private set; } = null;
+	public GameObject SubCanvasObjs { get; private set; } = null;
 	
-	public bool IsRootScene => CSceneManager.RootSceneName.ExIsEquals(this.SceneName);
+	public bool IsRootScene => CSceneManager.RootScene == this.gameObject.scene;
 
 	public virtual float PlaneDistance => KCDefine.U_DEF_DISTANCE_CAMERA_PLANE;
 	public virtual float FadeOutAniDuration => KCDefine.U_DEF_DURATION_SCREEN_FADE_OUT_ANI;
@@ -142,16 +142,16 @@ public abstract partial class CSceneManager : CComponent {
 	public static float BottomObjOffset { get; private set; } = 0.0f;
 
 	// 고정 UI 루트 간격
-	public static float LeftUIRootOffset { get; private set; } = 0.0f;
-	public static float RightUIRootOffset { get; private set; } = 0.0f;
-	public static float TopUIRootOffset { get; private set; } = 0.0f;
-	public static float BottomUIRootOffset { get; private set; } = 0.0f;
+	public static float LeftUIsOffset { get; private set; } = 0.0f;
+	public static float RightUIsOffset { get; private set; } = 0.0f;
+	public static float TopUIsOffset { get; private set; } = 0.0f;
+	public static float BottomUIsOffset { get; private set; } = 0.0f;
 
 	// 고정 객체 루트 간격
-	public static float LeftObjRootOffset { get; private set; } = 0.0f;
-	public static float RightObjRootOffset { get; private set; } = 0.0f;
-	public static float TopObjRootOffset { get; private set; } = 0.0f;
-	public static float BottomObjRootOffset { get; private set; } = 0.0f;
+	public static float LeftObjsOffset { get; private set; } = 0.0f;
+	public static float RightObjsOffset { get; private set; } = 0.0f;
+	public static float TopObjsOffset { get; private set; } = 0.0f;
+	public static float BottomObjsOffset { get; private set; } = 0.0f;
 
 	// 캔버스 크기
 	public static Vector2 CanvasSize { get; protected set; } = Vector2.zero;
@@ -170,48 +170,47 @@ public abstract partial class CSceneManager : CComponent {
 	// 캔버스 }
 	
 	public static EventSystem EventSystem { get; private set; } = null;
-	public static StandaloneInputModule StandaloneInputModule { get; private set; } = null;
-	
+	public static BaseInputModule BaseInputModule { get; private set; } = null;
 	public static CSceneManager RootSceneManager { get; private set; } = null;
 
 	// UI 루트
 	public static GameObject UITop { get; private set; } = null;
 	public static GameObject UIBase { get; private set; } = null;
-	public static GameObject UIRoot { get; private set; } = null;
-	public static GameObject AnchorUIRoot { get; private set; } = null;
+	public static GameObject UIs { get; private set; } = null;
+	public static GameObject AnchorUIs { get; private set; } = null;
 
 	// 고정 UI 루트
-	public static GameObject LeftUIRoot { get; private set; } = null;
-	public static GameObject RightUIRoot { get; private set; } = null;
-	public static GameObject TopUIRoot { get; private set; } = null;
-	public static GameObject BottomUIRoot { get; private set; } = null;
+	public static GameObject LeftUIs { get; private set; } = null;
+	public static GameObject RightUIs { get; private set; } = null;
+	public static GameObject TopUIs { get; private set; } = null;
+	public static GameObject BottomUIs { get; private set; } = null;
 
 	// 팝업 UI 루트
-	public static GameObject PopupUIRoot { get; private set; } = null;
-	public static GameObject TopmostUIRoot { get; private set; } = null;
+	public static GameObject PopupUIs { get; private set; } = null;
+	public static GameObject TopmostUIs { get; private set; } = null;
 
 	// 객체 루트
 	public static GameObject Base { get; private set; } = null;
 	public static GameObject ObjBase { get; private set; } = null;
-	public static GameObject ObjRoot { get; private set; } = null;
-	public static GameObject AnchorObjRoot { get; private set; } = null;
+	public static GameObject Objs { get; private set; } = null;
+	public static GameObject AnchorObjs { get; private set; } = null;
 
 	// 고정 객체 루트
-	public static GameObject LeftObjRoot { get; private set; } = null;
-	public static GameObject RightObjRoot { get; private set; } = null;
-	public static GameObject TopObjRoot { get; private set; } = null;
-	public static GameObject BottomObjRoot { get; private set; } = null;
+	public static GameObject LeftObjs { get; private set; } = null;
+	public static GameObject RightObjs { get; private set; } = null;
+	public static GameObject TopObjs { get; private set; } = null;
+	public static GameObject BottomObjs { get; private set; } = null;
 
 	// 객체 캔버스 루트
 	public static GameObject ObjCanvasTop { get; private set; } = null;
 	public static GameObject ObjCanvasBase { get; private set; } = null;
-	public static GameObject CanvasObjRoot { get; private set; } = null;
+	public static GameObject CanvasObjs { get; private set; } = null;
 
 	// 화면 UI 루트
-	public static GameObject ScreenBlindUIRoot { get; protected set; } = null;
-	public static GameObject ScreenPopupUIRoot { get; protected set; } = null;
-	public static GameObject ScreenTopmostUIRoot { get; protected set; } = null;
-	public static GameObject ScreenAbsUIRoot { get; protected set; } = null;
+	public static GameObject ScreenBlindUIs { get; protected set; } = null;
+	public static GameObject ScreenPopupUIs { get; protected set; } = null;
+	public static GameObject ScreenTopmostUIs { get; protected set; } = null;
+	public static GameObject ScreenAbsUIs { get; protected set; } = null;
 
 	public static string AwakeSceneName { get; private set; } = string.Empty;
 
@@ -229,8 +228,8 @@ public abstract partial class CSceneManager : CComponent {
 	public static Button ScreenFPSBtn { get; protected set; } = null;
 	public static Button ScreenDebugBtn { get; protected set; } = null;
 
-	public static GameObject ScreenDebugUIRoot { get; protected set; } = null;
-	public static GameObject ScreenDebugTextRoot { get; protected set; } = null;
+	public static GameObject ScreenDebugUIs { get; protected set; } = null;
+	public static GameObject ScreenDebugTexts { get; protected set; } = null;
 
 	public static GameObject ScreenDebugConsole { get; protected set; } = null;
 #endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
@@ -267,7 +266,12 @@ public abstract partial class CSceneManager : CComponent {
 
 			// 초기화 씬이 아닐 경우
 			if(!CSceneManager.AwakeSceneName.ExIsEquals(KCDefine.B_SCENE_N_INIT)) {
-				CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_INIT, false, false);
+				this.ExLateCallFunc(KCDefine.U_DELAY_INIT, (a_oSender, a_oParams) => {
+					CScheduleManager.Inst.RemoveComponent(this);
+					CNavStackManager.Inst.RemoveComponent(this);
+
+					CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_INIT, false, false);
+				});
 			}
 		}
 
@@ -283,9 +287,9 @@ public abstract partial class CSceneManager : CComponent {
 		// 루트 씬 일 경우
 		if(this.IsRootScene) {
 			CFunc.SelectObjs(new GameObject[] {
-				this.SubUIRoot, 
-				this.SubObjRoot, 
-				this.SubCanvasObjRoot
+				this.SubUIs, 
+				this.SubObjs, 
+				this.SubCanvasObjs
 			});
 		}
 #endif			// #if UNITY_EDITOR
@@ -294,7 +298,7 @@ public abstract partial class CSceneManager : CComponent {
 	//! 상태를 갱신한다
 	public override void OnUpdate(float a_fDeltaTime) {
 		base.OnUpdate(a_fDeltaTime);
-		
+
 #if !ROBO_TEST_ENABLE
 		// 루트 씬 일 경우
 		if(this.IsRootScene) {
@@ -348,7 +352,7 @@ public abstract partial class CSceneManager : CComponent {
 			}
 
 			// 디버그 UI 루트가 존재 할 경우
-			if(CSceneManager.ScreenDebugUIRoot != null) {
+			if(CSceneManager.ScreenDebugUIs != null) {
 #if INPUT_SYSTEM_MODULE_ENABLE
 				bool bIsDebugKeyDown = Keyboard.current.leftShiftKey.isPressed && Keyboard.current.digit1Key.wasPressedThisFrame;
 				bool bIsDynamicDebugKeyDown = Keyboard.current.leftShiftKey.isPressed && Keyboard.current.digit2Key.wasPressedThisFrame;
@@ -528,7 +532,7 @@ public abstract partial class CSceneManager : CComponent {
 		// 애니메이션 모드 일 경우
 		if(!this.IsIgnoreAni) {
 			string oName = KCDefine.U_OBJ_N_SCREEN_F_TOUCH_RESPONDER;
-			CSceneManager.ShowTouchResponder(CSceneManager.ScreenAbsUIRoot, oName, this.ScreenFadeInColor, a_oCallback, true, a_fDuration, this.CreateScreenFadeInAni);
+			CSceneManager.ShowTouchResponder(CSceneManager.ScreenAbsUIs, oName, this.ScreenFadeInColor, a_oCallback, true, a_fDuration, this.CreateScreenFadeInAni);
 		} else {
 			a_oCallback?.Invoke(null);
 		}
@@ -669,7 +673,7 @@ public abstract partial class CSceneManager : CComponent {
 			CSceneManager.m_oDialogOKCallback = a_oOKCallback;
 			CSceneManager.m_oDialogCancelCallback = a_oCancelCallback;
 
-			CSceneManager.ShowTouchResponder(CSceneManager.ScreenTopmostUIRoot, KCDefine.U_KEY_SCENE_M_DIALOG_TOUCH_RESPONDER, KCDefine.U_DEF_COLOR_POPUP_BG, null);
+			CSceneManager.ShowTouchResponder(CSceneManager.ScreenTopmostUIs, KCDefine.U_KEY_SCENE_M_DIALOG_TOUCH_RESPONDER, KCDefine.U_DEF_COLOR_POPUP_BG, null);
 			FileBrowser.ShowSaveDialog(CSceneManager.OnTouchDialogOKBtn, CSceneManager.OnTouchDialogCancelBtn, FileBrowser.PickMode.Files, false, a_oDefFilePath);
 		}
 	}
@@ -683,7 +687,7 @@ public abstract partial class CSceneManager : CComponent {
 			CSceneManager.m_oDialogOKCallback = a_oOKCallback;
 			CSceneManager.m_oDialogCancelCallback = a_oCancelCallback;
 
-			CSceneManager.ShowTouchResponder(CSceneManager.ScreenTopmostUIRoot, KCDefine.U_KEY_SCENE_M_DIALOG_TOUCH_RESPONDER, KCDefine.U_DEF_COLOR_POPUP_BG, null);
+			CSceneManager.ShowTouchResponder(CSceneManager.ScreenTopmostUIs, KCDefine.U_KEY_SCENE_M_DIALOG_TOUCH_RESPONDER, KCDefine.U_DEF_COLOR_POPUP_BG, null);
 			FileBrowser.ShowLoadDialog(CSceneManager.OnTouchDialogOKBtn, CSceneManager.OnTouchDialogCancelBtn, FileBrowser.PickMode.Files, false, a_oDefFilePath);
 		}
 	}
@@ -734,7 +738,7 @@ public abstract partial class CSceneManager : CComponent {
 
 	//! 디버그 버튼을 눌렀을 경우
 	private static void OnTouchDebugBtn() {
-		CSceneManager.ScreenDebugTextRoot.SetActive(!CSceneManager.ScreenDebugTextRoot.activeSelf);
+		CSceneManager.ScreenDebugTexts.SetActive(!CSceneManager.ScreenDebugTexts.activeSelf);
 	}
 #endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 

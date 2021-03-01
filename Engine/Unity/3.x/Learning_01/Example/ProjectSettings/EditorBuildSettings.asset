@@ -39,8 +39,7 @@ EditorBuildSettings:
     path: Assets/01.UnityProject/Scenes/01.TitleScene.unity
     guid: aae9b6e7e81ef48709f7408f5837f483
   - enabled: 1
-    path: "Assets/01.UnityProject/Scenes/E01/===== \uC655\uCD08\uBCF4 \uB530\uB77C\uD558\uC5EC
-      \uAC8C\uC784 \uB9CC\uB4E4\uAE30 =====.unity"
+    path: Assets/01.UnityProject/Scenes/E01/===== E01 =====.unity
     guid: db293871b06834a12b2433f22ec1241c
   - enabled: 1
     path: Assets/01.UnityProject/Scenes/E01/E01.Example_052.unity
@@ -48,5 +47,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.UnityProject/Scenes/E01/E01.Example_124.unity
     guid: b375cc5a8f7e040a6a49c82d5b7d027f
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/E02/===== E02 =====.unity
+    guid: 787bb3a6d6d5d477b915799a2078be36
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/E02/E02.Example_078.unity
+    guid: 56e9397150902451a8fd9e96753040f0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 59e005857a86a4f3191f5919ae402868, type: 2}

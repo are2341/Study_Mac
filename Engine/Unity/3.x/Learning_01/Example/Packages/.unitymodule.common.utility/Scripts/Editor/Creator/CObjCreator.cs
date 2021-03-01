@@ -199,23 +199,23 @@ public static class CObjCreator {
 			oTrans.sizeDelta = Vector2.zero;
 
 #if !MODE_CENTER_ENABLE
-			bool bIsUIRoot = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_UI_ROOT);
-			bool bIsLeftUIRoot = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_LEFT_UI_ROOT);
-			bool bIsRightUIRoot = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_RIGHT_UI_ROOT);
-			bool bIsTopUIRoot = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_TOP_UI_ROOT);
-			bool bIsBottomUIRoot = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_BOTTOM_UI_ROOT);
-			bool bIsCanvasObjRoot = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJ_ROOT);
+			bool bIsUIs = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_UIS);
+			bool bIsLeftUIs = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_LEFT_UIS);
+			bool bIsRightUIs = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_RIGHT_UIS);
+			bool bIsTopUIs = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_TOP_UIS);
+			bool bIsBottomUIs = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_BOTTOM_UIS);
+			bool bIsCanvasObjs = oParent.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJS);
 
 			// UI 객체 일 경우
-			if(bIsUIRoot || bIsLeftUIRoot || bIsRightUIRoot || bIsTopUIRoot || bIsBottomUIRoot || bIsCanvasObjRoot) {
+			if(bIsUIs || bIsLeftUIs || bIsRightUIs || bIsTopUIs || bIsBottomUIs || bIsCanvasObjs) {
 				Vector2 stAnchor = KCDefine.B_ANCHOR_BOTTOM_LEFT;
 
 				// 우측 UI 루트 일 경우
-				if(bIsRightUIRoot) {
+				if(bIsRightUIs) {
 					stAnchor = KCDefine.B_ANCHOR_BOTTOM_RIGHT;
 				}
 				// 상단 UI 루트 일 경우
-				else if(bIsTopUIRoot) {
+				else if(bIsTopUIs) {
 					stAnchor = KCDefine.B_ANCHOR_TOP_LEFT;
 				}
 

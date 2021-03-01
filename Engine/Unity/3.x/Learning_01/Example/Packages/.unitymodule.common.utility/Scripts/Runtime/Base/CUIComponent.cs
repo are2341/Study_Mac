@@ -19,7 +19,7 @@ public abstract class CUIComponent : CComponent {
 	//! 활성화 되었을 경우
 	public virtual void OnEnable() {
 		// 상호 작용 객체가 존재 할 경우
-		if(m_oSelectables.ExIsValid()) {
+		if(!this.IsIgnoreEnable && m_oSelectables.ExIsValid()) {
 			for(int i = 0; i < m_oSelectables.Length; ++i) {
 				m_oSelectables[i].interactable = true;
 			}
@@ -29,7 +29,7 @@ public abstract class CUIComponent : CComponent {
 	//! 비활성화 되었을 경우
 	public virtual void OnDisable() {
 		// 상호 작용 객체가 존재 할 경우
-		if(m_oSelectables.ExIsValid()) {
+		if(!this.IsIgnoreEnable && m_oSelectables.ExIsValid()) {
 			for(int i = 0; i < m_oSelectables.Length; ++i) {
 				m_oSelectables[i].interactable = false;
 			}

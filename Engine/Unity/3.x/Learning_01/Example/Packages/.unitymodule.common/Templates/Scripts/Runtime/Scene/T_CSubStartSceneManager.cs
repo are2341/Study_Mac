@@ -7,9 +7,6 @@ using UnityEngine.UI;
 //! 서브 시작 씬 관리자
 public class CSubStartSceneManager : CStartSceneManager {
 	#region 변수
-	protected Text m_oLoadingText = null;
-	protected Image m_oGaugeImg = null;
-
 	private int m_nNumDots = 0;
 
 	private float m_fSkipTime = 0.0f;
@@ -17,6 +14,11 @@ public class CSubStartSceneManager : CStartSceneManager {
 
 	private System.Text.StringBuilder m_oStringBuilder = new System.Text.StringBuilder();
 	#endregion			// 변수
+
+	#region UI 변수
+	protected Text m_oLoadingText = null;
+	protected Image m_oGaugeImg = null;
+	#endregion			// UI 변수
 
 	#region 객체
 	private GameObject m_oLoadingImg = null;
@@ -26,16 +28,17 @@ public class CSubStartSceneManager : CStartSceneManager {
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
-		m_fSkipTime = KCDefine.SS_DELTA_T_UPDATE_STATE;
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsInit) {
+			m_fSkipTime = KCDefine.SS_DELTA_T_UPDATE_STATE;
+			
 			// 텍스트를 설정한다
-			m_oLoadingText = CFactory.CreateCloneObj<Text>(KCDefine.SS_OBJ_N_LOADING_TEXT, KCDefine.SS_OBJ_P_LOADING_TEXT, this.SubUIRoot, KCDefine.SS_POS_LOADING_TEXT);
+			m_oLoadingText = CFactory.CreateCloneObj<Text>(KCDefine.SS_OBJ_N_LOADING_TEXT, KCDefine.SS_OBJ_P_LOADING_TEXT, this.SubUIs, KCDefine.SS_POS_LOADING_TEXT);
 			m_oLoadingText.text = KCDefine.SS_TEXT_LOADING;
 
 			// 이미지를 설정한다 {
-			m_oLoadingImg = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_LOADING_IMG_OBJ, KCDefine.SS_OBJ_P_LOADING_IMG_OBJ, this.SubUIRoot, KCDefine.SS_POS_LOADING_IMG_OBJ);
+			m_oLoadingImg = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_LOADING_IMG_OBJ, KCDefine.SS_OBJ_P_LOADING_IMG_OBJ, this.SubUIs, KCDefine.SS_POS_LOADING_IMG_OBJ);
 
 			m_oGaugeImg = m_oLoadingImg.ExFindComponent<Image>(KCDefine.SS_OBJ_N_GAUGE_IMG);
 			m_oGaugeImg.fillAmount = KCDefine.B_VALUE_FLT_0;

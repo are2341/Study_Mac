@@ -245,8 +245,8 @@ public static partial class CExtension {
 
 	//! 위치 => 인덱스로 변경한다
 	public static Vector2Int ExToIdx(this Vector2 a_stSender, Vector2 a_stBasePos, Vector2 a_stSize) {
-		CAccess.Assert(!a_stSize.x.ExIsEquals(KCDefine.B_VALUE_FLT_0));
-		CAccess.Assert(!a_stSize.y.ExIsEquals(KCDefine.B_VALUE_FLT_0));
+		CAccess.Assert(a_stSize.x.ExIsGreateEquals(KCDefine.B_VALUE_FLT_0));
+		CAccess.Assert(a_stSize.y.ExIsGreateEquals(KCDefine.B_VALUE_FLT_0));
 
 		var stDelta = a_stSender - a_stBasePos;
 		return new Vector2Int((int)(stDelta.x / a_stSize.x), (int)(stDelta.y / -a_stSize.y));
@@ -254,9 +254,9 @@ public static partial class CExtension {
 
 	//! 위치 => 인덱스로 변경한다
 	public static Vector3Int ExToIdx(this Vector3 a_stSender, Vector3 a_stBasePos, Vector3 a_stSize) {
-		CAccess.Assert(!a_stSize.x.ExIsEquals(KCDefine.B_VALUE_FLT_0));
-		CAccess.Assert(!a_stSize.y.ExIsEquals(KCDefine.B_VALUE_FLT_0));
-		CAccess.Assert(!a_stSize.z.ExIsEquals(KCDefine.B_VALUE_FLT_0));
+		CAccess.Assert(a_stSize.x.ExIsGreateEquals(KCDefine.B_VALUE_FLT_0));
+		CAccess.Assert(a_stSize.y.ExIsGreateEquals(KCDefine.B_VALUE_FLT_0));
+		CAccess.Assert(a_stSize.z.ExIsGreateEquals(KCDefine.B_VALUE_FLT_0));
 
 		var stDelta = a_stSender - a_stBasePos;
 		return new Vector3Int((int)(stDelta.x / a_stSize.x), (int)(stDelta.y / -a_stSize.y), (int)(stDelta.z / -a_stSize.z));

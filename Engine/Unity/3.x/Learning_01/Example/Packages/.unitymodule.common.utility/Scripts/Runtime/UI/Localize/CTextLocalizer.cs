@@ -10,8 +10,11 @@ public class CTextLocalizer : CUIComponent {
 	[SerializeField] private string m_oThaiFontPath = "Fonts/Global/G_ThaiFont";
 	
 	private Font m_oOriginFont = null;
-	private Text m_oText = null;
 	#endregion			// 변수
+
+	#region UI 변수
+	private Text m_oText = null;
+	#endregion			// UI 변수
 
 	#region 함수
 	//! 초기화

@@ -1,7 +1,7 @@
 Using pre-set license
 
  COMMAND LINE ARGUMENTS:
-/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MacOS/Unity
+/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
@@ -12,41 +12,146 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55372
+49785
 Successfully changed project path to: /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
 /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 309.87 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 260.03 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.2.4f1 (becced5a802b)
-[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Resources/UnitySubsystems
+Initialize engine version: 2020.2.5f1 (e2c53f129de5)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets
 GfxDevice: creating device client; threaded=0
-2021-02-15 21:33:17.045 Unity[57451:477051] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-02-15 21:33:17.045 Unity[57451:477051] Metal devices available: 1
-2021-02-15 21:33:17.045 Unity[57451:477051] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-02-15 21:33:17.059 Unity[57451:477051] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-23 22:28:22.068 Unity[5082:24234] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-23 22:28:22.068 Unity[5082:24234] Metal devices available: 1
+2021-02-23 22:28:22.068 Unity[5082:24234] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-02-23 22:28:22.089 Unity[5082:24234] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Initialize mono
-Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Managed'
-Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56451
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56082
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000723 seconds.
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.001318 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 998.92 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 80.71 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in 14.008 seconds
+- Completed reload, in  6.434 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009871 seconds.
+Registered in 0.007825 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 80.89 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+DisplayProgressbar: Clone Package
+[Resolver] Cloning unitymodule.study: 1.2.4
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:StartResolve () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:111)
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:.cctor () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:17)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+(Filename: Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs Line: 111)
+
+[Resolver] Cloning unitymodule.common: 1.2.4
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:StartResolve () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:111)
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:.cctor () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:17)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+(Filename: Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs Line: 111)
+
+Error: git clone --depth=1 --branch 1.2.4 --single-branch https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/unitymodule_common_client.git Packages/.unitymodule.common
+
+Cloning into 'Packages/.unitymodule.common'...
+fatal: Unable to create '/Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.unitymodule.common/.git/shallow.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogErrorFormat (string,object[])
+Coffee.PackageManager.DependencyResolver.GitUtils/<>c__DisplayClass8_0:<ExecuteGitCommand>b__2 (object,System.EventArgs) (at Packages/com.coffee.git-dependency-resolver/Editor/Utils.cs:71)
+System.Diagnostics.Process:OnExited ()
+System.Diagnostics.Process:RaiseOnExited ()
+System.Diagnostics.Process:WaitForExit (int)
+System.Diagnostics.Process:WaitForExit ()
+Coffee.PackageManager.DependencyResolver.GitUtils:ExecuteGitCommand (string,Coffee.PackageManager.DependencyResolver.GitUtils/GitCommandCallback,bool) (at Packages/com.coffee.git-dependency-resolver/Editor/Utils.cs:82)
+Coffee.PackageManager.DependencyResolver.GitUtils:ClonePackage (Coffee.PackageManager.DependencyResolver.PackageMeta) (at Packages/com.coffee.git-dependency-resolver/Editor/Utils.cs:26)
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:StartResolve () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:112)
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:.cctor () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:17)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+(Filename: Packages/com.coffee.git-dependency-resolver/Editor/Utils.cs Line: 71)
+
+[Resolver] Failed to clone unitymodule.common:1.2.4
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:StartResolve () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:115)
+Coffee.PackageManager.DependencyResolver.GitDependencyResolver:.cctor () (at Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs:17)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+(Filename: Packages/com.coffee.git-dependency-resolver/Editor/GitDependencyResolver.cs Line: 115)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Could not load signature of MessagePack.MessagePackSerializer+LZ4Transform:Invoke due to: Could not load file or assembly 'System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. assembly:System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51 type:<unknown type> member:(null) signature:<none>
+TypeLoadException: Failure has occurred while loading a type.
+Rethrow as TypeInitializationException: The type initializer for 'MessagePack.MessagePackSerializer' threw an exception.
+  at CMsgPackRegister.RegisterMsgPack () [0x00045] in /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets/00.AutoCreate/Scripts/Runtime/Global/Utility/External/CMsgPackRegister.cs:31 
+  at CMsgPackRegister.EditorInitialize () [0x00001] in /Users/dante/Workspace/Studies/Mac/Engine/Unity/3.x/Learning_01/Example/Assets/00.AutoCreate/Scripts/Runtime/Global/Utility/External/CMsgPackRegister.cs:41 
+
+(Filename: Assets/00.AutoCreate/Scripts/Runtime/Global/Utility/External/CMsgPackRegister.cs Line: 31)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  9.021 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Launching external process: /Applications/Unity/Hub/Editor/2020.2.5f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3265 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 250.6 MB.
+System memory in use after: 250.8 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 3705.
+Total: 5.568510 ms (FindLiveObjects: 0.666879 ms CreateObjectMapping: 0.268240 ms MarkObjects: 4.478499 ms  DeleteObjects: 0.149068 ms)
+
+========================================================================
+Received Import Request.
+  path: Packages/com.unity.collab-proxy
+  artifactKey: Guid(1adad61bfb44214ee3e887b5febc4396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy using Guid(1adad61bfb44214ee3e887b5febc4396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f149ba5ee19cc0cf4b910c233eb7c677') in 0.028313 seconds
+  Import took 0.064575 seconds .
+

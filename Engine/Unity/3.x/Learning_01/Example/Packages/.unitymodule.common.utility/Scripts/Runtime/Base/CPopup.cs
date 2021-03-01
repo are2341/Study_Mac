@@ -12,14 +12,14 @@ public abstract class CPopup : CUIComponent {
 
 	protected Tween m_oBGAni = null;
 	protected Image m_oPopupBGImg = null;
-	protected RectTransform m_oContentsRootTrans = null;
+	protected RectTransform m_oContentsTrans = null;
 
 	protected System.Action<CPopup> m_oShowCallback = null;
 	protected System.Action<CPopup> m_oCloseCallback = null;
 	#endregion			// 변수
 
 	#region 객체
-	protected GameObject m_oContentsRoot = null;
+	protected GameObject m_oContents = null;
 	protected GameObject m_oTouchResponder = null;
 	#endregion			// 객체
 
@@ -47,8 +47,8 @@ public abstract class CPopup : CUIComponent {
 		CNavStackManager.Inst.AddComponent(this);
 
 		// 루트를 설정한다
-		m_oContentsRoot = this.gameObject.ExFindChild(KCDefine.U_OBJ_N_POPUP_CONTENTS_ROOT);
-		m_oContentsRootTrans = m_oContentsRoot.transform as RectTransform;
+		m_oContents = this.gameObject.ExFindChild(KCDefine.U_OBJ_N_POPUP_CONTENTS);
+		m_oContentsTrans = m_oContents.transform as RectTransform;
 		
 		// 터치 응답자를 설정한다
 		m_oTouchResponder = this.CreateTouchResponder();
@@ -59,25 +59,25 @@ public abstract class CPopup : CUIComponent {
 		m_oPopupBGImg.color = this.BGColor.ExGetAlphaColor(KCDefine.B_VALUE_FLT_0);
 
 		// 버튼을 설정한다
-		var oCloseBtn = m_oContentsRoot.ExFindComponent<Button>(KCDefine.U_OBJ_N_POPUP_CLOSE_BTN);
+		var oCloseBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_POPUP_CLOSE_BTN);
 		oCloseBtn?.onClick.AddListener(this.OnTouchCloseBtn);
 
 		// 비율 애니메이션 일 경우
 		if(this.AniType == EAniType.SCALE) {
-			m_oContentsRootTrans.localScale = new Vector3(KCDefine.U_MIN_SCALE_POPUP, KCDefine.U_MIN_SCALE_POPUP, KCDefine.U_MIN_SCALE_POPUP);
-			m_oContentsRootTrans.localPosition = Vector3.zero;
+			m_oContentsTrans.localScale = new Vector3(KCDefine.U_MIN_SCALE_POPUP, KCDefine.U_MIN_SCALE_POPUP, KCDefine.U_MIN_SCALE_POPUP);
+			m_oContentsTrans.localPosition = Vector3.zero;
 		} else {
-			m_oContentsRootTrans.localScale = KCDefine.B_SCALE_NORM;
+			m_oContentsTrans.localScale = KCDefine.B_SCALE_NORM;
 
 			// 낙하 애니메이션 일 경우
 			if(this.AniType == EAniType.DROPDOWN) {
-				m_oContentsRootTrans.localPosition = new Vector3(KCDefine.B_VALUE_FLT_0, CSceneManager.CanvasSize.y, KCDefine.B_VALUE_FLT_0);
+				m_oContentsTrans.localPosition = new Vector3(KCDefine.B_VALUE_FLT_0, CSceneManager.CanvasSize.y, KCDefine.B_VALUE_FLT_0);
 			}
 			// 왼쪽 슬라이드 애니메이션 일 경우
 			else if(this.AniType == EAniType.SLIDE_LEFT) {
-				m_oContentsRootTrans.localPosition = new Vector3(CSceneManager.CanvasSize.x, KCDefine.B_VALUE_FLT_0, KCDefine.B_VALUE_FLT_0);
+				m_oContentsTrans.localPosition = new Vector3(CSceneManager.CanvasSize.x, KCDefine.B_VALUE_FLT_0, KCDefine.B_VALUE_FLT_0);
 			} else {
-				m_oContentsRootTrans.localPosition = new Vector3(-CSceneManager.CanvasSize.x, KCDefine.B_VALUE_FLT_0, KCDefine.B_VALUE_FLT_0);
+				m_oContentsTrans.localPosition = new Vector3(-CSceneManager.CanvasSize.x, KCDefine.B_VALUE_FLT_0, KCDefine.B_VALUE_FLT_0);
 			}
 		}
 	}
@@ -180,7 +180,7 @@ public abstract class CPopup : CUIComponent {
 		this.OnShow();
 		CFunc.Invoke(ref m_oShowCallback, this);
 
-		m_oContentsRootTrans.localPosition = Vector3.zero;
+		m_oContentsTrans.localPosition = Vector3.zero;
 	}
 
 	//! 닫기 애니메이션이 완료 되었을 경우
@@ -216,13 +216,13 @@ public abstract class CPopup : CUIComponent {
 
 		// 비율 애니메이션 일 경우
 		if(this.AniType == EAniType.SCALE) {
-			oAni = m_oContentsRootTrans.DOScale(KCDefine.U_DEF_SCALE_POPUP, KCDefine.U_DEF_DURATION_POPUP_SCALE_ANI);
+			oAni = m_oContentsTrans.DOScale(KCDefine.U_DEF_SCALE_POPUP, KCDefine.U_DEF_DURATION_POPUP_SCALE_ANI);
 		} 
 		// 낙하 애니메이션 일 경우
 		else if(this.AniType == EAniType.DROPDOWN) {
-			oAni = m_oContentsRootTrans.DOLocalMoveY(KCDefine.B_VALUE_FLT_0, KCDefine.U_DEF_DURATION_POPUP_DROPDOWN_ANI);
+			oAni = m_oContentsTrans.DOLocalMoveY(KCDefine.B_VALUE_FLT_0, KCDefine.U_DEF_DURATION_POPUP_DROPDOWN_ANI);
 		} else {
-			oAni = m_oContentsRootTrans.DOLocalMoveX(KCDefine.B_VALUE_FLT_0, KCDefine.U_DEF_DURATION_POPUP_SLIDE_ANI);
+			oAni = m_oContentsTrans.DOLocalMoveX(KCDefine.B_VALUE_FLT_0, KCDefine.U_DEF_DURATION_POPUP_SLIDE_ANI);
 		}
 
 		oAni.SetEase(Ease.OutBack);
@@ -241,14 +241,14 @@ public abstract class CPopup : CUIComponent {
 
 		// 비율 애니메이션 일 경우
 		if(this.AniType == EAniType.SCALE) {
-			oAni = m_oContentsRootTrans.DOScale(KCDefine.U_MIN_SCALE_POPUP, KCDefine.U_DEF_DURATION_POPUP_SCALE_ANI);
+			oAni = m_oContentsTrans.DOScale(KCDefine.U_MIN_SCALE_POPUP, KCDefine.U_DEF_DURATION_POPUP_SCALE_ANI);
 		} 
 		// 낙하 애니메이션 일 경우
 		else if(this.AniType == EAniType.DROPDOWN) {
-			oAni = m_oContentsRootTrans.DOLocalMoveY(CSceneManager.CanvasSize.y, KCDefine.U_DEF_DURATION_POPUP_DROPDOWN_ANI);
+			oAni = m_oContentsTrans.DOLocalMoveY(CSceneManager.CanvasSize.y, KCDefine.U_DEF_DURATION_POPUP_DROPDOWN_ANI);
 		} else {
 			float fPosX = (this.AniType == EAniType.SLIDE_LEFT) ? -CSceneManager.CanvasSize.x : CSceneManager.CanvasSize.x;
-			oAni = m_oContentsRootTrans.DOLocalMoveX(fPosX, KCDefine.U_DEF_DURATION_POPUP_SLIDE_ANI);
+			oAni = m_oContentsTrans.DOLocalMoveX(fPosX, KCDefine.U_DEF_DURATION_POPUP_SLIDE_ANI);
 		}
 		
 		oAni.SetEase(Ease.InBack);

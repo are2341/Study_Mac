@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class CImgLocalizer : CUIComponent {
 	#region 변수
 	[SerializeField] private string m_oBasePath = string.Empty;
-	private Image m_oImg = null;
 	#endregion			// 변수
+
+	#region UI 변수
+	private Image m_oImg = null;
+	#endregion			// UI 변수
 
 	#region 함수
 	//! 초기화

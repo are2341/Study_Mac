@@ -19,7 +19,7 @@ public class CMenuSceneManager : CSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
-			var oContents = this.SubUIRoot.ExFindChild(KSDefine.MS_OBJ_N_SCROLL_V_CONTENTS);
+			var oContents = this.SubUIs.ExFindChild(KSDefine.MS_OBJ_N_SCROLL_V_CONTENTS);
 			int nNumDefScenes = KSDefine.MS_NUM_DEF_SCENES + KCDefine.B_VALUE_INT_1;
 			
 			for(int i = nNumDefScenes; i < SceneManager.sceneCountInBuildSettings; ++i) {
@@ -59,7 +59,7 @@ public class CMenuSceneManager : CSceneManager {
 				[KCDefine.U_KEY_ALERT_P_CANCEL_BTN_TEXT] = CStringTable.Inst.GetString(KCDefine.ST_KEY_ALERT_P_CANCEL_BTN_TEXT)
 			};
 			
-			var oAlertPopup = CAlertPopup.Create<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP, KCDefine.U_OBJ_P_G_ALERT_POPUP, this.SubPopupUIRoot, oDataList, this.OnReceiveAlertPopupResult);
+			var oAlertPopup = CAlertPopup.Create<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP, KCDefine.U_OBJ_P_G_ALERT_POPUP, this.SubPopupUIs, oDataList, this.OnReceiveAlertPopupResult);
 			oAlertPopup.Show(null, null);
 		}
 	}

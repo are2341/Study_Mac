@@ -8,8 +8,11 @@ using DG.Tweening;
 public class CToastPopup : CPopup {
 	#region 변수
 	protected float m_fDuration = 0.0f;
-	protected Text m_oMsgText = null;
 	#endregion			// 변수
+
+	#region UI 변수
+	protected Text m_oMsgText = null;
+	#endregion			// UI 변수
 
 	#region 프로퍼티
 	public override EAniType AniType => EAniType.SCALE;
@@ -25,9 +28,9 @@ public class CToastPopup : CPopup {
 	//! 초기화
 	public virtual void Init(string a_oMsg, float a_fDuration) {
 		m_fDuration = a_fDuration;
-		m_oContentsRootTrans.sizeDelta = CSceneManager.CanvasSize;
+		m_oContentsTrans.sizeDelta = CSceneManager.CanvasSize;
 		
-		m_oMsgText = m_oContentsRoot.ExFindComponent<Text>(KCDefine.U_OBJ_N_TOAST_P_MSG_TEXT);
+		m_oMsgText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_TOAST_P_MSG_TEXT);
 		m_oMsgText.text = a_oMsg;
 	}
 

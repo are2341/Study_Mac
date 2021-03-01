@@ -152,48 +152,48 @@ public static partial class KCDefine {
 	// 이름 {
 	public const string U_OBJ_N_SCENE_UI_TOP = "UIRoot";
 	public const string U_OBJ_N_SCENE_UI_BASE = "Canvas";
-	public const string U_OBJ_N_SCENE_UI_ROOT = "UIs";
-	public const string U_OBJ_N_SCENE_ANCHOR_UI_ROOT = "AnchorUIs";
+	public const string U_OBJ_N_SCENE_UIS = "UIs";
+	public const string U_OBJ_N_SCENE_ANCHOR_UIS = "AnchorUIs";
 	public const string U_OBJ_N_SCENE_EVENT_SYSTEM = "EventSystem";
 
-	public const string U_OBJ_N_SCENE_LEFT_UI_ROOT = "LeftUIs";
-	public const string U_OBJ_N_SCENE_RIGHT_UI_ROOT = "RightUIs";
-	public const string U_OBJ_N_SCENE_TOP_UI_ROOT = "TopUIs";
-	public const string U_OBJ_N_SCENE_BOTTOM_UI_ROOT = "BottomUIs";
+	public const string U_OBJ_N_SCENE_LEFT_UIS = "LeftUIs";
+	public const string U_OBJ_N_SCENE_RIGHT_UIS = "RightUIs";
+	public const string U_OBJ_N_SCENE_TOP_UIS = "TopUIs";
+	public const string U_OBJ_N_SCENE_BOTTOM_UIS = "BottomUIs";
 
-	public const string U_OBJ_N_SCENE_POPUP_UI_ROOT = "PopupUIs";
-	public const string U_OBJ_N_SCENE_TOPMOST_UI_ROOT = "TopmostUIs";
+	public const string U_OBJ_N_SCENE_POPUP_UIS = "PopupUIs";
+	public const string U_OBJ_N_SCENE_TOPMOST_UIS = "TopmostUIs";
 
 	public const string U_OBJ_N_SCENE_BASE = "Base";
 	public const string U_OBJ_N_SCENE_OBJ_BASE = "ObjRoot";
-	public const string U_OBJ_N_SCENE_OBJ_ROOT = "Objs";
-	public const string U_OBJ_N_SCENE_ANCHOR_OBJ_ROOT = "AnchorObjs";
+	public const string U_OBJ_N_SCENE_OBJS = "Objs";
+	public const string U_OBJ_N_SCENE_ANCHOR_OBJS = "AnchorObjs";
 
-	public const string U_OBJ_N_SCENE_LEFT_OBJ_ROOT = "LeftObjs";
-	public const string U_OBJ_N_SCENE_RIGHT_OBJ_ROOT = "RightObjs";
-	public const string U_OBJ_N_SCENE_TOP_OBJ_ROOT = "TopObjs";
-	public const string U_OBJ_N_SCENE_BOTTOM_OBJ_ROOT = "BottomObjs";
+	public const string U_OBJ_N_SCENE_LEFT_OBJS = "LeftObjs";
+	public const string U_OBJ_N_SCENE_RIGHT_OBJS = "RightObjs";
+	public const string U_OBJ_N_SCENE_TOP_OBJS = "TopObjs";
+	public const string U_OBJ_N_SCENE_BOTTOM_OBJS = "BottomObjs";
 
 	public const string U_OBJ_N_SCENE_OBJ_CANVAS_TOP = "ObjCanvasRoot";
 	public const string U_OBJ_N_SCENE_OBJ_CANVAS_BASE = "ObjCanvas";
-	public const string U_OBJ_N_SCENE_CANVAS_OBJ_ROOT = "CanvasObjs";
+	public const string U_OBJ_N_SCENE_CANVAS_OBJS = "CanvasObjs";
 
 	public const string U_OBJ_N_SCENE_UI_CAMERA = "UI Camera";
 	public const string U_OBJ_N_SCENE_MAIN_CAMERA = "Main Camera";
 	public const string U_OBJ_N_SCENE_MAIN_LIGHT = "Directional Light";
 	public const string U_OBJ_N_SCENE_MANAGER = "SceneManager";
 
-	public const string U_OBJ_N_SCREEN_BLIND_UI_ROOT = "ScreenBlindUIs";
-	public const string U_OBJ_N_SCREEN_POPUP_UI_ROOT = "ScreenPopupUIs";
-	public const string U_OBJ_N_SCREEN_TOPMOST_UI_ROOT = "ScreenTopmostUIs";
-	public const string U_OBJ_N_SCREEN_ABS_UI_ROOT = "ScreenAbsUIs";
+	public const string U_OBJ_N_SCREEN_BLIND_UIS = "ScreenBlindUIs";
+	public const string U_OBJ_N_SCREEN_POPUP_UIS = "ScreenPopupUIs";
+	public const string U_OBJ_N_SCREEN_TOPMOST_UIS = "ScreenTopmostUIs";
+	public const string U_OBJ_N_SCREEN_ABS_UIS = "ScreenAbsUIs";
 
 	public const string U_OBJ_N_LEFT_BLIND_IMG = "LeftBlindImg";
 	public const string U_OBJ_N_RIGHT_BLIND_IMG = "RightBlindImg";
 	public const string U_OBJ_N_TOP_BLIND_IMG = "TopBlindImg";
 	public const string U_OBJ_N_BOTTOM_BLIND_IMG = "BottomBlindImg";
 
-	public const string U_OBJ_N_POPUP_CONTENTS_ROOT = "Contents";
+	public const string U_OBJ_N_POPUP_CONTENTS = "Contents";
 	public const string U_OBJ_N_POPUP_CLOSE_BTN = "CloseBtn";
 	public const string U_OBJ_N_FMT_POPUP_TOUCH_RESPONDER = "PopupTouchResponder_{0}";
 
@@ -276,7 +276,7 @@ public static partial class KCDefine {
 
 	// 스크롤 뷰
 	public const string U_OBJ_N_SCROLL_V_VIEWPORT = "Viewport";
-	public const string U_OBJ_N_SCROLL_V_CONTENTS_ROOT = "Contents";
+	public const string U_OBJ_N_SCROLL_V_CONTENTS = "Contents";
 
 	// 문자열 테이블
 	public const string U_KEY_STRING_T_ID = "ID";
@@ -696,8 +696,8 @@ public static partial class KCDefine {
 	// 형식 }
 
 	// 이름 {
-	public const string U_OBJ_N_SCREEN_DEBUG_UI_ROOT = "ScreenDebugUIs";
-	public const string U_OBJ_N_SCREEN_DEBUG_TEXT_ROOT = "DebugTexts";
+	public const string U_OBJ_N_SCREEN_DEBUG_UIS = "ScreenDebugUIs";
+	public const string U_OBJ_N_SCREEN_DEBUG_TEXTS = "DebugTexts";
 
 	public const string U_OBJ_N_SCREEN_STATIC_DEBUG_TEXT = "StaticDebugText";
 	public const string U_OBJ_N_SCREEN_DYNAMIC_DEBUG_TEXT = "DynamicDebugText";

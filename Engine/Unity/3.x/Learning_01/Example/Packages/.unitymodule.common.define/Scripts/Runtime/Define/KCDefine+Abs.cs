@@ -11,7 +11,8 @@ public static partial class KCDefine {
 
 	public const int B_UNIT_NORM_VALUE_TO_BYTE = 255;
 	public const float B_UNIT_NORM_VALUE_TO_VALUE = 100.0f;
-
+	
+	public const int B_UNIT_BYTE_TO_BIT = 8;
 	public const float B_UNIT_BYTE_TO_KILO_BYTE = 1024.0f;
 	public const float B_UNIT_BYTE_TO_MEGA_BYTE = 1024.0f * 1024.0f;
 
@@ -177,6 +178,8 @@ public static partial class KCDefine {
 
 	public const string B_EDITOR_SCENE_N_PATTERN_A = "EditorMenu";
 	public const string B_EDITOR_SCENE_N_PATTERN_B = "EditorScene";
+
+	public const string B_ASSET_N_PATTERN_FIX_POINT_FILTER = "_FIX_PF_";
 	// 이름 }
 
 	// 씬 이름 {
@@ -203,10 +206,15 @@ public static partial class KCDefine {
 	public const string B_KEY_JSON_ROOT_DATA = "Root";
 	public const string B_KEY_JSON_COMMON_DATA = "Common";
 
-	// 토큰
+	// 토큰 {
 	public const string B_TOKEN_CSV_STRING = ",";
 	public const string B_TOKEN_POST_STRING = "&";
 	public const string B_TOKEN_VERSION_NUMBER = ".";
+
+	public const string B_TOKEN_USER_A = "A";
+	public const string B_TOKEN_USER_B = "B";
+	public const string B_TOKEN_USER_UNKNOWN = "U";
+	// 토큰 }
 
 	// 빌드 모드
 	public const string B_BUILD_MODE_DEBUG = "Debug";
@@ -259,6 +267,7 @@ public static partial class KCDefine {
 	public const string B_DIR_P_SPLASH_SCENE = "SplashScene/";
 	public const string B_DIR_P_AGREE_SCENE = "AgreeScene/";
 	public const string B_DIR_P_INTRO_SCENE = "IntroScene/";
+	public const string B_DIR_P_TITLE_SCENE = "TitleScene/";
 	public const string B_DIR_P_AUTO_CREATE = "00.AutoCreate/";
 
 	public const string B_DIR_P_TEXT_ROOT = "UI/Text/";
@@ -277,6 +286,7 @@ public static partial class KCDefine {
 
 	// 형식 {
 	public const string B_TEXT_FMT_PRICE = "{0} {1}";
+	public const string B_TEXT_FMT_VERSION = "v{0}{1}";
 	public const string B_TEXT_FMT_CURRENCY = "{0:N0}";
 	public const string B_TEXT_FMT_HH_MM_SS = "{0:00}:{1:00}:{2:00}";
 

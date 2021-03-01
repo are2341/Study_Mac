@@ -18,6 +18,9 @@ namespace Timers
         // Whether the game is paused
         private static bool m_bPaused = false;
 
+		// Key weak reference
+		private static List<WeakReference> Keys = new List<WeakReference>();
+
         void Awake()
         {
             if (m_instance != null)
@@ -50,7 +53,9 @@ namespace Timers
             if (m_bPaused)
                 return;
 
-            List<WeakReference> Keys = new List<WeakReference>(m_Timers.Keys);
+			Keys.Clear();
+			Keys.AddRange(m_Timers.Keys);
+			
             foreach (WeakReference key in Keys)
             {
                 Timer timer = null;

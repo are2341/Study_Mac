@@ -8,6 +8,7 @@ public abstract class CComponent : MonoBehaviour {
 	public bool IsDestroy { get; private set; } = false;
 	
 	public bool IsIgnoreAni { get; set; } = false;
+	public bool IsIgnoreEnable { get; set; } = false;
 	public bool IsIgnoreNavStackEvent { get; set; } = false;
 
 	public System.Action<CComponent> DestroyCallback { get; set; } = null;

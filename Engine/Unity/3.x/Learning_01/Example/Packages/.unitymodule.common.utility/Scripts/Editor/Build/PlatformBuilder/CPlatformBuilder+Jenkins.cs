@@ -19,9 +19,9 @@ public static partial class CPlatformBuilder {
 		oStringBuilder.AppendFormat(KCEditorDefine.B_BUILD_CMD_FMT_JENKINS, oURL, oUserID, oAccessToken, oBuildToken);
 			
 		// 매개 변수를 설정한다 {
-		string oSrc = string.Format(KCEditorDefine.B_SRC_FMT_JENKINS, CPlatformOptsSetter.BuildInfoTable.JenkinsInfo.m_oSourceRoot, a_oProjName);
+		string oSrc = string.Format(KCEditorDefine.B_SRC_FMT_JENKINS, CPlatformOptsSetter.BuildInfoTable.JenkinsInfo.m_oSrcRoot, a_oProjName);
 		string oProjPath = string.Format(KCEditorDefine.B_PROJ_P_FMT_JENKINS, CPlatformOptsSetter.BuildInfoTable.JenkinsInfo.m_oWorkspaceRoot, oSrc, CPlatformOptsSetter.ProjInfoTable.ProjName);
-		string oAnalytics = string.Format(KCEditorDefine.B_ANALYTICS_FMT_JENKINS, CPlatformOptsSetter.BuildInfoTable.JenkinsInfo.m_oSourceRoot);
+		string oAnalytics = string.Format(KCEditorDefine.B_ANALYTICS_FMT_JENKINS, CPlatformOptsSetter.BuildInfoTable.JenkinsInfo.m_oSrcRoot);
 			
 		var oDataList = a_oDataList ?? new Dictionary<string, string>();
 		oDataList.ExAddValue(KCEditorDefine.B_KEY_JENKINS_BRANCH, CPlatformOptsSetter.BuildInfoTable.JenkinsInfo.m_oBranch);

@@ -6,17 +6,20 @@ using UnityEngine.UI;
 //! 경고 팝업
 public class CAlertPopup : CPopup {
 	#region 변수
+	protected System.Action<CAlertPopup, bool> m_oCallback = null;
+	#endregion			// 변수
+
+	#region UI 변수
 	protected Text m_oTitleText = null;
 	protected Text m_oMsgText = null;
 	protected Text m_oOKBtnText = null;
 	protected Text m_oCancelBtnText = null;
 
+	protected Image m_oBGImg = null;
+
 	protected Button m_oOKBtn = null;
 	protected Button m_oCancelBtn = null;
-
-	protected Image m_oBGImg = null;
-	protected System.Action<CAlertPopup, bool> m_oCallback = null;
-	#endregion			// 변수
+	#endregion			// UI 변수
 
 	#region 프로퍼티
 	public Vector2 MinBGSize { get; set; } = Vector2.zero;
@@ -28,10 +31,10 @@ public class CAlertPopup : CPopup {
 		m_oCallback = a_oCallback;
 
 		// 버튼을 설정한다 {
-		m_oOKBtn = m_oContentsRoot.ExFindComponent<Button>(KCDefine.U_OBJ_N_ALERT_P_OK_BTN);
+		m_oOKBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ALERT_P_OK_BTN);
 		m_oOKBtn.onClick.AddListener(this.OnTouchOKBtn);
 
-		m_oCancelBtn = m_oContentsRoot.ExFindComponent<Button>(KCDefine.U_OBJ_N_ALERT_P_CANCEL_BTN);
+		m_oCancelBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ALERT_P_CANCEL_BTN);
 		m_oCancelBtn.onClick.AddListener(this.OnTouchCancelBtn);
 		// 버튼을 설정한다 }
 
@@ -39,10 +42,10 @@ public class CAlertPopup : CPopup {
 		bool bIsContains = a_oDataList.ContainsKey(KCDefine.U_KEY_ALERT_P_CANCEL_BTN_TEXT);
 		string oCancelBtnString = bIsContains ? a_oDataList[KCDefine.U_KEY_ALERT_P_CANCEL_BTN_TEXT] : string.Empty;
 
-		m_oTitleText = m_oContentsRoot.ExFindComponent<Text>(KCDefine.U_OBJ_N_ALERT_P_TITLE_TEXT);
+		m_oTitleText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_ALERT_P_TITLE_TEXT);
 		m_oTitleText.text = a_oDataList[KCDefine.U_KEY_ALERT_P_TITLE];
 
-		m_oMsgText = m_oContentsRoot.ExFindComponent<Text>(KCDefine.U_OBJ_N_ALERT_P_MSG_TEXT);
+		m_oMsgText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_ALERT_P_MSG_TEXT);
 		m_oMsgText.text = a_oDataList[KCDefine.U_KEY_ALERT_P_MSG];
 
 		m_oOKBtnText = m_oOKBtn.GetComponentInChildren<Text>();
@@ -53,7 +56,7 @@ public class CAlertPopup : CPopup {
 		// 텍스트를 설정한다 }
 
 		// 이미지를 설정한다
-		m_oBGImg = m_oContentsRoot.ExFindComponent<Image>(KCDefine.U_OBJ_N_ALERT_P_BG_IMG);
+		m_oBGImg = m_oContents.ExFindComponent<Image>(KCDefine.U_OBJ_N_ALERT_P_BG_IMG);
 	}
 
 	//! 확인 버튼을 눌렀을 경우

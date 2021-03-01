@@ -12,7 +12,7 @@ public class CSubMenuSceneManager : CMenuSceneManager {
 		base.Awake();
 
 		// 초기화 되었을 경우
-		if(CSceneManager.IsInit) {
+		if(CSceneManager.IsAppInit) {
 			// Do Nothing
 		}
 	}

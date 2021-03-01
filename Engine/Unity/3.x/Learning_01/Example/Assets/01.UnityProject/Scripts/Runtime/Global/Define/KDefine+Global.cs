@@ -25,9 +25,12 @@ public static partial class KDefine {
 	public const string G_KEY_ITEM_IT_REPLACE = "Replace";
 	// 아이템 정보 테이블 }
 
-	// 씬 이름
+	// 씬 이름 {
 	public const string G_SCENE_N_E01_EXAMPLE_052 = "E01.Example_052";
 	public const string G_SCENE_N_E01_EXAMPLE_124 = "E01.Example_124";
+
+	public const string G_SCENE_N_E02_EXAMPLE_078 = "E02.Example_078";
+	// 씬 이름 }
 	#endregion			// 기본
 
 	#region 런타임 상수
