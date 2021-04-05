@@ -8,21 +8,6 @@
 #include "Example_025.hpp"
 
 namespace EXAMPLE_025 {
-	//! 노드
-	struct STNode {
-		int m_nValue;
-		STNode *m_pstNextNode;
-	};
-
-	//! 노드를 생성한다
-	STNode * CreateNode(int a_nValue);
-
-	//! 노드를 제거한다
-	void DestroyNode(STNode *a_pstNode);
-
-	//! 노드를 추가한다
-	void AddNode(STNode **a_pstHeadNode, STNode *a_pstNode);
-
 	//! Example 25
 	void Example_025(const int argc, const char **args) {
 		
