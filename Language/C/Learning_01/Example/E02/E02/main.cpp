@@ -2,13 +2,13 @@
 //  main.cpp
 //  E02
 //
-//  Created by 이상동 on 2021/02/14.
+//  Created by 이상동 on 2021/04/12.
 //
 
-#include "Example_032/Example_032.hpp"
+#include <iostream>
 
-//! 메인 함수
-int main(const int argc, const char **args) {
-	EXAMPLE_032::Example_032(argc, args);
+int main(int argc, const char * argv[]) {
+	// insert code here...
+	std::cout << "Hello, World!\n";
 	return 0;
 }
