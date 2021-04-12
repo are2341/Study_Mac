@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FE3949C22623ED8800427B78 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3949C12623ED8800427B78 /* main.cpp */; };
 		FE3949D02623EE3E00427B78 /* Example_038.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3949CE2623EE3E00427B78 /* Example_038.cpp */; };
+		FE8ABCC22624A14200EC0DD7 /* LinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE8ABCC02624A14200EC0DD7 /* LinkedList.cpp */; };
+		FE8ABCC82624A8A400EC0DD7 /* Example_050.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE8ABCC62624A8A400EC0DD7 /* Example_050.cpp */; };
+		FE8ABCCD2624A8D100EC0DD7 /* DoubleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE8ABCCB2624A8D100EC0DD7 /* DoubleLinkedList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,12 @@
 		FE3949CB2623EDA200427B78 /* KGDefine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KGDefine.hpp; sourceTree = "<group>"; };
 		FE3949CE2623EE3E00427B78 /* Example_038.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_038.cpp; sourceTree = "<group>"; };
 		FE3949CF2623EE3E00427B78 /* Example_038.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_038.hpp; sourceTree = "<group>"; };
+		FE8ABCC02624A14200EC0DD7 /* LinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedList.cpp; sourceTree = "<group>"; };
+		FE8ABCC12624A14200EC0DD7 /* LinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkedList.hpp; sourceTree = "<group>"; };
+		FE8ABCC62624A8A400EC0DD7 /* Example_050.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_050.cpp; sourceTree = "<group>"; };
+		FE8ABCC72624A8A400EC0DD7 /* Example_050.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_050.hpp; sourceTree = "<group>"; };
+		FE8ABCCB2624A8D100EC0DD7 /* DoubleLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleLinkedList.cpp; sourceTree = "<group>"; };
+		FE8ABCCC2624A8D100EC0DD7 /* DoubleLinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DoubleLinkedList.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				FE3949CD2623EE2F00427B78 /* Example_038 */,
+				FE8ABCC52624A89C00EC0DD7 /* Example_050 */,
 				FE3949C92623EDA200427B78 /* Global */,
 				FE3949C12623ED8800427B78 /* main.cpp */,
 			);
@@ -87,10 +97,39 @@
 		FE3949CD2623EE2F00427B78 /* Example_038 */ = {
 			isa = PBXGroup;
 			children = (
+				FE8ABCBF2624A12B00EC0DD7 /* Utility */,
 				FE3949CE2623EE3E00427B78 /* Example_038.cpp */,
 				FE3949CF2623EE3E00427B78 /* Example_038.hpp */,
 			);
 			path = Example_038;
+			sourceTree = "<group>";
+		};
+		FE8ABCBF2624A12B00EC0DD7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FE8ABCC02624A14200EC0DD7 /* LinkedList.cpp */,
+				FE8ABCC12624A14200EC0DD7 /* LinkedList.hpp */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		FE8ABCC52624A89C00EC0DD7 /* Example_050 */ = {
+			isa = PBXGroup;
+			children = (
+				FE8ABCCA2624A8B400EC0DD7 /* Utility */,
+				FE8ABCC62624A8A400EC0DD7 /* Example_050.cpp */,
+				FE8ABCC72624A8A400EC0DD7 /* Example_050.hpp */,
+			);
+			path = Example_050;
+			sourceTree = "<group>";
+		};
+		FE8ABCCA2624A8B400EC0DD7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FE8ABCCB2624A8D100EC0DD7 /* DoubleLinkedList.cpp */,
+				FE8ABCCC2624A8D100EC0DD7 /* DoubleLinkedList.hpp */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8ABCC82624A8A400EC0DD7 /* Example_050.cpp in Sources */,
 				FE3949D02623EE3E00427B78 /* Example_038.cpp in Sources */,
+				FE8ABCC22624A14200EC0DD7 /* LinkedList.cpp in Sources */,
 				FE3949C22623ED8800427B78 /* main.cpp in Sources */,
+				FE8ABCCD2624A8D100EC0DD7 /* DoubleLinkedList.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

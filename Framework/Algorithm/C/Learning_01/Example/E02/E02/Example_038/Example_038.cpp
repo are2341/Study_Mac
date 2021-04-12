@@ -6,24 +6,45 @@
 //
 
 #include "Example_038.hpp"
+#include "Utility/LinkedList.hpp"
 
 namespace E038 {
 	//! Example 38
 	void Example_038(const int argc, const char **args) {
+		STNode *pstList = nullptr;
 		
-	}
-	
-	//! 노드를 생성한다
-	STNode * CreateNode(int a_nValue) {
-		auto pstNode = (STNode *)malloc(sizeof(STNode));
-		pstNode->m_nValue = a_nValue;
-		pstNode->m_pstNextNode = nullptr;
+		for(int i = 0; i < 5; ++i) {
+			auto pstNode = CreateNode(i);
+			AddNode(&pstList, pstNode);
+		}
 		
-		return pstNode;
-	}
-	
-	//! 노드를 제거한다
-	void DestroyNode(STNode *a_pstNode) {
-		SAFE_FREE(a_pstNode);
+		InsertHeadNode(&pstList, CreateNode(-1));
+		InsertHeadNode(&pstList, CreateNode(-2));
+		
+		for(int i = 0; i < GetNumNodes(pstList); ++i) {
+			auto pstNode = GetNode(pstList, i);
+			printf("List[%d] : %d\n", i, pstNode->m_nValue);
+		}
+		
+		printf("\nInserting 3000 After [2]...\n\n");
+		
+		auto pstPrevNode = GetNode(pstList, 2);
+		InsertNode(pstPrevNode, CreateNode(3000));
+		
+		for(int i = 0; i < GetNumNodes(pstList); ++i) {
+			auto pstNode = GetNode(pstList, i);
+			printf("List[%d] : %d\n", i, pstNode->m_nValue);
+		}
+		
+		printf("\nDestroying List...\n");
+		
+		for(int i = 0; i < GetNumNodes(pstList); ++i) {
+			auto pstNode = GetNode(pstList, 0);
+			
+			if(pstNode != nullptr) {
+				RemoveNode(&pstList, pstNode);
+				DestroyNode(pstNode);
+			}
+		}
 	}
 }
