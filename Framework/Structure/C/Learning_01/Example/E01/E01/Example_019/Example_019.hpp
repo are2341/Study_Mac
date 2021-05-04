@@ -12,7 +12,7 @@
 
 namespace E019 {
 	//! 값을 탐색한다
-	int FindValues(int *a_pnValues, int a_nSize, int a_nTarget);
+	int LSearch(int *a_pnVals, int a_nSize, int a_nTarget);
 	
 	//! Example 19
 	void Example_019(const int argc, const char **args);

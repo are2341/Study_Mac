@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE2E5663264124AB00701499 /* Example_052.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE2E5661264124AB00701499 /* Example_052.cpp */; };
+		FE2E56672641257F00701499 /* Example_055.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE2E56652641257F00701499 /* Example_055.cpp */; };
+		FE2E566B264126B000701499 /* Example_028.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE2E5669264126B000701499 /* Example_028.cpp */; };
+		FE2E566F264127FF00701499 /* Example_039.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE2E566D264127FF00701499 /* Example_039.cpp */; };
 		FE695772262B4CA000419F2A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE695771262B4CA000419F2A /* main.cpp */; };
 		FE695783262B4D6000419F2A /* Example_019.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE695781262B4D6000419F2A /* Example_019.cpp */; };
-		FE695788262B4F3E00419F2A /* Example_039.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE695786262B4F3E00419F2A /* Example_039.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,13 +28,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FE2E5661264124AB00701499 /* Example_052.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_052.cpp; sourceTree = "<group>"; };
+		FE2E5662264124AB00701499 /* Example_052.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_052.hpp; sourceTree = "<group>"; };
+		FE2E56652641257F00701499 /* Example_055.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_055.cpp; sourceTree = "<group>"; };
+		FE2E56662641257F00701499 /* Example_055.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_055.hpp; sourceTree = "<group>"; };
+		FE2E5669264126B000701499 /* Example_028.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_028.cpp; sourceTree = "<group>"; };
+		FE2E566A264126B000701499 /* Example_028.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_028.hpp; sourceTree = "<group>"; };
+		FE2E566D264127FF00701499 /* Example_039.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_039.cpp; sourceTree = "<group>"; };
+		FE2E566E264127FF00701499 /* Example_039.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_039.hpp; sourceTree = "<group>"; };
 		FE69576E262B4CA000419F2A /* E01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E01; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE695771262B4CA000419F2A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FE69577C262B4CE500419F2A /* KGDefine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KGDefine.hpp; sourceTree = "<group>"; };
 		FE695781262B4D6000419F2A /* Example_019.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_019.cpp; sourceTree = "<group>"; };
 		FE695782262B4D6000419F2A /* Example_019.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_019.hpp; sourceTree = "<group>"; };
-		FE695786262B4F3E00419F2A /* Example_039.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_039.cpp; sourceTree = "<group>"; };
-		FE695787262B4F3E00419F2A /* Example_039.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_039.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +54,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE2E56602641248900701499 /* Example_052 */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E5661264124AB00701499 /* Example_052.cpp */,
+				FE2E5662264124AB00701499 /* Example_052.hpp */,
+			);
+			path = Example_052;
+			sourceTree = "<group>";
+		};
+		FE2E56642641257900701499 /* Example_055 */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E56652641257F00701499 /* Example_055.cpp */,
+				FE2E56662641257F00701499 /* Example_055.hpp */,
+			);
+			path = Example_055;
+			sourceTree = "<group>";
+		};
+		FE2E5668264126A600701499 /* Example_028 */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E5669264126B000701499 /* Example_028.cpp */,
+				FE2E566A264126B000701499 /* Example_028.hpp */,
+			);
+			path = Example_028;
+			sourceTree = "<group>";
+		};
+		FE2E566C264127F800701499 /* Example_039 */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E566D264127FF00701499 /* Example_039.cpp */,
+				FE2E566E264127FF00701499 /* Example_039.hpp */,
+			);
+			path = Example_039;
+			sourceTree = "<group>";
+		};
 		FE695765262B4CA000419F2A = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				FE695780262B4D5000419F2A /* Example_019 */,
-				FE695785262B4F3400419F2A /* Example_039 */,
+				FE2E5668264126A600701499 /* Example_028 */,
+				FE2E566C264127F800701499 /* Example_039 */,
+				FE2E56602641248900701499 /* Example_052 */,
+				FE2E56642641257900701499 /* Example_055 */,
 				FE695779262B4CD200419F2A /* Global */,
 				FE695771262B4CA000419F2A /* main.cpp */,
 			);
@@ -95,15 +143,6 @@
 				FE695782262B4D6000419F2A /* Example_019.hpp */,
 			);
 			path = Example_019;
-			sourceTree = "<group>";
-		};
-		FE695785262B4F3400419F2A /* Example_039 */ = {
-			isa = PBXGroup;
-			children = (
-				FE695786262B4F3E00419F2A /* Example_039.cpp */,
-				FE695787262B4F3E00419F2A /* Example_039.hpp */,
-			);
-			path = Example_039;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +202,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE695772262B4CA000419F2A /* main.cpp in Sources */,
-				FE695788262B4F3E00419F2A /* Example_039.cpp in Sources */,
+				FE2E566F264127FF00701499 /* Example_039.cpp in Sources */,
+				FE2E566B264126B000701499 /* Example_028.cpp in Sources */,
+				FE2E56672641257F00701499 /* Example_055.cpp in Sources */,
+				FE2E5663264124AB00701499 /* Example_052.cpp in Sources */,
 				FE695783262B4D6000419F2A /* Example_019.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

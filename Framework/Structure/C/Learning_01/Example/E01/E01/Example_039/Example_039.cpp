@@ -2,48 +2,61 @@
 //  Example_039.cpp
 //  E01
 //
-//  Created by 이상동 on 2021/04/18.
+//  Created by 이상동 on 2021/05/04.
 //
 
 #include "Example_039.hpp"
 
 namespace E039 {
 	//! 값을 탐색한다
-	int FindValues(int *a_pnValues, int a_nSize, int a_nTarget) {
+	int BSearch(int *a_pnVals, int a_nSize, int a_nTarget) {
 		int nLeft = 0;
 		int nRight = a_nSize - 1;
 		
-		int nNumOperations = 0;
+		int nOperationTimes = 0;
 		
 		while(nLeft <= nRight) {
 			int nMiddle = (nLeft + nRight) / 2;
 			
 			// 값이 존재 할 경우
-			if(a_pnValues[nMiddle] == a_nTarget) {
+			if(a_pnVals[nMiddle] == a_nTarget) {
 				return nMiddle;
 			} else {
-				// 탐색 값이 작을 경우
-				if(a_nTarget < a_pnValues[nMiddle]) {
+				// 목표 값이 작을 경우
+				if(a_nTarget < a_pnVals[nMiddle]) {
 					nRight = nMiddle - 1;
 				} else {
 					nLeft = nMiddle + 1;
 				}
 			}
 			
-			nNumOperations += 1;
+			nOperationTimes += 1;
 		}
 		
-		printf("비교 연산 횟수 : %d\n", nNumOperations);
+		printf("비교 연산 횟수 : %d\n", nOperationTimes);
 		return -1;
 	}
 	
 	//! Example 39
 	void Example_039(const int argc, const char **args) {
-		int anValuesA[500] = { 0 };
-		int anValuesB[5000] = { 0 };
-		int anValuesC[50000] = { 0 };
+		int anValsA[100] = { 0 };
+		int anValsB[1000] = { 0 };
+		int anValsC[10000] = { 0 };
 		
-		int nIdx = FindValues(anValuesA, sizeof(anValuesA) / sizeof(anValuesA[0]), 1);
+		const int nSizeA = sizeof(anValsA) / sizeof(anValsA[0]);
+		const int nSizeB = sizeof(anValsB) / sizeof(anValsB[0]);
+		const int nSizeC = sizeof(anValsC) / sizeof(anValsC[0]);
+		
+		int nIdx = BSearch(anValsA, nSizeA, 4);
+		
+		// 값이 존재 할 경우
+		if(nIdx <= -1) {
+			printf("탐색 실패\n\n");
+		} else {
+			printf("타겟 저장 인덱스 : %d\n\n", nIdx);
+		}
+		
+		nIdx = BSearch(anValsB, nSizeB, 7);
 		
 		// 값이 없을 경우
 		if(nIdx <= -1) {
@@ -52,22 +65,13 @@ namespace E039 {
 			printf("타겟 저장 인덱스 : %d\n\n", nIdx);
 		}
 		
-		nIdx = FindValues(anValuesB, sizeof(anValuesB) / sizeof(anValuesB[0]), 1);
+		nIdx = BSearch(anValsC, nSizeC, 7);
 		
 		// 값이 없을 경우
 		if(nIdx <= -1) {
-			printf("탐색 실패\n\n");
+			printf("탐색 실패\n");
 		} else {
-			printf("타겟 저장 인덱스 : %d\n\n", nIdx);
-		}
-		
-		nIdx = FindValues(anValuesC, sizeof(anValuesC) / sizeof(anValuesC[0]), 1);
-		
-		// 값이 없을 경우
-		if(nIdx <= -1) {
-			printf("탐색 실패\n\n");
-		} else {
-			printf("타겟 저장 인덱스 : %d\n\n", nIdx);
+			printf("타겟 저장 인덱스 : %d\n", nIdx);
 		}
 	}
 }
