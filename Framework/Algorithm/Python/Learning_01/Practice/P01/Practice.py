@@ -1,7 +1,7 @@
 import os
 import sys
 
-from Practice_044 import *
+from Practice_095 import *
 
 # 파이썬 알고리즘 프로젝트 리스트
 # :
@@ -9,5 +9,5 @@ from Practice_044 import *
 
 # 메인 모듈 일 경우
 if __name__ == "__main__":
-	Practice_044.Practice_044(sys.argv)
+	Practice_095.Practice_095(sys.argv)
 	

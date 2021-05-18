@@ -11,7 +11,7 @@ from Example_054 import *
 
 # 메인 모듈 일 경우
 if __name__ == "__main__":
-	# Example_010.Example_010(sys.argv)
+	Example_010.Example_010(sys.argv)
 	# Example_042.Example_042(sys.argv)
-	Example_054.Example_054(sys.argv)
+	# Example_054.Example_054(sys.argv)
 	
