@@ -14,11 +14,11 @@ namespace E070 {
 	//! 값을 초기화한다
 	void InitVals(int *a_pnVals, int a_nSize);
 	
-	//! 값을 교환한다
-	int GetSumVal(int *a_pnVals, int a_nSize);
-	
 	//! 값을 출력한다
 	void PrintVals(int *a_pnVals, int a_nSize);
+	
+	//! 값을 교환한다
+	int GetSumVal(int *a_pnVals, int a_nSize);
 	
 	//! Example 70
 	void Example_070(const int argc, const char **args);

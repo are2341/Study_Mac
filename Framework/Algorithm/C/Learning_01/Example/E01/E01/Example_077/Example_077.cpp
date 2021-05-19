@@ -15,6 +15,15 @@ namespace E077 {
 		}
 	}
 	
+	//! 값을 출력한다
+	void PrintVals(int *a_pnVals, int a_nSize) {
+		for(int i = 0; i < a_nSize; ++i) {
+			printf("%d, ", a_pnVals[i]);
+		}
+		
+		printf("\n");
+	}
+	
 	//! 최대 값을 교환한다
 	int GetMaxVal(int *a_pnVals, int a_nSize) {
 		int nMaxVal = a_pnVals[0];
@@ -24,15 +33,6 @@ namespace E077 {
 		}
 		
 		return nMaxVal;
-	}
-	
-	//! 값을 출력한다
-	void PrintVals(int *a_pnVals, int a_nSize) {
-		for(int i = 0; i < a_nSize; ++i) {
-			printf("%d, ", a_pnVals[i]);
-		}
-		
-		printf("\n");
 	}
 	
 	//! Example 77

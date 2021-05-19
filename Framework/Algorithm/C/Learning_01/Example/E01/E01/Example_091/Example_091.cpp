@@ -1,13 +1,13 @@
 //
-//  Example_070.cpp
+//  Example_091.cpp
 //  E01
 //
-//  Created by 이상동 on 2021/05/18.
+//  Created by 이상동 on 2021/05/19.
 //
 
-#include "Example_070.hpp"
+#include "Example_091.hpp"
 
-namespace E070 {
+namespace E091 {
 	//! 값을 초기화한다
 	void InitVals(int *a_pnVals, int a_nSize) {
 		for(int i = 0; i < a_nSize; ++i) {
@@ -24,19 +24,20 @@ namespace E070 {
 		printf("\n");
 	}
 	
-	//! 값을 교환한다
-	int GetSumVal(int *a_pnVals, int a_nSize) {
-		int nSumVal = 0;
-		
+	//! 값을 탐색한다
+	int FindVal(int *a_pnVals, int a_nSize, int a_nTarget) {
 		for(int i = 0; i < a_nSize; ++i) {
-			nSumVal += a_pnVals[i];
+			// 값이 존재 할 경우
+			if(a_pnVals[i] == a_nTarget) {
+				return i;
+			}
 		}
 		
-		return nSumVal;
+		return -1;
 	}
 	
-	//! Example 70
-	void Example_070(const int argc, const char **args) {
+	//! Example 91
+	void Example_091(const int argc, const char **args) {
 		int anVals[5] = { 0 };
 		const int nSize = sizeof(anVals) / sizeof(anVals[0]);
 		
@@ -45,6 +46,11 @@ namespace E070 {
 		printf("===== 배열 요소 =====\n");
 		PrintVals(anVals, nSize);
 		
-		printf("\n합계 : %d\n", GetSumVal(anVals, nSize));
+		int nVal = 0;
+		
+		printf("\n정수 입력 : ");
+		scanf("%d", &nVal);
+		
+		printf("탐색 결과 : %d\n", FindVal(anVals, nSize, nVal));
 	}
 }
