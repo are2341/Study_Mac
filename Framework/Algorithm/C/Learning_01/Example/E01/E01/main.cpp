@@ -14,6 +14,7 @@
 #include "Example_102/Example_102.hpp"
 #include "Example_118/Example_118.hpp"
 #include "Example_142/Example_142.hpp"
+#include "Example_158/Example_158.hpp"
 
 /*
  C 알고리즘 예제 프로젝트 리스트
@@ -21,6 +22,7 @@
  - E01 (처음 만나는 알고리즘)
  - E02 (뇌를 자극하는 알고리즘)
  - E03 (C 언어로 배우는 알고리즘 입문)
+ - E04 (알고리즘과 함께 하는 C 의 아름다움)
  */
 //! 메인 함수
 int main(const int argc, const char **args) {
@@ -34,7 +36,8 @@ int main(const int argc, const char **args) {
 //	E091::Example_091(argc, args);
 //	E102::Example_102(argc, args);
 //	E118::Example_118(argc, args);
-	E142::Example_142(argc, args);
+//	E142::Example_142(argc, args);
+	E158::Example_158(argc, args);
 	
 	return 0;
 }

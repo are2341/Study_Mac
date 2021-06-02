@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE3B4D132666954A00F37587 /* Example_158.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3B4D112666954A00F37587 /* Example_158.cpp */; };
 		FE667BE12654B134008D85CC /* Example_091.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE667BDF2654B134008D85CC /* Example_091.cpp */; };
 		FE667BE52654B337008D85CC /* Example_102.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE667BE32654B336008D85CC /* Example_102.cpp */; };
 		FE667BE92654B4B1008D85CC /* Example_118.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE667BE72654B4B1008D85CC /* Example_118.cpp */; };
@@ -32,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FE3B4D112666954A00F37587 /* Example_158.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_158.cpp; sourceTree = "<group>"; };
+		FE3B4D122666954A00F37587 /* Example_158.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_158.hpp; sourceTree = "<group>"; };
 		FE667BDF2654B134008D85CC /* Example_091.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_091.cpp; sourceTree = "<group>"; };
 		FE667BE02654B134008D85CC /* Example_091.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_091.hpp; sourceTree = "<group>"; };
 		FE667BE32654B336008D85CC /* Example_102.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_102.cpp; sourceTree = "<group>"; };
@@ -66,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE3B4D102666953F00F37587 /* Example_158 */ = {
+			isa = PBXGroup;
+			children = (
+				FE3B4D112666954A00F37587 /* Example_158.cpp */,
+				FE3B4D122666954A00F37587 /* Example_158.hpp */,
+			);
+			path = Example_158;
+			sourceTree = "<group>";
+		};
 		FE667BDE2654B12E008D85CC /* Example_091 */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +169,7 @@
 		FE86C7732623586D009FA81F /* E01 */ = {
 			isa = PBXGroup;
 			children = (
+				FE3B4D102666953F00F37587 /* Example_158 */,
 				FE667BEA2654BF17008D85CC /* Example_142 */,
 				FE667BE62654B4AA008D85CC /* Example_118 */,
 				FE667BE22654B331008D85CC /* Example_102 */,
@@ -255,6 +268,7 @@
 			files = (
 				FE6DAC17265393A100C2E3B3 /* Example_067.cpp in Sources */,
 				FE6DAC1F265396F000C2E3B3 /* Example_077.cpp in Sources */,
+				FE3B4D132666954A00F37587 /* Example_158.cpp in Sources */,
 				FEA7245526235A99001BC464 /* Example_058.cpp in Sources */,
 				FE667BE92654B4B1008D85CC /* Example_118.cpp in Sources */,
 				FE6DAC1B265394AE00C2E3B3 /* Example_070.cpp in Sources */,

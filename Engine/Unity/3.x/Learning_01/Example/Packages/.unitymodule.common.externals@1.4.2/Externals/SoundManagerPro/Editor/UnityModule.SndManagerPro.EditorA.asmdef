@@ -1,0 +1,19 @@
+{
+    "name": "UnityModule.SndManagerPro.EditorA",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7400a08b05518448aa67ea7cd77d2cc3",
+        "GUID:b32cf1cbd1bd54285a284fd51a2e8a73"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
