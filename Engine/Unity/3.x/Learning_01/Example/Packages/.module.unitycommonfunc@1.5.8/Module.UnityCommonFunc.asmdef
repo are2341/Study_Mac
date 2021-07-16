@@ -1,0 +1,22 @@
+{
+    "name": "Module.UnityCommonFunc",
+    "rootNamespace": "",
+    "references": [
+        "Module.UnityCommonDefine",
+        "Module.UnityCommonAccess",
+        "Module.UnityCommonFactory",
+        "Module.UnityCommonExtension",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "MessagePack",
+        "MessagePack.Annotations"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

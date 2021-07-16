@@ -1,0 +1,25 @@
+{
+    "name": "Module.UnityCommonExtension",
+    "rootNamespace": "",
+    "references": [
+        "Module.UnityCommonDefine",
+        "Module.UnityCommonAccess",
+        "Module.UnityCommonFactory",
+        "Module.UnityCommonExternals",
+        "Unity.TextMeshPro",
+        "Google.Play.Review",
+        "DOTween.Modules",
+        "DOTweenPro.Scripts",
+        "MessagePack",
+        "MessagePack.Annotations"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

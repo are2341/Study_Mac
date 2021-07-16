@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
+    guid: 65804e3cc7dc14a7c9fd745530389845
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
+    guid: e43bf3b2c70c6417fab7adb1ac029f51
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
+    guid: 65dcdfd62119b4b3f859ac30dc53b470
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
+    guid: 0212ca3bd508b460fa6a3f16c91496a3
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
+    guid: ca475efe6ed0f45a9a9dde03d3675daa
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
+    guid: ecee5415981a94a91b238acb9eea0346
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity
+    guid: 31e0f086406ca42b6ab6e4e19e718525
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
+    guid: ddeb8d3c685914373a875a2a869c5595
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
+    guid: f40a268ac60c743c5a0ff6481784fca2
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/00.OverlayScene.unity
+    guid: d8d63b1d5a4ee4b4cb0ad6983a442bdf
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/01.LoadingScene.unity
+    guid: a7e19b4b23ddd4ef4b72f536b5d77393
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/02.TitleScene.unity
+    guid: 8e8b3e8c1de9b4b5ca2de57d27dc0cb7
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/03.GameScene.unity
+    guid: 95c75a97dc5f94a46bdd47465f487095
+  - enabled: 1
+    path: "Assets/02.UnityProject/Scenes/E01/===== \uC655\uCD08\uBCF4 \uB530\uB77C\uD558\uC5EC
+      \uAC8C\uC784 \uB9CC\uB4E4\uAE30 =====.unity"
+    guid: a78749570bc504b928231ef3b39b8fca
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/E01/E01Example_052.unity
+    guid: c11aeda2d836c494885061371b00ad9d
+  - enabled: 1
+    path: "Assets/02.UnityProject/Scenes/E02/===== \uC720\uB2C8\uD2F0 3D \uB85C \uBC30\uC6B0\uB294
+      \uC2E4\uC804 \uAC8C\uC784 \uAC1C\uBC1C =====.unity"
+    guid: 2d32da00869754ddf9a5a54053a4155b
+  m_configObjects:
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 129b56b56773b448ab783d5d626dcfdc, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ea885f00130ed42bd8e97fc7a5691ca5, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: ccf06599c2d6a4357b21704c18c16b5b, type: 2}

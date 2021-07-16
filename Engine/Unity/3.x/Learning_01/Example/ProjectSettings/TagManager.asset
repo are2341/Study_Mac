@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Obstacle
+  - UIsCamera
+  - MainLight
+  - SceneManager
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Underground
+    uniqueID: 10
+    locked: 0
+  - name: Background
+    uniqueID: 11
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 13
+    locked: 0
+  - name: Overground
+    uniqueID: 14
+    locked: 0
+  - name: Top
+    uniqueID: 15
+    locked: 0
+  - name: Topmost
+    uniqueID: 16
+    locked: 0
+  - name: Abs
+    uniqueID: 17
+    locked: 0
+  - name: UndergroundUIs
+    uniqueID: 18
+    locked: 0
+  - name: BackgroundUIs
+    uniqueID: 19
+    locked: 0
+  - name: DefaultUIs
+    uniqueID: 20
+    locked: 0
+  - name: ForegroundUIs
+    uniqueID: 21
+    locked: 0
+  - name: OvergroundUIs
+    uniqueID: 22
+    locked: 0
+  - name: TopUIs
+    uniqueID: 23
+    locked: 0
+  - name: TopmostUIs
+    uniqueID: 24
+    locked: 0
+  - name: AbsUIs
+    uniqueID: 25
+    locked: 0
