@@ -36,105 +36,105 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\IgnoreFormatter`1.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Utilities.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\CollectionFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\ILGeneratorExtensions.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackSerializer.Json.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackSerializer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\T4\PrimitiveFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\DateTimeConstants.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\T4\MessagePackReader.Integers.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\T4\ForceSizePrimitiveFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Helper.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\Sequence`1.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\ThreadsafeTypeKeyHashTable.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Safe.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\DateTimeFormatters.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\DynamicEnumResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\StaticCompositeResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Unsafe.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\RuntimeTypeHandleEqualityComparer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Safe64.Dirty.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\ExtensionHeader.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\BitOperations.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\TypelessObjectResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackCode.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\DynamicAssembly.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\ContractlessReflectionObjectResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\DynamicEnumAsStringResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Unity\Extension\UnsafeBlitFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\T4\ValueTupleFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\ReflectionExtensions.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\TypelessContractlessStandardResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\NativeDecimalResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackSecurity.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\StandardClassLibraryFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\EnumAsStringFormatter`1.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\ExpandoObjectFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Unsafe32.Dirty.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\TypelessFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\DynamicUnionResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\CompositeResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackWriter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\NilFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\DynamicGenericResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\GenericEnumFormatter`1.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\AttributeFormatterResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\SequencePool.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\CollectionHelpers`2.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\CodeGenHelpers.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\PrimitiveObjectResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\BufferWriter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\DynamicObjectResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\PrimitiveObjectFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\StandardResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\IMessagePackFormatter`1.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MonoProtection.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\BuiltinResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackSerializer.NonGeneric.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\SequenceReader.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\AsymmetricKeyHashTable.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\ByteArrayStringHashTable.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\NativeGuidResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Unity\Extension\UnityBlitResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\StringEncoding.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackReader.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\SafeBitConverter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\T4\UnsafeMemory.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Unity\Formatters.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Unity\MessagePackWindow.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\NullableFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\StreamPolyfillExtensions.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\AutomataDictionary.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Unsafe64.Dirty.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Nil.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackSerializerOptions.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\ExpressionUtility.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\CachingFormatterResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\T4\TupleFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\FarmHash.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.Safe32.Dirty.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\SequenceReaderExtensions.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\LZ4\LZ4Codec.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\GuidBits.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackCompression.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\ThisLibraryExtensionTypeCodes.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\UnsafeMemory.Low.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\DynamicObjectTypeFallbackFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\ExpandoObjectResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\IFormatterResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\UnsafeBinaryFormatters.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Internal\TinyJsonReader.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\DictionaryFormatter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackSerializationException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\HashCode.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Resolvers\NativeDateTimeResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Unity\UnityResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\ExtensionResult.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePackStreamReader.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\Formatters\MultiDimensionalArrayFormatter.cs" />
-     <None Include="Packages\.module.unitycommonexternals@1.5.8\Externals\MessagePack\MessagePack.asmdef" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\IgnoreFormatter`1.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Utilities.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\CollectionFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\ILGeneratorExtensions.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackSerializer.Json.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackSerializer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\T4\PrimitiveFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\DateTimeConstants.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\T4\MessagePackReader.Integers.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\T4\ForceSizePrimitiveFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Helper.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\Sequence`1.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\ThreadsafeTypeKeyHashTable.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Safe.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\DateTimeFormatters.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\DynamicEnumResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\StaticCompositeResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Unsafe.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\RuntimeTypeHandleEqualityComparer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Safe64.Dirty.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\ExtensionHeader.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\BitOperations.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\TypelessObjectResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackCode.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\DynamicAssembly.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\ContractlessReflectionObjectResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\DynamicEnumAsStringResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Unity\Extension\UnsafeBlitFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\T4\ValueTupleFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\ReflectionExtensions.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\TypelessContractlessStandardResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\NativeDecimalResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackSecurity.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\StandardClassLibraryFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\EnumAsStringFormatter`1.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\ExpandoObjectFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Unsafe32.Dirty.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\TypelessFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\DynamicUnionResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\CompositeResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackWriter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\NilFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\DynamicGenericResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\GenericEnumFormatter`1.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\AttributeFormatterResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\SequencePool.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\CollectionHelpers`2.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\CodeGenHelpers.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\PrimitiveObjectResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\BufferWriter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\DynamicObjectResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\PrimitiveObjectFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\StandardResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\IMessagePackFormatter`1.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MonoProtection.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\BuiltinResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackSerializer.NonGeneric.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\SequenceReader.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\AsymmetricKeyHashTable.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\ByteArrayStringHashTable.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\NativeGuidResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Unity\Extension\UnityBlitResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\StringEncoding.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackReader.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\SafeBitConverter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\T4\UnsafeMemory.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Unity\Formatters.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Unity\MessagePackWindow.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\NullableFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\StreamPolyfillExtensions.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\AutomataDictionary.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Unsafe64.Dirty.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Nil.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackSerializerOptions.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\ExpressionUtility.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\CachingFormatterResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\T4\TupleFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\FarmHash.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.Safe32.Dirty.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\SequenceReaderExtensions.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\LZ4\LZ4Codec.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\GuidBits.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackCompression.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\ThisLibraryExtensionTypeCodes.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\UnsafeMemory.Low.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\DynamicObjectTypeFallbackFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\ExpandoObjectResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\IFormatterResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\UnsafeBinaryFormatters.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Internal\TinyJsonReader.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\DictionaryFormatter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackSerializationException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\HashCode.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Resolvers\NativeDateTimeResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Unity\UnityResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\ExtensionResult.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePackStreamReader.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\Formatters\MultiDimensionalArrayFormatter.cs" />
+     <None Include="Packages\.module.unitycommonexternals@1.6.0\Externals\MessagePack\MessagePack.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -382,16 +382,16 @@
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

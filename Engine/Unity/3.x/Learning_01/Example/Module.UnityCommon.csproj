@@ -36,118 +36,118 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+InitScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+StartScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Define\T_KDefine+EngineType.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+ValTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Storage\T_CUserInfoStorage.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Base\T_CSubAlertPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\T_CEngine+Access.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Base\T_CSubToastPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+LateSetupScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubLateSetupSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+Log.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Scene\T_CEditorSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\StartScene\CStartSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubSetupSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Extension\T_Extension+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CFocusPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Storage\T_CAppInfoStorage.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Scene\T_CEditorSceneManager+Setup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Define\T_KEditorDefine+Abs.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+Abs.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+GameCenter.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+Type.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\GameScene\CGameSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CStorePopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Access\T_Access.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Access\T_AccessExtension.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\TitleScene\CTitleSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Factory\T_Factory.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Function\T_Func.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+IntroScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\PermissionScene\CPermissionSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Access\T_Access+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\T_CEngine+Setup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Table\T_CEpisodeInfoTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Build\T_CBuildProcessor.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Factory\T_Factory+Engine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Base\T_CMissionPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\InitScene\CInitSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\T_CEngine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CChangesAcquirePopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubInitSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Extension\T_Extension.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\T_CEngine+Factory.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Access\T_Access+Engine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Editor\CommonEditorScene\CCommonEditorSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubLevelEditorSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubLoadingSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Factory\T_Factory+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+LevelEditorScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+LoadingScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Table\T_CRewardInfoTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Define\T_KDefine+Engine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CFreeRewardPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\SampleScene\CSampleSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Base\T_CBaseInfo.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\FX\T_CLevelModeCorrector.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+PermissionScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Importer\T_CSubAssetImporter.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubGameSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\External\T_CMsgPackRegister.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\AgreeScene\CAgreeSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+SetupScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Factory\T_EditorFactory+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubTitleSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\SetupScene\CSetupSceneManager+Setup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+GameScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\LevelEditorScene\CLevelEditorSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Function\T_LogFunc.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\IntroScene\CIntroSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Editor\CommonEditorScene\CCommonEditorSceneManager+Setup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+AgreeScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Table\T_CLevelInfoTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CSettingsPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\SetupScene\CSetupSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Access\T_AccessExtension+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubOverlaySceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+OverlayScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubStartSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Function\T_Func+Engine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Base\T_CSubPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+SplashScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubPermissionSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Function\T_Func+Global.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubAgreeSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\OverlayScene\COverlaySceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CDailyMissionPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Access\T_AccessExtension+Engine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Editor\Factory\T_EditorFactory.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CDailyRewardPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubSplashSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Table\T_CSaleItemInfoTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CChangesPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Scene\T_CSubIntroSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Table\T_CMissionInfoTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\SplashScene\CSplashSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Extension\T_Extension+Engine.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CRewardPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+Enum.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Engine\Define\T_KDefine+EngineEnum.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Storage\T_CGameInfoStorage.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Popup\T_CTutorialPopup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\InitScene\CInitSceneManager+Setup.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+StrTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Table\T_CSaleProductInfoTable.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Scripts\Runtime\LateSetupScene\CLateSetupSceneManager.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Define\T_KDefine+TitleScene.cs" />
-     <Compile Include="Packages\.module.unitycommon@1.5.8\Templates\Scripts\Runtime\Function\T_LogFunc+Global.cs" />
-     <None Include="Packages\.module.unitycommon@1.5.8\Module.UnityCommon.asmdef" />
-     <None Include="Packages\.module.unitycommon@1.5.8\Templates\Datas\T_Privacy_Korean.txt" />
-     <None Include="Packages\.module.unitycommon@1.5.8\Templates\Tables\LevelInfo\T_LevelInfoTable.txt" />
-     <None Include="Packages\.module.unitycommon@1.5.8\Templates\Datas\T_Services_Korean.txt" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+InitScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+StartScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Define\T_KDefine+EngineType.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+ValTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Storage\T_CUserInfoStorage.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Base\T_CSubAlertPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\T_CEngine+Access.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Base\T_CSubToastPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+LateSetupScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubLateSetupSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+Log.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Scene\T_CEditorSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\StartScene\CStartSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubSetupSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Extension\T_Extension+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CFocusPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Storage\T_CAppInfoStorage.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Scene\T_CEditorSceneManager+Setup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Define\T_KEditorDefine+Abs.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+Abs.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+GameCenter.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+Type.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\GameScene\CGameSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CStorePopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Access\T_Access.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Access\T_AccessExtension.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\TitleScene\CTitleSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Factory\T_Factory.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Function\T_Func.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+IntroScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\PermissionScene\CPermissionSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Access\T_Access+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\T_CEngine+Setup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Table\T_CEpisodeInfoTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Build\T_CBuildProcessor.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Factory\T_Factory+Engine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Base\T_CMissionPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\InitScene\CInitSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\T_CEngine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CChangesAcquirePopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubInitSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Extension\T_Extension.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\T_CEngine+Factory.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Access\T_Access+Engine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Editor\CommonEditorScene\CCommonEditorSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubLevelEditorSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubLoadingSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Factory\T_Factory+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+LevelEditorScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+LoadingScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Table\T_CRewardInfoTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Define\T_KDefine+Engine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CFreeRewardPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\SampleScene\CSampleSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Base\T_CBaseInfo.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\FX\T_CLevelModeCorrector.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+PermissionScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Importer\T_CSubAssetImporter.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubGameSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\External\T_CMsgPackRegister.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\AgreeScene\CAgreeSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+SetupScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Factory\T_EditorFactory+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubTitleSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\SetupScene\CSetupSceneManager+Setup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+GameScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\LevelEditorScene\CLevelEditorSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Function\T_LogFunc.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\IntroScene\CIntroSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Editor\CommonEditorScene\CCommonEditorSceneManager+Setup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+AgreeScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Table\T_CLevelInfoTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CSettingsPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\SetupScene\CSetupSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Access\T_AccessExtension+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubOverlaySceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+OverlayScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubStartSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Function\T_Func+Engine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Base\T_CSubPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+SplashScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubPermissionSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Function\T_Func+Global.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubAgreeSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\OverlayScene\COverlaySceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CDailyMissionPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Access\T_AccessExtension+Engine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Editor\Factory\T_EditorFactory.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CDailyRewardPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubSplashSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Table\T_CSaleItemInfoTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CChangesPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Scene\T_CSubIntroSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Table\T_CMissionInfoTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\SplashScene\CSplashSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Extension\T_Extension+Engine.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CRewardPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+Enum.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Engine\Define\T_KDefine+EngineEnum.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Storage\T_CGameInfoStorage.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Popup\T_CTutorialPopup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\InitScene\CInitSceneManager+Setup.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+StrTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Table\T_CSaleProductInfoTable.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Scripts\Runtime\LateSetupScene\CLateSetupSceneManager.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Define\T_KDefine+TitleScene.cs" />
+     <Compile Include="Packages\.module.unitycommon@1.6.0\Templates\Scripts\Runtime\Function\T_LogFunc+Global.cs" />
+     <None Include="Packages\.module.unitycommon@1.6.0\Module.UnityCommon.asmdef" />
+     <None Include="Packages\.module.unitycommon@1.6.0\Templates\Datas\T_Privacy_Korean.txt" />
+     <None Include="Packages\.module.unitycommon@1.6.0\Templates\Tables\LevelInfo\T_LevelInfoTable.txt" />
+     <None Include="Packages\.module.unitycommon@1.6.0\Templates\Datas\T_Services_Korean.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -395,13 +395,13 @@
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
@@ -434,7 +434,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
@@ -446,7 +446,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenProEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>

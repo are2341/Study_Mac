@@ -36,20 +36,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample12_ReactiveProperty.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample06_ConvertToCoroutine.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample10_MainThreadDispatcher.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample11_Logger.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample08_DetectDoubleClick.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample04_ConvertFromUnityCallback.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample07_OrchestratIEnumerator.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample02_ObservableTriggers.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample03_GameObjectAsObservable.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample09_EventHandling.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample05_ConvertFromCoroutine.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample13_ToDoApp.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\Sample01_ObservableWWW.cs" />
-     <None Include="Packages\.module.unitycommonexternals@1.5.8\Plugins\UniRx\Examples\UniRx.Examples.asmdef" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample12_ReactiveProperty.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample06_ConvertToCoroutine.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample10_MainThreadDispatcher.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample11_Logger.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample08_DetectDoubleClick.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample04_ConvertFromUnityCallback.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample07_OrchestratIEnumerator.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample02_ObservableTriggers.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample03_GameObjectAsObservable.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample09_EventHandling.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample05_ConvertFromCoroutine.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample13_ToDoApp.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\Sample01_ObservableWWW.cs" />
+     <None Include="Packages\.module.unitycommonexternals@1.6.0\Plugins\UniRx\Examples\UniRx.Examples.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

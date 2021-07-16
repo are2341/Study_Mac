@@ -36,12 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommonfunc@1.5.8\Scripts\Runtime\Function\CFunc+Utility.cs" />
-     <Compile Include="Packages\.module.unitycommonfunc@1.5.8\Scripts\Runtime\Function\CFunc+Setup.cs" />
-     <Compile Include="Packages\.module.unitycommonfunc@1.5.8\Scripts\Editor\Function\CEditorFunc.cs" />
-     <Compile Include="Packages\.module.unitycommonfunc@1.5.8\Scripts\Runtime\Function\CFunc.cs" />
-     <Compile Include="Packages\.module.unitycommonfunc@1.5.8\Scripts\Editor\Function\CEditorFunc+Setup.cs" />
-     <None Include="Packages\.module.unitycommonfunc@1.5.8\Module.UnityCommonFunc.asmdef" />
+     <Compile Include="Packages\.module.unitycommonfunc@1.6.0\Scripts\Runtime\Function\CFunc+Utility.cs" />
+     <Compile Include="Packages\.module.unitycommonfunc@1.6.0\Scripts\Runtime\Function\CFunc+Setup.cs" />
+     <Compile Include="Packages\.module.unitycommonfunc@1.6.0\Scripts\Editor\Function\CEditorFunc.cs" />
+     <Compile Include="Packages\.module.unitycommonfunc@1.6.0\Scripts\Runtime\Function\CFunc.cs" />
+     <Compile Include="Packages\.module.unitycommonfunc@1.6.0\Scripts\Editor\Function\CEditorFunc+Setup.cs" />
+     <None Include="Packages\.module.unitycommonfunc@1.6.0\Module.UnityCommonFunc.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -289,13 +289,13 @@
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
@@ -328,7 +328,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
@@ -340,7 +340,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenProEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>

@@ -36,41 +36,41 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\ProfilerSample.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Styles.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Layer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Memory.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\LogEntry.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Disposables.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\IconList.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\MiniLabels\LayerMiniLabel.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\MiniLabels\MiniLabelProvider.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\RendererToggle.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Tag.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\EnhancedHierarchy.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Enumerations.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\HierarchyInfo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\IconBase.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Preferences.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\PrefItem.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Reflected.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Active.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\GameObjectIcon.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\After.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\None.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\MonoBehaviourIcon.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\ReflectionHelper.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\PreferencesGUI.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\IconData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\SoundIcon.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Utility.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Lock.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\PrefabApply.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Warnings.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\MiniLabels\SortingLayerMiniLabel.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\MiniLabels\TagMiniLabel.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\Icons\Static.cs" />
-     <None Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Enhanced Hierarchy\Editor\EnhancedHierarchy.asmdef" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\ProfilerSample.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Styles.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Layer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Memory.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\LogEntry.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Disposables.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\IconList.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\MiniLabels\LayerMiniLabel.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\MiniLabels\MiniLabelProvider.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\RendererToggle.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Tag.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\EnhancedHierarchy.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Enumerations.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\HierarchyInfo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\IconBase.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Preferences.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\PrefItem.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Reflected.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Active.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\GameObjectIcon.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\After.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\None.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\MonoBehaviourIcon.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\ReflectionHelper.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\PreferencesGUI.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\IconData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\SoundIcon.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Utility.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Lock.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\PrefabApply.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Warnings.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\MiniLabels\SortingLayerMiniLabel.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\MiniLabels\TagMiniLabel.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\Icons\Static.cs" />
+     <None Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Enhanced Hierarchy\Editor\EnhancedHierarchy.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -318,13 +318,13 @@
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
@@ -357,7 +357,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
@@ -369,7 +369,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.5.8/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenProEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>

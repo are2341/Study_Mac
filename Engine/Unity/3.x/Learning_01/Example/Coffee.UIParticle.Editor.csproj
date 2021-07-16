@@ -36,11 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\ImportSampleMenu.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\AnimatedPropertiesEditor.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\UIParticleMenu.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\UIParticleEditor.cs" />
-     <None Include="Packages\.module.unitycommonexternals@1.5.8\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\Coffee.UIParticle.Editor.asmdef" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\ImportSampleMenu.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\AnimatedPropertiesEditor.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\UIParticleMenu.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\UIParticleEditor.cs" />
+     <None Include="Packages\.module.unitycommonexternals@1.6.0\Externals\Coffee\UIExtensions\ParticleForUGUI\Scripts\Editor\Coffee.UIParticle.Editor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
