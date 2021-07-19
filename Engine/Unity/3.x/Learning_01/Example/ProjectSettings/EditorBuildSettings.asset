@@ -45,16 +45,8 @@ EditorBuildSettings:
     path: Assets/02.UnityProject/Scenes/03.GameScene.unity
     guid: 95c75a97dc5f94a46bdd47465f487095
   - enabled: 1
-    path: "Assets/02.UnityProject/Scenes/E01/===== \uC655\uCD08\uBCF4 \uB530\uB77C\uD558\uC5EC
-      \uAC8C\uC784 \uB9CC\uB4E4\uAE30 =====.unity"
-    guid: a78749570bc504b928231ef3b39b8fca
-  - enabled: 1
-    path: Assets/02.UnityProject/Scenes/E01/E01Example_052.unity
-    guid: c11aeda2d836c494885061371b00ad9d
-  - enabled: 1
-    path: "Assets/02.UnityProject/Scenes/E02/===== \uC720\uB2C8\uD2F0 3D \uB85C \uBC30\uC6B0\uB294
-      \uC2E4\uC804 \uAC8C\uC784 \uAC1C\uBC1C =====.unity"
-    guid: 2d32da00869754ddf9a5a54053a4155b
+    path: Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
+    guid: 1274496e7d15045e29d80257abff7274
   m_configObjects:
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 129b56b56773b448ab783d5d626dcfdc, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ea885f00130ed42bd8e97fc7a5691ca5, type: 2}

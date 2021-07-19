@@ -34,7 +34,8 @@ MonoBehaviour:
   - SHADOW_ENABLE
   - STUDY_MODULE_ENABLE
   m_oSubCommonDefineSymbolList: []
-  m_oStandaloneDefineSymbolList: []
+  m_oStandaloneDefineSymbolList:
+  - EDITOR_ENABLE
   m_oMacDefineSymbolList: []
   m_oWndsDefineSymbolList: []
   m_oiOSDefineSymbolList: []

@@ -158,14 +158,6 @@ public static partial class KDefine {
 
 	// 튜토리얼 팝업
 	public const string G_OBJ_N_TUTORIAL_POPUP = "TutorialPopup";
-
-	// 씬 이름 {
-	public const string G_SCENE_N_E01_EXAMPLE_052 = "E01Example_052";
-
-	public const string G_SCENE_N_E02_EXAMPLE_018 = "E02Example_018";
-	public const string G_SCENE_N_E02_EXAMPLE_078 = "E02Example_078";
-	public const string G_SCENE_N_E02_EXAMPLE_136 = "E02Example_136";
-	// 씬 이름 }
 	#endregion			// 기본
 
 	#region 런타임 상수

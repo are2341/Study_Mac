@@ -16,7 +16,7 @@
 //! 메인 함수
 int main(const int argc, const char **args) {
 //	[Example_019 start:argc withArgs:args];
-	[Example_027 start:args withArgs:args];
+	[Example_027 start:argc withArgs:args];
 	
 	return 0;
 }

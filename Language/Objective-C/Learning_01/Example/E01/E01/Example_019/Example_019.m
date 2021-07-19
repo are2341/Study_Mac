@@ -8,10 +8,8 @@
 #import "Example_019.h"
 
 @implementation Example_019
-
 //! 초기화
 + (void)start:(const int)argc withArgs:(const char **)args {
 	NSLog(@"Hello, World!");
 }
-
 @end			// Example_019
