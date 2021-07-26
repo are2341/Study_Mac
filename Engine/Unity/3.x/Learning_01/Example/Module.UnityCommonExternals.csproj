@@ -539,9 +539,6 @@
     <Reference Include="ICSharpCode.SharpZipLib">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="DemiEditor">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
@@ -551,17 +548,8 @@
     <Reference Include="log4netPlastic">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenPro">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="DemiLib">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -572,9 +560,6 @@
     <Reference Include="System.Memory">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="DOTweenEditor">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
@@ -583,9 +568,6 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenProEditor">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
