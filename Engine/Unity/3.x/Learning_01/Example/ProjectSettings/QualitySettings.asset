@@ -220,7 +220,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 1d5380ba0073a4bb29ad53dd80f41605, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 1ce4b59e9ed4f425fa1dc8dcb29c533a, type: 2}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2

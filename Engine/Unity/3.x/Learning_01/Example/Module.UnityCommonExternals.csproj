@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2021_1_15;UNITY_2021_1;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_QUICK_SEARCH_MODULE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;DOTWEEN_ENABLE;GOOGLE_REVIEW_ENABLE;GOOGLE_UPDATE_ENABLE;SECURITY_ENABLE;DYNAMIC_BATCHING_ENABLE;VISUAL_FX_GRAPH_MODULE_ENABLE;UNIVERSAL_PIPELINE_MODULE_ENABLE;HAPTIC_FEEDBACK_ENABLE;LIGHTMAP_BAKE_ENABLE;LIGHTMAP_AUTO_BAKE_ENABLE;LIGHTMAP_SHADOW_BAKE_ENABLE;LZ4_COMPRESS_ENABLE;INPUT_SYSTEM_MODULE_ENABLE;ADDRESSABLES_ENABLE;BURST_COMPILER_ENABLE;ADAPTIVE_PERFORMANCE_ENABLE;MSG_PACK_ENABLE;LIGHT_ENABLE;SHADOW_ENABLE;STUDY_MODULE_ENABLE;EDITOR_ENABLE;SOFT_SHADOW_ENABLE;LIGHTMAP_SHADOW_BAKE_MASK_MODE_ENABLE;ULTRA_QUALITY_LEVEL_ENABLE;ENABLE_IL2CPP;USE_AUTO_CREATE;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2021_1_15;UNITY_2021_1;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_QUICK_SEARCH_MODULE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;DOTWEEN_ENABLE;GOOGLE_REVIEW_ENABLE;GOOGLE_UPDATE_ENABLE;SECURITY_ENABLE;DYNAMIC_BATCHING_ENABLE;VISUAL_FX_GRAPH_MODULE_ENABLE;UNIVERSAL_PIPELINE_MODULE_ENABLE;HAPTIC_FEEDBACK_ENABLE;LIGHTMAP_BAKE_ENABLE;LIGHTMAP_AUTO_BAKE_ENABLE;LIGHTMAP_SHADOW_BAKE_ENABLE;LZ4_COMPRESS_ENABLE;INPUT_SYSTEM_MODULE_ENABLE;ADDRESSABLES_ENABLE;BURST_COMPILER_ENABLE;ADAPTIVE_PERFORMANCE_ENABLE;MSG_PACK_ENABLE;STUDY_MODULE_ENABLE;LIGHT_ENABLE;SHADOW_ENABLE;EDITOR_ENABLE;SOFT_SHADOW_ENABLE;LIGHTMAP_SHADOW_BAKE_MASK_MODE_ENABLE;ULTRA_QUALITY_LEVEL_ENABLE;ENABLE_IL2CPP;USE_AUTO_CREATE;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -36,254 +36,254 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\Common\Helper\Transforms\TransformRotate.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\11 Pull Down Refresh\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\SFXGroup.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Examples\SaveAndLoadFile.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\Packer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIHsvModifier.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Scripts\DictionaryObjectPool.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SignInWithApple\Samples\Scripts\SignInWithAppleTest_EventSystem.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIShiny.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JBoolean.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ToneMode.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Demo\DemoScripts\ScriptWithEvents.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14 Key Control\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Simple Scroll-Snap\Examples\Example 3 (Slot Machine)\Scripts\SlotMachine.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14 Key Control\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Variables_SFX.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellViewHeader.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Demo\Scripts\PoolObject.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\DetailData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JString.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_SFX_Internal.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\EffectPlayer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\16 Chat\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIEffectCapturedImage.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\LINQtoGameObject\Scripts\GameObjectExtensions.Traverse.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\AudioSubscription.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\Singleton.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\Main Menu\ReturnToMainMenu.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Internal\JSONRuntimeDebugContainer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Examples\CreateAndModifyJSON.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\EffectArea.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SignInWithApple\API\SignInWithApple.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\06 Snapping\SlotController.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\SimpleSceneSwitcher.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Scripts\ObjectPoolTargets.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JValueTypeException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\15 Expanding Cells\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\06 Snapping\SlotData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JValueNullException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\13 Pagination\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIShadow.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\06 Snapping\SlotCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JArgumentNullException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\09 Cell Events\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\ParseException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIDissolve.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Scripts\Events\IDespawnEvent.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\ProtectedException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\CFXBase.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Simple Scroll-Snap\Scripts\Runtime\SimpleScrollSnap.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Plugins\Tween.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\13 Pagination\LoadingCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JNumber.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Settings\ParseStringSettings.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\Main Menu\MainMenu.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\DetailCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Attributes\IncludeToJSONSerializeAttribute.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ShadowStyle.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14 Key Control\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Examples\ExampleSerializeObjects\ExamplePlayerItemObject.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\06 Snapping\SnappingDemo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\HeavyRenderingController.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\MaterialResolver.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\09 Cell Events\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\11 Pull Down Refresh\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\06 Snapping\PlayWin.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Simple Scroll-Snap\Examples\Example 1 (macOS Finder)\Scripts\FileSelected.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10b Grid Selection\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JNull.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Plugins\EnhancedScrollerCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JValue.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Scripts\ObjectPool.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\DetailData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SmartTimersManager\ScriptExamples\RedLightFlicker.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Extensions\AudioSourceTools.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\CSVParser\CSVParser.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Extensions\SoundManagerTools.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JArgumentException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\05 Remote Resources\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\04 Jump To Demo\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\Pixelplacement\iTween\iTween.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JNumberOverflowException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Plugins\IEnhancedScrollerDelegate.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ParameterTexture.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JSONKeyNotFoundException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Simple Scroll-Snap\Examples\Example 5 (Dynamic Content)\Scripts\DynamicContentController.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\UIEffectBase.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Variables_Music.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Internal\CreateStringRunner.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Internal\StringPointer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\07 Refreshing\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10b Grid Selection\RowCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\MultipleCellTypesDemo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\MasterCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\BlurMode.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\LINQtoGameObject\Scripts\GameObjectExtensions.Operate.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\09 Cell Events\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\07 Refreshing\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\13 Pagination\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\UnknownObjectTypeException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\03 Selection Demo\InventoryCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\01 Simple Demo\SimpleDemo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JArrayIndexOutOfRangeException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\Common\Helper\Reflection\CustomAttributes.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Demo\DemoScripts\DemoPart3.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\04 Jump To Demo\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10b Grid Selection\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_SFX.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\ScrollRectEx.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Demo\Scripts\ObjectHandler.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Plugins\EnhancedScroller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Internal\InternalTools.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SignInWithApple\Samples\Scripts\SignInWithAppleTest_Callbacks.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Attributes\ExcludeFromJSONSerializeAttribute.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\LINQtoGameObject\Scripts\GameObjectExtensions.Enumerable.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Scripts\Events\ISpawnEvent.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\07 Refreshing\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\13 Pagination\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Examples\SerializeAndDeserialize.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIGradient.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\BaseMeshEffect.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\DeserializeException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Demo\Scripts\Benchmark.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Simple Scroll-Snap\Examples\Example 6 (3D Shape Selection)\Scripts\Rotator.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Settings\CreateStringSettings.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\05 Remote Resources\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\08 View Driven Cell Sizes\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\MaterialCache.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JSON.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Scripts\ScriptableObjectObjectPool.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\MasterCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JSONKeyAlreadyExistsException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\LINQtoGameObject\Examples\SampleSceneScript.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SmartTimersManager\TimerManager\Timer.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\Pixelplacement\iTween\Sample\RotateSample.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Simple Scroll-Snap\Examples\Shared Resources\Scripts\ExpandInformation.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SmartTimersManager\TimerManager\GUI_TimersList.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\Pixelplacement\iTween\Sample\SampleInfo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\RowCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\ScrollRectEx.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\Common\Helper\GUI\ColorHelper.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Editor.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\MasterData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\SFXPoolInfo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Settings\SerializeSettings.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\LiteFPSCounter\Scripts\LiteFPSCounter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\05 Remote Resources\ImageList.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\Matrix2x3.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\03 Selection Demo\InventoryData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Plugins\SmallList.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\15 Expanding Cells\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\JNumberFormatException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Examples\ParseAndHandleJSON.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\ProxyEventAttribute.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UITransitionEffect.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\MasterData.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\01 Simple Demo\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ColorMode.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIEffect.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10b Grid Selection\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\AudioSourcePro.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\03 Selection Demo\SelectionDemo.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\DetailCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SmartTimersManager\ScriptExamples\BlueLightFlicker.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellViewFooter.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Demo\DemoScripts\DemoPart2.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Settings\DeserializeSettings.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\ThaiFontAdjuster\ThaiFontAdjuster\ThaiFontAdjuster.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\04 Jump To Demo\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Internal.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\15 Expanding Cells\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\05 Remote Resources\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Internal\ParseStringRunner.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\08 View Driven Cell Sizes\Controller.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\JArray.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Demo\Scripts\ScriptableobjectObjectPoolTest.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\01 Simple Demo\Data.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\16 Chat\Chat.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\SoundPocket.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Demo\DemoScripts\DemoPart1.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\16 Chat\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Examples\ExampleSerializeObjects\ExamplePlayerObject.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SimpleJSON\SimpleJSON.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\RowCellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Essentials.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SoundManagerPro\Scripts\Classes\SoundConnection.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\08 View Driven Cell Sizes\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\Scripts\Exceptions\SerializeException.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellViewRow.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\SmartTimersManager\TimerManager\TimersManager.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Demos\11 Pull Down Refresh\CellView.cs" />
-     <Compile Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIFlip.cs" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\upgrading from 1.x to 2.x.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Shiny.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\ChangeLog.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Shaders\SoftMask.cginc" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UITransition).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Dissolve.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\OmniSARTechnologies\LiteFPSCounter\Demo\Shaders\HeavyRenderingTest.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\UniRx\ReadMe.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\Tutorials\readme.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\AdvanceObjectpool\Demo\This Folder can safely be deleted as it only contains scenes and files related to the scenes!.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIDissolve).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Samples\TextMeshPro Support\Resources\TMP_SDF (SoftMaskable).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect.cginc" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Samples\TextMeshPro Support\Resources\TMP_Sprite (SoftMaskable).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIDissolve).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Transition.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIShiny).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIEffect).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\LINQtoGameObject\README.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\UI-Effect-TMPro.cginc" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Samples\TextMeshPro Support\Resources\TMP_SDF-Mobile (SoftMaskable).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIHsvModifier).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIHsvModifier).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\TotalJSON\ReadMe.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Shaders\Resources\UI-Default-SoftMaskable.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIDissolve).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIShiny).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Shaders\Resources\SoftMask.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIShiny).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-EffectCapture.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UITransition).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Module.UnityCommonExternals.asmdef" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UITransition).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIHsvModifier).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\AssetUsageDetector\README.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Plugins\TextToTMP\README.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\ParticleForUGUI\Shaders\UIAdditive.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Sprite.cginc" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIEffect).shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\EnhancedScroller v2\readme.txt" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-HSV.shader" />
-     <None Include="Packages\.module.unitycommonexternals@1.6.1\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIEffect).shader" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\Common\Helper\Transforms\TransformRotate.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\11 Pull Down Refresh\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\SFXGroup.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Examples\SaveAndLoadFile.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\Packer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIHsvModifier.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Scripts\DictionaryObjectPool.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SignInWithApple\Samples\Scripts\SignInWithAppleTest_EventSystem.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIShiny.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JBoolean.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ToneMode.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Demo\DemoScripts\ScriptWithEvents.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14 Key Control\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Simple Scroll-Snap\Examples\Example 3 (Slot Machine)\Scripts\SlotMachine.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14 Key Control\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Variables_SFX.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellViewHeader.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Demo\Scripts\PoolObject.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\DetailData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JString.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_SFX_Internal.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\EffectPlayer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\16 Chat\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIEffectCapturedImage.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\LINQtoGameObject\Scripts\GameObjectExtensions.Traverse.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\AudioSubscription.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\Singleton.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\Main Menu\ReturnToMainMenu.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Internal\JSONRuntimeDebugContainer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Examples\CreateAndModifyJSON.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\EffectArea.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SignInWithApple\API\SignInWithApple.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\06 Snapping\SlotController.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\SimpleSceneSwitcher.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Scripts\ObjectPoolTargets.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JValueTypeException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\15 Expanding Cells\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\06 Snapping\SlotData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JValueNullException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\13 Pagination\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIShadow.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\06 Snapping\SlotCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JArgumentNullException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\09 Cell Events\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\ParseException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIDissolve.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Scripts\Events\IDespawnEvent.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\ProtectedException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\CFXBase.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Simple Scroll-Snap\Scripts\Runtime\SimpleScrollSnap.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Plugins\Tween.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\13 Pagination\LoadingCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JNumber.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Settings\ParseStringSettings.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\Main Menu\MainMenu.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\DetailCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Attributes\IncludeToJSONSerializeAttribute.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ShadowStyle.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14 Key Control\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Examples\ExampleSerializeObjects\ExamplePlayerItemObject.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\06 Snapping\SnappingDemo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\LiteFPSCounter\Demo\Scripts\HeavyRenderingController.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\MaterialResolver.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\09 Cell Events\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\11 Pull Down Refresh\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\06 Snapping\PlayWin.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Simple Scroll-Snap\Examples\Example 1 (macOS Finder)\Scripts\FileSelected.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10b Grid Selection\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JNull.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Plugins\EnhancedScrollerCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JValue.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Scripts\ObjectPool.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\DetailData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SmartTimersManager\ScriptExamples\RedLightFlicker.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Extensions\AudioSourceTools.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\CSVParser\CSVParser.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Extensions\SoundManagerTools.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JArgumentException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\05 Remote Resources\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\04 Jump To Demo\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\Pixelplacement\iTween\iTween.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JNumberOverflowException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Plugins\IEnhancedScrollerDelegate.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ParameterTexture.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JSONKeyNotFoundException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Simple Scroll-Snap\Examples\Example 5 (Dynamic Content)\Scripts\DynamicContentController.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\UIEffectBase.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Variables_Music.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Internal\CreateStringRunner.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Internal\StringPointer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\07 Refreshing\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10b Grid Selection\RowCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\MultipleCellTypesDemo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\MasterCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\BlurMode.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\LINQtoGameObject\Scripts\GameObjectExtensions.Operate.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\09 Cell Events\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\07 Refreshing\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\13 Pagination\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\UnknownObjectTypeException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\03 Selection Demo\InventoryCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\01 Simple Demo\SimpleDemo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JArrayIndexOutOfRangeException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\Common\Helper\Reflection\CustomAttributes.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Demo\DemoScripts\DemoPart3.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\04 Jump To Demo\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10b Grid Selection\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_SFX.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\ScrollRectEx.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Demo\Scripts\ObjectHandler.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Plugins\EnhancedScroller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Internal\InternalTools.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SignInWithApple\Samples\Scripts\SignInWithAppleTest_Callbacks.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Attributes\ExcludeFromJSONSerializeAttribute.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\LINQtoGameObject\Scripts\GameObjectExtensions.Enumerable.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Scripts\Events\ISpawnEvent.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\07 Refreshing\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\13 Pagination\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Examples\SerializeAndDeserialize.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIGradient.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\BaseMeshEffect.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\DeserializeException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Demo\Scripts\Benchmark.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Simple Scroll-Snap\Examples\Example 6 (3D Shape Selection)\Scripts\Rotator.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Settings\CreateStringSettings.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\05 Remote Resources\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\08 View Driven Cell Sizes\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\MaterialCache.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JSON.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Scripts\ScriptableObjectObjectPool.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\MasterCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JSONKeyAlreadyExistsException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\LINQtoGameObject\Examples\SampleSceneScript.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SmartTimersManager\TimerManager\Timer.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\Pixelplacement\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Simple Scroll-Snap\Examples\Shared Resources\Scripts\ExpandInformation.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SmartTimersManager\TimerManager\GUI_TimersList.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\Pixelplacement\iTween\Sample\SampleInfo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\14b Key Control Grid\RowCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\ScrollRectEx.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\Common\Helper\GUI\ColorHelper.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Editor.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12 Nested Scrollers\MasterData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\SFXPoolInfo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Settings\SerializeSettings.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\LiteFPSCounter\Scripts\LiteFPSCounter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\05 Remote Resources\ImageList.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\Matrix2x3.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\03 Selection Demo\InventoryData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Plugins\SmallList.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\15 Expanding Cells\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\JNumberFormatException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Examples\ParseAndHandleJSON.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\ProxyEventAttribute.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UITransitionEffect.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\MasterData.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\01 Simple Demo\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\Common\ColorMode.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIEffect.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10b Grid Selection\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\AudioSourcePro.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\03 Selection Demo\SelectionDemo.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\12b Nested Linked Scrollers (Alternate Grid)\DetailCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SmartTimersManager\ScriptExamples\BlueLightFlicker.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellViewFooter.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Demo\DemoScripts\DemoPart2.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Settings\DeserializeSettings.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\ThaiFontAdjuster\ThaiFontAdjuster\ThaiFontAdjuster.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\04 Jump To Demo\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Internal.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\15 Expanding Cells\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\05 Remote Resources\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Internal\ParseStringRunner.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\08 View Driven Cell Sizes\Controller.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\JArray.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Demo\Scripts\ScriptableobjectObjectPoolTest.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\01 Simple Demo\Data.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\16 Chat\Chat.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\SoundPocket.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Demo\DemoScripts\DemoPart1.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\16 Chat\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Examples\ExampleSerializeObjects\ExamplePlayerObject.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SimpleJSON\SimpleJSON.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\10 Grid Simulation\RowCellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Managers\SoundManager_Essentials.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SoundManagerPro\Scripts\Classes\SoundConnection.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\08 View Driven Cell Sizes\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\Scripts\Exceptions\SerializeException.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\02 Multiple Cell Types\CellViewRow.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\SmartTimersManager\TimerManager\TimersManager.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Demos\11 Pull Down Refresh\CellView.cs" />
+     <Compile Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Scripts\UIFlip.cs" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\upgrading from 1.x to 2.x.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Shiny.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\ChangeLog.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Shaders\SoftMask.cginc" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UITransition).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Dissolve.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\OmniSARTechnologies\LiteFPSCounter\Demo\Shaders\HeavyRenderingTest.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\UniRx\ReadMe.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\Tutorials\readme.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\AdvanceObjectpool\Demo\This Folder can safely be deleted as it only contains scenes and files related to the scenes!.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIDissolve).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Samples\TextMeshPro Support\Resources\TMP_SDF (SoftMaskable).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect.cginc" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Samples\TextMeshPro Support\Resources\TMP_Sprite (SoftMaskable).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIDissolve).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Transition.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIShiny).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIEffect).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\LINQtoGameObject\README.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\UI-Effect-TMPro.cginc" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Samples\TextMeshPro Support\Resources\TMP_SDF-Mobile (SoftMaskable).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIHsvModifier).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIHsvModifier).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\TotalJSON\ReadMe.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Shaders\Resources\UI-Default-SoftMaskable.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIDissolve).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIShiny).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\SoftMaskForUGUI\Shaders\Resources\SoftMask.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIShiny).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-EffectCapture.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UITransition).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Module.UnityCommonExternals.asmdef" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UITransition).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIHsvModifier).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\AssetUsageDetector\README.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Plugins\TextToTMP\README.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\ParticleForUGUI\Shaders\UIAdditive.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Sprite.cginc" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIEffect).shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\EnhancedScroller v2\readme.txt" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-HSV.shader" />
+     <None Include="Packages\.module.unitycommonexternals@1.7.0\Externals\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIEffect).shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -531,13 +531,19 @@
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
@@ -548,8 +554,23 @@
     <Reference Include="log4netPlastic">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -557,8 +578,14 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.Unsafe.dll</HintPath>
@@ -567,7 +594,10 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
@@ -575,8 +605,14 @@
     <Reference Include="Unity.Burst.Cecil.Rocks">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.Utilities">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>

@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2021_1_15;UNITY_2021_1;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_QUICK_SEARCH_MODULE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;DOTWEEN_ENABLE;GOOGLE_REVIEW_ENABLE;GOOGLE_UPDATE_ENABLE;SECURITY_ENABLE;DYNAMIC_BATCHING_ENABLE;VISUAL_FX_GRAPH_MODULE_ENABLE;UNIVERSAL_PIPELINE_MODULE_ENABLE;HAPTIC_FEEDBACK_ENABLE;LIGHTMAP_BAKE_ENABLE;LIGHTMAP_AUTO_BAKE_ENABLE;LIGHTMAP_SHADOW_BAKE_ENABLE;LZ4_COMPRESS_ENABLE;INPUT_SYSTEM_MODULE_ENABLE;ADDRESSABLES_ENABLE;BURST_COMPILER_ENABLE;ADAPTIVE_PERFORMANCE_ENABLE;MSG_PACK_ENABLE;LIGHT_ENABLE;SHADOW_ENABLE;STUDY_MODULE_ENABLE;EDITOR_ENABLE;SOFT_SHADOW_ENABLE;LIGHTMAP_SHADOW_BAKE_MASK_MODE_ENABLE;ULTRA_QUALITY_LEVEL_ENABLE;ENABLE_IL2CPP;USE_AUTO_CREATE;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2021_1_15;UNITY_2021_1;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_QUICK_SEARCH_MODULE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;DOTWEEN_ENABLE;GOOGLE_REVIEW_ENABLE;GOOGLE_UPDATE_ENABLE;SECURITY_ENABLE;DYNAMIC_BATCHING_ENABLE;VISUAL_FX_GRAPH_MODULE_ENABLE;UNIVERSAL_PIPELINE_MODULE_ENABLE;HAPTIC_FEEDBACK_ENABLE;LIGHTMAP_BAKE_ENABLE;LIGHTMAP_AUTO_BAKE_ENABLE;LIGHTMAP_SHADOW_BAKE_ENABLE;LZ4_COMPRESS_ENABLE;INPUT_SYSTEM_MODULE_ENABLE;ADDRESSABLES_ENABLE;BURST_COMPILER_ENABLE;ADAPTIVE_PERFORMANCE_ENABLE;MSG_PACK_ENABLE;STUDY_MODULE_ENABLE;LIGHT_ENABLE;SHADOW_ENABLE;EDITOR_ENABLE;SOFT_SHADOW_ENABLE;LIGHTMAP_SHADOW_BAKE_MASK_MODE_ENABLE;ULTRA_QUALITY_LEVEL_ENABLE;ENABLE_IL2CPP;USE_AUTO_CREATE;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -42,8 +42,8 @@
      <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
      <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
      <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeAudio.cs" />
-     <None Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.Scripts.asmdef" />
      <None Include="Assets\Plugins\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -291,16 +291,19 @@
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Buffers.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
@@ -311,6 +314,9 @@
     <Reference Include="log4netPlastic">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+    </Reference>
     <Reference Include="DOTween">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
@@ -319,6 +325,9 @@
     </Reference>
     <Reference Include="DOTweenPro">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
@@ -329,8 +338,11 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Memory.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
@@ -342,7 +354,7 @@
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.6.1/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenProEditor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
@@ -353,8 +365,14 @@
     <Reference Include="Unity.Burst.Cecil.Rocks">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.Utilities">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>

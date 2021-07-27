@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2021_1_15;UNITY_2021_1;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_QUICK_SEARCH_MODULE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2021_1_15;UNITY_2021_1;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_QUICK_SEARCH_MODULE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -285,14 +285,29 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>/Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="System.Memory">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Externals/SimpleJSON/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Packages/.module.unitycommonexternals@1.7.0/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
@@ -323,6 +338,21 @@
     </Reference>
     <Reference Include="DOTweenPro">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.burst@1.5.4/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -699,9 +729,6 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
@@ -732,17 +759,264 @@
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    <Reference Include="Unity.Mathematics.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Base">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Polybrush.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Polybrush">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.Fbx">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Autodesk.Fbx.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.Fbx.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Autodesk.Fbx.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Formats.Fbx.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Runtime">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.Formats.Fbx.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Path.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+        <HintPath>/Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{bbb69b32-eecb-f007-9bad-0a799d932e51}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.Editor.csproj">
+      <Project>{796a35e1-30f5-1e75-867c-5fa13f2d8964}</Project>
+      <Name>Coffee.SoftMaskForUGUI.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnitySimpleScrollSnap.Editor.csproj">
+      <Project>{7ba9a7c5-6c28-1fda-07c7-25e7343fd6a7}</Project>
+      <Name>Module.UnitySimpleScrollSnap.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityTotalJSON.Editor.csproj">
+      <Project>{63ddcba1-d830-5788-71c5-dbf2845a2551}</Project>
+      <Name>Module.UnityTotalJSON.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommon.csproj">
+      <Project>{85be12c1-326e-9ed3-becf-8fffd1949f7a}</Project>
+      <Name>Module.UnityCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnitySignInWithApple.Editor.csproj">
+      <Project>{02ee75e1-9331-a9ce-4b5d-053eaa52a53d}</Project>
+      <Name>Module.UnitySignInWithApple.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NativeShare.Runtime.csproj">
+      <Project>{733801f1-8ef3-e9a1-a25d-49e35e962e64}</Project>
+      <Name>NativeShare.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonExternals.csproj">
+      <Project>{22302511-6b5d-70b2-5295-14d18a842809}</Project>
+      <Name>Module.UnityCommonExternals</Name>
+    </ProjectReference>
+    <ProjectReference Include="BezierSolution.Runtime.csproj">
+      <Project>{f43afc27-d1d3-ca22-039c-573252b78ba4}</Project>
+      <Name>BezierSolution.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="EnhancedHierarchyEditor.csproj">
+      <Project>{44ed7182-8eab-2210-f50a-7e444bab0b85}</Project>
+      <Name>EnhancedHierarchyEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="IngameDebugConsole.Editor.csproj">
+      <Project>{2b7a2035-bb95-08ec-b6dd-79a94b493555}</Project>
+      <Name>IngameDebugConsole.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.UnmaskForUGUI.csproj">
+      <Project>{5ded73f9-cfd1-95e4-7aeb-8ee2f7715039}</Project>
+      <Name>Coffee.UnmaskForUGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="IngameDebugConsole.Runtime.csproj">
+      <Project>{5dca089d-eed2-4709-4cc0-2b8255b39820}</Project>
+      <Name>IngameDebugConsole.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonDefine.csproj">
+      <Project>{a9f3e36b-0a32-538d-f97c-d60c512af978}</Project>
+      <Name>Module.UnityCommonDefine</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.UIParticle.Demo.csproj">
+      <Project>{344cde6c-ad29-d3d6-2797-5b7b1dbc9a66}</Project>
+      <Name>Coffee.UIParticle.Demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityStudy.csproj">
+      <Project>{537420d7-2b99-b643-f3b6-9a8a7ea74ce2}</Project>
+      <Name>Module.UnityStudy</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{c04806d1-7173-ac27-1e7a-adb47a439427}</Project>
+      <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityUIEffect.EditorB.csproj">
+      <Project>{3f938bf2-12b8-66f1-f94b-7dafaf66af58}</Project>
+      <Name>Module.UnityUIEffect.EditorB</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnitySndManagerPro.EditorB.csproj">
+      <Project>{00b226a3-b5ac-914b-f70d-88fd4e686bb2}</Project>
+      <Name>Module.UnitySndManagerPro.EditorB</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.csproj">
+      <Project>{732bde61-a968-1589-bf8c-1b238aec4062}</Project>
+      <Name>Coffee.SoftMaskForUGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityUIEffect.EditorA.csproj">
+      <Project>{74c36e4e-e2f7-e8e8-e1cf-c1f3432ed343}</Project>
+      <Name>Module.UnityUIEffect.EditorA</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityStudyDefine.csproj">
+      <Project>{e04cdb4f-6ffd-07cb-06bd-fa5b4c512a24}</Project>
+      <Name>Module.UnityStudyDefine</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonExtension.csproj">
+      <Project>{5fa34aeb-a19d-6428-c2b1-08d8f9f32281}</Project>
+      <Name>Module.UnityCommonExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI_Demo.csproj">
+      <Project>{b25b711e-b362-0eef-172f-0a3b0f75d30c}</Project>
+      <Name>Coffee.SoftMaskForUGUI_Demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="MessagePack.csproj">
+      <Project>{767dcee7-c32c-a0a2-9874-de9f34d501c2}</Project>
+      <Name>MessagePack</Name>
+    </ProjectReference>
+    <ProjectReference Include="BezierSolution.Editor.csproj">
+      <Project>{f7af36f2-df49-9686-6ae1-5f838b708bdb}</Project>
+      <Name>BezierSolution.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonFactory.csproj">
+      <Project>{88572d5c-a22e-24db-f7ee-b6fbd0491906}</Project>
+      <Name>Module.UnityCommonFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.CFX_Demo_With_UIParticle.csproj">
+      <Project>{8b2bf342-2871-ef66-080c-840f9f5d279f}</Project>
+      <Name>Coffee.CFX_Demo_With_UIParticle</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unmask_Demo.csproj">
+      <Project>{e1a797fa-937b-85ad-a732-1280c3fd2551}</Project>
+      <Name>Unmask_Demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="TextToTMP.Editor.csproj">
+      <Project>{cf7757e6-6912-5ad6-1328-9f9565bf0891}</Project>
+      <Name>TextToTMP.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonUtility.csproj">
+      <Project>{f7cb7dcb-0211-f02d-6f66-0e1afbf28628}</Project>
+      <Name>Module.UnityCommonUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnitySndManagerPro.EditorA.csproj">
+      <Project>{c9bdec0d-328b-a8ab-ff3d-a7a8cd34abe9}</Project>
+      <Name>Module.UnitySndManagerPro.EditorA</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityFPSCounter.EditorA.csproj">
+      <Project>{8d6c6560-574b-2e0e-d5b3-df1237a32d3c}</Project>
+      <Name>Module.UnityFPSCounter.EditorA</Name>
+    </ProjectReference>
+    <ProjectReference Include="AssetUsageDetector.Editor.csproj">
+      <Project>{ab681bfa-7081-65f3-f431-620e8d72176e}</Project>
+      <Name>AssetUsageDetector.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityFPSCounter.EditorB.csproj">
+      <Project>{7d195e05-7a68-b9f9-30c0-2c342b5acd1f}</Project>
+      <Name>Module.UnityFPSCounter.EditorB</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonAccess.csproj">
+      <Project>{f18dff14-793f-1037-ee88-455702683390}</Project>
+      <Name>Module.UnityCommonAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.UIParticle.csproj">
+      <Project>{b9ffb43f-0f28-b0ee-c2bf-17f07625177b}</Project>
+      <Name>Coffee.UIParticle</Name>
+    </ProjectReference>
+    <ProjectReference Include="MessagePack.Annotations.csproj">
+      <Project>{ec82e8c4-30fe-8b2e-eca3-954ce6a3da7d}</Project>
+      <Name>MessagePack.Annotations</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityStudyUtility.csproj">
+      <Project>{084d83a9-7187-3e59-0b18-6e10062b6eba}</Project>
+      <Name>Module.UnityStudyUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="Module.UnityCommonFunc.csproj">
+      <Project>{4dedd3bc-6100-37f0-296e-d900adf67d34}</Project>
+      <Name>Module.UnityCommonFunc</Name>
+    </ProjectReference>
+    <ProjectReference Include="NativeShare.Editor.csproj">
+      <Project>{48833ab5-c520-1b3a-ea5f-b192dc96a7d3}</Project>
+      <Name>NativeShare.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
