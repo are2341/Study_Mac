@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class CFocusPopup : CSubPopup {
 	//! 매개 변수
 	public struct STParams {
-		public List<GameObject> m_oFocusUIsList;
+		public List<GameObject> m_oContentsUIsList;
 	}
 
 	//! 콜백 매개 변수
@@ -29,7 +29,7 @@ public class CFocusPopup : CSubPopup {
 	#endregion			// UI 변수
 
 	#region 객체
-	private GameObject m_oFocusUIs = null;
+	private GameObject m_oContentsUIs = null;
 	#endregion			// 객체
 
 	#region 프로퍼티
@@ -46,7 +46,7 @@ public class CFocusPopup : CSubPopup {
 		base.Awake();
 
 		m_oBlindImg = m_oContents.ExFindComponent<Image>(KDefine.G_OBJ_N_FOCUS_P_BLIND_IMG);
-		m_oFocusUIs = m_oContents.ExFindChild(KDefine.G_OBJ_N_FOCUS_P_FOCUS_UIS);
+		m_oContentsUIs = m_oContents.ExFindChild(KCDefine.U_OBJ_N_CONTENTS_UIS);
 	}
 
 	//! 초기화
@@ -57,12 +57,10 @@ public class CFocusPopup : CSubPopup {
 		m_stCallbackParams = a_stCallbackParams;
 
 		// 터치 전달자를 설정한다
-		var oTouchDispatcher = m_oContents.GetComponentInChildren<CTouchDispatcher>();
-		oTouchDispatcher.BeginCallback = (a_oSender, a_oEventData) => a_stCallbackParams.m_oBeginCallback?.Invoke(this, a_oEventData);
-		oTouchDispatcher.MoveCallback = (a_oSender, a_oEventData) => a_stCallbackParams.m_oMoveCallback?.Invoke(this, a_oEventData);
-		oTouchDispatcher.EndCallback = (a_oSender, a_oEventData) => a_stCallbackParams.m_oEndCallback?.Invoke(this, a_oEventData);
-
-		this.UpdateUIsState();
+		var oTouchDispatcher = m_oBlindImg?.GetComponentInChildren<CTouchDispatcher>();
+		oTouchDispatcher?.ExSetBeginCallback((a_oSender, a_oEventData) => a_stCallbackParams.m_oBeginCallback?.Invoke(this, a_oEventData), false);
+		oTouchDispatcher?.ExSetMoveCallback((a_oSender, a_oEventData) => a_stCallbackParams.m_oMoveCallback?.Invoke(this, a_oEventData), false);
+		oTouchDispatcher?.ExSetEndCallback((a_oSender, a_oEventData) => a_stCallbackParams.m_oEndCallback?.Invoke(this, a_oEventData), false);
 	}
 
 	//! 팝업 컨텐츠를 설정한다
@@ -70,20 +68,22 @@ public class CFocusPopup : CSubPopup {
 		base.SetupContents();
 
 		// 포커스 UI 가 존재 할 경우
-		if(m_stParams.m_oFocusUIsList.ExIsValid()) {
-			for(int i = 0; i < m_stParams.m_oFocusUIsList.Count; ++i) {
-				m_stParams.m_oFocusUIsList[i].SetActive(true);
-				m_stParams.m_oFocusUIsList[i].transform.SetParent(m_oFocusUIs.transform, false);
+		if(m_stParams.m_oContentsUIsList.ExIsValid()) {
+			for(int i = 0; i < m_stParams.m_oContentsUIsList.Count; ++i) {
+				m_stParams.m_oContentsUIsList[i].SetActive(true);
+				m_stParams.m_oContentsUIsList[i].transform.SetParent(m_oContentsUIs.transform, false);
 			}
 		}
+
+		this.UpdateUIsState();
 	}
 
 	//! UI 상태를 갱신한다
-	private void UpdateUIsState() {
-		m_oBlindImg.color = KCDefine.U_COLOR_POPUP_BG;
+	protected new void UpdateUIsState() {
+		m_oBlindImg?.ExSetColor<Image>(KCDefine.U_COLOR_POPUP_BG);
 		
 		var oContentsImg = m_oContents.GetComponentInChildren<Image>();
-		oContentsImg.color = KCDefine.U_COLOR_TRANSPARENT;
+		oContentsImg?.ExSetColor<Image>(KCDefine.U_COLOR_TRANSPARENT);
 	}
 	#endregion			// 함수
 }

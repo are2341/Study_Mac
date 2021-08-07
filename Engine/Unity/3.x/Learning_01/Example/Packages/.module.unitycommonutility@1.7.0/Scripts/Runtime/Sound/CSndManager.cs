@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 사운드 관리자
 public class CSndManager : CSingleton<CSndManager> {
@@ -60,7 +60,7 @@ public class CSndManager : CSingleton<CSndManager> {
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
-		
+
 		m_oBGSnd = CFactory.CreateCloneObj<CSnd>(KCDefine.U_OBJ_N_SND_M_BG_SND, KCDefine.U_OBJ_P_G_BG_SND, this.gameObject);
 		m_oBGSnd.transform.localPosition = Vector3.zero;
 	}

@@ -30,9 +30,9 @@ MonoBehaviour:
   - BURST_COMPILER_ENABLE
   - ADAPTIVE_PERFORMANCE_ENABLE
   - MSG_PACK_ENABLE
-  - STUDY_MODULE_ENABLE
   - LIGHT_ENABLE
   - SHADOW_ENABLE
+  - STUDY_MODULE_ENABLE
   m_oSubCommonDefineSymbolList: []
   m_oStandaloneDefineSymbolList:
   - EDITOR_ENABLE

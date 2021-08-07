@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using MessagePack;
 
 //! 공용 게임 정보
@@ -20,23 +21,23 @@ public class CCommonGameInfo : CCommonBaseInfo {
 
 	#region 프로퍼티
 	[IgnoreMember] public bool IsMuteBGSnd {
-		get { return m_oBoolDict.ExGetVal(CCommonGameInfo.KEY_IS_MUTE_BG_SND, false); } 
-		set { m_oBoolDict.ExReplaceVal(CCommonGameInfo.KEY_IS_MUTE_BG_SND, value); }
+		get { return m_oIntDict.ExGetVal(CCommonGameInfo.KEY_IS_MUTE_BG_SND, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; } 
+		set { m_oIntDict.ExReplaceVal(CCommonGameInfo.KEY_IS_MUTE_BG_SND, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public bool IsMuteFXSnds {
-		get { return m_oBoolDict.ExGetVal(CCommonGameInfo.KEY_IS_MUTE_FX_SNDS, false); } 
-		set { m_oBoolDict.ExReplaceVal(CCommonGameInfo.KEY_IS_MUTE_FX_SNDS, value); }
+		get { return m_oIntDict.ExGetVal(CCommonGameInfo.KEY_IS_MUTE_FX_SNDS, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; } 
+		set { m_oIntDict.ExReplaceVal(CCommonGameInfo.KEY_IS_MUTE_FX_SNDS, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public bool IsDisableVibrate {
-		get { return m_oBoolDict.ExGetVal(CCommonGameInfo.KEY_IS_DISABLE_VIBRATE, false); } 
-		set { m_oBoolDict.ExReplaceVal(CCommonGameInfo.KEY_IS_DISABLE_VIBRATE, value); }
+		get { return m_oIntDict.ExGetVal(CCommonGameInfo.KEY_IS_DISABLE_VIBRATE, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; } 
+		set { m_oIntDict.ExReplaceVal(CCommonGameInfo.KEY_IS_DISABLE_VIBRATE, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public bool IsDisableNoti {
-		get { return m_oBoolDict.ExGetVal(CCommonGameInfo.KEY_IS_DISABLE_NOTI, false); } 
-		set { m_oBoolDict.ExReplaceVal(CCommonGameInfo.KEY_IS_DISABLE_NOTI, value); }
+		get { return m_oIntDict.ExGetVal(CCommonGameInfo.KEY_IS_DISABLE_NOTI, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; } 
+		set { m_oIntDict.ExReplaceVal(CCommonGameInfo.KEY_IS_DISABLE_NOTI, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public float BGSndVolume {
@@ -49,13 +50,6 @@ public class CCommonGameInfo : CCommonBaseInfo {
 		set { m_oFltDict.ExReplaceVal(CCommonGameInfo.KEY_FX_SNDS_VOLUME, value); }
 	}
 	#endregion			// 프로퍼티
-
-	#region 함수
-	//! 생성자
-	public CCommonGameInfo() : base(KCDefine.U_VER_COMMON_GAME_INFO) {
-		// Do Nothing
-	}
-	#endregion			// 함수
 }	
 
 //! 공용 게임 정보 저장소
@@ -71,16 +65,6 @@ public class CCommonGameInfoStorage : CSingleton<CCommonGameInfoStorage> {
 	#endregion			// 프로퍼티
 
 	#region 함수
-	//! 게임 정보를 저장한다
-	public void SaveGameInfo() {
-		this.SaveGameInfo(KCDefine.U_DATA_P_COMMON_GAME_INFO);
-	}
-
-	//! 게임 정보를 저장한다
-	public void SaveGameInfo(string a_oFilePath) {
-		CFunc.WriteMsgPackObj(a_oFilePath, this.GameInfo);
-	}
-
 	//! 게임 정보를 로드한다
 	public CCommonGameInfo LoadGameInfo() {
 		return this.LoadGameInfo(KCDefine.U_DATA_P_COMMON_GAME_INFO);
@@ -95,6 +79,16 @@ public class CCommonGameInfoStorage : CSingleton<CCommonGameInfoStorage> {
 		}
 
 		return this.GameInfo;
+	}
+
+	//! 게임 정보를 저장한다
+	public void SaveGameInfo() {
+		this.SaveGameInfo(KCDefine.U_DATA_P_COMMON_GAME_INFO);
+	}
+
+	//! 게임 정보를 저장한다
+	public void SaveGameInfo(string a_oFilePath) {
+		CFunc.WriteMsgPackObj(a_oFilePath, this.GameInfo);
 	}
 	#endregion			// 함수
 }

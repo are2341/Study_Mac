@@ -25,18 +25,22 @@ public class CDailyMissionPopup : CMissionPopup {
 	public virtual void Init(STParams a_stParams) {
 		base.Init(a_stParams.m_stBaseParams);
 		m_stParams = a_stParams;
-
-		this.UpdateUIsState();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 갱신한다
-	private void UpdateUIsState() {
-		// Do Nothing
+	private new void UpdateUIsState() {
+		// Do Something
 	}
 
 	//! 미션 버튼을 눌렀을 경우
 	private void OnTouchMissionBtn(STMissionInfo a_stMissionInfo) {
-		// Do Nothing
+		// Do Something
 	}
 	#endregion			// 함수
 }

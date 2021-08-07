@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if ADS_MODULE_ENABLE
 #if ADMOB_ENABLE

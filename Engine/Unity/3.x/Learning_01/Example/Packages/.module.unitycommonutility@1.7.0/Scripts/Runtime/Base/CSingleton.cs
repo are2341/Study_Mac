@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 싱글턴
 public abstract class CSingleton<T> : CComponent where T : CSingleton<T> {

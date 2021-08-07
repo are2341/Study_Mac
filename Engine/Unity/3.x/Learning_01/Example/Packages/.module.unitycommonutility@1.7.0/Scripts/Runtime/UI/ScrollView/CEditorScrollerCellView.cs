@@ -80,6 +80,13 @@ public class CEditorScrollerCellView : CScrollerCellView {
 
 		m_stParams = a_stParams;
 		m_stCallbackParams = a_stCallbackParams;
+
+		this.UpdateUIsState();
+	}
+
+	//! UI 상태를 갱신한다
+	protected void UpdateUIsState() {
+		// Do Something
 	}
 
 	//! 선택 버튼을 눌렀을 경우

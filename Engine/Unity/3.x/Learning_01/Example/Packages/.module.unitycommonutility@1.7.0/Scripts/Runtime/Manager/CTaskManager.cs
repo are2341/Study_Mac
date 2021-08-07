@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_ANDROID
 #if GOOGLE_REVIEW_ENABLE

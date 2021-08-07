@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if INPUT_SYSTEM_MODULE_ENABLE
 using UnityEngine.InputSystem;
@@ -17,18 +18,21 @@ public class CTitleSceneManager : CSceneManager {
 	public override void OnUpdate(float a_fDeltaTime) {
 		base.OnUpdate(a_fDeltaTime);
 
-#if EDITOR_ENABLE && (UNITY_EDITOR || UNITY_STANDALONE)
+		// 앱이 실행 중 일 경우
+		if(CSceneManager.IsAppRunning) {
+#if EDITOR_ENABLE && UNITY_STANDALONE
 #if INPUT_SYSTEM_MODULE_ENABLE
-		bool bIsEditorKeyDown = Keyboard.current.leftShiftKey.isPressed && Keyboard.current.eKey.wasPressedThisFrame;
+			bool bIsEditorKeyDown = Keyboard.current.leftShiftKey.isPressed && Keyboard.current.eKey.wasPressedThisFrame;
 #else
-		bool bIsEditorKeyDown = Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.E);
+			bool bIsEditorKeyDown = Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.E);
 #endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 
-		// 에디터 키를 눌렀을 경우
-		if(bIsEditorKeyDown) {
-			CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_LEVEL_EDITOR);
+			// 에디터 키를 눌렀을 경우
+			if(bIsEditorKeyDown) {
+				CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_LEVEL_EDITOR);
+			}
+#endif			// #if EDITOR_ENABLE && UNITY_STANDALONE
 		}
-#endif			// #if EDITOR_ENABLE && (UNITY_EDITOR || UNITY_STANDALONE)
 	}
 	#endregion			// 함수
 }

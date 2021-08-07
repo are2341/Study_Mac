@@ -174,6 +174,7 @@ namespace Timers
             }
         }
 
+		// FIXME: dante (컴포넌트 기반 타이머 제거 함수 추가) {
 		/// <summary>
         /// Remove a certain timer
         /// </summary>
@@ -183,6 +184,7 @@ namespace Timers
             if (Owner != null)
                 FindAndRemove(Owner);
         }
+		// FIXME: dante (컴포넌트 기반 타이머 제거 함수 추가) }
 
         /// <summary>
         /// Remove a certain timer

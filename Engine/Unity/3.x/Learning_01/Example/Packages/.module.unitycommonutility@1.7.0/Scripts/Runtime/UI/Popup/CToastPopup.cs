@@ -13,7 +13,7 @@ public class CToastPopup : CPopup {
 	}
 	
 	#region 변수
-	protected STParams m_stParams;
+	private STParams m_stParams;
 	#endregion			// 변수
 
 	#region UI 변수
@@ -37,16 +37,18 @@ public class CToastPopup : CPopup {
 	public virtual void Init(STParams a_stParams) {
 		base.Init();
 		m_stParams = a_stParams;
+	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
 		this.UpdateUIsState();
 	}
 
 	//! UI 상태를 갱신한다
 	protected void UpdateUIsState() {
-		// 컨텐츠를 설정한다
-		m_oContentsTrans.sizeDelta = CSceneManager.CanvasSize.ExTo2D();
-
 		// 텍스트 상태를 갱신한다
+		m_oContentsTrans.sizeDelta = CSceneManager.CanvasSize.ExTo2D();
 		m_oMsgText.text = m_stParams.m_oMsg;
 	}
 

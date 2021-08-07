@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 컴포넌트
 public abstract class CComponent : MonoBehaviour {
@@ -20,7 +21,7 @@ public abstract class CComponent : MonoBehaviour {
 	#region 함수
 	//! 초기화
 	public virtual void Awake() {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 초기화
@@ -32,12 +33,12 @@ public abstract class CComponent : MonoBehaviour {
 
 	//! 상태를 갱신한다
 	public virtual void OnUpdate(float a_fDeltaTime) {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 상태를 갱신한다
 	public virtual void OnLateUpdate(float a_fDeltaTime) {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 제거 되었을 경우
@@ -65,7 +66,7 @@ public abstract class CComponent : MonoBehaviour {
 #if UNITY_EDITOR
 	//! 스크립트 순서를 설정한다
 	protected virtual void SetupScriptOrder() {
-		// Do Nothing
+		// Do Something
 	}
 #endif			// #if UNITY_EDITOR
 	#endregion			// 조건부 함수

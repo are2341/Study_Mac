@@ -25,21 +25,26 @@ public class CDailyRewardPopup : CSubPopup {
 
 		// 버튼을 설정한다 {
 		m_oAdsBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_DAILY_RP_ADS_BTN);
-		m_oAdsBtn.onClick.AddListener(this.OnTouchAdsBtn);
+		m_oAdsBtn?.onClick.AddListener(this.OnTouchAdsBtn);
 
 		m_oAcquireBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_DAILY_RP_ACQUIRE_BTN);
-		m_oAcquireBtn.onClick.AddListener(this.OnTouchAcquireBtn);
+		m_oAcquireBtn?.onClick.AddListener(this.OnTouchAcquireBtn);
 		// 버튼을 설정한다 }
 	}
 	
 	//! 초기화
 	public override void Init() {
 		base.Init();
-		this.UpdateUIsState();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 갱신한다
-	private void UpdateUIsState() {
+	private new void UpdateUIsState() {
 		// 보상 UI 상태를 갱신한다
 		for(int i = 0; i < m_oRewardUIsList.Count; ++i) {
 			var oRewardUIs = m_oRewardUIsList[i];
@@ -51,7 +56,7 @@ public class CDailyRewardPopup : CSubPopup {
 
 	//! 보상 UI 상태를 갱신한다
 	private void UpdateRewardUIsState(GameObject a_oRewardUIs, STRewardInfo a_stRewardInfo) {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 광고 버튼을 눌렀을 경우

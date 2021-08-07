@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Analytics;
 
 #if UNITY_IOS && APPLE_LOGIN_ENABLE

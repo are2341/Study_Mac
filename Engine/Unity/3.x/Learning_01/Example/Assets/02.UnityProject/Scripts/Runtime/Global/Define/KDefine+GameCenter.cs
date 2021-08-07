@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if GAME_CENTER_MODULE_ENABLE
 //! 게임 센터 상수

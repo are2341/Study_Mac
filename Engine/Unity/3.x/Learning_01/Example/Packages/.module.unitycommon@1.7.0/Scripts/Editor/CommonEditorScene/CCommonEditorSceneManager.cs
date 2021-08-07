@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Linq;
 
@@ -70,6 +71,68 @@ public static partial class CCommonEditorSceneManager {
 	[UnityEditor.Callbacks.DidReloadScripts]
 	public static void OnLoadScript() {
 		CCommonEditorSceneManager.m_bIsEnableSetup = true;
+	}
+
+	//! 렌더러를 리셋한다
+	[MenuItem("Tools/Utility/Reset/Renderers")]
+	public static void ResetRenderers() {
+		var oRendererList = CEditorFunc.FindComponents<Renderer>();
+
+		for(int i = 0; i < oRendererList.Count; ++i) {
+			oRendererList[i].allowOcclusionWhenDynamic = true;
+
+			// 에디터 모드 일 경우
+			if(!Application.isPlaying) {
+				EditorSceneManager.MarkSceneDirty(oRendererList[i].gameObject.scene);
+			}
+		}
+	}
+
+	//! 캔버스 렌더러를 리셋한다
+	[MenuItem("Tools/Utility/Reset/Canvas Renderers")]
+	public static void ResetCanvasRenderers() {
+		var oCanvasRendererList = CEditorFunc.FindComponents<CanvasRenderer>();
+
+		for(int i = 0; i < oCanvasRendererList.Count; ++i) {
+			oCanvasRendererList[i].cullTransparentMesh = true;
+
+			// 에디터 모드 일 경우
+			if(!Application.isPlaying) {
+				EditorSceneManager.MarkSceneDirty(oCanvasRendererList[i].gameObject.scene);
+			}
+		}
+	}
+
+	//! 레이아웃 그룹을 리셋한다
+	[MenuItem("Tools/Utility/Reset/Horizontal or Vertical LayoutGroups")]
+	public static void ResetLayoutGroups() {
+		var oLayoutGroupList = CEditorFunc.FindComponents<HorizontalOrVerticalLayoutGroup>();
+
+		for(int i = 0; i < oLayoutGroupList.Count; ++i) {
+			oLayoutGroupList[i].childScaleWidth = false;
+			oLayoutGroupList[i].childScaleHeight = false;
+
+			oLayoutGroupList[i].childControlWidth = true;
+			oLayoutGroupList[i].childControlHeight = false;
+
+			oLayoutGroupList[i].childForceExpandWidth = true;
+			oLayoutGroupList[i].childForceExpandHeight = false;
+
+			// 에디터 모드 일 경우
+			if(!Application.isPlaying) {
+				EditorSceneManager.MarkSceneDirty(oLayoutGroupList[i].gameObject.scene);
+			}
+
+			// 부모 레이아웃 그룹이 없을 경우
+			if(oLayoutGroupList[i].transform.parent.GetComponent<HorizontalOrVerticalLayoutGroup>() == null) {
+				(oLayoutGroupList[i].transform as RectTransform).sizeDelta = Vector2.zero;
+			}
+
+			// 컨텐츠 크기 조정자가 존재 할 경우
+			if(oLayoutGroupList[i].TryGetComponent<ContentSizeFitter>(out ContentSizeFitter oSizeFitter)) {
+				oSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+			}
+		}
 	}
 
 	//! 상태를 갱신한다

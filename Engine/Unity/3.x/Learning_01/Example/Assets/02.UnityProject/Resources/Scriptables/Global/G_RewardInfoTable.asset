@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8174a7454a354a5791fe9f124019b31, type: 3}
+  m_Script: {fileID: 11500000, guid: 877a77a449e7a451791effbe3781198b, type: 3}
   m_Name: G_RewardInfoTable
   m_EditorClassIdentifier: 
   m_oFreeRewardInfoList: []

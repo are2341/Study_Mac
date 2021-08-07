@@ -21,23 +21,32 @@ public static partial class CFactory {
 	public static long MakeUniqueChapterID(int a_nID) {
 		return a_nID * (long)KCDefine.B_UNIT_IDS_PER_CHAPTER;
 	}
-
-	//! 버전을 생성한다
-	public static STVer MakeDefVer(string a_oVer) {
-		CAccess.Assert(a_oVer.ExIsValid());
-
-		return new STVer() {
-			m_oVer = a_oVer,
-			m_oExtraInfoDict = new Dictionary<string, string>()
-		};
-	}
-
+	
 	//! 식별자 정보를 생성한다
 	public static STIDInfo MakeIDInfo(int a_nID, int a_nStageID = KCDefine.B_VAL_0_INT, int a_nChapterID = KCDefine.B_VAL_0_INT) {
 		return new STIDInfo() {
 			m_nID = a_nID,
 			m_nStageID = a_nStageID,
 			m_nChapterID = a_nChapterID
+		};
+	}
+
+	//! 인덱스 정보를 생성한다
+	public static STIdxInfo MakeIdxInfo(int a_nX, int a_nY, int a_nZ) {
+		return new STIdxInfo() {
+			m_nX = a_nX,
+			m_nY = a_nY,
+			m_nZ = a_nZ
+		};
+	}
+
+	//! 경로 정보를 생성한다
+	public static CPathInfo MakePathInfo(Vector3Int a_stIdx) {
+		return new CPathInfo() {
+			m_nCost = 0,
+			m_stIdx = a_stIdx,
+
+			m_oPrevPathInfo = null
 		};
 	}
 
@@ -112,11 +121,7 @@ public static partial class CFactory {
 		oObj.transform.localEulerAngles = a_stAngle;
 		oObj.transform.localPosition = a_stPos;
 
-		// 부모가 존재 할 경우
-		if(a_oParent != null) {
-			oObj.transform.SetParent(a_oParent.transform, a_bIsStayWorldState);
-		}
-
+		oObj.transform.SetParent(a_oParent?.transform, a_bIsStayWorldState);
 		return oObj;
 	}
 
@@ -162,11 +167,7 @@ public static partial class CFactory {
 		oObj.transform.localEulerAngles = a_stAngle;
 		oObj.transform.localPosition = a_stPos;
 
-		// 부모가 존재 할 경우
-		if(a_oParent != null) {
-			oObj.transform.SetParent(a_oParent.transform, a_bIsStayWorldState);
-		}
-
+		oObj.transform.SetParent(a_oParent?.transform, a_bIsStayWorldState);
 		return oObj;
 	}
 
@@ -186,6 +187,9 @@ public static partial class CFactory {
 		var oImg = oObj.GetComponentInChildren<Image>();
 
 		var oTrans = oObj.transform as RectTransform;
+		oTrans.pivot = KCDefine.B_ANCHOR_MID_CENTER;;
+		oTrans.anchorMin = KCDefine.B_ANCHOR_MID_CENTER;
+		oTrans.anchorMax = KCDefine.B_ANCHOR_MID_CENTER;
 		oTrans.sizeDelta = new Vector2(a_stSize.x, a_stSize.y);
 		oTrans.anchoredPosition = new Vector2(a_stPos.x, a_stPos.y);
 
@@ -218,13 +222,7 @@ public static partial class CFactory {
 	//! 객체 풀을 생성한다
 	public static ObjectPool CreateObjsPool(GameObject a_oOrigin, GameObject a_oParent, int a_nNumObjs = KCDefine.U_SIZE_OBJS_POOL) {
 		CAccess.Assert(a_oOrigin != null);
-
-		// 부모가 존재 할 경우
-		if(a_oParent != null) {
-			return new ObjectPool(a_oOrigin, a_oParent.transform, a_nNumObjs);
-		}
-
-		return new ObjectPool(a_oOrigin, null, a_nNumObjs);
+		return new ObjectPool(a_oOrigin, a_oParent?.transform, a_nNumObjs);
 	}
 
 	//! 객체를 제거한다

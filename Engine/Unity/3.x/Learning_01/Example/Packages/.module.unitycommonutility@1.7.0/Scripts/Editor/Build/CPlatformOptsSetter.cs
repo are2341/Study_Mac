@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -176,25 +177,25 @@ public static partial class CPlatformOptsSetter {
 		}
 	}
 
-	//! 맥으로 변경한다
+	//! 맥으로 전환한다
 	[MenuItem("Tools/Utility/Change Platform/Mac")]
 	public static void ChangeMac() {
 		CEditorFunc.ChangePlatform(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
 	}
 
-	//! 윈도우즈로 변경한다
+	//! 윈도우즈로 전환한다
 	[MenuItem("Tools/Utility/Change Platform/Windows")]
 	public static void ChangeWnds() {
 		CEditorFunc.ChangePlatform(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
 	}
 
-	//! iOS 로 변경한다
+	//! iOS 로 전환한다
 	[MenuItem("Tools/Utility/Change Platform/iOS")]
 	public static void ChangeiOS() {
 		CEditorFunc.ChangePlatform(BuildTargetGroup.iOS, BuildTarget.iOS);
 	}
 
-	//! 안드로이드 변경한다
+	//! 안드로이드로 전환한다
 	[MenuItem("Tools/Utility/Change Platform/Android")]
 	public static void ChangeAndroid() {
 		CEditorFunc.ChangePlatform(BuildTargetGroup.Android, BuildTarget.Android);

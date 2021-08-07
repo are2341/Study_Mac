@@ -22,25 +22,30 @@ public class CChangesPopup : CSubPopup {
 
 		// 버튼을 설정한다 {
 		m_oOKBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_CHANGES_P_OK_BTN);
-		m_oOKBtn.onClick.AddListener(this.OnTouchOKBtn);
+		m_oOKBtn?.onClick.AddListener(this.OnTouchOKBtn);
 
 		m_oPurchaseBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_CHANGES_P_PURCHASE_BTN);
-		m_oPurchaseBtn.onClick.AddListener(this.OnTouchPurchaseBtn);
+		m_oPurchaseBtn?.onClick.AddListener(this.OnTouchPurchaseBtn);
 		// 버튼을 설정한다 }
 	}
 
 	//! 초기화
 	public override void Init() {
 		base.Init();
-		this.UpdateUIsState();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 변경한다
-	private void UpdateUIsState() {
+	private new void UpdateUIsState() {
 		int nNumChanges = CUserInfoStorage.Inst.UserInfo.NumChanges;
 
-		m_oSaveUIs.SetActive(nNumChanges < KDefine.G_MAX_NUM_CHANGES);
-		m_oFullUIs.SetActive(nNumChanges >= KDefine.G_MAX_NUM_CHANGES);
+		m_oSaveUIs?.SetActive(nNumChanges < KDefine.G_MAX_NUM_CHANGES);
+		m_oFullUIs?.SetActive(nNumChanges >= KDefine.G_MAX_NUM_CHANGES);
 	}
 
 	//! 확인 버튼을 눌렀을 경우

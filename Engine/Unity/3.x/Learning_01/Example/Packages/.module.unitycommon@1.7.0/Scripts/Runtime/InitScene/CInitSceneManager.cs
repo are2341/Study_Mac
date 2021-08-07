@@ -45,8 +45,11 @@ public abstract partial class CInitSceneManager : CSceneManager {
 		CCommonUserInfoStorage.Inst.LoadUserInfo();
 		CCommonGameInfoStorage.Inst.LoadGameInfo();
 
+		// 열거형 문자열을 로드한다
+		CStrTable.Inst.LoadEnumStrs<EUserType>();
+
 		// 공용 앱 정보 저장소를 설정한다
-		CCommonAppInfoStorage.Inst.AppInfo.LastPlayTime = System.DateTime.Now;
+		CCommonAppInfoStorage.Inst.AppInfo.m_stLastPlayTime = System.DateTime.Now;
 		CCommonAppInfoStorage.Inst.SaveAppInfo();
 
 		// 사운드 관리자를 설정한다 {

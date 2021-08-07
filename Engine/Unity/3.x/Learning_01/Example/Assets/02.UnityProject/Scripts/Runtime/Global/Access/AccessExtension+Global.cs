@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 전역 접근 확장 클래스
 public static partial class AccessExtension {

@@ -32,19 +32,23 @@ public class CRewardAcquirePopup : CSubPopup {
 
 		// 버튼을 설정한다
 		m_oAcquireBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_REWARD_AP_ACQUIRE_BTN);
-		m_oAcquireBtn.onClick.AddListener(this.OnTouchAcquireBtn);
+		m_oAcquireBtn?.onClick.AddListener(this.OnTouchAcquireBtn);
 	}
 	
 	//! 초기화
 	public virtual void Init(STParams a_stParams) {
 		base.Init();
 		m_stParams = a_stParams;
-
-		this.UpdateUIsState();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 갱신한다
-	private void UpdateUIsState() {
+	private new void UpdateUIsState() {
 		// 보상 아이템 UI 상태를 갱신한다
 		for(int i = 0; i < m_oItemUIsList.Count; ++i) {
 			var oItemUIs = m_oItemUIsList[i];
@@ -59,7 +63,7 @@ public class CRewardAcquirePopup : CSubPopup {
 
 	//! 보상 아이템 UI 상태를 갱신한다
 	private void UpdateItemUIsState(GameObject a_oItemUIs, STItemInfo a_stItemInfo) {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 획득 버튼을 눌렀을 경우

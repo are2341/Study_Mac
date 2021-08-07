@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 내비게이션 스택 관리자
 public class CNavStackManager : CSingleton<CNavStackManager> {

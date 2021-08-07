@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -36,6 +37,12 @@ public static partial class EditorFactory {
 	[MenuItem("Tools/Utility/ExtraCreate/EpisodeInfoTable")]
 	public static void CreateEpisodeInfoTable() {
 		CEditorFactory.CreateScriptableObj<CEpisodeInfoTable>(KCEditorDefine.B_ASSET_P_EPISODE_INFO_TABLE);
+	}
+
+	//! 튜토리얼 정보 테이블을 생성한다
+	[MenuItem("Tools/Utility/ExtraCreate/TutorialInfoTable")]
+	public static void CreateTutorialInfoTable() {
+		CEditorFactory.CreateScriptableObj<CTutorialInfoTable>(KCEditorDefine.B_ASSET_P_TUTORIAL_INFO_TABLE);
 	}
 	#endregion			// 클래스 함수
 }

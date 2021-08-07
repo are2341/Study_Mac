@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using MessagePack;
 
 //! 유저 정보
 [MessagePackObject]
 [System.Serializable]
-public sealed class CUserInfo : CBaseInfo {
+public class CUserInfo : CBaseInfo {
 	#region 상수
 	private const string KEY_NUM_COINS = "NumCoins";
 	private const string KEY_NUM_CHANGES = "NumChanges";
 	#endregion			// 상수
 
 	#region 변수
-	[Key(151)] public Dictionary<EItemKinds, int> m_oNumItemsDict = new Dictionary<EItemKinds, int>();
+	[Key(111)] public Dictionary<EItemKinds, int> m_oNumItemsDict = new Dictionary<EItemKinds, int>();
 	#endregion			// 변수
 	
 	#region 프로퍼티
@@ -30,19 +31,16 @@ public sealed class CUserInfo : CBaseInfo {
 	#endregion			// 프로퍼티
 
 	#region 인터페이스
+	//! 직렬화 될 경우
+	public override void OnBeforeSerialize() {
+		base.OnBeforeSerialize();
+	}
+
 	//! 역직렬화 되었을 경우
 	public override void OnAfterDeserialize() {
 		base.OnAfterDeserialize();
-		m_oNumItemsDict = m_oNumItemsDict ?? new Dictionary<EItemKinds, int>();
 	}
 	#endregion			// 인터페이스
-
-	#region 함수
-	//! 생성자
-	public CUserInfo() : base(KDefine.G_VER_USER_INFO) {
-		// Do Nothing
-	}
-	#endregion			// 함수
 }
 
 //! 유저 정보 저장소
@@ -52,6 +50,12 @@ public class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 	#endregion            // 프로퍼티
 
 	#region 함수
+	//! 유저 정보를 리셋한다
+	public virtual void ResetUserInfo(SimpleJSON.JSONNode a_oUserInfo) {
+		this.UserInfo = a_oUserInfo.ToString().ExMsgPackJSONStrToObj<CUserInfo>();
+		CAccess.Assert(this.UserInfo != null);
+	}
+
 	//! 아이템 개수를 반환한다
 	public int GetNumItems(EItemKinds a_eItemKinds) {
 		return this.UserInfo.m_oNumItemsDict.ExGetVal(a_eItemKinds, KCDefine.B_VAL_0_INT);
@@ -76,16 +80,6 @@ public class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 
 		this.UserInfo.m_oNumItemsDict.ExReplaceVal(a_eItemKinds, nNumItems);
 	}
-	
-	//! 유저 정보를 저장한다
-	public void SaveUserInfo() {
-		this.SaveUserInfo(KDefine.G_DATA_P_USER_INFO);
-	}
-
-	//! 유저 정보를 저장한다
-	public void SaveUserInfo(string a_oFilePath) {
-		CFunc.WriteMsgPackObj(a_oFilePath, this.UserInfo);
-	}
 
 	//! 유저 정보를 로드한다
 	public CUserInfo LoadUserInfo() {
@@ -101,6 +95,16 @@ public class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 		}
 
 		return this.UserInfo;
+	}
+
+	//! 유저 정보를 저장한다
+	public void SaveUserInfo() {
+		this.SaveUserInfo(KDefine.G_DATA_P_USER_INFO);
+	}
+
+	//! 유저 정보를 저장한다
+	public void SaveUserInfo(string a_oFilePath) {
+		CFunc.WriteMsgPackObj(a_oFilePath, this.UserInfo);
 	}
 	#endregion			// 함수
 }

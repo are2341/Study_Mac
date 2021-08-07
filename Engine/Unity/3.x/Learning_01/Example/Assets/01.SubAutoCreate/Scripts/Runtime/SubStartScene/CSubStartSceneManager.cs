@@ -30,18 +30,7 @@ public class CSubStartSceneManager : CStartSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsInit) {
-			m_fSkipTime = KCDefine.SS_DELTA_T_UPDATE_STATE;
-			
-			// 텍스트를 설정한다
-			m_oLoadingText = CFactory.CreateCloneObj<Text>(KCDefine.SS_OBJ_N_LOADING_TEXT, KCDefine.SS_OBJ_P_LOADING_TEXT, this.SubUIs, KDefine.SS_POS_LOADING_TEXT);
-			m_oLoadingText.text = KCDefine.SS_TEXT_LOADING;
-
-			// 이미지를 설정한다 {
-			m_oLoadingGauge = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_LOADING_GAUGE, KCDefine.SS_OBJ_P_LOADING_GAUGE, this.SubUIs, KDefine.SS_POS_LOADING_IMG_GAUGE);
-
-			m_oGaugeImg = m_oLoadingGauge.ExFindComponent<Image>(KCDefine.SS_OBJ_N_GAUGE_IMG);
-			m_oGaugeImg.fillAmount = KCDefine.B_VAL_0_FLT;
-			// 이미지를 설정한다 }
+			this.SetupAwake();
 		}
 	}
 
@@ -54,23 +43,27 @@ public class CSubStartSceneManager : CStartSceneManager {
 	//! 상태를 갱신한다
 	public override void OnUpdate(float a_fDeltaTime) {
 		base.OnUpdate(a_fDeltaTime);
-		m_fSkipTime += Time.deltaTime;
 
-		float fPercent = (KCDefine.B_VAL_1_FLT * a_fDeltaTime) * KCDefine.SS_SCALE_LOADING;
-		m_oGaugeImg.fillAmount = Mathf.Clamp(m_oGaugeImg.fillAmount + fPercent, KCDefine.B_VAL_0_FLT, m_fMaxPercent);
+		// 앱이 실행 중 일 경우
+		if(CSceneManager.IsAppRunning) {
+			m_fSkipTime += Time.deltaTime;
 
-		// 슬라이스 타입 게이지 일 경우
-		if(m_oGaugeImg.type == Image.Type.Sliced) {
-			var stSize = m_oGaugeImg.rectTransform.sizeDelta;
-			m_oGaugeImg.rectTransform.anchoredPosition = new Vector2(stSize.x * m_oGaugeImg.fillAmount, KCDefine.B_VAL_0_FLT);
-		}
+			float fPercent = (KCDefine.B_VAL_1_FLT * a_fDeltaTime) * KCDefine.SS_SCALE_LOADING;
+			m_oGaugeImg.fillAmount = Mathf.Clamp(m_oGaugeImg.fillAmount + fPercent, KCDefine.B_VAL_0_FLT, m_fMaxPercent);
 
-		// 텍스트 상태 갱신 주기가 지났을 경우
-		if(m_fSkipTime.ExIsGreateEquals(KCDefine.SS_DELTA_T_UPDATE_STATE)) {
-			m_nNumDots = (m_nNumDots + KCDefine.B_VAL_1_INT) % KCDefine.SS_MAX_NUM_DOTS;
-			m_fSkipTime = KCDefine.B_VAL_0_FLT;
+			// 슬라이스 타입 게이지 일 경우
+			if(m_oGaugeImg.type == Image.Type.Sliced) {
+				var stSize = m_oGaugeImg.rectTransform.sizeDelta;
+				m_oGaugeImg.rectTransform.anchoredPosition = new Vector2(stSize.x * m_oGaugeImg.fillAmount, KCDefine.B_VAL_0_FLT);
+			}
 
-			this.UpdateUIsState();
+			// 텍스트 상태 갱신 주기가 지났을 경우
+			if(m_fSkipTime.ExIsGreateEquals(KCDefine.SS_DELTA_T_UPDATE_STATE)) {
+				m_nNumDots = (m_nNumDots + KCDefine.B_VAL_1_INT) % KCDefine.SS_MAX_NUM_DOTS;
+				m_fSkipTime = KCDefine.B_VAL_0_FLT;
+
+				this.UpdateUIsState();
+			}
 		}
 	}
 
@@ -80,6 +73,22 @@ public class CSubStartSceneManager : CStartSceneManager {
 		float fPercent = nEvent / (float)((int)EStartSceneEvent.MAX_VAL - KCDefine.B_VAL_1_INT);
 
 		m_fMaxPercent = Mathf.Clamp(fPercent, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_1_FLT);
+	}
+
+	//! 씬을 설정한다
+	private void SetupAwake() {
+		m_fSkipTime = KCDefine.SS_DELTA_T_UPDATE_STATE;
+			
+		// 텍스트를 설정한다
+		m_oLoadingText = CFactory.CreateCloneObj<Text>(KCDefine.SS_OBJ_N_LOADING_TEXT, KCDefine.SS_OBJ_P_LOADING_TEXT, this.SubUIs, KDefine.SS_POS_LOADING_TEXT);
+		m_oLoadingText.text = KCDefine.SS_TEXT_LOADING;
+
+		// 이미지를 설정한다 {
+		m_oLoadingGauge = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_LOADING_GAUGE, KCDefine.SS_OBJ_P_LOADING_GAUGE, this.SubUIs, KDefine.SS_POS_LOADING_IMG_GAUGE);
+
+		m_oGaugeImg = m_oLoadingGauge.ExFindComponent<Image>(KCDefine.SS_OBJ_N_GAUGE_IMG);
+		m_oGaugeImg.fillAmount = KCDefine.B_VAL_0_FLT;
+		// 이미지를 설정한다 }
 	}
 
 	//! 텍스트 상태를 갱신한다

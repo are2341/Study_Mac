@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 #if UNITY_IOS
@@ -32,6 +33,7 @@ public static partial class KCDefine {
 
 	// 크기
 	public const int U_SIZE_OBJS_POOL = 10;
+	public const int U_DEF_MAX_SIZE_FONT = 10;
 
 	// 길이
 	public const int U_MAX_LENGTH_LOG = 100000000;
@@ -123,11 +125,6 @@ public static partial class KCDefine {
 
 	// 회전
 	public static readonly Vector3 U_ANGLE_MAIN_LIGHT = new Vector3(45.0f, 45.0f, 0.0f);
-
-	// 버전
-	public const string U_VER_COMMON_APP_INFO = "1.0.0";
-	public const string U_VER_COMMON_USER_INFO = "1.0.0";
-	public const string U_VER_COMMON_GAME_INFO = "1.0.0";
 	
 	// 형식
 	public const string U_FMT_LOG_MSG = "[{0}]\nLogType: {1}\nCondition: {2}\nStackTrace:\n{3}==============================\n\n";
@@ -191,19 +188,63 @@ public static partial class KCDefine {
 	public const string U_OBJ_N_LEFT_BLIND_IMG = "LeftBlindImg";
 	public const string U_OBJ_N_RIGHT_BLIND_IMG = "RightBlindImg";
 
-	public const string U_OBJ_N_POPUP_CONTENTS = "Contents";
+	public const string U_OBJ_N_CONTENTS = "Contents";
+	public const string U_OBJ_N_CONTENTS_UIS = "ContentsUIs";
+
+	public const string U_OBJ_N_TOP_MENU_UIS = "TopMenuUIs";
+	public const string U_OBJ_N_BOTTOM_MENU_UIS = "BottomMenuUIs";
+	
 	public const string U_OBJ_N_POPUP_CLOSE_BTN = "CloseBtn";
 	public const string U_OBJ_N_FMT_POPUP_TOUCH_RESPONDER = "PopupTouchResponder_{0}";
 
 	public const string U_OBJ_N_EMPTY = "Empty";
+	public const string U_OBJ_N_GAME_OBJ = "GameObj";
 	public const string U_OBJ_N_ALERT_POPUP = "AlertPopup";
 	public const string U_OBJ_N_TOAST_POPUP = "ToastPopup";
+
+	public const string U_OBJ_N_TEXT = "Text";
+	public const string U_OBJ_N_LOCALIZE_TEXT = "LocalizeText";
+
+	public const string U_OBJ_N_IMG = "Img";
+	public const string U_OBJ_N_RAW_IMG = "RawImg";
+	public const string U_OBJ_N_FOCUS_IMG = "FocusImg";
+
+	public const string U_OBJ_N_TEXT_BTN = "TextBtn";
+	public const string U_OBJ_N_TEXT_SCALE_BTN = "TextScaleBtn";
+
+	public const string U_OBJ_N_LOCALIZE_TEXT_BTN = "LocalizeTextBtn";
+	public const string U_OBJ_N_LOCALIZE_TEXT_SCALE_BTN = "LocalizeTextScaleBtn";
+
+	public const string U_OBJ_N_IMG_BTN = "ImgBtn";
+	public const string U_OBJ_N_IMG_SCALE_BTN = "ImgScaleBtn";
+
+	public const string U_OBJ_N_IMG_TEXT_BTN = "ImgTextBtn";
+	public const string U_OBJ_N_IMG_TEXT_SCALE_BTN = "ImgTextScaleBtn";
+
+	public const string U_OBJ_N_IMG_LOCALIZE_TEXT_BTN = "ImgLocalizeTextBtn";
+	public const string U_OBJ_N_IMG_LOCALIZE_TEXT_SCALE_BTN = "ImgLocalizeTextScaleBtn";
+
+	public const string U_OBJ_N_INPUT_FIELD = "InputField";
+	public const string U_OBJ_N_DROPDOWN = "Dropdown";
+
+	public const string U_OBJ_N_PAGE_VIEW = "PageView";
+	public const string U_OBJ_N_SCROLL_VIEW = "ScrollView";
+	public const string U_OBJ_N_RECYCLE_VIEW = "RecycleView";
+
+	public const string U_OBJ_N_LINE_FX = "LineFX";
+	public const string U_OBJ_N_PARTICLE_FX = "ParticleFX";
+
+	public const string U_OBJ_N_SPRITE = "Sprite";
+
+	public const string U_OBJ_N_TOUCH_RESPONDER = "TouchResponder";
+	public const string U_OBJ_N_DRAG_RESPONDER = "DragResponder";
 
 	public const string U_OBJ_N_SCREEN_F_TOUCH_RESPONDER = "ScreenFTouchResponder";
 	public const string U_OBJ_N_INDICATOR_TOUCH_RESPONDER = "IndicatorTouchResponder";
 
 	public const string U_IMG_N_SPRITE = "Sprite";
 	public const string U_IMG_N_SPRITE_CLONE = "(Clone)";
+	public const string U_IMG_N_UNKNOWN_SPRITE = "Unknown";
 
 	public const string U_FUNC_N_ON_DRAG = "OnDrag";
 	public const string U_FUNC_N_ON_POINTER_UP = "OnPointerUp";
@@ -285,10 +326,9 @@ public static partial class KCDefine {
 	public const string U_KEY_STR_T_STR = "Str";
 
 	// 값 테이블 {
-	public const int U_IDX_VAL_T_BOOL_VALS = 0;
-	public const int U_IDX_VAL_T_INT_VALS = 1;
-	public const int U_IDX_VAL_T_FLT_VALS = 2;
-	public const int U_IDX_VAL_T_STR_VALS = 3;
+	public const int U_IDX_VAL_T_INT_VALS = 0;
+	public const int U_IDX_VAL_T_FLT_VALS = 1;
+	public const int U_IDX_VAL_T_STR_VALS = 2;
 
 	public const string U_KEY_VAL_T_ID = "ID";
 	public const string U_KEY_VAL_T_VAL = "Val";
@@ -298,8 +338,7 @@ public static partial class KCDefine {
 	// 경고 팝업 {
 	public const string U_OBJ_N_ALERT_P_TITLE_TEXT = "TitleText";
 	public const string U_OBJ_N_ALERT_P_MSG_TEXT = "MsgText";
-	public const string U_OBJ_N_ALERT_P_BTN_TEXT = "Text";
-
+	
 	public const string U_OBJ_N_ALERT_P_BG_IMG = "BGImg";
 
 	public const string U_OBJ_N_ALERT_P_OK_BTN = "OKBtn";
@@ -375,6 +414,9 @@ public static partial class KCDefine {
 #endif			// #if UNITY_EDITOR
 	// 색상 }
 
+	// 크기
+	public static readonly Vector3 U_MIN_SIZE_ALERT_POPUP = new Vector3(400.0f, 300.0f, 0.0f);
+
 	// 태그
 	public static readonly string[] U_TAGS = new string[] {
 		KCDefine.U_TAG_ENEMY,
@@ -445,8 +487,8 @@ public static partial class KCDefine {
 	
 	// 동기화 객체
 	public static readonly object U_LOCK_OBJ_COMMON = new object();
-	public static readonly object U_LOCK_OBJ_SCHEDULE_M_UPDATE = new object();
 	public static readonly object U_LOCK_OBJ_TASK_M_UPDATE = new object();
+	public static readonly object U_LOCK_OBJ_SCHEDULE_M_UPDATE = new object();
 
 	// 경로 {
 	public static readonly string U_DATA_P_COMMON_APP_INFO = $"{KCDefine.B_DIR_P_WRITABLE}CommonAppInfo.bytes";
@@ -454,7 +496,6 @@ public static partial class KCDefine {
 	public static readonly string U_DATA_P_COMMON_GAME_INFO = $"{KCDefine.B_DIR_P_WRITABLE}CommonGameInfo.bytes";
 
 	public static readonly string U_DATA_P_FMT_G_LEVEL_INFO = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_LEVEL_INFO_ROOT}G_LevelInfo_{"{0:000000000}"}";
-	public static readonly string U_OBJ_P_INPUT_FIELD = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_TEXT_ROOT}U_InputField";
 
 	public static readonly string U_OBJ_P_TEXT = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_TEXT_ROOT}U_Text";
 	public static readonly string U_OBJ_P_TEXT_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_TextBtn";
@@ -466,6 +507,7 @@ public static partial class KCDefine {
 
 	public static readonly string U_OBJ_P_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_Img";
 	public static readonly string U_OBJ_P_RAW_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_RawImg";
+	public static readonly string U_OBJ_P_FOCUS_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_FocusImg";
 
 	public static readonly string U_OBJ_P_IMG_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_ImgBtn";
 	public static readonly string U_OBJ_P_IMG_SCALE_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_ImgScaleBtn";
@@ -476,11 +518,16 @@ public static partial class KCDefine {
 	public static readonly string U_OBJ_P_IMG_LOCALIZE_TEXT_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_ImgLocalizeTextBtn";
 	public static readonly string U_OBJ_P_IMG_LOCALIZE_TEXT_SCALE_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_ImgLocalizeTextScaleBtn";
 
+	public static readonly string U_OBJ_P_INPUT_FIELD = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_INPUT_ROOT}U_InputField";
+	public static readonly string U_OBJ_P_DROPDOWN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_INPUT_ROOT}U_Dropdown";
+
 	public static readonly string U_OBJ_P_PAGE_VIEW = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_SCROLL_VIEW_ROOT}U_PageView";
 	public static readonly string U_OBJ_P_SCROLL_VIEW = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_SCROLL_VIEW_ROOT}U_ScrollView";
 	public static readonly string U_OBJ_P_RECYCLE_VIEW = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_SCROLL_VIEW_ROOT}U_RecycleView";
 
+	public static readonly string U_OBJ_P_LINE_FX = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_FX_ROOT}U_LineFX";
 	public static readonly string U_OBJ_P_PARTICLE_FX = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_FX_ROOT}U_ParticleFX";
+	
 	public static readonly string U_OBJ_P_SPRITE = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_2D_ROOT}U_Sprite";
 
 	public static readonly string U_OBJ_P_FPS_COUNTER = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_EXTERNAL_ROOT}U_FPSCounter";
@@ -497,6 +544,7 @@ public static partial class KCDefine {
 	
 	public static readonly string U_OBJ_P_G_STORE_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_StorePopup";
 	public static readonly string U_OBJ_P_G_SETTINGS_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_SettingsPopup";
+	public static readonly string U_OBJ_P_G_SYNC_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_SyncPopup";
 	public static readonly string U_OBJ_P_G_DAILY_MISSION_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_DailyMissionPopup";
 	public static readonly string U_OBJ_P_G_FREE_REWARD_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_FreeRewardPopup";
 	public static readonly string U_OBJ_P_G_DAILY_REWARD_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_DailyRewardPopup";
@@ -519,6 +567,7 @@ public static partial class KCDefine {
 	public static readonly string U_ASSET_P_G_MISSION_INFO_TABLE = $"{KCDefine.B_DIR_P_SCRIPTABLES}{KCDefine.B_DIR_P_GLOBAL}G_MissionInfoTable";
 	public static readonly string U_ASSET_P_G_REWARD_INFO_TABLE = $"{KCDefine.B_DIR_P_SCRIPTABLES}{KCDefine.B_DIR_P_GLOBAL}G_RewardInfoTable";
 	public static readonly string U_ASSET_P_G_EPISODE_INFO_TABLE = $"{KCDefine.B_DIR_P_SCRIPTABLES}{KCDefine.B_DIR_P_GLOBAL}G_EpisodeInfoTable";
+	public static readonly string U_ASSET_P_G_TUTORIAL_INFO_TABLE = $"{KCDefine.B_DIR_P_SCRIPTABLES}{KCDefine.B_DIR_P_GLOBAL}G_TutorialInfoTable";
 	
 	public static readonly string U_ASSET_P_G_SPRITE_ATLAS_01 = $"{KCDefine.B_DIR_P_SPRITE_ATLASES}{KCDefine.B_DIR_P_GLOBAL}G_SpriteAtlas_01";
 	public static readonly string U_ASSET_P_LIGHTING_SETTINGS = $"{KCDefine.B_DIR_P_SETTINGS}{KCDefine.B_DIR_P_UTILITY}U_LightingSettings";
@@ -530,6 +579,7 @@ public static partial class KCDefine {
 	public static readonly string U_TABLE_P_G_MISSION_INFO = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}G_MissionInfoTable";
 	public static readonly string U_TABLE_P_G_REWARD_INFO = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}G_RewardInfoTable";
 	public static readonly string U_TABLE_P_G_EPISODE_INFO = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}G_EpisodeInfoTable";
+	public static readonly string U_TABLE_P_G_TUTORIAL_INFO = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}G_TutorialInfoTable";
 	
 	public static readonly string U_TABLE_P_G_COMMON_VAL = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_VALUE_INFO_ROOT}G_ValTable_Common";
 	public static readonly string U_TABLE_P_G_COMMON_STR = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_STRING_INFO_ROOT}G_StrTable_Common";

@@ -11,7 +11,7 @@ public class CEditorInputPopup : CPopup {
 	#endregion			// 변수
 
 	#region UI 변수
-	private InputField m_oInput = null;
+	protected InputField m_oInput = null;
 	#endregion			// UI 변수
 
 	#region 프로퍼티
@@ -39,6 +39,13 @@ public class CEditorInputPopup : CPopup {
 	public virtual void Init(System.Action<CEditorInputPopup, string> a_oCallback) {
 		base.Init();
 		m_oCallback = a_oCallback;
+
+		this.UpdateUIsState();
+	}
+
+	//! UI 상태를 갱신한다
+	protected void UpdateUIsState() {
+		// Do Something
 	}
 
 	//! 확인 버튼을 눌렀을 경우

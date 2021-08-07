@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
@@ -66,6 +67,11 @@ public static partial class Func {
 		Func.ShowPopup<CSettingsPopup>(KDefine.G_OBJ_N_SETTINGS_POPUP, KCDefine.U_OBJ_P_G_SETTINGS_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
+	//! 동기화 팝업을 출력한다
+	public static void ShowSyncPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CSyncPopup>(KDefine.G_OBJ_N_SYNC_POPUP, KCDefine.U_OBJ_P_G_SYNC_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	}
+
 	//! 일일 미션 팝업을 출력한다
 	public static void ShowDailyMissionPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
 		Func.ShowPopup<CDailyMissionPopup>(KDefine.G_OBJ_N_DAILY_MISSION_POPUP, KCDefine.U_OBJ_P_G_DAILY_MISSION_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
@@ -108,7 +114,69 @@ public static partial class Func {
 	#endregion			// 클래스 함수
 
 	#region 조건부 클래스 함수
+#if FIREBASE_MODULE_ENABLE
+	//! 로그인 되었을 경우
+	public static void OnLogin(CFirebaseManager a_oSender, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 로그아웃 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowLoginSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowLoginFailPopup(a_oCallback);
+		}
+	}
+
+	//! 로그아웃 되었을 경우
+	public static void OnLogout(CFirebaseManager a_oSender, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 로그아웃 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowLogoutSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowLogoutFailPopup(a_oCallback);
+		}
+	}
+
+	//! 유저 정보가 저장 되었을 경우
+	public static void OnSaveUserInfo(CFirebaseManager a_oSender, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 저장 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowSaveSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowSaveFailPopup(a_oCallback);
+		}
+	}
+
+	//! 유저 정보가 로드 되었을 경우
+	public static void OnLoadUserInfo(CFirebaseManager a_oSender, string a_oJSONStr, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 로드 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowLoadSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowLoadFailPopup(a_oCallback);
+		}
+	}
+#endif			// #if FIREBASE_MODULE_ENABLE
+
 #if PURCHASE_MODULE_ENABLE
+	//! 상품이 결제 되었을 경우
+	public static void OnPurchaseProduct(CPurchaseManager a_oSender, string a_oProductID, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 결제 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowPurchaseSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowPurchaseFailPopup(a_oCallback);
+		}
+	}
+
+	//! 상품이 복원 되었을 경우
+	public static void OnRestoreProducts(CPurchaseManager a_oSender, List<Product> a_oProductList, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 복원 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowRestoreSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowRestoreFailPopup(a_oCallback);
+		}
+	}
+
 	//! 상품을 획득한다
 	public static void AcquireProduct(string a_oProductID, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oProductID.ExIsValid());
@@ -151,26 +219,6 @@ public static partial class Func {
 					}
 				}
 			}
-		}
-	}
-
-	//! 상품이 결제 되었을 경우
-	public static void OnPurchaseProduct(CPurchaseManager a_oSender, string a_oProductID, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
-		// 결제 되었을 경우
-		if(a_bIsSuccess) {
-			Func.ShowPurchaseSuccessPopup(a_oCallback);
-		} else {
-			Func.ShowPurchaseFailPopup(a_oCallback);
-		}
-	}
-
-	//! 상품이 복원 되었을 경우
-	public static void OnRestoreProducts(CPurchaseManager a_oSender, List<Product> a_oProductList, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
-		// 복원 되었을 경우
-		if(a_bIsSuccess) {
-			Func.ShowRestoreSuccessPopup(a_oCallback);
-		} else {
-			Func.ShowRestoreFailPopup(a_oCallback);
 		}
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE

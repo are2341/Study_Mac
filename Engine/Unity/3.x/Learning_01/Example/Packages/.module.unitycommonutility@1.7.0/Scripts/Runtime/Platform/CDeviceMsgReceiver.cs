@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 디바이스 메세지 수신자
 public class CDeviceMsgReceiver : CSingleton<CDeviceMsgReceiver> {

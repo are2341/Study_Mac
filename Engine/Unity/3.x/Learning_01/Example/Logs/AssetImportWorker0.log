@@ -2,7 +2,7 @@ Using pre-set license
 Pro License: NO
 
  COMMAND LINE ARGUMENTS:
-/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/MacOS/Unity
+/Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
@@ -13,70 +13,189 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53918
+56229
 Successfully changed project path to: /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example
 /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 619.05 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 530.94 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2021.1.15f1 (e767a7370072)
-[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Resources/UnitySubsystems
+Initialize engine version: 2021.1.16f1 (5fa502fca597)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
-2021-07-27 16:59:28.770 Unity[89098:1489609] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-07-27 16:59:28.770 Unity[89098:1489609] Metal devices available: 1
-2021-07-27 16:59:28.770 Unity[89098:1489609] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
-2021-07-27 16:59:28.770 Unity[89098:1489609] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-08-08 00:06:20.942 Unity[22308:220501] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-08-08 00:06:20.942 Unity[22308:220501] Metal devices available: 1
+2021-08-08 00:06:20.943 Unity[22308:220501] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-08-08 00:06:20.945 Unity[22308:220501] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Initialize mono
-Mono path[0] = '/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/Managed'
-Mono path[1] = '/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56098
+Mono path[0] = '/Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56308
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /Applications/Unity/Hub/Editor/2021.1.15f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Register platform support module: /Applications/Unity/Hub/Editor/2021.1.15f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000985 seconds.
+Register platform support module: /Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.1.16f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001932 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 290.57 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 321.31 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in 12.627 seconds
+- Completed reload, in  8.660 seconds
 Domain Reload Profiling:
-	ReloadAssembly (12628ms)
-		BeginReloadAssembly (261ms)
+	ReloadAssembly (8661ms)
+		BeginReloadAssembly (130ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (980ms)
-			LoadAssemblies (255ms)
+		EndReloadAssembly (1159ms)
+			LoadAssemblies (129ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (298ms)
+			SetupTypeCache (347ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (60ms)
-			SetupLoadedEditorAssemblies (543ms)
+			RebuildScriptCaches (88ms)
+			SetupLoadedEditorAssemblies (643ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (291ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (321ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (182ms)
-				ProcessInitializeOnLoadMethodAttributes (57ms)
+				ProcessInitializeOnLoadAttributes (209ms)
+				ProcessInitializeOnLoadMethodAttributes (94ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.017332 seconds.
+Registered in 0.011234 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 283.04 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Mono: successfully reloaded assembly
+- Completed reload, in  5.130 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5130ms)
+		BeginReloadAssembly (248ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (51ms)
+		EndReloadAssembly (4788ms)
+			LoadAssemblies (170ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (980ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (214ms)
+			SetupLoadedEditorAssemblies (3206ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (283ms)
+				BeforeProcessingInitializeOnLoad (254ms)
+				ProcessInitializeOnLoadAttributes (2618ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Launching external process: /Applications/Unity/Hub/Editor/2021.1.16f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+Refreshing native plugins compatible for Editor in 1.88 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 8003 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 482.8 MB.
+System memory in use after: 483.2 MB.
+
+Unloading 217 unused Assets to reduce memory usage. Loaded Objects now: 8423.
+Total: 9.419548 ms (FindLiveObjects: 1.020112 ms CreateObjectMapping: 0.976534 ms MarkObjects: 7.157432 ms  DeleteObjects: 0.263973 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.015689 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.14 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+- Completed reload, in  5.560 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5561ms)
+		BeginReloadAssembly (336ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (203ms)
+		EndReloadAssembly (5128ms)
+			LoadAssemblies (207ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (955ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (165ms)
+			SetupLoadedEditorAssemblies (3601ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (168ms)
+				ProcessInitializeOnLoadAttributes (3318ms)
+				ProcessInitializeOnLoadMethodAttributes (100ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
 OnLevelWasLoaded was found on SoundManager
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
@@ -85,9 +204,1565 @@ OnLevelWasLoaded was found on DemoPart1
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
 
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.33 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7855 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 509.8 MB.
+System memory in use after: 510.3 MB.
+
+Unloading 74 unused Assets to reduce memory usage. Loaded Objects now: 8525.
+Total: 48.433892 ms (FindLiveObjects: 1.065599 ms CreateObjectMapping: 0.949671 ms MarkObjects: 46.263850 ms  DeleteObjects: 0.153031 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.038468 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 308.37 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 2.96 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
 RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.213 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6213ms)
+		BeginReloadAssembly (302ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (197ms)
+		EndReloadAssembly (5816ms)
+			LoadAssemblies (170ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (986ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (163ms)
+			SetupLoadedEditorAssemblies (4266ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (250ms)
+				ProcessInitializeOnLoadAttributes (3915ms)
+				ProcessInitializeOnLoadMethodAttributes (83ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.11 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7856 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.51 GB.
+System memory in use after: 0.51 GB.
+
+Unloading 74 unused Assets to reduce memory usage. Loaded Objects now: 8560.
+Total: 48.558233 ms (FindLiveObjects: 0.666553 ms CreateObjectMapping: 0.541078 ms MarkObjects: 47.205184 ms  DeleteObjects: 0.143723 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019908 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.16 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.557 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6557ms)
+		BeginReloadAssembly (372ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (16ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (225ms)
+		EndReloadAssembly (6090ms)
+			LoadAssemblies (299ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1024ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (170ms)
+			SetupLoadedEditorAssemblies (4414ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (179ms)
+				ProcessInitializeOnLoadAttributes (4141ms)
+				ProcessInitializeOnLoadMethodAttributes (81ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.11 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7855 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.51 GB.
+System memory in use after: 0.51 GB.
+
+Unloading 74 unused Assets to reduce memory usage. Loaded Objects now: 8594.
+Total: 48.384413 ms (FindLiveObjects: 0.718285 ms CreateObjectMapping: 0.593294 ms MarkObjects: 46.922015 ms  DeleteObjects: 0.148791 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset
+  artifactKey: Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset using Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cf68cdeb4c6dfcfb5f4de13f9d8beba') in 1.758565 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.451707 seconds.
+  path: Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset
+  artifactKey: Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset using Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc5a239585b0bec2e6772fed103c4cf3') in 0.008353 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019673 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 5.34 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.198 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6199ms)
+		BeginReloadAssembly (310ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (207ms)
+		EndReloadAssembly (5795ms)
+			LoadAssemblies (165ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1083ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (274ms)
+			SetupLoadedEditorAssemblies (3956ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (346ms)
+				ProcessInitializeOnLoadAttributes (3497ms)
+				ProcessInitializeOnLoadMethodAttributes (93ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.16 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7857 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.50 GB.
+System memory in use after: 0.50 GB.
+
+Unloading 75 unused Assets to reduce memory usage. Loaded Objects now: 8629.
+Total: 48.409094 ms (FindLiveObjects: 0.704407 ms CreateObjectMapping: 0.542036 ms MarkObjects: 46.998905 ms  DeleteObjects: 0.161912 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.028790 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.05 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.188 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6188ms)
+		BeginReloadAssembly (312ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (207ms)
+		EndReloadAssembly (5780ms)
+			LoadAssemblies (177ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (971ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (191ms)
+			SetupLoadedEditorAssemblies (4218ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (222ms)
+				ProcessInitializeOnLoadAttributes (3887ms)
+				ProcessInitializeOnLoadMethodAttributes (96ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.14 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7856 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.50 GB.
+System memory in use after: 0.50 GB.
+
+Unloading 74 unused Assets to reduce memory usage. Loaded Objects now: 8663.
+Total: 48.956983 ms (FindLiveObjects: 0.700174 ms CreateObjectMapping: 0.540776 ms MarkObjects: 47.562374 ms  DeleteObjects: 0.151814 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 27.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 120 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 348.9 MB.
+System memory in use after: 349.3 MB.
+
+Unloading 71 unused Assets to reduce memory usage. Loaded Objects now: 8714.
+Total: 51.777022 ms (FindLiveObjects: 0.988551 ms CreateObjectMapping: 0.963730 ms MarkObjects: 49.681820 ms  DeleteObjects: 0.141354 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 405.228453 seconds.
+  path: Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset
+  artifactKey: Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset using Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7d581e0ed592f30b7e6d0de88f54273') in 0.010865 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.553300 seconds.
+  path: Assets/02.UnityProject/Resources/Scriptables
+  artifactKey: Guid(105a4f2e15ed14d6787f17d17c450d4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Scriptables using Guid(105a4f2e15ed14d6787f17d17c450d4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37825d436c3c3e5f0a5f5738f04b122b') in 0.003988 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.099188 seconds.
+  path: Assets/02.UnityProject/Resources/Icons/Standalone/App/Icon.png
+  artifactKey: Guid(c720dea4b8c3541baa405d5767e43836) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Icons/Standalone/App/Icon.png using Guid(c720dea4b8c3541baa405d5767e43836) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dabe3bab6611629536c8e793ecd4b58e') in 1.631273 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 319.531383 seconds.
+  path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
+  artifactKey: Guid(5652f566b7f3b46c3bd3f23a4df19462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scenes/01.AgreeScene.unity using Guid(5652f566b7f3b46c3bd3f23a4df19462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3406d269ce40fa92406e6de0153cd961') in 0.012307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.114945 seconds.
+  path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
+  artifactKey: Guid(5652f566b7f3b46c3bd3f23a4df19462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scenes/01.AgreeScene.unity using Guid(5652f566b7f3b46c3bd3f23a4df19462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73206a7ef19eeeec327fd48730680644') in 0.008080 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.424278 seconds.
+  path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
+  artifactKey: Guid(52e1c133b186c46eebddbe3fbdeb7e95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity using Guid(52e1c133b186c46eebddbe3fbdeb7e95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '759dd7b10ceedb11f7f4f54cc9b713bb') in 0.002260 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.288578 seconds.
+  path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
+  artifactKey: Guid(52e1c133b186c46eebddbe3fbdeb7e95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity using Guid(52e1c133b186c46eebddbe3fbdeb7e95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb2b6921b9c0f877e21a5095ff8d4242') in 0.005597 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.257880 seconds.
+  path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
+  artifactKey: Guid(3ab06c98a263d46f1a82509b692736e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scenes/01.SetupScene.unity using Guid(3ab06c98a263d46f1a82509b692736e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e0263e64225febc61dc2aa154616ddb') in 0.005949 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.009346 seconds.
+  path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
+  artifactKey: Guid(3ab06c98a263d46f1a82509b692736e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scenes/01.SetupScene.unity using Guid(3ab06c98a263d46f1a82509b692736e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56af0a661c1811ef5e561ca61bf9e6f6') in 0.007307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.439007 seconds.
+  path: Assets/00.AutoCreate/Scripts/Runtime/SubInitScene
+  artifactKey: Guid(edb4861d024c749aab0116e1d0ba3a0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scripts/Runtime/SubInitScene using Guid(edb4861d024c749aab0116e1d0ba3a0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69381e84072b16239c9fe1c4e4c47d4c') in 0.002047 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.796741 seconds.
+  path: Assets/00.AutoCreate/Scripts/Runtime
+  artifactKey: Guid(017694ea45eb24cad9ef281388d8e9ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scripts/Runtime using Guid(017694ea45eb24cad9ef281388d8e9ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ef92201fdbdb9365ba9ca045c47a1b9') in 0.001980 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.253243 seconds.
+  path: Assets/00.AutoCreate/Scripts
+  artifactKey: Guid(0d32374623b524247a076d5a044890f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate/Scripts using Guid(0d32374623b524247a076d5a044890f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afb353bf9f931c5f4335043168f5f54c') in 0.003256 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.329123 seconds.
+  path: Assets/00.AutoCreate
+  artifactKey: Guid(c2d318e573df04f37a646e3ee563a444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/00.AutoCreate using Guid(c2d318e573df04f37a646e3ee563a444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dbb457e3b79cbf80d2a5bd2f8e00ab3') in 0.003162 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.259417 seconds.
+  path: Assets/02.UnityProject/Resources/Tables
+  artifactKey: Guid(3e05ea3753c65404b9fe0ca1ababbf19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Tables using Guid(3e05ea3753c65404b9fe0ca1ababbf19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1f706969263080009084fffa6027516') in 0.002634 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.241292 seconds.
+  path: Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset
+  artifactKey: Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Scriptables/Global/G_DefineSymbolTable.asset using Guid(a117586ab8ec64b1299bd37d97e34843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84e0635586c06c564a01c7b61fbffc09') in 0.025805 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017809 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.45 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.223 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6224ms)
+		BeginReloadAssembly (351ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (242ms)
+		EndReloadAssembly (5778ms)
+			LoadAssemblies (173ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1006ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (176ms)
+			SetupLoadedEditorAssemblies (4163ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (27ms)
+				BeforeProcessingInitializeOnLoad (345ms)
+				ProcessInitializeOnLoadAttributes (3684ms)
+				ProcessInitializeOnLoadMethodAttributes (93ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (29ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.06 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7858 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.51 GB.
+System memory in use after: 0.51 GB.
+
+Unloading 78 unused Assets to reduce memory usage. Loaded Objects now: 8765.
+Total: 48.497363 ms (FindLiveObjects: 0.709294 ms CreateObjectMapping: 0.559941 ms MarkObjects: 47.065416 ms  DeleteObjects: 0.160712 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.028285 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.17 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.276 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6276ms)
+		BeginReloadAssembly (323ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (13ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (210ms)
+		EndReloadAssembly (5857ms)
+			LoadAssemblies (175ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (967ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (164ms)
+			SetupLoadedEditorAssemblies (4297ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (189ms)
+				ProcessInitializeOnLoadAttributes (4001ms)
+				ProcessInitializeOnLoadMethodAttributes (93ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.02 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7858 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.52 GB.
+System memory in use after: 0.52 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 8801.
+Total: 48.100709 ms (FindLiveObjects: 0.715339 ms CreateObjectMapping: 0.534657 ms MarkObjects: 46.694408 ms  DeleteObjects: 0.153241 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021350 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.35 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  7.065 seconds
+Domain Reload Profiling:
+	ReloadAssembly (7065ms)
+		BeginReloadAssembly (308ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (202ms)
+		EndReloadAssembly (6664ms)
+			LoadAssemblies (170ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1018ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (188ms)
+			SetupLoadedEditorAssemblies (5029ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (180ms)
+				ProcessInitializeOnLoadAttributes (4721ms)
+				ProcessInitializeOnLoadMethodAttributes (112ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (33ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.32 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7858 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.52 GB.
+System memory in use after: 0.52 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 8835.
+Total: 51.583463 ms (FindLiveObjects: 0.858946 ms CreateObjectMapping: 0.747261 ms MarkObjects: 49.825571 ms  DeleteObjects: 0.149349 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010908 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.20 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.522 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6522ms)
+		BeginReloadAssembly (371ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (16ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (256ms)
+		EndReloadAssembly (6051ms)
+			LoadAssemblies (174ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1034ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (178ms)
+			SetupLoadedEditorAssemblies (4413ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (170ms)
+				ProcessInitializeOnLoadAttributes (4135ms)
+				ProcessInitializeOnLoadMethodAttributes (94ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.19 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7858 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.52 GB.
+System memory in use after: 0.52 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 8869.
+Total: 49.388571 ms (FindLiveObjects: 0.738909 ms CreateObjectMapping: 0.560970 ms MarkObjects: 47.909370 ms  DeleteObjects: 0.177148 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 267.610582 seconds.
+  path: Assets/02.UnityProject/Resources/Scriptables/Global
+  artifactKey: Guid(775223ead3ef64e6ca59fb594665ecaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources/Scriptables/Global using Guid(775223ead3ef64e6ca59fb594665ecaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67a91cb92d0a8ae90364536e6c6416a4') in 0.013089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.317411 seconds.
+  path: Assets/02.UnityProject/Resources
+  artifactKey: Guid(ce8d3dc8e0ef44aac8df2fb873414298) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Resources using Guid(ce8d3dc8e0ef44aac8df2fb873414298) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a60a1bcf2117d3262fc0a487c802c106') in 0.004537 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.250917 seconds.
+  path: Assets/02.UnityProject
+  artifactKey: Guid(0e8461ab77c73457b82b573fce01e184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject using Guid(0e8461ab77c73457b82b573fce01e184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb1bd009bb0063778114097337a57f2e') in 0.001193 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.272649 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.004611 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.886735 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
+  artifactKey: Guid(5a421b6f6a50e4da08af2c47edec4ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity using Guid(5a421b6f6a50e4da08af2c47edec4ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '564d911969d2dddfcbde46419a9b27cb') in 0.006994 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.001452 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
+  artifactKey: Guid(5a421b6f6a50e4da08af2c47edec4ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity using Guid(5a421b6f6a50e4da08af2c47edec4ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43e900700e2ad78af3c153b2ba76c451') in 0.004278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.526598 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
+  artifactKey: Guid(3f35d83e26e09472680c0939849cb0eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity using Guid(3f35d83e26e09472680c0939849cb0eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '573e05c5fdfd2875596095b77873923f') in 0.007421 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.337406 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity
+  artifactKey: Guid(5c64ad7c1105a4e7480aa497879860f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity using Guid(5c64ad7c1105a4e7480aa497879860f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38994eb6533447791accae492525f20e') in 0.006961 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.896447 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity
+  artifactKey: Guid(5c64ad7c1105a4e7480aa497879860f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity using Guid(5c64ad7c1105a4e7480aa497879860f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10372d68fce87d6da164c634a7381a95') in 0.010569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.748376 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
+  artifactKey: Guid(d125f9885b44d456bb361bde6135a7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity using Guid(d125f9885b44d456bb361bde6135a7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28e35792b5a2177eb45d69229cb34ff8') in 0.003057 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.622282 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
+  artifactKey: Guid(d125f9885b44d456bb361bde6135a7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity using Guid(d125f9885b44d456bb361bde6135a7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c79845363305b34bf387d50e5a9f6554') in 0.002276 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.232107 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
+  artifactKey: Guid(e4e5fd3c76eae4cea85c1fb93e57b1d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.StartScene.unity using Guid(e4e5fd3c76eae4cea85c1fb93e57b1d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8703e2c43edce3406ca68aa2588312d') in 0.005610 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.789612 seconds.
+  path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
+  artifactKey: Guid(e4e5fd3c76eae4cea85c1fb93e57b1d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Scenes/01.StartScene.unity using Guid(e4e5fd3c76eae4cea85c1fb93e57b1d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a80c359e4214f1f517d49aa16adb9d0') in 0.005638 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.108612 seconds.
+  path: Assets/01.SubAutoCreate/README.md
+  artifactKey: Guid(2860e0f84d29d4b61b7aafd7d332f37d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/README.md using Guid(2860e0f84d29d4b61b7aafd7d332f37d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bb8c85439d828a14a945105866f5792') in 2.615068 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.715917 seconds.
+  path: Assets/02.UnityProject/Scenes/00.OverlayScene.unity
+  artifactKey: Guid(e04adf8a0c62e4463be45dd94a96a3a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/00.OverlayScene.unity using Guid(e04adf8a0c62e4463be45dd94a96a3a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd91c08adf2007c050ec5f06a9ebe0cc3') in 0.003997 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.417357 seconds.
+  path: Assets/02.UnityProject/Scenes/00.OverlayScene.unity
+  artifactKey: Guid(e04adf8a0c62e4463be45dd94a96a3a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/00.OverlayScene.unity using Guid(e04adf8a0c62e4463be45dd94a96a3a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3df95caa2b972d16dd1304a802a27ccd') in 0.005143 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.582704 seconds.
+  path: Assets/02.UnityProject/Scenes/01.LoadingScene.unity
+  artifactKey: Guid(6dd9e2e298aa244fdbc09ada60db86b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/01.LoadingScene.unity using Guid(6dd9e2e298aa244fdbc09ada60db86b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cefe33d16bf6919aba6501b01447c5c1') in 0.002839 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.098791 seconds.
+  path: Assets/02.UnityProject/Scenes/01.LoadingScene.unity
+  artifactKey: Guid(6dd9e2e298aa244fdbc09ada60db86b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/01.LoadingScene.unity using Guid(6dd9e2e298aa244fdbc09ada60db86b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4c2caf4dcd6f42f960ccc742658ee9c') in 0.011048 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.540350 seconds.
+  path: Assets/02.UnityProject/Scenes/02.TitleScene.unity
+  artifactKey: Guid(5a670cd8938924bf88afa9b6788d65f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/02.TitleScene.unity using Guid(5a670cd8938924bf88afa9b6788d65f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aa1cb66bfb030624e1204514b444c47') in 0.003078 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.208507 seconds.
+  path: Assets/02.UnityProject/Scenes/02.TitleScene.unity
+  artifactKey: Guid(5a670cd8938924bf88afa9b6788d65f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/02.TitleScene.unity using Guid(5a670cd8938924bf88afa9b6788d65f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b1a52b620512494f12f03def42abdf') in 0.005367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.501321 seconds.
+  path: Assets/02.UnityProject/Scenes/03.GameScene.unity
+  artifactKey: Guid(b5ebac78b80aa4f4b9f24f911bb0d8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/03.GameScene.unity using Guid(b5ebac78b80aa4f4b9f24f911bb0d8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e954641853b9419ee9df01e650c20e7') in 0.003855 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.632418 seconds.
+  path: Assets/02.UnityProject/Scenes/03.GameScene.unity
+  artifactKey: Guid(b5ebac78b80aa4f4b9f24f911bb0d8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/03.GameScene.unity using Guid(b5ebac78b80aa4f4b9f24f911bb0d8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57290c119a85c6f85ea651c3c01b5ce5') in 0.006426 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.509227 seconds.
+  path: Assets/02.UnityProject/Scenes/01.LoadingSceneSettings.lighting
+  artifactKey: Guid(a87cf6f6def88470c8618a7747ea7a02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/01.LoadingSceneSettings.lighting using Guid(a87cf6f6def88470c8618a7747ea7a02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07055ecbda8bc70d10f5629f7a1d85a0') in 0.678362 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.394850 seconds.
+  path: Assets/02.UnityProject/Scenes
+  artifactKey: Guid(7e424f780db174808bd4d81988431cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes using Guid(7e424f780db174808bd4d81988431cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2dad8cc48b6a406d1681405591fb0ef') in 0.002918 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.787845 seconds.
+  path: Assets/03.UnityProjectEditor
+  artifactKey: Guid(75a6b9922b688490f94562d2bd5d6713) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor using Guid(75a6b9922b688490f94562d2bd5d6713) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '031d16b67aa807905722b80cf6f13090') in 0.004382 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.635249 seconds.
+  path: Assets/03.UnityProjectEditor/README.md
+  artifactKey: Guid(5d2e0f950e25444f5b7afeabfbb39805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/README.md using Guid(5d2e0f950e25444f5b7afeabfbb39805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bac866b7a0882baffcdb125f845f3e72') in 0.024679 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.383159 seconds.
+  path: Assets/03.UnityProjectEditor/Resources
+  artifactKey: Guid(0164a554cd0624e178a3e3d3385eb217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/Resources using Guid(0164a554cd0624e178a3e3d3385eb217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd27ff649e6aa63e4d9f22c57677b9637') in 0.003115 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.019848 seconds.
+  path: Assets/03.UnityProjectEditor/Scenes
+  artifactKey: Guid(924e472b1d8784bfc9044e01cab73570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/Scenes using Guid(924e472b1d8784bfc9044e01cab73570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '702c623980fd41742daac1583a9db15f') in 0.004328 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.084437 seconds.
+  path: Assets/03.UnityProjectEditor/Resources/Prefabs
+  artifactKey: Guid(61cee5998440a40e48f4fad24d001947) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/Resources/Prefabs using Guid(61cee5998440a40e48f4fad24d001947) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '830bfb5a8d05ae0a0385c1e8167bbe79') in 0.001704 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.199557 seconds.
+  path: Assets/03.UnityProjectEditor/Scripts
+  artifactKey: Guid(357ea93828f1c4af3b0df137d2f8b538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/Scripts using Guid(357ea93828f1c4af3b0df137d2f8b538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ab33b2fbb3630a8017812957eecd3a4') in 0.005693 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.257197 seconds.
+  path: Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
+  artifactKey: Guid(5cfe9177ee9494235872e0120c4fce01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity using Guid(5cfe9177ee9494235872e0120c4fce01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '245e1fa30fb164ecf70d9faeabb4e83a') in 0.006357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.746153 seconds.
+  path: Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
+  artifactKey: Guid(5cfe9177ee9494235872e0120c4fce01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity using Guid(5cfe9177ee9494235872e0120c4fce01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a6f336f2aa9602f1c419da03d29d3fb') in 0.010278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.064530 seconds.
+  path: Assets/01.SubAutoCreate
+  artifactKey: Guid(436188c51ab6041d5ae4cd5ccba01c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate using Guid(436188c51ab6041d5ae4cd5ccba01c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c24ceefaa3a5635f7932b0fab10bb5a') in 0.004259 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.945478 seconds.
+  path: Assets/02.UnityProject/README.md
+  artifactKey: Guid(667b9b8475bb54d739ac3da3571ee35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/README.md using Guid(667b9b8475bb54d739ac3da3571ee35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45675810a6d0063c17a3948de6a9d9c1') in 0.011406 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.840771 seconds.
+  path: Assets/02.UnityProject/Scenes/E01
+  artifactKey: Guid(91e649ecfad954faba85d7bdee451d12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/E01 using Guid(91e649ecfad954faba85d7bdee451d12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6da7539beec3e3a5e5f04efd00a36c0') in 0.002770 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 90.323013 seconds.
+  path: Assets/02.UnityProject/Scenes/E01/====== 왕초보 따라하여 게임 만들기 =====.unity
+  artifactKey: Guid(9de360d4501c84f018284389137f04e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/E01/====== 왕초보 따라하여 게임 만들기 =====.unity using Guid(9de360d4501c84f018284389137f04e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bee840fee0cdc87f5fbea46756ba903') in 0.001959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.396625 seconds.
+  path: Assets/02.UnityProject/Scenes/E01/E01Example_052.unity
+  artifactKey: Guid(946360a236e5744869db48aea67f4740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scenes/E01/E01Example_052.unity using Guid(946360a236e5744869db48aea67f4740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f9211c9905254d81b22d34abf9edc5') in 0.005628 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.033360 seconds.
+  path: Assets/02.UnityProject/Scripts/Runtime
+  artifactKey: Guid(46622ba9ea444497fb0871c35d2da94a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scripts/Runtime using Guid(46622ba9ea444497fb0871c35d2da94a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31155654c58c9fa382a4b2b48c5a50ad') in 0.005256 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.483568 seconds.
+  path: Assets/02.UnityProject/Scripts/Runtime/E01
+  artifactKey: Guid(ea0bcc6511e7f4aeb859cb2ad96dafc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scripts/Runtime/E01 using Guid(ea0bcc6511e7f4aeb859cb2ad96dafc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fe2284f3e931465da7e540e5b9c5c3d') in 0.002491 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.584957 seconds.
+  path: Assets/02.UnityProject/Scripts/Runtime/E01/Example_052
+  artifactKey: Guid(a50870ee8e995490895db8f13a973061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scripts/Runtime/E01/Example_052 using Guid(a50870ee8e995490895db8f13a973061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b0a329ba8d08927b4fe341ff1e7ce49') in 0.010220 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.245716 seconds.
+  path: Assets/02.UnityProject/Scripts/Runtime/E01/Example_052/E01Example_052.cs
+  artifactKey: Guid(18fecded44a434808bd74d3c077f826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scripts/Runtime/E01/Example_052/E01Example_052.cs using Guid(18fecded44a434808bd74d3c077f826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00439afc12c5bed3be7c80e2af005b82') in 0.442152 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024918 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.06 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.334 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6335ms)
+		BeginReloadAssembly (368ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (214ms)
+		EndReloadAssembly (5869ms)
+			LoadAssemblies (316ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (973ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (170ms)
+			SetupLoadedEditorAssemblies (4191ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (182ms)
+				ProcessInitializeOnLoadAttributes (3901ms)
+				ProcessInitializeOnLoadMethodAttributes (94ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.08 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7859 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.53 GB.
+System memory in use after: 0.53 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 8904.
+Total: 49.286239 ms (FindLiveObjects: 0.751324 ms CreateObjectMapping: 0.584052 ms MarkObjects: 47.763924 ms  DeleteObjects: 0.184766 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.015965 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.83 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  7.008 seconds
+Domain Reload Profiling:
+	ReloadAssembly (7010ms)
+		BeginReloadAssembly (574ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (24ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (358ms)
+		EndReloadAssembly (6330ms)
+			LoadAssemblies (349ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1496ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (214ms)
+			SetupLoadedEditorAssemblies (3790ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (5ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (202ms)
+				ProcessInitializeOnLoadAttributes (3433ms)
+				ProcessInitializeOnLoadMethodAttributes (130ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (37ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.05 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7859 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.53 GB.
+System memory in use after: 0.53 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 8938.
+Total: 48.964985 ms (FindLiveObjects: 0.813984 ms CreateObjectMapping: 0.560698 ms MarkObjects: 47.404301 ms  DeleteObjects: 0.184132 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 186.701191 seconds.
+  path: Assets/02.UnityProject/Scripts/Runtime/E01/Example_052/E01Example_052.cs
+  artifactKey: Guid(18fecded44a434808bd74d3c077f826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02.UnityProject/Scripts/Runtime/E01/Example_052/E01Example_052.cs using Guid(18fecded44a434808bd74d3c077f826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30c587d95a3d1ea5ed72a12d167459b3') in 0.056027 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.030844 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.03 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  7.496 seconds
+Domain Reload Profiling:
+	ReloadAssembly (7497ms)
+		BeginReloadAssembly (398ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (235ms)
+		EndReloadAssembly (6966ms)
+			LoadAssemblies (546ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1002ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (167ms)
+			SetupLoadedEditorAssemblies (4965ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (174ms)
+				ProcessInitializeOnLoadAttributes (4657ms)
+				ProcessInitializeOnLoadMethodAttributes (120ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (36ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 3.74 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7859 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.54 GB.
+System memory in use after: 0.54 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 8972.
+Total: 52.425002 ms (FindLiveObjects: 0.878362 ms CreateObjectMapping: 0.737478 ms MarkObjects: 50.600034 ms  DeleteObjects: 0.206971 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.029323 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.00 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.401 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6402ms)
+		BeginReloadAssembly (837ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (26ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (499ms)
+		EndReloadAssembly (5379ms)
+			LoadAssemblies (634ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (951ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (156ms)
+			SetupLoadedEditorAssemblies (3563ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (165ms)
+				ProcessInitializeOnLoadAttributes (3290ms)
+				ProcessInitializeOnLoadMethodAttributes (95ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.16 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7859 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.53 GB.
+System memory in use after: 0.53 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 9006.
+Total: 49.058227 ms (FindLiveObjects: 0.750655 ms CreateObjectMapping: 0.557252 ms MarkObjects: 47.578245 ms  DeleteObjects: 0.170500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.013235 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 4.85 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in 17.186 seconds
+Domain Reload Profiling:
+	ReloadAssembly (17190ms)
+		BeginReloadAssembly (744ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (31ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (500ms)
+		EndReloadAssembly (16210ms)
+			LoadAssemblies (448ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (2205ms)
+			ReleaseScriptCaches (6ms)
+			RebuildScriptCaches (484ms)
+			SetupLoadedEditorAssemblies (12341ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (21ms)
+				SetLoadedEditorAssemblies (3ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (515ms)
+				ProcessInitializeOnLoadAttributes (11552ms)
+				ProcessInitializeOnLoadMethodAttributes (238ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (73ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 3.17 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7859 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.53 GB.
+System memory in use after: 0.53 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 9040.
+Total: 92.605967 ms (FindLiveObjects: 1.224338 ms CreateObjectMapping: 1.196376 ms MarkObjects: 89.920539 ms  DeleteObjects: 0.262423 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 181.256224 seconds.
+  path: Assets/01.SubAutoCreate/Resources/Prefabs
+  artifactKey: Guid(67976770414834924805888c5d2709f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/01.SubAutoCreate/Resources/Prefabs using Guid(67976770414834924805888c5d2709f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f570b799c722a236d921af5cfff78a8') in 0.030856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.045503 seconds.
+  path: Packages/module.unitycommon/Resources
+  artifactKey: Guid(cdb078d9b83484192910140c3b2df2ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources using Guid(cdb078d9b83484192910140c3b2df2ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '850d4c9fdb731d9229921cd26bc42783') in 0.001494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.787578 seconds.
+  path: Packages/module.unitycommon/Resources/Images
+  artifactKey: Guid(0db164feccf0f4f1e9669cc9065a4fbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Images using Guid(0db164feccf0f4f1e9669cc9065a4fbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e7b72f96e1322e453bf2d559fbfcc47') in 0.002216 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.277240 seconds.
+  path: Packages/module.unitycommon/Resources/Materials
+  artifactKey: Guid(55ba311541dea49319f1428a97308097) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Materials using Guid(55ba311541dea49319f1428a97308097) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4899a7fee38f1adc319d7b7ea36a6ea') in 0.003027 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.040916 seconds.
+  path: Packages/module.unitycommon/Resources/Pipelines
+  artifactKey: Guid(e42c9d3af15d84684b15b2a1ec204c99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Pipelines using Guid(e42c9d3af15d84684b15b2a1ec204c99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3561a06b4a1ef7e5ea7edb12f2f8a1b8') in 0.002540 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.953105 seconds.
+  path: Packages/module.unitycommon/Resources/Prefabs
+  artifactKey: Guid(44bf1a0e4df164f99bc17e62eaa95fb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Prefabs using Guid(44bf1a0e4df164f99bc17e62eaa95fb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4100e9be2dfbc311a70d9c7d5f742aa5') in 0.002214 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.713080 seconds.
+  path: Packages/module.unitycommon/Resources/Prefabs/InitScene
+  artifactKey: Guid(cf78ee17605994056aec6669176f250a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Prefabs/InitScene using Guid(cf78ee17605994056aec6669176f250a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1928c1b46df23850c8de69f4689eae6a') in 0.001834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.672809 seconds.
+  path: Packages/module.unitycommon/Resources/Prefabs/SetupScene
+  artifactKey: Guid(4d19eb6e4ef074e9cb6f9e1747b8b75d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Prefabs/SetupScene using Guid(4d19eb6e4ef074e9cb6f9e1747b8b75d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '639ea2cac391b01728318bef703bf53b') in 0.001941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.630334 seconds.
+  path: Packages/module.unitycommon/Resources/Prefabs/SetupScene/SS_ScreenDebugUIs.prefab
+  artifactKey: Guid(01c69b87205e64feb99a7a458a90fcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon/Resources/Prefabs/SetupScene/SS_ScreenDebugUIs.prefab using Guid(01c69b87205e64feb99a7a458a90fcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe08c79acb0ee784c7889f6b579e7772') in 0.588770 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.097015 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/dante/Workspace/Studies/Study_Mac/Engine/Unity/3.x/Learning_01/Example/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.37 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.323 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6324ms)
+		BeginReloadAssembly (484ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (273ms)
+		EndReloadAssembly (5735ms)
+			LoadAssemblies (432ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (961ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (186ms)
+			SetupLoadedEditorAssemblies (3985ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (177ms)
+				ProcessInitializeOnLoadAttributes (3685ms)
+				ProcessInitializeOnLoadMethodAttributes (107ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (35ms)
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on SoundManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on DemoPart1
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.36 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7859 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.54 GB.
+System memory in use after: 0.54 GB.
+
+Unloading 77 unused Assets to reduce memory usage. Loaded Objects now: 9076.
+Total: 55.536963 ms (FindLiveObjects: 1.125935 ms CreateObjectMapping: 0.938460 ms MarkObjects: 53.267193 ms  DeleteObjects: 0.203408 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 142.467733 seconds.
+  path: Packages/module.unitycommon
+  artifactKey: Guid(69fb584afd71b4fbbe77bab7b3fe2e18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/module.unitycommon using Guid(69fb584afd71b4fbbe77bab7b3fe2e18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8e1dd53e47eae3ef707e330331a5a75') in 0.034707 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

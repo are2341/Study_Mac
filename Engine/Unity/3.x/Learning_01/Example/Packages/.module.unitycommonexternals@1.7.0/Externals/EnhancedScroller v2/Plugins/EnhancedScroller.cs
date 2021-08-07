@@ -1053,7 +1053,7 @@ namespace EnhancedUI.EnhancedScroller
             if (NumberOfCells == 0) return 0;
             if (cellViewIndex < 0) cellViewIndex = 0;
 
-			// FIXME: sd.lee (인덱스 보정 구문 추가)
+			// FIXME: dante (인덱스 보정 구문 추가)
 			cellViewIndex = Mathf.Clamp(cellViewIndex, 0, NumberOfCells - 1);
 
             if (cellViewIndex == 0 && insertPosition == CellViewPositionEnum.Before)

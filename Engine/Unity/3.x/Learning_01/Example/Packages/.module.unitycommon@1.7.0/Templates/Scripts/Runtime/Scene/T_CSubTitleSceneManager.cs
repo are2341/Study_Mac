@@ -23,12 +23,6 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 		if(CSceneManager.IsAppInit) {
 			this.SetupAwake();
 			CSceneLoader.Inst.LoadAdditiveScene(KCDefine.B_SCENE_N_OVERLAY);
-
-			// 텍스트를 설정한다
-			m_oVerText = CFactory.CreateCloneObj<Text>(KCDefine.TS_OBJ_N_VER_TEXT, KCDefine.TS_OBJ_P_VER_TEXT, this.SubUpUIs, KCDefine.TS_POS_VER_TEXT);
-			m_oVerText.rectTransform.pivot = KCDefine.B_ANCHOR_UP_LEFT;
-			m_oVerText.rectTransform.anchorMin = KCDefine.B_ANCHOR_UP_LEFT;
-			m_oVerText.rectTransform.anchorMax = KCDefine.B_ANCHOR_UP_LEFT;
 		}
 	}
 	
@@ -40,8 +34,6 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 		if(CSceneManager.IsAppInit) {
 			this.SetupStart();
 			this.UpdateUIsState();
-
-			m_oVerText.text = CAccess.GetVerStr(CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_oVer, CCommonUserInfoStorage.Inst.UserInfo.UserType);
 
 			// 최초 시작 일 경우
 			if(CCommonAppInfoStorage.Inst.IsFirstStart) {
@@ -75,7 +67,7 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 				// 일일 미션 리셋이 가능 할 경우
 				if(CGameInfoStorage.Inst.IsEnableResetDailyMission) {
 					CGameInfoStorage.Inst.GameInfo.LastDailyMissionTime = System.DateTime.Today;
-					CGameInfoStorage.Inst.GameInfo.m_oCompleteDailyMissionKindsSet.Clear();
+					CGameInfoStorage.Inst.GameInfo.m_oCompleteDailyMissionKindsList.Clear();
 
 					CGameInfoStorage.Inst.SaveGameInfo();
 				}
@@ -110,7 +102,7 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 
 		// 앱이 실행 중 일 경우
 		if(CSceneManager.IsAppRunning) {
-			// Do Nothing
+			// Do Something
 		}
 	}
 
@@ -126,6 +118,12 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 
 	//! 씬을 설정한다
 	private void SetupAwake() {
+		// 텍스트를 설정한다
+		m_oVerText = CFactory.CreateCloneObj<Text>(KCDefine.TS_OBJ_N_VER_TEXT, KCDefine.TS_OBJ_P_VER_TEXT, this.SubUpUIs, KCDefine.TS_POS_VER_TEXT);
+		m_oVerText.rectTransform.pivot = KCDefine.B_ANCHOR_UP_LEFT;
+		m_oVerText.rectTransform.anchorMin = KCDefine.B_ANCHOR_UP_LEFT;
+		m_oVerText.rectTransform.anchorMax = KCDefine.B_ANCHOR_UP_LEFT;
+
 #if DEBUG || DEVELOPMENT_BUILD
 		this.SetupTestUIs();
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
@@ -133,11 +131,13 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 
 	//! 씬을 설정한다
 	private void SetupStart() {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! UI 상태를 갱신한다
 	private void UpdateUIsState() {
+		m_oVerText.text = CAccess.GetVerStr(CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_oVer, CCommonUserInfoStorage.Inst.UserInfo.UserType);
+
 #if DEBUG || DEVELOPMENT_BUILD
 		this.UpdateTestUIsState();
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
@@ -172,12 +172,12 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 #if DEBUG || DEVELOPMENT_BUILD
 	//! 테스트 UI 를 설정한다
 	private void SetupTestUIs() {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 테스트 UI 상태를 갱신한다
 	private void UpdateTestUIsState() {
-		// Do Nothing
+		// Do Something
 	}
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 	#endregion			// 조건부 함수

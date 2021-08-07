@@ -650,7 +650,7 @@ public abstract partial class CSceneManager : CComponent {
 					KCDefine.B_ANCHOR_MID_RIGHT.ExTo3D()
 				};
 
-				var oPoses = new Vector3[] {
+				var oPositions = new Vector3[] {
 					Vector3.zero,
 					Vector3.zero,
 					Vector3.zero,
@@ -686,7 +686,7 @@ public abstract partial class CSceneManager : CComponent {
 					oImg.rectTransform.anchorMin = oAnchors[j];
 					oImg.rectTransform.anchorMax = oAnchors[j];
 					oImg.rectTransform.sizeDelta = CSceneManager.CanvasSize.ExTo2D();
-					oImg.rectTransform.anchoredPosition = oPoses[j].ExTo2D() + oOffsets[j].ExTo2D();
+					oImg.rectTransform.anchoredPosition = oPositions[j].ExTo2D() + oOffsets[j].ExTo2D();
 				}
 			}
 
@@ -747,7 +747,7 @@ public abstract partial class CSceneManager : CComponent {
 		if(a_oCanvas.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_OBJS_CANVAS_BASE)) {
 			a_oCanvas.worldCamera = CSceneManager.MainCamera;
 		} else {
-			a_oCanvas.worldCamera = (this.SubUIsCamera != null) ? this.SubUIsCamera : CSceneManager.MainCamera;
+			a_oCanvas.worldCamera = this.SubUIsCamera ?? CSceneManager.MainCamera;
 		}
 #endif			// #if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
 

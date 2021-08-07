@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if NEVER_USE_THIS
 #if STUDY_MODULE_ENABLE
@@ -13,7 +14,7 @@ public class CSubMenuSceneManager : CMenuSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
-			// Do Nothing
+			// Do Something
 		}
 	}
 

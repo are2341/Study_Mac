@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR || UNITY_STANDALONE
 //! 에디터 기본 상수

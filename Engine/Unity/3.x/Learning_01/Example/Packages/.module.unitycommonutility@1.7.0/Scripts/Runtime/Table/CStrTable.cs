@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 문자열 테이블
 public class CStrTable : CSingleton<CStrTable> {

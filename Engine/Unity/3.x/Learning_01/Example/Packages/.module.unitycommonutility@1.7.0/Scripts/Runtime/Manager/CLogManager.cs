@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 로그 관리자
 public class CLogManager : CSingleton<CLogManager> {

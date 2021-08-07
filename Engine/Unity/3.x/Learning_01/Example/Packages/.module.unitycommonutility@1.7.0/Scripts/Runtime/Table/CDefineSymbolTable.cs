@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+using UnityEngine.UI;
 
 //! 전처리기 심볼 테이블
 public class CDefineSymbolTable : CScriptableObj<CDefineSymbolTable> {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 디바이스 정보 테이블
 public class CDeviceInfoTable : CScriptableObj<CDeviceInfoTable> {

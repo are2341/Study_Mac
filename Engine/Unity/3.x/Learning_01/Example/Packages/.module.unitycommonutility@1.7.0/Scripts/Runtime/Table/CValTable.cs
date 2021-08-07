@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 값 테이블
 public class CValTable : CSingleton<CValTable> {
 	#region 변수
-	private Dictionary<string, bool> m_oBoolDict = new Dictionary<string, bool>();
 	private Dictionary<string, int> m_oIntDict = new Dictionary<string, int>();
 	private Dictionary<string, float> m_oFltDict = new Dictionary<string, float>();
 	private Dictionary<string, string> m_oStrDict = new Dictionary<string, string>();
@@ -15,16 +14,9 @@ public class CValTable : CSingleton<CValTable> {
 	#region 함수
 	//! 상태를 리셋한다
 	public virtual void Reset() {
-		m_oBoolDict.Clear();
 		m_oIntDict.Clear();
 		m_oFltDict.Clear();
 		m_oStrDict.Clear();
-	}
-
-	//! 논리를 반환한다
-	public bool GetBool(string a_oKey, bool a_bIsDefVal = false) {
-		CAccess.Assert(a_oKey.ExIsValid());
-		return m_oBoolDict.ExGetVal(a_oKey, a_bIsDefVal);
 	}
 
 	//! 정수를 반환한다
@@ -43,18 +35,6 @@ public class CValTable : CSingleton<CValTable> {
 	public string GetStr(string a_oKey, string a_oDefStr = KCDefine.B_EMPTY_STR) {
 		CAccess.Assert(a_oKey.ExIsValid());
 		return m_oStrDict.ExGetVal(a_oKey, a_oDefStr);
-	}
-
-	//! 논리를 추가한다
-	public void AddBool(string a_oKey, bool a_bIsVal, bool a_bIsReplace = false) {
-		CAccess.Assert(a_oKey.ExIsValid());
-
-		// 대체 모드 일 경우
-		if(a_bIsReplace) {
-			m_oBoolDict.ExReplaceVal(a_oKey, a_bIsVal);
-		} else {
-			m_oBoolDict.ExAddVal(a_oKey, a_bIsVal);
-		}
 	}
 
 	//! 정수를 추가한다
@@ -91,12 +71,6 @@ public class CValTable : CSingleton<CValTable> {
 		} else {
 			m_oStrDict.ExAddVal(a_oKey, a_oStr);
 		}
-	}
-	
-	//! 논리를 제거한다
-	public void RemoveBool(string a_oKey) {
-		CAccess.Assert(a_oKey.ExIsValid());
-		m_oBoolDict.ExRemoveVal(a_oKey);
 	}
 
 	//! 정수를 제거한다
@@ -150,7 +124,6 @@ public class CValTable : CSingleton<CValTable> {
 			var eValType = (EValType)int.Parse(oValInfoList[i][KCDefine.U_KEY_VAL_T_VAL_TYPE]);
 
 			switch(eValType) {
-				case EValType.BOOL: this.AddBool(oKey, int.Parse(oVal) != KCDefine.B_VAL_0_INT, nReplace != KCDefine.B_VAL_0_INT); break;
 				case EValType.INT: this.AddInt(oKey, int.Parse(oVal), nReplace != KCDefine.B_VAL_0_INT); break;
 				case EValType.FLT: this.AddFlt(oKey, float.Parse(oVal), nReplace != KCDefine.B_VAL_0_INT); break;
 				case EValType.STR: this.AddStr(oKey, oVal, nReplace != KCDefine.B_VAL_0_INT); break;
@@ -158,7 +131,7 @@ public class CValTable : CSingleton<CValTable> {
 		}
 
 		return new List<object>() {
-			m_oBoolDict, m_oIntDict, m_oFltDict, m_oStrDict
+			m_oIntDict, m_oFltDict, m_oStrDict
 		};
 	}
 	#endregion			// 함수

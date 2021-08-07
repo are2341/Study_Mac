@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR || UNITY_STANDALONE
 //! 에디터 기본 상수
 public static partial class KCDefine {
 	#region 기본
 	// 이름 {
+	public const string E_OBJ_N_BLOCK_SPRITE = "BlockSprite";
+
 	public const string E_OBJ_N_PORTRAIT_UIS = "PortraitUIs";
 	public const string E_OBJ_N_LANDSCAPE_UIS = "LandscapeUIs";
 
@@ -21,6 +24,20 @@ public static partial class KCDefine {
 	public const string E_OBJ_N_EDITOR_IP_OK_BTN = "OKBtn";
 	public const string E_OBJ_N_EDITOR_IP_CANCEL_BTN = "CancelBtn";
 	// 에디터 입력 팝업 }
+
+	// 에디터 레벨 생성 팝업 {
+	public const string E_OBJ_N_EDITOR_LEVEL_CREATE_POPUP = "EditorLevelCreatePopup";
+	public const string E_OBJ_N_EDITOR_LCP_NUM_LEVELS_INPUT = "NumLevelsInput";
+
+	public const string E_OBJ_N_EDITOR_LCP_MIN_NUM_CELLS_X_INPUT = "MinNumCellsXInput";
+	public const string E_OBJ_N_EDITOR_LCP_MAX_NUM_CELLS_X_INPUT = "MaxNumCellsXInput";
+
+	public const string E_OBJ_N_EDITOR_LCP_MIN_NUM_CELLS_Y_INPUT = "MinNumCellsYInput";
+	public const string E_OBJ_N_EDITOR_LCP_MAX_NUM_CELLS_Y_INPUT = "MaxNumCellsYInput";
+
+	public const string E_OBJ_N_EDITOR_LCP_OK_BTN = "OKBtn";
+	public const string E_OBJ_N_EDITOR_LCP_CANCEL_BTN = "CancelBtn";
+	// 에디터 레벨 생성 팝업 }
 	
 	// 에디터 스크롤러 셀 뷰 {
 	public const string E_OBJ_N_ESCV_NAME_TEXT = "NameText";
@@ -35,6 +52,7 @@ public static partial class KCDefine {
 	#region 런타임 상수
 	// 경로 {
 	public static readonly string E_OBJ_P_EDITOR_INPUT_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_EditorInputPopup";
+	public static readonly string E_OBJ_P_EDITOR_LEVEL_CREATE_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_EditorLevelCreatePopup";
 
 	public static readonly string E_OBJ_P_LEVEL_EDITOR_SCROLLER_CELL_VIEW = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_SCROLL_VIEW}G_LevelEditorScrollerCellView";
 	public static readonly string E_OBJ_P_STAGE_EDITOR_SCROLLER_CELL_VIEW = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_SCROLL_VIEW}G_StageEditorScrollerCellView";

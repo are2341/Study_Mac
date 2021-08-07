@@ -620,15 +620,28 @@ namespace SimpleJSON
         }
         public override string ToString()
         {
-            string result = "[ ";
+			// FIXME: dante (문자열 생성 구문 수정) {
+			var result = new System.Text.StringBuilder("[");
             foreach (JSONNode N in m_List)
             {
                 if (result.Length > 2)
-                    result += ", ";
-                result += N.ToString();
+                    result.Append(", ");
+                result.Append(N.ToString());
             }
-            result += " ]";
-            return result;
+            result.Append("]");
+            return result.ToString();
+
+			// 기존 로직
+            // string result = "[ ";
+            // foreach (JSONNode N in m_List)
+            // {
+            //     if (result.Length > 2)
+            //         result += ", ";
+            //     result += N.ToString();
+            // }
+            // result += " ]";
+            // return result;
+			// FIXME: dante (문자열 생성 구문 수정) }
         }
         public override string ToString(string aPrefix)
         {
@@ -755,15 +768,28 @@ namespace SimpleJSON
         }
         public override string ToString()
         {
-            string result = "{";
+			// FIXME: dante (문자열 생성 구문 수정) {
+			var result = new System.Text.StringBuilder("{");
             foreach (KeyValuePair<string, JSONNode> N in m_Dict)
             {
                 if (result.Length > 2)
-                    result += ", ";
-                result += "\"" + Escape(N.Key) + "\":" + N.Value.ToString();
+                    result.Append(", ");
+                result.Append($"\"{Escape(N.Key)}\":{N.Value.ToString()}");
             }
-            result += "}";
-            return result;
+            result.Append("}");
+            return result.ToString();
+
+			// 기존 로직
+            // string result = "{";
+            // foreach (KeyValuePair<string, JSONNode> N in m_Dict)
+            // {
+            //     if (result.Length > 2)
+            //         result += ", ";
+            //     result += "\"" + Escape(N.Key) + "\":" + N.Value.ToString();
+            // }
+            // result += "}";
+            // return result;
+			// FIXME: dante (문자열 생성 구문 수정) }
         }
         public override string ToString(string aPrefix)
         {

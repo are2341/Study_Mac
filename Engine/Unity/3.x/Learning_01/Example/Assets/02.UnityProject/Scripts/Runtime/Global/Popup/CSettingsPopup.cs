@@ -36,13 +36,18 @@ public class CSettingsPopup : CSubPopup {
 	
 	//! 초기화
 	public override void Init() {
-		base.Init();		
-		this.UpdateUIsState();
+		base.Init();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 갱신한다
-	private void UpdateUIsState() {
-		// Do Nothing
+	private new void UpdateUIsState() {
+		// Do Something
 	}
 
 	//! 배경음 버튼을 눌렀을 경우

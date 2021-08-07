@@ -36,14 +36,18 @@ public class CChangesAcquirePopup : CSubPopup {
 
 		CUserInfoStorage.Inst.AddNumChanges(a_stParams.m_nNumChanges);
 		CUserInfoStorage.Inst.SaveUserInfo();
-
-		this.UpdateUIsState();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 변경한다
-	private void UpdateUIsState() {
-		m_oSaveUIs.SetActive(m_nPrevNumChanges < KDefine.G_MAX_NUM_CHANGES);
-		m_oFullUIs.SetActive(m_nPrevNumChanges >= KDefine.G_MAX_NUM_CHANGES);
+	private new void UpdateUIsState() {
+		m_oSaveUIs?.SetActive(m_nPrevNumChanges < KDefine.G_MAX_NUM_CHANGES);
+		m_oFullUIs?.SetActive(m_nPrevNumChanges >= KDefine.G_MAX_NUM_CHANGES);
 	}
 	#endregion			// 함수
 }

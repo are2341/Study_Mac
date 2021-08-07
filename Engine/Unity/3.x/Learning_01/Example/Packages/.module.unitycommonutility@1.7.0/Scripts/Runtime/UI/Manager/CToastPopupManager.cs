@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 토스트 팝업 관리자
 public class CToastPopupManager : CSingleton<CToastPopupManager> {

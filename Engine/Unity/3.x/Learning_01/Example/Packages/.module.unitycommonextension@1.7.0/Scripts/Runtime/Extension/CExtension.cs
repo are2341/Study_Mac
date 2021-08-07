@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 기본 확장 클래스
 public static partial class CExtension {
@@ -258,17 +259,7 @@ public static partial class CExtension {
 			}
 		}
 	}
-
-	//! 값을 제거한다
-	public static void ExRemoveVal<T>(this HashSet<T> a_oSender, T a_tVal, bool a_bIsEnableAssert = true) {
-		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
-
-		// 값 제거가 가능 할 경우
-		if(a_oSender != null && a_oSender.Contains(a_tVal)) {
-			a_oSender.Remove(a_tVal);
-		}
-	}
-
+	
 	//! 값을 제거한다
 	public static void ExRemoveVal<Key, Val>(this Dictionary<Key, Val> a_oSender, Key a_tKey, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);

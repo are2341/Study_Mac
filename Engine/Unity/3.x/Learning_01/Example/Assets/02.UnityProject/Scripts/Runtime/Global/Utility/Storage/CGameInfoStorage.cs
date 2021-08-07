@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using MessagePack;
 
 //! 클리어 정보
 [MessagePackObject]
 [System.Serializable]
-public sealed class CClearInfo : CBaseInfo {
+public class CClearInfo : CBaseInfo {
 	#region 상수
 	private const string KEY_SCORE = "Score";
 	private const string KEY_NUM_STARS = "NumStars";
@@ -17,7 +18,7 @@ public sealed class CClearInfo : CBaseInfo {
 	#endregion			// 상수
 
 	#region 변수
-	[Key(5)] public STIDInfo m_stIDInfo;
+	[Key(3)] public STIDInfo m_stIDInfo;
 	#endregion			// 변수
 
 	#region 프로퍼티
@@ -44,18 +45,23 @@ public sealed class CClearInfo : CBaseInfo {
 	[IgnoreMember] public long LevelID => CFactory.MakeUniqueLevelID(m_stIDInfo.m_nID, m_stIDInfo.m_nStageID, m_stIDInfo.m_nChapterID);
 	#endregion			// 프로퍼티
 
-	#region 함수
-	//! 생성자
-	public CClearInfo() : base(KDefine.G_VER_CLEAR_INFO) {
-		// Do Nothing
+	#region 인터페이스
+	//! 직렬화 될 경우
+	public override void OnBeforeSerialize() {
+		base.OnBeforeSerialize();
 	}
-	#endregion			// 함수
+
+	//! 역직렬화 되었을 경우
+	public override void OnAfterDeserialize() {
+		base.OnAfterDeserialize();
+	}
+	#endregion			// 인터페이스
 }
 
 //! 게임 정보
 [MessagePackObject]
 [System.Serializable]
-public sealed class CGameInfo : CBaseInfo {
+public class CGameInfo : CBaseInfo {
 	#region 상수
 	private const string KEY_DAILY_REWARD_ID = "DailyRewardID";
 	private const string KEY_NUM_ACQUIRE_FREE_REWARDS = "NumAcquireFreeRewards";
@@ -66,11 +72,11 @@ public sealed class CGameInfo : CBaseInfo {
 	#endregion			// 상수
 
 	#region 변수
-	[Key(101)] public HashSet<EMissionKinds> m_oCompleteMissionKindsSet = new HashSet<EMissionKinds>();
-	[Key(102)] public HashSet<EMissionKinds> m_oCompleteDailyMissionKindsSet = new HashSet<EMissionKinds>();
-	[Key(103)] public HashSet<ETutorialKinds> m_oCompleteTutorialKindsSet = new HashSet<ETutorialKinds>();
+	[Key(61)] public List<EMissionKinds> m_oCompleteMissionKindsList = new List<EMissionKinds>();
+	[Key(62)] public List<EMissionKinds> m_oCompleteDailyMissionKindsList = new List<EMissionKinds>();
+	[Key(63)] public List<ETutorialKinds> m_oCompleteTutorialKindsList = new List<ETutorialKinds>();
 
-	[Key(191)] public Dictionary<long, CClearInfo> m_oClearInfoDict = new Dictionary<long, CClearInfo>();
+	[Key(151)] public Dictionary<long, CClearInfo> m_oClearInfoDict = new Dictionary<long, CClearInfo>();
 	#endregion			// 변수
 
 	#region 프로퍼티
@@ -96,6 +102,8 @@ public sealed class CGameInfo : CBaseInfo {
 	#region 인터페이스
 	//! 직렬화 될 경우
 	public override void OnBeforeSerialize() {
+		base.OnBeforeSerialize();
+
 		m_oStrDict.ExReplaceVal(CGameInfo.KEY_LAST_DAILY_MISSION_TIME, this.LastDailyMissionTime.ExToLongStr());
 		m_oStrDict.ExReplaceVal(CGameInfo.KEY_LAST_FREE_REWARD_TIME, this.LastFreeRewardTime.ExToLongStr());
 		m_oStrDict.ExReplaceVal(CGameInfo.KEY_LAST_DAILY_REWARD_TIME, this.LastDailyRewardTime.ExToLongStr());
@@ -104,25 +112,12 @@ public sealed class CGameInfo : CBaseInfo {
 	//! 역직렬화 되었을 경우
 	public override void OnAfterDeserialize() {
 		base.OnAfterDeserialize();
-		
-		m_oCompleteMissionKindsSet = m_oCompleteMissionKindsSet ?? new HashSet<EMissionKinds>();
-		m_oCompleteDailyMissionKindsSet = m_oCompleteDailyMissionKindsSet ?? new HashSet<EMissionKinds>();
-		m_oCompleteTutorialKindsSet = m_oCompleteTutorialKindsSet ?? new HashSet<ETutorialKinds>();
-
-		m_oClearInfoDict = m_oClearInfoDict ?? new Dictionary<long, CClearInfo>();
 
 		this.LastDailyMissionTime = this.LastDailyMissionTimeStr.ExIsValid() ? this.LastDailyMissionTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Today.AddDays(-KCDefine.B_VAL_1_INT);
 		this.LastFreeRewardTime = this.LastFreeRewardTimeStr.ExIsValid() ? this.LastFreeRewardTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Today.AddDays(-KCDefine.B_VAL_1_INT);
 		this.LastDailyRewardTime = this.LastDailyRewardTimeStr.ExIsValid() ? this.LastDailyRewardTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Today.AddDays(-KCDefine.B_VAL_1_INT);
 	}
 	#endregion			// 인터페이스
-
-	#region 함수
-	//! 생성자
-	public CGameInfo() : base(KDefine.G_VER_GAME_INFO) {
-		// Do Nothing
-	}
-	#endregion			// 함수
 }
 
 //! 게임 정보 저장소
@@ -132,7 +127,7 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	public CLevelInfo PlayLevelInfo { get; private set; } = null;
 
 	public EItemKinds FreeBooster { get; set; } = EItemKinds.NONE;
-	public HashSet<EItemKinds> SelBoosterSet { get; private set; } = new HashSet<EItemKinds>();
+	public List<EItemKinds> SelBoosterList { get; private set; } = new List<EItemKinds>();
 
 	public CGameInfo GameInfo { get; private set; } = new CGameInfo() {
 		LastDailyMissionTime = System.DateTime.Today.AddDays(-KCDefine.B_VAL_1_INT),
@@ -183,14 +178,10 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	#endregion			// 프로퍼티
 
 	#region 함수
-	//! 부스터 상태를 리셋한다
-	public void ResetBoostersState(bool a_bIsResetFreeBooster = true) {
-		// 무료 부스터 리셋 모드 일 경우
-		if(a_bIsResetFreeBooster) {
-			this.FreeBooster = EItemKinds.NONE;
-		}
-
-		this.SelBoosterSet.Clear();
+	//! 부스터를 리셋한다
+	public virtual void ResetBoosters() {
+		this.FreeBooster = EItemKinds.NONE;
+		this.SelBoosterList.Clear();
 	}
 
 	//! 다음 일일 보상 식별자를 설정한다
@@ -207,7 +198,7 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	//! 플레이 레벨 정보를 설정한다
 	public void SetupPlayLevelInfo(int a_nID, EPlayMode a_ePlayMode, int a_nStageID = KCDefine.B_VAL_0_INT, int a_nChapterID = KCDefine.B_VAL_0_INT) {
 		this.PlayMode = a_ePlayMode;
-		this.PlayLevelInfo = CLevelInfoTable.Inst.GetLevelInfo(a_nID, a_nStageID, a_nChapterID);
+		this.PlayLevelInfo = CLevelInfoTable.Inst.LoadLevelInfo(a_nID, a_nStageID, a_nChapterID);
 	}
 
 	//! 무료 부스터 여부를 검사한다
@@ -217,22 +208,22 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 
 	//! 부스터 선택 여부를 검사한다
 	public bool IsSelBooster(EItemKinds a_eBooster) {
-		return this.SelBoosterSet.Contains(a_eBooster);
+		return this.SelBoosterList.Contains(a_eBooster);
 	}
 
 	//! 미션 완료 여부를 검사한다
 	public bool IsCompleteMission(EMissionKinds a_eMissionKinds) {
-		return this.GameInfo.m_oCompleteMissionKindsSet.Contains(a_eMissionKinds);
+		return this.GameInfo.m_oCompleteMissionKindsList.Contains(a_eMissionKinds);
 	}
 
 	//! 일일 미션 완료 여부를 검사한다
 	public bool IsCompleteDailyMission(EMissionKinds a_eMissionKinds) {
-		return this.GameInfo.m_oCompleteDailyMissionKindsSet.Contains(a_eMissionKinds);
+		return this.GameInfo.m_oCompleteDailyMissionKindsList.Contains(a_eMissionKinds);
 	}
 
 	//! 튜토리얼 완료 여부를 검사한다
 	public bool IsCompleteTutorial(ETutorialKinds a_eTutorialKinds) {
-		return this.GameInfo.m_oCompleteTutorialKindsSet.Contains(a_eTutorialKinds);
+		return this.GameInfo.m_oCompleteTutorialKindsList.Contains(a_eTutorialKinds);
 	}
 
 	//! 클리어 여부를 검사한다
@@ -244,10 +235,10 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	//! 스테이지 별 개수를 반환한다
 	public int GetNumStageStars(int a_nStageID, int a_nChapterID = KCDefine.B_VAL_0_INT) {
 		int nNumStars = KCDefine.B_VAL_0_INT;
-		var oStageLevelInfoDict = CLevelInfoTable.Inst.GetStageLevelInfos(a_nStageID, a_nChapterID);
+		int nNumLevelInfos = CLevelInfoTable.Inst.GetNumLevelInfos(a_nStageID, a_nChapterID);
 
-		foreach(var stKeyVal in oStageLevelInfoDict) {
-			this.TryGetClearInfo(stKeyVal.Value.m_stIDInfo.m_nID, out CClearInfo oClearInfo, stKeyVal.Value.m_stIDInfo.m_nStageID, stKeyVal.Value.m_stIDInfo.m_nChapterID);
+		for(int i = 0; i < nNumLevelInfos; ++i) {
+			this.TryGetClearInfo(i, out CClearInfo oClearInfo, a_nStageID, a_nChapterID);
 			nNumStars += (oClearInfo != null) ? oClearInfo.NumStars : KCDefine.B_VAL_0_INT;
 		}
 
@@ -257,15 +248,12 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	//! 챕터 별 개수를 반환한다
 	public int GetNumChapterStars(int a_nChapterID) {
 		int nNumStars = KCDefine.B_VAL_0_INT;
-		var oChapterLevelInfoDict = CLevelInfoTable.Inst.GetChapterLevelInfos(a_nChapterID);
+		int nNumStageInfos = CLevelInfoTable.Inst.GetNumStageInfos(a_nChapterID);
 
-		foreach(var stKeyVal in oChapterLevelInfoDict) {
-			foreach(var stLevelInfoKeyVal in stKeyVal.Value) {
-				this.TryGetClearInfo(stLevelInfoKeyVal.Value.m_stIDInfo.m_nID, out CClearInfo oClearInfo, stLevelInfoKeyVal.Value.m_stIDInfo.m_nStageID, stLevelInfoKeyVal.Value.m_stIDInfo.m_nChapterID);
-				nNumStars += (oClearInfo != null) ? oClearInfo.NumStars : KCDefine.B_VAL_0_INT;
-			}
+		for(int i = 0; i < nNumStageInfos; ++i) {
+			nNumStars += this.GetNumStageStars(i, a_nChapterID);
 		}
-
+		
 		return nNumStars;
 	}
 
@@ -294,7 +282,7 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	//! 선택 부스터를 추가한다
 	public void AddSelBooster(EItemKinds a_eBooster) {
 		CAccess.Assert(!this.IsSelBooster(a_eBooster));
-		this.SelBoosterSet.Add(a_eBooster);
+		this.SelBoosterList.Add(a_eBooster);
 	}
 
 	//! 무료 보상 획득 횟수를 추가한다
@@ -303,26 +291,28 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 		this.GameInfo.NumAcquireFreeRewards = Mathf.Clamp(nNumAcquireFreeRewards, KCDefine.B_VAL_0_INT, KDefine.G_MAX_NUM_ACQUIRE_FREE_REWARDS);
 	}
 
+	//! 완료 미션을 추가한다
+	public void AddCompleteMission(EMissionKinds a_eMissionKinds) {
+		CAccess.Assert(!this.IsCompleteMission(a_eMissionKinds));
+		this.GameInfo.m_oCompleteMissionKindsList.Add(a_eMissionKinds);
+	}
+
+	//! 완료 일일 미션을 추가한다
+	public void AddCompleteDailyMission(EMissionKinds a_eMissionKinds) {
+		CAccess.Assert(!this.IsCompleteDailyMission(a_eMissionKinds));
+		this.GameInfo.m_oCompleteDailyMissionKindsList.Add(a_eMissionKinds);
+	}
+
 	//! 완료 튜토리얼을 추가한다
 	public void AddCompleteTutorial(ETutorialKinds a_eTutorialKinds) {
 		CAccess.Assert(!this.IsCompleteTutorial(a_eTutorialKinds));
-		this.GameInfo.m_oCompleteTutorialKindsSet.Add(a_eTutorialKinds);
+		this.GameInfo.m_oCompleteTutorialKindsList.Add(a_eTutorialKinds);
 	}
 
 	//! 클리어 정보를 추가한다
 	public void AddClearInfo(CClearInfo a_oClearInfo) {
 		CAccess.Assert(!this.IsClear(a_oClearInfo.m_stIDInfo.m_nID, a_oClearInfo.m_stIDInfo.m_nStageID, a_oClearInfo.m_stIDInfo.m_nChapterID));
 		this.GameInfo.m_oClearInfoDict.Add(a_oClearInfo.LevelID, a_oClearInfo);
-	}
-
-	//! 게임 정보를 저장한다
-	public void SaveGameInfo() {
-		this.SaveGameInfo(KDefine.G_DATA_P_GAME_INFO);
-	}
-
-	//! 게임 정보를 저장한다
-	public void SaveGameInfo(string a_oFilePath) {
-		CFunc.WriteMsgPackObj(a_oFilePath, this.GameInfo);
 	}
 
 	//! 게임 정보를 로드한다
@@ -339,6 +329,16 @@ public class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 		}
 
 		return this.GameInfo;
+	}
+
+	//! 게임 정보를 저장한다
+	public void SaveGameInfo() {
+		this.SaveGameInfo(KDefine.G_DATA_P_GAME_INFO);
+	}
+
+	//! 게임 정보를 저장한다
+	public void SaveGameInfo(string a_oFilePath) {
+		CFunc.WriteMsgPackObj(a_oFilePath, this.GameInfo);
 	}
 	#endregion			// 함수
 

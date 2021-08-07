@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 스크립트 객체
 public abstract class CScriptableObj<T> : ScriptableObject where T : CScriptableObj<T> {
@@ -19,8 +20,6 @@ public abstract class CScriptableObj<T> : ScriptableObject where T : CScriptable
 
 				CScriptableObj<T>.m_tInst = CResManager.Inst.GetScriptableObj<T>(oFilePath);
 				CAccess.Assert(CScriptableObj<T>.m_tInst != null);
-				
-				CScriptableObj<T>.m_tInst.Awake();
 			}
 
 			return CScriptableObj<T>.m_tInst;
@@ -31,7 +30,7 @@ public abstract class CScriptableObj<T> : ScriptableObject where T : CScriptable
 	#region 함수
 	//! 초기화
 	public virtual void Awake() {
-		// Do Nothing
+		// Do Something
 	}
 	#endregion			// 함수
 

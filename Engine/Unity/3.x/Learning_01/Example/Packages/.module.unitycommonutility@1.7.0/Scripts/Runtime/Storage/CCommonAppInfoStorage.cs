@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using MessagePack;
 
 //! 공용 앱 정보
 [MessagePackObject]
 [System.Serializable]
-public sealed class CCommonAppInfo : CCommonBaseInfo {
+public class CCommonAppInfo : CCommonBaseInfo {
 	#region 상수
 	private const string KEY_IS_AGREE = "IsAgree";
 	private const string KEY_IS_AGREE_TRACKING = "IsAgreeTracking";
@@ -26,28 +27,30 @@ public sealed class CCommonAppInfo : CCommonBaseInfo {
 #endif			// #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	#endregion			// 상수
 
-	#region 프로퍼티
-	[IgnoreMember] public System.DateTime InstallTime { get; set; } = System.DateTime.Now;
-	[IgnoreMember] public System.DateTime LastPlayTime { get; set; } = System.DateTime.Now;
+	#region 변수
+	[IgnoreMember] public System.DateTime m_stInstallTime = System.DateTime.Now;
+	[IgnoreMember] public System.DateTime m_stLastPlayTime = System.DateTime.Now;
+	#endregion			// 변수
 
+	#region 프로퍼티
 	[IgnoreMember] public bool IsAgree {
-		get { return m_oBoolDict.ExGetVal(CCommonAppInfo.KEY_IS_AGREE, false); } 
-		set { m_oBoolDict.ExReplaceVal(CCommonAppInfo.KEY_IS_AGREE, value); }
+		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_AGREE, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; } 
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_AGREE, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public bool IsAgreeTracking {
-		get { return m_oBoolDict.ExGetVal(CCommonAppInfo.KEY_IS_AGREE_TRACKING, false); } 
-		set { m_oBoolDict.ExReplaceVal(CCommonAppInfo.KEY_IS_AGREE_TRACKING, value); }
+		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_AGREE_TRACKING, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; }
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_AGREE_TRACKING, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public bool IsFirstPlay {
-		get { return m_oBoolDict.ExGetVal(CCommonAppInfo.KEY_IS_FIRST_PLAY, false); }
-		set { m_oBoolDict.ExReplaceVal(CCommonAppInfo.KEY_IS_FIRST_PLAY, value); }
+		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_FIRST_PLAY, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; }
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_FIRST_PLAY, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public bool IsEnableShowDescPopup {
-		get { return m_oBoolDict.ExGetVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, false); }
-		set { m_oBoolDict.ExReplaceVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, value); }
+		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; }
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 	
 	[IgnoreMember] public SystemLanguage Language {
@@ -60,8 +63,8 @@ public sealed class CCommonAppInfo : CCommonBaseInfo {
 		set { m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_DEVICE_ID, value); }
 	}
 
-	[IgnoreMember] public System.DateTime PSTInstallTime => this.InstallTime.ExToPSTTime();
-	[IgnoreMember] public System.DateTime UTCInstallTime => this.InstallTime.ToUniversalTime();
+	[IgnoreMember] public System.DateTime PSTInstallTime => m_stInstallTime.ExToPSTTime();
+	[IgnoreMember] public System.DateTime UTCInstallTime => m_stInstallTime.ToUniversalTime();
 
 	[IgnoreMember] private string InstallTimeStr => m_oStrDict.ExGetVal(CCommonAppInfo.KEY_INSTALL_TIME, string.Empty);
 	[IgnoreMember] private string LastPlayTimeStr => m_oStrDict.ExGetVal(CCommonAppInfo.KEY_LAST_PLAY_TIME, string.Empty);
@@ -83,26 +86,19 @@ public sealed class CCommonAppInfo : CCommonBaseInfo {
 	//! 직렬화 될 경우
 	public override void OnBeforeSerialize() {
 		base.OnBeforeSerialize();
-
-		m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_INSTALL_TIME, this.InstallTime.ExToLongStr());
-		m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_LAST_PLAY_TIME, this.LastPlayTime.ExToLongStr());
+		
+		m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_INSTALL_TIME, m_stInstallTime.ExToLongStr());
+		m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_LAST_PLAY_TIME, m_stLastPlayTime.ExToLongStr());
 	}
-
+	
 	//! 역직렬화 되었을 경우
 	public override void OnAfterDeserialize() {
 		base.OnAfterDeserialize();
-		
-		this.InstallTime = this.InstallTime.ExIsValid() ? this.InstallTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now;
-		this.LastPlayTime = this.LastPlayTime.ExIsValid() ? this.LastPlayTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now;
+
+		m_stInstallTime = m_stInstallTime.ExIsValid() ? this.InstallTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now;
+		m_stLastPlayTime = m_stLastPlayTime.ExIsValid() ? this.LastPlayTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now;
 	}
 	#endregion			// 인터페이스
-
-	#region 함수
-	//! 생성자
-	public CCommonAppInfo() : base(KCDefine.U_VER_COMMON_APP_INFO) {
-		// Do Nothing
-	}
-	#endregion			// 함수
 }
 
 //! 공용 앱 정보 저장소
@@ -250,16 +246,6 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 #endif			// #if STORE_VER_CHECK_ENABLE
 	}
 
-	//! 앱 정보를 저장한다
-	public void SaveAppInfo() {
-		this.SaveAppInfo(KCDefine.U_DATA_P_COMMON_APP_INFO);
-	}
-
-	//! 앱 정보를 저장한다
-	public void SaveAppInfo(string a_oFilePath) {
-		CFunc.WriteMsgPackObj(a_oFilePath, this.AppInfo);
-	}
-
 	//! 앱 정보를 로드한다
 	public CCommonAppInfo LoadAppInfo() {
 		return this.LoadAppInfo(KCDefine.U_DATA_P_COMMON_APP_INFO);
@@ -274,6 +260,16 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 		}
 
 		return this.AppInfo;
+	}
+
+	//! 앱 정보를 저장한다
+	public void SaveAppInfo() {
+		this.SaveAppInfo(KCDefine.U_DATA_P_COMMON_APP_INFO);
+	}
+
+	//! 앱 정보를 저장한다
+	public void SaveAppInfo(string a_oFilePath) {
+		CFunc.WriteMsgPackObj(a_oFilePath, this.AppInfo);
 	}
 
 	//! 광고 식별자를 수신했을 경우

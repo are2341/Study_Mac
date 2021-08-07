@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92005b07186354eff88cc363471b9fd8, type: 3}
+  m_Script: {fileID: 11500000, guid: abda00f3a73c14ceab8ed445e2088b78, type: 3}
   m_Name: G_EpisodeInfoTable
   m_EditorClassIdentifier: 
   m_oLevelInfoList: []

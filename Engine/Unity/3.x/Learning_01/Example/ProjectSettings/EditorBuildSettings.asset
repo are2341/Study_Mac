@@ -7,54 +7,54 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
-    guid: 1750002a6016347aab064af0fc1ed3c0
+    guid: 6b21513a8642e4ff1a12f0d0f1c47019
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
-    guid: cd859ee8ed4a9478c97ba7c382c32b94
+    guid: 5652f566b7f3b46c3bd3f23a4df19462
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
-    guid: 7f1e5e2c7dfc64b55bf85f0a2ab471fb
+    guid: 52e1c133b186c46eebddbe3fbdeb7e95
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
-    guid: bb64cb4a0ea90482d876d7d99c6cd2c8
+    guid: 3ab06c98a263d46f1a82509b692736e9
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
-    guid: 9883fcaa6d2ae45b5b4c4e9fed19862f
+    guid: 5a421b6f6a50e4da08af2c47edec4ca4
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
-    guid: 3004c34ed06c04c96be86a022f6e4808
+    guid: 3f35d83e26e09472680c0939849cb0eb
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity
-    guid: c650491ba22124ada88cda14f995d1b2
+    guid: 5c64ad7c1105a4e7480aa497879860f1
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
-    guid: 90fe8753e3bf642ecae7898766ac486d
+    guid: d125f9885b44d456bb361bde6135a7f4
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
-    guid: c9439bf94f6114617a75cceec09ff97a
+    guid: e4e5fd3c76eae4cea85c1fb93e57b1d2
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/00.OverlayScene.unity
-    guid: c77b961d697f44a538b3bfdec4e32be3
+    guid: e04adf8a0c62e4463be45dd94a96a3a5
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/01.LoadingScene.unity
-    guid: cc7ea79b50ac2453ab690e14fbb499ed
+    guid: 6dd9e2e298aa244fdbc09ada60db86b2
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/02.TitleScene.unity
-    guid: 8c859364922074d5eadbd0e5b9c199d5
+    guid: 5a670cd8938924bf88afa9b6788d65f0
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/03.GameScene.unity
-    guid: 79df8d80ee1cc426a9a93dd67fbade91
+    guid: b5ebac78b80aa4f4b9f24f911bb0d8af
   - enabled: 1
     path: "Assets/02.UnityProject/Scenes/E01/====== \uC655\uCD08\uBCF4 \uB530\uB77C\uD558\uC5EC
       \uAC8C\uC784 \uB9CC\uB4E4\uAE30 =====.unity"
-    guid: 10187df30381c4ad0b5cf49021e3576f
+    guid: 9de360d4501c84f018284389137f04e6
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/E01/E01Example_052.unity
-    guid: dacc2eb25c3ef4aa1a9f6e2594f3dba4
+    guid: 946360a236e5744869db48aea67f4740
   - enabled: 1
     path: Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
-    guid: 818fe3780b44d4ff88cc6f4f3c22f3df
+    guid: 5cfe9177ee9494235872e0120c4fce01
   m_configObjects:
-    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 517e91440ea5049a9a86c2796bb6e868, type: 2}
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 8d9f40ad552854d9abebc7d991e4a65c, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 191592771ff4841ad8334b11d4157a96, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 324c9ad00fc4a4ccd8478622361c816a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 2336db84c54244bf1b7dd026afb9baa7, type: 2}

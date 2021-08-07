@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 서브 설정 씬 관리자
 public class CSubSetupSceneManager : CSetupSceneManager {
@@ -27,11 +28,8 @@ public class CSubSetupSceneManager : CSetupSceneManager {
 		CMissionInfoTable.Inst.LoadMissionInfos();
 		CRewardInfoTable.Inst.LoadRewardInfos();
 		CEpisodeInfoTable.Inst.LoadEpisodeInfos();
-
-#if UNITY_EDITOR
-		CLevelInfoTable.Inst.SaveLevelInfos();
-#endif			// #if UNITY_EDITOR
-
+		CTutorialInfoTable.Inst.LoadTutorialInfos();
+		
 #if LOCALIZE_TEST_ENABLE
 		CCommonAppInfoStorage.Inst.AppInfo.Language = m_eLanguage;
 #endif			// #if LOCALIZE_TEST_ENABLE

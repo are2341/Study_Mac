@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 using MessagePack;
 
@@ -36,14 +37,6 @@ public struct STSequenceInfo {
 	public GameObject m_oObj;
 }
 
-//! 버전
-[MessagePackObject]
-[System.Serializable]
-public struct STVer {
-	[Key(0)] public string m_oVer;
-	[Key(1)] public Dictionary<string, string> m_oExtraInfoDict;
-}
-
 //! 빌드 버전
 [System.Serializable]
 public struct STBuildVer {
@@ -58,6 +51,15 @@ public struct STIDInfo {
 	[Key(0)] public int m_nID;
 	[Key(1)] public int m_nStageID;
 	[Key(2)] public int m_nChapterID;
+}
+
+//! 인덱스 정보
+[MessagePackObject]
+[System.Serializable]
+public struct STIdxInfo {
+	[Key(0)] public int m_nX;
+	[Key(1)] public int m_nY;
+	[Key(2)] public int m_nZ;
 }
 
 //! 지급 아이템 정보
@@ -95,30 +97,29 @@ public struct STBuildVerConfig {
 //! 공용 타입 래퍼
 [MessagePackObject]
 public struct STCommonTypeWrapper {
-	[Key(31)] public List<bool> m_oBoolList;
-	[Key(32)] public List<int> m_oIntList;
-	[Key(33)] public List<float> m_oFltList;
-	[Key(34)] public List<string> m_oStrList;
+	[Key(0)] public List<int> m_oIntList;
+	[Key(1)] public List<float> m_oFltList;
+	[Key(2)] public List<string> m_oStrList;
 
-	[Key(91)] public HashSet<bool> m_oBoolSet;
-	[Key(92)] public HashSet<int> m_oIntSet;
-	[Key(93)] public HashSet<float> m_oFltSet;
-	[Key(94)] public HashSet<string> m_oStrSet;
+	[Key(10)] public Dictionary<int, int> m_oIntIntDict;
+	[Key(11)] public Dictionary<int, float> m_oIntFltDict;
+	[Key(12)] public Dictionary<int, string> m_oIntStrDict;
 
-	[Key(151)] public Dictionary<int, bool> m_oIntBoolDict;
-	[Key(152)] public Dictionary<int, int> m_oIntIntDict;
-	[Key(153)] public Dictionary<int, float> m_oIntFltDict;
-	[Key(154)] public Dictionary<int, string> m_oIntStrDict;
+	[Key(20)] public Dictionary<long, int> m_oLongIntDict;
+	[Key(21)] public Dictionary<long, float> m_oLongFltDict;
+	[Key(22)] public Dictionary<long, string> m_oLongStrDict;
 
-	[Key(155)] public Dictionary<long, bool> m_oLongBoolDict;
-	[Key(156)] public Dictionary<long, int> m_oLongIntDict;
-	[Key(157)] public Dictionary<long, float> m_oLongFltDict;
-	[Key(158)] public Dictionary<long, string> m_oLongStrDict;
+	[Key(30)] public Dictionary<string, int> m_oStrIntDict;
+	[Key(31)] public Dictionary<string, float> m_oStrFltDict;
+	[Key(32)] public Dictionary<string, string> m_oStrStrDict;
+}
 
-	[Key(159)] public Dictionary<string, bool> m_oStrBoolDict;
-	[Key(160)] public Dictionary<string, int> m_oStrIntDict;
-	[Key(161)] public Dictionary<string, float> m_oStrFltDict;
-	[Key(162)] public Dictionary<string, string> m_oStrStrDict;
+//! 경로 정보
+public class CPathInfo {
+	public int m_nCost = 0;
+	public Vector3Int m_stIdx = Vector3Int.zero;
+	
+	public CPathInfo m_oPrevPathInfo = null;
 }
 #endregion			// 기본
 
@@ -144,4 +145,14 @@ public struct STNotiInfo {
 	public System.DateTime m_stNotiTime;
 }
 #endif			// #if NOTI_MODULE_ENABLE
+
+#if UNITY_EDITOR || UNITY_STANDALONE
+//! 에디터 레벨 생성 정보
+public class CEditorLevelCreateInfo {
+	public int m_nNumLevels = 0;
+
+	public Vector3Int m_stMinNumCells = Vector3Int.zero;
+	public Vector3Int m_stMaxNumCells = Vector3Int.zero;
+}
+#endif			// #if UNITY_EDITOR || UNITY_STANDALONE
 #endregion			// 조건부 타입

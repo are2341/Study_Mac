@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using Timers;
 
@@ -28,24 +29,25 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 	public virtual void Update() {
 		// 컴포넌트 정보 갱신이 필요 할 경우
 		if(m_oAddComponentInfoList.Count > KCDefine.B_VAL_0_INT || m_oRemoveComponentInfoList.Count > KCDefine.B_VAL_0_INT) {
-			this.UpdateComponentInfos();
+			this.UpdateComponentInfosState();
 		}
 
-		// 상태 갱신이 필요 할 경우
-		if(m_oComponentInfoList.Count > KCDefine.B_VAL_0_INT) {
-			float fMaxDeltaTime = KCDefine.B_VAL_1_FLT / (float)Application.targetFrameRate;
-			fMaxDeltaTime = Mathf.Abs(fMaxDeltaTime * KCDefine.B_VAL_2_FLT);
+		float fMaxDeltaTime = KCDefine.B_VAL_1_FLT / (float)Application.targetFrameRate;
+		fMaxDeltaTime = Mathf.Abs(fMaxDeltaTime * KCDefine.B_VAL_9_FLT);
 
-			this.DeltaTime = Mathf.Clamp(Time.deltaTime, KCDefine.B_VAL_0_FLT, fMaxDeltaTime);
-			this.UnscaleDeltaTime = Mathf.Clamp(Time.unscaledDeltaTime, KCDefine.B_VAL_0_FLT, fMaxDeltaTime);
+		this.DeltaTime = Mathf.Clamp(Time.deltaTime, KCDefine.B_VAL_0_FLT, fMaxDeltaTime);
+		this.UnscaleDeltaTime = Mathf.Clamp(Time.unscaledDeltaTime, KCDefine.B_VAL_0_FLT, fMaxDeltaTime);
 
-			for(int i = 0; i < m_oComponentInfoList.Count; ++i) {
-				var oComponent = m_oComponentInfoList[i].m_oComponent as CComponent;
-				
-				// 갱신 함수 호출이 가능 할 경우
-				if(!oComponent.IsDestroy && (oComponent.enabled && oComponent.gameObject.activeSelf)) {
-					oComponent.OnUpdate(this.DeltaTime);
-				}
+		for(int i = 0; i < m_oComponentInfoList.Count; ++i) {
+			var oComponent = m_oComponentInfoList[i].m_oComponent as CComponent;
+
+			// 객체가 없을 경우
+			if(oComponent.gameObject == null) {
+				this.RemoveComponent(oComponent);
+			}
+			// 상태 갱신이 가능 할 경우
+			else if(!oComponent.IsDestroy && (oComponent.enabled && oComponent.gameObject.activeSelf)) {
+				oComponent.OnUpdate(this.DeltaTime);
 			}
 		}
 	}
@@ -70,17 +72,14 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 			lock(KCDefine.U_LOCK_OBJ_SCHEDULE_M_UPDATE) {
 				// 콜백 정보 갱신이 필요 할 경우
 				if(m_oAddCallbackInfoList.Count > KCDefine.B_VAL_0_INT || m_oRemoveCallbackInfoList.Count > KCDefine.B_VAL_0_INT) {
-					this.UpdateCallbackInfos();
+					this.UpdateCallbackInfosState();
 				}
 
-				// 상태 갱신이 필요 할 경우
-				if(m_oCallbackInfoList.Count > KCDefine.B_VAL_0_INT) {
-					for(int i = 0; i < m_oCallbackInfoList.Count; ++i) {
-						m_oCallbackInfoList[i].m_oCallback?.Invoke();
-					}
-
-					m_oCallbackInfoList.Clear();
+				for(int i = 0; i < m_oCallbackInfoList.Count; ++i) {
+					m_oCallbackInfoList[i].m_oCallback?.Invoke();
 				}
+
+				m_oCallbackInfoList.Clear();
 			}
 		}
 	}
@@ -132,7 +131,7 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		lock(KCDefine.U_LOCK_OBJ_SCHEDULE_M_UPDATE) {
 			int nIdx = m_oCallbackInfoList.ExFindVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(a_oKey));
 
-			// 콜백 제거가 가능 할 경우
+			// 콜백이 존재 할 경우
 			if(m_oCallbackInfoList.ExIsValidIdx(nIdx)) {
 				m_oRemoveCallbackInfoList.ExAddVal(new STCallbackInfo() {
 					m_oKey = a_oKey,
@@ -147,7 +146,7 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		int nID = a_oComponent.GetInstanceID();
 		int nIdx = m_oComponentInfoList.ExFindVal((a_stComponentInfo) => nID == a_stComponentInfo.m_nID);
 
-		// 컴포넌트 제거가 가능 할 경우
+		// 컴포넌트가 존재 할 경우
 		if(m_oComponentInfoList.ExIsValidIdx(nIdx)) {
 			m_oRemoveComponentInfoList.ExAddVal(new STComponentInfo() {
 				m_nID = nID,
@@ -171,8 +170,8 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		this.RemoveComponent(a_oSender);
 	}
 
-	//! 컴포넌트 정보를 갱신한다
-	private void UpdateComponentInfos() {
+	//! 컴포넌트 정보 상태를 갱신한다
+	private void UpdateComponentInfosState() {
 		for(int i = 0; i < m_oAddComponentInfoList.Count; ++i) {
 			var stComponentInfo = m_oAddComponentInfoList[i];
 			m_oComponentInfoList.ExAddVal(stComponentInfo);
@@ -193,8 +192,8 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		m_oRemoveComponentInfoList.Clear();
 	}
 
-	//! 콜백 정보를 갱신한다
-	private void UpdateCallbackInfos() {
+	//! 콜백 정보 상태를 갱신한다
+	private void UpdateCallbackInfosState() {
 		for(int i = 0; i < m_oAddCallbackInfoList.Count; ++i) {
 			var stCallbackInfo = m_oAddCallbackInfoList[i];
 			m_oCallbackInfoList.ExAddVal(stCallbackInfo);

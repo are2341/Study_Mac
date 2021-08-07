@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 기본 접근 확장 클래스
 public static partial class CAccessExtension {
@@ -259,12 +260,7 @@ public static partial class CAccessExtension {
 	public static bool ExIsValid<T>(this List<T> a_oSender) {
 		return a_oSender != null && a_oSender.Count > KCDefine.B_VAL_0_INT;
 	}
-
-	//! 유효 여부를 검사한다
-	public static bool ExIsValid<T>(this HashSet<T> a_oSender) {
-		return a_oSender != null && a_oSender.Count > KCDefine.B_VAL_0_INT;
-	}
-
+	
 	//! 유효 여부를 검사한다
 	public static bool ExIsValid<Key, Val>(this Dictionary<Key, Val> a_oSender) {
 		return a_oSender != null && a_oSender.Count > KCDefine.B_VAL_0_INT;

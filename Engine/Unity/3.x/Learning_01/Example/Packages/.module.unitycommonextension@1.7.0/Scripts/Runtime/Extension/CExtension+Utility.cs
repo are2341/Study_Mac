@@ -206,16 +206,12 @@ public static partial class CExtension {
 	}
 	
 	//! 효과를 재생한다
-	public static void ExPlay(this ParticleSystem a_oSender, bool a_bIsReset = true, bool a_bIsRemoveChildren = false, bool a_bIsEnableAssert = true) {
+	public static void ExPlay(this ParticleSystem a_oSender, bool a_bIsRemoveChildren = false, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 
 		// 파티클이 존재 할 경우
 		if(a_oSender != null) {
-			// 리셋 모드 일 경우
-			if(a_bIsReset) {
-				a_oSender.Stop(a_bIsRemoveChildren);
-			}
-
+			a_oSender.Stop(a_bIsRemoveChildren);
 			a_oSender.Play(true);
 		}
 	}
@@ -313,19 +309,19 @@ public static partial class CExtension {
 	}
 
 	//! 월드 경로 애니메이션을 시작한다
-	public static Tween ExStartWorldPathAni(this GameObject a_oSender, Vector3[] a_oPoses, float a_fDuration, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false) {
+	public static Tween ExStartWorldPathAni(this GameObject a_oSender, Vector3[] a_oPositions, float a_fDuration, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false) {
 		CAccess.Assert(a_oSender != null);
 
 		var ePathType = a_bIsLinear ? PathType.Linear : PathType.CatmullRom;
-		var oAni = a_oSender.transform.DOPath(a_oPoses, a_fDuration, ePathType);
+		var oAni = a_oSender.transform.DOPath(a_oPositions, a_fDuration, ePathType);
 
 		return oAni.SetAutoKill().SetEase(a_eEase).SetUpdate(a_bIsRealtime);
 	}
 
 	//! 월드 경로 애니메이션을 시작한다
-	public static Tween ExStartWorldPathAni(this GameObject a_oSender, Vector3[] a_oPoses, float a_fDuration, System.Action<GameObject, Sequence> a_oCallback, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false, float a_fDelay = KCDefine.B_VAL_0_FLT) {
+	public static Tween ExStartWorldPathAni(this GameObject a_oSender, Vector3[] a_oPositions, float a_fDuration, System.Action<GameObject, Sequence> a_oCallback, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false, float a_fDelay = KCDefine.B_VAL_0_FLT) {
 		CAccess.Assert(a_oSender != null);
-		var oAni = a_oSender.ExStartWorldPathAni(a_oPoses, a_fDuration, a_eEase, a_bIsRealtime);
+		var oAni = a_oSender.ExStartWorldPathAni(a_oPositions, a_fDuration, a_eEase, a_bIsRealtime);
 
 		return CFactory.MakeSequence(oAni, (a_oSequenceSender) => {
 			a_oCallback?.Invoke(a_oSender, a_oSequenceSender);
@@ -333,19 +329,19 @@ public static partial class CExtension {
 	}
 
 	//! 로컬 경로 애니메이션을 시작한다
-	public static Tween ExStartLocalPathAni(this GameObject a_oSender, Vector3[] a_oPoses, float a_fDuration, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false) {
+	public static Tween ExStartLocalPathAni(this GameObject a_oSender, Vector3[] a_oPositions, float a_fDuration, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false) {
 		CAccess.Assert(a_oSender != null);
 
 		var ePathType = a_bIsLinear ? PathType.Linear : PathType.CatmullRom;
-		var oAni = a_oSender.transform.DOLocalPath(a_oPoses, a_fDuration, ePathType);
+		var oAni = a_oSender.transform.DOLocalPath(a_oPositions, a_fDuration, ePathType);
 
 		return oAni.SetAutoKill().SetEase(a_eEase).SetUpdate(a_bIsRealtime);
 	}
 
 	//! 로컬 경로 애니메이션을 시작한다
-	public static Tween ExStartLocalPathAni(this GameObject a_oSender, Vector3[] a_oPoses, float a_fDuration, System.Action<GameObject, Sequence> a_oCallback, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false, float a_fDelay = KCDefine.B_VAL_0_FLT) {
+	public static Tween ExStartLocalPathAni(this GameObject a_oSender, Vector3[] a_oPositions, float a_fDuration, System.Action<GameObject, Sequence> a_oCallback, Ease a_eEase = KCDefine.U_EASE_ANI, bool a_bIsRealtime = false, bool a_bIsLinear = false, float a_fDelay = KCDefine.B_VAL_0_FLT) {
 		CAccess.Assert(a_oSender != null);
-		var oAni = a_oSender.ExStartLocalPathAni(a_oPoses, a_fDuration, a_eEase, a_bIsRealtime);
+		var oAni = a_oSender.ExStartLocalPathAni(a_oPositions, a_fDuration, a_eEase, a_bIsRealtime);
 
 		return CFactory.MakeSequence(oAni, (a_oSequenceSender) => {
 			a_oCallback?.Invoke(a_oSender, a_oSequenceSender);
@@ -378,8 +374,23 @@ public static partial class CExtension {
 
 		return nKindsType + ((nSubKindsType / KCDefine.B_UNIT_KINDS_PER_SUB_KINDS_TYPE) * KCDefine.B_UNIT_KINDS_PER_SUB_KINDS_TYPE);
 	}
+
+	//! 고유 레벨 식별자 => 식별자로 변환한다
+	public static int ExUniqueLevelIDToID(this long a_nSender) {
+		return (int)(a_nSender % KCDefine.B_UNIT_IDS_PER_STAGE);
+	}
+
+	//! 고유 레벨 식별자 => 스테이지 식별자로 변환한다
+	public static int ExUniqueLevelIDToStageID(this long a_nSender) {
+		return (int)((a_nSender % KCDefine.B_UNIT_IDS_PER_CHAPTER) / KCDefine.B_UNIT_IDS_PER_STAGE);
+	}
+
+	//! 고유 레벨 식별자 => 챕터 식별자로 변환한다
+	public static int ExUniqueLevelIDToChapterID(this long a_nSender) {
+		return (int)(a_nSender / KCDefine.B_UNIT_IDS_PER_CHAPTER);
+	}
 	
-	//! 위치 => 인덱스로 변경한다
+	//! 위치 => 인덱스로 변환한다
 	public static Vector2Int ExToIdx(this Vector2 a_stSender, Vector2 a_stPivotPos, Vector2 a_stSize) {
 		CAccess.Assert(a_stSize.x.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
 		CAccess.Assert(a_stSize.y.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
@@ -388,7 +399,7 @@ public static partial class CExtension {
 		return new Vector2Int((int)(stDelta.x / a_stSize.x), (int)(stDelta.y / -a_stSize.y));
 	}
 
-	//! 위치 => 인덱스로 변경한다
+	//! 위치 => 인덱스로 변환한다
 	public static Vector3Int ExToIdx(this Vector3 a_stSender, Vector3 a_stPivotPos, Vector3 a_stSize) {
 		CAccess.Assert(a_stSize.x.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
 		CAccess.Assert(a_stSize.y.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
@@ -398,56 +409,107 @@ public static partial class CExtension {
 		return new Vector3Int((int)(stDelta.x / a_stSize.x), (int)(stDelta.y / -a_stSize.y), (int)(stDelta.z / -a_stSize.z));
 	}
 
-	//! 인덱스 => 위치로 변경한다
+	//! 인덱스 정보 => 인덱스로 변환한다
+	public static Vector3Int ExToIdx(this STIdxInfo a_stSender) {
+		return new Vector3Int(a_stSender.m_nX, a_stSender.m_nY, a_stSender.m_nZ);
+	}
+
+	//! 인덱스 => 인덱스 정보로 변환한다
+	public static STIdxInfo ExToIdxInfo(this Vector3Int a_stSender) {
+		return CFactory.MakeIdxInfo(a_stSender.x, a_stSender.y, a_stSender.z);
+	}
+
+	//! 인덱스 => 위치로 변환한다
 	public static Vector2 ExToPos(this Vector2Int a_stSender, Vector2 a_stOffset, Vector2 a_stSize) {
 		return new Vector2((a_stSender.x * a_stSize.x) + a_stOffset.x, (a_stSender.y * -a_stSize.y) + a_stOffset.y);
 	}
 
-	//! 인덱스 => 위치로 변경한다
+	//! 인덱스 => 위치로 변환한다
 	public static Vector3 ExToPos(this Vector3Int a_stSender, Vector3 a_stOffset, Vector3 a_stSize) {
 		return new Vector3((a_stSender.x * a_stSize.x) + a_stOffset.x, (a_stSender.y * -a_stSize.y) + a_stOffset.y, (a_stSender.z * -a_stSize.z) + a_stOffset.z);
 	}
 
-	//! 인덱스 => 위치로 변경한다
-	public static List<Vector2> ExToPoses(this List<Vector2Int> a_stSender, Vector2 a_stOffset, Vector2 a_stSize) {
-		CAccess.Assert(a_stSender.ExIsValid());
+	//! 인덱스 정보 => 위치로 변환한다
+	public static Vector3 ExToPos(this STIdxInfo a_stSender, Vector3 a_stOffset, Vector3 a_stSize) {
+		return new Vector3((a_stSender.m_nX * a_stSize.x) + a_stOffset.x, (a_stSender.m_nY * -a_stSize.y) + a_stOffset.y, (a_stSender.m_nZ * -a_stSize.z) + a_stOffset.z);
+	}
+
+	//! 인덱스 => 위치로 변환한다
+	public static List<Vector2> ExToPositions(this List<Vector2Int> a_oSender, Vector2 a_stOffset, Vector2 a_stSize) {
+		CAccess.Assert(a_oSender != null);
 		var oPosList = new List<Vector2>();
 
-		for(int i = 0; i < a_stSender.Count; ++i) {
-			oPosList.Add(a_stSender[i].ExToPos(a_stOffset, a_stSize));
+		for(int i = 0; i < a_oSender.Count; ++i) {
+			oPosList.Add(a_oSender[i].ExToPos(a_stOffset, a_stSize));
 		}
 
 		return oPosList;
 	}
 
-	//! 인덱스 => 위치로 변경한다
-	public static List<Vector3> ExToPoses(this List<Vector3Int> a_stSender, Vector3 a_stOffset, Vector3 a_stSize) {
-		CAccess.Assert(a_stSender.ExIsValid());
+	//! 인덱스 => 위치로 변환한다
+	public static List<Vector3> ExToPositions(this List<Vector3Int> a_oSender, Vector3 a_stOffset, Vector3 a_stSize) {
+		CAccess.Assert(a_oSender != null);
 		var oPosList = new List<Vector3>();
 
-		for(int i = 0; i < a_stSender.Count; ++i) {
-			oPosList.Add(a_stSender[i].ExToPos(a_stOffset, a_stSize));
+		for(int i = 0; i < a_oSender.Count; ++i) {
+			oPosList.Add(a_oSender[i].ExToPos(a_stOffset, a_stSize));
 		}
 
 		return oPosList;
 	}
 
-	//! 3 차원 => 2 차원으로 변경한다
+	//! 인덱스 정보 => 위치로 변환한다
+	public static List<Vector3> ExToPositions(this List<STIdxInfo> a_oSender, Vector3 a_stOffset, Vector3 a_stSize) {
+		CAccess.Assert(a_oSender != null);
+		var oPosList = new List<Vector3>();
+
+		for(int i = 0; i < a_oSender.Count; ++i) {
+			oPosList.Add(a_oSender[i].ExToPos(a_stOffset, a_stSize));
+		}
+
+		return oPosList;
+	}
+
+	//! 인덱스 정보 => 인덱스로 변환하다
+	public static List<Vector3Int> ExToIndices(this List<STIdxInfo> a_oSender) {
+		CAccess.Assert(a_oSender != null);
+		var oIdxList = new List<Vector3Int>();
+
+		for(int i = 0; i < a_oSender.Count; ++i) {
+			oIdxList.Add(a_oSender[i].ExToIdx());
+		}
+
+		return oIdxList;
+	}
+
+	//! 인덱스 => 인덱스 정보로 변환한다
+	public static List<STIdxInfo> ExToIdxInfos(this List<Vector3Int> a_oSender) {
+		CAccess.Assert(a_oSender != null);
+		var oIdxInfoList = new List<STIdxInfo>();
+
+		for(int i = 0; i < a_oSender.Count; ++i) {
+			oIdxInfoList.Add(a_oSender[i].ExToIdxInfo());
+		}
+
+		return oIdxInfoList;
+	}
+
+	//! 3 차원 => 2 차원으로 변환한다
 	public static Vector2 ExTo2D(this Vector3 a_stSender) {
 		return new Vector2(a_stSender.x, a_stSender.y);
 	}
 
-	//! 3 차원 => 2 차원으로 변경한다
+	//! 3 차원 => 2 차원으로 변환한다
 	public static Vector2Int ExTo2D(this Vector3Int a_stSender) {
 		return new Vector2Int(a_stSender.x, a_stSender.y);
 	}
 
-	//! 2 차원 => 3 차원으로 변경한다
+	//! 2 차원 => 3 차원으로 변환한다
 	public static Vector3 ExTo3D(this Vector2 a_stSender, float a_fZ = KCDefine.B_VAL_0_FLT) {
 		return new Vector3(a_stSender.x, a_stSender.y, a_fZ);
 	}
 
-	//! 2 차원 => 3 차원으로 변경한다
+	//! 2 차원 => 3 차원으로 변환한다
 	public static Vector3Int ExTo3D(this Vector2Int a_stSender, int a_nZ = KCDefine.B_VAL_0_INT) {
 		return new Vector3Int(a_stSender.x, a_stSender.y, a_nZ);
 	}
@@ -716,13 +778,7 @@ public static partial class CExtension {
 	//! 컴포넌트를 추가한다
 	public static T ExAddComponent<T>(this GameObject a_oSender) where T : Component {
 		CAccess.Assert(a_oSender != null);
-
-		// 컴포넌트가 존재 할 경우
-		if(a_oSender.TryGetComponent<T>(out T oComponent)) {
-			return oComponent;
-		}
-
-		return a_oSender.AddComponent<T>();
+		return a_oSender.TryGetComponent<T>(out T oComponent) ? oComponent : a_oSender.AddComponent<T>();
 	}
 
 	//! 컴포넌트를 제거한다

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -23,12 +24,9 @@ public static class CEditorFactory {
 		var oObj = PrefabUtility.InstantiatePrefab(a_oOrigin) as GameObject;
 		oObj.name = a_oName;
 		oObj.transform.localScale = a_oOrigin.transform.localScale;
-
-		// 부모가 존재 할 경우
-		if(a_oParent != null) {
-			oObj.transform.SetParent(a_oParent.transform, a_bIsStayWorldState);
-			oObj.transform.SetAsLastSibling();
-		}
+		
+		oObj.transform.SetParent(a_oParent?.transform, a_bIsStayWorldState);
+		oObj.transform.SetAsLastSibling();
 
 		return oObj;
 	}

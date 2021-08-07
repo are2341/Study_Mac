@@ -53,17 +53,12 @@ public abstract class CPopup : CUIsComponent {
 		CNavStackManager.Inst.AddComponent(this);
 
 		// 컨텐츠를 설정한다
-		m_oContents = this.gameObject.ExFindChild(KCDefine.U_OBJ_N_POPUP_CONTENTS);
+		m_oContents = this.gameObject.ExFindChild(KCDefine.U_OBJ_N_CONTENTS);
 		m_oContentsTrans = m_oContents.transform as RectTransform;
 		
-		// 터치 응답자를 설정한다 {
+		// 터치 응답자를 설정한다
 		m_oTouchResponder = this.CreateTouchResponder();
-
-		// 터치 응답자가 존재 할 경우
-		if(m_oTouchResponder != null) {
-			m_oTouchResponder.transform.SetAsFirstSibling();
-		}
-		// 터치 응답자를 설정한다 }
+		m_oTouchResponder?.transform.SetAsFirstSibling();
 
 		// 이미지를 설정한다
 		m_oBGImg = this.CreateBGImg();
@@ -197,17 +192,21 @@ public abstract class CPopup : CUIsComponent {
 
 	//! 팝업 컨텐츠를 설정한다
 	protected virtual void SetupContents() {
-		// Do Nothing
+		var oTransforms = m_oContents.GetComponentsInChildren<RectTransform>();
+
+		for(int i = oTransforms.Length - KCDefine.B_VAL_1_INT; i >= KCDefine.B_VAL_0_INT; --i) {
+			LayoutRebuilder.ForceRebuildLayoutImmediate(oTransforms[i]);
+		}
 	}
 
 	//! 팝업이 출력 되었을 경우
 	protected virtual void OnShow() {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 팝업이 닫혔을 경우
 	protected virtual void OnClose() {
-		// Do Nothing
+		// Do Something
 	}
 
 	//! 출력 애니메이션이 완료 되었을 경우
@@ -294,7 +293,7 @@ public abstract class CPopup : CUIsComponent {
 	//! 터치 응답자를 생성한다
 	protected virtual GameObject CreateTouchResponder() {
 		string oName = string.Format(KCDefine.U_OBJ_N_FMT_POPUP_TOUCH_RESPONDER, this.gameObject.name);
-		return CFactory.CreateTouchResponder(oName, KCDefine.U_OBJ_P_G_TOUCH_RESPONDER, this.gameObject, CSceneManager.CanvasSize, Vector3.zero.ExToLocal(this.gameObject), KCDefine.U_COLOR_TRANSPARENT);
+		return CFactory.CreateTouchResponder(oName, KCDefine.U_OBJ_P_G_TOUCH_RESPONDER, this.gameObject, CSceneManager.CanvasSize, Vector3.zero, KCDefine.U_COLOR_TRANSPARENT);
 	}
 
 	//! 팝업을 출력한다

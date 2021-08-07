@@ -16,18 +16,23 @@ public class CFreeRewardPopup : CSubPopup {
 
 		// 버튼을 설정한다
 		m_oAdsBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_FREE_RP_ADS_BTN);
-		m_oAdsBtn.onClick.AddListener(this.OnTouchAdsBtn);
+		m_oAdsBtn?.onClick.AddListener(this.OnTouchAdsBtn);
 	}
 	
 	//! 초기화
 	public override void Init() {
 		base.Init();
-		this.UpdateUIsState();
 	}
 
+	//! 팝업 컨텐츠를 설정한다
+	protected override void SetupContents() {
+		base.SetupContents();
+		this.UpdateUIsState();
+	}
+	
 	//! UI 상태를 갱신한다
-	private void UpdateUIsState() {
-		// Do Nothing
+	private new void UpdateUIsState() {
+		// Do Something
 	}
 
 	//! 광고 버튼을 눌렀을 경우

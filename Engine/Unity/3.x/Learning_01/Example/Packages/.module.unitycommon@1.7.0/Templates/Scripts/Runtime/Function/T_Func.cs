@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if NEVER_USE_THIS
 #if PURCHASE_MODULE_ENABLE
@@ -74,6 +75,18 @@ public static partial class Func {
 	}
 
 	//! 경고 팝업을 출력한다
+	public static void ShowAlertPopup(string a_oMsg, System.Action<CAlertPopup, bool> a_oCallback, bool a_bIsEnableCancelBtn = true) {
+		var stParams = new CAlertPopup.STParams() {
+			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
+			m_oMsg = a_oMsg,
+			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
+			m_oCancelBtnText = a_bIsEnableCancelBtn ? CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_CANCEL_BTN_TEXT) : string.Empty
+		};
+
+		Func.ShowAlertPopup(stParams, a_oCallback);
+	}
+
+	//! 경고 팝업을 출력한다
 	public static void ShowAlertPopup(CAlertPopup.STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback) {
 		// 경고 팝업이 없을 경우
 		if(CSceneManager.ScreenPopupUIs.ExFindChild(KCDefine.U_OBJ_N_ALERT_POPUP) == null) {
@@ -95,74 +108,72 @@ public static partial class Func {
 
 	//! 종료 팝업을 출력한다
 	public static void ShowQuitPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
-			m_oMsg = CStrTable.Inst.GetStr(KCDefine.ST_KEY_QUIT_P_MSG),
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_CANCEL_BTN_TEXT)
-		};
-
-		Func.ShowAlertPopup(stParams, a_oCallback);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_QUIT_P_MSG), a_oCallback);
 	}
 	
 	//! 업데이트 팝업을 출력한다
 	public static void ShowUpdatePopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
-			m_oMsg = CStrTable.Inst.GetStr(KCDefine.ST_KEY_UPDATE_P_MSG),
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_CANCEL_BTN_TEXT)
-		};
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_UPDATE_P_MSG), a_oCallback);
+	}
 
-		Func.ShowAlertPopup(stParams, a_oCallback);
+	//! 로그인 성공 팝업을 출력한다
+	public static void ShowLoginSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGIN_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 로그인 실패 팝업을 출력한다
+	public static void ShowLoginFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGIN_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 로그아웃 성공 팝업을 출력한다
+	public static void ShowLogoutSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGOUT_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 로그아웃 실패 팝업을 출력한다
+	public static void ShowLogoutFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGOUT_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 저장 성공 팝업을 출력한다
+	public static void ShowSaveSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 저장 실패 팝업을 출력한다
+	public static void ShowSaveFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_FAIL_MSG), a_oCallback, false);
+	}
+
+	//! 로드 성공 팝업을 출력한다
+	public static void ShowLoadSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOAD_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 로드 실패 팝업을 출력한다
+	public static void ShowLoadFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOAD_FAIL_MSG), a_oCallback, false);
 	}
 
 	//! 결제 성공 팝업을 출력한다
 	public static void ShowPurchaseSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
-			m_oMsg = CStrTable.Inst.GetStr(KCDefine.ST_KEY_PURCHASE_P_SUCCESS_MSG),
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = string.Empty
-		};
-
-		Func.ShowAlertPopup(stParams, a_oCallback);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_PURCHASE_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	//! 결제 실패 팝업을 출력한다
 	public static void ShowPurchaseFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
-			m_oMsg = CStrTable.Inst.GetStr(KCDefine.ST_KEY_PURCHASE_P_FAIL_MSG),
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = string.Empty
-		};
-
-		Func.ShowAlertPopup(stParams, a_oCallback);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_PURCHASE_FAIL_MSG), a_oCallback, false);
 	}
 
 	//! 복원 성공 팝업을 출력한다
 	public static void ShowRestoreSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
-			m_oMsg = CStrTable.Inst.GetStr(KCDefine.ST_KEY_RESTORE_P_SUCCESS_MSG),
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = string.Empty
-		};
-
-		Func.ShowAlertPopup(stParams, a_oCallback);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_RESTORE_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	//! 복원 실패 팝업을 출력한다
 	public static void ShowRestoreFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
-			m_oMsg = CStrTable.Inst.GetStr(KCDefine.ST_KEY_RESTORE_P_FAIL_MSG),
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = string.Empty
-		};
-
-		Func.ShowAlertPopup(stParams, a_oCallback);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_RESTORE_FAIL_MSG), a_oCallback, false);
 	}
 
 	//! 약관 동의 팝업을 출력한다
@@ -325,6 +336,34 @@ public static partial class Func {
 #endif			// #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	}
 
+	//! 유저 정보를 로드한다
+	public static void LoadUserInfo(System.Action<CFirebaseManager, string, bool> a_oCallback) {
+		CIndicatorManager.Inst.Show(true);
+		Func.m_oUserInfoLoadCallback = a_oCallback;
+
+		// 로그인 되었을 경우
+		if(CFirebaseManager.Inst.IsLogin) {
+			var oNodeList = Factory.MakeUserInfoNodes();
+			CFirebaseManager.Inst.LoadDB(oNodeList, Func.OnLoadUserInfo);
+		} else {
+			Func.OnLoadUserInfo(CFirebaseManager.Inst, string.Empty, false);
+		}
+	}
+
+	//! 지급 아이템 정보를 로드한다
+	public static void LoadPostItemInfos(System.Action<CFirebaseManager, string, bool> a_oCallback) {
+		CIndicatorManager.Inst.Show(true);
+		Func.m_oPostItemInfosLoadCallback = a_oCallback;
+
+		// 로그인 되었을 경우
+		if(CFirebaseManager.Inst.IsLogin) {
+			var oNodeList = Factory.MakePostItemInfoNodes();
+			CFirebaseManager.Inst.LoadDB(oNodeList, Func.OnLoadPostItemInfos);
+		} else {
+			Func.OnLoadPostItemInfos(CFirebaseManager.Inst, string.Empty, false);
+		}
+	}
+
 	//! 유저 정보를 저장한다
 	public static void SaveUserInfo(System.Action<CFirebaseManager, bool> a_oCallback) {
 		CIndicatorManager.Inst.Show(true);
@@ -363,34 +402,6 @@ public static partial class Func {
 		}
 	}
 
-	//! 유저 정보를 로드한다
-	public static void LoadUserInfo(System.Action<CFirebaseManager, string, bool> a_oCallback) {
-		CIndicatorManager.Inst.Show(true);
-		Func.m_oUserInfoLoadCallback = a_oCallback;
-
-		// 로그인 되었을 경우
-		if(CFirebaseManager.Inst.IsLogin) {
-			var oNodeList = Factory.MakeUserInfoNodes();
-			CFirebaseManager.Inst.LoadDB(oNodeList, Func.OnLoadUserInfo);
-		} else {
-			Func.OnLoadUserInfo(CFirebaseManager.Inst, string.Empty, false);
-		}
-	}
-
-	//! 지급 아이템 정보를 로드한다
-	public static void LoadPostItemInfos(System.Action<CFirebaseManager, string, bool> a_oCallback) {
-		CIndicatorManager.Inst.Show(true);
-		Func.m_oPostItemInfosLoadCallback = a_oCallback;
-
-		// 로그인 되었을 경우
-		if(CFirebaseManager.Inst.IsLogin) {
-			var oNodeList = Factory.MakePostItemInfoNodes();
-			CFirebaseManager.Inst.LoadDB(oNodeList, Func.OnLoadPostItemInfos);
-		} else {
-			Func.OnLoadPostItemInfos(CFirebaseManager.Inst, string.Empty, false);
-		}
-	}
-
 	//! 파이어 베이스에 로그인 되었을 경우
 	private static void OnFirebaseLogin(CFirebaseManager a_oSender, bool a_bIsSuccess) {
 		CIndicatorManager.Inst.Close();
@@ -403,18 +414,6 @@ public static partial class Func {
 		CFunc.Invoke(ref Func.m_oFirebaseLogoutCallback, a_oSender);
 	}
 
-	//! 유저 정보가 저장 되었을 경우
-	private static void OnSaveUserInfo(CFirebaseManager a_oSender, bool a_bIsSuccess) {
-		CIndicatorManager.Inst.Close();
-		CFunc.Invoke(ref Func.m_oUserInfoSaveCallback, a_oSender, a_bIsSuccess);
-	}
-
-	//! 지급 아이템 정보가 저장 되었을 경우
-	private static void OnSavePostItemInfos(CFirebaseManager a_oSender, bool a_bIsSuccess) {
-		CIndicatorManager.Inst.Close();
-		CFunc.Invoke(ref Func.m_oPostItemInfosSaveCallback, a_oSender, a_bIsSuccess);
-	}
-
 	//! 유저 정보가 로드 되었을 경우
 	private static void OnLoadUserInfo(CFirebaseManager a_oSender, string a_oJSONStr, bool a_bIsSuccess) {
 		CIndicatorManager.Inst.Close();
@@ -425,6 +424,18 @@ public static partial class Func {
 	private static void OnLoadPostItemInfos(CFirebaseManager a_oSender, string a_oJSONStr, bool a_bIsSuccess) {
 		CIndicatorManager.Inst.Close();
 		CFunc.Invoke(ref Func.m_oPostItemInfosLoadCallback, a_oSender, a_oJSONStr, a_bIsSuccess);
+	}
+
+	//! 유저 정보가 저장 되었을 경우
+	private static void OnSaveUserInfo(CFirebaseManager a_oSender, bool a_bIsSuccess) {
+		CIndicatorManager.Inst.Close();
+		CFunc.Invoke(ref Func.m_oUserInfoSaveCallback, a_oSender, a_bIsSuccess);
+	}
+
+	//! 지급 아이템 정보가 저장 되었을 경우
+	private static void OnSavePostItemInfos(CFirebaseManager a_oSender, bool a_bIsSuccess) {
+		CIndicatorManager.Inst.Close();
+		CFunc.Invoke(ref Func.m_oPostItemInfosSaveCallback, a_oSender, a_bIsSuccess);
 	}
 	
 #if UNITY_IOS && APPLE_LOGIN_ENABLE

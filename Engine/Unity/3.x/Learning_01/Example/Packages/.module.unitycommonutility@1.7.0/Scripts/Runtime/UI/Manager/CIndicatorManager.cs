@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 인디케이터 관리자
 public class CIndicatorManager : CSingleton<CIndicatorManager> {

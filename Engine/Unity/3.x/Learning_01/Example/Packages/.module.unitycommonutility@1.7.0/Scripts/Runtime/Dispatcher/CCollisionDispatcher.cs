@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! 충돌 이벤트 전달자
 public class CCollisionDispatcher : CComponent {
