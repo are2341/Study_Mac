@@ -18,25 +18,26 @@ public class CAgreePopup : CPopup {
 
 	private bool m_bIsAgreeServices = false;
 	private bool m_bIsAgreePrivacy = false;
-	#endregion			// 변수
 
-	#region UI 변수
-	// 일반 UI
+	// UI {
+	// 일반 UI {
 	private Text m_oNUIsServicesText = null;
 	private Text m_oNUIsPrivacyText = null;
 
 	private Image m_oNUIsServicesCheckImg = null;
 	private Image m_oNUIsPrivacyCheckImg = null;
-	#endregion			// UI 변수
+	// 일반 UI }
+	// UI }
 
-	#region 객체
+	// 객체 {
 	[SerializeField] private GameObject m_oNormUIs = null;
 	[SerializeField] private GameObject m_oEUUIs = null;
 
 	[SerializeField] private GameObject m_oNUIsServicesUIs = null;
 	[SerializeField] private GameObject m_oNUIsPrivacyUIs = null;
-	#endregion			// 객체
-
+	// 객체 }
+	#endregion			// 변수
+	
 	#region 프로퍼티
 	public override bool IsIgnoreAni => true;
 	public override float ShowTimeScale => KCDefine.B_VAL_1_FLT;
@@ -65,12 +66,12 @@ public class CAgreePopup : CPopup {
 	//! 일반 UI 를 설정한다
 	private void SetupNormUIs() {
 		// 텍스트를 설정한다
-		m_oNUIsServicesText = m_oNUIsServicesUIs.ExFindComponent<Text>(KCDefine.AS_OBJ_N_AGREE_P_CONTENTS_TEXT);
-		m_oNUIsPrivacyText = m_oNUIsPrivacyUIs.ExFindComponent<Text>(KCDefine.AS_OBJ_N_AGREE_P_CONTENTS_TEXT);
+		m_oNUIsServicesText = m_oNUIsServicesUIs.ExFindComponent<Text>(KCDefine.U_OBJ_N_DESC_TEXT);
+		m_oNUIsPrivacyText = m_oNUIsPrivacyUIs.ExFindComponent<Text>(KCDefine.U_OBJ_N_DESC_TEXT);
 
 		// 이미지를 설정한다
-		m_oNUIsServicesCheckImg = m_oNUIsServicesUIs.ExFindComponent<Image>(KCDefine.AS_OBJ_N_AGREE_P_CHECK_IMG);
-		m_oNUIsPrivacyCheckImg = m_oNUIsPrivacyUIs.ExFindComponent<Image>(KCDefine.AS_OBJ_N_AGREE_P_CHECK_IMG);
+		m_oNUIsServicesCheckImg = m_oNUIsServicesUIs.ExFindComponent<Image>(KCDefine.U_OBJ_N_CHECK_IMG);
+		m_oNUIsPrivacyCheckImg = m_oNUIsPrivacyUIs.ExFindComponent<Image>(KCDefine.U_OBJ_N_CHECK_IMG);
 
 		// 버튼을 설정한다 {
 		var oServicesBtn = m_oNUIsServicesUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_AGREE_BTN);
@@ -90,7 +91,7 @@ public class CAgreePopup : CPopup {
 		var oPrivacyBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_PRIVACY_BTN);
 		oPrivacyBtn.onClick.AddListener(this.OnTouchEUUIsPrivacyBtn);
 
-		var oOKBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_OK_BTN);
+		var oOKBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_OK_BTN);
 		oOKBtn.onClick.AddListener(this.OnTouchEUUIsOKBtn);
 		// 버튼을 설정한다 }
 	}

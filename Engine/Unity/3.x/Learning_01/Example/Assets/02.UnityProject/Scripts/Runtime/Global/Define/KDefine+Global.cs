@@ -6,23 +6,19 @@ using UnityEngine.UI;
 //! 전역 상수
 public static partial class KDefine {
 	#region 기본
-	// 개수 {
-	public const int G_MAX_NUM_CHANGES = 0;
+	// 개수
+	public const int G_MAX_NUM_SALE_COINS = 0;
 	public const int G_MAX_NUM_SALE_ITEM_INFOS = 0;
 	public const int G_MAX_NUM_REWARD_ITEM_INFOS = 0;
 	public const int G_MAX_NUM_ACQUIRE_FREE_REWARDS = 0;
 	public const int G_MAX_NUM_TUTORIAL_STRS = 0;
-
-	public const int G_MAX_NUM_LEVEL_INFOS = 9999;
-	public const int G_MAX_NUM_STAGE_INFOS = 999;
-	public const int G_MAX_NUM_CHAPTER_INFOS = 99;
-	// 개수 }
+	public const int G_MAX_NUM_ADS_SKIP_CLEAR_INFOS = 0;
 
 	// 횟수
 	public const int G_MAX_TIMES_ADS_SKIP = 0;
 
 	// 식별자 {
-	public const int G_PRODUCT_ID_CHANGES = 0;
+	public const int G_PRODUCT_ID_SALE_COINS = 0;
 	public const int G_PRODUCT_ID_REMOVE_ADS = 1;
 
 	public const string G_KEY_FMT_TUTORIAL_MSG = "TUTORIAL_MSG_{0:00}_{1:00}";
@@ -38,7 +34,9 @@ public static partial class KDefine {
 	// 판매 아이템 정보 테이블 }
 
 	// 판매 상품 정보 테이블 {
+	public const string G_KEY_SALE_PIT_PRICE = "Price";
 	public const string G_KEY_SALE_PIT_PRICE_KINDS = "PriceKinds";
+	public const string G_KEY_SALE_PIT_PRODUCT_KINDS = "ProductKinds";
 	public const string G_KEY_SALE_PIT_SALE_PRODUCT_KINDS = "SaleProductKinds";
 
 	public const string G_KEY_FMT_SALE_PIT_NUM_ITEMS = "NumItems_{0:00}";
@@ -87,6 +85,9 @@ public static partial class KDefine {
 
 	public const string G_KEY_EPISODE_IT_CHAPTER_ID = "ChapterID";
 	public const string G_KEY_EPISODE_IT_CHAPTER_KINDS = "ChapterKinds";
+
+	public const string G_KEY_EPISODE_IT_NUM_TARGETS = "NumTargets";
+	public const string G_KEY_EPISODE_IT_UNLOCK_NUM_TARGETS = "UnlockNumTargets";
 	// 에피소드 정보 테이블 }
 
 	// 튜토리얼 정보 테이블 {
@@ -102,68 +103,52 @@ public static partial class KDefine {
 	
 	// 상점 팝업
 	public const string G_OBJ_N_STORE_POPUP = "StorePopup";
-	public const string G_OBJ_N_STORE_P_RESTORE_BTN = "RestoreBtn";
 
 	// 설정 팝업 {
 	public const string G_OBJ_N_SETTINGS_POPUP = "SettingsPopup";
 
-	public const string G_OBJ_N_SETTINGS_P_BG_SND_BTN = "BGSndBtn";
-	public const string G_OBJ_N_SETTINGS_P_FX_SNDS_BTN = "FXSndsBtn";
-	public const string G_OBJ_N_SETTINGS_P_NOTI_BTN = "NotiBtn";
-	public const string G_OBJ_N_SETTINGS_P_REVIEW_BTN = "ReviewBtn";
-	public const string G_OBJ_N_SETTINGS_P_SUPPORTS_BTN = "SupportsBtn";
+	public const string G_IMG_P_SETTINGS_P_BG_SND_ON = "G_BGSndOn";
+	public const string G_IMG_P_SETTINGS_P_BG_SND_OFF = "G_BGSndOff";
+
+	public const string G_IMG_P_SETTINGS_P_FX_SNDS_ON = "G_FXSndsOn";
+	public const string G_IMG_P_SETTINGS_P_FX_SNDS_OFF = "G_FXSndsOff";
+
+	public const string G_IMG_P_SETTINGS_P_NOTI_ON = "G_NotiOn";
+	public const string G_IMG_P_SETTINGS_P_NOTI_OFF = "G_NotiOff";
 	// 설정 팝업 }
 
-	// 동기화 팝업 {
+	// 동기화 팝업
 	public const string G_OBJ_N_SYNC_POPUP = "SyncPopup";
-
-	public const string G_OBJ_N_SYNC_P_LOGIN_UIS = "LoginUIs";
-	public const string G_OBJ_N_SYNC_P_LOGOUT_UIS = "LogoutUIs";
-
-	public const string G_OBJ_N_SYNC_P_LOGIN_BTN = "LoginBtn";
-	public const string G_OBJ_N_SYNC_P_LOGOUT_BTN = "LogoutBtn";
-
-	public const string G_OBJ_N_SYNC_P_SAVE_BTN = "SaveBtn";
-	public const string G_OBJ_N_SYNC_P_LOAD_BTN = "LoadBtn";
-	// 동기화 팝업 }
 
 	// 일일 미션 팝업
 	public const string G_OBJ_N_DAILY_MISSION_POPUP = "DailyMissionPopup";
 
 	// 무료 보상 팝업
 	public const string G_OBJ_N_FREE_REWARD_POPUP = "FreeRewardPopup";
-	public const string G_OBJ_N_FREE_RP_ADS_BTN = "AdsBtn";
 
-	// 일일 보상 팝업 {
+	// 일일 보상 팝업
 	public const string G_OBJ_N_DAILY_REWARD_POPUP = "DailyRewardPopup";
 
-	public const string G_OBJ_N_DAILY_RP_ADS_BTN = "AdsBtn";
-	public const string G_OBJ_N_DAILY_RP_ACQUIRE_BTN = "AcquireBtn";
-	// 일일 보상 팝업 }
-
-	// 잔돈 팝업 {
-	public const string G_OBJ_N_CHANGES_POPUP = "ChangesPopup";
-
-	public const string G_OBJ_N_CHANGES_P_OK_BTN = "OKBtn";
-	public const string G_OBJ_N_CHANGES_P_PURCHASE_BTN = "PurchaseBtn";
-	// 잔돈 팝업 }
+	// 판매 코인 팝업
+	public const string G_OBJ_N_SALE_COINS_POPUP = "SaleCoinsPopup";
 
 	// 보상 획득 팝업
 	public const string G_OBJ_N_REWARD_ACQUIRE_POPUP = "RewardAcquirePopup";
-	public const string G_OBJ_N_REWARD_AP_ACQUIRE_BTN = "AcquireBtn";
 
-	// 잔돈 획득 팝업
-	public const string G_OBJ_N_CHANGES_ACQUIRE_POPUP = "ChangesAcquirePopup";
+	// 판매 코인 획득 팝업
+	public const string G_OBJ_N_SALE_COINS_ACQUIRE_POPUP = "SaleCoinsAcquirePopup";
+
+	// 이어하기 팝업
+	public const string G_OBJ_N_CONTINUE_POPUP = "ContinuePopup";
+
+	// 결과 팝업
+	public const string G_OBJ_N_RESULT_POPUP = "ResultPopup";
 
 	// 포커스 팝업
 	public const string G_OBJ_N_FOCUS_POPUP = "FocusPopup";
-	public const string G_OBJ_N_FOCUS_P_BLIND_IMG = "BlindImg";
 
 	// 튜토리얼 팝업
 	public const string G_OBJ_N_TUTORIAL_POPUP = "TutorialPopup";
-
-	// 씬 이름
-	public const string G_SCENE_N_E01_EXAMPLE_052 = "E01Example_052";
 	#endregion			// 기본
 
 	#region 런타임 상수
@@ -274,13 +259,22 @@ public static partial class KDefine {
 
 	// 판매 상품 정보 테이블
 	public static readonly ESaleProductKinds[] G_KINDS_SALE_PIT_SALE_PRODUCTS = new ESaleProductKinds[] {
-		ESaleProductKinds.SINGLE_CHANGES,
+		ESaleProductKinds.SINGLE_SALE_COINS,
 		ESaleProductKinds.SINGLE_REMOVE_ADS
 	};
 
 	// 보상 정보 테이블
 	public static readonly ERewardKinds[] G_REWARDS_KINDS_REWARD_IT_DAILY = new ERewardKinds[] {
-		ERewardKinds.DAILY_REWARD
+		// Do Something
+	};
+
+	// 상점 팝업
+	public static readonly ESaleProductKinds[] G_KINDS_STORE_POPUP_PRODUCTS = new ESaleProductKinds[] {
+		// Do Something
 	};
 	#endregion			// 런타임 상수
+
+	#region 추가 상수
+
+	#endregion			// 추가 상수
 }

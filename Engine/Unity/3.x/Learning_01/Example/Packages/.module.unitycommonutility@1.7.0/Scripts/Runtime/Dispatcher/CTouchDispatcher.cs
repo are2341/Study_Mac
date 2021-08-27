@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-//! 터치 이벤트 전달자
+//! 터치 전달자
 public class CTouchDispatcher : CComponent, IDragHandler, IPointerUpHandler, IPointerDownHandler {
 	#region 프로퍼티
 	public System.Action<CTouchDispatcher, PointerEventData> BeginCallback { get; set; } = null;

@@ -5,16 +5,130 @@ using System.IO.Compression;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Unity.Linq;
 using DG.Tweening;
 using Coffee.UIExtensions;
 using MessagePack;
 using Leguar.TotalJSON;
+using DanielLochner.Assets.SimpleScrollSnap;
 
 //! 유틸리티 확장 클래스
 public static partial class CExtension {
 	#region 클래스 함수
+	//! 상태를 리셋한다
+	public static void ExReset(this Text a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 텍스트가 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.resizeTextMinSize = KCDefine.B_VAL_0_INT;
+			a_oSender.resizeTextMaxSize = KCDefine.U_DEF_MAX_SIZE_FONT;
+
+			// 크기 조정자가 없을 경우
+			if(!a_oSender.TryGetComponent<ContentSizeFitter>(out ContentSizeFitter oSizeFitter)) {
+				oSizeFitter = a_oSender.gameObject.AddComponent<ContentSizeFitter>();
+				oSizeFitter.verticalFit = ContentSizeFitter.FitMode.Unconstrained;
+				oSizeFitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+			}
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this Image a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 이미지가 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.pixelsPerUnitMultiplier = KCDefine.B_VAL_1_FLT;
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this Renderer a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 렌더러가 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.allowOcclusionWhenDynamic = true;
+			
+#if LIGHT_ENABLE && SHADOW_ENABLE
+			a_oSender.receiveShadows = true;
+			a_oSender.staticShadowCaster = true;
+			a_oSender.shadowCastingMode = ShadowCastingMode.On;
+#else
+			a_oSender.receiveShadows = false;
+			a_oSender.staticShadowCaster = false;
+			a_oSender.shadowCastingMode = ShadowCastingMode.Off;
+#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this LineRenderer a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 라인이 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.alignment = LineAlignment.TransformZ;
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this Selectable a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 상호 작용자가 존재 할 경우
+		if(a_oSender != null) {
+			var stColorBlock = a_oSender.colors;
+			stColorBlock.normalColor = KCDefine.U_COLOR_NORM;
+			stColorBlock.pressedColor = KCDefine.U_COLOR_PRESS;
+			stColorBlock.selectedColor = KCDefine.U_COLOR_SEL;
+			stColorBlock.highlightedColor = KCDefine.U_COLOR_HIGHLIGHT;
+			stColorBlock.disabledColor = KCDefine.U_COLOR_DISABLE;
+			
+			a_oSender.colors = stColorBlock;
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this CanvasRenderer a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 캔버스 렌더러가 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.cullTransparentMesh = true;
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this HorizontalOrVerticalLayoutGroup a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 레이아웃 그룹이 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.childScaleWidth = false;
+			a_oSender.childScaleHeight = false;
+
+			a_oSender.childControlWidth = true;
+			a_oSender.childControlHeight = false;
+
+			a_oSender.childForceExpandWidth = true;
+			a_oSender.childForceExpandHeight = false;
+
+			// 부모 레이아웃 그룹이 없을 경우
+			if(!a_oSender.transform.parent.TryGetComponent<HorizontalOrVerticalLayoutGroup>(out HorizontalOrVerticalLayoutGroup oLayoutGroup)) {
+				(a_oSender.transform as RectTransform).sizeDelta = Vector2.zero;
+			}
+
+			// 컨텐츠 크기 조정자가 존재 할 경우
+			if(a_oSender.TryGetComponent<ContentSizeFitter>(out ContentSizeFitter oSizeFitter)) {
+				oSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+			}
+		}
+	}
+
 	//! X 축 비율을 추가한다
 	public static void ExAddScaleX(this GameObject a_oSender, float a_fVal, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
@@ -204,7 +318,35 @@ public static partial class CExtension {
 			(a_oSender.transform as RectTransform).anchoredPosition += new Vector2(KCDefine.B_VAL_0_FLT, a_fVal);
 		}
 	}
-	
+
+	//! 리스너를 추가한다
+	public static void ExAddListener(this Button a_oSender, UnityAction a_oCallback, bool a_bIsRemoveListeners = true, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_oCallback != null));
+
+		// 버튼이 존재 할 경우
+		if(a_oSender != null && a_oCallback != null) {
+			// 리셋 모드 일 경우
+			if(a_bIsRemoveListeners) {
+				a_oSender.onClick.RemoveAllListeners();
+			}
+
+			a_oSender.onClick.AddListener(a_oCallback);
+		}
+	}
+
+	//! 페이지를 제거한다
+	public static void ExRemovePages(this SimpleScrollSnap a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 스크롤 스냅이 존재 할 경우
+		if(a_oSender != null) {
+			while(a_oSender.NumberOfPanels > KCDefine.B_VAL_0_INT) {
+				GameObject.DestroyImmediate(a_oSender.pagination.transform.GetChild(a_oSender.NumberOfPanels - KCDefine.B_VAL_1_INT).gameObject);
+				a_oSender.RemoveFromBack();
+			}
+		}
+	}
+
 	//! 효과를 재생한다
 	public static void ExPlay(this ParticleSystem a_oSender, bool a_bIsRemoveChildren = false, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
@@ -798,14 +940,14 @@ public static partial class CExtension {
 
 		// 객체가 존재 할 경우
 		if(a_oSender != null) {
-			var oComponents = a_oSender.GetComponentsInChildren<T>();
-
-			for(int i = 0; i < oComponents.Length; ++i) {
+			a_oSender.ExEnumerateComponents<T>((a_oComponent) => {
 				// 컴포넌트 제거가 가능 할 경우
-				if(a_bIsIncludeSelf || a_oSender != oComponents[i].gameObject) {
-					CFactory.RemoveObj(oComponents[i], false, a_bIsEnableAssert);
+				if(a_bIsIncludeSelf || a_oSender != a_oComponent.gameObject) {
+					CFactory.RemoveObj(a_oComponent, false, a_bIsEnableAssert);
 				}
-			}
+
+				return true;
+			});
 		}
 	}
 
@@ -932,18 +1074,42 @@ public static partial class CExtension {
 					
 					// 배열 순회가 불가능 할 경우
 					if(!a_oCallback(a_oSender[i, j], stIdx)) {
-						goto EXIT_FOR;
+						goto EXIT_ENUMERATE;
 					}
 				}
 			}
 		}
 
-EXIT_FOR:
+EXIT_ENUMERATE:
 		return;
 	}
 
 	//! 컴포넌트를 순회한다
-	public static void ExEnumerateComponents<T>(this GameObject a_oSender, System.Func<T, int, bool> a_oCallback, bool a_bIsEnableAssert = true) {
+	public static void ExEnumerateComponents<T>(this Scene a_stSender, System.Func<T, bool> a_oCallback, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oCallback != null);
+
+		// 콜백이 존재 할 경우
+		if(a_oCallback != null) {
+			var oObjs = a_stSender.GetRootGameObjects();
+
+			for(int i = 0; i < oObjs.Length; ++i) {
+				var oComponents = oObjs[i].GetComponentsInChildren<T>();
+
+				for(int j = 0; j < oComponents.Length; ++j) {
+					// 순회가 불가능 할 경우
+					if(!a_oCallback(oComponents[j])) {
+						goto EXIT_ENUMERATE_COMPONENTS;
+					}
+				}
+			}
+		}
+
+EXIT_ENUMERATE_COMPONENTS:
+		return;
+	}
+
+	//! 컴포넌트를 순회한다
+	public static void ExEnumerateComponents<T>(this GameObject a_oSender, System.Func<T, bool> a_oCallback, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_oCallback != null));
 
 		// 객체가 존재 할 경우
@@ -952,7 +1118,7 @@ EXIT_FOR:
 
 			for(int i = 0; i < oComponents.Length; ++i) {
 				// 컴포넌트 순회가 불가능 할 경우
-				if(!a_oCallback(oComponents[i], i)) {
+				if(!a_oCallback(oComponents[i])) {
 					break;
 				}
 			}
@@ -962,6 +1128,27 @@ EXIT_FOR:
 
 	#region 조건부 클래스 함수
 #if DOTWEEN_ENABLE
+	//! 애니메이션을 재생한다
+	public static void ExPlay(this Tween a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 애니메이션이 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.Play();
+		}
+	}
+
+	//! 애니메이션을 재생한다
+	public static void ExPlay(this DOTweenAnimation a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 애니메이션이 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.CreateTween();
+			a_oSender.tween?.ExPlay(a_bIsEnableAssert);
+		}
+	}
+
 	//! 완료 리스너를 추가한다
 	public static void ExAddCompleteListener(this DOTweenAnimation a_oSender, UnityAction a_oCallback, bool a_bIsReset = true, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
@@ -974,6 +1161,8 @@ EXIT_FOR:
 			}
 
 			a_oSender.hasOnComplete = true;
+
+			a_oSender.onComplete = a_oSender.onComplete ?? new UnityEvent();
 			a_oSender.onComplete.AddListener(a_oCallback);
 		}
 	}

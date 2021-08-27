@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 //! 게임 씬 관리자
 public class CGameSceneManager : CSceneManager {
-	#region 객체
+	#region 변수
+	// 객체
 	protected GameObject m_oBlockObjs = null;
 	protected GameObject m_oBGTouchResponder = null;
-	#endregion			// 객체
+	#endregion			// 변수
 
 	#region 프로퍼티
+	public override bool IsRealtimeFadeInAni => true;
+	public override bool IsRealtimeFadeOutAni => true;
+
 	public override string SceneName => KCDefine.B_SCENE_N_GAME;
 	#endregion			// 프로퍼티
 
@@ -21,6 +25,8 @@ public class CGameSceneManager : CSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
+			Time.timeScale = KCDefine.B_VAL_1_FLT;
+			
 			// 블럭 객체를 설정한다 {
 			var oBlockObjsA = this.SubObjs.ExFindChild(KCDefine.GS_OBJ_N_BLOCKS);
 			var oBlockObjsB = this.SubCanvasObjs.ExFindChild(KCDefine.GS_OBJ_N_BLOCKS);

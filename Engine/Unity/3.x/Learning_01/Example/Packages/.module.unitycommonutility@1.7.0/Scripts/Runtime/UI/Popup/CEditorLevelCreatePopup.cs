@@ -8,9 +8,8 @@ using UnityEngine.UI;
 public class CEditorLevelCreatePopup : CPopup {
 	#region 변수
 	private System.Action<CEditorLevelCreatePopup, CEditorLevelCreateInfo> m_oCallback = null;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI {
 	protected InputField m_oNumLevelsInput = null;
 
 	protected InputField m_oMinNumCellsXInput = null;
@@ -18,7 +17,8 @@ public class CEditorLevelCreatePopup : CPopup {
 
 	protected InputField m_oMinNumCellsYInput = null;
 	protected InputField m_oMaxNumCellsYInput = null;
-	#endregion			// UI 변수
+	// UI }
+	#endregion			// 변수
 
 	#region 프로퍼티
 	public override bool IsIgnoreAni => true;
@@ -40,10 +40,10 @@ public class CEditorLevelCreatePopup : CPopup {
 		// 입력 필드를 설정한다 }
 
 		// 버튼을 설정한다 {
-		var oOKBtn = m_oContents.ExFindComponent<Button>(KCDefine.E_OBJ_N_EDITOR_LCP_OK_BTN);
+		var oOKBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_OK_BTN);
 		oOKBtn?.onClick.AddListener(this.OnTouchOKBtn);
 
-		var oCancelBtn = m_oContents.ExFindComponent<Button>(KCDefine.E_OBJ_N_EDITOR_LCP_CANCEL_BTN);
+		var oCancelBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_CANCEL_BTN);
 		oCancelBtn?.onClick.AddListener(this.OnTouchCancelBtn);
 		// 버튼을 설정한다 }
 	}

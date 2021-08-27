@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//! 충돌 이벤트 전달자
+//! 충돌 전달자
 public class CCollisionDispatcher : CComponent {
 	#region 프로퍼티
 	public System.Action<CCollisionDispatcher, Collision> EnterCallback { get; set; } = null;

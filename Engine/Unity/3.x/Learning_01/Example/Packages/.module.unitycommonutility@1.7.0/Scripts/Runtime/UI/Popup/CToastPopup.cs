@@ -14,11 +14,10 @@ public class CToastPopup : CPopup {
 	
 	#region 변수
 	private STParams m_stParams;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI
 	protected Text m_oMsgText = null;
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 프로퍼티
 	public override EAniType AniType => EAniType.SCALE;
@@ -30,7 +29,7 @@ public class CToastPopup : CPopup {
 		base.Awake();
 		this.IsIgnoreNavStackEvent = true;
 
-		m_oMsgText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_TOAST_P_MSG_TEXT);
+		m_oMsgText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_MSG_TEXT);
 	}
 
 	//! 초기화

@@ -82,11 +82,6 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 	[SerializeField] private string m_oAndroidFlurryAPIKey = string.Empty;
 #endif			// #if FLURRY_MODULE_ENABLE
 
-#if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
-	[Header("Firebase Plugin Info")]
-	[SerializeField] private string m_oFirebaseDBURL = string.Empty;
-#endif			// #if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
-
 #if SINGULAR_MODULE_ENABLE
 	[Header("Singular Plugin Info")]
 	[SerializeField] private STSingularPluginInfo m_stSingularPluginInfo;
@@ -115,10 +110,6 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 #if FLURRY_MODULE_ENABLE
 	public string FlurryAPIKey { get; private set; }
 #endif			// #if FLURRY_MODULE_ENABLE
-
-#if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
-	public string FirebaseDBURL => m_oFirebaseDBURL;
-#endif			// #if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 	public STSingularPluginInfo SingularPluginInfo => m_stSingularPluginInfo;
@@ -328,13 +319,6 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 		m_oAndroidFlurryAPIKey = a_oKey;
 	}
 #endif			// #if FLURRY_MODULE_ENABLE
-
-#if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
-	//! 파이어 베이스 데이터 베이스 URL 을 변경한다
-	public void SetFirebaseDBURL(string a_oURL) {
-		m_oFirebaseDBURL = a_oURL;
-	}
-#endif			// #if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 	//! 싱귤러 플러그인 정보를 변경한다

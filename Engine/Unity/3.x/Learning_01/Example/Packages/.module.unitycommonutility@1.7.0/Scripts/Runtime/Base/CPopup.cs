@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 //! 팝업
-public abstract class CPopup : CUIsComponent {
+public abstract class CPopup : CComponent {
 	#region 변수
 	[SerializeField] private string m_oShowSndPath = "Sounds/Global/G_PopupShow";
 	[SerializeField] private string m_oCloseSndPath = "Sounds/Global/G_PopupClose";
@@ -14,18 +14,20 @@ public abstract class CPopup : CUIsComponent {
 	protected Sequence m_oCloseAni = null;
 
 	protected Tween m_oBGAni = null;
-	protected Image m_oBGImg = null;
-	protected Button m_oCloseBtn = null;
 	protected RectTransform m_oContentsTrans = null;
 
 	protected System.Action<CPopup> m_oShowCallback = null;
 	protected System.Action<CPopup> m_oCloseCallback = null;
-	#endregion			// 변수
 
-	#region 객체
+	// UI
+	protected Image m_oBGImg = null;
+	protected Button m_oCloseBtn = null;
+
+	// 객체
 	protected GameObject m_oContents = null;
+	protected GameObject m_oContentsUIs = null;
 	protected GameObject m_oTouchResponder = null;
-	#endregion			// 객체
+	#endregion			// 변수
 
 	#region 프로퍼티
 	public bool IsShow { get; private set; } = false;
@@ -52,9 +54,12 @@ public abstract class CPopup : CUIsComponent {
 		base.Awake();
 		CNavStackManager.Inst.AddComponent(this);
 
-		// 컨텐츠를 설정한다
+		// 컨텐츠를 설정한다 {
 		m_oContents = this.gameObject.ExFindChild(KCDefine.U_OBJ_N_CONTENTS);
+		m_oContentsUIs = this.gameObject.ExFindChild(KCDefine.U_OBJ_N_CONTENTS_UIS);
+		
 		m_oContentsTrans = m_oContents.transform as RectTransform;
+		// 컨텐츠를 설정한다 }
 		
 		// 터치 응답자를 설정한다
 		m_oTouchResponder = this.CreateTouchResponder();
@@ -64,7 +69,7 @@ public abstract class CPopup : CUIsComponent {
 		m_oBGImg = this.CreateBGImg();
 
 		// 버튼을 설정한다
-		m_oCloseBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_POPUP_CLOSE_BTN);
+		m_oCloseBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_CLOSE_BTN);
 		m_oCloseBtn?.onClick.AddListener(this.OnTouchCloseBtn);
 	}
 
@@ -99,7 +104,7 @@ public abstract class CPopup : CUIsComponent {
 		base.OnDestroy();
 
 		// 앱이 실행 중 일 경우
-		if(CSceneManager.IsAppRunning) {
+		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 			this.ResetAni();
 		}
 	}
@@ -192,11 +197,10 @@ public abstract class CPopup : CUIsComponent {
 
 	//! 팝업 컨텐츠를 설정한다
 	protected virtual void SetupContents() {
-		var oTransforms = m_oContents.GetComponentsInChildren<RectTransform>();
-
-		for(int i = oTransforms.Length - KCDefine.B_VAL_1_INT; i >= KCDefine.B_VAL_0_INT; --i) {
-			LayoutRebuilder.ForceRebuildLayoutImmediate(oTransforms[i]);
-		}
+		m_oContents.ExEnumerateComponents<RectTransform>((a_nTrans) => {
+			LayoutRebuilder.ForceRebuildLayoutImmediate(a_nTrans);
+			return true;
+		});
 	}
 
 	//! 팝업이 출력 되었을 경우

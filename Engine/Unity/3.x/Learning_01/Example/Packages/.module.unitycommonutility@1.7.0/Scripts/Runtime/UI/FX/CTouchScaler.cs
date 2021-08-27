@@ -6,17 +6,14 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 
 //! 터치 비율 처리자
-public class CTouchScaler : CUIsComponent, IPointerDownHandler, IPointerUpHandler {
+public class CTouchScaler : CComponent, IPointerDownHandler, IPointerUpHandler {
 	#region 변수
 	[SerializeField] private float m_fDuration = KCDefine.U_DURATION_ANI;
 	[SerializeField] private float m_fTouchScale = KCDefine.U_SCALE_TOUCH;
-	
+
+	private Vector3 m_stOriginScale = Vector3.one;
 	private Tween m_oAni = null;
 	#endregion			// 변수
-
-	#region 프로퍼티
-	public Vector3 OriginScale { get; private set; } = Vector3.zero;
-	#endregion			// 프로퍼티
 
 	#region 인터페이스
 	//! 터치를 시작했을 경우
@@ -34,7 +31,7 @@ public class CTouchScaler : CUIsComponent, IPointerDownHandler, IPointerUpHandle
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
-		this.SetOriginScale(Vector3.one);
+		this.SetOriginScale(m_stOriginScale);
 	}
 	
 	//! 제거 되었을 경우
@@ -42,7 +39,7 @@ public class CTouchScaler : CUIsComponent, IPointerDownHandler, IPointerUpHandle
 		base.OnDestroy();
 
 		// 앱이 실행 중 일 경우
-		if(CSceneManager.IsAppRunning) {
+		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 			this.ResetAni();
 		}
 	}
@@ -64,7 +61,7 @@ public class CTouchScaler : CUIsComponent, IPointerDownHandler, IPointerUpHandle
 
 	//! 원본 비율을 변경한다
 	public void SetOriginScale(Vector3 a_stScale) {
-		this.OriginScale = a_stScale;
+		m_stOriginScale = a_stScale;
 	}
 
 	//! 비율을 변경한다
@@ -86,12 +83,12 @@ public class CTouchScaler : CUIsComponent, IPointerDownHandler, IPointerUpHandle
 
 	//! 누르기 시작 애니메이션을 시작한다
 	private void StartPressAni() {
-		this.SetScale(this.OriginScale * m_fTouchScale);
+		this.SetScale(m_stOriginScale * m_fTouchScale);
 	}
 
 	//! 누르기 종료 애니메이션을 시작한다
 	private void StartReleaseAni() {
-		this.SetScale(this.OriginScale);
+		this.SetScale(m_stOriginScale);
 	}
 	#endregion			// 함수
 }

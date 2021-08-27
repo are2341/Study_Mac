@@ -10,9 +10,8 @@ namespace SampleEngineName {
 		//! 상태
 		public enum EState {
 			NONE = -1,
-			PLAY,
-			PAUSE,
-			FINISH,
+			RUN,
+			STOP,
 			MAX_VAL
 		}
 
@@ -23,25 +22,35 @@ namespace SampleEngineName {
 
 			public GameObject m_oBlockObjs;
 		}
+
+		//! 콜백 매개 변수
+		public struct STCallbackParams {
+			public System.Action<CEngine> m_oClearCallback;
+			public System.Action<CEngine> m_oClearFailCallback;
+		}
 		
 		#region 변수
 		private STParams m_stParams;
-		private STGridInfo m_stGridInfo;
+		private STCallbackParams m_stCallbackParams;
+		private List<LineRenderer> m_oGridLineList = new List<LineRenderer>();
 
-		private EState m_eState = EState.NONE;
+		// 객체
 		private Dictionary<EBlockKinds, GameObject>[,] m_oBlockDicts = null;
 		#endregion			// 변수
-
+		
 		#region 프로퍼티
-		public EState State => m_eState;
-		public STGridInfo GridInfo => m_stGridInfo;
+		public int Score { get; private set; } = 0;
+		public EState State { get; private set; } = EState.NONE;
+		public STGridInfo GridInfo { get; private set; }
+
 		public GameObject BlockObjs => m_stParams.m_oBlockObjs;
 		#endregion			// 프로퍼티
 
 		#region 함수
 		//! 초기화
-		public virtual void Init(STParams a_stParams) {
+		public virtual void Init(STParams a_stParams, STCallbackParams a_stCallbackParams) {
 			m_stParams = a_stParams;
+			m_stCallbackParams = a_stCallbackParams;
 
 			this.SetupInit();
 			this.SetupLevel();
@@ -67,24 +76,43 @@ namespace SampleEngineName {
 			base.OnDestroy();
 
 			// 앱이 실행 중 일 경우
-			if(CSceneManager.IsAppRunning) {
+			if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 				// Do Something	
 			}
 		}
 
 		//! 터치를 시작했을 경우
 		public void OnTouchBegin(CTouchDispatcher a_oSender, PointerEventData a_oEventData) {
-			// Do Something
+			// 실행 상태 일 경우
+			if(this.State == EState.RUN) {
+				// Do Something
+			}
 		}
 
 		//! 터치를 움직였을 경우
 		public void OnTouchMove(CTouchDispatcher a_oSender, PointerEventData a_oEventData) {
-			// Do Something
+			// 실행 상태 일 경우
+			if(this.State == EState.RUN) {
+				// Do Something
+			}
 		}
 
 		//! 터치를 종료했을 경우
 		public void OnTouchEnd(CTouchDispatcher a_oSender, PointerEventData a_oEventData) {
-			// Do Something
+			// 실행 상태 일 경우
+			if(this.State == EState.RUN) {
+				// Do Something
+			}
+		}
+
+		//! 엔진을 실행한다
+		public void Run() {
+			this.State = EState.RUN;
+		}
+
+		//! 엔진을 중지한다
+		public void Stop() {
+			this.State = EState.STOP;
 		}
 		#endregion			// 함수
 
@@ -101,5 +129,17 @@ namespace SampleEngineName {
 		}
 #endif			// #if UNITY_EDITOR
 		#endregion			// 조건부 함수
+
+		#region 추가 변수
+
+		#endregion			// 추가 변수
+
+		#region 추가 프로퍼티
+
+		#endregion			// 추가 프로퍼티
+
+		#region 추가 함수
+
+		#endregion			// 추가 함수
 	}
 }

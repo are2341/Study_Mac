@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 //! 스터디 씬 관리자
 public abstract class CStudySceneManager : CSceneManager {
-	#region UI 변수
+	#region 변수
+	// UI
 	protected Text m_oEmptyText = null;
 	protected Button m_oBackBtn = null;
-	protected ScrollRect m_oScrollView = null;
-	#endregion			// UI 변수
+	protected ScrollRect m_oScrollRect = null;
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화
@@ -28,7 +29,7 @@ public abstract class CStudySceneManager : CSceneManager {
 			// 버튼을 설정한다 }
 
 			// 컨텐츠를 설정한다
-			m_oScrollView = this.SubUIs.ExFindComponent<ScrollRect>(KSDefine.SS_OBJ_N_SCROLL_VIEW);
+			m_oScrollRect = this.SubUIs.ExFindComponent<ScrollRect>(KSDefine.SS_OBJ_N_SCROLL_VIEW);
 		}
 	}
 
@@ -38,9 +39,9 @@ public abstract class CStudySceneManager : CSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
-			// 스크롤 뷰가 존재 할 경우
-			if(m_oScrollView != null) {
-				var oContents = m_oScrollView.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCROLL_V_CONTENTS);
+			// 스크롤 영역이 존재 할 경우
+			if(m_oScrollRect != null) {
+				var oContents = m_oScrollRect.gameObject.ExFindChild(KCDefine.U_OBJ_N_CONTENTS);
 
 				// 텍스트를 설정한다 {
 				m_oEmptyText = CFactory.CreateCloneObj<Text>(KCDefine.U_OBJ_N_EMPTY, KSDefine.SS_OBJ_P_TEXT, oContents);

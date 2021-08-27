@@ -97,14 +97,13 @@ public static partial class CPlatformBuilder {
 	private static void BuildStandaloneDebug(EStandaloneType a_eType) {
 		CPlatformBuilder.BuildType = EBuildType.DEBUG;
 
-		// 전처리기 심볼을 추가한다
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Standalone, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Standalone, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
-
 		// 빌드 옵션을 설정한다
 		var oPlayerOpts = new BuildPlayerOptions();
 		oPlayerOpts.options = BuildOptions.Development;
-		
+
+		// 전처리기 심볼을 추가한다
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Standalone, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
+
 		CPlatformBuilder.BuildStandalone(oPlayerOpts, a_eType);
 	}
 
@@ -116,25 +115,19 @@ public static partial class CPlatformBuilder {
 
 	//! 독립 플랫폼을 빌드한다
 	private static void BuildStandaloneRelease(EStandaloneType a_eType) {
-		CPlatformBuilder.BuildType = EBuildType.RELEASE;
-
-		// 전처리기 심볼을 추가한다 {
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Standalone, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
 
-		// 자동 실행 모드 일 경우
-		if(CPlatformBuilder.IsAutoPlay) {
-			CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Standalone, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
-		}
-		// 전처리기 심볼을 추가한다 }
-
+		CPlatformBuilder.BuildType = EBuildType.RELEASE;
 		CPlatformBuilder.BuildStandalone(new BuildPlayerOptions(), a_eType);
 	}
 
 	//! 독립 플랫폼을 빌드한다
 	private static void BuildStandaloneWithAutoPlayRelease(EStandaloneType a_eType) {
-		CPlatformBuilder.IsAutoPlay = true;
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Standalone, KCEditorDefine.DS_DEFINE_S_FPS_ENABLE);
 
+		CPlatformBuilder.IsAutoPlay = true;
 		CPlatformBuilder.BuildStandaloneRelease(a_eType);
 	}
 

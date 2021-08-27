@@ -22,15 +22,10 @@ public class CFocusPopup : CSubPopup {
 	#region 변수
 	private STParams m_stParams;
 	private STCallbackParams m_stCallbackParams;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI
 	private Image m_oBlindImg = null;
-	#endregion			// UI 변수
-
-	#region 객체
-	private GameObject m_oContentsUIs = null;
-	#endregion			// 객체
+	#endregion			// 변수
 
 	#region 프로퍼티
 	public override bool IsIgnoreAni => true;
@@ -44,9 +39,7 @@ public class CFocusPopup : CSubPopup {
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
-
-		m_oBlindImg = m_oContents.ExFindComponent<Image>(KDefine.G_OBJ_N_FOCUS_P_BLIND_IMG);
-		m_oContentsUIs = m_oContents.ExFindChild(KCDefine.U_OBJ_N_CONTENTS_UIS);
+		m_oBlindImg = m_oContents.ExFindComponent<Image>(KCDefine.U_OBJ_N_BLIND_IMG);
 	}
 
 	//! 초기화
@@ -80,11 +73,24 @@ public class CFocusPopup : CSubPopup {
 
 	//! UI 상태를 갱신한다
 	protected new void UpdateUIsState() {
+		base.UpdateUIsState();
 		m_oBlindImg?.ExSetColor<Image>(KCDefine.U_COLOR_POPUP_BG);
 		
 		var oContentsImg = m_oContents.GetComponentInChildren<Image>();
 		oContentsImg?.ExSetColor<Image>(KCDefine.U_COLOR_TRANSPARENT);
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }
 #endif			// #if NEVER_USE_THIS

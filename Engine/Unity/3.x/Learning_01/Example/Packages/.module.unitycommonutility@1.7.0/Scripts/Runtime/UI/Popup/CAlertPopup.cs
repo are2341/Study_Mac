@@ -17,9 +17,8 @@ public class CAlertPopup : CPopup {
 	#region 변수
 	private STParams m_stParams;
 	private System.Action<CAlertPopup, bool> m_oCallback = null;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI {
 	protected Text m_oTitleText = null;
 	protected Text m_oMsgText = null;
 
@@ -29,7 +28,8 @@ public class CAlertPopup : CPopup {
 	protected Button m_oCancelBtn = null;
 
 	protected HorizontalLayoutGroup m_oBMUIsLayoutGroup = null;
-	#endregion			// UI 변수
+	// UI }
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화
@@ -37,17 +37,17 @@ public class CAlertPopup : CPopup {
 		base.Awake();
 
 		// 텍스트를 설정한다
-		m_oTitleText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_ALERT_P_TITLE_TEXT);
-		m_oMsgText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_ALERT_P_MSG_TEXT);
+		m_oTitleText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_TITLE_TEXT);
+		m_oMsgText = m_oContents.ExFindComponent<Text>(KCDefine.U_OBJ_N_MSG_TEXT);
 
 		// 이미지를 설정한다
-		m_oAlertBGImg = m_oContents.ExFindComponent<Image>(KCDefine.U_OBJ_N_ALERT_P_BG_IMG);
+		m_oAlertBGImg = m_oContents.ExFindComponent<Image>(KCDefine.U_OBJ_N_BG_IMG);
 
 		// 버튼을 설정한다 {
-		m_oOKBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ALERT_P_OK_BTN);
+		m_oOKBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_OK_BTN);
 		m_oOKBtn.onClick.AddListener(this.OnTouchOKBtn);
 
-		m_oCancelBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ALERT_P_CANCEL_BTN);
+		m_oCancelBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_CANCEL_BTN);
 		m_oCancelBtn.onClick.AddListener(this.OnTouchCancelBtn);
 		// 버튼을 설정한다 }
 
@@ -66,23 +66,27 @@ public class CAlertPopup : CPopup {
 	//! 팝업 컨텐츠를 설정한다
 	protected override void SetupContents() {
 		base.SetupContents();
+		m_oCancelBtn.gameObject.SetActive(m_stParams.m_oCancelBtnText.ExIsValid());
 
 		// 컨텐츠 간격을 설정한다 {
-		float fContentsWidth = m_oTitleText.rectTransform.rect.width;
-		fContentsWidth = Mathf.Max(fContentsWidth, m_oMsgText.rectTransform.rect.width);
+		float fContentsWidth = m_oTitleText.rectTransform.sizeDelta.x;
+		fContentsWidth = Mathf.Max(fContentsWidth, m_oMsgText.rectTransform.sizeDelta.x);
 		fContentsWidth = Mathf.Max(fContentsWidth, (m_oBMUIsLayoutGroup.transform as RectTransform).sizeDelta.x);
 
-		float fContentsOffsetVA = m_oTitleText.rectTransform.anchoredPosition.y - m_oMsgText.rectTransform.anchoredPosition.y;
-		float fContentsOffsetVB = m_oMsgText.rectTransform.anchoredPosition.y - (m_oBMUIsLayoutGroup.transform as RectTransform).anchoredPosition.y;
+		float fMinOffsetY = Mathf.Abs((m_oContentsUIs.transform as RectTransform).offsetMin.y);
+		float fMaxOffsetY = Mathf.Abs((m_oContentsUIs.transform as RectTransform).offsetMax.y);
+
+		float fContentsOffsetVA = ((m_oAlertBGImg.rectTransform.sizeDelta.y / KCDefine.B_VAL_2_FLT) - fMaxOffsetY) - m_oMsgText.rectTransform.anchoredPosition.y;
+		float fContentsOffsetVB = ((m_oAlertBGImg.rectTransform.sizeDelta.y / KCDefine.B_VAL_2_FLT) - fMinOffsetY) - m_oMsgText.rectTransform.anchoredPosition.y;
 
 		var oContentsOffsetVList = new List<float>() {
-			(m_oAlertBGImg.rectTransform.sizeDelta.y / KCDefine.B_VAL_2_FLT) - m_oTitleText.rectTransform.anchoredPosition.y,
-			(m_oAlertBGImg.rectTransform.sizeDelta.y / -KCDefine.B_VAL_2_FLT) - (m_oBMUIsLayoutGroup.transform as RectTransform).anchoredPosition.y,
+			Mathf.Abs((m_oContentsUIs.transform as RectTransform).offsetMin.y),
+			Mathf.Abs((m_oContentsUIs.transform as RectTransform).offsetMax.y),
 			fContentsOffsetVA - (m_oTitleText.rectTransform.sizeDelta.y + (m_oMsgText.rectTransform.sizeDelta.y / KCDefine.B_VAL_2_FLT)),
 			fContentsOffsetVB - ((m_oBMUIsLayoutGroup.transform as RectTransform).sizeDelta.y + (m_oMsgText.rectTransform.sizeDelta.y / KCDefine.B_VAL_2_FLT))
 		};
 		// 컨텐츠 간격을 설정한다 }
-
+		
 		this.UpdateUIsState();
 		this.ExLateCallFunc((a_oSender, a_oParams) => this.DoSetupContents(oContentsOffsetVList.Sum(), m_oAlertBGImg.rectTransform.sizeDelta.x - fContentsWidth));
 	}

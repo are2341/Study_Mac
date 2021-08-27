@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 //! 서브 스플래시 씬 관리자
 public class CSubSplashSceneManager : CSplashSceneManager {
-	#region UI 변수
+	#region 변수
+	// UI
 	private Image m_oSplashImg = null;
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 프로퍼티
 	public override Color ClearColor => KCDefine.SS_COLOR_CLEAR;
@@ -42,4 +43,16 @@ public class CSubSplashSceneManager : CSplashSceneManager {
 		m_oSplashImg.gameObject.SetActive(false);
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }

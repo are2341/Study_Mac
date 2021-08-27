@@ -25,6 +25,17 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 	#endregion			// 프로퍼티
 
 	#region 함수
+	//! 상태를 리셋한다
+	public virtual void Reset() {
+		m_oCallbackInfoList.Clear();
+		m_oAddCallbackInfoList.Clear();
+		m_oRemoveCallbackInfoList.Clear();
+
+		m_oComponentInfoList.Clear();
+		m_oAddComponentInfoList.Clear();
+		m_oRemoveComponentInfoList.Clear();
+	}
+
 	//! 상태를 갱신한다
 	public virtual void Update() {
 		// 컴포넌트 정보 갱신이 필요 할 경우
@@ -59,8 +70,8 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		for(int i = 0; i < m_oComponentInfoList.Count; ++i) {
 			var oComponent = m_oComponentInfoList[i].m_oComponent as CComponent;
 
-			// 갱신 함수 호출이 가능 할 경우
-			if(!oComponent.IsDestroy && oComponent.gameObject.activeSelf) {
+			// 상태 갱신이 가능 할 경우
+			if(!oComponent.IsDestroy && (oComponent.enabled && oComponent.gameObject.activeSelf)) {
 				oComponent.OnLateUpdate(this.DeltaTime);
 			}
 		}
@@ -170,6 +181,22 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 		this.RemoveComponent(a_oSender);
 	}
 
+	//! 콜백 정보 상태를 갱신한다
+	private void UpdateCallbackInfosState() {
+		for(int i = 0; i < m_oAddCallbackInfoList.Count; ++i) {
+			var stCallbackInfo = m_oAddCallbackInfoList[i];
+			m_oCallbackInfoList.ExAddVal(stCallbackInfo);
+		}
+
+		for(int i = 0; i < m_oRemoveCallbackInfoList.Count; ++i) {
+			var stCallbackInfo = m_oRemoveCallbackInfoList[i];
+			m_oCallbackInfoList.ExRemoveVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(stCallbackInfo.m_oKey));
+		}
+		
+		m_oAddCallbackInfoList.Clear();
+		m_oRemoveCallbackInfoList.Clear();
+	}
+
 	//! 컴포넌트 정보 상태를 갱신한다
 	private void UpdateComponentInfosState() {
 		for(int i = 0; i < m_oAddComponentInfoList.Count; ++i) {
@@ -190,22 +217,6 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 
 		m_oAddComponentInfoList.Clear();
 		m_oRemoveComponentInfoList.Clear();
-	}
-
-	//! 콜백 정보 상태를 갱신한다
-	private void UpdateCallbackInfosState() {
-		for(int i = 0; i < m_oAddCallbackInfoList.Count; ++i) {
-			var stCallbackInfo = m_oAddCallbackInfoList[i];
-			m_oCallbackInfoList.ExAddVal(stCallbackInfo);
-		}
-
-		for(int i = 0; i < m_oRemoveCallbackInfoList.Count; ++i) {
-			var stCallbackInfo = m_oRemoveCallbackInfoList[i];
-			m_oCallbackInfoList.ExRemoveVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(stCallbackInfo.m_oKey));
-		}
-		
-		m_oAddCallbackInfoList.Clear();
-		m_oRemoveCallbackInfoList.Clear();
 	}
 	#endregion			// 함수
 }

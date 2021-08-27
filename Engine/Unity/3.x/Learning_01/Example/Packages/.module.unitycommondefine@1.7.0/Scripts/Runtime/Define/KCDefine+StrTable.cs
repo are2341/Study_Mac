@@ -80,6 +80,8 @@ public static partial class KCDefine {
 	public const string ST_KEY_COMMON_GET_TEXT = "COMMON_GET_TEXT";
 	public const string ST_KEY_COMMON_NEXT_TEXT = "COMMON_NEXT_TEXT";
 	public const string ST_KEY_COMMON_LEAVE_TEXT = "COMMON_LEAVE_TEXT";
+	public const string ST_KEY_COMMON_SYNC_TEXT = "COMMON_SYNC_TEXT";
+	public const string ST_KEY_COMMON_NOTICE_TEXT = "COMMON_NOTICE_TEXT";
 	public const string ST_KEY_COMMON_WATCH_ADS_TEXT = "COMMON_WATCH_ADS_TEXT";
 
 	public const string ST_KEY_COMMON_LEVEL_TEXT = "COMMON_LEVEL_TEXT";
@@ -94,5 +96,50 @@ public static partial class KCDefine {
 	public const string ST_KEY_COMMON_NUM_STAGES_TEXT_FMT = "COMMON_NUM_STAGES_TEXT_FMT";
 	public const string ST_KEY_COMMON_NUM_CHAPTERS_TEXT_FMT = "COMMON_NUM_CHAPTERS_TEXT_FMT";
 	// 공용 }
+
+	// 상점 팝업
+	public const string ST_KEY_STORE_P_TITLE = "STORE_P_TITLE";
+	public const string ST_KEY_STORE_P_RESTORE_BTN_TEXT = "STORE_P_RESTORE_BTN_TEXT";
+
+	// 설정 팝업 {
+	public const string ST_KEY_SETTINGS_P_TITLE = "SETTINGS_P_TITLE";
+
+	public const string ST_KEY_SETTINGS_P_BG_SND_BTN_TEXT = "SETTINGS_P_BG_SND_BTN_TEXT";
+	public const string ST_KEY_SETTINGS_P_FX_SNDS_BTN_TEXT = "SETTINGS_P_FX_SNDS_BTN_TEXT";
+	public const string ST_KEY_SETTINGS_P_NOTI_BTN_TEXT = "SETTINGS_P_NOTI_BTN_TEXT";
+	public const string ST_KEY_SETTINGS_P_REVIEW_BTN_TEXT = "SETTINGS_P_REVIEW_BTN_TEXT";
+	public const string ST_KEY_SETTINGS_P_SUPPORTS_BTN_TEXT = "SETTINGS_P_SUPPORTS_BTN_TEXT";
+	// 설정 팝업 }
+
+	// 동기화 팝업 {
+	public const string ST_KEY_SYNC_P_TITLE = "SYNC_P_TITLE";
+
+	public const string ST_KEY_SYNC_P_LOGIN_BTN_TEXT = "SYNC_P_LOGIN_BTN_TEXT";
+	public const string ST_KEY_SYNC_P_LOGOUT_BTN_TEXT = "SYNC_P_LOGOUT_BTN_TEXT";
+
+	public const string ST_KEY_SYNC_P_SAVE_BTN_TEXT = "SYNC_P_SAVE_BTN_TEXT";
+	public const string ST_KEY_SYNC_P_LOAD_BTN_TEXT = "SYNC_P_LOAD_BTN_TEXT";
+	// 동기화 팝업 }
+
+	// 일일 미션 팝업
+	public const string ST_KEY_DAILY_MP_TITLE = "DAILY_MP_TITLE";
+
+	// 무료 보상 팝업
+	public const string ST_KEY_FREE_RP_TITLE = "FREE_RP_TITLE";
+	public const string ST_KEY_FREE_RP_ADS_BTN_TEXT = "FREE_RP_ADS_BTN_TEXT";
+
+	// 일일 보상 팝업 {
+	public const string ST_KEY_DAILY_RP_TITLE = "DAILY_RP_TITLE";
+
+	public const string ST_KEY_DAILY_RP_ADS_BTN_TEXT = "DAILY_RP_ADS_BTN_TEXT";
+	public const string ST_KEY_DAILY_RP_ACQUIRE_BTN_TEXT = "DAILY_RP_ACQUIRE_BTN_TEXT";
+	// 일일 보상 팝업 }
+
+	// 판매 코인 팝업
+	public const string ST_KEY_SALE_CP_TITLE = "SALE_CP_TITLE";
+	public const string ST_KEY_SALE_CP_OK_BTN_TEXT = "SALE_CP_OK_BTN_TEXT";
+
+	// 보상 획득 팝업
+	public const string ST_KEY_REWARD_AP_ACQUIRE_BTN_TEXT = "REWARD_AP_ACQUIRE_BTN_TEXT";
 	#endregion			// 기본
 }

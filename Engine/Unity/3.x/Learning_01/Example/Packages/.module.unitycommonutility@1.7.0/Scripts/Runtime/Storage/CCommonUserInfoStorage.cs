@@ -39,6 +39,7 @@ public class CCommonUserInfo : CCommonBaseInfo {
 	//! 역직렬화 되었을 경우
 	public override void OnAfterDeserialize() {
 		base.OnAfterDeserialize();
+		m_oRestoreProductIDList = m_oRestoreProductIDList ?? new List<string>();
 	}
 	#endregion			// 인터페이스
 }
@@ -51,8 +52,11 @@ public class CCommonUserInfoStorage : CSingleton<CCommonUserInfoStorage> {
 
 	#region 함수
 	//! 유저 정보를 리셋한다
-	public virtual void ResetUserInfo(SimpleJSON.JSONNode a_oUserInfo) {
-		this.UserInfo = a_oUserInfo.ToString().ExMsgPackJSONStrToObj<CCommonUserInfo>();
+	public virtual void ResetUserInfo(string a_oJSONStr) {
+		CFunc.ShowLog("CUserInfoStorage.ResetUserInfo: {0}", a_oJSONStr);
+		CAccess.Assert(a_oJSONStr.ExIsValid());
+		
+		this.UserInfo = a_oJSONStr.ExMsgPackJSONStrToObj<CCommonUserInfo>();
 		CAccess.Assert(this.UserInfo != null);
 	}
 
@@ -63,7 +67,7 @@ public class CCommonUserInfoStorage : CSingleton<CCommonUserInfoStorage> {
 
 	//! 비소모 상품 식별자를 추가한다
 	public void AddRestoreProductID(string a_oProductID) {
-		CAccess.Assert(a_oProductID.ExIsValid() || !this.IsRestoreProduct(a_oProductID));
+		CAccess.Assert(a_oProductID.ExIsValid() && !this.IsRestoreProduct(a_oProductID));
 		this.UserInfo.m_oRestoreProductIDList.Add(a_oProductID);
 	}
 

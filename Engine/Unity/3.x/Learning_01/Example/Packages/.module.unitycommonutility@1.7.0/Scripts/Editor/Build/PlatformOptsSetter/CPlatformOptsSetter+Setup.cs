@@ -12,10 +12,6 @@ using UnityEditor.iOS;
 using UnityEditor.Android;
 #endif			// #if UNITY_IOS
 
-#if INPUT_SYSTEM_MODULE_ENABLE
-using UnityEngine.InputSystem;
-#endif			// #if INPUT_SYSTEM_MODULE_ENABLE
-
 #if NOTI_MODULE_ENABLE
 using Unity.Notifications;
 #endif			// #if NOTI_MODULE_ENABLE
@@ -251,7 +247,7 @@ public static partial class CPlatformOptsSetter {
 #if NOTI_MODULE_ENABLE
 		for(int i = 0; i < KCEditorDefine.B_NOTI_ICON_P_INFOS.Length; ++i) {
 			var stPathInfo = KCEditorDefine.B_NOTI_ICON_P_INFOS[i];
-			CFunc.CopyFile(stPathInfo.Key, stPathInfo.Value);
+			CFunc.CopyFile(stPathInfo.Key, stPathInfo.Value, false);
 		}
 #endif			// #if NOTI_MODULE_ENABLE
 
@@ -304,7 +300,7 @@ public static partial class CPlatformOptsSetter {
 			foreach(var stKeyVal in CPlatformOptsSetter.DefineSymbolDictContainer) {
 				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_FPS_ENABLE);
 				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
+				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_ROBO_TEST_ENABLE);
 				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_RECEIPT_CHECK_ENABLE);
 				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_ADHOC_BUILD);
 				CPlatformOptsSetter.RemoveDefineSymbol(stKeyVal.Key, KCEditorDefine.DS_DEFINE_S_STORE_BUILD);
@@ -587,13 +583,14 @@ public static partial class CPlatformOptsSetter {
 
 		// 빌드 옵션 테이블이 존재 할 경우
 		if(CPlatformOptsSetter.BuildOptsTable != null) {
-			PlayerSettings.gpuSkinning = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsGPUSkinning;
-			PlayerSettings.MTRendering = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsMTRendering;
+			PlayerSettings.gpuSkinning = true;
+			PlayerSettings.MTRendering = true;
+			PlayerSettings.use32BitDisplayBuffer = true;
+			PlayerSettings.enableFrameTimingStats = true;
+
 			PlayerSettings.runInBackground = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsRunInBackground;
 			PlayerSettings.bakeCollisionMeshes = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsPreBakeCollisionMesh;
-			PlayerSettings.use32BitDisplayBuffer = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsUse32BitDisplayBuffer;
 			PlayerSettings.muteOtherAudioSources = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsMuteOtherAudioSource;
-			PlayerSettings.enableFrameTimingStats = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsEnableFrameTimingStats;
 			PlayerSettings.enableInternalProfiler = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsEnableInternalProfiler;
 			PlayerSettings.preserveFramebufferAlpha = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsPreserveFrameBufferAlpha;
 			PlayerSettings.vulkanEnableSetSRGBWrite = CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsEnableVulkanSRGBWrite;
@@ -609,8 +606,8 @@ public static partial class CPlatformOptsSetter {
 			}
 
 			// 멀티 쓰레드 렌더링을 설정한다
-			PlayerSettings.SetMobileMTRendering(BuildTargetGroup.iOS, CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsMTRendering);
-			PlayerSettings.SetMobileMTRendering(BuildTargetGroup.Android, CPlatformOptsSetter.BuildOptsTable.CommonBuildOpts.m_bIsMTRendering);
+			PlayerSettings.SetMobileMTRendering(BuildTargetGroup.iOS, PlayerSettings.MTRendering);
+			PlayerSettings.SetMobileMTRendering(BuildTargetGroup.Android, PlayerSettings.MTRendering);
 
 			// 광원 맵 엔코딩 퀄리티를 설정한다 {
 			CExtension.ExCallFunc<PlayerSettings>(null, KCEditorDefine.B_FUNC_N_SET_LIGHTMAP_ENCODING_QUALITY, KCDefine.B_BINDING_F_NON_PUBLIC_STATIC, new object[] {
@@ -699,7 +696,7 @@ public static partial class CPlatformOptsSetter {
 		PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
 		PlayerSettings.iOS.backgroundModes = iOSBackgroundMode.None;
 		PlayerSettings.iOS.scriptCallOptimization = ScriptCallOptimizationLevel.SlowAndSafe;
-		PlayerSettings.iOS.showActivityIndicatorOnLoading = iOSShowActivityIndicatorOnLoading.DontShow;
+		PlayerSettings.iOS.showActivityIndicatorOnLoading = iOSShowActivityIndicatorOnLoading.WhiteLarge;
 
 		EditorUserBuildSettings.symlinkLibraries = false;
 		PlayerSettings.SetArchitecture(BuildTargetGroup.iOS, (int)AppleMobileArchitecture.ARM64);
@@ -780,6 +777,7 @@ public static partial class CPlatformOptsSetter {
 		PlayerSettings.Android.minifyWithR8 = false;
 		PlayerSettings.Android.androidIsGame = true;
 		PlayerSettings.Android.startInFullscreen = true;
+		PlayerSettings.Android.optimizedFramePacing = true;
 		PlayerSettings.Android.useAPKExpansionFiles = false;
 		PlayerSettings.Android.forceSDCardPermission = false;
 		PlayerSettings.Android.forceInternetPermission = true;
@@ -787,14 +785,12 @@ public static partial class CPlatformOptsSetter {
 		PlayerSettings.Android.disableDepthAndStencilBuffers = false;
 		
 		PlayerSettings.Android.splashScreenScale = AndroidSplashScreenScale.ScaleToFit;
-		PlayerSettings.Android.targetArchitectures = AndroidArchitecture.All;
-		PlayerSettings.Android.showActivityIndicatorOnLoading = AndroidShowActivityIndicatorOnLoading.DontShow;
+		PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARMv7 | AndroidArchitecture.ARM64;
+		PlayerSettings.Android.showActivityIndicatorOnLoading = AndroidShowActivityIndicatorOnLoading.InversedLarge;
 
 		EditorUserBuildSettings.exportAsGoogleAndroidProject = false;
 		EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Gradle;
 		EditorUserBuildSettings.androidCreateSymbols = AndroidCreateSymbols.Public;
-
-		CAccessExtension.ExSetPropertyVal<PlayerSettings.Android>(null, KCEditorDefine.B_PROPERTY_N_VALIDATE_APP_BUNDLE_SIZE, KCDefine.B_BINDING_F_NON_PUBLIC_STATIC, true);
 
 #if UNITY_ANDROID
 		var oIcons = new Texture2D[] {
@@ -830,6 +826,7 @@ public static partial class CPlatformOptsSetter {
 			PlayerSettings.Android.androidTVCompatibility = stBuildOpts.m_bIsTVCompatibility;
 			PlayerSettings.Android.preferredInstallLocation = stBuildOpts.m_ePreferredInstallLocation;
 
+			CAccessExtension.ExSetPropertyVal<PlayerSettings.Android>(null, KCEditorDefine.B_PROPERTY_N_VALIDATE_APP_BUNDLE_SIZE, KCDefine.B_BINDING_F_NON_PUBLIC_STATIC, true);
 			CAccessExtension.ExSetPropertyVal<PlayerSettings.Android>(null, KCEditorDefine.B_PROPERTY_N_APP_BUNDLE_SIZE_TO_VALIDATE, KCDefine.B_BINDING_F_NON_PUBLIC_STATIC, stBuildOpts.m_nAppBundleSize);
 			CAccessExtension.ExSetPropertyVal<PlayerSettings.Android>(null, KCEditorDefine.B_PROPERTY_N_SUPPORTED_ASPECT_RATIO_MODE, KCDefine.B_BINDING_F_NON_PUBLIC_STATIC, (int)stBuildOpts.m_eAspectRatioMode);
 		}

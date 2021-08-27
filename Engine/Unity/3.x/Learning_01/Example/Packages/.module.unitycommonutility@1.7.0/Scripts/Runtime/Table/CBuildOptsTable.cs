@@ -48,13 +48,9 @@ public struct STSndOpts {
 //! 공용 빌드 옵션
 [System.Serializable]
 public struct STCommonBuildOpts {
-	public bool m_bIsGPUSkinning;
-	public bool m_bIsMTRendering;
 	public bool m_bIsRunInBackground;
 	public bool m_bIsPreBakeCollisionMesh;
-	public bool m_bIsUse32BitDisplayBuffer;
 	public bool m_bIsMuteOtherAudioSource;
-	public bool m_bIsEnableFrameTimingStats;
 	public bool m_bIsEnableInternalProfiler;
 	public bool m_bIsPreserveFrameBufferAlpha;
 	public bool m_bIsEnableVulkanSRGBWrite;

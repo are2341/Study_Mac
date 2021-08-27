@@ -34,13 +34,9 @@ MonoBehaviour:
     m_eSpeakerMode: 1
     m_eDSPBufferSize: 1024
   m_stCommonBuildOpts:
-    m_bIsGPUSkinning: 1
-    m_bIsMTRendering: 1
     m_bIsRunInBackground: 0
     m_bIsPreBakeCollisionMesh: 0
-    m_bIsUse32BitDisplayBuffer: 1
     m_bIsMuteOtherAudioSource: 0
-    m_bIsEnableFrameTimingStats: 1
     m_bIsEnableInternalProfiler: 0
     m_bIsPreserveFrameBufferAlpha: 0
     m_bIsEnableVulkanSRGBWrite: 0

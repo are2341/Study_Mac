@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public abstract class CSubPopup : CPopup {
 	#region 프로퍼티
 	public override float ShowTimeScale => KCDefine.B_VAL_0_FLT;
+	public override float CloseTimeScale => KCDefine.B_VAL_1_FLT;
+
 	public override EAniType AniType => EAniType.DROPDOWN;
 	#endregion			// 프로퍼티
 
@@ -28,8 +30,20 @@ public abstract class CSubPopup : CPopup {
 	}
 
 	//! UI 상태를 갱신한다
-	protected new void UpdateUIsState() {
+	protected void UpdateUIsState() {
 		// Do Something
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+	
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }

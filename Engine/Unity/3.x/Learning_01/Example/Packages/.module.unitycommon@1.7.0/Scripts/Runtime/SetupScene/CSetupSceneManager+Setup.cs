@@ -59,7 +59,7 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 
 	//! 디버그 UI 를 설정한다
 	private void SetupDebugUIs() {
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 		// 디버그 UI 가 없을 경우
 		if(CSetupSceneManager.m_oDebugUIs == null) {
 			var oDebugUIs = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_DEBUG_UIS, KCDefine.SS_OBJ_P_SCREEN_DEBUG_UIS, null);
@@ -67,8 +67,8 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 			CSetupSceneManager.m_oDebugUIs = oDebugUIs;
 			CSceneManager.ScreenDebugUIs = oDebugUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS);
 
-			CSceneManager.ScreenDebugTexts = oDebugUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_DEBUG_TEXTS);
-			CSceneManager.ScreenDebugTexts.SetActive(false);
+			CSceneManager.ScreenDebugTextUIs = oDebugUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_DEBUG_TEXT_UIS);
+			CSceneManager.ScreenDebugTextUIs.SetActive(false);
 
 			CSceneManager.ScreenFPSBtn = oDebugUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_SCREEN_FPS_BTN);
 			CSceneManager.ScreenFPSBtn.gameObject.SetActive(false);
@@ -85,12 +85,12 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 			DontDestroyOnLoad(oDebugUIs);
 			CFunc.SetupScreenUIs(oDebugUIs, KCDefine.U_SORTING_O_SCREEN_DEBUG_UIS);
 		}
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 	}
 
 	//! 디버그 콘솔을 설정한다
 	private void SetupDebugConsole() {
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 		// 디버그 콘솔이 없을 경우
 		if(CSetupSceneManager.m_oDebugConsole == null) {
 			var oDebugConsole = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_DEBUG_CONSOLE, KCDefine.U_OBJ_P_DEBUG_CONSOLE, null);
@@ -102,7 +102,7 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 			DontDestroyOnLoad(oDebugConsole);
 			CFunc.SetupScreenUIs(oDebugConsole, KCDefine.U_SORTING_O_DEBUG_CONSOLE);
 		}
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 	}
 
 	//! FPS 카운터를 설정한다

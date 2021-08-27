@@ -6,11 +6,12 @@ using UnityEngine.UI;
 #if NEVER_USE_THIS
 //! 설정 팝업
 public class CSettingsPopup : CSubPopup {
-	#region UI 변수
+	#region 변수
+	// UI
 	private Button m_oBGSndBtn = null;
 	private Button m_oFXSndsBtn = null;
 	private Button m_oNotiBtn = null;
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화
@@ -18,19 +19,19 @@ public class CSettingsPopup : CSubPopup {
 		base.Awake();
 
 		// 버튼을 설정한다 {
-		m_oBGSndBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_SETTINGS_P_BG_SND_BTN);
+		m_oBGSndBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_BG_SND_BTN);
 		m_oBGSndBtn?.onClick.AddListener(this.OnTouchBGSndBtn);
 
-		m_oFXSndsBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_SETTINGS_P_FX_SNDS_BTN);
+		m_oFXSndsBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_FX_SNDS_BTN);
 		m_oFXSndsBtn?.onClick.AddListener(this.OnTouchFXSndsBtn);
 
-		m_oNotiBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_SETTINGS_P_NOTI_BTN);
+		m_oNotiBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_NOTI_BTN);
 		m_oNotiBtn?.onClick.AddListener(this.OnTouchNotiBtn);
 
-		var oReviewBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_SETTINGS_P_REVIEW_BTN);
+		var oReviewBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_REVIEW_BTN);
 		oReviewBtn?.onClick.AddListener(this.OnTouchReviewBtn);
 
-		var oSupportsBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_SETTINGS_P_SUPPORTS_BTN);
+		var oSupportsBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_SUPPORTS_BTN);
 		oSupportsBtn?.onClick.AddListener(this.OnTouchSupportsBtn);
 		// 버튼을 설정한다 }
 	}
@@ -48,24 +49,44 @@ public class CSettingsPopup : CSubPopup {
 	
 	//! UI 상태를 갱신한다
 	private new void UpdateUIsState() {
-		// Do Something
+		base.UpdateUIsState();
+
+		CSndManager.Inst.IsMuteBGSnd = CCommonGameInfoStorage.Inst.GameInfo.IsMuteBGSnd;
+		CSndManager.Inst.IsMuteFXSnds = CCommonGameInfoStorage.Inst.GameInfo.IsMuteFXSnds;
+
+		// 버튼을 갱신한다 {
+		string oBGSndImgPath = CCommonGameInfoStorage.Inst.GameInfo.IsMuteBGSnd ? KDefine.G_IMG_P_SETTINGS_P_BG_SND_OFF : KDefine.G_IMG_P_SETTINGS_P_BG_SND_ON;
+		m_oBGSndBtn?.gameObject.ExFindComponent<Image>(KCDefine.U_OBJ_N_ICON_IMG)?.ExSetSprite<Image>(CResManager.Inst.GetRes<Sprite>(oBGSndImgPath));
+
+		string oFXSndsImgPath = CCommonGameInfoStorage.Inst.GameInfo.IsMuteFXSnds ? KDefine.G_IMG_P_SETTINGS_P_FX_SNDS_OFF : KDefine.G_IMG_P_SETTINGS_P_FX_SNDS_ON;
+		m_oFXSndsBtn?.gameObject.ExFindComponent<Image>(KCDefine.U_OBJ_N_ICON_IMG)?.ExSetSprite<Image>(CResManager.Inst.GetRes<Sprite>(oFXSndsImgPath));
+
+		string oNotiImgPath = CCommonGameInfoStorage.Inst.GameInfo.IsDisableNoti ? KDefine.G_IMG_P_SETTINGS_P_NOTI_OFF : KDefine.G_IMG_P_SETTINGS_P_NOTI_ON;
+		m_oNotiBtn?.gameObject.ExFindComponent<Image>(KCDefine.U_OBJ_N_ICON_IMG)?.ExSetSprite<Image>(CResManager.Inst.GetRes<Sprite>(oNotiImgPath));
+		// 버튼을 갱신한다 }
 	}
 
 	//! 배경음 버튼을 눌렀을 경우
 	private void OnTouchBGSndBtn() {
 		CCommonGameInfoStorage.Inst.GameInfo.IsMuteBGSnd = !CCommonGameInfoStorage.Inst.GameInfo.IsMuteBGSnd;
+		CCommonGameInfoStorage.Inst.SaveGameInfo();
+
 		this.UpdateUIsState();
 	}
 
 	//! 효과음 버튼을 눌렀을 경우
 	private void OnTouchFXSndsBtn() {
 		CCommonGameInfoStorage.Inst.GameInfo.IsMuteFXSnds = !CCommonGameInfoStorage.Inst.GameInfo.IsMuteFXSnds;
+		CCommonGameInfoStorage.Inst.SaveGameInfo();
+
 		this.UpdateUIsState();
 	}
 
 	//! 알림 버튼을 눌렀을 경우
 	private void OnTouchNotiBtn() {
 		CCommonGameInfoStorage.Inst.GameInfo.IsDisableNoti = !CCommonGameInfoStorage.Inst.GameInfo.IsDisableNoti;
+		CCommonGameInfoStorage.Inst.SaveGameInfo();
+		
 		this.UpdateUIsState();
 	}
 
@@ -79,5 +100,17 @@ public class CSettingsPopup : CSubPopup {
 		CUnityMsgSender.Inst.SendMailMsg(CProjInfoTable.Inst.ProjInfo.m_oSupportsMail, string.Empty, string.Empty);
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }
 #endif			// #if NEVER_USE_THIS

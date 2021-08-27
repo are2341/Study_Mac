@@ -332,13 +332,12 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.DEBUG;
 		EditorUserBuildSettings.buildAppBundle = false;
 
-		// 전처리기 심볼을 추가한다
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
-
 		// 빌드 옵션을 설정한다
 		var oPlayerOpts = new BuildPlayerOptions();
 		oPlayerOpts.options = BuildOptions.Development;
+
+		// 전처리기 심볼을 추가한다
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
 
 		CPlatformBuilder.BuildAndroid(oPlayerOpts, a_eType);
 	}
@@ -354,23 +353,18 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.RELEASE;
 		EditorUserBuildSettings.buildAppBundle = false;
 
-		// 전처리기 심볼을 추가한다 {
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-
-		// 자동 실행 모드 일 경우
-		if(CPlatformBuilder.IsAutoPlay) {
-			CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
-		}
-		// 전처리기 심볼을 추가한다 }
 
 		CPlatformBuilder.BuildAndroid(new BuildPlayerOptions(), a_eType);
 	}
 
 	//! 안드로이드를 빌드한다
 	private static void BuildAndroidWithAutoPlayRelease(EAndroidType a_eType) {
-		CPlatformBuilder.IsAutoPlay = true;
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_FPS_ENABLE);
 
+		CPlatformBuilder.IsAutoPlay = true;
 		CPlatformBuilder.BuildAndroidRelease(a_eType);
 	}
 
@@ -394,7 +388,9 @@ public static partial class CPlatformBuilder {
 
 	//! 안드로이드를 빌드한다
 	private static void BuildAndroidWithRoboTestAdhoc(EAndroidType a_eType) {
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_ROBO_TEST_ENABLE);
+
 		CPlatformBuilder.BuildAndroidAdhoc(a_eType);
 	}
 
@@ -418,7 +414,9 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.STORE;
 		EditorUserBuildSettings.buildAppBundle = a_bIsBuildAppBundle;
 
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.Android, KCEditorDefine.DS_DEFINE_S_STORE_BUILD);
+		
 		CPlatformBuilder.BuildAndroid(new BuildPlayerOptions(), a_eType);
 	}
 

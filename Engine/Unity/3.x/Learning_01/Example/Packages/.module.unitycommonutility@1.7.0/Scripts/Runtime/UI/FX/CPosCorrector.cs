@@ -4,47 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //! 위치 보정자
-public class CPosCorrector : CUIsComponent {
+public class CPosCorrector : CComponent {
 	#region 변수
-	[SerializeField] private Space m_eSpace = Space.Self;
 	[SerializeField] private Vector3 m_stOffset = Vector3.zero;
+
+	// 객체
 	[SerializeField] private GameObject m_oTarget = null;
 	#endregion			// 변수
-
+	
 	#region 함수
 	//! 초기화
-	public override void Start() {
-		base.Start();
-		this.SetupPos();
+	public override void Awake() {
+		base.Awake();
+		CScheduleManager.Inst.AddComponent(this);
 	}
 
-	//! 위치를 리셋한다
-	public virtual void ResetPos() {
-		this.SetupPos();
+	//! 상태를 갱신한다
+	public override void OnLateUpdate(float a_fDeltaTime) {
+		base.OnLateUpdate(a_fDeltaTime);
+
+		// 앱이 실행 중 일 경우
+		if(CSceneManager.IsAppRunning) {
+			this.transform.position = m_oTarget.transform.position + m_stOffset;
+		}
 	}
 
 	//! 간격을 변경한다
 	public void SetOffset(Vector3 a_stOffset) {
 		m_stOffset = a_stOffset;
-		this.SetupPos();
 	}
 
 	//! 타겟을 변경한다
 	public void SetTarget(GameObject a_oTarget) {
 		m_oTarget = a_oTarget;
-		this.SetupPos();
-	}
-
-	//! 위치를 설정한다
-	private void SetupPos() {
-		CAccess.Assert(m_oTarget != null);
-
-		// 월드 모드 일 경우
-		if(m_eSpace == Space.World) {
-			this.transform.position = m_oTarget.transform.position + m_stOffset;
-		} else {
-			this.transform.localPosition = m_oTarget.transform.localPosition + m_stOffset;
-		}
 	}
 	#endregion			// 함수
 }

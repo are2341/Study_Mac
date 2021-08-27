@@ -8,16 +8,14 @@ using UnityEngine.UI;
 public class CDailyRewardPopup : CSubPopup {
 	#region 변수
 	private bool m_bIsWatchRewardAds = false;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI
 	private Button m_oAdsBtn = null;
 	private Button m_oAcquireBtn = null;
-	#endregion			// UI 변수
 
-	#region 객체
+	// 객체
 	[SerializeField] private List<GameObject> m_oRewardUIsList = new List<GameObject>();
-	#endregion			// 객체
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화
@@ -25,10 +23,10 @@ public class CDailyRewardPopup : CSubPopup {
 		base.Awake();
 
 		// 버튼을 설정한다 {
-		m_oAdsBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_DAILY_RP_ADS_BTN);
+		m_oAdsBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ADS_BTN);
 		m_oAdsBtn?.onClick.AddListener(this.OnTouchAdsBtn);
 
-		m_oAcquireBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_DAILY_RP_ACQUIRE_BTN);
+		m_oAcquireBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ACQUIRE_BTN);
 		m_oAcquireBtn?.onClick.AddListener(this.OnTouchAcquireBtn);
 		// 버튼을 설정한다 }
 	}
@@ -46,10 +44,12 @@ public class CDailyRewardPopup : CSubPopup {
 	
 	//! UI 상태를 갱신한다
 	private new void UpdateUIsState() {
+		base.UpdateUIsState();
+		
 		// 보상 UI 상태를 갱신한다
 		for(int i = 0; i < m_oRewardUIsList.Count; ++i) {
 			var oRewardUIs = m_oRewardUIsList[i];
-			var stDailyRewardInfo = CRewardInfoTable.Inst.GetRewardInfo(ERewardKinds.DAILY_REWARD + (i + KCDefine.B_VAL_1_INT));
+			var stDailyRewardInfo = CRewardInfoTable.Inst.GetRewardInfo(ERewardKinds.DAILY_SAMPLE + (i + KCDefine.B_VAL_1_INT));
 
 			this.UpdateRewardUIsState(oRewardUIs, stDailyRewardInfo);
 		}
@@ -126,5 +126,17 @@ public class CDailyRewardPopup : CSubPopup {
 	}
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }
 #endif			// #if NEVER_USE_THIS

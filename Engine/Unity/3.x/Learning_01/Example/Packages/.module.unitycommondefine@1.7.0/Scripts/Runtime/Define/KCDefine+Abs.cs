@@ -22,6 +22,7 @@ public static partial class KCDefine {
 	public const int B_UNIT_BYTES_PER_KILO_BYTE = 1024;
 	public const int B_UNIT_BYTES_PER_MEGA_BYTE = 1024 * 1024;
 	
+	public const int B_UNIT_SECS_PER_MINUTES = 60;
 	public const int B_UNIT_MILLI_SECS_PER_SECS = 1000;
 
 	public const float B_UNIT_SCALE = 0.01f;
@@ -286,6 +287,7 @@ public static partial class KCDefine {
 	public const string B_KEY_JSON_ROOT_DATA = "Root";
 	public const string B_KEY_JSON_COMMON_DATA = "Common";
 	public const string B_KEY_JSON_USER_INFO_DATA = "UserInfo";
+	public const string B_KEY_JSON_GAME_INFO_DATA = "GameInfo";
 	public const string B_KEY_JSON_COMMON_USER_INFO_DATA = "CommonUserInfo";
 
 	// 토큰 {
@@ -385,10 +387,9 @@ public static partial class KCDefine {
 
 	// 형식 {
 	public const string B_TEXT_FMT_NUM = "x{0}";
-	public const string B_TEXT_FMT_BRACKET = "({0})";
-
 	public const string B_TEXT_FMT_INCR = "+{0}";
 	public const string B_TEXT_FMT_DECR = "-{0}";
+	public const string B_TEXT_FMT_BRACKET = "({0})";
 
 	public const string B_TEXT_FMT_VER = "Ver.{0}{1}";
 	public const string B_TEXT_FMT_PAGE = "{0}/{1}";
@@ -401,6 +402,10 @@ public static partial class KCDefine {
 	public const string B_TEXT_FMT_SIZE = "<size={0}>{1}</size>";
 	public const string B_TEXT_FMT_COLOR = "<color=#{0}>{1}</color>";
 	public const string B_TEXT_FMT_CURRENCY = "{0:N0}";
+	public const string B_TEXT_FMT_USD_PRICE = "USD {0}";
+	public const string B_TEXT_FMT_USD_CURRENCY = "USD {0:N2}";
+
+	public const string B_TEXT_FMT_MM_SS = "{0:00}:{1:00}";
 	public const string B_TEXT_FMT_HH_MM_SS = "{0:00}:{1:00}:{2:00}";
 
 	public const string B_TEXT_FMT_1_DIGITS = "{0:0}";
@@ -414,9 +419,18 @@ public static partial class KCDefine {
 	public const string B_TEXT_FMT_4_COMBINE = "{0} {1} {2} {3}";
 	public const string B_TEXT_FMT_5_COMBINE = "{0} {1} {2} {3} {4}";
 
+	public const string B_TEXT_FMT_2_SPACE_COMBINE = "{0} {1}";
+	public const string B_TEXT_FMT_3_SPACE_COMBINE = "{0} {1} {2}";
+	public const string B_TEXT_FMT_4_SPACE_COMBINE = "{0} {1} {2} {3}";
+	public const string B_TEXT_FMT_5_SPACE_COMBINE = "{0} {1} {2} {3} {4}";
+
+	public const string B_NAME_FMT_2_UNDER_SCORE_COMBINE = "{0}_{1}";
+	public const string B_NAME_FMT_3_UNDER_SCORE_COMBINE = "{0}_{1}_{2}";
+	public const string B_NAME_FMT_4_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}";
+	public const string B_NAME_FMT_5_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}";
+
 	public const string B_NAME_FMT_BACKUP = "yyyy_MM_dd HH_mm_ss";
 	public const string B_NAME_FMT_BACKUP_COMBINE = "{0} ({1})";
-	public const string B_NAME_FMT_UNDER_SCORE_COMBINE = "{0}_{1}";
 
 	public const string B_PATH_FMT_1_COMBINE = "{0}/";
 	public const string B_PATH_FMT_2_COMBINE = "{0}/{1}/";
@@ -430,7 +444,7 @@ public static partial class KCDefine {
 	// 형식 }
 
 	// 메일
-	public const string B_MAIL_MSG_FMT = "App: {0}\nVer: {1}\nPlatform: {2}\nProcessor: {3}\nGraphics: {4} [{5}]\nOS: {6}\nUserID: {7}\n\nPlease enter your inquiry:\n{8}";
+	public const string B_MAIL_MSG_FMT = "App: {0}\nVersion: {1}\nPlatform: {2}\nProcessor: {3}\nGraphics: {4} [{5}]\nOS: {6}\nUserID: {7}\n\nPlease enter your inquiry:\n{8}";
 	#endregion			// 기본
 
 	#region 런타임 상수

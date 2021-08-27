@@ -154,14 +154,24 @@ public static partial class CEditorSceneManager {
 				// 전처리기 심볼 갱신이 필요 할 경우
 				if(bIsNeedUpdate) {
 					EditorUtility.SetDirty(oAsset);
-					
 					CEditorFunc.UpdateAssetDBState();
-					CPlatformOptsSetter.SetupDefineSymbols();
 				}
 			}
 		}
 	}
 	#endregion			// 클래스 함수
+
+	#region 추가 클래스 변수
+
+	#endregion			// 추가 클래스 변수
+
+	#region 추가 클래스 프로퍼티
+
+	#endregion			// 추가 클래스 프로퍼티
+
+	#region 추가 클래스 함수
+
+	#endregion			// 추가 클래스 함수
 }
 #endif			// #if UNITY_EDITOR
 #endif			// #if NEVER_USE_THIS

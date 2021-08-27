@@ -289,19 +289,9 @@ public enum EBannerAdsPos {
 //! 광고 타입
 public enum EAdsType {
 	NONE = -1,
-
-#if ADMOB_ENABLE
 	ADMOB,
-#endif			// #if ADMOB_ENABLE
-
-#if IRON_SRC_ENABLE
 	IRON_SRC,
-#endif			// #if IRON_SRC_ENABLE
-
-#if APP_LOVIN_ENABLE
 	APP_LOVIN,
-#endif			// #if APP_LOVIN_ENABLE
-
 	MAX_VAL
 }
 #endif			// #if ADS_MODULE_ENABLE

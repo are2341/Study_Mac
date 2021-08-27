@@ -6,14 +6,11 @@ using UnityEngine.UI;
 #if NEVER_USE_THIS
 //! 서브 타이틀 씬 관리자
 public partial class CSubTitleSceneManager : CTitleSceneManager {
-	#region UI 변수
+	#region 변수
+	// UI
 	private Text m_oVerText = null;
-	#endregion			// UI 변수
-
-	#region 프로퍼티
-	public override bool IsRealtimeFadeOutAni => CCommonAppInfoStorage.Inst.AppInfo.IsFirstPlay;
-	#endregion			// 프로퍼티
-
+	#endregion			// 변수
+	
 	#region 함수
 	//! 초기화
 	public override void Awake() {
@@ -22,7 +19,6 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
 			this.SetupAwake();
-			CSceneLoader.Inst.LoadAdditiveScene(KCDefine.B_SCENE_N_OVERLAY);
 		}
 	}
 	
@@ -34,6 +30,8 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 		if(CSceneManager.IsAppInit) {
 			this.SetupStart();
 			this.UpdateUIsState();
+
+			CSceneLoader.Inst.LoadAdditiveScene(KCDefine.B_SCENE_N_OVERLAY);
 
 			// 최초 시작 일 경우
 			if(CCommonAppInfoStorage.Inst.IsFirstStart) {
@@ -66,7 +64,7 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 #if DAILY_MISSION_ENABLE
 				// 일일 미션 리셋이 가능 할 경우
 				if(CGameInfoStorage.Inst.IsEnableResetDailyMission) {
-					CGameInfoStorage.Inst.GameInfo.LastDailyMissionTime = System.DateTime.Today;
+					CGameInfoStorage.Inst.GameInfo.PrevDailyMissionTime = System.DateTime.Today;
 					CGameInfoStorage.Inst.GameInfo.m_oCompleteDailyMissionKindsList.Clear();
 
 					CGameInfoStorage.Inst.SaveGameInfo();
@@ -77,7 +75,7 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 				// 무료 보상 획득이 가능 할 경우
 				if(CGameInfoStorage.Inst.IsEnableGetFreeReward) {
 					CGameInfoStorage.Inst.GameInfo.NumAcquireFreeRewards = KCDefine.B_VAL_0_INT;
-					CGameInfoStorage.Inst.GameInfo.LastFreeRewardTime = System.DateTime.Today;
+					CGameInfoStorage.Inst.GameInfo.PrevFreeRewardTime = System.DateTime.Today;
 					
 					CGameInfoStorage.Inst.SaveGameInfo();
 				}
@@ -101,8 +99,21 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 		base.OnDestroy();
 
 		// 앱이 실행 중 일 경우
-		if(CSceneManager.IsAppRunning) {
+		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 			// Do Something
+		}
+	}
+
+	//! 앱이 정지 되었을 경우
+	public virtual void OnApplicationPause(bool a_bIsPause) {
+		// 재개 되었을 경우
+		if(!a_bIsPause && (CSceneManager.IsAwake || CSceneManager.IsAppRunning)) {
+#if ADS_MODULE_ENABLE
+			// 광고 출력이 가능 할 경우
+			if(CAppInfoStorage.Inst.IsEnableShowFullscreenAds && CAdsManager.Inst.IsLoadFullscreenAds(CPluginInfoTable.Inst.DefAdsType)) {
+				Func.ShowFullscreenAds(null);
+			}
+#endif			// #if ADS_MODULE_ENABLE
 		}
 	}
 
@@ -118,11 +129,14 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 
 	//! 씬을 설정한다
 	private void SetupAwake() {
-		// 텍스트를 설정한다
-		m_oVerText = CFactory.CreateCloneObj<Text>(KCDefine.TS_OBJ_N_VER_TEXT, KCDefine.TS_OBJ_P_VER_TEXT, this.SubUpUIs, KCDefine.TS_POS_VER_TEXT);
+		// 텍스트를 설정한다 {
+		var oVerText = this.SubUIs.ExFindComponent<Text>(KCDefine.TS_OBJ_N_VER_TEXT);
+
+		m_oVerText = oVerText ?? CFactory.CreateCloneObj<Text>(KCDefine.TS_OBJ_N_VER_TEXT, KCDefine.TS_OBJ_P_VER_TEXT, this.SubUpUIs, KCDefine.TS_POS_VER_TEXT);
 		m_oVerText.rectTransform.pivot = KCDefine.B_ANCHOR_UP_LEFT;
 		m_oVerText.rectTransform.anchorMin = KCDefine.B_ANCHOR_UP_LEFT;
 		m_oVerText.rectTransform.anchorMax = KCDefine.B_ANCHOR_UP_LEFT;
+		// 텍스트를 설정한다 }
 
 #if DEBUG || DEVELOPMENT_BUILD
 		this.SetupTestUIs();
@@ -136,13 +150,14 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 
 	//! UI 상태를 갱신한다
 	private void UpdateUIsState() {
+		// 텍스트를 갱신한다
 		m_oVerText.text = CAccess.GetVerStr(CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_oVer, CCommonUserInfoStorage.Inst.UserInfo.UserType);
 
 #if DEBUG || DEVELOPMENT_BUILD
 		this.UpdateTestUIsState();
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 	}
-
+	
 	//! 최초 플레이 상태를 갱신한다
 	private void UpdateFirstPlayState() {
 		// 약관 동의 팝업이 닫혔을 경우
@@ -155,7 +170,7 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 	private void OnReceiveQuitPopupResult(CAlertPopup a_oSender, bool a_bIsOK) {
 		// 확인 버튼을 눌렀을 경우
 		if(a_bIsOK) {
-			this.QuitApp();
+			this.ExLateCallFunc((a_oSender, a_oParams) => this.QuitApp());
 		}
 	}
 
@@ -181,5 +196,19 @@ public partial class CSubTitleSceneManager : CTitleSceneManager {
 	}
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 	#endregion			// 조건부 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+#if DEBUG || DEVELOPMENT_BUILD
+
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
+	#endregion			// 추가 함수
 }
 #endif			// #if NEVER_USE_THIS

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
@@ -53,6 +52,12 @@ public static class CObjCreator {
 	[MenuItem("GameObject/Utility/UI/Image/FocusImage", false, 1)]
 	public static void CreateFocusImg() {
 		CObjCreator.CreateObj(KCDefine.U_OBJ_N_FOCUS_IMG, KCDefine.U_OBJ_P_FOCUS_IMG);
+	}
+
+	//! 이미지를 생성한다
+	[MenuItem("GameObject/Utility/UI/Image/GaugeImage", false, 1)]
+	public static void CreateGaugeImg() {
+		CObjCreator.CreateObj(KCDefine.U_OBJ_N_GAUGE_IMG, KCDefine.U_OBJ_P_GAUGE_IMG);
 	}
 	
 	//! 텍스트 버튼을 생성한다
@@ -127,7 +132,7 @@ public static class CObjCreator {
 		CObjCreator.CreateObj(KCDefine.U_OBJ_N_DROPDOWN, KCDefine.U_OBJ_P_DROPDOWN);
 	}
 
-	//! 페이지 스크롤 뷰를 생성한다
+	//! 페이지 뷰를 생성한다
 	[MenuItem("GameObject/Utility/UI/ScrollView/PageView", false, 1)]
 	public static void CreatePageView() {
 		CObjCreator.CreateObj(KCDefine.U_OBJ_N_PAGE_VIEW, KCDefine.U_OBJ_P_PAGE_VIEW);
@@ -139,7 +144,7 @@ public static class CObjCreator {
 		CObjCreator.CreateObj(KCDefine.U_OBJ_N_SCROLL_VIEW, KCDefine.U_OBJ_P_SCROLL_VIEW);
 	}
 
-	//! 재사용 스크롤 뷰를 생성한다
+	//! 재사용 뷰를 생성한다
 	[MenuItem("GameObject/Utility/UI/ScrollView/RecycleView", false, 1)]
 	public static void CreateRecycleView() {
 		CObjCreator.CreateObj(KCDefine.U_OBJ_N_RECYCLE_VIEW, KCDefine.U_OBJ_P_RECYCLE_VIEW);
@@ -195,45 +200,30 @@ public static class CObjCreator {
 			oObj = CFactory.CreateObj(a_oName, oParent);
 		}
 
-		var oTexts = oObj.GetComponentsInChildren<Text>();
-		var oSelectables = oObj.GetComponentsInChildren<Selectable>();
+		oObj.ExEnumerateComponents<Text>((a_oText) => {
+			a_oText.ExReset();
+			return true;
+		});
 
-		var oRenderers = oObj.GetComponentsInChildren<Renderer>();
-		var oCanvasRenderers = oObj.GetComponentsInChildren<CanvasRenderer>();
+		oObj.ExEnumerateComponents<Image>((a_oImg) => {
+			a_oImg.ExReset();
+			return true;
+		});
 
-		for(int i = 0; i < oTexts.Length; ++i) {
-			oTexts[i].resizeTextMinSize = KCDefine.B_VAL_0_INT;
-			oTexts[i].resizeTextMaxSize = KCDefine.U_DEF_MAX_SIZE_FONT;
-		}
+		oObj.ExEnumerateComponents<Renderer>((a_oRenderer) => {
+			a_oRenderer.ExReset();
+			return true;
+		});
 
-		for(int i = 0; i < oSelectables.Length; ++i) {
-			var stColorBlock = oSelectables[i].colors;
-			stColorBlock.normalColor = KCDefine.U_COLOR_NORM;
-			stColorBlock.pressedColor = KCDefine.U_COLOR_PRESS;
-			stColorBlock.selectedColor = KCDefine.U_COLOR_SEL;
-			stColorBlock.highlightedColor = KCDefine.U_COLOR_HIGHLIGHT;
-			stColorBlock.disabledColor = KCDefine.U_COLOR_DISABLE;
-			
-			oSelectables[i].colors = stColorBlock;
-		}
+		oObj.ExEnumerateComponents<Selectable>((a_oSelectable) => {
+			a_oSelectable.ExReset();
+			return true;
+		});
 
-		for(int i = 0; i < oRenderers.Length; ++i) {
-			oRenderers[i].allowOcclusionWhenDynamic = true;
-			
-#if LIGHT_ENABLE && SHADOW_ENABLE
-			oRenderers[i].receiveShadows = true;
-			oRenderers[i].staticShadowCaster = true;
-			oRenderers[i].shadowCastingMode = ShadowCastingMode.On;
-#else
-			oRenderers[i].receiveShadows = false;
-			oRenderers[i].staticShadowCaster = false;
-			oRenderers[i].shadowCastingMode = ShadowCastingMode.Off;
-#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
-		}
-
-		for(int i = 0; i < oCanvasRenderers.Length; ++i) {
-			oCanvasRenderers[i].cullTransparentMesh = true;
-		}
+		oObj.ExEnumerateComponents<CanvasRenderer>((a_oCanvasRenderer) => {
+			a_oCanvasRenderer.ExReset();
+			return true;
+		});
 
 		// 부모 객체가 존재 할 경우
 		if(oParent != null) {
@@ -241,12 +231,12 @@ public static class CObjCreator {
 
 			// UI 부모 객체 일 경우
 			if(oParent.TryGetComponent<RectTransform>(out RectTransform oTrans)) {
-				var oTransforms = oObj.GetComponentsInChildren<Transform>();
+				oObj.ExEnumerateComponents<Transform>((a_oTrans) => {
+					var oRectTrans = a_oTrans.gameObject.ExAddComponent<RectTransform>();	
+					oRectTrans.sizeDelta = (oRectTrans.gameObject == oObj) ? Vector2.zero : oRectTrans.sizeDelta;
 
-				for(int i = 0; i < oTransforms.Length; ++i) {
-					var oRectTrans = oTransforms[i].gameObject.ExAddComponent<RectTransform>();	
-					oRectTrans.sizeDelta = (oTransforms[i].gameObject == oObj) ? Vector2.zero : oRectTrans.sizeDelta;
-				}
+					return true;
+				});
 			}
 		}
 

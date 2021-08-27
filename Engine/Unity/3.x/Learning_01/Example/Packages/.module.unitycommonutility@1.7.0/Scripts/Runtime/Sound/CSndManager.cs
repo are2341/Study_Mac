@@ -20,37 +20,23 @@ public class CSndManager : CSingleton<CSndManager> {
 	public bool IsDisableVibrate { get; set; } = false;
 
 	public bool IsMuteBGSnd {
-		get { 
-			return m_oBGSnd.IsMute; 
-		} set { 
-			m_oBGSnd.IsMute = value; 
-		}
+		get { return m_oBGSnd.IsMute; } 
+		set { m_oBGSnd.IsMute = value; }
 	}
 
 	public bool IsMuteFXSnds {
-		get {
-			return m_bIsMuteFXSnds;
-		} set {
-			m_bIsMuteFXSnds = value;
-			this.EnumerateFXSnds((a_oKey, a_oSnd) => a_oSnd.IsMute = value);
-		}
+		get { return m_bIsMuteFXSnds; } 
+		set { m_bIsMuteFXSnds = value; this.EnumerateFXSnds((a_oKey, a_oSnd) => a_oSnd.IsMute = value); }
 	}
 
 	public float BGSndVolume {
-		get { 
-			return m_oBGSnd.Volume; 
-		} set { 
-			m_oBGSnd.Volume = value; 
-		}
+		get {  return m_oBGSnd.Volume; } 
+		set { m_oBGSnd.Volume = value; }
 	}
 
 	public float FXSndsVolume {
-		get {
-			return m_fFXSndsVolume;
-		} set {
-			m_fFXSndsVolume = value;
-			this.EnumerateFXSnds((a_oKey, a_oSnd) => a_oSnd.Volume = value);
-		}
+		get { return m_fFXSndsVolume; } 
+		set { m_fFXSndsVolume = value; this.EnumerateFXSnds((a_oKey, a_oSnd) => a_oSnd.Volume = value); }
 	}
 
 	public bool IsPlayingBGSnd => m_oBGSnd.IsPlaying;
@@ -205,7 +191,7 @@ public class CSndManager : CSingleton<CSndManager> {
 		if(oFXSndList.Count >= nMaxNumDuplicateFXSnds) {
 			for(int i = 0; i < oFXSndList.Count; ++i) {
 				// 효과음 재생이 가능 할 경우
-				if(!oFXSndList[i].IsPause && !oFXSndList[i].IsPlaying) {
+				if(!oFXSndList[i].IsPlaying) {
 					return oFXSndList[i];
 				}
 			}

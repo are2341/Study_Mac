@@ -20,15 +20,20 @@ public static partial class CAccess {
 	#endregion			// 클래스 프로퍼티
 
 	#region 클래스 함수
-	//! 버전 문자열을 반환한다
-	public static string GetVerStr(string a_oVer, EUserType a_eUserType) {
+	//! 유저 문자열을 반환한다
+	public static string GetUserStr(EUserType a_eUserType) {
 		// 유저 타입이 유효하지 않을 경우
-		if(a_eUserType != EUserType.USER_A && a_eUserType != EUserType.USER_B) {
-			return string.Format(KCDefine.B_TEXT_FMT_VER, a_oVer, KCDefine.B_TOKEN_USER_UNKNOWN);
+		if(!a_eUserType.ExIsValid()) {
+			return KCDefine.B_TOKEN_USER_UNKNOWN;
 		}
 
-		string oUserToken = (a_eUserType == EUserType.USER_A) ? KCDefine.B_TOKEN_USER_A : KCDefine.B_TOKEN_USER_B;
-		return string.Format(KCDefine.B_TEXT_FMT_VER, a_oVer, oUserToken);
+		return (a_eUserType == EUserType.USER_A) ? KCDefine.B_TOKEN_USER_A : KCDefine.B_TOKEN_USER_B;
+	}
+
+	//! 버전 문자열을 반환한다
+	public static string GetVerStr(string a_oVer, EUserType a_eUserType) {
+		string oUserStr = CAccess.GetUserStr(a_eUserType);
+		return string.Format(KCDefine.B_TEXT_FMT_VER, a_oVer, oUserStr);
 	}
 
 	//! 읽기용 스트림을 반환한다
@@ -88,7 +93,7 @@ public static partial class CAccess {
 	}
 
 	//! 조건을 검사한다
-	[Conditional("LOGIC_TEST_ENABLE"), Conditional("DEBUG"), Conditional("DEVELOPMENT_BUILD")]
+	[Conditional("DEBUG"), Conditional("DEVELOPMENT_BUILD")]
 	public static void Assert(bool a_bIsTrue, string a_oMsg = KCDefine.B_EMPTY_STR) {
 		UnityEngine.Assertions.Assert.IsTrue(a_bIsTrue, a_oMsg);
 	}

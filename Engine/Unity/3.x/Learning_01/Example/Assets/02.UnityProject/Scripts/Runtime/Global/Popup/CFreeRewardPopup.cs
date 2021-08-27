@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 //! 무료 보상 팝업
 public class CFreeRewardPopup : CSubPopup {
-	#region UI 변수
+	#region 변수
+	// UI
 	private Button m_oAdsBtn = null;
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화
@@ -15,7 +16,7 @@ public class CFreeRewardPopup : CSubPopup {
 		base.Awake();
 
 		// 버튼을 설정한다
-		m_oAdsBtn = m_oContents.ExFindComponent<Button>(KDefine.G_OBJ_N_FREE_RP_ADS_BTN);
+		m_oAdsBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ADS_BTN);
 		m_oAdsBtn?.onClick.AddListener(this.OnTouchAdsBtn);
 	}
 	
@@ -32,7 +33,7 @@ public class CFreeRewardPopup : CSubPopup {
 	
 	//! UI 상태를 갱신한다
 	private new void UpdateUIsState() {
-		// Do Something
+		base.UpdateUIsState();
 	}
 
 	//! 광고 버튼을 눌렀을 경우
@@ -50,7 +51,7 @@ public class CFreeRewardPopup : CSubPopup {
 
 		// 무료 보상을 모두 획득했을 경우
 		if(CGameInfoStorage.Inst.GameInfo.NumAcquireFreeRewards >= KDefine.G_MAX_NUM_ACQUIRE_FREE_REWARDS) {
-			CGameInfoStorage.Inst.GameInfo.LastFreeRewardTime = System.DateTime.Today;
+			CGameInfoStorage.Inst.GameInfo.PrevFreeRewardTime = System.DateTime.Today;
 		}
 
 		CGameInfoStorage.Inst.SaveGameInfo();
@@ -58,7 +59,7 @@ public class CFreeRewardPopup : CSubPopup {
 
 	//! 보상 획득 팝업을 출력한다
 	private void ShowRewardAcquirePopup() {
-		var eRewardKinds = ERewardKinds.FREE_REWARD + (CGameInfoStorage.Inst.GameInfo.NumAcquireFreeRewards + KCDefine.B_VAL_1_INT);
+		var eRewardKinds = ERewardKinds.FREE_SAMPLE + (CGameInfoStorage.Inst.GameInfo.NumAcquireFreeRewards + KCDefine.B_VAL_1_INT);
 		var stRewardInfo = CRewardInfoTable.Inst.GetRewardInfo(eRewardKinds);
 
 		Func.ShowRewardAcquirePopup(this.transform.parent.gameObject, (a_oSender) => {
@@ -85,4 +86,16 @@ public class CFreeRewardPopup : CSubPopup {
 	}
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }

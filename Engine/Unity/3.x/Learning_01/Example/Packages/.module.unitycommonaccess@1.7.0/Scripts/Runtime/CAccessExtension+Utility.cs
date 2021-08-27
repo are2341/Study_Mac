@@ -246,17 +246,7 @@ public static partial class CAccessExtension {
 	//! 캔버스 월드 위치를 반환한다
 	public static Vector3 ExGetWorldPos(this PointerEventData a_oSender) {
 		CAccess.Assert(a_oSender != null);
-
-		float fAspect = CAccess.ScreenSize.x / CAccess.ScreenSize.y;
-		float fScreenWidth = KCDefine.B_SCREEN_HEIGHT * fAspect;
-
-		float fNormPosX = ((a_oSender.position.x * KCDefine.B_VAL_2_FLT) / CAccess.ScreenSize.x) - KCDefine.B_VAL_1_FLT;
-		var stNormPos = new Vector3(fNormPosX, ((a_oSender.position.y * KCDefine.B_VAL_2_FLT) / CAccess.ScreenSize.y) - KCDefine.B_VAL_1_FLT, KCDefine.B_VAL_0_FLT);
-
-		stNormPos.x *= (fScreenWidth / KCDefine.B_VAL_2_FLT) * KCDefine.B_UNIT_SCALE;
-		stNormPos.y *= (KCDefine.B_SCREEN_HEIGHT / KCDefine.B_VAL_2_FLT) * KCDefine.B_UNIT_SCALE;
-
-		return stNormPos;
+		return a_oSender.position.ExGetWorldPos();
 	}
 
 	//! 캔버스 로컬 위치를 반환한다
@@ -327,6 +317,19 @@ public static partial class CAccessExtension {
 		var stPos = a_oSender.ExGetCorrectWorldScalePos(a_stScale);
 
 		return stPos.ExToLocal(a_oObj);
+	}
+
+	//! 캔버스 월드 간격을 반환한다
+	public static Vector3 ExGetWorldDelta(this PointerEventData a_oSender) {
+		return a_oSender.pointerPressRaycast.screenPosition.ExGetWorldPos() - a_oSender.pointerCurrentRaycast.screenPosition.ExGetWorldPos();
+	}
+
+	//! 캔버스 로컬 간격을 반환한다
+	public static Vector3 ExGetLocalDelta(this PointerEventData a_oSender, GameObject a_oObj) {
+		var stPosA = a_oSender.pointerPressRaycast.screenPosition.ExGetWorldPos();
+		var stPosB = a_oSender.pointerCurrentRaycast.screenPosition.ExGetWorldPos();
+
+		return stPosA.ExToLocal(a_oObj) - stPosB.ExToLocal(a_oObj);
 	}
 	
 	//! 스크롤 뷰 정규 위치를 반환한다
@@ -729,12 +732,12 @@ public static partial class CAccessExtension {
 	}
 
 	//! 월드 위치를 변경한다
-	public static void ExSetWorldPos(this GameObject a_oSender, float a_fVal, bool a_bIsEnableAssert = true) {
+	public static void ExSetWorldPos(this GameObject a_oSender, Vector3 a_stPos, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 
 		// 객체가 존재 할 경우
 		if(a_oSender != null) {
-			a_oSender.transform.position = new Vector3(a_fVal, a_fVal, a_fVal);
+			a_oSender.transform.position = a_stPos;
 		}
 	}
 
@@ -769,12 +772,12 @@ public static partial class CAccessExtension {
 	}
 
 	//! 로컬 위치를 변경한다
-	public static void ExSetLocalPos(this GameObject a_oSender, float a_fVal, bool a_bIsEnableAssert = true) {
+	public static void ExSetLocalPos(this GameObject a_oSender, Vector3 a_stPos, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 
 		// 객체가 존재 할 경우
 		if(a_oSender != null) {
-			a_oSender.transform.localPosition = new Vector3(a_fVal, a_fVal, a_fVal);
+			a_oSender.transform.localPosition = a_stPos;
 		}
 	}
 
@@ -839,12 +842,12 @@ public static partial class CAccessExtension {
 	}
 
 	//! 앵커 위치를 변경한다
-	public static void ExSetAnchorPos(this GameObject a_oSender, float a_fVal, bool a_bIsEnableAssert = true) {
+	public static void ExSetAnchorPos(this GameObject a_oSender, Vector3 a_stPos, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && (a_oSender.transform as RectTransform) != null));
 
 		// 객체가 존재 할 경우
 		if(a_oSender != null && (a_oSender.transform as RectTransform) != null) {
-			(a_oSender.transform as RectTransform).anchoredPosition = new Vector2(a_fVal, a_fVal);
+			(a_oSender.transform as RectTransform).anchoredPosition = new Vector2(a_stPos.x, a_stPos.y);
 		}
 	}
 
@@ -936,6 +939,20 @@ public static partial class CAccessExtension {
 
 		return null;
 	}
+
+	//! 캔버스 월드 위치를 반환한다
+	private static Vector3 ExGetWorldPos(this Vector2 a_stSender) {
+		float fAspect = CAccess.ScreenSize.x / CAccess.ScreenSize.y;
+		float fScreenWidth = KCDefine.B_SCREEN_HEIGHT * fAspect;
+
+		float fNormPosX = ((a_stSender.x * KCDefine.B_VAL_2_FLT) / CAccess.ScreenSize.x) - KCDefine.B_VAL_1_FLT;
+		var stNormPos = new Vector3(fNormPosX, ((a_stSender.y * KCDefine.B_VAL_2_FLT) / CAccess.ScreenSize.y) - KCDefine.B_VAL_1_FLT, KCDefine.B_VAL_0_FLT);
+
+		stNormPos.x *= (fScreenWidth / KCDefine.B_VAL_2_FLT) * KCDefine.B_UNIT_SCALE;
+		stNormPos.y *= (KCDefine.B_SCREEN_HEIGHT / KCDefine.B_VAL_2_FLT) * KCDefine.B_UNIT_SCALE;
+
+		return stNormPos;
+	}
 	#endregion			// 클래스 함수
 
 	#region 제네릭 클래스 함수
@@ -949,6 +966,12 @@ public static partial class CAccessExtension {
 	public static void ExSetColor<T>(this object a_oSender, Color a_stColor, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 		a_oSender?.ExSetPropertyVal<T>(KCDefine.U_PROPERTY_N_COLOR, KCDefine.B_BINDING_F_PUBLIC_INSTANCE, a_stColor, a_bIsEnableAssert);
+	}
+
+	//! 스프라이트를 변경한다
+	public static void ExSetSprite<T>(this object a_oSender, Sprite a_oSprite, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+		a_oSender?.ExSetPropertyVal<T>(KCDefine.U_PROPERTY_N_SPRITE, KCDefine.B_BINDING_F_PUBLIC_INSTANCE, a_oSprite, a_bIsEnableAssert);
 	}
 	
 	//! 컴포넌트 활성 여부를 변경한다

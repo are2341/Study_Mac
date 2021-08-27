@@ -12,12 +12,11 @@ public abstract class CMissionPopup : CSubPopup {
 
 	#region 변수
 	private STParams m_stParams;
-	#endregion			// 변수
 
-	#region 객체
+	// 객체
 	[SerializeField] private List<GameObject> m_oMissionUIsList = new List<GameObject>();
-	#endregion			// 객체
-
+	#endregion			// 변수
+	
 	#region 함수
 	//! 초기화
 	public override void Awake() {
@@ -38,6 +37,8 @@ public abstract class CMissionPopup : CSubPopup {
 
 	//! UI 상태를 갱신한다
 	protected new void UpdateUIsState() {
+		base.UpdateUIsState();
+		
 		for(int i = 0; i < m_oMissionUIsList.Count; ++i) {
 			var oMissionUIs = m_oMissionUIsList[i];
 			this.UpdateMissionUIsState(oMissionUIs, m_stParams.m_oMissionInfoList[i]);
@@ -49,4 +50,16 @@ public abstract class CMissionPopup : CSubPopup {
 		// Do Something
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }

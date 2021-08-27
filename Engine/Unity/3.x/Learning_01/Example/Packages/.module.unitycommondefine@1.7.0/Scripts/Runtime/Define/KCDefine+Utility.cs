@@ -27,9 +27,14 @@ using UnityEngine.Rendering.Universal;
 //! 유틸리티 상수
 public static partial class KCDefine {
 	#region 기본
-	// 개수
+	// 개수 {
 	public const int U_MAX_NUM_LAYERS = 32;
 	public const int U_MAX_NUM_DUPLICATE_FX_SNDS = 10;
+
+	public const int U_MAX_NUM_LEVEL_INFOS = 9999;
+	public const int U_MAX_NUM_STAGE_INFOS = 999;
+	public const int U_MAX_NUM_CHAPTER_INFOS = 99;
+	// 개수 }
 
 	// 크기
 	public const int U_SIZE_OBJS_POOL = 10;
@@ -190,12 +195,93 @@ public static partial class KCDefine {
 
 	public const string U_OBJ_N_CONTENTS = "Contents";
 	public const string U_OBJ_N_CONTENTS_UIS = "ContentsUIs";
+	public const string U_OBJ_N_PAGE_UIS = "PageUIs";
+	
+	public const string U_OBJ_N_VIEWPORT = "Viewport";
+	public const string U_OBJ_N_PAGINATION = "Pagination";
+
+	public const string U_OBJ_N_BLIND_UIS = "BlindUIs";
+	public const string U_OBJ_N_CLEAR_UIS = "ClearUIs";
+	public const string U_OBJ_N_CLEAR_FAIL_UIS = "ClearFailUIs";
+	public const string U_OBJ_N_LOCK_UIS = "LockUIs";
+	public const string U_OBJ_N_OPEN_UIS = "OpenUIs";
+	public const string U_OBJ_N_GAUGE_UIS = "GaugeUIs";
+
+	public const string U_OBJ_N_LOGIN_UIS = "LoginUIs";
+	public const string U_OBJ_N_LOGOUT_UIS = "LogoutUIs";
+
+	public const string U_OBJ_N_ADS_PRICE_UIS = "AdsPriceUIs";
+	public const string U_OBJ_N_GOODS_PRICE_UIS = "GoodsPriceUIs";
+	public const string U_OBJ_N_PURCHASE_PRICE_UIS = "PurchasePriceUIs";
 
 	public const string U_OBJ_N_TOP_MENU_UIS = "TopMenuUIs";
 	public const string U_OBJ_N_BOTTOM_MENU_UIS = "BottomMenuUIs";
-	
-	public const string U_OBJ_N_POPUP_CLOSE_BTN = "CloseBtn";
-	public const string U_OBJ_N_FMT_POPUP_TOUCH_RESPONDER = "PopupTouchResponder_{0}";
+
+	public const string U_OBJ_N_TITLE_TEXT = "TitleText";
+	public const string U_OBJ_N_MSG_TEXT = "MsgText";
+
+	public const string U_OBJ_N_NAME_TEXT = "NameText";
+	public const string U_OBJ_N_DESC_TEXT = "DescText";
+
+	public const string U_OBJ_N_LEVEL_TEXT = "LevelText";
+	public const string U_OBJ_N_STAGE_TEXT = "StageText";
+	public const string U_OBJ_N_CHAPTER_TEXT = "ChapterText";
+
+	public const string U_OBJ_N_NUM_TEXT = "NumText";
+	public const string U_OBJ_N_TIME_TEXT = "TimeText";
+	public const string U_OBJ_N_PRICE_TEXT = "PriceText";
+	public const string U_OBJ_N_COUNTDOWN_TEXT = "CountdownText";
+
+	public const string U_OBJ_N_SCORE_TEXT = "ScoreText";
+	public const string U_OBJ_N_BEST_SCORE_TEXT = "BestScoreText";
+
+	public const string U_OBJ_N_NUM_COINS_TEXT = "NumCoinsText";
+	public const string U_OBJ_N_NUM_STARS_TEXT = "NumStarsText";
+	public const string U_OBJ_N_NUM_STARS_STATE_TEXT = "NumStarsStateText";
+
+	public const string U_OBJ_N_BG_IMG = "BGImg";
+	public const string U_OBJ_N_BLIND_IMG = "BlindImg";
+
+	public const string U_OBJ_N_COINS_IMG = "CoinsImg";
+	public const string U_OBJ_N_STARS_IMG = "StarsImg";
+	public const string U_OBJ_N_CHECK_IMG = "CheckImg";
+	public const string U_OBJ_N_LOCK_IMG = "LockImg";
+	public const string U_OBJ_N_ICON_IMG = "IconImg";
+	public const string U_OBJ_N_ITEM_IMG = "ItemImg";
+	public const string U_OBJ_N_REWARD_IMG = "RewardImg";
+	public const string U_OBJ_N_COMPLETE_IMG = "CompleteImg";
+	public const string U_OBJ_N_PERCENT_IMG = "PercentImg";
+
+	public const string U_OBJ_N_OK_BTN = "OKBtn";
+	public const string U_OBJ_N_CANCEL_BTN = "CancelBtn";
+	public const string U_OBJ_N_CLOSE_BTN = "CloseBtn";
+
+	public const string U_OBJ_N_LOGIN_BTN = "LoginBtn";
+	public const string U_OBJ_N_LOGOUT_BTN = "LogoutBtn";
+
+	public const string U_OBJ_N_SAVE_BTN = "SaveBtn";
+	public const string U_OBJ_N_LOAD_BTN = "LoadBtn";
+
+	public const string U_OBJ_N_PLAY_BTN = "PlayBtn";
+	public const string U_OBJ_N_STORE_BTN = "StoreBtn";
+	public const string U_OBJ_N_SETTINGS_BTN = "SettingsBtn";
+
+	public const string U_OBJ_N_PREV_BTN = "PrevBtn";
+	public const string U_OBJ_N_NEXT_BTN = "NextBtn";
+	public const string U_OBJ_N_RETRY_BTN = "RetryBtn";
+	public const string U_OBJ_N_LEAVE_BTN = "LeaveBtn";
+	public const string U_OBJ_N_CONTINUE_BTN = "ContinueBtn";
+
+	public const string U_OBJ_N_ADS_BTN = "AdsBtn";
+	public const string U_OBJ_N_ACQUIRE_BTN = "AcquireBtn";
+	public const string U_OBJ_N_PURCHASE_BTN = "PurchaseBtn";
+	public const string U_OBJ_N_RESTORE_BTN = "RestoreBtn";
+
+	public const string U_OBJ_N_BG_SND_BTN = "BGSndBtn";
+	public const string U_OBJ_N_FX_SNDS_BTN = "FXSndsBtn";
+	public const string U_OBJ_N_NOTI_BTN = "NotiBtn";
+	public const string U_OBJ_N_REVIEW_BTN = "ReviewBtn";
+	public const string U_OBJ_N_SUPPORTS_BTN = "SupportsBtn";
 
 	public const string U_OBJ_N_EMPTY = "Empty";
 	public const string U_OBJ_N_GAME_OBJ = "GameObj";
@@ -208,6 +294,7 @@ public static partial class KCDefine {
 	public const string U_OBJ_N_IMG = "Img";
 	public const string U_OBJ_N_RAW_IMG = "RawImg";
 	public const string U_OBJ_N_FOCUS_IMG = "FocusImg";
+	public const string U_OBJ_N_GAUGE_IMG = "GaugeImg";
 
 	public const string U_OBJ_N_TEXT_BTN = "TextBtn";
 	public const string U_OBJ_N_TEXT_SCALE_BTN = "TextScaleBtn";
@@ -242,6 +329,10 @@ public static partial class KCDefine {
 	public const string U_OBJ_N_SCREEN_F_TOUCH_RESPONDER = "ScreenFTouchResponder";
 	public const string U_OBJ_N_INDICATOR_TOUCH_RESPONDER = "IndicatorTouchResponder";
 
+	public const string U_OBJ_N_FMT_NUM_TEXT = "NumText_{0:00}";
+	public const string U_OBJ_N_FMT_COUNTDOWN_TEXT = "CountdownText_{0:00}";
+	public const string U_OBJ_N_FMT_POPUP_TOUCH_RESPONDER = "PopupTouchResponder_{0}";
+
 	public const string U_IMG_N_SPRITE = "Sprite";
 	public const string U_IMG_N_SPRITE_CLONE = "(Clone)";
 	public const string U_IMG_N_UNKNOWN_SPRITE = "Unknown";
@@ -255,6 +346,7 @@ public static partial class KCDefine {
 	public const string U_FUNC_N_INIT = "Init";
 	public const string U_FUNC_N_RESET_LOCALIZE = "ResetLocalize";
 	public const string U_FUNC_N_RESET_LEVEL_MODE = "ResetLevelMode";
+	public const string U_FUNC_N_UPDATE_UIS_STATE = "UpdateUIsState";
 
 	public const string U_INPUT_E_N_JUMP = "Jump";
 	public const string U_INPUT_E_N_VERTICAL = "Vertical";
@@ -262,6 +354,7 @@ public static partial class KCDefine {
 
 	public const string U_PROPERTY_N_TEXT = "text";
 	public const string U_PROPERTY_N_COLOR = "color";
+	public const string U_PROPERTY_N_SPRITE = "sprite";
 
 	public const string U_ASSET_N_LIGHTING_SETTINGS = "U_LightingSettings";
 	// 이름 }
@@ -306,20 +399,12 @@ public static partial class KCDefine {
 	// 씬 관리자
 	public const string U_KEY_FMT_SCENE_M_TOUCH_RESPONDER = "SceneMTouchResponder_{0}";
 
-	// 토스트 팝업
-	public const string U_OBJ_N_TOAST_P_MSG_TEXT = "MsgText";
-	public const string U_OBJ_N_TOAST_P_TOAST_POPUP = "ToastPopup";
-
 	// 사운드 관리자
 	public const string U_OBJ_N_SND_M_BG_SND = "BGSnd";
 	public const string U_OBJ_N_SND_M_FX_SND = "FXSnd";
 
 	// 디버그 콘솔
 	public const string U_OBJ_N_DEBUG_C_LOG_WND = "DebugLogWindow";
-
-	// 스크롤 뷰
-	public const string U_OBJ_N_SCROLL_V_VIEWPORT = "Viewport";
-	public const string U_OBJ_N_SCROLL_V_CONTENTS = "Contents";
 
 	// 문자열 테이블
 	public const string U_KEY_STR_T_ID = "ID";
@@ -334,17 +419,7 @@ public static partial class KCDefine {
 	public const string U_KEY_VAL_T_VAL = "Val";
 	public const string U_KEY_VAL_T_VAL_TYPE = "ValType";
 	// 값 테이블 }
-
-	// 경고 팝업 {
-	public const string U_OBJ_N_ALERT_P_TITLE_TEXT = "TitleText";
-	public const string U_OBJ_N_ALERT_P_MSG_TEXT = "MsgText";
 	
-	public const string U_OBJ_N_ALERT_P_BG_IMG = "BGImg";
-
-	public const string U_OBJ_N_ALERT_P_OK_BTN = "OKBtn";
-	public const string U_OBJ_N_ALERT_P_CANCEL_BTN = "CancelBtn";
-	// 경고 팝업 }
-
 	// 서비스 관리자 {
 	public const string U_KEY_SERVICES_M_RECEIPT = "json";
 	public const string U_KEY_SERVICES_M_PAYLOAD = "Payload";
@@ -508,6 +583,7 @@ public static partial class KCDefine {
 	public static readonly string U_OBJ_P_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_Img";
 	public static readonly string U_OBJ_P_RAW_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_RawImg";
 	public static readonly string U_OBJ_P_FOCUS_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_FocusImg";
+	public static readonly string U_OBJ_P_GAUGE_IMG = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_IMAGE_ROOT}U_GaugeImg";
 
 	public static readonly string U_OBJ_P_IMG_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_ImgBtn";
 	public static readonly string U_OBJ_P_IMG_SCALE_BTN = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_UTILITY}{KCDefine.B_DIR_P_BUTTON_ROOT}U_ImgScaleBtn";
@@ -548,9 +624,11 @@ public static partial class KCDefine {
 	public static readonly string U_OBJ_P_G_DAILY_MISSION_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_DailyMissionPopup";
 	public static readonly string U_OBJ_P_G_FREE_REWARD_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_FreeRewardPopup";
 	public static readonly string U_OBJ_P_G_DAILY_REWARD_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_DailyRewardPopup";
-	public static readonly string U_OBJ_P_G_CHANGES_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_ChangesPopup";
+	public static readonly string U_OBJ_P_G_CHANGES_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_SaleCoinsPopup";
 	public static readonly string U_OBJ_P_G_REWARD_ACQUIRE_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_RewardAcquirePopup";
-	public static readonly string U_OBJ_P_G_CHANGES_ACQUIRE_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_ChangesAcquirePopup";
+	public static readonly string U_OBJ_P_G_CHANGES_ACQUIRE_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_SaleCoinsAcquirePopup";
+	public static readonly string U_OBJ_P_G_CONTINUE_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_ContinuePopup";
+	public static readonly string U_OBJ_P_G_RESULT_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_ResultPopup";
 	public static readonly string U_OBJ_P_G_FOCUS_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_FocusPopup";
 	public static readonly string U_OBJ_P_G_TUTORIAL_POPUP = $"{KCDefine.B_DIR_P_PREFABS}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_POPUP}G_TutorialPopup";
 
@@ -584,8 +662,8 @@ public static partial class KCDefine {
 	public static readonly string U_TABLE_P_G_COMMON_VAL = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_VALUE_INFO_ROOT}G_ValTable_Common";
 	public static readonly string U_TABLE_P_G_COMMON_STR = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_STRING_INFO_ROOT}G_StrTable_Common";
 
-	public static readonly string U_TABLE_P_FMT_G_COMMON_VAL = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_VALUE_INFO_ROOT}{KCDefine.B_NAME_FMT_UNDER_SCORE_COMBINE}";
-	public static readonly string U_TABLE_P_FMT_G_COMMON_STR = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_STRING_INFO_ROOT}{KCDefine.B_NAME_FMT_UNDER_SCORE_COMBINE}";
+	public static readonly string U_TABLE_P_FMT_G_COMMON_VAL = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_VALUE_INFO_ROOT}{KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE}";
+	public static readonly string U_TABLE_P_FMT_G_COMMON_STR = $"{KCDefine.B_DIR_P_TABLES}{KCDefine.B_DIR_P_GLOBAL}{KCDefine.B_DIR_P_STRING_INFO_ROOT}{KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE}";
 
 	public static readonly string U_TABLE_P_FMT_G_LOCALIZE_COMMON_VAL = string.Format(KCDefine.U_TABLE_P_FMT_G_COMMON_VAL, "G_ValTable_Common", "{0}");
 	public static readonly string U_TABLE_P_FMT_G_LOCALIZE_COMMON_STR = string.Format(KCDefine.U_TABLE_P_FMT_G_COMMON_STR, "G_StrTable_Common", "{0}");
@@ -653,6 +731,10 @@ public static partial class KCDefine {
 
 	public const int U_SCRIPT_O_SCENE_MANAGER = KCDefine.U_SCRIPT_O_INIT_SCENE_MANAGER + 2;
 	// 스크립트 순서 }
+
+	// 형식
+	public const string U_TEXT_FMT_SCREEN_INFO_A = "Screen DPI: {0}\n";
+	public const string U_TEXT_FMT_SCREEN_INFO_B = "Banner Ads Height: {0}";
 
 	// 광원 {
 #if !LIGHTMAP_BAKE_ENABLE || REALTIME_LIGHTMAP_BAKE_ENABLE
@@ -747,35 +829,30 @@ public static partial class KCDefine {
 	public const string U_MODEL_N_IPAD = "iPad";
 #endif			// #if HAPTIC_FEEDBACK_ENABLE
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 	// 시간
 	public const float U_DELTA_T_DYNAMIC_DEBUG = 1.0f;
 
 	// 형식 {
-	public const string U_FMT_STATIC_DEBUG_MSG = "{0}\n\n{1}";
-	public const string U_FMT_DYNAMIC_DEBUG_MSG = "{0}\n\n{1}";
+	public const string U_TEXT_FMT_STATIC_DEBUG_MSG = "{0}\n\n{1}";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_MSG = "{0}\n\n{1}";
 
-	public const string U_FMT_STATIC_DEBUG_INFO_A = "Resolution: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_B = "Design Resolution: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_C = "Canvas Size: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_D = "UI Offset: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>, <color=orange>{2:0.0}</color>, <color=orange>{3:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_E = "Object Offset: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>, <color=orange>{2:0.0}</color>, <color=orange>{3:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_F = "UI Root Offset: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>, <color=orange>{2:0.0}</color>, <color=orange>{3:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_G = "Object Root Offset: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>, <color=orange>{2:0.0}</color>, <color=orange>{3:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_H = "Safe Area: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>, <color=orange>{2:0.0}</color>, <color=orange>{3:0.0}</color>\n";
-	public const string U_FMT_STATIC_DEBUG_INFO_I = "Screen DPI: <color=orange>{0:0.0}</color>, Banner Ads Height: <color=orange>{1:0.0}</color>\n";
+	public const string U_TEXT_FMT_STATIC_DEBUG_INFO_A = "Resolution: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>\n";
+	public const string U_TEXT_FMT_STATIC_DEBUG_INFO_B = "Design Resolution: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>\n";
+	public const string U_TEXT_FMT_STATIC_DEBUG_INFO_C = "Canvas Size: <color=orange>{0:0.0}</color>, <color=orange>{1:0.0}</color>\n";
+	public const string U_TEXT_FMT_STATIC_DEBUG_INFO_D = "Screen DPI: <color=orange>{0:0.0}</color>, Banner Ads Height: <color=orange>{1:0.0}</color>\n";
 
-	public const string U_FMT_DYNAMIC_DEBUG_INFO_A = "GC: <color=orange>{0:0.0}</color> MB, Used Heap: <color=orange>{1:0.0}</color> MB\n";
-	public const string U_FMT_DYNAMIC_DEBUG_INFO_B = "Mono Heap: <color=orange>{0:0.0}</color> MB, Mono Used: <color=orange>{1:0.0}</color> MB\n";
-	public const string U_FMT_DYNAMIC_DEBUG_INFO_C = "Temp Alloc: <color=orange>{0:0.0}</color> MB, Total Alloc: <color=orange>{1:0.0}</color> MB\n";
-	public const string U_FMT_DYNAMIC_DEBUG_INFO_D = "Reserved: <color=orange>{0:0.0}</color> MB, Unused Reserved: <color=orange>{1:0.0}</color> MB\n";
-	public const string U_FMT_DYNAMIC_DEBUG_INFO_E = "GPU Alloc: <color=orange>{0:0.0}</color> MB, Time Scale: <color=orange>{1:0.00000}</color>\n";
-	public const string U_FMT_DYNAMIC_DEBUG_INFO_F = "Persistent Data Path: <color=orange>{0:0.0}</color>";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_INFO_A = "GC: <color=orange>{0:0.0}</color> MB, Used Heap: <color=orange>{1:0.0}</color> MB\n";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_INFO_B = "Mono Heap: <color=orange>{0:0.0}</color> MB, Mono Used: <color=orange>{1:0.0}</color> MB\n";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_INFO_C = "Temp Alloc: <color=orange>{0:0.0}</color> MB, Total Alloc: <color=orange>{1:0.0}</color> MB\n";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_INFO_D = "Reserved: <color=orange>{0:0.0}</color> MB, Unused Reserved: <color=orange>{1:0.0}</color> MB\n";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_INFO_E = "GPU Alloc: <color=orange>{0:0.0}</color> MB, Time Scale: <color=orange>{1:0.00000}</color>\n";
+	public const string U_TEXT_FMT_DYNAMIC_DEBUG_INFO_F = "Persistent Data Path: <color=orange>{0:0.0}</color>";
 	// 형식 }
 
 	// 이름 {
 	public const string U_OBJ_N_SCREEN_DEBUG_UIS = "ScreenDebugUIs";
-	public const string U_OBJ_N_SCREEN_DEBUG_TEXTS = "DebugTexts";
+	public const string U_OBJ_N_SCREEN_DEBUG_TEXT_UIS = "DebugTextUIs";
 
 	public const string U_OBJ_N_SCREEN_STATIC_DEBUG_TEXT = "StaticDebugText";
 	public const string U_OBJ_N_SCREEN_DYNAMIC_DEBUG_TEXT = "DynamicDebugText";
@@ -786,7 +863,7 @@ public static partial class KCDefine {
 	public const string U_OBJ_N_FPS_C_STATIC_TEXT = "StaticInfoText";
 	public const string U_OBJ_N_FPS_C_DYNAMIC_TEXT = "DynamicInfoText";
 	// 이름 }
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 #if GAME_ANALYTICS_MODULE_ENABLE
 	// 이름
@@ -802,6 +879,9 @@ public static partial class KCDefine {
 #endif			// #if SINGULAR_MODULE_ENABLE
 
 #if ADS_MODULE_ENABLE
+	// 비율
+	public const float U_SCALE_LANDSCAPE_BANNER_ADS_HEIGHT = 0.68f;
+
 	// 시간
 	public const float U_DELTA_T_ADS_M_ADS_LOAD = 5.0f;
 	public const float U_DELTA_T_REWARD_ATI_UPDATE = 0.5f;
@@ -1066,7 +1146,7 @@ public static partial class KCDefine {
 
 #if PURCHASE_MODULE_ENABLE
 	// 경로
-	public static readonly string U_DATA_P_PURCHASE_M_PRODUCT_ID_SET = $"{KCDefine.B_DIR_P_WRITABLE}PurchaseProductIDSet.bytes";
+	public static readonly string U_DATA_P_PURCHASE_PRODUCT_IDS = $"{KCDefine.B_DIR_P_WRITABLE}PurchaseProductIDs.bytes";
 	public static readonly string U_ASSET_P_G_PRODUCT_INFO_TABLE = $"{KCDefine.B_DIR_P_SCRIPTABLES}{KCDefine.B_DIR_P_GLOBAL}G_ProductInfoTable";
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 런타임 상수

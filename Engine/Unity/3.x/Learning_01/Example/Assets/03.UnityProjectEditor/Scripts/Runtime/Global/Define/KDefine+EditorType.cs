@@ -17,4 +17,8 @@ public struct STEditorTypeWrapper {
 
 }
 #endregion			// 기본
+
+#region 추가 타입
+
+#endregion			// 추가 타입
 #endif			// #if UNITY_EDITOR || UNITY_STANDALONE

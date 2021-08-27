@@ -9,4 +9,8 @@ public static partial class KDefine {
 	// 이름
 	public const string GS_OBJ_N_ENGINE = "Engine";
 	#endregion			// 기본
+
+	#region 추가 상수
+
+	#endregion			// 추가 상수
 }

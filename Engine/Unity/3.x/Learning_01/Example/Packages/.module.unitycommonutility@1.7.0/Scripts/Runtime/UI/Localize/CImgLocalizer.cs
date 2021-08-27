@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //! 이미지 지역화
-public class CImgLocalizer : CUIsComponent {
+public class CImgLocalizer : CComponent {
 	#region 변수
 	[SerializeField] private string m_oBasePath = string.Empty;
 
 	private string m_oLanguage = string.Empty;
 	private string m_oCountryCode = string.Empty;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI
 	private Image m_oImg = null;
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화

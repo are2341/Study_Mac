@@ -145,7 +145,9 @@ for oSubmoduleInfo in oSubmoduleInfos:
 	if os.path.exists(oPath):
 		os.chdir(oPath)
 
-		os.system(f"git tag -d {oTagName}; git push origin --delete {oTagName}")
-		os.system(f"git tag {oReplaceTagName}; git push origin --tags")
+		os.system(f"git tag -d {oTagName}")
+		os.system(f"git push origin --delete {oTagName}")
+		os.system(f"git tag {oReplaceTagName}")
+		os.system(f"git push origin --tags")
 
 		os.chdir(oCurPath)

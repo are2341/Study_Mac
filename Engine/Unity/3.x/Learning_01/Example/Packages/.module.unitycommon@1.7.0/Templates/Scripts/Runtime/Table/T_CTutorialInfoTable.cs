@@ -7,9 +7,6 @@ using UnityEngine.UI;
 //! 튜토리얼 정보
 [System.Serializable]
 public struct STTutorialInfo {
-	public string m_oName;
-	public string m_oDesc;
-
 	public ERewardKinds m_eRewardKinds;
 	public ETutorialKinds m_eTutorialKinds;
 	public ETutorialKinds m_eNextTutorialKinds;
@@ -19,9 +16,6 @@ public struct STTutorialInfo {
 	#region 함수
 	//! 생성자
 	public STTutorialInfo(SimpleJSON.JSONNode a_oTutorialInfo) {
-		m_oName = a_oTutorialInfo[KCDefine.U_KEY_NAME];
-		m_oDesc = a_oTutorialInfo[KCDefine.U_KEY_DESC];
-
 		m_eRewardKinds = (ERewardKinds)a_oTutorialInfo[KDefine.G_KEY_TUTORIAL_IT_REWARD_KINDS].AsInt;
 		m_eTutorialKinds = (ETutorialKinds)a_oTutorialInfo[KDefine.G_KEY_TUTORIAL_IT_TUTORIAL_KINDS].AsInt;
 		m_eNextTutorialKinds = (ETutorialKinds)a_oTutorialInfo[KDefine.G_KEY_TUTORIAL_IT_NEXT_TUTORIAL_KINDS].AsInt;
@@ -128,5 +122,17 @@ public class CTutorialInfoTable : CScriptableObj<CTutorialInfoTable> {
 		return this.TutorialInfoDict;
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }
 #endif			// #if NEVER_USE_THIS

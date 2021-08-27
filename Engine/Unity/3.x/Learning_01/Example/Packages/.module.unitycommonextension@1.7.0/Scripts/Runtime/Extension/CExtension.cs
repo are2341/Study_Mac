@@ -31,15 +31,25 @@ public static partial class CExtension {
 
 		return nSumVal;
 	}
-	
+
 	//! 픽셀 => DPI 픽셀로 변환한다
 	public static float ExPixelsToDPIPixels(this int a_nSender) {
-		return a_nSender * (Screen.dpi / KCDefine.B_DPI);
+		return a_nSender * (KCDefine.B_DPI / CAccess.DPI);
 	}
 
 	//! 픽셀 => DPI 픽셀로 변환한다
 	public static float ExPixelsToDPIPixels(this float a_fSender) {
-		return a_fSender * (Screen.dpi / KCDefine.B_DPI);
+		return a_fSender * (KCDefine.B_DPI / CAccess.DPI);
+	}
+	
+	//! DPI 픽셀 => 픽셀로 변환한다
+	public static float ExDPIPixelsToPixels(this int a_nSender) {
+		return a_nSender * (CAccess.DPI / KCDefine.B_DPI);
+	}
+
+	//! DPI 픽셀 => 픽셀로 변환한다
+	public static float ExDPIPixelsToPixels(this float a_fSender) {
+		return a_fSender * (CAccess.DPI / KCDefine.B_DPI);
 	}
 
 	//! 바이트 => 메가 바이트로 변환한다

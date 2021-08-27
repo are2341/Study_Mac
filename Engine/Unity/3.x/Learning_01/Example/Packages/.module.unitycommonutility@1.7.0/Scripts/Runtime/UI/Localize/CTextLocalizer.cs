@@ -4,18 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //! 텍스트 지역화
-public class CTextLocalizer : CUIsComponent {
+public class CTextLocalizer : CComponent {
 	#region 변수
 	[SerializeField] private string m_oKey = string.Empty;
 	[SerializeField] private string m_oThaiFontPath = "Fonts/Global/G_ThaiFont";
 
 	private Font m_oThaiFont = null;
 	private Font m_oOriginFont = null;
-	#endregion			// 변수
 
-	#region UI 변수
+	// UI
 	private Text m_oText = null;
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 함수
 	//! 초기화

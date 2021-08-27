@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class CTutorialPopup : CFocusPopup {
 	//! 매개 변수
 	public new struct STParams {
-		public ETutorialKinds m_eTutorialKinds;
 		public CFocusPopup.STParams m_stBaseParams;
+		public ETutorialKinds m_eTutorialKinds;
 	}
 
 	//! 콜백 매개 변수
@@ -43,7 +43,19 @@ public class CTutorialPopup : CFocusPopup {
 	
 	//! UI 상태를 갱신한다
 	private new void UpdateUIsState() {
-		// Do Something
+		base.UpdateUIsState();
 	}
 	#endregion			// 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+	
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }

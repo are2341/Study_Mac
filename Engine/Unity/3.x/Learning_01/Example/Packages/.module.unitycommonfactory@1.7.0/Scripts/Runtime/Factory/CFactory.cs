@@ -12,7 +12,7 @@ public static partial class CFactory {
 		CAccess.Assert(a_oBasePath.ExIsValid() && a_oLanguage.ExIsValid());
 
 		var oFileName = Path.GetFileNameWithoutExtension(a_oBasePath);
-		var oLocalizeFileName = string.Format(KCDefine.B_NAME_FMT_UNDER_SCORE_COMBINE, oFileName, a_oLanguage);
+		var oLocalizeFileName = string.Format(KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE, oFileName, a_oLanguage);
 
 		return a_oBasePath.ExGetReplaceFileNamePath(oLocalizeFileName);
 	}
@@ -27,45 +27,15 @@ public static partial class CFactory {
 	}
 
 	//! 정수 값을 생성한다
-	public static int[] MakeIntVals(int a_nMin, int a_nNumVals) {
+	public static List<int> MakeIntVals(int a_nMin, int a_nNumVals) {
 		CAccess.Assert(a_nNumVals > KCDefine.B_VAL_0_INT);
-		var oVals = new int[a_nNumVals];
-
-		for(int i = 0; i < oVals.Length; ++i) {
-			oVals[i] = a_nMin + i;
-		}
-
-		return oVals;
+		return CFactory.MakeVals<int>(a_nNumVals, (a_nIdx) => a_nMin + a_nIdx);
 	}
 
-	//! 정수 랜덤 값을 생성한다
-	public static int[] MakeIntRandVals(int a_nMin, int a_nMax, int a_nNumVals) {
-		CAccess.Assert(a_nMin <= a_nMax);
+	//! 정수 재배치 값을 생성한다
+	public static List<int> MakeIntShuffleVals(int a_nMin, int a_nNumVals) {
 		CAccess.Assert(a_nNumVals > KCDefine.B_VAL_0_INT);
-
-		return CFactory.MakeVals<int>(a_nNumVals, (a_nIdx) => Random.Range(a_nMin, a_nMax + KCDefine.B_VAL_1_INT));
-	}
-	
-	//! 정수 랜덤 유일 값을 생성한다
-	public static int[] MakeIntRandUniqueVals(int a_nMin, int a_nMax, int a_nNumVals) {
-		CAccess.Assert(a_nMin <= a_nMax);
-		CAccess.Assert(a_nNumVals > KCDefine.B_VAL_0_INT && a_nNumVals <= (a_nMax - a_nMin) + KCDefine.B_VAL_1_INT);
-
-		var oVals = new int[a_nNumVals];
-		var oRandVals = CFactory.MakeIntVals(a_nMin, (a_nMax - a_nMin) + KCDefine.B_VAL_1_INT);
-
-		oRandVals.ExShuffle();
-		System.Array.Copy(oRandVals, oVals, a_nNumVals);
-
-		return oVals;
-	}
-	
-	//! 실수 랜덤 값을 생성한다
-	public static float[] MakeFloatRandVals(float a_fMin, float a_fMax, int a_nNumVals) {
-		CAccess.Assert(a_fMin.ExIsLessEquals(a_fMax));
-		CAccess.Assert(a_nNumVals > KCDefine.B_VAL_0_INT);
-
-		return CFactory.MakeVals<float>(a_nNumVals, (a_nIdx) => Random.Range(a_fMin, a_fMax));
+		return CFactory.MakeShuffleVals<int>(a_nNumVals, (a_nIdx) => a_nMin + a_nIdx);
 	}
 
 	//! 디렉토리를 생성한다
@@ -115,36 +85,29 @@ public static partial class CFactory {
 
 	#region 제네릭 클래스 함수
 	//! 값을 생성한다
-	public static T[] MakeVals<T>(int a_nNumVals, System.Func<int, T> a_oCallback) {
-		CAccess.Assert(a_oCallback != null);
-		CAccess.Assert(a_nNumVals > KCDefine.B_VAL_0_INT);
-		
-		var oVals = new T[a_nNumVals];
+	public static List<T> MakeVals<T>(int a_nNumVals, System.Func<int, T> a_oCallback) {
+		CAccess.Assert(a_oCallback != null && a_nNumVals > KCDefine.B_VAL_0_INT);
+		var oValList = new List<T>();
 
 		for(int i = 0; i < a_nNumVals; ++i) {
-			oVals[i] = a_oCallback.Invoke(i);
+			oValList.Add(a_oCallback.Invoke(i));
 		}
 
-		return oVals;
+		return oValList;
 	}
 
-	//! 섞인 값을 생성한다
-	public static T[] MakeShuffleVals<T>(int a_nNumVals, System.Func<int, T> a_oCallback) {
-		CAccess.Assert(a_oCallback != null);
-		CAccess.Assert(a_nNumVals > KCDefine.B_VAL_0_INT);
+	//! 재배치 값을 생성한다
+	public static List<T> MakeShuffleVals<T>(int a_nNumVals, System.Func<int, T> a_oCallback) {
+		CAccess.Assert(a_oCallback != null && a_nNumVals > KCDefine.B_VAL_0_INT);
 
-		var oVals = CFactory.MakeVals<T>(a_nNumVals, a_oCallback);
+		var oValList = CFactory.MakeVals<T>(a_nNumVals, a_oCallback);
+		oValList.ExShuffle();
 
-		for(int i = 0; i < oVals.Length; ++i) {
-			int nIdx = Random.Range(KCDefine.B_VAL_0_INT, oVals.Length);
-			oVals.ExSwap(i, nIdx);
-		}
-
-		return oVals;
+		return oValList;
 	}
 
 	//! 값을 교환한다
-	private static void ExSwap<T>(this T[] a_oSender, int a_nIdxA, int a_nIdxB, bool a_bIsEnableAssert = true) {
+	private static void ExSwap<T>(this List<T> a_oSender, int a_nIdxA, int a_nIdxB, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 		CAccess.Assert(a_oSender.ExIsValidIdx(a_nIdxA) && a_oSender.ExIsValidIdx(a_nIdxB));
 
@@ -157,14 +120,13 @@ public static partial class CFactory {
 	}
 
 	//! 값을 재배치한다
-	private static void ExShuffle<T>(this T[] a_oSender, bool a_bIsEnableAssert = true) {
+	private static void ExShuffle<T>(this List<T> a_oSender, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 
 		// 값 재배치가 가능 할 경우
 		if(a_oSender != null) {
-			for(int i = 0; i < a_oSender.Length; ++i) {
-				int nIdx = Random.Range(KCDefine.B_VAL_0_INT, a_oSender.Length);
-				a_oSender.ExSwap(i, nIdx, a_bIsEnableAssert);
+			for(int i = 0; i < a_oSender.Count; ++i) {
+				a_oSender.ExSwap(i, Random.Range(KCDefine.B_VAL_0_INT, a_oSender.Count), a_bIsEnableAssert);
 			}
 		}
 	}

@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public partial class CSubGameSceneManager : CGameSceneManager {
 	#region 변수
 	private bool m_bIsLeave = false;
+	private int m_nContinueTimes = 0;
 
 	private CLevelInfo m_oLevelInfo = null;
 	private CClearInfo m_oClearInfo = null;
@@ -43,7 +44,6 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 			this.SetupAwake();
-			CSceneLoader.Inst.LoadAdditiveScene(KCDefine.B_SCENE_N_OVERLAY);
 		}
 	}
 	
@@ -55,6 +55,8 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 		if(CSceneManager.IsAppInit) {
 			this.SetupStart();
 			this.UpdateUIsState();
+
+			CSceneLoader.Inst.LoadAdditiveScene(KCDefine.B_SCENE_N_OVERLAY);
 		}
 	}
 
@@ -73,8 +75,21 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 		base.OnDestroy();
 
 		// 앱이 실행 중 일 경우
-		if(CSceneManager.IsAppRunning) {
+		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 			// Do Something
+		}
+	}
+
+	//! 앱이 정지 되었을 경우
+	public virtual void OnApplicationPause(bool a_bIsPause) {
+		// 재개 되었을 경우
+		if(!a_bIsPause && (CSceneManager.IsAwake || CSceneManager.IsAppRunning)) {
+#if ADS_MODULE_ENABLE
+			// 광고 출력이 가능 할 경우
+			if(CAppInfoStorage.Inst.IsEnableShowFullscreenAds && CAdsManager.Inst.IsLoadFullscreenAds(CPluginInfoTable.Inst.DefAdsType)) {
+				Func.ShowFullscreenAds(null);
+			}
+#endif			// #if ADS_MODULE_ENABLE
 		}
 	}
 
@@ -121,15 +136,20 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 
 	//! 엔진을 설정한다
 	private void SetupEngine() {
-		var stParams = new SampleEngineName.CEngine.STParams {
+		var stParams = new SampleEngineName.CEngine.STParams() {
 			m_oLevelInfo = CGameInfoStorage.Inst.PlayLevelInfo,
 			m_oClearInfo = CGameInfoStorage.Inst.TryGetClearInfo(CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo.m_nID, out CClearInfo oClearInfo, CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo.m_nStageID, CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo.m_nChapterID) ? oClearInfo : null,
 
 			m_oBlockObjs = this.m_oBlockObjs
 		};
 
+		var stCallbackParams = new SampleEngineName.CEngine.STCallbackParams() {
+			m_oClearCallback = this.OnClearLevel,
+			m_oClearFailCallback = this.OnClearFailLevel
+		};
+
 		m_oEngine = CFactory.CreateObj<SampleEngineName.CEngine>(KDefine.GS_OBJ_N_ENGINE, this.gameObject);
-		m_oEngine.Init(stParams);
+		m_oEngine.Init(stParams, stCallbackParams);
 	}
 
 	//! UI 상태를 갱신한다
@@ -163,16 +183,23 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 		}
 	}
 
-	//! 레벨을 클리어한다
-	private void ClearLevel() {
+	//! 레벨을 클리어했을 경우
+	private void OnClearLevel(SampleEngineName.CEngine a_oSender) {
 		// 클리어 정보가 없을 경우
-		if(!CGameInfoStorage.Inst.IsClear(m_oLevelInfo.m_stIDInfo.m_nID, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID)) {
+		if(!CGameInfoStorage.Inst.IsClearLevel(m_oLevelInfo.m_stIDInfo.m_nID, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID)) {
 			var oClearInfo = Factory.MakeClearInfo(m_oLevelInfo.m_stIDInfo.m_nID, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID);
 			CGameInfoStorage.Inst.AddClearInfo(oClearInfo);
 		}
 		
 		var oCurClearInfo = CGameInfoStorage.Inst.GetClearInfo(m_oLevelInfo.m_stIDInfo.m_nID, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID);
 		CGameInfoStorage.Inst.SaveGameInfo();
+
+		this.ShowResultPopup(true);
+	}
+
+	//! 레벨 클리어에 실패했을 경우
+	private void OnClearFailLevel(SampleEngineName.CEngine a_oSender) {
+		this.ShowResultPopup(false);
 	}
 
 	//! 다음 레벨을 로드한다
@@ -185,16 +212,91 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 		else if(CGameInfoStorage.Inst.PlayMode == EPlayMode.TUTORIAL) {
 			// Do Nothing
 		} else {
-			bool bIsValid = CEpisodeInfoTable.Inst.TryGetLevelInfo(m_oLevelInfo.m_stIDInfo.m_nID, out STLevelInfo stNextLevelInfo, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID);
+			int nNextID = m_oLevelInfo.m_stIDInfo.m_nID + KCDefine.B_VAL_1_INT;
+			int nNumClearInfos = CGameInfoStorage.Inst.GetNumClearInfos(m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID);
+
+#if UNITY_STANDALONE
+			bool bIsValid = CLevelInfoTable.Inst.TryGetLevelInfo(nNextID, out CLevelInfo oNextLevelInfo, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID) && nNextID <= nNumClearInfos;
+#else
+			bool bIsValid = CEpisodeInfoTable.Inst.TryGetLevelInfo(nNextID, out STLevelInfo stNextLevelInfo, m_oLevelInfo.m_stIDInfo.m_nStageID, m_oLevelInfo.m_stIDInfo.m_nChapterID) && nNextID <= nNumClearInfos;
+#endif			// #if UNITY_STANDALONE
 
 			// 다음 레벨이 존재 할 경우
 			if(bIsValid && !m_bIsLeave) {
+#if UNITY_STANDALONE
+				CGameInfoStorage.Inst.SetupPlayLevelInfo(oNextLevelInfo.m_stIDInfo.m_nID, CGameInfoStorage.Inst.PlayMode, oNextLevelInfo.m_stIDInfo.m_nStageID, oNextLevelInfo.m_stIDInfo.m_nChapterID);
+#else
 				CGameInfoStorage.Inst.SetupPlayLevelInfo(stNextLevelInfo.m_nID, CGameInfoStorage.Inst.PlayMode, stNextLevelInfo.m_nStageID, stNextLevelInfo.m_nChapterID);
+#endif			// #if UNITY_STANDALONE
+
+#if ADS_MODULE_ENABLE
+				Func.ShowFullscreenAds((a_oSender, a_bIsSuccess) => CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_GAME));
+#else
 				CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_GAME);
+#endif			// #if ADS_MODULE_ENABLE
 			} else {
+#if ADS_MODULE_ENABLE
+				Func.ShowFullscreenAds((a_oSender, a_bIsSuccess) => CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_TITLE));
+#else
 				CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_TITLE);
+#endif			// #if ADS_MODULE_ENABLE
 			}
 		}
+	}
+
+	//! 현재 레벨을 재시도한다
+	private void RetryCurLevel() {
+#if ADS_MODULE_ENABLE
+		Func.ShowFullscreenAds((a_oSender, a_bIsSuccess) => CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_GAME));
+#else
+		CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_GAME);
+#endif			// #if ADS_MODULE_ENABLE
+	}
+
+	//! 현재 레벨을 이어한다
+	private void ContinueCurLevel() {
+		// Do Something
+	}
+
+	//! 이어하기 팝업을 출력한다
+	private void ShowContinuePopup() {
+		Func.ShowContinuePopup(this.SubPopupUIs, (a_oSender) => {
+			var stParams = new CContinuePopup.STParams() {
+				m_nContinueTimes = this.m_nContinueTimes,
+				m_oLevelInfo = this.m_oLevelInfo
+			};
+
+			var stCallbackParams = new CContinuePopup.STCallbackParams() {
+				m_oRetryCallback = (a_oPopupSender) => { m_nContinueTimes += KCDefine.B_VAL_1_INT; this.LoadNextLevel(); },
+				m_oContinueCallback = (a_oPopupSender) => this.ContinueCurLevel(),
+				m_oLeaveCallback = (a_oPopupSender) => { m_bIsLeave = true; this.LoadNextLevel(); }
+			};
+
+			var oContinuePopup = a_oSender as CContinuePopup;
+			oContinuePopup.Init(stParams, stCallbackParams);
+		});
+	}
+
+	//! 결과 팝업을 출력한다
+	private void ShowResultPopup(bool a_bIsClear) {
+		Func.ShowResultPopup(this.SubPopupUIs, (a_oSender) => {
+			var stParams = new CResultPopup.STParams() {
+				m_bIsClear = a_bIsClear,
+				m_nScore = m_oEngine.Score,
+
+				m_oLevelInfo = this.m_oLevelInfo,
+				m_oClearInfo = this.m_oClearInfo
+			};
+
+			var stCallbackParams = new CResultPopup.STCallbackParams() {
+				m_oNextCallback = (a_oPopupSender) => this.LoadNextLevel(),
+				m_oRetryCallback = (a_oPopupSender) => this.RetryCurLevel(),
+				m_oLeaveCallback = (a_oPopupSender) => { m_bIsLeave = true; this.LoadNextLevel(); }
+			};
+
+			var oResultPopup = a_oSender as CResultPopup;
+			oResultPopup.Init(stParams, stCallbackParams);
+		});
 	}
 	#endregion			// 함수
 
@@ -218,5 +320,19 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 	}
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 	#endregion			// 조건부 함수
+
+	#region 추가 변수
+
+	#endregion			// 추가 변수
+	
+	#region 추가 프로퍼티
+
+	#endregion			// 추가 프로퍼티
+
+	#region 추가 함수
+#if DEBUG || DEVELOPMENT_BUILD
+
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
+	#endregion			// 추가 함수
 }
 #endif			// #if NEVER_USE_THIS

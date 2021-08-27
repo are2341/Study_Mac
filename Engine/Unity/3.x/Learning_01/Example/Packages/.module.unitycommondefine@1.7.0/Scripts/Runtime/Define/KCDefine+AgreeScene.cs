@@ -9,13 +9,9 @@ public static partial class KCDefine {
 	// 약관 동의 팝업 {
 	public const string AS_OBJ_N_AGREE_POPUP = "AgreePopup";
 
-	public const string AS_OBJ_N_AGREE_P_CONTENTS_TEXT = "ContentsText";
-	public const string AS_OBJ_N_AGREE_P_CHECK_IMG = "CheckImg";
-
 	public const string AS_OBJ_N_AGREE_P_AGREE_BTN = "AgreeBtn";
 	public const string AS_OBJ_N_AGREE_P_SERVICES_BTN = "ServicesBtn";
 	public const string AS_OBJ_N_AGREE_P_PRIVACY_BTN = "PrivacyBtn";
-	public const string AS_OBJ_N_AGREE_P_OK_BTN = "OKBtn";
 	// 약관 동의 팝업 }
 	#endregion			// 기본
 

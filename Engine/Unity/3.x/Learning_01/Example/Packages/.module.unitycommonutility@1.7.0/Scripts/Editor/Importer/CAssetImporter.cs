@@ -138,13 +138,7 @@ public class CAssetImporter : AssetPostprocessor {
 	public static void ImportSpinePkgs() {
 		AssetDatabase.ImportPackage(KCEditorDefine.B_ABS_PKGS_P_SPINE, true);
 	}
-
-	//! Spine URP 쉐이더 패키지를 추가한다
-	[MenuItem("Tools/Utility/Import/SpineURPShaders Pkgs")]
-	public static void ImportSpineURPShadersPkgs() {
-		AssetDatabase.ImportPackage(KCEditorDefine.B_ABS_PKGS_P_SPINE_URP_SHADERS, true);
-	}
-
+	
 	//! Simple Scroll Snap 패키지를 추가한다
 	[MenuItem("Tools/Utility/Import/RestClient Pkgs")]
 	public static void ImportRestClientPkgs() {

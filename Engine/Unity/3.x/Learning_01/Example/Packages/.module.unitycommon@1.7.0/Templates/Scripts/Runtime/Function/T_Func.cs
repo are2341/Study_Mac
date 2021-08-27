@@ -212,11 +212,15 @@ public static partial class Func {
 	public static void ShowRewardAds(EAdsType a_eAdsType, System.Action<CAdsManager, STAdsRewardItemInfo, bool> a_oCallback) {
 		// 보상 광고 출력이 가능 할 경우
 		if(CAdsManager.Inst.IsLoadRewardAds(a_eAdsType)) {
-			Func.m_bIsWatchRewardAds = false;
-			Func.m_stRewardItemInfo = KCDefine.U_INVALID_ADS_REWARD_ITEM_INFO;
+			CIndicatorManager.Inst.Show(true);
 
-			Func.m_oRewardAdsCallback = a_oCallback;
-			CAdsManager.Inst.ShowRewardAds(a_eAdsType, Func.OnReceiveUserReward, Func.OnCloseRewardAds);
+			CSceneManager.RootSceneManager.ExLateCallFunc((a_oSender, a_oParams) => {
+				Func.m_bIsWatchRewardAds = false;
+				Func.m_stRewardItemInfo = KCDefine.U_INVALID_ADS_REWARD_ITEM_INFO;
+
+				Func.m_oRewardAdsCallback = a_oCallback;
+				CAdsManager.Inst.ShowRewardAds(a_eAdsType, Func.OnReceiveUserReward, Func.OnCloseRewardAds);
+			});
 		} else {
 			a_oCallback?.Invoke(CAdsManager.Inst, KCDefine.U_INVALID_ADS_REWARD_ITEM_INFO, false);
 		}
@@ -230,12 +234,12 @@ public static partial class Func {
 	//! 전면 광고를 출력한다
 	public static void ShowFullscreenAds(EAdsType a_eAdsType, System.Action<CAdsManager, bool> a_oCallback) {
 		// 전면 광고 출력이 가능 할 경우
-		if(CGameInfoStorage.Inst.IsEnableShowFullscreenAds && CAdsManager.Inst.IsLoadFullscreenAds(a_eAdsType)) {
+		if(CAppInfoStorage.Inst.IsEnableShowFullscreenAds && CAdsManager.Inst.IsLoadFullscreenAds(a_eAdsType)) {
 			CIndicatorManager.Inst.Show(true);
 
 			CSceneManager.RootSceneManager.ExLateCallFunc((a_oSender, a_oParams) => {
 				// 전면 광고 출력이 가능 할 경우
-				if(CGameInfoStorage.Inst.IsEnableShowFullscreenAds) {
+				if(CAppInfoStorage.Inst.IsEnableShowFullscreenAds) {
 					Func.m_bIsWatchFullscreenAds = true;
 					Func.m_oFullscreenAdsCallback = a_oCallback;
 					
@@ -247,8 +251,8 @@ public static partial class Func {
 			}, KCDefine.B_VAL_1_FLT, true);
 		} else {
 			// 광고 누적 횟수 갱신이 가능 할 경우
-			if(CGameInfoStorage.Inst.IsEnableUpdateAdsSkipTimes) {
-				CGameInfoStorage.Inst.AddAdsSkipTimes(KCDefine.B_VAL_1_INT);
+			if(CAppInfoStorage.Inst.IsEnableUpdateAdsSkipTimes) {
+				CAppInfoStorage.Inst.AddAdsSkipTimes(KCDefine.B_VAL_1_INT);
 			}
 
 			a_oCallback?.Invoke(CAdsManager.Inst, false);
@@ -257,7 +261,12 @@ public static partial class Func {
 
 	//! 보상 광고가 닫혔을 경우
 	private static void OnCloseRewardAds(CAdsManager a_oSender) {
-		CGameInfoStorage.Inst.PrevRewardAdsTime = System.DateTime.Now;
+		CIndicatorManager.Inst.Close();
+		CAppInfoStorage.Inst.PrevRewardAdsTime = System.DateTime.Now;
+
+		CAppInfoStorage.Inst.AddRewardAdsWatchTimes(KCDefine.B_VAL_1_INT);
+		CAppInfoStorage.Inst.SaveAppInfo();
+
 		CFunc.Invoke(ref Func.m_oRewardAdsCallback, a_oSender, Func.m_stRewardItemInfo, Func.m_bIsWatchRewardAds);
 	}
 
@@ -269,10 +278,14 @@ public static partial class Func {
 
 	//! 전면 광고가 닫혔을 경우
 	private static void OnCloseFullscreenAds(CAdsManager a_oSender) {
-		CGameInfoStorage.Inst.AdsSkipTimes = KCDefine.B_VAL_0_INT;
-		CGameInfoStorage.Inst.PrevAdsTime = System.DateTime.Now;
-
 		CIndicatorManager.Inst.Close();
+
+		CAppInfoStorage.Inst.AdsSkipTimes = KCDefine.B_VAL_0_INT;
+		CAppInfoStorage.Inst.PrevAdsTime = System.DateTime.Now;
+
+		CAppInfoStorage.Inst.AddFullscreenAdsWatchTimes(KCDefine.B_VAL_1_INT);
+		CAppInfoStorage.Inst.SaveAppInfo();
+		
 		CFunc.Invoke(ref Func.m_oFullscreenAdsCallback, a_oSender, Func.m_bIsWatchFullscreenAds);
 	}
 #endif			// #if ADS_MODULE_ENABLE
@@ -375,6 +388,7 @@ public static partial class Func {
 
 			var oJSONNode = new SimpleJSON.JSONClass();
 			oJSONNode.Add(KCDefine.B_KEY_JSON_USER_INFO_DATA, CUserInfoStorage.Inst.UserInfo.ExToMsgPackJSONStr());
+			oJSONNode.Add(KCDefine.B_KEY_JSON_GAME_INFO_DATA, CGameInfoStorage.Inst.GameInfo.ExToMsgPackBase64Str());
 			oJSONNode.Add(KCDefine.B_KEY_JSON_COMMON_USER_INFO_DATA, CCommonUserInfoStorage.Inst.UserInfo.ExToMsgPackJSONStr());
 
 			CFirebaseManager.Inst.SaveDB(oNodeList, oJSONNode.ToString(), Func.OnSaveUserInfo);
@@ -546,12 +560,12 @@ public static partial class Func {
 
 	//! 상품을 결제한다
 	public static void PurchaseProduct(ESaleProductKinds a_eSaleProductKinds, System.Action<CPurchaseManager, string, bool> a_oCallback, bool a_bIsEnableAssert = true) {
-		int nIdx = KDefine.G_KINDS_SALE_PIT_SALE_PRODUCTS.ExFindVal((a_eCompareSaleProductKinds) => a_eSaleProductKinds == a_eCompareSaleProductKinds);
-		CAccess.Assert(!a_bIsEnableAssert || KDefine.G_KINDS_SALE_PIT_SALE_PRODUCTS.ExIsValidIdx(nIdx));
+		int nID = Access.GetSaleProductID(a_eSaleProductKinds);
+		CAccess.Assert(!a_bIsEnableAssert || KDefine.G_KINDS_SALE_PIT_SALE_PRODUCTS.ExIsValidIdx(nID));
 
 		// 상품이 존재 할 경우
-		if(nIdx > KCDefine.B_IDX_INVALID) {
-			Func.PurchaseProduct(nIdx, a_oCallback);
+		if(KDefine.G_KINDS_SALE_PIT_SALE_PRODUCTS.ExIsValidIdx(nID)) {
+			Func.PurchaseProduct(nID, a_oCallback);
 		}
 	}
 	
@@ -584,9 +598,9 @@ public static partial class Func {
 		if(a_bIsSuccess) {
 			CIndicatorManager.Inst.Show(true);
 
-			CPurchaseManager.Inst.ConfirmPurchase(a_oProductID, (a_oConfirmSender, a_oConfirmProductID, a_bIsConfirmSuccess) => {
+			CPurchaseManager.Inst.ConfirmPurchase(a_oProductID, (a_oSender, a_oConfirmProductID, a_bIsSuccess) => {
 				CIndicatorManager.Inst.Close();
-				CFunc.Invoke(ref Func.m_oPurchaseCallback, a_oConfirmSender, a_oConfirmProductID, a_bIsConfirmSuccess);
+				CFunc.Invoke(ref Func.m_oPurchaseCallback, a_oSender, a_oConfirmProductID, a_bIsSuccess);
 			});
 		} else {
 			CFunc.Invoke(ref Func.m_oPurchaseCallback, a_oSender, a_oProductID, a_bIsSuccess);
@@ -600,5 +614,17 @@ public static partial class Func {
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
+
+	#region 추가 클래스 변수
+
+	#endregion			// 추가 클래스 변수
+
+	#region 추가 클래스 프로퍼티
+
+	#endregion			// 추가 클래스 프로퍼티
+
+	#region 추가 클래스 함수
+
+	#endregion			// 추가 클래스 함수
 }
 #endif			// #if NEVER_USE_THIS

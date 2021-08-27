@@ -703,6 +703,8 @@ MonoBehaviour:
   toggleKey: 96
   enableSearchbar: 1
   topSearchbarMinWidth: 360
+  captureLogTimestamps: 0
+  alwaysDisplayTimestamps: 0
   clearCommandAfterExecution: 1
   commandHistorySize: 15
   showCommandSuggestions: 1
@@ -711,7 +713,7 @@ MonoBehaviour:
   avoidScreenCutout: 1
   maxLogLength: 10000
   autoFocusOnCommandInputField: 1
-  logItemPrefab: {fileID: 11408050, guid: 804ef8a58c28e4034aa75ee817c6e200, type: 3}
+  logItemPrefab: {fileID: 11408050, guid: aef76e4f324594a35a1ad26593bb04e1, type: 3}
   commandSuggestionPrefab: {fileID: 114169395487023046, guid: 5e66896448428cf46a1854dbdc014914, type: 3}
   infoLog: {fileID: 21300000, guid: 5a97d5afa6254804f81b7ba956296996, type: 3}
   warningLog: {fileID: 21300000, guid: 05c7216c78d4dd34ebe2bac9c1e274d7, type: 3}
@@ -2612,7 +2614,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformComponent: {fileID: 22400762}
   viewportTransform: {fileID: 22485076}
-  debugManager: {fileID: 11452418}
   logItemNormalColor1: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 0.697}
   logItemNormalColor2: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.697}
   logItemSelectedColor: {r: 0.32941177, g: 0.4862745, b: 0.7058824, a: 0.697}

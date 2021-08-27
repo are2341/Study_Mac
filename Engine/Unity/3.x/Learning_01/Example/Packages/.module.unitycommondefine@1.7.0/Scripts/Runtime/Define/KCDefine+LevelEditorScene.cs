@@ -18,10 +18,10 @@ public static partial class KCDefine {
 	public const string LES_OBJ_N_LE_UIS_ADD_CHAPTER_BTN = "AddChapterBtn";
 
 	// 오른쪽 에디터 UI {
-	public const string LES_OBJ_N_RE_UIS_TITLE_TEXT = "TitleText";
-
 	public const string LES_OBJ_N_RE_UIS_APPLY_BTN = "ApplyBtn";
 	public const string LES_OBJ_N_RE_UIS_LOAD_LEVEL_BTN = "LoadLevelBtn";
+
+	public const string U_OBJ_N_RE_UIS_REWARD_TOGGLE = "RewardToggle";
 	
 	public const string LES_OBJ_N_RE_UIS_LEVEL_INPUT = "LevelInput";
 	public const string LES_OBJ_N_RE_UIS_NUM_CELLS_X_INPUT = "NumCellsXInput";
@@ -29,8 +29,6 @@ public static partial class KCDefine {
 	// 오른쪽 에디터 UI }
 
 	// 중앙 에디터 UI {
-	public const string LES_OBJ_N_ME_UIS_LEVEL_TEXT = "LevelText";
-
 	public const string LES_OBJ_N_ME_UIS_PREV_LEVEL_BTN = "PrevLevelBtn";
 	public const string LES_OBJ_N_ME_UIS_NEXT_LEVEL_BTN = "NextLevelBtn";
 

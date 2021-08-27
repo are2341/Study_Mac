@@ -7,13 +7,17 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Coffee.UIExtensions;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif			// #if UNITY_EDITOR
+
 #if INPUT_SYSTEM_MODULE_ENABLE
 using UnityEngine.InputSystem;
 #endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 using UnityEngine.Profiling;
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 //! 씬 관리자
 public abstract partial class CSceneManager : CComponent {
@@ -25,7 +29,7 @@ public abstract partial class CSceneManager : CComponent {
 	#region 클래스 변수
 	private static Dictionary<string, STSequenceInfo> m_oSequenceInfoDict = new Dictionary<string, STSequenceInfo>();
 	
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 	private static float m_fDebugSkipTime = 0.0f;
 
 	private static System.Text.StringBuilder m_oStaticDebugStrBuilder = new System.Text.StringBuilder();
@@ -33,7 +37,7 @@ public abstract partial class CSceneManager : CComponent {
 
 	private static System.Text.StringBuilder m_oExtraStaticDebugStrBuilder = new System.Text.StringBuilder();
 	private static System.Text.StringBuilder m_oExtraDynamicDebugStrBuilder = new System.Text.StringBuilder();
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 	#endregion			// 클래스 변수
 
 	#region 클래스 컴포넌트
@@ -135,7 +139,7 @@ public abstract partial class CSceneManager : CComponent {
 	public static bool IsSetup { get; set; } = false;
 	public static bool IsLateSetup { get; set; } = false;
 
-	public static bool IsAwake { get; private set; } = false;
+	public static bool IsAwake { get; protected set; } = false;
 	public static bool IsAppQuit { get; protected set; } = false;
 
 	// UI 간격
@@ -242,7 +246,7 @@ public abstract partial class CSceneManager : CComponent {
 	public static Scene RootScene => SceneManager.GetActiveScene();
 	public static string RootSceneName => CSceneManager.RootScene.name;
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 	public static Text ScreenStaticDebugText { get; protected set; } = null;
 	public static Text ScreenDynamicDebugText { get; protected set; } = null;
 
@@ -250,10 +254,10 @@ public abstract partial class CSceneManager : CComponent {
 	public static Button ScreenDebugBtn { get; protected set; } = null;
 
 	public static GameObject ScreenDebugUIs { get; protected set; } = null;
-	public static GameObject ScreenDebugTexts { get; protected set; } = null;
+	public static GameObject ScreenDebugTextUIs { get; protected set; } = null;
 
 	public static GameObject ScreenDebugConsole { get; protected set; } = null;
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 	public static Text ScreenStaticFPSText { get; protected set; } = null;
@@ -268,7 +272,7 @@ public abstract partial class CSceneManager : CComponent {
 		this.IsIgnoreNavStackEvent = true;
 
 		// 씬이 처음 로딩 되었을 경우
-		if(!CSceneManager.IsAwake) {
+		if(!CSceneManager.IsInit && !CSceneManager.IsAwake) {
 #if DEBUG || DEVELOPMENT_BUILD
 			CFunc.ShowLog($"Platform: {Application.platform}", KCDefine.B_LOG_COLOR_PLATFORM_INFO);
 			CFunc.ShowLog($"Data Path: {Application.dataPath}/", KCDefine.B_LOG_COLOR_PLATFORM_INFO);
@@ -307,7 +311,7 @@ public abstract partial class CSceneManager : CComponent {
 	//! 초기화
 	public override void Start() {
 		base.Start();
-		CIndicatorManager.Inst.Close();
+		CIndicatorManager.Inst.Close(true);
 
 #if UNITY_EDITOR
 		// 루트 씬 일 경우
@@ -319,6 +323,13 @@ public abstract partial class CSceneManager : CComponent {
 			});
 		}
 #endif			// #if UNITY_EDITOR
+
+#if DEBUG || DEVELOPMENT_BUILD
+		CSceneManager.ScreenDebugUIs?.ExEnumerateComponents<RectTransform>((a_oTrans) => {
+			LayoutRebuilder.ForceRebuildLayoutImmediate(a_oTrans);
+			return true;
+		});
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 	}
 
 	//! 상태를 갱신한다
@@ -340,10 +351,10 @@ public abstract partial class CSceneManager : CComponent {
 					bool bIsEnableBack = true;
 					CSndManager.Inst.PlayFXSnd(KCDefine.U_SND_P_G_TOUCH_END);
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 					var oCanvasGroup = CSceneManager.ScreenDebugConsole.GetComponentInChildren<CanvasGroup>();
 					bIsEnableBack = oCanvasGroup.alpha.ExIsLessEquals(KCDefine.B_VAL_0_FLT);
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 					// 백 키 처리가 가능 할 경우
 					if(bIsEnableBack) {
@@ -351,14 +362,14 @@ public abstract partial class CSceneManager : CComponent {
 					}
 				}
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 #if INPUT_SYSTEM_MODULE_ENABLE
 				bool bIsTimeScaleKeyDown = Keyboard.current.rightShiftKey.isPressed && (Keyboard.current.upArrowKey.isPressed || Keyboard.current.downArrowKey.isPressed);
 #else
 				bool bIsTimeScaleKeyDown = Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow));
 #endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 
-				// 방향 키를 눌렀을 경우
+				// 시간 비율 키를 눌렀을 경우
 				if(CSceneManager.IsAppInit && bIsTimeScaleKeyDown) {
 #if INPUT_SYSTEM_MODULE_ENABLE
 					float fVelocity = Keyboard.current.upArrowKey.isPressed ? KCDefine.B_VAL_1_FLT : -KCDefine.B_VAL_1_FLT;
@@ -401,40 +412,36 @@ public abstract partial class CSceneManager : CComponent {
 						string oStaticDebugStr = CSceneManager.m_oStaticDebugStrBuilder.ToString();
 						string oExtraStaticDebugStr = CSceneManager.m_oExtraStaticDebugStrBuilder.ToString();
 
-						CSceneManager.ScreenStaticDebugText.text = string.Format(KCDefine.U_FMT_STATIC_DEBUG_MSG, oStaticDebugStr, oExtraStaticDebugStr);
+						CSceneManager.ScreenStaticDebugText.text = string.Format(KCDefine.U_TEXT_FMT_STATIC_DEBUG_MSG, oStaticDebugStr, oExtraStaticDebugStr);
 					}
 
 					// 동적 디버그 텍스트가 존재 할 경우
 					if(CSceneManager.ScreenDynamicDebugText != null) {
 						CSceneManager.m_oDynamicDebugStrBuilder.Clear();
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_FMT_DYNAMIC_DEBUG_INFO_A, System.GC.GetTotalMemory(false).ExByteToMegaByte(), Profiler.usedHeapSizeLong.ExByteToMegaByte());
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_FMT_DYNAMIC_DEBUG_INFO_B, Profiler.GetMonoHeapSizeLong().ExByteToMegaByte(), Profiler.GetMonoUsedSizeLong().ExByteToMegaByte());
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_FMT_DYNAMIC_DEBUG_INFO_C, Profiler.GetTempAllocatorSize().ExByteToMegaByte(), Profiler.GetTotalAllocatedMemoryLong().ExByteToMegaByte());
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_FMT_DYNAMIC_DEBUG_INFO_D, Profiler.GetTotalReservedMemoryLong().ExByteToMegaByte(), Profiler.GetTotalUnusedReservedMemoryLong().ExByteToMegaByte());
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_FMT_DYNAMIC_DEBUG_INFO_E, Profiler.GetAllocatedMemoryForGraphicsDriver().ExByteToMegaByte(), Time.timeScale);
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_FMT_DYNAMIC_DEBUG_INFO_F, KCDefine.B_DIR_P_WRITABLE);
+						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_A, System.GC.GetTotalMemory(false).ExByteToMegaByte(), Profiler.usedHeapSizeLong.ExByteToMegaByte());
+						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_B, Profiler.GetMonoHeapSizeLong().ExByteToMegaByte(), Profiler.GetMonoUsedSizeLong().ExByteToMegaByte());
+						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_C, Profiler.GetTempAllocatorSize().ExByteToMegaByte(), Profiler.GetTotalAllocatedMemoryLong().ExByteToMegaByte());
+						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_D, Profiler.GetTotalReservedMemoryLong().ExByteToMegaByte(), Profiler.GetTotalUnusedReservedMemoryLong().ExByteToMegaByte());
+						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_E, Profiler.GetAllocatedMemoryForGraphicsDriver().ExByteToMegaByte(), Time.timeScale);
+						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_F, KCDefine.B_DIR_P_WRITABLE);
 
 						string oDynamicDebugStr = CSceneManager.m_oDynamicDebugStrBuilder.ToString();
 						string oExtraDynamicDebugStr = CSceneManager.m_oExtraDynamicDebugStrBuilder.ToString();
 
-						CSceneManager.ScreenDynamicDebugText.text = string.Format(KCDefine.U_FMT_DYNAMIC_DEBUG_MSG, oDynamicDebugStr, oExtraDynamicDebugStr);
+						CSceneManager.ScreenDynamicDebugText.text = string.Format(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_MSG, oDynamicDebugStr, oExtraDynamicDebugStr);
 					}
 				}
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 			}
 
 			// 트랜스 폼 설정이 가능 할 경우
 			if(!m_bIsSetupTransforms) {
 				m_bIsSetupTransforms = true;
-				var oObjs = this.gameObject.scene.GetRootGameObjects();
 
-				for(int i = oObjs.Length - KCDefine.B_VAL_1_INT; i >= KCDefine.B_VAL_0_INT; --i) {
-					var oTransforms = oObjs[i].GetComponentsInChildren<RectTransform>();
-
-					for(int j = oTransforms.Length - KCDefine.B_VAL_1_INT; j >= KCDefine.B_VAL_0_INT; --j) {
-						LayoutRebuilder.ForceRebuildLayoutImmediate(oTransforms[j]);
-					}
-				}
+				this.gameObject.scene.ExEnumerateComponents<RectTransform>((a_oTrans) => {
+					LayoutRebuilder.ForceRebuildLayoutImmediate(a_oTrans);
+					return true;
+				});
 			}
 		}
 	}
@@ -444,7 +451,7 @@ public abstract partial class CSceneManager : CComponent {
 		base.OnDestroy();
 
 		// 앱이 실행 중 일 경우
-		if(CSceneManager.IsAppRunning) {
+		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 			System.GC.Collect();
 			Resources.UnloadUnusedAssets();
 
@@ -478,16 +485,17 @@ public abstract partial class CSceneManager : CComponent {
 
 	//! 앱을 종료한다
 	public void QuitApp() {
-		this.ExLateCallFunc((a_oSender, a_oParams) => {
-			CSceneManager.IsAppQuit = true;
-			Time.timeScale = KCDefine.B_VAL_0_FLT;
+		CSceneManager.IsAppQuit = true;
+		Time.timeScale = KCDefine.B_VAL_0_FLT;
+
+		CScheduleManager.Inst.Reset();
+		CNavStackManager.Inst.Reset();
 
 #if UNITY_EDITOR
-			UnityEditor.EditorApplication.ExitPlaymode();
+		UnityEditor.EditorApplication.ExitPlaymode();
 #else
-			Application.Quit();
+		Application.Quit();
 #endif			// #if UNITY_EDITOR
-		});
 	}
 
 	//! 객체 풀을 추가한다
@@ -770,7 +778,7 @@ public abstract partial class CSceneManager : CComponent {
 
 #if ADS_MODULE_ENABLE
 			var stBannerAdsSize = (CAccess.DeviceType == EDeviceType.PHONE) ? KCDefine.U_SIZE_PHONE_BANNER_ADS : KCDefine.U_SIZE_TABLET_BANNER_ADS;
-			float fBannerAdsHeight = CAccess.GetBannerAdsHeight(stBannerAdsSize.y);
+			float fBannerAdsHeight = CAccess.GetBannerAdsScreenHeight(stBannerAdsSize.y);
 
 			var oAdsScreenPositions = new Vector3[] {
 				new Vector3(CSceneManager.CanvasSize.x / -KCDefine.B_VAL_2_FLT, (CSceneManager.CanvasSize.y / -KCDefine.B_VAL_2_FLT) + fBannerAdsHeight, KCDefine.B_VAL_0_FLT) * (KCDefine.B_UNIT_SCALE * CAccess.ResolutionScale),
@@ -782,6 +790,7 @@ public abstract partial class CSceneManager : CComponent {
 
 			for(int i = 0; i < oCanvasPositions.Length; ++i) {
 				var stPrevColor = Gizmos.color;
+				var stPrevHandlesColor = Handles.color;
 
 				try {
 					int nIdxA = (i + KCDefine.B_VAL_0_INT) % oCanvasPositions.Length;;
@@ -801,16 +810,27 @@ public abstract partial class CSceneManager : CComponent {
 #if ADS_MODULE_ENABLE
 					Gizmos.color = Color.red;
 					Gizmos.DrawLine(oAdsScreenPositions[nIdxA], oAdsScreenPositions[nIdxB]);
+
+					// 텍스트를 그린다 {
+					var stPos = new Vector3((CSceneManager.CanvasSize.x + (KCDefine.B_VAL_9_FLT * KCDefine.B_VAL_9_FLT)) / KCDefine.B_VAL_2_FLT, CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT) * (KCDefine.B_UNIT_SCALE * CAccess.ResolutionScale);
+
+					string oScreenDPIStr = string.Format(KCDefine.U_TEXT_FMT_SCREEN_INFO_A, CAccess.DPI);
+					string oBannerAdsHeightStr = string.Format(KCDefine.U_TEXT_FMT_SCREEN_INFO_B, CAccess.GetBannerAdsHeight(stBannerAdsSize.y));
+
+					Handles.color = Color.white;
+					Handles.Label(stPos, oScreenDPIStr + oBannerAdsHeightStr);
+					// 텍스트를 그린다 }
 #endif			// #if ADS_MODULE_ENABLE
 				} finally {
 					Gizmos.color = stPrevColor;
+					Handles.color = stPrevHandlesColor;
 				}
 			}
 		}
 	}
 #endif			// #if UNITY_EDITOR
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 	//! 정적 문자열을 변경한다
 	public static void SetStaticStr(string a_oStr) {
 		CSceneManager.m_oExtraStaticDebugStrBuilder.Clear();
@@ -825,9 +845,9 @@ public abstract partial class CSceneManager : CComponent {
 
 	//! 디버그 버튼을 눌렀을 경우
 	private static void OnTouchDebugBtn() {
-		CSceneManager.ScreenDebugTexts.SetActive(!CSceneManager.ScreenDebugTexts.activeSelf);
+		CSceneManager.ScreenDebugTextUIs.SetActive(!CSceneManager.ScreenDebugTextUIs.activeSelf);
 	}
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 	//! FPS 버튼을 눌렀을 경우

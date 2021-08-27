@@ -10,7 +10,7 @@ namespace SampleEngineName {
 		//! 엔진을 설정한다
 		private void SetupInit() {
 			m_oBlockDicts = new Dictionary<EBlockKinds, GameObject>[m_stParams.m_oLevelInfo.NumCells.y, m_stParams.m_oLevelInfo.NumCells.x];
-			m_stGridInfo = Factory.MakeGridInfo(m_stParams.m_oLevelInfo);
+			this.GridInfo = Factory.MakeGridInfo(m_stParams.m_oLevelInfo);
 		}
 		
 		//! 레벨을 설정한다
@@ -41,5 +41,9 @@ namespace SampleEngineName {
 			// Do Something
 		}
 		#endregion			// 함수
+
+		#region 추가 함수
+
+		#endregion			// 추가 함수
 	}
 }

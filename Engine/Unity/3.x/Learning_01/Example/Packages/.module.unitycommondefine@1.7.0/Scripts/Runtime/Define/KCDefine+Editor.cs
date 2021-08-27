@@ -17,13 +17,9 @@ public static partial class KCDefine {
 	public const string E_OBJ_N_RIGHT_EDITOR_UIS = "RightEditorUIs";
 	public const string E_OBJ_N_MID_EDITOR_UIS = "MidEditorUIs";
 
-	// 에디터 입력 팝업 {
+	// 에디터 입력 팝업
 	public const string E_OBJ_N_EDITOR_INPUT_POPUP = "EditorInputPopup";
 	public const string E_OBJ_N_EDITOR_IP_INPUT = "Input";
-
-	public const string E_OBJ_N_EDITOR_IP_OK_BTN = "OKBtn";
-	public const string E_OBJ_N_EDITOR_IP_CANCEL_BTN = "CancelBtn";
-	// 에디터 입력 팝업 }
 
 	// 에디터 레벨 생성 팝업 {
 	public const string E_OBJ_N_EDITOR_LEVEL_CREATE_POPUP = "EditorLevelCreatePopup";
@@ -34,18 +30,12 @@ public static partial class KCDefine {
 
 	public const string E_OBJ_N_EDITOR_LCP_MIN_NUM_CELLS_Y_INPUT = "MinNumCellsYInput";
 	public const string E_OBJ_N_EDITOR_LCP_MAX_NUM_CELLS_Y_INPUT = "MaxNumCellsYInput";
-
-	public const string E_OBJ_N_EDITOR_LCP_OK_BTN = "OKBtn";
-	public const string E_OBJ_N_EDITOR_LCP_CANCEL_BTN = "CancelBtn";
 	// 에디터 레벨 생성 팝업 }
 	
-	// 에디터 스크롤러 셀 뷰 {
-	public const string E_OBJ_N_ESCV_NAME_TEXT = "NameText";
-
+	// 에디터 스크롤러 셀 뷰
 	public const string E_OBJ_N_ESCV_COPY_BTN = "CopyBtn";
 	public const string E_OBJ_N_ESCV_MOVE_BTN = "MoveBtn";
 	public const string E_OBJ_N_ESCV_REMOVE_BTN = "RemoveBtn";
-	// 에디터 스크롤러 셀 뷰 }
 	// 이름 }
 	#endregion			// 기본
 

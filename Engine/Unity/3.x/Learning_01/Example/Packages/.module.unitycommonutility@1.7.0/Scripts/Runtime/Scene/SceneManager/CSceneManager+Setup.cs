@@ -157,7 +157,7 @@ public abstract partial class CSceneManager : CComponent {
 		CSceneManager.UIsTop.ExSetEnableComponent<EventSystem>(true, false);
 		CSceneManager.UIsTop.ExSetEnableComponent<BaseInputModule>(true, false);
 		
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 		// 디버그 버튼이 존재 할 경우
 		if(CSceneManager.ScreenDebugBtn != null) {
 			CSceneManager.ScreenDebugBtn.gameObject.SetActive(true);
@@ -165,7 +165,7 @@ public abstract partial class CSceneManager : CComponent {
 			CSceneManager.ScreenDebugBtn.onClick.RemoveAllListeners();
 			CSceneManager.ScreenDebugBtn.onClick.AddListener(CSceneManager.OnTouchDebugBtn);
 		}
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 		// FPS 버튼이 존재 할 경우
@@ -193,7 +193,7 @@ public abstract partial class CSceneManager : CComponent {
 			this.SetupCanvas(CSceneManager.ScreenTopmostUIs?.GetComponentInParent<Canvas>());
 			this.SetupCanvas(CSceneManager.ScreenAbsUIs?.GetComponentInParent<Canvas>());
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 			// 앱이 초기화 되었을 경우
 			if(CSceneManager.IsAppInit) {
 				bool bIsTestDevice = CCommonAppInfoStorage.Inst.IsTestDevice();
@@ -201,7 +201,7 @@ public abstract partial class CSceneManager : CComponent {
 			}
 
 			this.SetupCanvas(CSceneManager.ScreenDebugUIs?.GetComponentInParent<Canvas>());
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 			// 캔버스를 설정한다 }
 		}
 	}
@@ -490,7 +490,7 @@ public abstract partial class CSceneManager : CComponent {
 
 		// 입력 모듈이 없을 경우
 		if(oInputModule == null && CSceneManager.EventSystem != null) {
-			CSceneManager.EventSystem.gameObject.ExRemoveComponent<BaseInputModule>();
+			CSceneManager.EventSystem.gameObject.ExRemoveComponent<BaseInputModule>(false);
 			CSceneManager.BaseInputModule = CSceneManager.EventSystem.gameObject.ExAddComponent<InputSystemUIInputModule>();
 
 #if UNITY_EDITOR
@@ -505,8 +505,15 @@ public abstract partial class CSceneManager : CComponent {
 
 		// 입력 모듈이 없을 경우
 		if(oInputModule == null && CSceneManager.EventSystem != null) {
-			CSceneManager.EventSystem.gameObject.ExRemoveComponent<BaseInputModule>();
+			CSceneManager.EventSystem.gameObject.ExRemoveComponent<BaseInputModule>(false);
 			CSceneManager.BaseInputModule = CSceneManager.EventSystem.gameObject.ExAddComponent<StandaloneInputModule>();
+
+#if UNITY_EDITOR
+			// 에디터 모드 일 경우
+			if(!Application.isPlaying) {
+				EditorSceneManager.MarkSceneDirty(this.gameObject.scene);
+			}
+#endif			// #if UNITY_EDITOR
 		}
 #endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 		// 기본 객체를 설정한다 }
@@ -542,9 +549,9 @@ public abstract partial class CSceneManager : CComponent {
 			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS),
 			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_ABS_UIS),
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS)
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 		};
 
 		for(int i = 0; i < oUIObjs.Length; ++i) {
@@ -594,11 +601,11 @@ public abstract partial class CSceneManager : CComponent {
 				bool bIsCanvasObjs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJS);
 				bool bIsCanvasPivotObjs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_CANVAS_PIVOT_OBJS);
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 				bool bIsDebugUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS);
 #else
 				bool bIsDebugUIs = false;
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 				bool bIsBaseUIs = bIsUIs || bIsTestUIs || bIsPivotUIs || bIsCanvasObjs || bIsCanvasPivotObjs;
 				bool bIsEnableCorrectUIs = bIsUIs || bIsTestUIs || bIsPivotUIs || bIsAnchorUIs || bIsBlindUIs || bIsCanvasObjs || bIsCanvasPivotObjs || bIsDebugUIs;
@@ -690,7 +697,7 @@ public abstract partial class CSceneManager : CComponent {
 				}
 			}
 
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 			// 디버그 UI 루트 일 경우
 			if(oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS)) {
 				// 정적 디버그 텍스트를 설정한다
@@ -703,22 +710,17 @@ public abstract partial class CSceneManager : CComponent {
 					oRectTrans.anchoredPosition = Vector2.zero;
 
 					CSceneManager.m_oStaticDebugStrBuilder.Clear();
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_A, CAccess.ScreenSize.x, CAccess.ScreenSize.y);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_B, KCDefine.B_SCREEN_WIDTH, KCDefine.B_SCREEN_HEIGHT);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_C, CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_D, CSceneManager.UpUIsOffset, CSceneManager.DownUIsOffset, CSceneManager.LeftUIsOffset, CSceneManager.RightUIsOffset);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_E, CSceneManager.UpObjOffset, CSceneManager.DownObjOffset, CSceneManager.LeftObjOffset, CSceneManager.RightObjOffset);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_F, CSceneManager.UpUIsRootOffset, CSceneManager.DownUIsRootOffset, CSceneManager.LeftUIsRootOffset, CSceneManager.RightUIsRootOffset);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_G, CSceneManager.UpObjsRootOffset, CSceneManager.DownObjsRootOffset, CSceneManager.LeftObjsRootOffset, CSceneManager.RightObjsRootOffset);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_H, CAccess.SafeArea.x, CAccess.SafeArea.y, CAccess.SafeArea.width, CAccess.SafeArea.height);
+					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_A, CAccess.ScreenSize.x, CAccess.ScreenSize.y);
+					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_B, KCDefine.B_SCREEN_WIDTH, KCDefine.B_SCREEN_HEIGHT);
+					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_C, CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y);
 
 #if ADS_MODULE_ENABLE
 					// 디바이스 타입이 유효 할 경우
 					if(CCommonAppInfoStorage.Inst.DeviceType.ExIsValid()) {
 						var stBannerAdsSize = (CCommonAppInfoStorage.Inst.DeviceType == EDeviceType.PHONE) ? KCDefine.U_SIZE_PHONE_BANNER_ADS : KCDefine.U_SIZE_TABLET_BANNER_ADS;
-						float fBannerAdsHeight = CAccess.GetBannerAdsHeight(stBannerAdsSize.y);
+						float fBannerAdsHeight = CAccess.GetBannerAdsScreenHeight(stBannerAdsSize.y);
 						
-						CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_FMT_STATIC_DEBUG_INFO_I, CAccess.DPI, fBannerAdsHeight);
+						CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_D, CAccess.DPI, fBannerAdsHeight);
 					}
 #endif			// #if ADS_MODULE_ENABLE
 				}
@@ -735,7 +737,7 @@ public abstract partial class CSceneManager : CComponent {
 					CSceneManager.m_oDynamicDebugStrBuilder.Clear();
 				}
 			}
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 		}
 		// UI 객체를 설정한다 }
 

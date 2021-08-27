@@ -123,11 +123,6 @@ public static partial class CPlatformOptsSetter {
 					stKeyVal.Value.ExAddVal(KCEditorDefine.DS_DEFINE_S_NO_GPGS);
 				}
 
-				// 입력 시스템 심볼이 존재 할 경우
-				if(stKeyVal.Value.Contains(KCEditorDefine.DS_DEFINE_S_INPUT_SYSTEM_ENABLE)) {
-					stKeyVal.Value.ExAddVal(KCEditorDefine.DS_DEFINE_S_ENABLE_INPUT_SYSTEM);
-				}
-
 				// 스터디 전처리기 심볼이 존재 할 경우
 				if(bIsContainsStudy || stKeyVal.Value.Contains(KCEditorDefine.DS_DEFINE_S_STUDY_MODULE_ENABLE)) {
 					stKeyVal.Value.ExAddVal(KCEditorDefine.DS_DEFINE_S_LIGHT_ENABLE);

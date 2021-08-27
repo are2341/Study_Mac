@@ -31,7 +31,6 @@ public static class CScriptableObjCreator {
 			KCEditorDefine.DS_DEFINE_S_LIGHTMAP_AUTO_BAKE_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_LIGHTMAP_SHADOW_BAKE_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_LZ4_COMPRESS_ENABLE,
-			KCEditorDefine.DS_DEFINE_S_INPUT_SYSTEM_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_ADDRESSABLES_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_BURST_COMPILER_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_ADAPTIVE_PERFORMANCE_ENABLE,
@@ -119,7 +118,7 @@ public static class CScriptableObjCreator {
 			m_oKeyaliasPassword = "NSString132!",
 
 			m_eMinSDKVer = AndroidSdkVersions.AndroidApiLevel21,
-			m_eTargetSDKVer = AndroidSdkVersions.AndroidApiLevel29
+			m_eTargetSDKVer = AndroidSdkVersions.AndroidApiLevel30
 		});
 	}
 
@@ -158,13 +157,9 @@ public static class CScriptableObjCreator {
 		});
 
 		oBuildOptsTable.SetCommonBuildOpts(new STCommonBuildOpts() {
-			m_bIsGPUSkinning = true,
-			m_bIsMTRendering = true,
 			m_bIsRunInBackground = false,
 			m_bIsPreBakeCollisionMesh = false,
-			m_bIsUse32BitDisplayBuffer = true,
 			m_bIsMuteOtherAudioSource = false,
-			m_bIsEnableFrameTimingStats = true,
 			m_bIsEnableInternalProfiler = false,
 			m_bIsPreserveFrameBufferAlpha = false,
 			m_bIsEnableVulkanSRGBWrite = false,
@@ -366,10 +361,6 @@ public static class CScriptableObjCreator {
 		oPluginInfoTable.SetiOSFlurryAPIKey("KMVH2DR22CBQWMZJ6XJ8");
 		oPluginInfoTable.SetAndroidFlurryAPIKey("9B4TJSM4BFJ9N4J2X83D");
 #endif			// #if FLURRY_MODULE_ENABLE
-
-#if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
-		oPluginInfoTable.SetFirebaseDBURL("https://sample-61739440.firebaseio.com");
-#endif			// #if FIREBASE_MODULE_ENABLE && FIREBASE_DB_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 		oPluginInfoTable.SetSingularPluginInfo(new STSingularPluginInfo() {

@@ -50,7 +50,7 @@ public class CToastPopupManager : CSingleton<CToastPopupManager> {
 		CAccess.Assert(a_stParams.m_fDuration.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
 		var oObj = CResManager.Inst.GetRes<GameObject>(KCDefine.U_OBJ_P_G_TOAST_POPUP);
 
-		return CToastPopup.Create<CToastPopup>(KCDefine.U_OBJ_N_TOAST_P_TOAST_POPUP, oObj, CSceneManager.ScreenTopmostUIs, a_stParams, a_stPos);
+		return CToastPopup.Create<CToastPopup>(KCDefine.U_OBJ_N_TOAST_POPUP, oObj, CSceneManager.ScreenTopmostUIs, a_stParams, a_stPos);
 	}
 	#endregion			// 함수
 }

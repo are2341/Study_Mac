@@ -9,22 +9,13 @@ public class CNavStackManager : CSingleton<CNavStackManager> {
 	#region 변수
 	private List<STComponentInfo> m_oComponentInfoList = new List<STComponentInfo>();
 	#endregion			// 변수
-
-	#region 프로퍼티
-	public CComponent TopComponent {
-		get {
-			// 컴포넌트 정보가 없을 경우
-			if(!m_oComponentInfoList.ExIsValid()) {
-				return null;
-			}
-
-			var stComponentInfo = m_oComponentInfoList.Last();
-			return stComponentInfo.m_oComponent as CComponent;
-		}
-	}
-	#endregion			// 프로퍼티
 	
 	#region 함수
+	//! 상태를 리셋한다
+	public virtual void Reset() {
+		m_oComponentInfoList.Clear();
+	}
+
 	//! 컴포넌트를 추가한다
 	public void AddComponent(CComponent a_oComponent) {
 		int nID = a_oComponent.GetInstanceID();

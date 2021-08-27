@@ -24,11 +24,11 @@ public static partial class KCDefine {
 	#endregion			// 런타임 상수
 
 	#region 조건부 상수
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#if DEBUG || DEVELOPMENT_BUILD
 	// 이름
 	public const string SS_OBJ_N_DEBUG_UIS = "DebugUIs";
 	public const string SS_OBJ_N_DEBUG_CONSOLE = "DebugConsole";
-#endif			// #if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 	// 이름

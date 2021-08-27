@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using EnhancedUI.EnhancedScroller;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -16,10 +15,6 @@ using UnityEngine.iOS;
 #if UNITY_ANDROID
 using UnityEngine.Android;
 #endif			// #if UNITY_ANDROID
-
-#if INPUT_SYSTEM_MODULE_ENABLE
-using UnityEngine.InputSystem;
-#endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
@@ -41,7 +36,7 @@ public static partial class CAccess {
 
 	public static bool IsSupportsHapticFeedback {
 		get {
-#if HAPTIC_FEEDBACK_ENABLE && (UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID)
+#if HAPTIC_FEEDBACK_ENABLE && (UNITY_IOS || UNITY_ANDROID)
 #if UNITY_IOS
 			var oVer = new System.Version(Device.systemVersion);
 			int nCompare = oVer.CompareTo(KCDefine.U_MIN_VER_HAPTIC_FEEDBACK);
@@ -67,7 +62,7 @@ public static partial class CAccess {
 #endif			// #if UNITY_IOS
 #else
 			return false;
-#endif			// #if HAPTIC_FEEDBACK_ENABLE && (UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID)
+#endif			// #if HAPTIC_FEEDBACK_ENABLE && (UNITY_IOS || UNITY_ANDROID)
 		}
 	}
 
@@ -147,38 +142,6 @@ public static partial class CAccess {
 	public static float RightScreenScale => (CAccess.ScreenSize.x - (CAccess.SafeArea.x + CAccess.SafeArea.width)) / CAccess.ScreenSize.x;
 
 	public static Vector3 Resolution => KCDefine.B_SCREEN_SIZE * CAccess.ResolutionScale;
-
-#if INPUT_SYSTEM_MODULE_ENABLE
-	public static bool IsTouch {
-		get {
-#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-			return Touchscreen.current.press.isPressed;
-#else
-			return Mouse.current.press.isPressed;
-#endif			// #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-		}
-	}
-
-	public static bool IsTouchBegin {
-		get {
-#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-			return Touchscreen.current.press.wasPressedThisFrame;
-#else
-			return Mouse.current.press.wasPressedThisFrame;
-#endif			// #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-		}
-	}
-
-	public static bool IsTouchEnd {
-		get {
-#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-			return Touchscreen.current.press.wasReleasedThisFrame;
-#else
-			return Mouse.current.press.wasReleasedThisFrame;
-#endif			// #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-		}
-	}
-#endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 	#endregion			// 클래스 프로퍼티
 
 	#region 클래스 함수
@@ -194,13 +157,22 @@ public static partial class CAccess {
 	}
 	
 	//! 배너 광고 높이를 반환한다
-	public static float GetBannerAdsHeight(float a_fDesignHeight) {
-		CAccess.Assert(a_fDesignHeight.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
+	public static float GetBannerAdsHeight(float a_fHeight) {
+		CAccess.Assert(a_fHeight.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
 
-		float fPercent = KCDefine.B_SCREEN_HEIGHT / CAccess.ScreenSize.y;
-		float fBannerAdsHeight = a_fDesignHeight * (CAccess.DPI / KCDefine.B_DPI);
-
+		float fPercent = KCDefine.B_SCREEN_HEIGHT / (float)Screen.height;
+		float fBannerAdsHeight = CAccess.GetBannerAdsScreenHeight(a_fHeight);
+		
 		return (fBannerAdsHeight * fPercent) / CAccess.ResolutionScale;
+	}
+
+	//! 배너 광고 화면 높이를 반환한다
+	public static float GetBannerAdsScreenHeight(float a_fHeight) {
+#if UNITY_EDITOR || MODE_PORTRAIT_ENABLE
+		return a_fHeight * (CAccess.DPI / KCDefine.B_DPI);
+#else
+		return (a_fHeight * KCDefine.U_SCALE_LANDSCAPE_BANNER_ADS_HEIGHT) * (CAccess.DPI / KCDefine.B_DPI);
+#endif			// #if UNITY_EDITOR || MODE_PORTRAIT_ENABLE
 	}
 	
 	//! 값을 할당한다
@@ -264,7 +236,7 @@ public static partial class CAccess {
 		decimal dclPrice = a_oProduct.metadata.localizedPrice;
 		string oCurrencyCode = a_oProduct.metadata.isoCurrencyCode;
 		
-		return string.Format(KCDefine.B_TEXT_FMT_2_COMBINE, oCurrencyCode, dclPrice);		
+		return string.Format(KCDefine.B_TEXT_FMT_2_SPACE_COMBINE, oCurrencyCode, dclPrice);		
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수

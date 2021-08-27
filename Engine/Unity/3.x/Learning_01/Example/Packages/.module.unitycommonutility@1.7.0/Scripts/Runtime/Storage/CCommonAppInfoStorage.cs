@@ -16,6 +16,8 @@ public class CCommonAppInfo : CCommonBaseInfo {
 	private const string KEY_IS_FIRST_PLAY = "IsFirstPlay";
 	private const string KEY_IS_ENABLE_SHOW_DESC_POPUP = "IsEnableShowDescPopup";
 
+	private const string KEY_APP_RUNNING_TIMES = "AppRunningTimes";
+
 	private const string KEY_LANGUAGE = "Language";
 	private const string KEY_DEVICE_ID = "DeviceID";
 	private const string KEY_INSTALL_TIME = "InstallTime";
@@ -51,6 +53,11 @@ public class CCommonAppInfo : CCommonBaseInfo {
 	[IgnoreMember] public bool IsEnableShowDescPopup {
 		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; }
 		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
+	}
+
+	[IgnoreMember] public int AppRunningTimes { 
+		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_APP_RUNNING_TIMES, KCDefine.B_VAL_0_INT); }
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_APP_RUNNING_TIMES, value); }
 	}
 	
 	[IgnoreMember] public SystemLanguage Language {
@@ -148,6 +155,34 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 #endif			// #if UNITY_IOS
 	}
 
+	//! 디바이스 타입을 설정한다
+	public void SetupDeviceType() {
+		this.DeviceType = CAccess.DeviceType;
+	}
+	
+	//! 광고 식별자를 설정한다
+	public void SetupAdsID() {
+		// 광고 식별자를 지원하지 않을 경우
+		if(!Application.RequestAdvertisingIdentifierAsync(this.OnReceiveAdsID)) {
+#if DEBUG || DEVELOPMENT_BUILD
+			this.OnReceiveAdsID(KCDefine.U_ADS_ID_TEST_DEVICE, true, string.Empty);
+#endif			// if DEBUG || DEVELOPMENT_BUILD
+		}
+	}
+	
+	//! 스토어 버전을 설정한다
+	public void SetupStoreVer() {
+#if STORE_VER_CHECK_ENABLE
+#if UNITY_ANDROID
+		string oVer = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_nNum);
+#else
+		string oVer = CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_oVer;
+#endif			// #if UNITY_ANDROID
+
+		CUnityMsgSender.Inst.SendGetStoreVerMsg(CProjInfoTable.Inst.ProjInfo.m_oAppID, oVer, KCDefine.U_TIMEOUT_NETWORK_CONNECTION, this.HandleGetStoreVerMsg);
+#endif			// #if STORE_VER_CHECK_ENABLE
+	}
+
 	//! 약관 동의 필요 여부를 검사한다
 	public bool IsNeedAgree(string a_oCountryCode) {
 		string oCountryCode = a_oCountryCode.ToUpper();
@@ -218,32 +253,10 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 		return oVerA.CompareTo(oVerB) >= KCDefine.B_COMPARE_GREATE;
 	}
 
-	//! 디바이스 타입을 설정한다
-	public void SetupDeviceType() {
-		this.DeviceType = CAccess.DeviceType;
-	}
-	
-	//! 광고 식별자를 설정한다
-	public void SetupAdsID() {
-		// 광고 식별자를 지원하지 않을 경우
-		if(!Application.RequestAdvertisingIdentifierAsync(this.OnReceiveAdsID)) {
-#if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
-			this.OnReceiveAdsID(KCDefine.U_ADS_ID_TEST_DEVICE, true, string.Empty);
-#endif			// if LOGIC_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
-		}
-	}
-	
-	//! 스토어 버전을 설정한다
-	public void SetupStoreVer() {
-#if STORE_VER_CHECK_ENABLE
-#if UNITY_ANDROID
-		string oVer = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_nNum);
-#else
-		string oVer = CProjInfoTable.Inst.ProjInfo.m_stBuildVer.m_oVer;
-#endif			// #if UNITY_ANDROID
-
-		CUnityMsgSender.Inst.SendGetStoreVerMsg(CProjInfoTable.Inst.ProjInfo.m_oAppID, oVer, KCDefine.U_TIMEOUT_NETWORK_CONNECTION, this.HandleGetStoreVerMsg);
-#endif			// #if STORE_VER_CHECK_ENABLE
+	//! 앱 실행 횟수를 추가한다
+	public void AddAppRunningTimes(int a_nTimes) {
+		int nRunningTimes = this.AppInfo.AppRunningTimes + a_nTimes;
+		this.AppInfo.AppRunningTimes = Mathf.Max(nRunningTimes, KCDefine.B_VAL_0_INT);
 	}
 
 	//! 앱 정보를 로드한다

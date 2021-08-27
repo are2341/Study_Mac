@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 #if STUDY_MODULE_ENABLE
 //! 메뉴 씬 관리자
 public class CMenuSceneManager : CSceneManager {
-	#region UI 변수
-	protected ScrollRect m_oScrollView = null;
+	#region 변수
+	// UI
+	protected ScrollRect m_oScrollRect = null;
 	protected List<Text> m_oEmptyTextList = new List<Text>();
-	#endregion			// UI 변수
+	#endregion			// 변수
 
 	#region 프로퍼티
 	public override string SceneName => KCDefine.B_SCENE_N_MENU;
@@ -24,9 +25,9 @@ public class CMenuSceneManager : CSceneManager {
 
 		// 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
-			m_oScrollView = this.SubUIs.ExFindComponent<ScrollRect>(KSDefine.MS_OBJ_N_SCROLL_VIEW);
+			m_oScrollRect = this.SubUIs.ExFindComponent<ScrollRect>(KSDefine.MS_OBJ_N_SCROLL_VIEW);
 
-			var oContents = m_oScrollView.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCROLL_V_CONTENTS);
+			var oContents = m_oScrollRect.gameObject.ExFindChild(KCDefine.U_OBJ_N_CONTENTS);
 			int nNumDefScenes = KSDefine.MS_NUM_DEF_SCENES + KCDefine.B_VAL_1_INT;
 
 			for(int i = nNumDefScenes; i < SceneManager.sceneCountInBuildSettings + KCDefine.B_VAL_2_INT; ++i) {

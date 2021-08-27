@@ -151,7 +151,7 @@ public static partial class KEditorDefine {
 	// 유니티 패키지 {
 	public static readonly Dictionary<string, string> B_UNITY_PKGS_DEPENDENCIES = new Dictionary<string, string>() {
 		// 기본 {
-		["com.unity.burst"] = "1.5.5",
+		["com.unity.burst"] = "1.5.6",
 		["com.unity.recorder"] = "2.5.5",
 		["com.unity.polybrush"] = "1.1.2",
 		["com.unity.probuilder"] = "5.0.3",
@@ -160,11 +160,10 @@ public static partial class KEditorDefine {
 		["com.unity.2d.sprite"] = "1.0.0",
 		["com.unity.2d.spriteshape"] = "6.0.1",
 		["com.unity.2d.tilemap"] = "1.0.0",
-		["com.unity.2d.tilemap.extras"] = "2.0.0",
+		["com.unity.2d.tilemap.extras"] = "2.2.0",
 
 		["com.unity.mathematics"] = "1.2.1",
-		["com.unity.inputsystem"] = "1.0.2",
-		["com.unity.addressables"] = "1.16.19",
+		["com.unity.addressables"] = "1.18.15",
 		["com.unity.ads.ios-support"] = "1.0.0",
 		// 기본 }
 
@@ -186,8 +185,12 @@ public static partial class KEditorDefine {
 #endif			// #if ML_AGENTS_ENABLE
 
 #if CINEMACHINE_ENABLE
-		["com.unity.cinemachine"] = "2.7.5",
+		["com.unity.cinemachine"] = "2.7.8",
 #endif			// #if CINEMACHINE_ENABLE
+
+#if INPUT_SYSTEM_ENABLE || INPUT_SYSTEM_MODULE_ENABLE
+		["com.unity.inputsystem"] = "1.0.2",
+#endif			// #if INPUT_SYSTEM_ENABLE || INPUT_SYSTEM_MODULE_ENABLE
 
 #if POST_PROCESSING_ENABLE || UNITY_POST_PROCESSING_STACK_V2
     	["com.unity.postprocessing"] = "3.1.1",
@@ -408,6 +411,10 @@ public static partial class KEditorDefine {
 	};
 #endif			// #if UNITY_IOS
 	#endregion			// 조건부 런타임 상수
+
+	#region 추가 상수
+
+	#endregion			// 추가 상수
 }
 #endif			// #if UNITY_EDITOR
 #endif			// #if NEVER_USE_THIS

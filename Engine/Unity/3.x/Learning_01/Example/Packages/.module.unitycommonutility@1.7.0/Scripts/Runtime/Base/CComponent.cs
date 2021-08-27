@@ -46,7 +46,7 @@ public abstract class CComponent : MonoBehaviour {
 		this.IsDestroy = true;
 
 		// 앱이 실행 중 일 경우
-		if(CSceneManager.IsAppRunning) {
+		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
 			this.DestroyCallback?.Invoke(this);
 			this.ScheduleCallback?.Invoke(this);
 			this.NavStackCallback?.Invoke(this);

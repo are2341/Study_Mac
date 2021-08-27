@@ -8,7 +8,6 @@ public static partial class KCDefine {
 	#region 기본
 	// 설명 팝업
 	public const string LSS_OBJ_N_DESC_POPUP = "DescPopup";
-	public const string LSS_OBJ_N_DESC_P_NEXT_BTN = "NextBtn";
 	#endregion			// 기본
 
 	#region 런타임 상수

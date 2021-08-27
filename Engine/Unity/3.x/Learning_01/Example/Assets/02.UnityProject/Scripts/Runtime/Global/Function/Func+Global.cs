@@ -11,23 +11,23 @@ using UnityEngine.Purchasing;
 public static partial class Func {
 	#region 클래스 함수
 	//! 아이템을 획득한다
-	public static void AcquireItem(STItemInfo a_stItemInfo) {
+	public static void AcquireItem(STItemInfo a_stItemInfo, int a_nExtraNumItems = KCDefine.B_VAL_0_INT) {
 		switch(a_stItemInfo.m_eItemKinds) {
-			case EItemKinds.GOODS_COIN: {
-				CUserInfoStorage.Inst.AddNumCoins(a_stItemInfo.m_nNumItems);
+			case EItemKinds.GOODS_COINS: {
+				CUserInfoStorage.Inst.AddNumCoins(a_stItemInfo.m_nNumItems + a_nExtraNumItems);
 			} break;
 			case EItemKinds.NON_CONSUMABLE_REMOVE_ADS: {
 				CCommonUserInfoStorage.Inst.UserInfo.IsRemoveAds = true;
 
 #if ADS_MODULE_ENABLE
+				CAdsManager.Inst.CloseBannerAds(CPluginInfoTable.Inst.DefAdsType, true);
+
 				CAdsManager.Inst.IsEnableBannerAds = false;
 				CAdsManager.Inst.IsEnableFullscreenAds = false;
-				
-				CAdsManager.Inst.CloseBannerAds(CPluginInfoTable.Inst.DefAdsType, true);
 #endif			// #if ADS_MODULE_ENABLE
 			} break;
 			default: {
-				CUserInfoStorage.Inst.AddNumItems(a_stItemInfo.m_eItemKinds, a_stItemInfo.m_nNumItems);
+				CUserInfoStorage.Inst.AddNumItems(a_stItemInfo.m_eItemKinds, a_stItemInfo.m_nNumItems + a_nExtraNumItems);
 			} break;
 		}
 
@@ -36,17 +36,17 @@ public static partial class Func {
 	}
 
 	//! 아이템을 구입한다
-	public static void BuyItem(STSaleItemInfo a_stSaleItemInfo, bool a_bIsIgnoreAcquire = false) {
+	public static void BuyItem(STSaleItemInfo a_stSaleItemInfo, List<int> a_oExtraNumItemsList = null, int a_nExtraPrice = KCDefine.B_VAL_0_INT, bool a_bIsIgnoreAcquire = false) {
 		// 아이템 획득이 가능 할 경우
 		if(!a_bIsIgnoreAcquire) {
 			for(int i = 0; i < a_stSaleItemInfo.m_oItemInfoList.Count; ++i) {
-				Func.AcquireItem(a_stSaleItemInfo.m_oItemInfoList[i]);
+				Func.AcquireItem(a_stSaleItemInfo.m_oItemInfoList[i], a_oExtraNumItemsList.ExIsValid() ? a_oExtraNumItemsList.ExGetVal(i, KCDefine.B_VAL_0_INT) : KCDefine.B_VAL_0_INT);
 			}
 		}
 
 		// 코인 비용이 존재 할 경우
-		if(a_stSaleItemInfo.m_ePriceKinds == EPriceKinds.GOODS_COIN && a_stSaleItemInfo.m_nPrice > KCDefine.B_VAL_0_INT) {
-			CUserInfoStorage.Inst.AddNumCoins(-a_stSaleItemInfo.m_nPrice);
+		if(a_stSaleItemInfo.m_ePriceKinds == EPriceKinds.GOODS_COINS && a_stSaleItemInfo.IntPrice + a_nExtraPrice > KCDefine.B_VAL_0_INT) {
+			CUserInfoStorage.Inst.AddNumCoins(-(a_stSaleItemInfo.IntPrice + a_nExtraPrice));
 		}
 
 		CUserInfoStorage.Inst.SaveUserInfo();
@@ -87,9 +87,9 @@ public static partial class Func {
 		Func.ShowPopup<CDailyRewardPopup>(KDefine.G_OBJ_N_DAILY_REWARD_POPUP, KCDefine.U_OBJ_P_G_DAILY_REWARD_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
-	//! 잔돈 팝업을 출력한다
-	public static void ShowChangesPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
-		Func.ShowPopup<CChangesPopup>(KDefine.G_OBJ_N_CHANGES_POPUP, KCDefine.U_OBJ_P_G_CHANGES_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	//! 판매 코인 팝업을 출력한다
+	public static void ShowSaleCoinsPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CSaleCoinsPopup>(KDefine.G_OBJ_N_SALE_COINS_POPUP, KCDefine.U_OBJ_P_G_CHANGES_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
 	//! 보상 획득 팝업을 출력한다
@@ -97,9 +97,19 @@ public static partial class Func {
 		Func.ShowPopup<CRewardAcquirePopup>(KDefine.G_OBJ_N_REWARD_ACQUIRE_POPUP, KCDefine.U_OBJ_P_G_REWARD_ACQUIRE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
-	//! 잔돈 획득 팝업을 출력한다
-	public static void ShowChangesAcquirePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
-		Func.ShowPopup<CChangesAcquirePopup>(KDefine.G_OBJ_N_CHANGES_ACQUIRE_POPUP, KCDefine.U_OBJ_P_G_CHANGES_ACQUIRE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	//! 판매 코인 획득 팝업을 출력한다
+	public static void ShowSaleCoinsAcquirePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CSaleCoinsAcquirePopup>(KDefine.G_OBJ_N_SALE_COINS_ACQUIRE_POPUP, KCDefine.U_OBJ_P_G_CHANGES_ACQUIRE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	}
+
+	//! 이어하기 팝업을 출력한다
+	public static void ShowContinuePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CContinuePopup>(KDefine.G_OBJ_N_CONTINUE_POPUP, KCDefine.U_OBJ_P_G_CONTINUE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	}
+
+	//! 결과 팝업을 출력한다
+	public static void ShowResultPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CResultPopup>(KDefine.G_OBJ_N_RESULT_POPUP, KCDefine.U_OBJ_P_G_RESULT_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
 	//! 포커스 팝업을 출력한다
@@ -135,16 +145,6 @@ public static partial class Func {
 		}
 	}
 
-	//! 유저 정보가 저장 되었을 경우
-	public static void OnSaveUserInfo(CFirebaseManager a_oSender, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
-		// 저장 되었을 경우
-		if(a_bIsSuccess) {
-			Func.ShowSaveSuccessPopup(a_oCallback);
-		} else {
-			Func.ShowSaveFailPopup(a_oCallback);
-		}
-	}
-
 	//! 유저 정보가 로드 되었을 경우
 	public static void OnLoadUserInfo(CFirebaseManager a_oSender, string a_oJSONStr, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
 		// 로드 되었을 경우
@@ -152,6 +152,16 @@ public static partial class Func {
 			Func.ShowLoadSuccessPopup(a_oCallback);
 		} else {
 			Func.ShowLoadFailPopup(a_oCallback);
+		}
+	}
+
+	//! 유저 정보가 저장 되었을 경우
+	public static void OnSaveUserInfo(CFirebaseManager a_oSender, bool a_bIsSuccess, System.Action<CAlertPopup, bool> a_oCallback) {
+		// 저장 되었을 경우
+		if(a_bIsSuccess) {
+			Func.ShowSaveSuccessPopup(a_oCallback);
+		} else {
+			Func.ShowSaveFailPopup(a_oCallback);
 		}
 	}
 #endif			// #if FIREBASE_MODULE_ENABLE
@@ -194,7 +204,7 @@ public static partial class Func {
 			}
 
 			// 비소모 상품 일 경우
-			if(oProduct != null && oProduct.definition.type == ProductType.NonConsumable) {
+			if(oProduct != null && oProduct.definition.type == ProductType.NonConsumable && !CCommonUserInfoStorage.Inst.IsRestoreProduct(a_oProductID)) {
 				CCommonUserInfoStorage.Inst.AddRestoreProductID(a_oProductID);
 				CCommonUserInfoStorage.Inst.SaveUserInfo();
 			}
@@ -217,10 +227,26 @@ public static partial class Func {
 					for(int j = 0; j < stSaleProductInfo.m_oItemInfoList.Count; ++j) {
 						Func.AcquireItem(stSaleProductInfo.m_oItemInfoList[j]);
 					}
-				}
+
+					CCommonUserInfoStorage.Inst.AddRestoreProductID(a_oProductList[i].definition.id);
+				}				
 			}
+
+			CCommonUserInfoStorage.Inst.SaveUserInfo();
 		}
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
+
+	#region 추가 클래스 변수
+
+	#endregion			// 추가 클래스 변수
+
+	#region 추가 클래스 프로퍼티
+
+	#endregion			// 추가 클래스 프로퍼티
+
+	#region 추가 클래스 함수
+
+	#endregion			// 추가 클래스 함수
 }

@@ -25,18 +25,17 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.DEBUG;
 		EditorUserBuildSettings.iOSBuildConfigType = iOSBuildType.Debug;
 
-		// 전처리기 심볼을 추가한다
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
+		// 빌드 옵션을 설정한다
+		var oPlayerOpts = new BuildPlayerOptions();
+		oPlayerOpts.options = BuildOptions.Development;
 
 		// 프로비저닝 파일 정보를 설정한다
 		PlayerSettings.iOS.iOSManualProvisioningProfileID = CPlatformOptsSetter.BuildInfoTable.iOSBuildInfo.m_oDevProfileID;
 		PlayerSettings.iOS.iOSManualProvisioningProfileType = ProvisioningProfileType.Development;
 
-		// 빌드 옵션을 설정한다
-		var oPlayerOpts = new BuildPlayerOptions();
-		oPlayerOpts.options = BuildOptions.Development;
-		
+		// 전처리기 심볼을 추가한다
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
+
 		CPlatformBuilder.BuildiOS(oPlayerOpts);
 	}
 
@@ -53,18 +52,12 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.RELEASE;
 		EditorUserBuildSettings.iOSBuildConfigType = iOSBuildType.Release;
 
-		// 전처리기 심볼을 추가한다 {
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-
-		// 자동 실행 모드 일 경우
-		if(CPlatformBuilder.IsAutoPlay) {
-			CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
-		}
-		// 전처리기 심볼을 추가한다 }
-
 		// 프로비저닝 파일 정보를 설정한다
 		PlayerSettings.iOS.iOSManualProvisioningProfileID = CPlatformOptsSetter.BuildInfoTable.iOSBuildInfo.m_oDevProfileID;
 		PlayerSettings.iOS.iOSManualProvisioningProfileType = ProvisioningProfileType.Development;
+
+		// 전처리기 심볼을 추가한다
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
 
 		CPlatformBuilder.BuildiOS(new BuildPlayerOptions());
 	}
@@ -72,9 +65,10 @@ public static partial class CPlatformBuilder {
 	//! iOS 를 빌드한다
 	[MenuItem("Tools/Utility/Build/Local/iOS/Release with AutoPlay", false, 22)]
 	public static void BuildiOSWithAutoPlayRelease() {
-		CPlatformBuilder.IsAutoPlay = true;
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_FPS_ENABLE);
 
+		CPlatformBuilder.IsAutoPlay = true;
 		CPlatformBuilder.BuildiOSRelease();
 	}
 
@@ -91,13 +85,13 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.ADHOC;
 		EditorUserBuildSettings.iOSBuildConfigType = iOSBuildType.Release;
 
-		// 전처리기 심볼을 추가한다
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADHOC_BUILD);
-
 		// 프로비저닝 파일 정보를 설정한다
 		PlayerSettings.iOS.iOSManualProvisioningProfileID = CPlatformOptsSetter.BuildInfoTable.iOSBuildInfo.m_oAdhocProfileID;
 		PlayerSettings.iOS.iOSManualProvisioningProfileType = ProvisioningProfileType.Distribution;
+
+		// 전처리기 심볼을 추가한다
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ADHOC_BUILD);
 
 		CPlatformBuilder.BuildiOS(new BuildPlayerOptions());
 	}
@@ -105,7 +99,9 @@ public static partial class CPlatformBuilder {
 	//! iOS 를 빌드한다
 	[MenuItem("Tools/Utility/Build/Local/iOS/Distribution (Adhoc Robo Test)", false, 33)]
 	public static void BuildiOSWithRoboTestAdhoc() {
+		// 전처리기 심볼을 추가한다
 		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_ROBO_TEST_ENABLE);
+
 		CPlatformBuilder.BuildiOSAdhoc();
 	}
 
@@ -115,12 +111,12 @@ public static partial class CPlatformBuilder {
 		CPlatformBuilder.BuildType = EBuildType.STORE;
 		EditorUserBuildSettings.iOSBuildConfigType = iOSBuildType.Release;
 
-		// 전처리기 심볼을 추가한다
-		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_STORE_BUILD);
-
 		// 프로비저닝 파일 정보를 설정한다
 		PlayerSettings.iOS.iOSManualProvisioningProfileID = CPlatformOptsSetter.BuildInfoTable.iOSBuildInfo.m_oStoreProfileID;
 		PlayerSettings.iOS.iOSManualProvisioningProfileType = ProvisioningProfileType.Distribution;
+
+		// 전처리기 심볼을 추가한다
+		CPlatformOptsSetter.AddDefineSymbol(BuildTargetGroup.iOS, KCEditorDefine.DS_DEFINE_S_STORE_BUILD);
 
 		CPlatformBuilder.BuildiOS(new BuildPlayerOptions());
 	}

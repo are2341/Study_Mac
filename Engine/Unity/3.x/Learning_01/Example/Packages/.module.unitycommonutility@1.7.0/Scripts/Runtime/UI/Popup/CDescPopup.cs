@@ -22,9 +22,12 @@ public class CDescPopup : CPopup {
 		base.Awake();
 		this.IsIgnoreNavStackEvent = true;
 
-		// 버튼을 설정한다
-		var oNextBtn = m_oContents.ExFindComponent<Button>(KCDefine.LSS_OBJ_N_DESC_P_NEXT_BTN);
+		// 버튼을 설정한다 {
+		m_oCloseBtn?.gameObject.SetActive(false);
+
+		var oNextBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_NEXT_BTN);
 		oNextBtn.onClick.AddListener(this.OnTouchNextBtn);
+		// 버튼을 설정한다 }
 	}
 
 	//! 초기화

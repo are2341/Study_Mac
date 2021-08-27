@@ -2,6 +2,23 @@ EnhancedScroller
 http://u3d.as/fXk
 
 
+Version 2.30.0
+19 August 2021
+Requires Unity 2019.4.4f1+
+
+    Features:
+        - Changed the parenting of recycled cell views to deactivate the game objects for efficiency
+
+
+
+Version 2.29.2
+10 August 2021
+Requires Unity 2019.4.4f1+
+
+    Fixes:
+        - Fixed snapping when using more than one finger on touchscreen devices
+
+
 Version 2.29.1
 18 March 2021
 Requires Unity 2019.4.4f1+

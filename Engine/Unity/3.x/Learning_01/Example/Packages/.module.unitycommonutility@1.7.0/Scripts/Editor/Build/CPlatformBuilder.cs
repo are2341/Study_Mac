@@ -25,20 +25,26 @@ public static partial class CPlatformBuilder {
 
 		try {
 			// 전처리기 심볼을 설정한다 {
-			// 배포 빌드 모드 일 경우
-			if(CPlatformBuilder.BuildType == EBuildType.STORE) {
+			// 테스트, 배포 빌드 모드 일 경우
+			if(CPlatformBuilder.BuildType == EBuildType.ADHOC || CPlatformBuilder.BuildType == EBuildType.STORE) {
 				var oRemoveDefineSymbolList = new List<string>() {
+					KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE,
+					KCEditorDefine.DS_DEFINE_S_PLAY_TEST_ENABLE,
 					KCEditorDefine.DS_DEFINE_S_LOCALIZE_TEST_ENABLE,
-					KCEditorDefine.DS_DEFINE_S_ANALYTICS_TEST_ENABLE
+					KCEditorDefine.DS_DEFINE_S_ANALYTICS_TEST_ENABLE,
+					KCEditorDefine.DS_DEFINE_S_PERFORMANCE_TEST_ENABLE
 				};
 
-				for(int i = 0; i < oRemoveDefineSymbolList.Count; ++i) {
-					bool bIsContains = CPlatformOptsSetter.IsContainsDefineSymbol(a_oPlayerOpts.targetGroup, oRemoveDefineSymbolList[i]);
+				// 배포 빌드 모드 일 경우
+				if(CPlatformBuilder.BuildType == EBuildType.STORE) {
+					oRemoveDefineSymbolList.Add(KCEditorDefine.DS_DEFINE_S_ROBO_TEST_ENABLE);
+				}
 
+				for(int i = 0; i < oRemoveDefineSymbolList.Count; ++i) {
 					// 전처리기 심볼이 포함 되었을 경우
-					if(bIsContains) {
-						CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, oRemoveDefineSymbolList[i]);
+					if(CPlatformOptsSetter.IsContainsDefineSymbol(a_oPlayerOpts.targetGroup, oRemoveDefineSymbolList[i])) {
 						oDefineSymbolList.ExAddVal(oRemoveDefineSymbolList[i]);
+						CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, oRemoveDefineSymbolList[i]);
 					}
 				}
 			}
@@ -128,7 +134,6 @@ public static partial class CPlatformBuilder {
 			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_FPS_ENABLE);
 			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_ADS_TEST_ENABLE);
 			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_ROBO_TEST_ENABLE);
-			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_LOGIC_TEST_ENABLE);
 			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_RECEIPT_CHECK_ENABLE);
 			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_ADHOC_BUILD);
 			CPlatformOptsSetter.RemoveDefineSymbol(a_oPlayerOpts.targetGroup, KCEditorDefine.DS_DEFINE_S_STORE_BUILD);
