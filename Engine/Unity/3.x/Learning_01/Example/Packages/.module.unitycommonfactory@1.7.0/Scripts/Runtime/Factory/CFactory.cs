@@ -12,7 +12,7 @@ public static partial class CFactory {
 		CAccess.Assert(a_oBasePath.ExIsValid() && a_oLanguage.ExIsValid());
 
 		var oFileName = Path.GetFileNameWithoutExtension(a_oBasePath);
-		var oLocalizeFileName = string.Format(KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE, oFileName, a_oLanguage);
+		var oLocalizeFileName = string.Format(KCDefine.B_TEXT_FMT_2_UNDER_SCORE_COMBINE, oFileName, a_oLanguage);
 
 		return a_oBasePath.ExGetReplaceFileNamePath(oLocalizeFileName);
 	}

@@ -18,12 +18,9 @@ public static partial class KCDefine {
 	// 텍스트
 	public const string SS_TEXT_LOADING = "Loading";
 
-	// 이름 {
-	public const string SS_OBJ_N_LOADING_TEXT = "LoadingText";
+	// 이름
 	public const string SS_OBJ_N_LOADING_GAUGE = "LoadingGauge";
-	
 	public const string SS_FUNC_N_START_SCENE_EVENT = "OnReceiveStartSceneEvent";
-	// 이름 }
 	#endregion			// 기본
 
 	#region 런타임 상수

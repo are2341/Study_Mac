@@ -73,10 +73,10 @@ public partial class CServicesManager : CSingleton<CServicesManager> {
 #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	//! 애플 로그인 상태가 갱신 되었을 경우
 	private void OnUpdateAppleLoginState(SignInWithApple.CallbackArgs a_stArgs) {
-		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_SERVICES_M_UPDATE_APPLE_LOGIN_STATE_CALLBACK, () => {
-			this.IsAppleLogin = a_stArgs.ExIsValidCredentialState() && a_stArgs.credentialState == UserCredentialState.Authorized;
-			CFunc.ShowLog($"CServicesManager.OnUpdateAppleLoginState: {this.IsAppleLogin}", KCDefine.B_LOG_COLOR_PLUGIN);
+		this.IsAppleLogin = a_stArgs.ExIsValidCredentialState() && a_stArgs.credentialState == UserCredentialState.Authorized;
+		CFunc.ShowLog($"CServicesManager.OnUpdateAppleLoginState: {this.IsAppleLogin}", KCDefine.B_LOG_COLOR_PLUGIN);
 
+		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_SERVICES_M_UPDATE_APPLE_LOGIN_STATE_CALLBACK, () => {
 			CCommonAppInfoStorage.Inst.AppInfo.AppleUserID = this.IsAppleLogin ? this.AppleUserID : string.Empty;
 			CCommonAppInfoStorage.Inst.AppInfo.AppleIDToken = this.IsAppleLogin ? this.AppleIDToken : string.Empty;
 
@@ -87,10 +87,10 @@ public partial class CServicesManager : CSingleton<CServicesManager> {
 
 	//! 애플에 로그인 되었을 경우
 	private void OnLoginWithApple(SignInWithApple.CallbackArgs a_stArgs) {
-		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_SERVICES_M_LOGIN_WITH_APPLE_CALLBACK, () => {
-			this.IsAppleLogin = a_stArgs.ExIsValidUserInfo();
-			CFunc.ShowLog($"CServicesManager.OnLoginWithApple: {this.IsAppleLogin}", KCDefine.B_LOG_COLOR_PLUGIN);
+		this.IsAppleLogin = a_stArgs.ExIsValidUserInfo();
+		CFunc.ShowLog($"CServicesManager.OnLoginWithApple: {this.IsAppleLogin}", KCDefine.B_LOG_COLOR_PLUGIN);
 
+		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_SERVICES_M_LOGIN_WITH_APPLE_CALLBACK, () => {
 			CCommonAppInfoStorage.Inst.AppInfo.AppleUserID = this.IsAppleLogin ? a_stArgs.userInfo.userId : string.Empty;
 			CCommonAppInfoStorage.Inst.AppInfo.AppleIDToken = this.IsAppleLogin ? a_stArgs.userInfo.idToken : string.Empty;
 

@@ -31,7 +31,7 @@ public class CStorePopup : CSubPopup {
 	private STCallbackParams m_stCallbackParams;
 	private ESaleProductKinds m_eSelSaleProductKinds = ESaleProductKinds.NONE;
 
-	// 객체
+	// =====> 객체 <=====
 	[SerializeField] private List<GameObject> m_oSaleProductUIsList = new List<GameObject>();
 
 #if ADS_MODULE_ENABLE
@@ -44,7 +44,7 @@ public class CStorePopup : CSubPopup {
 	private List<Product> m_oRestoreProductList = new List<Product>();
 #endif			// #if FIREBASE_MODULE_ENABLE && PURCHASE_MODULE_ENABLE
 	#endregion			// 변수
-	
+
 	#region 함수
 	//! 초기화
 	public override void Awake() {
@@ -259,7 +259,7 @@ public class CStorePopup : CSubPopup {
 
 #if FIREBASE_MODULE_ENABLE
 			m_oPurchaseProductID = a_oProductID;
-			Func.SaveUserInfo(this.OnSaveUserInfo);
+			this.ExLateCallFunc((a_oCallFuncSender, a_oParams) => Func.SaveUserInfo(this.OnSaveUserInfo));
 #else
 			Func.OnPurchaseProduct(a_oSender, a_oProductID, a_bIsSuccess, null);
 #endif			// #if FIREBASE_MODULE_ENABLE
@@ -279,7 +279,7 @@ public class CStorePopup : CSubPopup {
 
 #if FIREBASE_MODULE_ENABLE
 			m_oRestoreProductList = a_oProductList;
-			Func.LoadPostItemInfos(this.OnLoadPostItemInfos);
+			this.ExLateCallFunc((a_oCallFuncSender, a_oParams) => Func.LoadPostItemInfos(this.OnLoadPostItemInfos));
 #else
 			Func.OnRestoreProducts(a_oSender, a_oProductList, a_bIsSuccess, null);
 #endif			// #if FIREBASE_MODULE_ENABLE
@@ -292,14 +292,6 @@ public class CStorePopup : CSubPopup {
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

@@ -9,11 +9,11 @@ public class CSyncPopup : CSubPopup {
 	#region 변수
 	private bool m_bIsLoadUserInfo = false;
 
-	// 객체
+	// =====> 객체 <=====
 	private GameObject m_oLoginUIs = null;
 	private GameObject m_oLogoutUIs = null;
 	#endregion			// 변수
-	
+
 	#region 함수
 	//! 초기화
 	public override void Awake() {
@@ -29,11 +29,11 @@ public class CSyncPopup : CSubPopup {
 		var oLogoutBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_LOGOUT_BTN);
 		oLogoutBtn?.onClick.AddListener(this.OnTouchLogoutBtn);
 
-		var oSaveBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_SAVE_BTN);
-		oSaveBtn?.onClick.AddListener(this.OnTouchSaveBtn);
-
 		var oLoadBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_LOAD_BTN);
 		oLoadBtn?.onClick.AddListener(this.OnTouchLoadBtn);
+
+		var oSaveBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_SAVE_BTN);
+		oSaveBtn?.onClick.AddListener(this.OnTouchSaveBtn);
 		// 버튼을 설정한다 }
 	}
 
@@ -72,18 +72,30 @@ public class CSyncPopup : CSubPopup {
 #endif			// #if FIREBASE_MODULE_ENABLE
 	}
 
-	//! 저장 버튼을 눌렀을 경우
-	private void OnTouchSaveBtn() {
-#if FIREBASE_MODULE_ENABLE
-		Func.SaveUserInfo(this.OnSaveUserInfo);
-#endif			// #if FIREBASE_MODULE_ENABLE
-	}
-
 	//! 로드 버튼을 눌렀을 경우
 	private void OnTouchLoadBtn() {
+		Func.ShowLoadPopup((a_oSender, a_bIsOK) => {
 #if FIREBASE_MODULE_ENABLE
-		Func.LoadUserInfo(this.OnLoadUserInfo);
+			// 확인 버튼을 눌렀을 경우
+			if(a_bIsOK) {
+				a_oSender.IsIgnoreAni = true;
+				Func.LoadUserInfo(this.OnLoadUserInfo);
+			}
 #endif			// #if FIREBASE_MODULE_ENABLE
+		});
+	}
+
+	//! 저장 버튼을 눌렀을 경우
+	private void OnTouchSaveBtn() {
+		Func.ShowSavePopup((a_oSender, a_bIsOK) => {
+#if FIREBASE_MODULE_ENABLE
+			// 확인 버튼을 눌렀을 경우
+			if(a_bIsOK) {
+				a_oSender.IsIgnoreAni = true;
+				Func.SaveUserInfo(this.OnSaveUserInfo);
+			}
+#endif			// #if FIREBASE_MODULE_ENABLE
+		});
 	}
 	#endregion			// 함수
 
@@ -146,10 +158,9 @@ public class CSyncPopup : CSubPopup {
 		}
 
 		m_bIsLoadUserInfo = a_bIsSuccess && a_oJSONStr.ExIsValid();
-		Func.OnLoadUserInfo(a_oSender, a_oJSONStr, m_bIsLoadUserInfo, this.OnReceiveLoadSuccessPopupResult);
 
-		var oAlertPopup = CSceneManager.ScreenPopupUIs.ExFindComponent<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP);
-		oAlertPopup.IsIgnoreNavStackEvent = m_bIsLoadUserInfo;
+		Func.OnLoadUserInfo(a_oSender, a_oJSONStr, m_bIsLoadUserInfo, this.OnReceiveLoadSuccessPopupResult);
+		CSceneManager.ScreenPopupUIs.ExEnumerateComponents<CAlertPopup>((a_oPopupSender) => { a_oPopupSender.IsIgnoreNavStackEvent = m_bIsLoadUserInfo; return true; });
 	}
 
 	//! 로드 성공 팝업 결과를 수신했을 경우
@@ -158,7 +169,7 @@ public class CSyncPopup : CSubPopup {
 		if(a_bIsOK && m_bIsLoadUserInfo) {
 			this.ExLateCallFunc((a_oSender, a_oParams) => { 
 				CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_TITLE);
-
+				
 				CScheduleManager.Inst.Reset();
 				CNavStackManager.Inst.Reset();
 			});
@@ -166,14 +177,6 @@ public class CSyncPopup : CSubPopup {
 	}
 #endif			// #if FIREBASE_MODULE_ENABLE
 	#endregion			// 조건부 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

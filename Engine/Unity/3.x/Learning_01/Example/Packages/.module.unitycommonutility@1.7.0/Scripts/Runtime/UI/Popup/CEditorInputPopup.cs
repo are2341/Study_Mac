@@ -6,21 +6,23 @@ using UnityEngine.UI;
 #if UNITY_EDITOR || UNITY_STANDALONE
 //! 에디터 입력 팝업
 public class CEditorInputPopup : CPopup {
-	#region 변수
-	private System.Action<CEditorInputPopup, string> m_oCallback = null;
+	//! 콜백 매개 변수
+	public struct STCallbackParams {
+		public System.Action<CEditorInputPopup, string> m_oCallback;
+	}
 
-	// UI
+	#region 변수
+	private STCallbackParams m_stCallbackParams;
+
+	// =====> UI <=====
 	protected InputField m_oInput = null;
 	#endregion			// 변수
-
-	#region 프로퍼티
-	public override bool IsIgnoreAni => true;
-	#endregion			// 프로퍼티
-
+	
 	#region 함수
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
+		this.IsIgnoreAni = true;
 
 		// 입력 필드를 설정한다
 		m_oInput = m_oContents.ExFindComponent<InputField>(KCDefine.E_OBJ_N_EDITOR_IP_INPUT);
@@ -35,9 +37,9 @@ public class CEditorInputPopup : CPopup {
 	}
 
 	//! 초기화
-	public virtual void Init(System.Action<CEditorInputPopup, string> a_oCallback) {
+	public virtual void Init(STCallbackParams a_stCallbackParams) {
 		base.Init();
-		m_oCallback = a_oCallback;
+		m_stCallbackParams = a_stCallbackParams;
 
 		this.UpdateUIsState();
 	}
@@ -49,7 +51,7 @@ public class CEditorInputPopup : CPopup {
 
 	//! 확인 버튼을 눌렀을 경우
 	private void OnTouchOKBtn() {
-		m_oCallback?.Invoke(this, m_oInput?.text);
+		m_stCallbackParams.m_oCallback?.Invoke(this, m_oInput?.text);
 		this.OnTouchCloseBtn();
 	}
 

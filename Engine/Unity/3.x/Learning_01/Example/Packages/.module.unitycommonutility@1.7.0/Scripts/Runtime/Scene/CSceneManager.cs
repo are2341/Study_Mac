@@ -47,7 +47,7 @@ public abstract partial class CSceneManager : CComponent {
 	#region 프로퍼티
 	public abstract string SceneName { get; }
 
-	// UI {
+	// =====> UI <=====
 	public GameObject SubUIsTop { get; private set; } = null;
 	public GameObject SubUIsBase { get; private set; } = null;
 
@@ -55,7 +55,6 @@ public abstract partial class CSceneManager : CComponent {
 	public GameObject SubTestUIs { get; private set; } = null;
 	public GameObject SubPivotUIs { get; private set; } = null;
 	public GameObject SubAnchorUIs { get; private set; } = null;
-	// UI }
 
 	// 고정 UI
 	public GameObject SubUpUIs { get; private set; } = null;
@@ -247,12 +246,13 @@ public abstract partial class CSceneManager : CComponent {
 	public static string RootSceneName => CSceneManager.RootScene.name;
 
 #if DEBUG || DEVELOPMENT_BUILD
+	// =====> UI <=====
 	public static Text ScreenStaticDebugText { get; protected set; } = null;
 	public static Text ScreenDynamicDebugText { get; protected set; } = null;
 
-	public static Button ScreenFPSBtn { get; protected set; } = null;
 	public static Button ScreenDebugBtn { get; protected set; } = null;
 
+	// =====> 객체 <=====
 	public static GameObject ScreenDebugUIs { get; protected set; } = null;
 	public static GameObject ScreenDebugTextUIs { get; protected set; } = null;
 
@@ -260,8 +260,11 @@ public abstract partial class CSceneManager : CComponent {
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 
 #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+	// =====> UI <=====
 	public static Text ScreenStaticFPSText { get; protected set; } = null;
 	public static Text ScreenDynamicFPSText { get; protected set; } = null;
+
+	public static Button ScreenFPSBtn { get; protected set; } = null;
 #endif			// #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 	#endregion			// 클래스 프로퍼티
 
@@ -295,7 +298,7 @@ public abstract partial class CSceneManager : CComponent {
 			Application.targetFrameRate = KCDefine.B_TARGET_FRAME_RATE;
 
 			// 초기화 씬이 아닐 경우
-			if(!CSceneManager.AwakeSceneName.ExIsEquals(KCDefine.B_SCENE_N_INIT)) {
+			if(!CSceneManager.AwakeSceneName.Equals(KCDefine.B_SCENE_N_INIT)) {
 				this.ExLateCallFunc((a_oSender, a_oParams) => {
 					CScheduleManager.Inst.RemoveComponent(this);
 					CNavStackManager.Inst.RemoveComponent(this);
@@ -423,7 +426,6 @@ public abstract partial class CSceneManager : CComponent {
 						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_C, Profiler.GetTempAllocatorSize().ExByteToMegaByte(), Profiler.GetTotalAllocatedMemoryLong().ExByteToMegaByte());
 						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_D, Profiler.GetTotalReservedMemoryLong().ExByteToMegaByte(), Profiler.GetTotalUnusedReservedMemoryLong().ExByteToMegaByte());
 						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_E, Profiler.GetAllocatedMemoryForGraphicsDriver().ExByteToMegaByte(), Time.timeScale);
-						CSceneManager.m_oDynamicDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_DYNAMIC_DEBUG_INFO_F, KCDefine.B_DIR_P_WRITABLE);
 
 						string oDynamicDebugStr = CSceneManager.m_oDynamicDebugStrBuilder.ToString();
 						string oExtraDynamicDebugStr = CSceneManager.m_oExtraDynamicDebugStrBuilder.ToString();
@@ -452,8 +454,8 @@ public abstract partial class CSceneManager : CComponent {
 
 		// 앱이 실행 중 일 경우
 		if(CSceneManager.IsAwake || CSceneManager.IsAppRunning) {
-			System.GC.Collect();
 			Resources.UnloadUnusedAssets();
+			System.GC.Collect(KCDefine.B_VAL_2_INT, System.GCCollectionMode.Optimized, false, true);
 
 			// 루트 씬 일 경우
 			if(this.IsRootScene) {
@@ -812,13 +814,14 @@ public abstract partial class CSceneManager : CComponent {
 					Gizmos.DrawLine(oAdsScreenPositions[nIdxA], oAdsScreenPositions[nIdxB]);
 
 					// 텍스트를 그린다 {
-					var stPos = new Vector3((CSceneManager.CanvasSize.x + (KCDefine.B_VAL_9_FLT * KCDefine.B_VAL_9_FLT)) / KCDefine.B_VAL_2_FLT, CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT) * (KCDefine.B_UNIT_SCALE * CAccess.ResolutionScale);
+					var stPos = new Vector3((CSceneManager.CanvasSize.x + (KCDefine.B_VAL_9_FLT * KCDefine.B_VAL_9_FLT)) / KCDefine.B_VAL_2_FLT, CSceneManager.CanvasSize.y / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT) * (KCDefine.B_UNIT_SCALE * CAccess.ResolutionScale);
 
 					string oScreenDPIStr = string.Format(KCDefine.U_TEXT_FMT_SCREEN_INFO_A, CAccess.DPI);
-					string oBannerAdsHeightStr = string.Format(KCDefine.U_TEXT_FMT_SCREEN_INFO_B, CAccess.GetBannerAdsHeight(stBannerAdsSize.y));
+					string oScreenSizeStr = string.Format(KCDefine.U_TEXT_FMT_SCREEN_INFO_B, CAccess.ScreenSize.x, CAccess.ScreenSize.y);
+					string oBannerAdsHeightStr = string.Format(KCDefine.U_TEXT_FMT_SCREEN_INFO_C, CAccess.GetBannerAdsHeight(stBannerAdsSize.y));
 
 					Handles.color = Color.white;
-					Handles.Label(stPos, oScreenDPIStr + oBannerAdsHeightStr);
+					Handles.Label(stPos, string.Format(KCDefine.B_TEXT_FMT_3_COMBINE, oScreenDPIStr, oScreenSizeStr, oBannerAdsHeightStr));
 					// 텍스트를 그린다 }
 #endif			// #if ADS_MODULE_ENABLE
 				} finally {

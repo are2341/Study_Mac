@@ -28,9 +28,9 @@ public class CDeviceMsgReceiver : CSingleton<CDeviceMsgReceiver> {
 		string oMsg = oJSONNode[KCDefine.U_KEY_DEVICE_MSG];
 		string oKey = string.Format(KCDefine.U_KEY_FMT_DEVICE_MR_HANDLE_MSG_CALLBACK, oCmd);
 
-		CScheduleManager.Inst.AddCallback(oKey, () => {
-			CFunc.ShowLog($"CDeviceMsgReceiver.HandleDeviceMsg: {a_oMsg}", KCDefine.B_LOG_COLOR_PLUGIN);
+		CFunc.ShowLog($"CDeviceMsgReceiver.HandleDeviceMsg: {a_oMsg}", KCDefine.B_LOG_COLOR_PLUGIN);
 
+		CScheduleManager.Inst.AddCallback(oKey, () => {
 			// 커맨드가 존재 할 경우
 			if(m_oCallbackDict.ContainsKey(oCmd)) {
 				var oCallback = m_oCallbackDict[oCmd];

@@ -55,7 +55,7 @@ public class CProductInfoTable : CScriptableObj<CProductInfoTable> {
 
 	//! 상품 정보 인덱스를 반환한다
 	public int GetProductInfoIdx(string a_oID) {
-		int nIdx = this.ProductInfoList.ExFindVal((a_stProductInfo) => a_stProductInfo.m_oID.ExIsEquals(a_oID));
+		int nIdx = this.ProductInfoList.ExFindVal((a_stProductInfo) => a_stProductInfo.m_oID.Equals(a_oID));
 		return this.ProductInfoList.ExIsValidIdx(nIdx) ? nIdx : KCDefine.B_IDX_INVALID;
 	}
 
@@ -83,7 +83,7 @@ public class CProductInfoTable : CScriptableObj<CProductInfoTable> {
 
 	//! 상품 정보를 반환한다
 	public bool TryGetProductInfo(string a_oID, out STProductInfo a_stOutProductInfo) {
-		int nIdx = this.ProductInfoList.ExFindVal((a_stProductInfo) => a_stProductInfo.m_oID.ExIsEquals(a_oID));
+		int nIdx = this.ProductInfoList.ExFindVal((a_stProductInfo) => a_stProductInfo.m_oID.Equals(a_oID));
 		return this.TryGetProductInfo(nIdx, out a_stOutProductInfo);
 	}
 	#endregion			// 함수

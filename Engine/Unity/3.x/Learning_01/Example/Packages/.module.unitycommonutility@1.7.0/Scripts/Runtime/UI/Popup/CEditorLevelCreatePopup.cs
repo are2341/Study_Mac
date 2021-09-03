@@ -6,10 +6,15 @@ using UnityEngine.UI;
 #if UNITY_EDITOR || UNITY_STANDALONE
 //! 에디터 레벨 생성 팝업
 public class CEditorLevelCreatePopup : CPopup {
-	#region 변수
-	private System.Action<CEditorLevelCreatePopup, CEditorLevelCreateInfo> m_oCallback = null;
+	//! 콜백 매개 변수
+	public struct STCallbackParams {
+		public System.Action<CEditorLevelCreatePopup, CEditorLevelCreateInfo> m_oCallback;
+	}
 
-	// UI {
+	#region 변수
+	private STCallbackParams m_stCallbackParams;
+
+	// =====> UI <=====
 	protected InputField m_oNumLevelsInput = null;
 
 	protected InputField m_oMinNumCellsXInput = null;
@@ -17,17 +22,13 @@ public class CEditorLevelCreatePopup : CPopup {
 
 	protected InputField m_oMinNumCellsYInput = null;
 	protected InputField m_oMaxNumCellsYInput = null;
-	// UI }
 	#endregion			// 변수
-
-	#region 프로퍼티
-	public override bool IsIgnoreAni => true;
-	#endregion			// 프로퍼티
-
+	
 	#region 함수
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
+		this.IsIgnoreAni = true;
 
 		// 입력 필드를 설정한다 {
 		m_oNumLevelsInput = m_oContents.ExFindComponent<InputField>(KCDefine.E_OBJ_N_EDITOR_LCP_NUM_LEVELS_INPUT);
@@ -49,9 +50,9 @@ public class CEditorLevelCreatePopup : CPopup {
 	}
 
 	//! 초기화
-	public virtual void Init(System.Action<CEditorLevelCreatePopup, CEditorLevelCreateInfo> a_oCallback) {
+	public virtual void Init(STCallbackParams a_stCallbackParams) {
 		base.Init();
-		m_oCallback = a_oCallback;
+		m_stCallbackParams = a_stCallbackParams;
 
 		this.UpdateUIsState();
 	}
@@ -81,7 +82,7 @@ public class CEditorLevelCreatePopup : CPopup {
 
 	//! 확인 버튼을 눌렀을 경우
 	private void OnTouchOKBtn() {
-		m_oCallback?.Invoke(this, this.CreateEditorLevelCreateInfo());
+		m_stCallbackParams.m_oCallback?.Invoke(this, this.CreateEditorLevelCreateInfo());
 		this.OnTouchCloseBtn();
 	}
 

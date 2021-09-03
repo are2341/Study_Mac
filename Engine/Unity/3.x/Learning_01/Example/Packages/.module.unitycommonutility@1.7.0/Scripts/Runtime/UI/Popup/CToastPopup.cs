@@ -15,7 +15,7 @@ public class CToastPopup : CPopup {
 	#region 변수
 	private STParams m_stParams;
 
-	// UI
+	// =====> UI <=====
 	protected Text m_oMsgText = null;
 	#endregion			// 변수
 

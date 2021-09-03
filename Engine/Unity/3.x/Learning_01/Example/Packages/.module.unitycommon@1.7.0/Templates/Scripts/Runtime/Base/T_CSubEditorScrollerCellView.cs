@@ -44,14 +44,6 @@ public class CSubEditorScrollerCellView : CEditorScrollerCellView {
 	}
 	#endregion			// 함수
 
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-	
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
-
 	#region 추가 함수
 
 	#endregion			// 추가 함수

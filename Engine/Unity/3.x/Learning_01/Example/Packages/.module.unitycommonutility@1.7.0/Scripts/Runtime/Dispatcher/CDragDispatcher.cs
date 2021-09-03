@@ -15,22 +15,22 @@ public class CDragDispatcher : CComponent, IBeginDragHandler, IDragHandler, IEnd
 
 	#region 인터페이스
 	//! 드래그를 시작했을 경우
-	public void OnBeginDrag(PointerEventData a_oEventData) {
+	public virtual void OnBeginDrag(PointerEventData a_oEventData) {
 		this.BeginCallback?.Invoke(this, a_oEventData);
 	}
 
 	//! 드래그 중 일 경우
-	public void OnDrag(PointerEventData a_oEventData) {
+	public virtual void OnDrag(PointerEventData a_oEventData) {
 		this.DragCallback?.Invoke(this, a_oEventData);
 	}
 
 	//! 드래그를 종료했을 경우
-	public void OnEndDrag(PointerEventData a_oEventData) {
+	public virtual void OnEndDrag(PointerEventData a_oEventData) {
 		this.EndCallback?.Invoke(this, a_oEventData);
 	}
 
 	//! 스크롤 중 일 경우
-	public void OnScroll(PointerEventData a_oEventData) {
+	public virtual void OnScroll(PointerEventData a_oEventData) {
 		this.ScrollCallback?.Invoke(this, a_oEventData);
 	}
 	#endregion			// 인터페이스

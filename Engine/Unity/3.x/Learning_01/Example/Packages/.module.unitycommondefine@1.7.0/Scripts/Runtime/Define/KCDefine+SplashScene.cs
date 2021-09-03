@@ -8,9 +8,6 @@ public static partial class KCDefine {
 	#region 기본
 	// 시간
 	public const float SS_DELAY_NEXT_SCENE_LOAD = 2.0f;
-
-	// 이름
-	public const string SS_OBJ_N_SPLASH_IMG = "SplashImg";
 	#endregion			// 기본
 
 	#region 런타임 상수

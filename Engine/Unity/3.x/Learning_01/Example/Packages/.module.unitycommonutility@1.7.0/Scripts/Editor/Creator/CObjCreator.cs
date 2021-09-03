@@ -200,30 +200,14 @@ public static class CObjCreator {
 			oObj = CFactory.CreateObj(a_oName, oParent);
 		}
 
-		oObj.ExEnumerateComponents<Text>((a_oText) => {
-			a_oText.ExReset();
-			return true;
-		});
-
-		oObj.ExEnumerateComponents<Image>((a_oImg) => {
-			a_oImg.ExReset();
-			return true;
-		});
-
-		oObj.ExEnumerateComponents<Renderer>((a_oRenderer) => {
-			a_oRenderer.ExReset();
-			return true;
-		});
-
-		oObj.ExEnumerateComponents<Selectable>((a_oSelectable) => {
-			a_oSelectable.ExReset();
-			return true;
-		});
-
-		oObj.ExEnumerateComponents<CanvasRenderer>((a_oCanvasRenderer) => {
-			a_oCanvasRenderer.ExReset();
-			return true;
-		});
+		oObj.ExEnumerateComponents<Text>((a_oText) => { a_oText.ExReset(); return true; });
+		oObj.ExEnumerateComponents<Image>((a_oImg) => { a_oImg.ExReset(); return true; });
+		oObj.ExEnumerateComponents<Selectable>((a_oSelectable) => { a_oSelectable.ExReset(); return true; });
+		oObj.ExEnumerateComponents<ScrollRect>((a_oScrollRect) => { a_oScrollRect.ExReset(); return true; });
+		oObj.ExEnumerateComponents<CanvasRenderer>((a_oCanvasRenderer) => { a_oCanvasRenderer.ExReset(); return true; });
+		oObj.ExEnumerateComponents<HorizontalOrVerticalLayoutGroup>((a_oLayoutGroup) => { a_oLayoutGroup.ExReset(); return true; });
+		oObj.ExEnumerateComponents<Renderer>((a_oRenderer) => { a_oRenderer.ExReset(); return true; });
+		oObj.ExEnumerateComponents<LineRenderer>((a_oLine) => { a_oLine.ExReset(); return true; });
 
 		// 부모 객체가 존재 할 경우
 		if(oParent != null) {

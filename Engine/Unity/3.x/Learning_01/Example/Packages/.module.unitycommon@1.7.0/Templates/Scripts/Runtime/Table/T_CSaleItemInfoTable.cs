@@ -26,16 +26,16 @@ public struct STSaleItemInfo {
 	public STSaleItemInfo(SimpleJSON.JSONNode a_oSaleItemInfo) {
 		m_oName = a_oSaleItemInfo[KCDefine.U_KEY_NAME];
 		m_oDesc = a_oSaleItemInfo[KCDefine.U_KEY_DESC];
-		m_oPrice = a_oSaleItemInfo[KDefine.G_KEY_SALE_IIT_PRICE];
+		m_oPrice = a_oSaleItemInfo[KCDefine.U_KEY_PRICE];
 
-		m_ePriceKinds = (EPriceKinds)a_oSaleItemInfo[KDefine.G_KEY_SALE_IIT_PRICE_KINDS].AsInt;
-		m_eSaleItemKinds = (ESaleItemKinds)a_oSaleItemInfo[KDefine.G_KEY_SALE_IIT_SALE_ITEM_KINDS].AsInt;
+		m_ePriceKinds = (EPriceKinds)a_oSaleItemInfo[KCDefine.U_KEY_PRICE_KINDS].AsInt;
+		m_eSaleItemKinds = (ESaleItemKinds)a_oSaleItemInfo[KCDefine.U_KEY_SALE_ITEM_KINDS].AsInt;
 
 		m_oItemInfoList = new List<STItemInfo>();
 
 		for(int i = 0; i < KDefine.G_MAX_NUM_SALE_ITEM_INFOS; ++i) {
-			string oNumItemsKey = string.Format(KDefine.G_KEY_FMT_SALE_IIT_NUM_ITEMS, i + KCDefine.B_VAL_1_INT);
-			string oItemKindsKey = string.Format(KDefine.G_KEY_FMT_SALE_IIT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
+			string oNumItemsKey = string.Format(KCDefine.U_KEY_FMT_NUM_ITEMS, i + KCDefine.B_VAL_1_INT);
+			string oItemKindsKey = string.Format(KCDefine.U_KEY_FMT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
 
 			var stItemInfo = new STItemInfo() {
 				m_nNumItems = a_oSaleItemInfo[oNumItemsKey].AsInt,
@@ -65,7 +65,7 @@ public class CSaleItemInfoTable : CScriptableObj<CSaleItemInfoTable> {
 		base.Awake();
 
 		for(int i = 0; i < m_oSaleItemInfoList.Count; ++i) {
-			this.SaleItemInfoDict.Add(m_oSaleItemInfoList[i].m_eSaleItemKinds, m_oSaleItemInfoList[i]);
+			this.SaleItemInfoDict.ExAddVal(m_oSaleItemInfoList[i].m_eSaleItemKinds, m_oSaleItemInfoList[i]);
 		}
 	}
 
@@ -113,7 +113,7 @@ public class CSaleItemInfoTable : CScriptableObj<CSaleItemInfoTable> {
 	//! 판매 아이템 정보를 로드한다
 	public Dictionary<ESaleItemKinds, STSaleItemInfo> LoadSaleItemInfos() {
 #if UNITY_EDITOR || UNITY_STANDALONE
-		return this.LoadSaleItemInfos(KDefine.G_RUNTIME_TABLE_P_SALE_ITEM_INFO);
+		return this.LoadSaleItemInfos(KCDefine.U_RUNTIME_TABLE_P_G_SALE_ITEM_INFO);
 #else
 		return this.LoadSaleItemInfos(KCDefine.U_TABLE_P_G_SALE_ITEM_INFO);
 #endif			// #if UNITY_EDITOR || UNITY_STANDALONE
@@ -156,14 +156,6 @@ public class CSaleItemInfoTable : CScriptableObj<CSaleItemInfoTable> {
 		return this.SaleItemInfoDict;
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

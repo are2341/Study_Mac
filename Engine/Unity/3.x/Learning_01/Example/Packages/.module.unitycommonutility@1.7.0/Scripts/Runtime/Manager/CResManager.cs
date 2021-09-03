@@ -41,7 +41,18 @@ public class CResManager : CSingleton<CResManager> {
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
-		this.SetupDefReses();
+		this.SetupDefResources();
+	}
+	
+	//! 상태를 리셋한다
+	public virtual void Reset() {
+		foreach(var stKeyVal in m_oResDictContainer) {
+			foreach(var stResKeyVal in stKeyVal.Value) {
+				Resources.UnloadAsset(stResKeyVal.Value);
+			}
+		}
+
+		m_oResDictContainer.Clear();
 	}
 
 	//! 스프라이트 아틀라스를 로드한다
@@ -66,7 +77,7 @@ public class CResManager : CSingleton<CResManager> {
 	}
 
 	//! 기본 리소스를 설정한다
-	private void SetupDefReses() {
+	private void SetupDefResources() {
 		// 스프라이트를 설정한다 {
 		var stRect = Rect.MinMaxRect(KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_1_FLT, KCDefine.B_VAL_1_FLT);
 		var oSprite = Sprite.Create(Texture2D.whiteTexture, stRect, KCDefine.B_ANCHOR_MID_CENTER, KCDefine.B_VAL_1_FLT);
@@ -141,21 +152,31 @@ public class CResManager : CSingleton<CResManager> {
 		}
 	}
 
+	//! 리소스를 제거한다
+	public void RemoveResources<T>(bool a_bIsAutoUnload) where T : Object {
+		CAccess.Assert(m_oResDictContainer.ContainsKey(typeof(T)));
+		var oResDict = m_oResDictContainer[typeof(T)];
+
+		foreach(var stKeyVal in oResDict) {
+			this.RemoveRes<T>(stKeyVal.Key, a_bIsAutoUnload);
+		}
+	}
+
 	//! 리소스 생성자를 제거한다
 	public void RemoveResCreator<T>() where T : Object {
 		m_oResCreatorDict.ExRemoveVal(typeof(T));
 	}
 
 	//! 리소스를 로드한다
-	public T[] LoadReses<T>(string a_oFilePath) where T : Object {
+	public T[] LoadResources<T>(string a_oFilePath) where T : Object {
 		CAccess.Assert(a_oFilePath.ExIsValid());
-		var oReses = Resources.LoadAll<T>(a_oFilePath);
+		var oResources = Resources.LoadAll<T>(a_oFilePath);
 
-		for(int i = 0; i < oReses.Length; ++i) {
-			this.AddRes<T>(oReses[i].name, oReses[i]);
+		for(int i = 0; i < oResources.Length; ++i) {
+			this.AddRes<T>(oResources[i].name, oResources[i]);
 		}
 
-		return oReses;
+		return oResources;
 	}
 	#endregion			// 제네릭 함수
 }

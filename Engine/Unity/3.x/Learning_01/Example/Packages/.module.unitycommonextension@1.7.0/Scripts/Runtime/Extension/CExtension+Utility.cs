@@ -14,6 +14,10 @@ using MessagePack;
 using Leguar.TotalJSON;
 using DanielLochner.Assets.SimpleScrollSnap;
 
+#if UNIVERSAL_PIPELINE_MODULE_ENABLE
+using UnityEngine.Rendering.Universal;
+#endif			// #if UNIVERSAL_PIPELINE_MODULE_ENABLE
+
 //! 유틸리티 확장 클래스
 public static partial class CExtension {
 	#region 클래스 함수
@@ -46,36 +50,6 @@ public static partial class CExtension {
 	}
 
 	//! 상태를 리셋한다
-	public static void ExReset(this Renderer a_oSender, bool a_bIsEnableAssert = true) {
-		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
-
-		// 렌더러가 존재 할 경우
-		if(a_oSender != null) {
-			a_oSender.allowOcclusionWhenDynamic = true;
-			
-#if LIGHT_ENABLE && SHADOW_ENABLE
-			a_oSender.receiveShadows = true;
-			a_oSender.staticShadowCaster = true;
-			a_oSender.shadowCastingMode = ShadowCastingMode.On;
-#else
-			a_oSender.receiveShadows = false;
-			a_oSender.staticShadowCaster = false;
-			a_oSender.shadowCastingMode = ShadowCastingMode.Off;
-#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
-		}
-	}
-
-	//! 상태를 리셋한다
-	public static void ExReset(this LineRenderer a_oSender, bool a_bIsEnableAssert = true) {
-		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
-
-		// 라인이 존재 할 경우
-		if(a_oSender != null) {
-			a_oSender.alignment = LineAlignment.TransformZ;
-		}
-	}
-
-	//! 상태를 리셋한다
 	public static void ExReset(this Selectable a_oSender, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 
@@ -89,6 +63,16 @@ public static partial class CExtension {
 			stColorBlock.disabledColor = KCDefine.U_COLOR_DISABLE;
 			
 			a_oSender.colors = stColorBlock;
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this ScrollRect a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 스크롤 영역이 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.scrollSensitivity = KCDefine.U_UNIT_SCROLL_SENSITIVITY;
 		}
 	}
 
@@ -126,6 +110,75 @@ public static partial class CExtension {
 			if(a_oSender.TryGetComponent<ContentSizeFitter>(out ContentSizeFitter oSizeFitter)) {
 				oSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 			}
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this Camera a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 카메라가 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.allowHDR = true;
+			a_oSender.allowMSAA = true;
+			a_oSender.useOcclusionCulling = true;
+			a_oSender.usePhysicalProperties = false;
+			a_oSender.allowDynamicResolution = false;
+
+			a_oSender.farClipPlane = KCDefine.U_DISTANCE_CAMERA_FAR_PLANE;
+			a_oSender.nearClipPlane = KCDefine.U_DISTANCE_CAMERA_NEAR_PLANE;
+
+			a_oSender.rect = KCDefine.U_RECT_CAMERA;
+			a_oSender.transform.localScale = Vector3.one;
+
+#if UNIVERSAL_PIPELINE_MODULE_ENABLE
+			var oCameraData = a_oSender.GetComponentInChildren<UniversalAdditionalCameraData>();
+
+			// 카메라 데이터가 존재 할 경우
+			if(oCameraData != null) {
+#if LIGHT_ENABLE && SHADOW_ENABLE
+				oCameraData.renderShadows = true;
+#else
+				oCameraData.renderShadows = false;
+#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
+
+#if UNITY_POST_PROCESSING_STACK_V2
+				oCameraData.renderPostProcessing = true;
+#else
+				oCameraData.renderPostProcessing = false;
+#endif			// #if UNITY_POST_PROCESSING_STACK_V2
+			}
+#endif			// #if UNIVERSAL_PIPELINE_MODULE_ENABLE
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this Renderer a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 렌더러가 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.allowOcclusionWhenDynamic = true;
+			
+#if LIGHT_ENABLE && SHADOW_ENABLE
+			a_oSender.receiveShadows = true;
+			a_oSender.staticShadowCaster = true;
+			a_oSender.shadowCastingMode = ShadowCastingMode.On;
+#else
+			a_oSender.receiveShadows = false;
+			a_oSender.staticShadowCaster = false;
+			a_oSender.shadowCastingMode = ShadowCastingMode.Off;
+#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
+		}
+	}
+
+	//! 상태를 리셋한다
+	public static void ExReset(this LineRenderer a_oSender, bool a_bIsEnableAssert = true) {
+		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
+
+		// 라인이 존재 할 경우
+		if(a_oSender != null) {
+			a_oSender.alignment = LineAlignment.TransformZ;
 		}
 	}
 
@@ -320,13 +373,13 @@ public static partial class CExtension {
 	}
 
 	//! 리스너를 추가한다
-	public static void ExAddListener(this Button a_oSender, UnityAction a_oCallback, bool a_bIsRemoveListeners = true, bool a_bIsEnableAssert = true) {
+	public static void ExAddListener(this Button a_oSender, UnityAction a_oCallback, bool a_bIsReset = true, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_oCallback != null));
 
 		// 버튼이 존재 할 경우
 		if(a_oSender != null && a_oCallback != null) {
 			// 리셋 모드 일 경우
-			if(a_bIsRemoveListeners) {
+			if(a_bIsReset) {
 				a_oSender.onClick.RemoveAllListeners();
 			}
 
@@ -740,10 +793,10 @@ public static partial class CExtension {
 		var oEnumerator = a_bIsIncludeSelf ? a_oSender.DescendantsAndSelf() : a_oSender.Descendants();
 
 		foreach(var oObj in oEnumerator) {
-			bool bIsEquals = oObj.name.ExIsEquals(a_oName);
+			bool bIsEquals = oObj.name.Equals(a_oName);
 
 			// 이름이 동일 할 경우
-			if(bIsEquals || (a_bIsEnableSubName && oObj.name.ExIsContains(a_oName))) {
+			if(bIsEquals || (a_bIsEnableSubName && oObj.name.Contains(a_oName))) {
 				oObjList.ExAddVal(oObj);
 			}
 		}
@@ -756,10 +809,10 @@ public static partial class CExtension {
 		var oEnumerator = a_bIsIncludeSelf ? a_oSender.AncestorsAndSelf() : a_oSender.Ancestors();
 
 		foreach(var oObj in oEnumerator) {
-			bool bIsEquals = oObj.name.ExIsEquals(a_oName);
+			bool bIsEquals = oObj.name.Equals(a_oName);
 
 			// 이름이 동일 할 경우
-			if(bIsEquals || (a_bIsEnableSubName && oObj.name.ExIsContains(a_oName))) {
+			if(bIsEquals || (a_bIsEnableSubName && oObj.name.Contains(a_oName))) {
 				return oObj;
 			}
 		}
@@ -773,10 +826,10 @@ public static partial class CExtension {
 		var oEnumerator = a_bIsIncludeSelf ? a_oSender.AncestorsAndSelf() : a_oSender.Ancestors();
 
 		foreach(var oObj in oEnumerator) {
-			bool bIsEquals = oObj.name.ExIsEquals(a_oName);
+			bool bIsEquals = oObj.name.Equals(a_oName);
 
 			// 이름이 동일 할 경우
-			if(bIsEquals || (a_bIsEnableSubName && oObj.name.ExIsContains(a_oName))) {
+			if(bIsEquals || (a_bIsEnableSubName && oObj.name.Contains(a_oName))) {
 				oObjList.ExAddVal(oObj);
 			}
 		}
@@ -836,7 +889,7 @@ public static partial class CExtension {
 
 	//! 메세지를 전파한다
 	public static void ExBroadcastMsg(this Scene a_stSender, string a_oMsg, object a_oParams, bool a_bIsEnableAssert = true) {
-		CAccess.Assert(!a_bIsEnableAssert && a_oMsg.ExIsValid());
+		CAccess.Assert(!a_bIsEnableAssert || a_oMsg.ExIsValid());
 
 		// 메세지가 유효 할 경우
 		if(a_oMsg.ExIsValid()) {

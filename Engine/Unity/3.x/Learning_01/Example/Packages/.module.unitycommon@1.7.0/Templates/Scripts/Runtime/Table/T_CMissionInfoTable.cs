@@ -19,8 +19,8 @@ public struct STMissionInfo {
 		m_oName = a_oMissionInfo[KCDefine.U_KEY_NAME];
 		m_oDesc = a_oMissionInfo[KCDefine.U_KEY_DESC];
 
-		m_eMissionKinds = (EMissionKinds)a_oMissionInfo[KDefine.G_KEY_MISSION_IT_MISSION_KINDS].AsInt;
-		m_eRewardKinds = (ERewardKinds)a_oMissionInfo[KDefine.G_KEY_MISSION_IT_REWARD_KINDS].AsInt;
+		m_eMissionKinds = (EMissionKinds)a_oMissionInfo[KCDefine.U_KEY_MISSION_KINDS].AsInt;
+		m_eRewardKinds = (ERewardKinds)a_oMissionInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt;
 	}
 	#endregion			// 함수
 }
@@ -52,7 +52,7 @@ public class CMissionInfoTable : CScriptableObj<CMissionInfoTable> {
 		oMissionInfoList.AddRange(m_oEventMissionInfoList);
 
 		for(int i = 0; i < oMissionInfoList.Count; ++i) {
-			this.MissionInfoDict.Add(oMissionInfoList[i].m_eMissionKinds, oMissionInfoList[i]);
+			this.MissionInfoDict.ExAddVal(oMissionInfoList[i].m_eMissionKinds, oMissionInfoList[i]);
 		}
 	}
 
@@ -73,7 +73,7 @@ public class CMissionInfoTable : CScriptableObj<CMissionInfoTable> {
 	//! 미션 정보를 로드한다
 	public Dictionary<EMissionKinds, STMissionInfo> LoadMissionInfos() {
 #if UNITY_EDITOR || UNITY_STANDALONE
-		return this.LoadMissionInfos(KDefine.G_RUNTIME_TABLE_P_MISSION_INFO);
+		return this.LoadMissionInfos(KCDefine.U_RUNTIME_TABLE_P_G_MISSION_INFO);
 #else
 		return this.LoadMissionInfos(KCDefine.U_TABLE_P_G_MISSION_INFO);
 #endif			// #if UNITY_EDITOR || UNITY_STANDALONE
@@ -102,9 +102,9 @@ public class CMissionInfoTable : CScriptableObj<CMissionInfoTable> {
 		var oJSONNode = SimpleJSON.JSON.Parse(a_oJSONStr) as SimpleJSON.JSONClass;
 
 		var oMissionInfosList = new List<SimpleJSON.JSONNode>() {
-			oJSONNode[KDefine.G_KEY_MISSION_IT_FREE],
-			oJSONNode[KDefine.G_KEY_MISSION_IT_DAILY],
-			oJSONNode[KDefine.G_KEY_MISSION_IT_EVENT]
+			oJSONNode[KCDefine.U_KEY_FREE],
+			oJSONNode[KCDefine.U_KEY_DAILY],
+			oJSONNode[KCDefine.U_KEY_EVENT]
 		};
 
 		for(int i = 0; i < oMissionInfosList.Count; ++i) {
@@ -122,14 +122,6 @@ public class CMissionInfoTable : CScriptableObj<CMissionInfoTable> {
 		return this.MissionInfoDict;
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

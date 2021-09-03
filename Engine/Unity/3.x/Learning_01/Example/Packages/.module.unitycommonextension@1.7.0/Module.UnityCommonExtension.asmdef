@@ -6,6 +6,7 @@
         "Module.UnityCommonAccess",
         "Module.UnityCommonFactory",
         "Module.UnityCommonExternals",
+        "Unity.RenderPipelines.Universal.Runtime",
         "Unity.TextMeshPro",
         "Google.Play.Review",
         "DOTween.Modules",

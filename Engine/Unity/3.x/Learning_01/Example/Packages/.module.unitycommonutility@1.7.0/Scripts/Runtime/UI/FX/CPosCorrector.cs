@@ -8,7 +8,7 @@ public class CPosCorrector : CComponent {
 	#region 변수
 	[SerializeField] private Vector3 m_stOffset = Vector3.zero;
 
-	// 객체
+	// =====> 객체 <=====
 	[SerializeField] private GameObject m_oTarget = null;
 	#endregion			// 변수
 	

@@ -10,10 +10,10 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 	private void SetupPopupUIs() {
 		// 팝업 UI 가 없을 경우
 		if(CSetupSceneManager.m_oPopupUIs == null) {
-			var oPopupUIs = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_POPUP_UIS, KCDefine.SS_OBJ_P_SCREEN_POPUP_UIS, null);
+			var oPopupUIs = CFactory.CreateCloneObj(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS, KCDefine.SS_OBJ_P_SCREEN_POPUP_UIS, null);
 				
 			CSetupSceneManager.m_oPopupUIs = oPopupUIs;
-			CSceneManager.ScreenPopupUIs = oPopupUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS);
+			CSceneManager.ScreenPopupUIs = oPopupUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS, false);
 
 			DontDestroyOnLoad(oPopupUIs);
 			CFunc.SetupScreenUIs(oPopupUIs, KCDefine.U_SORTING_O_SCREEN_POPUP_UIS);
@@ -24,10 +24,10 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 	private void SetupTopmostUIs() {
 		// 최상위 UI 가 없을 경우
 		if(CSetupSceneManager.m_oTopmostUIs == null) {
-			var oTopmostUIs = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_TOPMOST_UIS, KCDefine.SS_OBJ_P_SCREEN_TOPMOST_UIS, null);
+			var oTopmostUIs = CFactory.CreateCloneObj(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS, KCDefine.SS_OBJ_P_SCREEN_TOPMOST_UIS, null);
 
 			CSetupSceneManager.m_oTopmostUIs = oTopmostUIs;
-			CSceneManager.ScreenTopmostUIs = oTopmostUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS);
+			CSceneManager.ScreenTopmostUIs = oTopmostUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS, false);
 
 			DontDestroyOnLoad(oTopmostUIs);
 			CFunc.SetupScreenUIs(oTopmostUIs, KCDefine.U_SORTING_O_SCREEN_TOPMOST_UIS);
@@ -38,10 +38,10 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 	private void SetupAbsUIs() {
 		// 절대 UI 가 없을 경우
 		if(CSetupSceneManager.m_oAbsUIs == null) {
-			var oAbsUIs = CFactory.CreateCloneObj(KCDefine.SS_OBJ_N_ABS_UIS, KCDefine.SS_OBJ_P_SCREEN_ABS_UIS, null);
+			var oAbsUIs = CFactory.CreateCloneObj(KCDefine.U_OBJ_N_SCREEN_ABS_UIS, KCDefine.SS_OBJ_P_SCREEN_ABS_UIS, null);
 
 			CSetupSceneManager.m_oAbsUIs = oAbsUIs;
-			CSceneManager.ScreenAbsUIs = oAbsUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_ABS_UIS);
+			CSceneManager.ScreenAbsUIs = oAbsUIs.ExFindChild(KCDefine.U_OBJ_N_SCREEN_ABS_UIS, false);
 
 			DontDestroyOnLoad(oAbsUIs);
 			CFunc.SetupScreenUIs(oAbsUIs, KCDefine.U_SORTING_O_SCREEN_ABS_UIS);

@@ -53,7 +53,7 @@ public static partial class CPlatformBuilder {
 		string oVer = (a_eType == EStandaloneType.WNDS) ? CPlatformOptsSetter.ProjInfoTable.WndsProjInfo.m_stBuildVer.m_oVer : CPlatformOptsSetter.ProjInfoTable.MacProjInfo.m_stBuildVer.m_oVer;
 
 		string oPlatform = CEditorAccess.GetStandaloneName(a_eType);
-		string oBuildVer = string.Format(KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE, oVer, nNum);
+		string oBuildVer = string.Format(KCDefine.B_TEXT_FMT_2_UNDER_SCORE_COMBINE, oVer, nNum);
 
 		CPlatformBuilder.ExecuteJenkinsBuild(a_eBuildType, KCEditorDefine.B_JENKINS_STANDALONE_PIPELINE, KCEditorDefine.B_STANDALONE_BUILD_PROJ_N_JENKINS, oPlatform, a_oBuildMode, oBuildVer, a_oBuildFunc, a_oPipelineName, null);
 	}
@@ -68,7 +68,7 @@ public static partial class CPlatformBuilder {
 
 		int nNum = CPlatformOptsSetter.ProjInfoTable.iOSProjInfo.m_stBuildVer.m_nNum;
 		string oVer = CPlatformOptsSetter.ProjInfoTable.iOSProjInfo.m_stBuildVer.m_oVer;
-		string oBuildVer = string.Format(KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE, oVer, nNum);
+		string oBuildVer = string.Format(KCDefine.B_TEXT_FMT_2_UNDER_SCORE_COMBINE, oVer, nNum);
 
 		CPlatformBuilder.ExecuteJenkinsBuild(a_eBuildType, KCEditorDefine.B_JENKINS_IOS_PIPELINE, KCEditorDefine.B_IOS_BUILD_PROJ_N_JENKINS, KCDefine.B_PLATFORM_N_IOS, a_oBuildMode, oBuildVer, a_oBuildFunc, a_oPipelineName, oDataDict);
 	}
@@ -94,7 +94,7 @@ public static partial class CPlatformBuilder {
 		}
 
 		string oPlatform = CEditorAccess.GetAndroidName(a_eType);
-		string oBuildVer = string.Format(KCDefine.B_NAME_FMT_2_UNDER_SCORE_COMBINE, oVer, nNum);
+		string oBuildVer = string.Format(KCDefine.B_TEXT_FMT_2_UNDER_SCORE_COMBINE, oVer, nNum);
 		
 		CPlatformBuilder.ExecuteJenkinsBuild(a_eBuildType, KCEditorDefine.B_JENKINS_ANDROID_PIPELINE, KCEditorDefine.B_ANDROID_BUILD_PROJ_N_JENKINS, oPlatform, a_oBuildMode, oBuildVer, a_oBuildFunc, a_oPipelineName, oDataDict);
 	}

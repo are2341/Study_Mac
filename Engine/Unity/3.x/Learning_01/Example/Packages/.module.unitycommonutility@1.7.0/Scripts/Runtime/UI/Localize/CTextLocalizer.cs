@@ -12,7 +12,7 @@ public class CTextLocalizer : CComponent {
 	private Font m_oThaiFont = null;
 	private Font m_oOriginFont = null;
 
-	// UI
+	// =====> UI <=====
 	private Text m_oText = null;
 	#endregion			// 변수
 

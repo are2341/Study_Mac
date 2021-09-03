@@ -14,8 +14,8 @@ public class CSubEditorInputPopup : CEditorInputPopup {
 	}
 
 	//! 초기화
-	public override void Init(System.Action<CEditorInputPopup, string> a_oCallback) {
-		base.Init(a_oCallback);
+	public override void Init(STCallbackParams a_stCallbackParams) {
+		base.Init(a_stCallbackParams);
 	}
 
 	//! 팝업 컨텐츠를 설정한다
@@ -29,14 +29,6 @@ public class CSubEditorInputPopup : CEditorInputPopup {
 		base.UpdateUIsState();
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-	
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

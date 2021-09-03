@@ -10,6 +10,16 @@ using UnityEditor;
 public static partial class CPlatformBuilder {
 	#region 클래스 함수
 	//! 맥을 빌드한다
+	public static void BuildMacSetup() {
+		// Do Something
+	}
+
+	//! 윈도우즈를 빌드한다
+	public static void BuildWndsSetup() {
+		// Do Something
+	}
+	
+	//! 맥을 빌드한다
 	[MenuItem("Tools/Utility/Build/Local/Standalone/Mac/Debug", false, 11)]
 	public static void BuildMacDebug() {
 		CPlatformBuilder.BuildStandaloneDebug(EStandaloneType.MAC);

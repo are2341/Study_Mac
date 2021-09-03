@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //! 게이지 처리자
 public class CGaugeHandler : CComponent {
 	#region 변수
-	// UI
+	// =====> UI <=====
 	private Image m_oMaskImg = null;
 	private Image m_oPercentImg = null;
 	#endregion			// 변수

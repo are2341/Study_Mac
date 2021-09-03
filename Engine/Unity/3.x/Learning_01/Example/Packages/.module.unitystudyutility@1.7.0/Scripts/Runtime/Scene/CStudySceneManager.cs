@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //! 스터디 씬 관리자
 public abstract class CStudySceneManager : CSceneManager {
 	#region 변수
-	// UI
+	// =====> UI <=====
 	protected Text m_oEmptyText = null;
 	protected Button m_oBackBtn = null;
 	protected ScrollRect m_oScrollRect = null;
@@ -61,14 +61,14 @@ public abstract class CStudySceneManager : CSceneManager {
 #if STUDY_MODULE_ENABLE
 		// 백 키 눌림 이벤트 일 경우
 		if(a_eEvent == ENavStackEvent.BACK_KEY_DOWN) {
-			CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_MENU);
+			this.OnTouchBackBtn();
 		}
 #endif			// #if STUDY_MODULE_ENABLE
 	}
 
 	//! 백 버튼을 눌렀을 경우
 	private void OnTouchBackBtn() {
-		this.OnReceiveNavStackEvent(ENavStackEvent.BACK_KEY_DOWN);
+		CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_MENU);
 	}
 	#endregion			// 함수
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114995954998698784}
   - component: {fileID: 114035893750999380}
   - component: {fileID: 114895748822346396}
-  - component: {fileID: -5524935751872513937}
+  - component: {fileID: 8217541374289505981}
   m_Layer: 0
   m_Name: DynamicInfoText
   m_TagString: Untagged
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 0
---- !u!114 &-5524935751872513937
+--- !u!114 &8217541374289505981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 114929193056346776}
   - component: {fileID: 114329668035826558}
   - component: {fileID: 114826160903385984}
-  - component: {fileID: 8594748684376466583}
+  - component: {fileID: 7386811058903487057}
   m_Layer: 0
   m_Name: StaticInfoText
   m_TagString: Untagged
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 0
---- !u!114 &8594748684376466583
+--- !u!114 &7386811058903487057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

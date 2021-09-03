@@ -127,7 +127,7 @@ public static partial class CPlatformOptsSetter {
 		// 사운드 옵션을 설정한다 }
 
 		// 태그 옵션을 설정한다 {
-#if !CUSTOM_TAG_ENABLE || !CUSTOM_SORTING_L_ENABLE
+#if !CUSTOM_TAG_ENABLE || !CUSTOM_SORTING_LAYER_ENABLE
 		var oTagManager = CEditorFunc.LoadAsset(KCEditorDefine.B_ASSET_P_TAG_MANAGER);
 
 		// 태그 관리자가 존재 할 경우
@@ -155,12 +155,12 @@ public static partial class CPlatformOptsSetter {
 			});
 #endif			// #if !CUSTOM_TAG_ENABLE
 
-#if !CUSTOM_SORTING_L_ENABLE
+#if !CUSTOM_SORTING_LAYER_ENABLE
 			// 정렬 레이어를 설정한다
 			oSerializeObj.ExSetPropertyVal(KCEditorDefine.B_PROPERTY_N_TAG_M_SORTING_LAYER, (a_oProperty) => {
-#if !EXTRA_SORTING_L_ENABLE
+#if !EXTRA_SORTING_LAYER_ENABLE
 				a_oProperty.ClearArray();
-#endif			// #if !EXTRA_SORTING_L_ENABLE
+#endif			// #if !EXTRA_SORTING_LAYER_ENABLE
 
 				// 기존 배열과 길이가 다를 경우
 				if(a_oProperty.arraySize < KCDefine.U_SORTING_LAYERS.Length) {
@@ -177,18 +177,18 @@ public static partial class CPlatformOptsSetter {
 						string oSortingLayer = KCDefine.U_SORTING_LAYERS[i];
 
 						// 태그 이름과 동일 할 경우
-						if(oProperty.name.ExIsEquals(KCEditorDefine.B_PROPERTY_N_TAG_M_NAME)) {
+						if(oProperty.name.Equals(KCEditorDefine.B_PROPERTY_N_TAG_M_NAME)) {
 							oProperty.stringValue = oSortingLayer;
 						}
 						// 고유 식별자 이름과 동일 할 경우
-						else if(oProperty.name.ExIsEquals(KCEditorDefine.B_PROPERTY_N_TAG_M_UNIQUE_ID)) {
-							oProperty.intValue = oSortingLayer.ExIsEquals(KCDefine.U_SORTING_L_DEF) ? KCDefine.B_VAL_0_INT : i + KCEditorDefine.B_UNIT_CUSTOM_TAG_START_ID;
+						else if(oProperty.name.Equals(KCEditorDefine.B_PROPERTY_N_TAG_M_UNIQUE_ID)) {
+							oProperty.intValue = oSortingLayer.Equals(KCDefine.U_SORTING_L_DEF) ? KCDefine.B_VAL_0_INT : i + KCEditorDefine.B_UNIT_CUSTOM_TAG_START_ID;
 						}
 					}
 				}
 			});
-#endif			// #if !CUSTOM_SORTING_L_ENABLE
-#endif			// #if !CUSTOM_TAG_ENABLE || !CUSTOM_SORTING_L_ENABLE
+#endif			// #if !CUSTOM_SORTING_LAYER_ENABLE
+#endif			// #if !CUSTOM_TAG_ENABLE || !CUSTOM_SORTING_LAYER_ENABLE
 			// 태그 옵션을 설정한다 }
 		}
 	}
@@ -339,12 +339,12 @@ public static partial class CPlatformOptsSetter {
 
 		// 앱 식별자를 설정한다
 		if(CPlatformOptsSetter.ProjInfoTable != null) {
-			PlayerSettings.macOS.buildNumber = CPlatformOptsSetter.ProjInfoTable.MacProjInfo.m_stBuildVer.m_nNum.ToString();
-			PlayerSettings.iOS.buildNumber = CPlatformOptsSetter.ProjInfoTable.iOSProjInfo.m_stBuildVer.m_nNum.ToString();
+			PlayerSettings.macOS.buildNumber = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.MacProjInfo.m_stBuildVer.m_nNum);
+			PlayerSettings.iOS.buildNumber = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.iOSProjInfo.m_stBuildVer.m_nNum);
 
 			PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, CPlatformOptsSetter.ProjInfoTable.iOSProjInfo.m_oAppID);
 
-			bool bIsValidNum = false;
+			bool bIsValidBuildNum = false;
 			int nBuildNum = KCDefine.B_VAL_0_INT;
 
 			// 배치 모드 일 경우
@@ -358,13 +358,13 @@ public static partial class CPlatformOptsSetter {
 
 				// 원 스토어 일 경우
 				if(CPlatformBuilder.AndroidType == EAndroidType.ONE_STORE) {
-					bIsValidNum = int.TryParse(CPlatformOptsSetter.ProjInfoTable.OneStoreProjInfo.m_stBuildVer.m_nNum.ToString(), out nBuildNum);
+					bIsValidBuildNum = int.TryParse(string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.OneStoreProjInfo.m_stBuildVer.m_nNum), out nBuildNum);
 				}
 				// 갤럭시 스토어 일 경우
 				else if(CPlatformBuilder.AndroidType == EAndroidType.GALAXY_STORE) {
-					bIsValidNum = int.TryParse(CPlatformOptsSetter.ProjInfoTable.GalaxyStoreProjInfo.m_stBuildVer.m_nNum.ToString(), out nBuildNum);
+					bIsValidBuildNum = int.TryParse(string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.GalaxyStoreProjInfo.m_stBuildVer.m_nNum), out nBuildNum);
 				} else {
-					bIsValidNum = int.TryParse(CPlatformOptsSetter.ProjInfoTable.GoogleProjInfo.m_stBuildVer.m_nNum.ToString(), out nBuildNum);
+					bIsValidBuildNum = int.TryParse(string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.GoogleProjInfo.m_stBuildVer.m_nNum), out nBuildNum);
 				}
 			} else {
 #if WNDS
@@ -374,15 +374,15 @@ public static partial class CPlatformOptsSetter {
 #endif			// #if WNDS
 
 #if ONE_STORE
-				bIsValidNum = int.TryParse(CPlatformOptsSetter.ProjInfoTable.OneStoreProjInfo.m_stBuildVer.m_nNum.ToString(), out nBuildNum);
+				bIsValidBuildNum = int.TryParse(string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.OneStoreProjInfo.m_stBuildVer.m_nNum), out nBuildNum);
 #elif GALAXY_STORE
-				bIsValidNum = int.TryParse(CPlatformOptsSetter.ProjInfoTable.GalaxyStoreProjInfo.m_stBuildVer.m_nNum.ToString(), out nBuildNum);
+				bIsValidBuildNum = int.TryParse(string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.GalaxyStoreProjInfo.m_stBuildVer.m_nNum), out nBuildNum);
 #else
-				bIsValidNum = int.TryParse(CPlatformOptsSetter.ProjInfoTable.GoogleProjInfo.m_stBuildVer.m_nNum.ToString(), out nBuildNum);
+				bIsValidBuildNum = int.TryParse(string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, CPlatformOptsSetter.ProjInfoTable.GoogleProjInfo.m_stBuildVer.m_nNum), out nBuildNum);
 #endif			// #if ONE_STORE
 			}
 			
-			CAccess.Assert(bIsValidNum && nBuildNum >= KCDefine.B_MIN_BUILD_NUM);
+			CAccess.Assert(bIsValidBuildNum && nBuildNum >= KCDefine.B_MIN_BUILD_NUM);
 			PlayerSettings.Android.bundleVersionCode = nBuildNum;
 
 			// 배치 모드 일 경우
@@ -420,13 +420,6 @@ public static partial class CPlatformOptsSetter {
 		PlayerSettings.SetApiCompatibilityLevel(BuildTargetGroup.Android, ApiCompatibilityLevel.NET_4_6);
 		PlayerSettings.SetIl2CppCompilerConfiguration(BuildTargetGroup.Android, Il2CppCompilerConfiguration.Release);
 		// 스크립트 API 를 설정한다 }
-
-#if FIREBASE_MODULE_ENABLE && FIREBASE_ANALYTICS_ENABLE
-		// 컴파일러 추가 옵션을 설정한다
-		// PlayerSettings.SetAdditionalCompilerArgumentsForGroup(BuildTargetGroup.Standalone, KCEditorDefine.B_COMPILER_OPTS_ADDITIONALS);
-		// PlayerSettings.SetAdditionalCompilerArgumentsForGroup(BuildTargetGroup.iOS, KCEditorDefine.B_COMPILER_OPTS_ADDITIONALS);
-		// PlayerSettings.SetAdditionalCompilerArgumentsForGroup(BuildTargetGroup.Android, KCEditorDefine.B_COMPILER_OPTS_ADDITIONALS);
-#endif			// #if FIREBASE_MODULE_ENABLE && FIREBASE_ANALYTICS_ENABLE
 	}
 
 	//! 독립 플랫폼 옵션을 설정한다

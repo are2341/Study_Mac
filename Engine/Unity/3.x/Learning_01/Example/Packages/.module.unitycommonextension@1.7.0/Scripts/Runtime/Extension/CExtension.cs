@@ -75,15 +75,15 @@ public static partial class CExtension {
 	}
 
 	//! 시간 => 긴 문자열로 변환한다
-	public static string ExToLongStr(this System.DateTime a_stSender) {
+	public static string ExToLongStr(this System.DateTime a_stSender, bool a_bIsEnableSplash = true) {
 		CAccess.Assert(a_stSender.ExIsValid());
-		return a_stSender.ExToStr(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS);
+		return a_stSender.ExToStr(a_bIsEnableSplash ? KCDefine.B_DATE_T_FMT_SLASH_YYYY_MM_DD_HH_MM_SS : KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS);
 	}
 
 	//! 시간 => 짧은 문자열로 변환한다
-	public static string ExToShortStr(this System.DateTime a_stSender) {
+	public static string ExToShortStr(this System.DateTime a_stSender, bool a_bIsEnableSplash = true) {
 		CAccess.Assert(a_stSender.ExIsValid());
-		return a_stSender.ExToStr(KCDefine.B_DATE_T_FMT_YYYY_MM_DD);
+		return a_stSender.ExToStr(a_bIsEnableSplash ? KCDefine.B_DATE_T_FMT_SLASH_YYYY_MM_DD : KCDefine.B_DATE_T_FMT_YYYY_MM_DD);
 	}
 
 	//! 지역 시간 => PST 시간으로 변환한다
@@ -676,7 +676,7 @@ public static partial class CExtension {
 		
 		foreach(var oMethodInfo in oMethodInfos) {
 			// 메서드 이름이 동일 할 경우
-			if(oMethodInfo.Name.ExIsEquals(a_oName)) {
+			if(oMethodInfo.Name.Equals(a_oName)) {
 				return oMethodInfo.Invoke(a_oSender, a_oParams);
 			}
 		}

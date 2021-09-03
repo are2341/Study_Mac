@@ -10,6 +10,11 @@ using UnityEditor;
 public static partial class CPlatformBuilder {
 	#region 클래스 함수
 	//! iOS 를 빌드한다
+	public static void BuildiOSSetup() {
+		// Do Something
+	}
+	
+	//! iOS 를 빌드한다
 	public static void BuildiOSAdhocUpload() {
 		CPlatformBuilder.BuildiOSAdhoc();
 	}

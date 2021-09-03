@@ -20,8 +20,6 @@ public static class CScriptableObjCreator {
 
 		oDefineSymbolTable.SetCommonDefineSymbolList(new List<string>() {
 			KCEditorDefine.DS_DEFINE_S_DOTWEEN_ENABLE,
-			KCEditorDefine.DS_DEFINE_S_GOOGLE_REVIEW_ENABLE,
-			KCEditorDefine.DS_DEFINE_S_GOOGLE_UPDATE_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_SECURITY_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_DYNAMIC_BATCHING_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_VISUAL_FX_GRAPH_ENABLE,
@@ -35,6 +33,8 @@ public static class CScriptableObjCreator {
 			KCEditorDefine.DS_DEFINE_S_BURST_COMPILER_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_ADAPTIVE_PERFORMANCE_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_MSG_PACK_ENABLE,
+			KCEditorDefine.DS_DEFINE_S_LIGHT_ENABLE,
+			KCEditorDefine.DS_DEFINE_S_SHADOW_ENABLE,
 			KCEditorDefine.DS_DEFINE_S_MODE_2D_ENABLE
 		});
 	}
@@ -213,19 +213,19 @@ public static class CScriptableObjCreator {
 	[MenuItem("Tools/Utility/Create/ProjInfoTable")]
 	public static void CreateProjInfoTable() {
 		var oProjInfoTable = CEditorFactory.CreateScriptableObj<CProjInfoTable>();
-		oProjInfoTable.SetCompanyName("LK Studio");
+		oProjInfoTable.SetCompanyName("LKStudio");
 
 		oProjInfoTable.SetServicesURL("https://www.ninetap.com/terms_of_service.html");
 		oProjInfoTable.SetPrivacyURL("https://www.ninetap.com/privacy_policy.html");
 
-		oProjInfoTable.SetProjName("Sample_Unity");
-		oProjInfoTable.SetProductName("Sample");
-		oProjInfoTable.SetShortProductName("Sample");
+		oProjInfoTable.SetProjName("000111.Sample_Unity");
+		oProjInfoTable.SetProductName("Sample_Unity");
+		oProjInfoTable.SetShortProductName("Sample_Unity");
 
 		oProjInfoTable.SetMacProjInfo(new STProjInfo() {
 			m_stBuildVer = new STBuildVer() {
 				m_nNum = 1,
-				m_oVer = "1.0.0",
+				m_oVer = "0.0.1",
 			},
 
 			m_oAppID = "dante.distribution.sample",
@@ -237,7 +237,7 @@ public static class CScriptableObjCreator {
 		oProjInfoTable.SetWndsProjInfo(new STProjInfo() {
 			m_stBuildVer = new STBuildVer() {
 				m_nNum = 1,
-				m_oVer = "1.0.0",
+				m_oVer = "0.0.1",
 			},
 
 			m_oAppID = "dante.distribution.sample",
@@ -249,7 +249,7 @@ public static class CScriptableObjCreator {
 		oProjInfoTable.SetiOSProjInfo(new STProjInfo() {
 			m_stBuildVer = new STBuildVer() {
 				m_nNum = 1,
-				m_oVer = "1.0.0",
+				m_oVer = "0.0.1",
 			},
 
 			m_oAppID = "dante.distribution.sample",
@@ -261,7 +261,7 @@ public static class CScriptableObjCreator {
 		oProjInfoTable.SetGoogleProjInfo(new STProjInfo() {
 			m_stBuildVer = new STBuildVer() {
 				m_nNum = 1,
-				m_oVer = "1.0.0",
+				m_oVer = "0.0.1",
 			},
 
 			m_oAppID = "dante.distribution.sample",
@@ -273,7 +273,7 @@ public static class CScriptableObjCreator {
 		oProjInfoTable.SetOneStoreProjInfo(new STProjInfo() {
 			m_stBuildVer = new STBuildVer() {
 				m_nNum = 1,
-				m_oVer = "1.0.0",
+				m_oVer = "0.0.1",
 			},
 
 			m_oAppID = "dante.distribution.sample",
@@ -285,7 +285,7 @@ public static class CScriptableObjCreator {
 		oProjInfoTable.SetGalaxyStoreProjInfo(new STProjInfo() {
 			m_stBuildVer = new STBuildVer() {
 				m_nNum = 1,
-				m_oVer = "1.0.0",
+				m_oVer = "0.0.1",
 			},
 
 			m_oAppID = "dante.distribution.sample",
@@ -361,6 +361,13 @@ public static class CScriptableObjCreator {
 		oPluginInfoTable.SetiOSFlurryAPIKey("KMVH2DR22CBQWMZJ6XJ8");
 		oPluginInfoTable.SetAndroidFlurryAPIKey("9B4TJSM4BFJ9N4J2X83D");
 #endif			// #if FLURRY_MODULE_ENABLE
+
+#if APPS_FLYER_MODULE_ENABLE
+		oPluginInfoTable.SetAppsFlyerPluginInfo(new STAppsFlyerPluginInfo() {
+			m_oAppID = string.Empty,
+			m_oDevKey = string.Empty
+		});
+#endif			// #if APPS_FLYER_MODULE_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 		oPluginInfoTable.SetSingularPluginInfo(new STSingularPluginInfo() {

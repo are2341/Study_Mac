@@ -25,7 +25,6 @@ public class CEditorScrollerCellView : CScrollerCellView {
 	#region 변수
 	private STParams m_stParams;
 	private STCallbackParams m_stCallbackParams;
-
 	#endregion			// 변수
 
 	#region 프로퍼티

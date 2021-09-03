@@ -14,7 +14,7 @@ public class CSaleCoinsAcquirePopup : CSubPopup {
 	private STParams m_stParams;
 	private int m_nPrevNumSaleCoins = 0;
 
-	// 객체
+	// =====> 객체 <=====
 	[SerializeField] private GameObject m_oSaveUIs = null;
 	[SerializeField] private GameObject m_oFullUIs = null;
 	#endregion			// 변수
@@ -46,19 +46,11 @@ public class CSaleCoinsAcquirePopup : CSubPopup {
 	//! UI 상태를 변경한다
 	private new void UpdateUIsState() {
 		base.UpdateUIsState();
-		
+
 		m_oSaveUIs?.SetActive(m_nPrevNumSaleCoins < KDefine.G_MAX_NUM_SALE_COINS);
 		m_oFullUIs?.SetActive(m_nPrevNumSaleCoins >= KDefine.G_MAX_NUM_SALE_COINS);
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

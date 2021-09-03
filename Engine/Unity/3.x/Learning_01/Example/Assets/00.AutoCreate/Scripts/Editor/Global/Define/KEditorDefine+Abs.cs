@@ -15,7 +15,7 @@ public static partial class KEditorDefine {
 	#region 기본
 	// 시간
 	public const float B_DELAY_DEFINE_S_UPDATE = 1.0f;
-
+	
 	// 유니티 패키지 {
 	public const string B_UNITY_PKGS_N_KEY = "name";
 	public const string B_UNITY_PKGS_SCOPED_REGISTRIES_KEY = "scopedRegistries";
@@ -84,8 +84,9 @@ public static partial class KEditorDefine {
 
 #if ADS_MODULE_ENABLE
 		[typeof(CAdsManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
-		[typeof(CBannerAdsPosCorrector)] = KCDefine.U_SCRIPT_O_BANNER_ADS_CORRECTOR,
-		[typeof(CRewardAdsTouchInteractable)] = KCDefine.U_SCRIPT_O_REWARD_ADS_TOUCH_INTERACTABLE,
+		[typeof(CBannerAdsPosCorrector)] = KCDefine.U_SCRIPT_O_ADS_CORRECTOR,
+		[typeof(CBannerAdsSizeCorrector)] = KCDefine.U_SCRIPT_O_ADS_CORRECTOR,
+		[typeof(CRewardAdsTouchInteractable)] = KCDefine.U_SCRIPT_O_ADS_INTERACTABLE,
 #endif			// #if ADS_MODULE_ENABLE
 
 #if FLURRY_MODULE_ENABLE
@@ -99,6 +100,10 @@ public static partial class KEditorDefine {
 #if FIREBASE_MODULE_ENABLE
 		[typeof(CFirebaseManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 #endif			// #if FIREBASE_MODULE_ENABLE
+
+#if APPS_FLYER_MODULE_ENABLE
+		[typeof(CAppsFlyerManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
+#endif			// #if APPS_FLYER_MODULE_ENABLE
 
 #if GAME_ANALYTICS_MODULE_ENABLE
 		[typeof(CGameAnalyticsManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
@@ -210,6 +215,10 @@ public static partial class KEditorDefine {
 #if FIREBASE_ENABLE || FIREBASE_MODULE_ENABLE
 		["module.unitycommonfirebase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/000001.module_unitycommonfirebase_client.git#1.7.0",
 #endif			// #if FIREBASE_ENABLE || FIREBASE_MODULE_ENABLE
+
+#if APPS_FLYER_ENABLE || APPS_FLYER_MODULE_ENABLE
+		["module.unitycommonappsflyer"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/000001.module_unitycommonappsflyer_client.git#1.7.0",
+#endif			// #if APPS_FLYER_ENABLE || APPS_FLYER_MODULE_ENABLE
 
 #if GAME_ANALYTICS_ENABLE || GAME_ANALYTICS_ENABLE_MODULE_ENABLE
 		["module.unitycommongameanalytics"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/000001.module_unitycommongameanalytics_client.git#1.7.0",

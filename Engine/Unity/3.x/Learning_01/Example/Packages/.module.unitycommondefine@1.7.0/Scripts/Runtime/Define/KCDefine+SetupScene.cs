@@ -6,13 +6,8 @@ using UnityEngine.UI;
 //! 설정 씬 상수
 public static partial class KCDefine {
 	#region 기본
-	// 이름 {
-	public const string SS_OBJ_N_POPUP_UIS = "PopupUIs";
-	public const string SS_OBJ_N_TOPMOST_UIS = "TopmostUIs";
-	public const string SS_OBJ_N_ABS_UIS = "AbsUIs";
-
+	// 이름
 	public const string SS_OBJ_N_TIMER_MANAGER = "TimerManager";
-	// 이름 }
 	#endregion			// 기본
 
 	#region 런타임 상수

@@ -9,11 +9,11 @@ public class CDailyRewardPopup : CSubPopup {
 	#region 변수
 	private bool m_bIsWatchRewardAds = false;
 
-	// UI
+	// =====> UI <=====
 	private Button m_oAdsBtn = null;
 	private Button m_oAcquireBtn = null;
 
-	// 객체
+	// =====> 객체 <=====
 	[SerializeField] private List<GameObject> m_oRewardUIsList = new List<GameObject>();
 	#endregion			// 변수
 
@@ -108,8 +108,7 @@ public class CDailyRewardPopup : CSubPopup {
 				m_oItemInfoList = stRewardInfo.m_oItemInfoList
 			};
 
-			var oRewardAcquirePopup = a_oSender as CRewardAcquirePopup;
-			oRewardAcquirePopup.Init(stParams);
+			(a_oSender as CRewardAcquirePopup).Init(stParams);
 		}, null, this.OnCloseRewardAcquirePopup);
 	}
 	#endregion			// 함수
@@ -126,14 +125,6 @@ public class CDailyRewardPopup : CSubPopup {
 	}
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

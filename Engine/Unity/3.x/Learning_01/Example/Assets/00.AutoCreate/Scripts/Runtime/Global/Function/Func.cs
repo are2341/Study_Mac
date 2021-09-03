@@ -50,7 +50,7 @@ public static partial class Func {
 	private static System.Action<CPurchaseManager, List<Product>, bool> m_oRestoreCallback = null;
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 클래스 변수
-	
+
 	#region 클래스 함수
 	//! 지역화 문자열을 설정한다
 	public static void SetupLocalizeStrs() {
@@ -76,20 +76,24 @@ public static partial class Func {
 	//! 경고 팝업을 출력한다
 	public static void ShowAlertPopup(string a_oMsg, System.Action<CAlertPopup, bool> a_oCallback, bool a_bIsEnableCancelBtn = true) {
 		var stParams = new CAlertPopup.STParams() {
-			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_TITLE),
+			m_oTitle = CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_NOTI_TEXT),
 			m_oMsg = a_oMsg,
-			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_OK_BTN_TEXT),
-			m_oCancelBtnText = a_bIsEnableCancelBtn ? CStrTable.Inst.GetStr(KCDefine.ST_KEY_ALERT_P_CANCEL_BTN_TEXT) : string.Empty
+			m_oOKBtnText = CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_OK_TEXT),
+			m_oCancelBtnText = a_bIsEnableCancelBtn ? CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_CANCEL_TEXT) : string.Empty
 		};
 
-		Func.ShowAlertPopup(stParams, a_oCallback);
+		var stCallbackParams = new CAlertPopup.STCallbackParams() {
+			m_oCallback = a_oCallback
+		};
+
+		Func.ShowAlertPopup(stParams, stCallbackParams);
 	}
 
 	//! 경고 팝업을 출력한다
-	public static void ShowAlertPopup(CAlertPopup.STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback) {
+	public static void ShowAlertPopup(CAlertPopup.STParams a_stParams, CAlertPopup.STCallbackParams a_stCallbackParams) {
 		// 경고 팝업이 없을 경우
 		if(CSceneManager.ScreenPopupUIs.ExFindChild(KCDefine.U_OBJ_N_ALERT_POPUP) == null) {
-			var oAlertPopup = CAlertPopup.Create<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP, KCDefine.U_OBJ_P_G_ALERT_POPUP, CSceneManager.ScreenPopupUIs, a_stParams, a_oCallback);
+			var oAlertPopup = CAlertPopup.Create<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP, KCDefine.U_OBJ_P_G_ALERT_POPUP, CSceneManager.ScreenPopupUIs, a_stParams, a_stCallbackParams);
 			oAlertPopup.Show(null, null);
 		}
 	}
@@ -115,6 +119,16 @@ public static partial class Func {
 		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_UPDATE_P_MSG), a_oCallback);
 	}
 
+	//! 로드 팝업을 출력한다
+	public static void ShowLoadPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_LOAD_P_MSG), a_oCallback);
+	}
+
+	//! 저장 팝업을 출력한다
+	public static void ShowSavePopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_SAVE_P_MSG), a_oCallback);
+	}
+
 	//! 로그인 성공 팝업을 출력한다
 	public static void ShowLoginSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
 		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGIN_SUCCESS_MSG), a_oCallback, false);
@@ -135,16 +149,6 @@ public static partial class Func {
 		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGOUT_SUCCESS_MSG), a_oCallback, false);
 	}
 
-	//! 저장 성공 팝업을 출력한다
-	public static void ShowSaveSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_SUCCESS_MSG), a_oCallback, false);
-	}
-
-	//! 저장 실패 팝업을 출력한다
-	public static void ShowSaveFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_FAIL_MSG), a_oCallback, false);
-	}
-
 	//! 로드 성공 팝업을 출력한다
 	public static void ShowLoadSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
 		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOAD_SUCCESS_MSG), a_oCallback, false);
@@ -153,6 +157,16 @@ public static partial class Func {
 	//! 로드 실패 팝업을 출력한다
 	public static void ShowLoadFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
 		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOAD_FAIL_MSG), a_oCallback, false);
+	}
+
+	//! 저장 성공 팝업을 출력한다
+	public static void ShowSaveSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_SUCCESS_MSG), a_oCallback, false);
+	}
+
+	//! 저장 실패 팝업을 출력한다
+	public static void ShowSaveFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_FAIL_MSG), a_oCallback, false);
 	}
 
 	//! 결제 성공 팝업을 출력한다
@@ -325,9 +339,9 @@ public static partial class Func {
 		CIndicatorManager.Inst.Show(true);
 		Func.m_oFirebaseLoginCallback = a_oCallback;
 
-#if APPLE_LOGIN_ENABLE && UNITY_IOS
+#if UNITY_IOS && APPLE_LOGIN_ENABLE
 		CServicesManager.Inst.LoginWithApple(Func.OnFirebaseAppleLogin);
-#elif FACEBOOK_MODULE_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#elif (UNITY_IOS || UNITY_ANDROID) && FACEBOOK_MODULE_ENABLE
 		CFacebookManager.Inst.Login(KCDefine.U_PERMISSIONS_FACEBOOK.ToList(), Func.OnFirebaseFacebookLogin);
 #else
 		CFirebaseManager.Inst.Login(Func.OnFirebaseLogin);
@@ -339,9 +353,9 @@ public static partial class Func {
 		CIndicatorManager.Inst.Show(true);
 		Func.m_oFirebaseLogoutCallback = a_oCallback;
 
-#if APPLE_LOGIN_ENABLE && UNITY_IOS
+#if UNITY_IOS && APPLE_LOGIN_ENABLE
 		CServicesManager.Inst.LogoutWithApple(Func.OnFirebaseAppleLogout);
-#elif FACEBOOK_MODULE_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#elif (UNITY_IOS || UNITY_ANDROID) && FACEBOOK_MODULE_ENABLE
 		CFacebookManager.Inst.Logout(Func.OnFirebaseFacebookLogout);
 #else
 		CFirebaseManager.Inst.Logout(Func.OnFirebaseLogout);
@@ -388,6 +402,7 @@ public static partial class Func {
 			var oJSONNode = new SimpleJSON.JSONClass();
 			oJSONNode.Add(KCDefine.B_KEY_JSON_USER_INFO_DATA, CUserInfoStorage.Inst.UserInfo.ExToMsgPackJSONStr());
 			oJSONNode.Add(KCDefine.B_KEY_JSON_GAME_INFO_DATA, CGameInfoStorage.Inst.GameInfo.ExToMsgPackBase64Str());
+			oJSONNode.Add(KCDefine.B_KEY_JSON_COMMON_APP_INFO_DATA, CCommonAppInfoStorage.Inst.AppInfo.ExToMsgPackJSONStr());
 			oJSONNode.Add(KCDefine.B_KEY_JSON_COMMON_USER_INFO_DATA, CCommonUserInfoStorage.Inst.UserInfo.ExToMsgPackJSONStr());
 
 			CFirebaseManager.Inst.SaveDB(oNodeList, oJSONNode.ToString(), Func.OnSaveUserInfo);
@@ -471,7 +486,7 @@ public static partial class Func {
 	}
 #endif			// #if UNITY_IOS && APPLE_LOGIN_ENABLE
 
-#if FACEBOOK_MODULE_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#if (UNITY_IOS || UNITY_ANDROID) && FACEBOOK_MODULE_ENABLE
 	//! 페이스 북에 로그인 되었을 경우
 	private static void OnFirebaseFacebookLogin(CFacebookManager a_oSender, bool a_bIsSuccess) {
 		CIndicatorManager.Inst.Close();
@@ -489,7 +504,7 @@ public static partial class Func {
 	private static void OnFirebaseFacebookLogout(CFacebookManager a_oSender) {
 		CFirebaseManager.Inst.Logout(Func.OnFirebaseLogout);
 	}
-#endif			// #if FACEBOOK_MODULE_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#endif			// #if (UNITY_IOS || UNITY_ANDROID) && FACEBOOK_MODULE_ENABLE
 #endif			// #if FIREBASE_MODULE_ENABLE
 
 #if GAME_CENTER_MODULE_ENABLE
@@ -613,14 +628,6 @@ public static partial class Func {
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
-
-	#region 추가 클래스 변수
-
-	#endregion			// 추가 클래스 변수
-
-	#region 추가 클래스 프로퍼티
-
-	#endregion			// 추가 클래스 프로퍼티
 
 	#region 추가 클래스 함수
 

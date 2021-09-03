@@ -14,7 +14,7 @@ public class CSubStartSceneManager : CStartSceneManager {
 
 	private System.Text.StringBuilder m_oStrBuilder = new System.Text.StringBuilder();
 
-	// UI
+	// =====> UI <=====
 	private Text m_oLoadingText = null;
 	private CGaugeHandler m_oGaugeHandler = null;
 	#endregion			// 변수
@@ -70,9 +70,9 @@ public class CSubStartSceneManager : CStartSceneManager {
 		m_fSkipTime = KCDefine.SS_DELTA_T_UPDATE_STATE;
 			
 		// 텍스트를 설정한다 {
-		var oLoadingText = this.SubUIs.ExFindComponent<Text>(KCDefine.SS_OBJ_N_LOADING_TEXT);
+		var oLoadingText = this.SubUIs.ExFindComponent<Text>(KCDefine.U_OBJ_N_LOADING_TEXT);
 
-		m_oLoadingText = oLoadingText ?? CFactory.CreateCloneObj<Text>(KCDefine.SS_OBJ_N_LOADING_TEXT, KCDefine.SS_OBJ_P_LOADING_TEXT, this.SubUIs, KDefine.SS_POS_LOADING_TEXT);
+		m_oLoadingText = oLoadingText ?? CFactory.CreateCloneObj<Text>(KCDefine.U_OBJ_N_LOADING_TEXT, KCDefine.SS_OBJ_P_LOADING_TEXT, this.SubUIs, KDefine.SS_POS_LOADING_TEXT);
 		m_oLoadingText.text = KCDefine.SS_TEXT_LOADING;
 		// 텍스트를 설정한다 }
 
@@ -100,14 +100,6 @@ public class CSubStartSceneManager : CStartSceneManager {
 		m_oLoadingText.text = m_oStrBuilder.ToString();
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

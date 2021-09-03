@@ -10,7 +10,7 @@ public class CScrollHandler : CComponent, IScrollHandler {
 	#region 변수
 	[SerializeField] private Vector3 m_stScrollDelta = new Vector3(200.0f, 200.0f, 0.0f);
 
-	// UI
+	// =====> UI <=====
 	private ScrollRect m_oScrollRect = null;
 	#endregion			// 변수
 

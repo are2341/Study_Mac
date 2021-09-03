@@ -11,7 +11,7 @@ public class CImgLocalizer : CComponent {
 	private string m_oLanguage = string.Empty;
 	private string m_oCountryCode = string.Empty;
 
-	// UI
+	// =====> UI <=====
 	private Image m_oImg = null;
 	#endregion			// 변수
 

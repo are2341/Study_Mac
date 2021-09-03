@@ -18,8 +18,8 @@ public class CAgreePopup : CPopup {
 
 	private bool m_bIsAgreeServices = false;
 	private bool m_bIsAgreePrivacy = false;
-
-	// UI {
+	
+	// =====> UI <=====
 	// 일반 UI {
 	private Text m_oNUIsServicesText = null;
 	private Text m_oNUIsPrivacyText = null;
@@ -27,21 +27,17 @@ public class CAgreePopup : CPopup {
 	private Image m_oNUIsServicesCheckImg = null;
 	private Image m_oNUIsPrivacyCheckImg = null;
 	// 일반 UI }
-	// UI }
 
-	// 객체 {
+	// =====> 객체 <=====
 	[SerializeField] private GameObject m_oNormUIs = null;
 	[SerializeField] private GameObject m_oEUUIs = null;
 
 	[SerializeField] private GameObject m_oNUIsServicesUIs = null;
 	[SerializeField] private GameObject m_oNUIsPrivacyUIs = null;
-	// 객체 }
 	#endregion			// 변수
 	
 	#region 프로퍼티
-	public override bool IsIgnoreAni => true;
 	public override float ShowTimeScale => KCDefine.B_VAL_1_FLT;
-	
 	public override EAniType AniType => EAniType.NONE;
 	#endregion			// 프로퍼티
 
@@ -49,6 +45,8 @@ public class CAgreePopup : CPopup {
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
+
+		this.IsIgnoreAni = true;
 		this.IsIgnoreNavStackEvent = true;
 
 		this.SetupNormUIs();
@@ -74,10 +72,10 @@ public class CAgreePopup : CPopup {
 		m_oNUIsPrivacyCheckImg = m_oNUIsPrivacyUIs.ExFindComponent<Image>(KCDefine.U_OBJ_N_CHECK_IMG);
 
 		// 버튼을 설정한다 {
-		var oServicesBtn = m_oNUIsServicesUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_AGREE_BTN);
+		var oServicesBtn = m_oNUIsServicesUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_AGREE_BTN);
 		oServicesBtn.onClick.AddListener(this.OnTouchNUIsServicesBtn);
 
-		var oPrivacyBtn = m_oNUIsPrivacyUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_AGREE_BTN);
+		var oPrivacyBtn = m_oNUIsPrivacyUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_AGREE_BTN);
 		oPrivacyBtn.onClick.AddListener(this.OnTouchNUIsPrivacyBtn);
 		// 버튼을 설정한다 }
 	}
@@ -85,10 +83,10 @@ public class CAgreePopup : CPopup {
 	//! EU UI 를 설정한다
 	private void SetupEUUIs() {
 		// 버튼을 설정한다 {
-		var oServicesBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_SERVICES_BTN);
+		var oServicesBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_SERVICES_BTN);
 		oServicesBtn.onClick.AddListener(this.OnTouchEUUIsServicesBtn);
 
-		var oPrivacyBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.AS_OBJ_N_AGREE_P_PRIVACY_BTN);
+		var oPrivacyBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_PRIVACY_BTN);
 		oPrivacyBtn.onClick.AddListener(this.OnTouchEUUIsPrivacyBtn);
 
 		var oOKBtn = m_oEUUIs.ExFindComponent<Button>(KCDefine.U_OBJ_N_OK_BTN);

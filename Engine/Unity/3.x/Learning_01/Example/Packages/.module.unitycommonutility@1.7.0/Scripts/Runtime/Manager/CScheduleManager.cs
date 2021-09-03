@@ -98,7 +98,7 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 	//! 콜백을 추가한다
 	public void AddCallback(string a_oKey, System.Action a_oCallback) {
 		lock(KCDefine.U_LOCK_OBJ_SCHEDULE_M_UPDATE) {
-			int nIdx = m_oCallbackInfoList.ExFindVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(a_oKey));
+			int nIdx = m_oCallbackInfoList.ExFindVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.Equals(a_oKey));
 
 			// 콜백이 없을 경우
 			if(!m_oCallbackInfoList.ExIsValidIdx(nIdx)) {
@@ -140,7 +140,7 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 	//! 콜백을 제거한다
 	public void RemoveCallback(string a_oKey) {
 		lock(KCDefine.U_LOCK_OBJ_SCHEDULE_M_UPDATE) {
-			int nIdx = m_oCallbackInfoList.ExFindVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(a_oKey));
+			int nIdx = m_oCallbackInfoList.ExFindVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.Equals(a_oKey));
 
 			// 콜백이 존재 할 경우
 			if(m_oCallbackInfoList.ExIsValidIdx(nIdx)) {
@@ -190,7 +190,7 @@ public class CScheduleManager : CSingleton<CScheduleManager> {
 
 		for(int i = 0; i < m_oRemoveCallbackInfoList.Count; ++i) {
 			var stCallbackInfo = m_oRemoveCallbackInfoList[i];
-			m_oCallbackInfoList.ExRemoveVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.ExIsEquals(stCallbackInfo.m_oKey));
+			m_oCallbackInfoList.ExRemoveVal((a_stCallbackInfo) => a_stCallbackInfo.m_oKey.Equals(stCallbackInfo.m_oKey));
 		}
 		
 		m_oAddCallbackInfoList.Clear();

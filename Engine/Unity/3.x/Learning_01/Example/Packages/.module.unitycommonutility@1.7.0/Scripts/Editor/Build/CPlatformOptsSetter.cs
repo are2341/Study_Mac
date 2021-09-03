@@ -23,7 +23,7 @@ public static partial class CPlatformOptsSetter {
 		get {
 			// 빌드 정보 테이블이 없을 경우
 			if(CPlatformOptsSetter.m_oBuildInfoTable == null) {
-				CPlatformOptsSetter.m_oBuildInfoTable = AssetDatabase.LoadAssetAtPath<CBuildInfoTable>(KCEditorDefine.B_ASSET_P_BUILD_INFO_TABLE);
+				CPlatformOptsSetter.m_oBuildInfoTable = CEditorFunc.FindAsset<CBuildInfoTable>(KCEditorDefine.B_ASSET_P_BUILD_INFO_TABLE);
 				CPlatformOptsSetter.m_oBuildInfoTable?.Awake();
 			}
 
@@ -37,7 +37,7 @@ public static partial class CPlatformOptsSetter {
 		get {
 			// 빌드 옵션 테이블이 없을 경우
 			if(CPlatformOptsSetter.m_oBuildOptsTable == null) {
-				CPlatformOptsSetter.m_oBuildOptsTable = AssetDatabase.LoadAssetAtPath<CBuildOptsTable>(KCEditorDefine.B_ASSET_P_BUILD_OPTS_TABLE);
+				CPlatformOptsSetter.m_oBuildOptsTable = CEditorFunc.FindAsset<CBuildOptsTable>(KCEditorDefine.B_ASSET_P_BUILD_OPTS_TABLE);
 				CPlatformOptsSetter.m_oBuildOptsTable?.Awake();
 			}
 
@@ -51,7 +51,7 @@ public static partial class CPlatformOptsSetter {
 		get {
 			// 프로젝트 정보 테이블이 없을 경우
 			if(CPlatformOptsSetter.m_oProjInfoTable == null) {
-				CPlatformOptsSetter.m_oProjInfoTable = AssetDatabase.LoadAssetAtPath<CProjInfoTable>(KCEditorDefine.B_ASSET_P_PROJ_INFO_TABLE);
+				CPlatformOptsSetter.m_oProjInfoTable = CEditorFunc.FindAsset<CProjInfoTable>(KCEditorDefine.B_ASSET_P_PROJ_INFO_TABLE);
 				CPlatformOptsSetter.m_oProjInfoTable?.Awake();
 			}
 
@@ -65,7 +65,7 @@ public static partial class CPlatformOptsSetter {
 		get {
 			// 전처리기 테이블이 없을 경우
 			if(CPlatformOptsSetter.m_oDefineSymbolTable == null) {
-				CPlatformOptsSetter.m_oDefineSymbolTable = AssetDatabase.LoadAssetAtPath<CDefineSymbolTable>(KCEditorDefine.B_ASSET_P_DEFINE_SYMBOL_TABLE);
+				CPlatformOptsSetter.m_oDefineSymbolTable = CEditorFunc.FindAsset<CDefineSymbolTable>(KCEditorDefine.B_ASSET_P_DEFINE_SYMBOL_TABLE);
 				CPlatformOptsSetter.m_oDefineSymbolTable?.Awake();
 			}
 

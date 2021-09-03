@@ -10,7 +10,7 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 	#endregion			// 변수
 
 	#region 클래스 변수
-	// 객체 {
+	// =====> 객체 <=====
 	private static GameObject m_oPopupUIs = null;
 	private static GameObject m_oTopmostUIs = null;
 	private static GameObject m_oAbsUIs = null;
@@ -24,7 +24,6 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 	private static GameObject m_oFPSCounter = null;
 #endif			// #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
-	// 객체 }
 	#endregion			// 클래스 변수
 
 	#region 프로퍼티
@@ -79,7 +78,7 @@ public abstract partial class CSetupSceneManager : CSceneManager {
 		string oDeviceID = CCommonAppInfoStorage.Inst.AppInfo.DeviceID;
 		
 		// 디바이스 식별자 설정이 필요 할 경우
-		if(!oDeviceID.ExIsValid() || oDeviceID.ExIsEquals(KCDefine.B_UNKNOWN_DEVICE_ID)) {
+		if(!oDeviceID.ExIsValid() || oDeviceID.Equals(KCDefine.B_UNKNOWN_DEVICE_ID)) {
 			CCommonAppInfoStorage.Inst.AppInfo.DeviceID = a_oMsg.ExIsValid() ? a_oMsg : KCDefine.B_UNKNOWN_DEVICE_ID;
 		}
 		

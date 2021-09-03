@@ -27,8 +27,8 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	#endregion			// 클래스 프로퍼티
 
 	#region 추상 함수
-	//! 설명 팝업을 출력한다
-	protected abstract void ShowDescPopup();
+	//! 추적 설명 팝업을 출력한다
+	protected abstract void ShowTrackingDescPopup();
 	#endregion			// 추상 함수
 
 	#region 함수
@@ -73,7 +73,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 		
 		// 동의 뷰 출력이 가능 할 경우
 		if(CAccess.IsEnableShowConsentView) {
-			this.ShowDescPopup();
+			this.ShowTrackingDescPopup();
 		} else {
 			this.OnCloseConsentView(true);
 		}
@@ -82,6 +82,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 서비스 관리자가 초기화 되었을 경우
 	private static void OnInitServicesManager(CServicesManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitServicesManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_SERVICES_MANAGER, a_oSender);
 
 		// 초기화 되었을 경우
 		if(a_bIsSuccess) {
@@ -99,13 +100,15 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnCloseConsentView: {a_bIsSuccess}");
 
 		CCommonAppInfoStorage.Inst.AppInfo.IsAgreeTracking = a_bIsSuccess;
-		CCommonAppInfoStorage.Inst.AppInfo.IsEnableShowDescPopup = false;
+		CCommonAppInfoStorage.Inst.AppInfo.IsEnableShowTrackingDescPopup = false;
 
 		CCommonAppInfoStorage.Inst.SaveAppInfo();
 
 		// 관리자 자동 초기화 모드 일 경우
 		if(this.IsAutoInitManager) {
-			CServicesManager.Inst.Init(CLateSetupSceneManager.OnInitServicesManager);
+			CServicesManager.Inst.Init(new CServicesManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitServicesManager
+			});
 			
 #if ADS_MODULE_ENABLE
 			var stAdsParams = new CAdsManager.STParams() {
@@ -155,8 +158,12 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 #endif			// #if APP_LOVIN_ENABLE
 			};
 
+			var stAdsCallbackParams = new CAdsManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitAdsManager
+			};
+
 			CUnityMsgSender.Inst.SendSetEnableAdsTrackingMsg(true);
-			CAdsManager.Inst.Init(stAdsParams, CLateSetupSceneManager.OnInitAdsManager);
+			CAdsManager.Inst.Init(stAdsParams, stAdsCallbackParams);
 #endif			// #if ADS_MODULE_ENABLE
 
 #if FLURRY_MODULE_ENABLE
@@ -164,33 +171,78 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 				m_oAPIKey = CPluginInfoTable.Inst.FlurryAPIKey
 			};
 
-			CFlurryManager.Inst.Init(stFlurryParams, CLateSetupSceneManager.OnInitFlurryManager);
+			var stFlurryCallbackParams = new CFlurryManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitFlurryManager
+			};
+
+			CFlurryManager.Inst.Init(stFlurryParams, stFlurryCallbackParams);
 #endif			// #if FLURRY_MODULE_ENABLE
 
 #if FACEBOOK_MODULE_ENABLE
-			CFacebookManager.Inst.Init(CLateSetupSceneManager.OnInitFacebookManager);
+			var stFacebookCallbackParams = new CFacebookManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitFacebookManager
+			};
+
+			CFacebookManager.Inst.Init(stFacebookCallbackParams);
 #endif			// #if FACEBOOK_MODULE_ENABLE
 
 #if FIREBASE_MODULE_ENABLE
+#if UNITY_EDITOR || UNITY_STANDALONE
+			string oGameConfigStr = CFunc.ReadStr(KCDefine.U_RUNTIME_DATA_P_G_GAME_CONFIG);
+			string oBuildVerConfigStr = CFunc.ReadStr(KCDefine.U_RUNTIME_DATA_P_G_BUILD_VER_CONFIG);
+#else
 			var oGameConfig = CResManager.Inst.GetRes<TextAsset>(KCDefine.U_DATA_P_G_GAME_CONFIG);
 			var oBuildVerConfig = CResManager.Inst.GetRes<TextAsset>(KCDefine.U_DATA_P_G_BUILD_VER_CONFIG);
+#endif			// #if UNITY_EDITOR || UNITY_STANDALONE
 
 			var stFirebaseParams = new CFirebaseManager.STParams() {
 				m_oConfigDict = new Dictionary<string, object>() {
-					[KCDefine.U_CONFIG_KEY_FIREBASE_M_GAME] = oGameConfig.text,
 					[KCDefine.U_CONFIG_KEY_FIREBASE_M_DEVICE] = CDeviceInfoTable.Inst.DeviceConfig.ExToJSONStr(),
+
+#if UNITY_EDITOR || UNITY_STANDALONE
+					[KCDefine.U_CONFIG_KEY_FIREBASE_M_GAME] = oGameConfigStr,
+					[KCDefine.U_CONFIG_KEY_FIREBASE_M_BUILD_VER] = oBuildVerConfigStr
+#else
+					[KCDefine.U_CONFIG_KEY_FIREBASE_M_GAME] = oGameConfig.text,
 					[KCDefine.U_CONFIG_KEY_FIREBASE_M_BUILD_VER] = oBuildVerConfig.text
+#endif			// #if UNITY_EDITOR || UNITY_STANDALONE
 				}
+			};
+
+			var stFirebaseCallbackParams = new CFirebaseManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitFirebaseManager
 			};
 
 			CResManager.Inst.RemoveRes<TextAsset>(KCDefine.U_DATA_P_G_GAME_CONFIG, true);
 			CResManager.Inst.RemoveRes<TextAsset>(KCDefine.U_DATA_P_G_BUILD_VER_CONFIG, true);
 
-			CFirebaseManager.Inst.Init(stFirebaseParams, CLateSetupSceneManager.OnInitFirebaseManager);
+			CFirebaseManager.Inst.Init(stFirebaseParams, stFirebaseCallbackParams);
 #endif			// #if FIREBASE_MODULE_ENABLE
 
+#if APPS_FLYER_MODULE_ENABLE
+			var stAppsFlyerParams = new CAppsFlyerManager.STParams() {
+				m_oDevKey = CPluginInfoTable.Inst.AppsFlyerPluginInfo.m_oDevKey,
+
+#if UNITY_IOS
+				m_oAppID = CPluginInfoTable.Inst.AppsFlyerPluginInfo.m_oAppID
+#else
+				m_oAppID = string.Empty
+#endif			// #if UNITY_IOS
+			};
+
+			var stAppsFlyerCallbackParams = new CAppsFlyerManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitAppsFlyerManager
+			};
+
+			CAppsFlyerManager.Inst.Init(stAppsFlyerParams, stAppsFlyerCallbackParams);
+#endif			// #if APPS_FLYER_MODULE_ENABLE
+
 #if GAME_ANALYTICS_MODULE_ENABLE
-			CGameAnalyticsManager.Inst.Init(CLateSetupSceneManager.OnInitGameAnalyticsManager);
+			var stGameAnalyticsCallbackParams = new CGameAnalyticsManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitGameAnalyticsManager
+			};
+
+			CGameAnalyticsManager.Inst.Init(stGameAnalyticsCallbackParams);
 #endif			// #if GAME_ANALYTICS_MODULE_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
@@ -198,20 +250,32 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 				m_oAPIKey = CPluginInfoTable.Inst.SingularPluginInfo.m_oAPIKey,
 				m_oAPISecret = CPluginInfoTable.Inst.SingularPluginInfo.m_oAPISecret
 			};
+
+			var stSingularCallbackParams = new CSingularManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitSingularManager
+			};
 			
-			CSingularManager.Inst.Init(stSingularParams, CLateSetupSceneManager.OnInitSingularManager);
+			CSingularManager.Inst.Init(stSingularParams, stSingularCallbackParams);
 #endif			// #if SINGULAR_MODULE_ENABLE
 
 #if GAME_CENTER_MODULE_ENABLE
-			CGameCenterManager.Inst.Init(CLateSetupSceneManager.OnInitGameCenterManager);
+			var stGameCenterCallbackParams = new CGameCenterManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitGameCenterManager
+			};
+
+			CGameCenterManager.Inst.Init(stGameCenterCallbackParams);
 #endif			// #if GAME_CENTER_MODULE_ENABLE
 
 #if PURCHASE_MODULE_ENABLE
 			var stPurchaseParams = new CPurchaseManager.STParams() {
 				m_oProductInfoList = CProductInfoTable.Inst.ProductInfoList
 			};
+
+			var stPurchaseCallbackParams = new CPurchaseManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitPurchaseManager
+			};
 			
-			CPurchaseManager.Inst.Init(stPurchaseParams, CLateSetupSceneManager.OnInitPurchaseManager);
+			CPurchaseManager.Inst.Init(stPurchaseParams, stPurchaseCallbackParams);
 #endif			// #if PURCHASE_MODULE_ENABLE
 
 #if NOTI_MODULE_ENABLE
@@ -224,7 +288,11 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 #endif			// #if UNITY_IOS
 			};
 
-			CNotiManager.Inst.Init(stNotiParams, CLateSetupSceneManager.OnInitNotiManager);
+			var stNotiCallbackParams = new CNotiManager.STCallbackParams() {
+				m_oCallback = CLateSetupSceneManager.OnInitNotiManager
+			};
+
+			CNotiManager.Inst.Init(stNotiParams, stNotiCallbackParams);
 #endif			// #if NOTI_MODULE_ENABLE
 		}
 
@@ -248,6 +316,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 광고 관리자가 초기화 되었을 경우
 	private static void OnInitAdsManager(CAdsManager a_oSender, EAdsType a_eAdsType, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitAdsManager: {a_eAdsType}, {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_ADS_MANAGER, a_oSender);
 		
 		// 초기화 되었을 경우
 		if(a_bIsSuccess) {
@@ -279,6 +348,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 플러리 관리자가 초기화 되었을 경우
 	private static void OnInitFlurryManager(CFlurryManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitFlurryManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_FLURRY_MANAGER, a_oSender);
 
 		// 초기화 되었을 경우
 		if(a_bIsSuccess) {
@@ -292,6 +362,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 페이스 북 관리자가 초기화 되었을 경우
 	private static void OnInitFacebookManager(CFacebookManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitFacebookManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_FACEBOOK_MANAGER, null);
 	}
 #endif			// #if FACEBOOK_MODULE_ENABLE
 
@@ -299,13 +370,10 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 파이어 베이스 관리자가 초기화 되었을 경우
 	private static void OnInitFirebaseManager(CFirebaseManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitFirebaseManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_FIREBASE_MANAGER, null);
 
 		// 초기화 되었을 경우
 		if(a_bIsSuccess) {
-			CFirebaseManager.Inst.SetAnalyticsDatas(new Dictionary<string, string>() {
-				[KCDefine.L_LOG_KEY_COUNTRY_CODE] = CCommonAppInfoStorage.Inst.CountryCode
-			});
-
 			CFirebaseManager.Inst.SetCrashDatas(new Dictionary<string, string>() {
 				[KCDefine.L_LOG_KEY_COUNTRY_CODE] = CCommonAppInfoStorage.Inst.CountryCode
 			});
@@ -335,10 +403,25 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 #endif			// #if FIREBASE_REMOTE_CONFIG_ENABLE
 #endif			// #if FIREBASE_MODULE_ENABLE
 
+#if APPS_FLYER_MODULE_ENABLE
+	//! 앱스 플라이어 관리자가 초기화 되었을 경우
+	private static void OnInitAppsFlyerManager(CAppsFlyerManager a_oSender, bool a_bIsSuccess) {
+		CFunc.ShowLog($"CLateSetupSceneManager.OnInitAppsFlyerManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_APPS_FLYER_MANAGER, null);
+
+		// 초기화 되었을 경우
+		if(a_bIsSuccess) {
+			CAppsFlyerManager.Inst.SetAnalyticsUserID(CCommonAppInfoStorage.Inst.AppInfo.DeviceID);
+			CAppsFlyerManager.Inst.SendLog(KCDefine.L_LOG_N_APP_LAUNCH, null);
+		}
+	}
+#endif			// #if APPS_FLYER_MODULE_ENABLE
+
 #if GAME_ANALYTICS_MODULE_ENABLE
 	//! 게임 분석 관리자가 초기화 되었을 경우
 	private static void OnInitGameAnalyticsManager(CGameAnalyticsManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitGameAnalyticsManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_GAME_ANALYTICS_MANAGER, null);
 
 		// 초기화 되었을 경우
 		if(a_bIsSuccess) {
@@ -352,6 +435,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 싱귤러 관리자가 초기화 되었을 경우
 	private static void OnInitSingularManager(CSingularManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitSingularManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_SINGULAR_MANAGER, null);
 
 		// 초기화 되었을 경우
 		if(a_bIsSuccess) {
@@ -365,6 +449,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 게임 센터 관리자가 초기화 되었을 경우
 	private static void OnInitGameCenterManager(CGameCenterManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitGameCenterManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_GAME_CENTER_MANAGER, null);
 	}
 #endif			// #if GAME_CENTER_MODULE_ENABLE
 
@@ -372,6 +457,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 결제 관리자가 초기화 되었을 경우
 	private static void OnInitPurchaseManager(CPurchaseManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitPurchaseManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_PURCHASE_MANAGER, null);
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 
@@ -379,6 +465,7 @@ public abstract partial class CLateSetupSceneManager : CSceneManager {
 	//! 알림 관리자가 초기화 되었을 경우
 	private static void OnInitNotiManager(CNotiManager a_oSender, bool a_bIsSuccess) {
 		CFunc.ShowLog($"CLateSetupSceneManager.OnInitNotiManager: {a_bIsSuccess}");
+		CFunc.BroadcastMsg(KCDefine.U_FUNC_N_ON_INIT_NOTI_MANAGER, null);
 	}
 #endif			// #if NOTI_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수

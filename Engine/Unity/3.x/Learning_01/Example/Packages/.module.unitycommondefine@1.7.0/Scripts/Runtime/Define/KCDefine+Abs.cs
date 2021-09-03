@@ -219,6 +219,7 @@ public static partial class KCDefine {
 	public const string B_FILE_EXTENSION_TXT = ".txt";
 	public const string B_FILE_EXTENSION_JSON = ".json";
 	public const string B_FILE_EXTENSION_BYTES = ".bytes";
+	public const string B_FILE_EXTENSION_SPRITE_ATLAS = ".spriteatlas";
 
 	public const string B_UNKNOWN_LANGUAGE = KCDefine.B_UNKNOWN_STR;
 	public const string B_UNKNOWN_DEVICE_ID = KCDefine.B_UNKNOWN_STR;
@@ -249,6 +250,8 @@ public static partial class KCDefine {
 	public const string B_PLATFORM_N_GOOGLE = "Google";
 	public const string B_PLATFORM_N_ONE_STORE = "OneStore";
 	public const string B_PLATFORM_N_GALAXY_STORE = "GalaxyStore";
+
+	public const string B_PLATFORM_N_DEF_TEXTURE = "DefaultTexturePlatform";
 	
 	public const string B_DIR_N_BACKUP = "Backup";
 	public const string B_DIR_N_EXTERNAL_DATAS = "ExternalDatas";
@@ -256,7 +259,10 @@ public static partial class KCDefine {
 	public const string B_EDITOR_SCENE_N_PATTERN_A = "EditorMenu";
 	public const string B_EDITOR_SCENE_N_PATTERN_B = "EditorScene";
 
+	public const string B_ASSET_N_PATTERN_FIX_MIP_MAP = "_FIX_MM_";
+	public const string B_ASSET_N_PATTERN_FIX_CLAMP_WRAP = "_FIX_CW_";
 	public const string B_ASSET_N_PATTERN_FIX_POINT_FILTER = "_FIX_PF_";
+	public const string B_ASSET_N_PATTERN_FIX_LINEAR_CORRECTION = "_FIX_LC_";
 	// 이름 }
 
 	// 씬 이름 {
@@ -288,12 +294,14 @@ public static partial class KCDefine {
 	public const string B_KEY_JSON_COMMON_DATA = "Common";
 	public const string B_KEY_JSON_USER_INFO_DATA = "UserInfo";
 	public const string B_KEY_JSON_GAME_INFO_DATA = "GameInfo";
+	public const string B_KEY_JSON_COMMON_APP_INFO_DATA = "CommonAppInfo";
 	public const string B_KEY_JSON_COMMON_USER_INFO_DATA = "CommonUserInfo";
 
 	// 토큰 {
 	public const string B_TOKEN_VER = ".";
 	public const string B_TOKEN_CSV_STR = ",";
 	public const string B_TOKEN_POST_STR = "&";
+	public const string B_TOKEN_SPLASH_STR = "/";
 
 	public const string B_TOKEN_INCR = "+";
 	public const string B_TOKEN_DECR = "-";
@@ -386,14 +394,12 @@ public static partial class KCDefine {
 	// 경로 }
 
 	// 형식 {
-	public const string B_TEXT_FMT_NUM = "x{0}";
 	public const string B_TEXT_FMT_INCR = "+{0}";
 	public const string B_TEXT_FMT_DECR = "-{0}";
+	public const string B_TEXT_FMT_CROSS = "x{0}";
 	public const string B_TEXT_FMT_BRACKET = "({0})";
 
 	public const string B_TEXT_FMT_VER = "Ver.{0}{1}";
-	public const string B_TEXT_FMT_PAGE = "{0}/{1}";
-
 	public const string B_TEXT_FMT_LEVEL = "Level {0:0000}";
 	public const string B_TEXT_FMT_STAGE = "Stage {0:0000}";
 	public const string B_TEXT_FMT_CHAPTER = "Chapter {0:0000}";
@@ -407,40 +413,81 @@ public static partial class KCDefine {
 
 	public const string B_TEXT_FMT_MM_SS = "{0:00}:{1:00}";
 	public const string B_TEXT_FMT_HH_MM_SS = "{0:00}:{1:00}:{2:00}";
+	public const string B_DATE_T_FMT_BACKUP_COMBINE = "{0} ({1})";
 
 	public const string B_TEXT_FMT_1_DIGITS = "{0:0}";
 	public const string B_TEXT_FMT_2_DIGITS = "{0:00}";
 	public const string B_TEXT_FMT_3_DIGITS = "{0:000}";
 	public const string B_TEXT_FMT_4_DIGITS = "{0:0000}";
 	public const string B_TEXT_FMT_5_DIGITS = "{0:00000}";
+	public const string B_TEXT_FMT_6_DIGITS = "{0:000000}";
+	public const string B_TEXT_FMT_7_DIGITS = "{0:0000000}";
+	public const string B_TEXT_FMT_8_DIGITS = "{0:00000000}";
+	public const string B_TEXT_FMT_9_DIGITS = "{0:000000000}";
 
-	public const string B_TEXT_FMT_2_COMBINE = "{0} {1}";
-	public const string B_TEXT_FMT_3_COMBINE = "{0} {1} {2}";
-	public const string B_TEXT_FMT_4_COMBINE = "{0} {1} {2} {3}";
-	public const string B_TEXT_FMT_5_COMBINE = "{0} {1} {2} {3} {4}";
+	public const string B_TEXT_FMT_2_COMBINE = "{0}{1}";
+	public const string B_TEXT_FMT_3_COMBINE = "{0}{1}{2}";
+	public const string B_TEXT_FMT_4_COMBINE = "{0}{1}{2}{3}";
+	public const string B_TEXT_FMT_5_COMBINE = "{0}{1}{2}{3}{4}";
+	public const string B_TEXT_FMT_6_COMBINE = "{0}{1}{2}{3}{4}{5}";
+	public const string B_TEXT_FMT_7_COMBINE = "{0}{1}{2}{3}{4}{5}{6}";
+	public const string B_TEXT_FMT_8_COMBINE = "{0}{1}{2}{3}{4}{5}{6}{7}";
+	public const string B_TEXT_FMT_9_COMBINE = "{0}{1}{2}{3}{4}{5}{6}{7}{8}";
 
 	public const string B_TEXT_FMT_2_SPACE_COMBINE = "{0} {1}";
 	public const string B_TEXT_FMT_3_SPACE_COMBINE = "{0} {1} {2}";
 	public const string B_TEXT_FMT_4_SPACE_COMBINE = "{0} {1} {2} {3}";
 	public const string B_TEXT_FMT_5_SPACE_COMBINE = "{0} {1} {2} {3} {4}";
+	public const string B_TEXT_FMT_6_SPACE_COMBINE = "{0} {1} {2} {3} {4} {5}";
+	public const string B_TEXT_FMT_7_SPACE_COMBINE = "{0} {1} {2} {3} {4} {5} {6}";
+	public const string B_TEXT_FMT_8_SPACE_COMBINE = "{0} {1} {2} {3} {4} {5} {6} {7}";
+	public const string B_TEXT_FMT_9_SPACE_COMBINE = "{0} {1} {2} {3} {4} {5} {6} {7} {8}";
 
-	public const string B_NAME_FMT_2_UNDER_SCORE_COMBINE = "{0}_{1}";
-	public const string B_NAME_FMT_3_UNDER_SCORE_COMBINE = "{0}_{1}_{2}";
-	public const string B_NAME_FMT_4_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}";
-	public const string B_NAME_FMT_5_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}";
+	public const string B_TEXT_FMT_2_CROSS_COMBINE = "{0}x{1}";
+	public const string B_TEXT_FMT_3_CROSS_COMBINE = "{0}x{1}x{2}";
+	public const string B_TEXT_FMT_4_CROSS_COMBINE = "{0}x{1}x{2}x{3}";
+	public const string B_TEXT_FMT_5_CROSS_COMBINE = "{0}x{1}x{2}x{3}x{4}";
+	public const string B_TEXT_FMT_6_CROSS_COMBINE = "{0}x{1}x{2}x{3}x{4}x{5}";
+	public const string B_TEXT_FMT_7_CROSS_COMBINE = "{0}x{1}x{2}x{3}x{4}x{5}x{6}";
+	public const string B_TEXT_FMT_8_CROSS_COMBINE = "{0}x{1}x{2}x{3}x{4}x{5}x{6}x{7}";
+	public const string B_TEXT_FMT_9_CROSS_COMBINE = "{0}x{1}x{2}x{3}x{4}x{5}x{6}x{7}x{8}";
 
-	public const string B_NAME_FMT_BACKUP = "yyyy_MM_dd HH_mm_ss";
-	public const string B_NAME_FMT_BACKUP_COMBINE = "{0} ({1})";
+	public const string B_TEXT_FMT_2_SLASH_COMBINE = "{0}/{1}";
+	public const string B_TEXT_FMT_3_SLASH_COMBINE = "{0}/{1}/{2}";
+	public const string B_TEXT_FMT_4_SLASH_COMBINE = "{0}/{1}/{2}/{3}";
+	public const string B_TEXT_FMT_5_SLASH_COMBINE = "{0}/{1}/{2}/{3}/{4}";
+	public const string B_TEXT_FMT_6_SLASH_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}";
+	public const string B_TEXT_FMT_7_SLASH_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/{6}";
+	public const string B_TEXT_FMT_8_SLASH_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}";
+	public const string B_TEXT_FMT_9_SLASH_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}";
+
+	public const string B_TEXT_FMT_2_UNDER_SCORE_COMBINE = "{0}_{1}";
+	public const string B_TEXT_FMT_3_UNDER_SCORE_COMBINE = "{0}_{1}_{2}";
+	public const string B_TEXT_FMT_4_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}";
+	public const string B_TEXT_FMT_5_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}";
+	public const string B_TEXT_FMT_6_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}_{5}";
+	public const string B_TEXT_FMT_7_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}_{5}_{6}";
+	public const string B_TEXT_FMT_8_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}";
+	public const string B_TEXT_FMT_9_UNDER_SCORE_COMBINE = "{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}";
 
 	public const string B_PATH_FMT_1_COMBINE = "{0}/";
 	public const string B_PATH_FMT_2_COMBINE = "{0}/{1}/";
 	public const string B_PATH_FMT_3_COMBINE = "{0}/{1}/{2}/";
 	public const string B_PATH_FMT_4_COMBINE = "{0}/{1}/{2}/{3}/";
 	public const string B_PATH_FMT_5_COMBINE = "{0}/{1}/{2}/{3}/{4}/";
+	public const string B_PATH_FMT_6_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/";
+	public const string B_PATH_FMT_7_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/";
+	public const string B_PATH_FMT_8_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/";
+	public const string B_PATH_FMT_9_COMBINE = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/";
 
+	public const string B_DATE_T_FMT_BACKUP = "yyyy_MM_dd HH_mm_ss";
 	public const string B_DATE_T_FMT_HH_MM_SS = "HH:mm:ss";
+
 	public const string B_DATE_T_FMT_YYYY_MM_DD = "yyyyMMdd";
 	public const string B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS = "yyyyMMdd HH:mm:ss";
+
+	public const string B_DATE_T_FMT_SLASH_YYYY_MM_DD = "yyyy/MM/dd";
+	public const string B_DATE_T_FMT_SLASH_YYYY_MM_DD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";
 	// 형식 }
 
 	// 메일

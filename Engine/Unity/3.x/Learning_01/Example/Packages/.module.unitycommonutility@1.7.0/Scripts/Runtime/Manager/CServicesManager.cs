@@ -10,8 +10,13 @@ using UnityEngine.SignInWithApple;
 
 //! 서비스 관리자
 public partial class CServicesManager : CSingleton<CServicesManager> {
+	//! 콜백 매개 변수
+	public struct STCallbackParams {
+		public System.Action<CServicesManager, bool> m_oCallback;
+	}
+
 	#region 변수
-	private System.Action<CServicesManager, bool> m_oInitCallback = null;
+	private STCallbackParams m_stCallbackParams;
 
 #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	private SignInWithApple m_oLoginWithApple = null;
@@ -57,17 +62,17 @@ public partial class CServicesManager : CSingleton<CServicesManager> {
 	}
 
 	//! 초기화
-	public virtual void Init(System.Action<CServicesManager, bool> a_oCallback) {
+	public virtual void Init(STCallbackParams a_stCallbackParams) {
 		CFunc.ShowLog("CServicesManager.Init", KCDefine.B_LOG_COLOR_PLUGIN);
 		
 #if UNITY_IOS || UNITY_ANDROID
 		// 초기화 되었을 경우
 		if(this.IsInit) {
-			a_oCallback?.Invoke(this, true);
+			a_stCallbackParams.m_oCallback?.Invoke(this, true);
 		} else {
-			m_oInitCallback = a_oCallback;
+			m_stCallbackParams = a_stCallbackParams;
 
-#if SERVICES_ANALYTICS_ENABLE && (ANALYTICS_TEST_ENABLE || (ADHOC_BUILD || STORE_BUILD))
+#if SERVICES_ANALYTICS_ENABLE && (ANALYTICS_TEST_ENABLE || ADHOC_BUILD || STORE_BUILD)
 			Analytics.enabled = true;
 			Analytics.limitUserTracking = true;
 			Analytics.deviceStatsEnabled = true;
@@ -77,12 +82,12 @@ public partial class CServicesManager : CSingleton<CServicesManager> {
 			Analytics.limitUserTracking = false;
 			Analytics.deviceStatsEnabled = false;
 			Analytics.initializeOnStartup = false;
-#endif			// #if SERVICES_ANALYTICS_ENABLE && (ANALYTICS_TEST_ENABLE || (ADHOC_BUILD || STORE_BUILD))
+#endif			// #if SERVICES_ANALYTICS_ENABLE && (ANALYTICS_TEST_ENABLE || ADHOC_BUILD || STORE_BUILD)
 
 			this.ExLateCallFunc((a_oSender, a_oParams) => this.OnInit());
 		}
 #else
-		a_oCallback?.Invoke(this, false);
+		a_stCallbackParams.m_oCallback?.Invoke(this, false);
 #endif			// #if UNITY_IOS || UNITY_ANDROID
 	}
 	#endregion			// 함수
@@ -91,11 +96,11 @@ public partial class CServicesManager : CSingleton<CServicesManager> {
 #if UNITY_IOS || UNITY_ANDROID
 	// 초기화 되었을 경우
 	private void OnInit() {
-		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_SERVICES_M_INIT_CALLBACK, () => {
-			CFunc.ShowLog("CServicesManager.OnInit", KCDefine.B_LOG_COLOR_PLUGIN);
-			this.IsInit = true;
+		CFunc.ShowLog("CServicesManager.OnInit", KCDefine.B_LOG_COLOR_PLUGIN);
 
-			CFunc.Invoke(ref m_oInitCallback, this, this.IsInit);
+		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_SERVICES_M_INIT_CALLBACK, () => {	
+			this.IsInit = true;
+			CFunc.Invoke(ref m_stCallbackParams.m_oCallback, this, this.IsInit);
 		});
 	}
 #endif			// #if UNITY_IOS || UNITY_ANDROID

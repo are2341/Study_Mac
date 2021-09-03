@@ -7,100 +7,30 @@ using UnityEngine.UI;
 //! 전역 상수
 public static partial class KDefine {
 	#region 기본
-	// 개수
+	// 개수 {
 	public const int G_MAX_NUM_SALE_COINS = 0;
+	public const int G_MAX_NUM_TUTORIAL_STRS = 0;
+	public const int G_MAX_NUM_ACQUIRE_FREE_REWARDS = 0;
+
+	public const int G_MAX_NUM_TARGET_KINDS = 0;
+	public const int G_MAX_NUM_UNLOCK_TARGET_KINDS = 0;
+
 	public const int G_MAX_NUM_SALE_ITEM_INFOS = 0;
 	public const int G_MAX_NUM_REWARD_ITEM_INFOS = 0;
-	public const int G_MAX_NUM_ACQUIRE_FREE_REWARDS = 0;
-	public const int G_MAX_NUM_TUTORIAL_STRS = 0;
 	public const int G_MAX_NUM_ADS_SKIP_CLEAR_INFOS = 0;
+	// 개수 }
 
 	// 횟수
 	public const int G_MAX_TIMES_ADS_SKIP = 0;
 
-	// 식별자 {
+	// 식별자
 	public const int G_PRODUCT_ID_SALE_COINS = 0;
 	public const int G_PRODUCT_ID_REMOVE_ADS = 1;
 
-	public const string G_KEY_FMT_TUTORIAL_MSG = "TUTORIAL_MSG_{0:00}_{1:00}";
-	// 식별자 }
-	
-	// 판매 아이템 정보 테이블 {
-	public const string G_KEY_SALE_IIT_PRICE = "Price";
-	public const string G_KEY_SALE_IIT_PRICE_KINDS = "PriceKinds";
-	public const string G_KEY_SALE_IIT_SALE_ITEM_KINDS = "SaleItemKinds";
-
-	public const string G_KEY_FMT_SALE_IIT_NUM_ITEMS = "NumItems_{0:00}";
-	public const string G_KEY_FMT_SALE_IIT_ITEM_KINDS = "ItemKinds_{0:00}";
-	// 판매 아이템 정보 테이블 }
-
-	// 판매 상품 정보 테이블 {
-	public const string G_KEY_SALE_PIT_PRICE = "Price";
-	public const string G_KEY_SALE_PIT_PRICE_KINDS = "PriceKinds";
-	public const string G_KEY_SALE_PIT_PRODUCT_KINDS = "ProductKinds";
-	public const string G_KEY_SALE_PIT_SALE_PRODUCT_KINDS = "SaleProductKinds";
-
-	public const string G_KEY_FMT_SALE_PIT_NUM_ITEMS = "NumItems_{0:00}";
-	public const string G_KEY_FMT_SALE_PIT_ITEM_KINDS = "ItemKinds_{0:00}";
-	// 판매 상품 정보 테이블 }
-
-	// 미션 정보 테이블 {
-	public const string G_KEY_MISSION_IT_FREE = "Free";
-	public const string G_KEY_MISSION_IT_DAILY = "Daily";
-	public const string G_KEY_MISSION_IT_EVENT = "Event";
-
-	public const string G_KEY_MISSION_IT_MISSION_KINDS = "MissionKinds";
-	public const string G_KEY_MISSION_IT_REWARD_KINDS = "RewardKinds";
-	// 미션 정보 테이블 }
-
-	// 보상 정보 테이블 {
-	public const string G_KEY_REWARD_IT_FREE = "Free";
-	public const string G_KEY_REWARD_IT_DAILY = "Daily";
-	public const string G_KEY_REWARD_IT_EVENT = "Event";
-	public const string G_KEY_REWARD_IT_CLEAR = "Clear";
-
-	public const string G_KEY_REWARD_IT_REWARD_KINDS = "RewardKinds";
-	public const string G_KEY_REWARD_IT_REWARD_QUALITY = "RewardQuality";
-
-	public const string G_KEY_FMT_REWARD_IT_NUM_ITEMS = "NumItems_{0:00}";
-	public const string G_KEY_FMT_REWARD_IT_ITEM_KINDS = "ItemKinds_{0:00}";
-	// 보상 정보 테이블 }
-
-	// 에피소드 정보 테이블 {
+	// 에피소드 정보 테이블
 	public const int G_IDX_EPISODE_IT_LEVEL = 0;
 	public const int G_IDX_EPISODE_IT_STAGE = 1;
 	public const int G_IDX_EPISODE_IT_CHAPTER = 2;
-
-	public const string G_KEY_EPISODE_IT_LEVEL = "Level";
-	public const string G_KEY_EPISODE_IT_STAGE = "Stage";
-	public const string G_KEY_EPISODE_IT_CHAPTER = "Chapter";
-	
-	public const string G_KEY_EPISODE_IT_ID = "ID";
-	public const string G_KEY_EPISODE_IT_LEVEL_MODE = "LevelMode";
-	public const string G_KEY_EPISODE_IT_LEVEL_KINDS = "LevelKinds";
-	public const string G_KEY_EPISODE_IT_REWARD_KINDS = "RewardKinds";
-	public const string G_KEY_EPISODE_IT_TUTORIAL_KINDS = "TutorialKinds";
-
-	public const string G_KEY_EPISODE_IT_STAGE_ID = "StageID";
-	public const string G_KEY_EPISODE_IT_STAGE_KINDS = "StageKinds";
-
-	public const string G_KEY_EPISODE_IT_CHAPTER_ID = "ChapterID";
-	public const string G_KEY_EPISODE_IT_CHAPTER_KINDS = "ChapterKinds";
-
-	public const string G_KEY_EPISODE_IT_NUM_TARGETS = "NumTargets";
-	public const string G_KEY_EPISODE_IT_UNLOCK_NUM_TARGETS = "UnlockNumTargets";
-	// 에피소드 정보 테이블 }
-
-	// 튜토리얼 정보 테이블 {
-	public const string G_KEY_TUTORIAL_IT_PLAY = "Play";
-	public const string G_KEY_TUTORIAL_IT_HELP = "Help";
-
-	public const string G_KEY_TUTORIAL_IT_REWARD_KINDS = "RewardKinds";
-	public const string G_KEY_TUTORIAL_IT_TUTORIAL_KINDS = "TutorialKinds";
-	public const string G_KEY_TUTORIAL_IT_NEXT_TUTORIAL_KINDS = "NextTutorialKinds";
-
-	public const string G_KEY_FMT_TUTORIAL_IT_STRS = "Str_{0:00}";
-	// 튜토리얼 정보 테이블 }
 	
 	// 상점 팝업
 	public const string G_OBJ_N_STORE_POPUP = "StorePopup";
@@ -108,14 +38,14 @@ public static partial class KDefine {
 	// 설정 팝업 {
 	public const string G_OBJ_N_SETTINGS_POPUP = "SettingsPopup";
 
-	public const string G_IMG_P_SETTINGS_P_BG_SND_ON = "G_BGSndOn";
-	public const string G_IMG_P_SETTINGS_P_BG_SND_OFF = "G_BGSndOff";
+	public const string G_IMG_P_SETTINGS_P_BG_SND_ON = "SampleOnBtn";
+	public const string G_IMG_P_SETTINGS_P_BG_SND_OFF = "SampleOffBtn";
 
-	public const string G_IMG_P_SETTINGS_P_FX_SNDS_ON = "G_FXSndsOn";
-	public const string G_IMG_P_SETTINGS_P_FX_SNDS_OFF = "G_FXSndsOff";
+	public const string G_IMG_P_SETTINGS_P_FX_SNDS_ON = "SampleOnBtn";
+	public const string G_IMG_P_SETTINGS_P_FX_SNDS_OFF = "SampleOffBtn";
 
-	public const string G_IMG_P_SETTINGS_P_NOTI_ON = "G_NotiOn";
-	public const string G_IMG_P_SETTINGS_P_NOTI_OFF = "G_NotiOff";
+	public const string G_IMG_P_SETTINGS_P_NOTI_ON = "SampleOnBtn";
+	public const string G_IMG_P_SETTINGS_P_NOTI_OFF = "SampleOffBtn";
 	// 설정 팝업 }
 
 	// 동기화 팝업
@@ -208,17 +138,17 @@ public static partial class KDefine {
 		m_oLayer = KCDefine.U_SORTING_L_TOP
 	};
 
-#if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
+#if CAMERA_STACK_ENABLE
 	public static readonly STSortingOrderInfo G_SORTING_OI_OVERLAY_SCENE_UIS_CANVAS = new STSortingOrderInfo() {
-		m_nOrder = 0,
-		m_oLayer = KCDefine.U_SORTING_L_TOP_UIS
+		m_nOrder = 1,
+		m_oLayer = KCDefine.U_SORTING_L_TOP
 	};
 #else
 	public static readonly STSortingOrderInfo G_SORTING_OI_OVERLAY_SCENE_UIS_CANVAS = new STSortingOrderInfo() {
 		m_nOrder = 0,
-		m_oLayer = KCDefine.U_SORTING_L_TOP
+		m_oLayer = KCDefine.U_SORTING_L_TOP_UIS
 	};
-#endif			// #if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
+#endif			// #if CAMERA_STACK_ENABLE
 	// 정렬 순서 }
 
 	// 경로 {
@@ -234,29 +164,25 @@ public static partial class KDefine {
 	public static readonly string G_ASSET_P_SPRITE_ATLAS_07 = $"{KCDefine.B_DIR_P_SPRITE_ATLASES}{KCDefine.B_DIR_P_GLOBAL}G_SpriteAtlas_07";
 	public static readonly string G_ASSET_P_SPRITE_ATLAS_08 = $"{KCDefine.B_DIR_P_SPRITE_ATLASES}{KCDefine.B_DIR_P_GLOBAL}G_SpriteAtlas_08";
 	public static readonly string G_ASSET_P_SPRITE_ATLAS_09 = $"{KCDefine.B_DIR_P_SPRITE_ATLASES}{KCDefine.B_DIR_P_GLOBAL}G_SpriteAtlas_09";
-
-#if UNITY_EDITOR
-	public static readonly string G_RUNTIME_DATA_P_FMT_LEVEL_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_DATA_P_FMT_G_LEVEL_INFO}.bytes";
-
-	public static readonly string G_RUNTIME_TABLE_P_LEVEL_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_LEVEL_INFO}.bytes";
-	public static readonly string G_RUNTIME_TABLE_P_SALE_ITEM_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_SALE_ITEM_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_SALE_PRODUCT_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_SALE_PRODUCT_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_MISSION_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_MISSION_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_REWARD_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_REWARD_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_EPISODE_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_EPISODE_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_TUTORIAL_INFO = $"{KCDefine.B_ABS_DIR_P_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_TUTORIAL_INFO}.json";
-#else
-	public static readonly string G_RUNTIME_DATA_P_FMT_LEVEL_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_DATA_P_FMT_G_LEVEL_INFO}.bytes";
-
-	public static readonly string G_RUNTIME_TABLE_P_LEVEL_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_LEVEL_INFO}.bytes";
-	public static readonly string G_RUNTIME_TABLE_P_SALE_ITEM_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_SALE_ITEM_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_SALE_PRODUCT_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_SALE_PRODUCT_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_MISSION_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_MISSION_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_REWARD_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_REWARD_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_EPISODE_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_EPISODE_INFO}.json";
-	public static readonly string G_RUNTIME_TABLE_P_TUTORIAL_INFO = $"{KCDefine.B_ABS_DIR_P_RUNTIME_EXTERNAL_DATAS}{KCDefine.U_TABLE_P_G_TUTORIAL_INFO}.json";
-#endif			// #if UNITY_EDITOR
 	// 경로 }
+
+	// 분석 {
+	public static readonly EAnalyticsType[] G_ANALYTICS_TYPE_LOG_ENABLES = new EAnalyticsType[] {
+		EAnalyticsType.FLURRY,
+		EAnalyticsType.FIREBASE,
+		EAnalyticsType.APPS_FLYER,
+		EAnalyticsType.GAME_ANALYTICS,
+		EAnalyticsType.SINGULAR
+	};
+
+	public static readonly EAnalyticsType[] G_ANALYTICS_TYPE_PURCHASE_LOG_ENABLES = new EAnalyticsType[] {
+		EAnalyticsType.FLURRY,
+		EAnalyticsType.FIREBASE,
+		EAnalyticsType.APPS_FLYER,
+		EAnalyticsType.GAME_ANALYTICS,
+		EAnalyticsType.SINGULAR
+	};
+	// 분석 }
 
 	// 판매 상품 정보 테이블
 	public static readonly ESaleProductKinds[] G_KINDS_SALE_PIT_SALE_PRODUCTS = new ESaleProductKinds[] {
@@ -264,13 +190,13 @@ public static partial class KDefine {
 		ESaleProductKinds.SINGLE_REMOVE_ADS
 	};
 
-	// 보상 정보 테이블
-	public static readonly ERewardKinds[] G_REWARDS_KINDS_REWARD_IT_DAILY = new ERewardKinds[] {
+	// 판매 상품
+	public static readonly ESaleProductKinds[] G_SALE_PRODUCT_KINDS_PRODUCTS = new ESaleProductKinds[] {
 		// Do Something
 	};
 
-	// 상점 팝업
-	public static readonly ESaleProductKinds[] G_KINDS_STORE_POPUP_PRODUCTS = new ESaleProductKinds[] {
+	// 일일 보상
+	public static readonly ERewardKinds[] G_REWARDS_KINDS_DAILY_REWARDS = new ERewardKinds[] {
 		// Do Something
 	};
 	#endregion			// 런타임 상수

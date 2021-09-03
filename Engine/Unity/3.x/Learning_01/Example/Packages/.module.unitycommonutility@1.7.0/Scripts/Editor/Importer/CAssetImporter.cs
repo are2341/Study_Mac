@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.U2D;
 
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.U2D;
 
 //! 에셋 추가자
 [InitializeOnLoad]
 public class CAssetImporter : AssetPostprocessor {
 	#region 함수
-	//! 사운드를 추가했을 경우
+	//! 사운드를 추가 할 경우
 	public virtual void OnPreprocessAudio() {
 		var oAudioImporter = this.assetImporter as AudioImporter;
 		oAudioImporter.ambisonic = false;
@@ -28,75 +31,41 @@ public class CAssetImporter : AssetPostprocessor {
 		// 샘플링 옵션을 설정한다 }
 	}
 
-	//! 텍스처를 추가했을 경우
+	//! 텍스처를 추가 할 경우
 	public virtual void OnPreprocessTexture() {
 		var oTextureImporter = this.assetImporter as TextureImporter;
-
-#if !MODE_2D_ENABLE
-		oTextureImporter.mipmapEnabled = true;
-#endif			// #if !MODE_2D_ENABLE
-
-#if ALPHA_IS_TRANSPARENCY_ENABLE
 		oTextureImporter.alphaIsTransparency = true;
-#else
-		oTextureImporter.alphaIsTransparency = false;
-#endif			// #if ALPHA_IS_TRANSPARENCY_ENABLE
+		oTextureImporter.alphaSource = TextureImporterAlphaSource.FromInput;
 
-		// 포인트 필터가 필요 할 경우
-		if(oTextureImporter.assetPath.ExIsContains(KCDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER)) {
-			oTextureImporter.filterMode = FilterMode.Point;
-		} else {
-			oTextureImporter.filterMode = FilterMode.Bilinear;
-		}
+		oTextureImporter.spritePackingTag = string.Empty;
+		oTextureImporter.spritePixelsPerUnit = KCDefine.B_UNIT_REF_PIXELS;
 
-		// 기본 타입 일 경우
-		if(oTextureImporter.textureType == TextureImporterType.Default || oTextureImporter.textureType == TextureImporterType.Sprite) {
-			// 기본 텍스처 옵션을 설정한다 {
-			var stDefSettings = oTextureImporter.GetDefaultPlatformTextureSettings();
-			stDefSettings.format = oTextureImporter.assetPath.ExIsContains(KCDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER) ? TextureImporterFormat.RGBA32 : TextureImporterFormat.Automatic;
-			stDefSettings.overridden = false;
+		oTextureImporter.wrapMode = oTextureImporter.assetPath.Contains(KCDefine.B_ASSET_N_PATTERN_FIX_CLAMP_WRAP) ? TextureWrapMode.Clamp : TextureWrapMode.Repeat;
+		oTextureImporter.filterMode = oTextureImporter.assetPath.Contains(KCDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER) ? FilterMode.Point : FilterMode.Bilinear;
+		
+		oTextureImporter.sRGBTexture = !oTextureImporter.assetPath.Contains(KCDefine.B_ASSET_N_PATTERN_FIX_LINEAR_CORRECTION);
+		oTextureImporter.ignorePngGamma = oTextureImporter.assetPath.Contains(KCDefine.B_ASSET_N_PATTERN_FIX_LINEAR_CORRECTION);
+		oTextureImporter.mipmapEnabled = oTextureImporter.assetPath.Contains(KCDefine.B_ASSET_N_PATTERN_FIX_MIP_MAP);
 
-			oTextureImporter.SetPlatformTextureSettings(stDefSettings);
-			// 기본 텍스처 옵션을 설정한다 }
+		// 텍스처를 설정한다 {
+		var oTextureSettings = new TextureImporterSettings();
+		oTextureImporter.ReadTextureSettings(oTextureSettings);
 
-			// iOS 텍스처 옵션을 설정한다 {
-			var stiOSSettings = new TextureImporterPlatformSettings();
-			stDefSettings.CopyTo(stiOSSettings);
+		oTextureSettings.spriteMeshType = SpriteMeshType.FullRect;
+		oTextureSettings.spriteGenerateFallbackPhysicsShape = true;
 
-			stiOSSettings.name = KCDefine.B_PLATFORM_N_IOS;
-			stiOSSettings.format = TextureImporterFormat.RGBA32;
-			stiOSSettings.overridden = true;
+		var oDefSettings = oTextureImporter.GetDefaultPlatformTextureSettings();
+		oDefSettings.overridden = false;
+		oDefSettings.resizeAlgorithm = TextureResizeAlgorithm.Mitchell;
+		oDefSettings.format = (oTextureImporter.textureType != TextureImporterType.Cookie && oTextureImporter.textureType != TextureImporterType.SingleChannel) ? TextureImporterFormat.RGBA32 : TextureImporterFormat.Automatic;
 
-			oTextureImporter.SetPlatformTextureSettings(stiOSSettings);
-			// iOS 텍스처 옵션을 설정한다 }
-
-			// 스프라이트 타입 일 경우
-			if(oTextureImporter.textureType == TextureImporterType.Sprite) {
-				oTextureImporter.wrapMode = TextureWrapMode.Repeat;
-				oTextureImporter.sRGBTexture = true;
-				oTextureImporter.mipmapEnabled = false;
-				oTextureImporter.spritePackingTag = KCDefine.B_UNKNOWN_STR;
-				oTextureImporter.spritePivot = KCDefine.B_ANCHOR_MID_CENTER;
-				oTextureImporter.spritePixelsPerUnit = KCDefine.B_UNIT_REF_PIXELS;
-
-				var oTextureSettings = new TextureImporterSettings();
-				oTextureImporter.ReadTextureSettings(oTextureSettings);
-				
-				oTextureSettings.spriteMeshType = SpriteMeshType.FullRect;
-				oTextureSettings.spriteGenerateFallbackPhysicsShape = true;
-				oTextureImporter.SetTextureSettings(oTextureSettings);
-			}
-		}
+		oTextureImporter.SetTextureSettings(oTextureSettings);
+		oTextureImporter.SetPlatformTextureSettings(oDefSettings);
+		// 텍스처를 설정한다 }
 	}
 	#endregion			// 함수
 
 	#region 클래스 함수
-	//! DOTween Pro 패키지를 추가한다
-	[MenuItem("Tools/Utility/Import/DOTweenPro Pkgs")]
-	public static void ImportDOTweenProPkgs() {
-		AssetDatabase.ImportPackage(KCEditorDefine.B_ABS_PKGS_P_DOTWEEN_PRO, true);
-	}
-
 	//! 2D Toolkit 패키지를 추가한다
 	[MenuItem("Tools/Utility/Import/2DToolkit Pkgs")]
 	public static void Import2DToolkitPkgs() {
@@ -167,6 +136,36 @@ public class CAssetImporter : AssetPostprocessor {
 	[MenuItem("Tools/Utility/Import/LeanTouch Pkgs")]
 	public static void ImportLeanTouchPkgs() {
 		AssetDatabase.ImportPackage(KCEditorDefine.B_ABS_PKGS_P_LEAN_TOUCH, true);
+	}
+
+	//! 에셋을 추가했을 경우
+	private static void OnPostprocessAllAssets(string[] a_oImportAssets, string[] a_oRemoveAssets, string[] a_oMoveAssets, string[] a_oMoveAssetPaths) {
+		for(int i = 0; i < a_oImportAssets.Length; ++i) {
+			var oSpriteAtlas = CEditorFunc.FindAsset<SpriteAtlas>(a_oImportAssets[i]);
+
+			// 스프라이트 아틀라스가 존재 할 경우
+			if(oSpriteAtlas != null && a_oImportAssets[i].Contains(KCDefine.B_FILE_EXTENSION_SPRITE_ATLAS)) {
+				var oPackingSettings = oSpriteAtlas.GetPackingSettings();
+				oPackingSettings.enableRotation = false;
+				oPackingSettings.enableTightPacking = false;
+				oPackingSettings.padding = KCDefine.B_VAL_4_INT;
+
+				var oTextureSettings = oSpriteAtlas.GetTextureSettings();
+				oTextureSettings.sRGB = !a_oImportAssets[i].Contains(KCDefine.B_ASSET_N_PATTERN_FIX_LINEAR_CORRECTION);
+				oTextureSettings.filterMode = a_oImportAssets[i].Contains(KCDefine.B_ASSET_N_PATTERN_FIX_POINT_FILTER) ? FilterMode.Point : FilterMode.Bilinear;
+				oTextureSettings.generateMipMaps = a_oImportAssets[i].Contains(KCDefine.B_ASSET_N_PATTERN_FIX_MIP_MAP);
+
+				var oPlatformSettings = oSpriteAtlas.GetPlatformSettings(KCDefine.B_PLATFORM_N_DEF_TEXTURE);
+				oPlatformSettings.overridden = false;
+				oPlatformSettings.resizeAlgorithm = TextureResizeAlgorithm.Mitchell;
+				oPlatformSettings.format = TextureImporterFormat.RGBA32;
+				
+				oSpriteAtlas.SetPackingSettings(oPackingSettings);
+				oSpriteAtlas.SetTextureSettings(oTextureSettings);
+				oSpriteAtlas.SetPlatformSettings(oPlatformSettings);
+			}
+
+		}
 	}
 	#endregion			// 클래스 함수
 }

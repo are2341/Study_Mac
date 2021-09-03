@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 5bea62c2b90044cbfad064de75f37bea, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: d8e58bd5e441646bba5e8793698ec2b1, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -513,7 +513,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.572901e+19, z: 1e-45, w: 1.8407027e+31}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 1.3e-44, w: 1.7578e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276200340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9001ee9201a824c8782211800287a17e, type: 3}
+  m_Script: {fileID: 11500000, guid: 22053ccccf85d45f28950b929039d74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1376964104

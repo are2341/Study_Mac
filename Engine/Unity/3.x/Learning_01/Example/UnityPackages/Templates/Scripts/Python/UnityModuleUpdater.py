@@ -85,6 +85,11 @@ oSubmoduleInfos = [
 	},
 
 	{
+		"Name": ".Module.UnityCommonAppsFlyer",
+		"Path": f"{oProjName}/Packages"
+	},
+
+	{
 		"Name": ".Module.UnityCommonGameAnalytics",
 		"Path": f"{oProjName}/Packages"
 	},

@@ -39,14 +39,19 @@ public class CUnityMsgSender : CSingleton<CUnityMsgSender> {
 
 	//! 스토어 버전 반환 메세지를 전송한다
 	public void SendGetStoreVerMsg(string a_oAppID, string a_oVer, float a_fTimeout, System.Action<string, string> a_oCallback) {
-#if STORE_VER_CHECK_ENABLE
+#if (UNITY_IOS || UNITY_ANDROID) && STORE_VER_CHECK_ENABLE
+#if UNITY_ANDROID && GOOGLE_UPDATE_ENABLE
+		var oUpdateManager = new AppUpdateManager();
+		StartCoroutine(CTaskManager.Inst.WaitUpdateOperation(oUpdateManager, this.HandleGetStoreVerMsg));
+#else
 		var oDataDict = new Dictionary<string, string>() {
 			[KCDefine.U_KEY_UNITY_MS_APP_ID] = a_oAppID,
 			[KCDefine.U_KEY_UNITY_MS_VER] = a_oVer,
-			[KCDefine.U_KEY_UNITY_MS_TIMEOUT] = a_fTimeout.ToString()
+			[KCDefine.U_KEY_UNITY_MS_TIMEOUT] = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, a_fTimeout)
 		};
 
 		this.SendUnityMsg(KCDefine.B_CMD_GET_STORE_VER, oDataDict.ExToJSONStr(), a_oCallback);
+#endif			// #if UNITY_ANDROID && GOOGLE_UPDATE_ENABLE
 #else
 		this.ExLateCallFunc((a_oSender, a_oParams) => { 
 			var oMsg = new SimpleJSON.JSONClass();
@@ -55,7 +60,7 @@ public class CUnityMsgSender : CSingleton<CUnityMsgSender> {
 
 			a_oCallback?.Invoke(KCDefine.B_CMD_GET_STORE_VER, oMsg.ToString());
 		});
-#endif			// #if STORE_VER_CHECK_ENABLE
+#endif			// #if (UNITY_IOS || UNITY_ANDROID) && STORE_VER_CHECK_ENABLE
 	}
 
 	//! 광고 추적 여부 변경 메세지를 전송한다
@@ -92,6 +97,8 @@ public class CUnityMsgSender : CSingleton<CUnityMsgSender> {
 #elif UNITY_ANDROID && GOOGLE_REVIEW_ENABLE
 		var oReviewManager = new ReviewManager();
 		StartCoroutine(CTaskManager.Inst.WaitReviewFlow(oReviewManager, this.HandleShowReviewMsg));
+#else
+		Application.OpenURL(CProjInfoTable.Inst.ProjInfo.m_oStoreURL);
 #endif			// #if UNITY_IOS
 	}
 
@@ -104,10 +111,10 @@ public class CUnityMsgSender : CSingleton<CUnityMsgSender> {
 		CAccess.Assert(a_fDuration.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
 
 		var oDataDict = new Dictionary<string, string>() {
-			[KCDefine.U_KEY_UNITY_MS_VIBRATE_TYPE] = ((int)a_eType).ToString(),
-			[KCDefine.U_KEY_UNITY_MS_VIBRATE_STYLE] = ((int)a_eStyle).ToString(),
-			[KCDefine.U_KEY_UNITY_MS_VIBRATE_DURATION] = a_fDuration.ToString(),
-			[KCDefine.U_KEY_UNITY_MS_VIBRATE_INTENSITY] = a_fIntensity.ToString()
+			[KCDefine.U_KEY_UNITY_MS_VIBRATE_TYPE] = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, (int)a_eType),
+			[KCDefine.U_KEY_UNITY_MS_VIBRATE_STYLE] = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, (int)a_eStyle),
+			[KCDefine.U_KEY_UNITY_MS_VIBRATE_DURATION] = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, a_fDuration),
+			[KCDefine.U_KEY_UNITY_MS_VIBRATE_INTENSITY] = string.Format(KCDefine.B_TEXT_FMT_1_DIGITS, a_fIntensity)
 		};
 
 		this.SendUnityMsg(KCDefine.B_CMD_VIBRATE, oDataDict.ExToJSONStr(), null);
@@ -158,16 +165,14 @@ public class CUnityMsgSender : CSingleton<CUnityMsgSender> {
 
 	//! 공유 메세지를 처리한다
 	private void HandleShareMsg(NativeShare.ShareResult a_eResult, string a_oTarget) {
-		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_UNITY_MS_SHARE_MSG_CALLBACK, () => {
-			CFunc.ShowLog($"CUnityMsgSender.HandleShareMsg: {a_eResult}, {a_oTarget}", KCDefine.B_LOG_COLOR_PLUGIN);
-			CFunc.Invoke(ref m_oShareCallback, a_eResult, a_oTarget);
-		});
+		CFunc.ShowLog($"CUnityMsgSender.HandleShareMsg: {a_eResult}, {a_oTarget}", KCDefine.B_LOG_COLOR_PLUGIN);
+		CScheduleManager.Inst.AddCallback(KCDefine.U_KEY_UNITY_MS_SHARE_MSG_CALLBACK, () => CFunc.Invoke(ref m_oShareCallback, a_eResult, a_oTarget));
 	}
 
 	//! 유니티 메세지를 전송한다
 	private void SendUnityMsg(string a_oCmd, string a_oMsg, System.Action<string, string> a_oCallback) {
 		// 인디케이터 메세지가 아닐 경우
-		if(!a_oCmd.ExIsEquals(KCDefine.B_CMD_INDICATOR)) {
+		if(!a_oCmd.Equals(KCDefine.B_CMD_INDICATOR)) {
 			CFunc.ShowLog($"CUnityMsgSender.SendUnityMsg: {a_oCmd}, {a_oMsg}", KCDefine.B_LOG_COLOR_PLUGIN);
 		}
 		
@@ -180,15 +185,7 @@ public class CUnityMsgSender : CSingleton<CUnityMsgSender> {
 #if UNITY_IOS
 		CUnityMsgSender.HandleUnityMsg(a_oCmd, a_oMsg);
 #else
-		// 스토어 버전 반환 메세지 일 경우
-		if(a_oCmd == KCDefine.B_CMD_GET_STORE_VER) {
-#if GOOGLE_UPDATE_ENABLE
-			var oUpdateManager = new AppUpdateManager();
-			StartCoroutine(CTaskManager.Inst.WaitUpdateOperation(oUpdateManager, this.HandleGetStoreVerMsg));
-#endif			// #if GOOGLE_UPDATE_ENABLE
-		} else {
-			m_oAndroidPlugin.CallStatic(KCDefine.U_FUNC_N_UNITY_MS_MSG_HANDLER, a_oCmd, a_oMsg);
-		}
+		m_oAndroidPlugin.CallStatic(KCDefine.U_FUNC_N_UNITY_MS_MSG_HANDLER, a_oCmd, a_oMsg);
 #endif			// #if UNITY_IOS
 #else
 		this.ExLateCallFunc((a_oSender, a_oParams) => a_oCallback?.Invoke(a_oCmd, string.Empty));

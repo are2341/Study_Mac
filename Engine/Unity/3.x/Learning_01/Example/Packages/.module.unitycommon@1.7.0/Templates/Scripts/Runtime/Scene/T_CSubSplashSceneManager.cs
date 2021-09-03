@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //! 서브 스플래시 씬 관리자
 public class CSubSplashSceneManager : CSplashSceneManager {
 	#region 변수
-	// UI
+	// =====> UI <=====
 	private Image m_oSplashImg = null;
 	#endregion			// 변수
 
@@ -39,19 +39,11 @@ public class CSubSplashSceneManager : CSplashSceneManager {
 	//! 씬을 설정한다
 	private void SetupAwake() {
 		// 이미지를 설정한다
-		m_oSplashImg = CFactory.CreateCloneObj<Image>(KCDefine.SS_OBJ_N_SPLASH_IMG, KCDefine.U_OBJ_P_IMG, this.SubUIs, KCDefine.SS_POS_SPLASH_IMG);
+		m_oSplashImg = CFactory.CreateCloneObj<Image>(KCDefine.U_OBJ_N_SPLASH_IMG, KCDefine.U_OBJ_P_IMG, this.SubUIs, KCDefine.SS_POS_SPLASH_IMG);
 		m_oSplashImg.sprite = CResManager.Inst.GetRes<Sprite>(KCDefine.U_IMG_P_G_SPLASH);
 		m_oSplashImg.gameObject.SetActive(false);
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

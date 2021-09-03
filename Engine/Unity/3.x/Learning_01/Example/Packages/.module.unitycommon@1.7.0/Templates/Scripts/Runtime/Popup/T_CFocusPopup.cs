@@ -23,22 +23,24 @@ public class CFocusPopup : CSubPopup {
 	private STParams m_stParams;
 	private STCallbackParams m_stCallbackParams;
 
-	// UI
+	// =====> UI <=====
 	private Image m_oBlindImg = null;
 	#endregion			// 변수
 
 	#region 프로퍼티
-	public override bool IsIgnoreAni => true;
 	public override bool IsIgnoreBGAni => true;
+	public override EAniType AniType => EAniType.NONE;
 
 	public override Color BGColor => KCDefine.U_COLOR_TRANSPARENT;
-	public override EAniType AniType => EAniType.NONE;
 	#endregion			// 프로퍼티
 
 	#region 함수
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
+		this.IsIgnoreAni = true;
+
+		// 이미지를 설정한다
 		m_oBlindImg = m_oContents.ExFindComponent<Image>(KCDefine.U_OBJ_N_BLIND_IMG);
 	}
 
@@ -80,14 +82,6 @@ public class CFocusPopup : CSubPopup {
 		oContentsImg?.ExSetColor<Image>(KCDefine.U_COLOR_TRANSPARENT);
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

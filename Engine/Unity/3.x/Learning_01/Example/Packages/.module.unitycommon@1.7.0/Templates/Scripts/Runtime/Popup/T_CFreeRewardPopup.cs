@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //! 무료 보상 팝업
 public class CFreeRewardPopup : CSubPopup {
 	#region 변수
-	// UI
+	// =====> UI <=====
 	private Button m_oAdsBtn = null;
 	#endregion			// 변수
 
@@ -70,8 +70,7 @@ public class CFreeRewardPopup : CSubPopup {
 				m_oItemInfoList = stRewardInfo.m_oItemInfoList
 			};
 
-			var oRewardAcquirePopup = a_oSender as CRewardAcquirePopup;
-			oRewardAcquirePopup.Init(stParams);
+			(a_oSender as CRewardAcquirePopup).Init(stParams);
 		}, null, this.OnCloseRewardAcquirePopup);
 	}
 	#endregion			// 함수
@@ -87,14 +86,6 @@ public class CFreeRewardPopup : CSubPopup {
 	}
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

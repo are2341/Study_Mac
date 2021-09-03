@@ -49,12 +49,17 @@ public abstract partial class CSceneManager : CComponent {
 		if(this.SubUIsCamera != null) {
 			this.SubUIsCamera.backgroundColor = this.ClearColor;
 
+			this.SubUIsCamera.ExReset();
 			this.SubUIsCamera.ExSetCullingMask(KCDefine.U_LAYER_MASK_UIS_CAMERA.ToList());
 			this.SubUIsCamera.gameObject.ExSetEnableComponent<AudioListener>(false, false);
 
-#if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
+#if CAMERA_STACK_ENABLE
+			this.SubUIsCamera.clearFlags = CameraClearFlags.Depth;
+			this.SubUIsCamera.gameObject.SetActive(true);
+#else
 			this.SubUIsCamera.clearFlags = CameraClearFlags.Nothing;
 			this.SubUIsCamera.gameObject.SetActive(false);
+#endif			// CAMERA_STACK_ENABLE
 
 #if UNIVERSAL_PIPELINE_MODULE_ENABLE
 			var oCameraData = this.SubUIsCamera.gameObject.ExAddComponent<UniversalAdditionalCameraData>();
@@ -62,24 +67,8 @@ public abstract partial class CSceneManager : CComponent {
 			// 카메라 데이터가 존재 할 경우
 			if(oCameraData != null) {
 				oCameraData.renderType = CameraRenderType.Overlay;
-
-#if LIGHT_ENABLE && SHADOW_ENABLE
-				oCameraData.renderShadows = true;
-#else
-				oCameraData.renderShadows = false;
-#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
-
-#if UNITY_POST_PROCESSING_STACK_V2
-				oCameraData.renderPostProcessing = true;
-#else
-				oCameraData.renderPostProcessing = false;
-#endif			// #if UNITY_POST_PROCESSING_STACK_V2
 			}
 #endif			// #if UNIVERSAL_PIPELINE_MODULE_ENABLE
-#else
-			this.SubUIsCamera.clearFlags = CameraClearFlags.Depth;
-			this.SubUIsCamera.gameObject.SetActive(true);
-#endif			// #if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
 		}
 
 		//! 메인 카메라가 존재 할 경우
@@ -87,6 +76,7 @@ public abstract partial class CSceneManager : CComponent {
 			this.SubMainCamera.clearFlags = this.IsRootScene ? CameraClearFlags.SolidColor : CameraClearFlags.Nothing;
 			this.SubMainCamera.backgroundColor = this.ClearColor;
 
+			this.SubMainCamera.ExReset();
 			this.SubMainCamera.ExSetCullingMask(KCDefine.U_LAYER_MASK_MAIN_CAMERA.ToList());
 
 			this.SubMainCamera.gameObject.ExSetEnableComponent<AudioListener>(this.IsRootScene, false);
@@ -110,17 +100,14 @@ public abstract partial class CSceneManager : CComponent {
 				oCameraData.renderType = CameraRenderType.Base;
 				oCameraData.cameraStack?.Clear();
 
-#if LIGHT_ENABLE && SHADOW_ENABLE
-				oCameraData.renderShadows = true;
-#else
-				oCameraData.renderShadows = false;
-#endif			// #if LIGHT_ENABLE && SHADOW_ENABLE
-
-#if UNITY_POST_PROCESSING_STACK_V2
-				oCameraData.renderPostProcessing = true;
-#else
-				oCameraData.renderPostProcessing = false;
-#endif			// #if UNITY_POST_PROCESSING_STACK_V2
+#if CAMERA_STACK_ENABLE
+				// 메인 카메라 데이터가 존재 할 경우
+				if(this.SubUIsCamera != null && CSceneManager.MainCamera.TryGetComponent<UniversalAdditionalCameraData>(out UniversalAdditionalCameraData oMainCameraData)) {
+					var oCameraList = oMainCameraData.cameraStack ?? new List<Camera>();
+					oCameraList.ExAddVal(this.SubUIsCamera);
+					oCameraList.Sort((a_oLhs, a_oRhs) => a_oLhs.depth.CompareTo(a_oRhs.depth));
+				}
+#endif			// #if CAMERA_STACK_ENABLE
 			}
 #endif			// #if UNIVERSAL_PIPELINE_MODULE_ENABLE
 		}
@@ -161,9 +148,7 @@ public abstract partial class CSceneManager : CComponent {
 		// 디버그 버튼이 존재 할 경우
 		if(CSceneManager.ScreenDebugBtn != null) {
 			CSceneManager.ScreenDebugBtn.gameObject.SetActive(true);
-
-			CSceneManager.ScreenDebugBtn.onClick.RemoveAllListeners();
-			CSceneManager.ScreenDebugBtn.onClick.AddListener(CSceneManager.OnTouchDebugBtn);
+			CSceneManager.ScreenDebugBtn.ExAddListener(CSceneManager.OnTouchDebugBtn);
 		}
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 
@@ -171,16 +156,14 @@ public abstract partial class CSceneManager : CComponent {
 		// FPS 버튼이 존재 할 경우
 		if(CSceneManager.ScreenFPSBtn != null) {
 			CSceneManager.ScreenFPSBtn.gameObject.SetActive(true);
-
-			CSceneManager.ScreenFPSBtn.onClick.RemoveAllListeners();
-			CSceneManager.ScreenFPSBtn.onClick.AddListener(CSceneManager.OnTouchFPSBtn);
+			CSceneManager.ScreenFPSBtn.ExAddListener(CSceneManager.OnTouchFPSBtn);
 		}
 #endif			// #if FPS_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
 
 		// 앱이 실행 중 일 경우
 		if(Application.isPlaying) {
 			// 루트 씬 일 경우
-			if(this.IsRootScene && !this.SceneName.ExIsEquals(KCDefine.B_SCENE_N_AGREE)) {
+			if(this.IsRootScene && !this.SceneName.Equals(KCDefine.B_SCENE_N_AGREE)) {
 				CScheduleManager.Inst.AddComponent(this);
 				CNavStackManager.Inst.AddComponent(this);
 
@@ -288,7 +271,7 @@ public abstract partial class CSceneManager : CComponent {
 			var oLights = oObjs[i].GetComponentsInChildren<Light>(true);
 
 			for(int j = 0; j < oLights.Length; ++j) {
-				bool bIsMainLight = oLights[j].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_MAIN_LIGHT);
+				bool bIsMainLight = oLights[j].name.Equals(KCDefine.U_OBJ_N_SCENE_MAIN_LIGHT);
 				bool bIsDirectional = oLights[j].type == LightType.Directional;
 				
 				oLights[j].shadows = KCDefine.U_LIGHT_SHADOW_TYPE;
@@ -521,269 +504,267 @@ public abstract partial class CSceneManager : CComponent {
 
 	//! 캔버스를 설정한다
 	protected virtual void SetupCanvas(Canvas a_oCanvas) {
-		// 캔버스가 없을 경우
-		if(a_oCanvas == null) {
-			return;
-		}
+		// 캔버스가 존재 할 경우
+		if(a_oCanvas != null) {
+			// UI 객체를 설정한다 {
+			var oUIObjs = new GameObject[] {
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_TEST_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_PIVOT_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_ANCHOR_UIS),
 
-		// UI 객체를 설정한다 {
-		var oUIObjs = new GameObject[] {
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_TEST_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_PIVOT_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_ANCHOR_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_UP_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_DOWN_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_LEFT_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_RIGHT_UIS),
 
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_UP_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_DOWN_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_LEFT_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_RIGHT_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_POPUP_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_TOPMOST_UIS),
 
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_POPUP_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_TOPMOST_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_CANVAS_PIVOT_OBJS),
 
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCENE_CANVAS_PIVOT_OBJS),
-
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_BLIND_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS),
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_ABS_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_BLIND_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS),
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_ABS_UIS),
 
 #if DEBUG || DEVELOPMENT_BUILD
-			a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS)
+				a_oCanvas.gameObject.ExFindChild(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS)
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
-		};
+			};
 
-		for(int i = 0; i < oUIObjs.Length; ++i) {
-			// UI 객체가 없을 경우
-			if(oUIObjs[i] == null) {
-				continue;
-			}
-			
-			var stPos = Vector3.zero;
-			var stSize = Vector3.zero;
-			var stPivot = KCDefine.B_ANCHOR_MID_CENTER;
+			for(int i = 0; i < oUIObjs.Length; ++i) {
+				// UI 객체가 존재 할 경우
+				if(oUIObjs[i] != null) {
+					var stPos = Vector3.zero;
+					var stSize = Vector3.zero;
+					var stPivot = KCDefine.B_ANCHOR_MID_CENTER;
 
-			bool bIsUpUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_UP_UIS);
-			bool bIsDownUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_DOWN_UIS);
-			bool bIsLeftUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_LEFT_UIS);
-			bool bIsRightUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_RIGHT_UIS);
+					bool bIsUpUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_UP_UIS);
+					bool bIsDownUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_DOWN_UIS);
+					bool bIsLeftUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_LEFT_UIS);
+					bool bIsRightUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_RIGHT_UIS);
 
-			// 상단, 하단 UI 루트 일 경우
-			if(bIsUpUIs || bIsDownUIs) {
-				stSize = new Vector3(KCDefine.B_SCREEN_WIDTH, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT);
-				stPivot = bIsUpUIs ? KCDefine.B_ANCHOR_UP_LEFT : KCDefine.B_ANCHOR_DOWN_LEFT;
-				
-				// 상단 UI 루트 일 경우
-				if(bIsUpUIs) {
-					stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, (CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT) + CSceneManager.UpUIsOffset, KCDefine.B_VAL_0_FLT);
-				} else {
-					stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, (CSceneManager.CanvasSize.y / -KCDefine.B_VAL_2_FLT) + CSceneManager.DownUIsOffset, KCDefine.B_VAL_0_FLT);
-				}
-			} 
-			// 왼쪽, 오른쪽 UI 루트 일 경우
-			else if(bIsLeftUIs || bIsRightUIs) {
-				stSize = new Vector3(KCDefine.B_VAL_0_FLT, KCDefine.B_SCREEN_HEIGHT, KCDefine.B_VAL_0_FLT);
-				stPivot = bIsLeftUIs ? KCDefine.B_ANCHOR_DOWN_LEFT : KCDefine.B_ANCHOR_DOWN_RIGHT;
+					// 상단, 하단 UI 루트 일 경우
+					if(bIsUpUIs || bIsDownUIs) {
+						stSize = new Vector3(KCDefine.B_SCREEN_WIDTH, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT);
+						stPivot = bIsUpUIs ? KCDefine.B_ANCHOR_UP_LEFT : KCDefine.B_ANCHOR_DOWN_LEFT;
+						
+						// 상단 UI 루트 일 경우
+						if(bIsUpUIs) {
+							stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, (CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT) + CSceneManager.UpUIsOffset, KCDefine.B_VAL_0_FLT);
+						} else {
+							stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, (CSceneManager.CanvasSize.y / -KCDefine.B_VAL_2_FLT) + CSceneManager.DownUIsOffset, KCDefine.B_VAL_0_FLT);
+						}
+					} 
+					// 왼쪽, 오른쪽 UI 루트 일 경우
+					else if(bIsLeftUIs || bIsRightUIs) {
+						stSize = new Vector3(KCDefine.B_VAL_0_FLT, KCDefine.B_SCREEN_HEIGHT, KCDefine.B_VAL_0_FLT);
+						stPivot = bIsLeftUIs ? KCDefine.B_ANCHOR_DOWN_LEFT : KCDefine.B_ANCHOR_DOWN_RIGHT;
 
-				// 왼쪽 UI 루트 일 경우
-				if(bIsLeftUIs) {
-					stPos = new Vector3((CSceneManager.CanvasSize.x / -KCDefine.B_VAL_2_FLT) + CSceneManager.LeftUIsOffset, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
-				} else {
-					stPos = new Vector3((CSceneManager.CanvasSize.x / KCDefine.B_VAL_2_FLT) + CSceneManager.RightUIsOffset, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
-				}
-			} else {
-				bool bIsUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_UIS);
-				bool bIsTestUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_TEST_UIS);
-				bool bIsPivotUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_PIVOT_UIS);
-				bool bIsAnchorUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_ANCHOR_UIS);
-				bool bIsBlindUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_BLIND_UIS);
-				bool bIsCanvasObjs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJS);
-				bool bIsCanvasPivotObjs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_CANVAS_PIVOT_OBJS);
+						// 왼쪽 UI 루트 일 경우
+						if(bIsLeftUIs) {
+							stPos = new Vector3((CSceneManager.CanvasSize.x / -KCDefine.B_VAL_2_FLT) + CSceneManager.LeftUIsOffset, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+						} else {
+							stPos = new Vector3((CSceneManager.CanvasSize.x / KCDefine.B_VAL_2_FLT) + CSceneManager.RightUIsOffset, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+						}
+					} else {
+						bool bIsUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_UIS);
+						bool bIsTestUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_TEST_UIS);
+						bool bIsPivotUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_PIVOT_UIS);
+						bool bIsAnchorUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_ANCHOR_UIS);
+						bool bIsBlindUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_BLIND_UIS);
+						bool bIsCanvasObjs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_CANVAS_OBJS);
+						bool bIsCanvasPivotObjs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCENE_CANVAS_PIVOT_OBJS);
 
 #if DEBUG || DEVELOPMENT_BUILD
-				bool bIsDebugUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS);
+						bool bIsDebugUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS);
 #else
-				bool bIsDebugUIs = false;
+						bool bIsDebugUIs = false;
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 
-				bool bIsBaseUIs = bIsUIs || bIsTestUIs || bIsPivotUIs || bIsCanvasObjs || bIsCanvasPivotObjs;
-				bool bIsEnableCorrectUIs = bIsUIs || bIsTestUIs || bIsPivotUIs || bIsAnchorUIs || bIsBlindUIs || bIsCanvasObjs || bIsCanvasPivotObjs || bIsDebugUIs;
-				
-				// 크기 보정 가능한 UI 객체 일 경우
-				if(bIsBaseUIs || bIsEnableCorrectUIs) {
-					stSize = bIsBaseUIs ? KCDefine.B_SCREEN_SIZE : CSceneManager.CanvasSize;
+						bool bIsBaseUIs = bIsUIs || bIsTestUIs || bIsPivotUIs || bIsCanvasObjs || bIsCanvasPivotObjs;
+						bool bIsEnableCorrectUIs = bIsUIs || bIsTestUIs || bIsPivotUIs || bIsAnchorUIs || bIsBlindUIs || bIsCanvasObjs || bIsCanvasPivotObjs || bIsDebugUIs;
+						
+						// 크기 보정 가능한 UI 객체 일 경우
+						if(bIsBaseUIs || bIsEnableCorrectUIs) {
+							stSize = bIsBaseUIs ? KCDefine.B_SCREEN_SIZE : CSceneManager.CanvasSize;
 
-					// 기준 UI 객체 일 경우
-					if(bIsPivotUIs || bIsCanvasPivotObjs) {
-						stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
-						stPivot = KCDefine.B_ANCHOR_DOWN_LEFT;
+							// 기준 UI 객체 일 경우
+							if(bIsPivotUIs || bIsCanvasPivotObjs) {
+								stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+								stPivot = KCDefine.B_ANCHOR_DOWN_LEFT;
+							}
+						} else {
+							bool bIsScreenPopupUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS);
+							bool bIsScreenTopmostUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS);
+							bool bIsScreenAbsUIs = oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_ABS_UIS);
+
+							// 화면 UI 객체 루트가 아닐 경우
+							if(!bIsScreenPopupUIs && !bIsScreenTopmostUIs && !bIsScreenAbsUIs) {
+								stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+							}
+						}
 					}
-				} else {
-					bool bIsScreenPopupUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_POPUP_UIS);
-					bool bIsScreenTopmostUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_TOPMOST_UIS);
-					bool bIsScreenAbsUIs = oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_ABS_UIS);
 
-					// 화면 UI 객체 루트가 아닐 경우
-					if(!bIsScreenPopupUIs && !bIsScreenTopmostUIs && !bIsScreenAbsUIs) {
-						stPos = new Vector3(KCDefine.B_SCREEN_WIDTH / -KCDefine.B_VAL_2_FLT, KCDefine.B_SCREEN_HEIGHT / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+					var oTrans = oUIObjs[i].transform as RectTransform;
+					oTrans.pivot = stPivot;
+					oTrans.anchorMin = KCDefine.B_ANCHOR_MID_CENTER;
+					oTrans.anchorMax = KCDefine.B_ANCHOR_MID_CENTER;
+
+					oTrans.sizeDelta = stSize.ExTo2D();
+					oTrans.anchoredPosition = stPos.ExTo2D();
+					oTrans.localScale = Vector3.one;
+					oTrans.localEulerAngles = Vector3.zero;
+
+					// 블라인드 UI 루트 일 경우
+					if(oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_BLIND_UIS)) {
+						var oPivots = new Vector3[] {
+							KCDefine.B_ANCHOR_DOWN_CENTER.ExTo3D(),
+							KCDefine.B_ANCHOR_UP_CENTER.ExTo3D(),
+							KCDefine.B_ANCHOR_MID_RIGHT.ExTo3D(),
+							KCDefine.B_ANCHOR_MID_LEFT.ExTo3D()
+						};
+
+						var oAnchors = new Vector3[] {
+							KCDefine.B_ANCHOR_UP_CENTER.ExTo3D(),
+							KCDefine.B_ANCHOR_DOWN_CENTER.ExTo3D(),
+							KCDefine.B_ANCHOR_MID_LEFT.ExTo3D(),
+							KCDefine.B_ANCHOR_MID_RIGHT.ExTo3D()
+						};
+
+						var oPositions = new Vector3[] {
+							Vector3.zero,
+							Vector3.zero,
+							Vector3.zero,
+							new Vector3(KCDefine.B_VAL_0_FLT, CSceneManager.DownUIsOffset, KCDefine.B_VAL_0_FLT)
+						};
+
+						var stUpOffset = new Vector3(KCDefine.B_VAL_0_FLT, (CSceneManager.CanvasSize.y - KCDefine.B_SCREEN_HEIGHT) / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+						var stDownOffset = new Vector3(KCDefine.B_VAL_0_FLT, (CSceneManager.CanvasSize.y - KCDefine.B_SCREEN_HEIGHT) / KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
+						var stLeftOffset = new Vector3((CSceneManager.CanvasSize.x - KCDefine.B_SCREEN_WIDTH) / KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT);
+						var stRightOffset = new Vector3((CSceneManager.CanvasSize.x - KCDefine.B_SCREEN_WIDTH) / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT);
+
+						var oOffsets = new Vector3[] {
+							this.IsIgnoreBlindV ? Vector3.zero : stUpOffset,
+							this.IsIgnoreBlindV ? Vector3.zero : stDownOffset,
+							this.IsIgnoreBlindH ? Vector3.zero : stLeftOffset,
+							this.IsIgnoreBlindH ? Vector3.zero : stRightOffset
+						};
+
+						int nIdx = oOffsets.Length - KCDefine.B_VAL_1_INT;
+						oOffsets[nIdx].y = Mathf.Max(KCDefine.B_VAL_0_FLT, oOffsets[oOffsets.Length - KCDefine.B_VAL_1_INT].y - CSceneManager.DownUIsOffset);
+
+						var oImgs = new Image[] {
+							oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_UP_BLIND_IMG),
+							oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_DOWN_BLIND_IMG),
+							oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_LEFT_BLIND_IMG),
+							oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_RIGHT_BLIND_IMG)
+						};
+
+						for(int j = 0; j < oImgs.Length; ++j) {
+							var oImg = oImgs[j];
+							oImg.color = CAccess.IsEditor ? KCDefine.U_COLOR_TRANSPARENT : KCDefine.U_COLOR_BLIND_UIS;
+							oImg.rectTransform.pivot = oPivots[j];
+							oImg.rectTransform.anchorMin = oAnchors[j];
+							oImg.rectTransform.anchorMax = oAnchors[j];
+							oImg.rectTransform.sizeDelta = CSceneManager.CanvasSize.ExTo2D();
+							oImg.rectTransform.anchoredPosition = oPositions[j].ExTo2D() + oOffsets[j].ExTo2D();
+						}
 					}
-				}
-			}
-
-			var oTrans = oUIObjs[i].transform as RectTransform;
-			oTrans.pivot = stPivot;
-			oTrans.anchorMin = KCDefine.B_ANCHOR_MID_CENTER;
-			oTrans.anchorMax = KCDefine.B_ANCHOR_MID_CENTER;
-
-			oTrans.sizeDelta = stSize.ExTo2D();
-			oTrans.anchoredPosition = stPos.ExTo2D();
-			oTrans.localScale = Vector3.one;
-			oTrans.localEulerAngles = Vector3.zero;
-
-			// 블라인드 UI 루트 일 경우
-			if(oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_BLIND_UIS)) {
-				var oPivots = new Vector3[] {
-					KCDefine.B_ANCHOR_DOWN_CENTER.ExTo3D(),
-					KCDefine.B_ANCHOR_UP_CENTER.ExTo3D(),
-					KCDefine.B_ANCHOR_MID_RIGHT.ExTo3D(),
-					KCDefine.B_ANCHOR_MID_LEFT.ExTo3D()
-				};
-
-				var oAnchors = new Vector3[] {
-					KCDefine.B_ANCHOR_UP_CENTER.ExTo3D(),
-					KCDefine.B_ANCHOR_DOWN_CENTER.ExTo3D(),
-					KCDefine.B_ANCHOR_MID_LEFT.ExTo3D(),
-					KCDefine.B_ANCHOR_MID_RIGHT.ExTo3D()
-				};
-
-				var oPositions = new Vector3[] {
-					Vector3.zero,
-					Vector3.zero,
-					Vector3.zero,
-					new Vector3(KCDefine.B_VAL_0_FLT, CSceneManager.DownUIsOffset, KCDefine.B_VAL_0_FLT)
-				};
-
-				var stUpOffset = new Vector3(KCDefine.B_VAL_0_FLT, (CSceneManager.CanvasSize.y - KCDefine.B_SCREEN_HEIGHT) / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
-				var stDownOffset = new Vector3(KCDefine.B_VAL_0_FLT, (CSceneManager.CanvasSize.y - KCDefine.B_SCREEN_HEIGHT) / KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT);
-				var stLeftOffset = new Vector3((CSceneManager.CanvasSize.x - KCDefine.B_SCREEN_WIDTH) / KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT);
-				var stRightOffset = new Vector3((CSceneManager.CanvasSize.x - KCDefine.B_SCREEN_WIDTH) / -KCDefine.B_VAL_2_FLT, KCDefine.B_VAL_0_FLT, KCDefine.B_VAL_0_FLT);
-
-				var oOffsets = new Vector3[] {
-					this.IsIgnoreBlindV ? Vector3.zero : stUpOffset,
-					this.IsIgnoreBlindV ? Vector3.zero : stDownOffset,
-					this.IsIgnoreBlindH ? Vector3.zero : stLeftOffset,
-					this.IsIgnoreBlindH ? Vector3.zero : stRightOffset
-				};
-
-				int nIdx = oOffsets.Length - KCDefine.B_VAL_1_INT;
-				oOffsets[nIdx].y = Mathf.Max(KCDefine.B_VAL_0_FLT, oOffsets[oOffsets.Length - KCDefine.B_VAL_1_INT].y - CSceneManager.DownUIsOffset);
-
-				var oImgs = new Image[] {
-					oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_UP_BLIND_IMG),
-					oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_DOWN_BLIND_IMG),
-					oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_LEFT_BLIND_IMG),
-					oUIObjs[i].ExFindComponent<Image>(KCDefine.U_OBJ_N_RIGHT_BLIND_IMG)
-				};
-
-				for(int j = 0; j < oImgs.Length; ++j) {
-					var oImg = oImgs[j];
-					oImg.color = CAccess.IsEditor ? KCDefine.U_COLOR_TRANSPARENT : KCDefine.U_COLOR_BLIND_UIS;
-					oImg.rectTransform.pivot = oPivots[j];
-					oImg.rectTransform.anchorMin = oAnchors[j];
-					oImg.rectTransform.anchorMax = oAnchors[j];
-					oImg.rectTransform.sizeDelta = CSceneManager.CanvasSize.ExTo2D();
-					oImg.rectTransform.anchoredPosition = oPositions[j].ExTo2D() + oOffsets[j].ExTo2D();
-				}
-			}
 
 #if DEBUG || DEVELOPMENT_BUILD
-			// 디버그 UI 루트 일 경우
-			if(oUIObjs[i].name.ExIsEquals(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS)) {
-				// 정적 디버그 텍스트를 설정한다
-				if(CSceneManager.ScreenStaticDebugText != null) {
-					var oRectTrans = CSceneManager.ScreenStaticDebugText.rectTransform;
-					oRectTrans.pivot = KCDefine.B_ANCHOR_UP_LEFT;
-					oRectTrans.anchorMin = KCDefine.B_ANCHOR_UP_LEFT;
-					oRectTrans.anchorMax = KCDefine.B_ANCHOR_UP_LEFT;
-					oRectTrans.sizeDelta = new Vector2(CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT);
-					oRectTrans.anchoredPosition = Vector2.zero;
+					// 디버그 UI 루트 일 경우
+					if(oUIObjs[i].name.Equals(KCDefine.U_OBJ_N_SCREEN_DEBUG_UIS)) {
+						// 정적 디버그 텍스트를 설정한다
+						if(CSceneManager.ScreenStaticDebugText != null) {
+							var oRectTrans = CSceneManager.ScreenStaticDebugText.rectTransform;
+							oRectTrans.pivot = KCDefine.B_ANCHOR_UP_LEFT;
+							oRectTrans.anchorMin = KCDefine.B_ANCHOR_UP_LEFT;
+							oRectTrans.anchorMax = KCDefine.B_ANCHOR_UP_LEFT;
+							oRectTrans.sizeDelta = new Vector2(CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT);
+							oRectTrans.anchoredPosition = Vector2.zero;
 
-					CSceneManager.m_oStaticDebugStrBuilder.Clear();
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_A, CAccess.ScreenSize.x, CAccess.ScreenSize.y);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_B, KCDefine.B_SCREEN_WIDTH, KCDefine.B_SCREEN_HEIGHT);
-					CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_C, CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y);
+							CSceneManager.m_oStaticDebugStrBuilder.Clear();
+							CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_A, CAccess.ScreenSize.x, CAccess.ScreenSize.y);
+							CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_B, KCDefine.B_SCREEN_WIDTH, KCDefine.B_SCREEN_HEIGHT);
+							CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_C, CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y);
 
 #if ADS_MODULE_ENABLE
-					// 디바이스 타입이 유효 할 경우
-					if(CCommonAppInfoStorage.Inst.DeviceType.ExIsValid()) {
-						var stBannerAdsSize = (CCommonAppInfoStorage.Inst.DeviceType == EDeviceType.PHONE) ? KCDefine.U_SIZE_PHONE_BANNER_ADS : KCDefine.U_SIZE_TABLET_BANNER_ADS;
-						float fBannerAdsHeight = CAccess.GetBannerAdsScreenHeight(stBannerAdsSize.y);
-						
-						CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_D, CAccess.DPI, fBannerAdsHeight);
-					}
+							// 디바이스 타입이 유효 할 경우
+							if(CCommonAppInfoStorage.Inst.DeviceType.ExIsValid()) {
+								var stBannerAdsSize = (CCommonAppInfoStorage.Inst.DeviceType == EDeviceType.PHONE) ? KCDefine.U_SIZE_PHONE_BANNER_ADS : KCDefine.U_SIZE_TABLET_BANNER_ADS;
+								float fBannerAdsHeight = CAccess.GetBannerAdsHeight(stBannerAdsSize.y);
+								
+								CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_D, CAccess.DPI, fBannerAdsHeight);
+							}
 #endif			// #if ADS_MODULE_ENABLE
-				}
 
-				// 동적 디버그 텍스트를 설정한다
-				if(CSceneManager.ScreenDynamicDebugText != null) {
-					var oRectTrans = CSceneManager.ScreenDynamicDebugText.rectTransform;
-					oRectTrans.pivot = KCDefine.B_ANCHOR_DOWN_LEFT;
-					oRectTrans.anchorMin = KCDefine.B_ANCHOR_DOWN_LEFT;
-					oRectTrans.anchorMax = KCDefine.B_ANCHOR_DOWN_LEFT;
-					oRectTrans.sizeDelta = new Vector2(CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT);
-					oRectTrans.anchoredPosition = Vector2.zero;
+							CSceneManager.m_oStaticDebugStrBuilder.AppendFormat(KCDefine.U_TEXT_FMT_STATIC_DEBUG_INFO_E, KCDefine.B_DIR_P_WRITABLE);
+						}
 
-					CSceneManager.m_oDynamicDebugStrBuilder.Clear();
+						// 동적 디버그 텍스트를 설정한다
+						if(CSceneManager.ScreenDynamicDebugText != null) {
+							var oRectTrans = CSceneManager.ScreenDynamicDebugText.rectTransform;
+							oRectTrans.pivot = KCDefine.B_ANCHOR_DOWN_LEFT;
+							oRectTrans.anchorMin = KCDefine.B_ANCHOR_DOWN_LEFT;
+							oRectTrans.anchorMax = KCDefine.B_ANCHOR_DOWN_LEFT;
+							oRectTrans.sizeDelta = new Vector2(CSceneManager.CanvasSize.x, CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT);
+							oRectTrans.anchoredPosition = Vector2.zero;
+
+							CSceneManager.m_oDynamicDebugStrBuilder.Clear();
+						}
+					}
+#endif			// #if DEBUG || DEVELOPMENT_BUILD
 				}
 			}
-#endif			// #if DEBUG || DEVELOPMENT_BUILD
-		}
-		// UI 객체를 설정한다 }
+			// UI 객체를 설정한다 }
 
-		// 캔버스를 설정한다 {
-#if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
-		a_oCanvas.worldCamera = CSceneManager.MainCamera;
+			// 캔버스를 설정한다 {
+#if CAMERA_STACK_ENABLE
+			// 기본 객체 캔버스 일 경우
+			if(a_oCanvas.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_OBJS_CANVAS_BASE)) {
+				a_oCanvas.worldCamera = CSceneManager.MainCamera;
+			} else {
+				a_oCanvas.worldCamera = this.SubUIsCamera ?? CSceneManager.MainCamera;
+			}
 #else
-		// 기본 객체 캔버스 일 경우
-		if(a_oCanvas.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_OBJS_CANVAS_BASE)) {
 			a_oCanvas.worldCamera = CSceneManager.MainCamera;
-		} else {
-			a_oCanvas.worldCamera = this.SubUIsCamera ?? CSceneManager.MainCamera;
-		}
-#endif			// #if !CAMERA_STACK_ENABLE || UNIVERSAL_PIPELINE_MODULE_ENABLE
+#endif			// #if CAMERA_STACK_ENABLE
 
-		bool bIsExtraCanvas = a_oCanvas != this.SubUIsCanvas && a_oCanvas != this.SubObjsCanvas;
+			bool bIsExtraCanvas = a_oCanvas != this.SubUIsCanvas && a_oCanvas != this.SubObjsCanvas;
 
-		// 카메라 렌더 모드 일 경우
-		if(bIsExtraCanvas && a_oCanvas.renderMode == RenderMode.ScreenSpaceCamera) {
-			a_oCanvas.planeDistance = this.PlaneDistance;
-			a_oCanvas.sortingLayerName = KCDefine.U_SORTING_L_DEF;
-		}
+			// 카메라 렌더 모드 일 경우
+			if(bIsExtraCanvas && a_oCanvas.renderMode == RenderMode.ScreenSpaceCamera) {
+				a_oCanvas.planeDistance = this.PlaneDistance;
+				a_oCanvas.sortingLayerName = KCDefine.U_SORTING_L_DEF;
+			}
 
 #if PIXELS_PERFECT_ENABLE
-		a_oCanvas.pixelPerfect = true;
+			a_oCanvas.pixelPerfect = true;
 #else
-		a_oCanvas.pixelPerfect = false;
+			a_oCanvas.pixelPerfect = false;
 #endif			// #if PIXELS_PERFECT_ENABLE
-		// 캔버스를 설정한다 }
+			// 캔버스를 설정한다 }
 
-		// 캔버스 비율 처리자를 설정한다 {
-		var oCanvasScaler = a_oCanvas.GetComponentInChildren<CanvasScaler>();
-		bool bIsUIsCanvas = a_oCanvas.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_UIS_BASE);
+			// 캔버스 비율 처리자를 설정한다 {
+			var oCanvasScaler = a_oCanvas.GetComponentInChildren<CanvasScaler>();
+			bool bIsUIsCanvas = a_oCanvas.name.Equals(KCDefine.U_OBJ_N_SCENE_UIS_BASE);
 
-		// UI 비율 모드 설정이 필요 할 경우
-		if(bIsUIsCanvas || a_oCanvas.name.ExIsEquals(KCDefine.U_OBJ_N_SCENE_OBJS_CANVAS_BASE)) {
-			oCanvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+			// UI 비율 모드 설정이 필요 할 경우
+			if(bIsUIsCanvas || a_oCanvas.name.Equals(KCDefine.U_OBJ_N_SCENE_OBJS_CANVAS_BASE)) {
+				oCanvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+			}
+
+			// 캔버스 비율 처리자 설정이 가능 할 경우
+			if(oCanvasScaler != null && oCanvasScaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize) {
+				oCanvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
+				oCanvasScaler.referenceResolution = KCDefine.B_SCREEN_SIZE.ExTo2D();
+				oCanvasScaler.referencePixelsPerUnit = KCDefine.B_UNIT_REF_PIXELS;
+			}
+			// 캔버스 비율 처리자를 설정한다 }
 		}
-
-		// 캔버스 비율 처리자 설정이 가능 할 경우
-		if(oCanvasScaler != null && oCanvasScaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize) {
-			oCanvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
-			oCanvasScaler.referenceResolution = KCDefine.B_SCREEN_SIZE.ExTo2D();
-			oCanvasScaler.referencePixelsPerUnit = KCDefine.B_UNIT_REF_PIXELS;
-		}
-		// 캔버스 비율 처리자를 설정한다 }
 	}
 
 	//! 카메라를 설정한다
@@ -815,19 +796,11 @@ public abstract partial class CSceneManager : CComponent {
 #endif			// #if !CUSTOM_CAMERA_POS_ENABLE
 
 			// 트랜스 폼을 설정한다
-			a_oCamera.transform.localScale = Vector3.one;
 			a_oCamera.transform.localEulerAngles = Vector3.zero;
 
-			// 카메라 영역을 설정한다
-			a_oCamera.farClipPlane = KCDefine.U_DISTANCE_CAMERA_FAR_PLANE;
-			a_oCamera.nearClipPlane = KCDefine.U_DISTANCE_CAMERA_NEAR_PLANE;
-
-			// 카메라 투영을 설정한다 {
-			a_oCamera.rect = KCDefine.U_RECT_UIS_CAMERA;
+			// 카메라 투영을 설정한다
 			a_oCamera.depth = KCDefine.U_DEPTH_UIS_CAMERA;
-
 			a_oCamera.ExSetup2D(KCDefine.B_SCREEN_HEIGHT * KCDefine.B_UNIT_SCALE);
-			// 카메라 투영을 설정한다 }
 		}
 	}
 
@@ -843,21 +816,14 @@ public abstract partial class CSceneManager : CComponent {
 #endif			// #if !CUSTOM_CAMERA_POS_ENABLE
 
 			// 트랜스 폼을 설정한다 {
-			a_oCamera.transform.localScale = Vector3.one;
-
 #if MODE_2D_ENABLE
 			a_oCamera.transform.localEulerAngles = Vector3.zero;
 #endif			// #if MODE_2D_ENABLE
 			// 트랜스 폼을 설정한다 }
-
-			// 카메라 영역을 설정한다
-			a_oCamera.farClipPlane = KCDefine.U_DISTANCE_CAMERA_FAR_PLANE;
-			a_oCamera.nearClipPlane = KCDefine.U_DISTANCE_CAMERA_NEAR_PLANE;
-
-			// 카메라 투영을 설정한다 {
-			a_oCamera.rect = KCDefine.U_RECT_MAIN_CAMERA;
-			a_oCamera.depth = KCDefine.U_DEPTH_MAIN_CAMERA;
 			
+			// 카메라 투영을 설정한다 {
+			a_oCamera.depth = KCDefine.U_DEPTH_MAIN_CAMERA;
+
 #if MODE_2D_ENABLE
 			a_oCamera.ExSetup2D(KCDefine.B_SCREEN_HEIGHT * KCDefine.B_UNIT_SCALE);
 #else

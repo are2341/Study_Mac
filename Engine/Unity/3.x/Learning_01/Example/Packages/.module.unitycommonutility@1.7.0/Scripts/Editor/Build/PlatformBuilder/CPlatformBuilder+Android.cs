@@ -10,6 +10,21 @@ using UnityEditor;
 public static partial class CPlatformBuilder {
 	#region 클래스 함수
 	//! 구글을 빌드한다
+	public static void BuildGoogleSetup() {
+		// Do Something
+	}
+
+	//! 원 스토어를 빌드한다
+	public static void BuildOneStoreSetup() {
+		// Do Something
+	}
+
+	//! 갤럭시 스토어를 빌드한다
+	public static void BuildGalaxyStoreSetup() {
+		// Do Something
+	}
+	
+	//! 구글을 빌드한다
 	public static void BuildGoogleAdhocUpload() {
 		CPlatformBuilder.BuildGoogleAdhoc();
 	}

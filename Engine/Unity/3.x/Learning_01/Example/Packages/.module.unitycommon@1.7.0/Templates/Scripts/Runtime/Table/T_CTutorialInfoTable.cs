@@ -16,14 +16,14 @@ public struct STTutorialInfo {
 	#region 함수
 	//! 생성자
 	public STTutorialInfo(SimpleJSON.JSONNode a_oTutorialInfo) {
-		m_eRewardKinds = (ERewardKinds)a_oTutorialInfo[KDefine.G_KEY_TUTORIAL_IT_REWARD_KINDS].AsInt;
-		m_eTutorialKinds = (ETutorialKinds)a_oTutorialInfo[KDefine.G_KEY_TUTORIAL_IT_TUTORIAL_KINDS].AsInt;
-		m_eNextTutorialKinds = (ETutorialKinds)a_oTutorialInfo[KDefine.G_KEY_TUTORIAL_IT_NEXT_TUTORIAL_KINDS].AsInt;
+		m_eRewardKinds = (ERewardKinds)a_oTutorialInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt;
+		m_eTutorialKinds = (ETutorialKinds)a_oTutorialInfo[KCDefine.U_KEY_TUTORIAL_KINDS].AsInt;
+		m_eNextTutorialKinds = (ETutorialKinds)a_oTutorialInfo[KCDefine.U_KEY_NEXT_TUTORIAL_KINDS].AsInt;
 
 		m_oStrList = new List<string>();
 
 		for(int i = 0; i < KDefine.G_MAX_NUM_TUTORIAL_STRS; ++i) {
-			string oStrKey = string.Format(KDefine.G_KEY_FMT_TUTORIAL_IT_STRS, i + KCDefine.B_VAL_1_INT);
+			string oStrKey = string.Format(KCDefine.U_KEY_FMT_STRS, i + KCDefine.B_VAL_1_INT);
 			m_oStrList.Add(a_oTutorialInfo[oStrKey]);
 		}
 	}
@@ -53,7 +53,7 @@ public class CTutorialInfoTable : CScriptableObj<CTutorialInfoTable> {
 		oTutorialInfoList.AddRange(m_oHelpTutorialInfoList);
 
 		for(int i = 0; i < oTutorialInfoList.Count; ++i) {
-			this.TutorialInfoDict.Add(oTutorialInfoList[i].m_eTutorialKinds, oTutorialInfoList[i]);
+			this.TutorialInfoDict.ExAddVal(oTutorialInfoList[i].m_eTutorialKinds, oTutorialInfoList[i]);
 		}
 	}
 
@@ -74,7 +74,7 @@ public class CTutorialInfoTable : CScriptableObj<CTutorialInfoTable> {
 	//! 튜토리얼 정보를 로드한다
 	public Dictionary<ETutorialKinds, STTutorialInfo> LoadTutorialInfos() {
 #if UNITY_EDITOR || UNITY_STANDALONE
-		return this.LoadTutorialInfos(KDefine.G_RUNTIME_TABLE_P_TUTORIAL_INFO);
+		return this.LoadTutorialInfos(KCDefine.U_RUNTIME_TABLE_P_G_TUTORIAL_INFO);
 #else
 		return this.LoadTutorialInfos(KCDefine.U_TABLE_P_G_TUTORIAL_INFO);
 #endif			// #if UNITY_EDITOR || UNITY_STANDALONE
@@ -103,8 +103,8 @@ public class CTutorialInfoTable : CScriptableObj<CTutorialInfoTable> {
 		var oJSONNode = SimpleJSON.JSON.Parse(a_oJSONStr) as SimpleJSON.JSONClass;
 
 		var oTutorialInfosList = new List<SimpleJSON.JSONNode>() {
-			oJSONNode[KDefine.G_KEY_TUTORIAL_IT_PLAY],
-			oJSONNode[KDefine.G_KEY_TUTORIAL_IT_HELP]
+			oJSONNode[KCDefine.U_KEY_PLAY],
+			oJSONNode[KCDefine.U_KEY_HELP]
 		};
 
 		for(int i = 0; i < oTutorialInfosList.Count; ++i) {
@@ -122,14 +122,6 @@ public class CTutorialInfoTable : CScriptableObj<CTutorialInfoTable> {
 		return this.TutorialInfoDict;
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

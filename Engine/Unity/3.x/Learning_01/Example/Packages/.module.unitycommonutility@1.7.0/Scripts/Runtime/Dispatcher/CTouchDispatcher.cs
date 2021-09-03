@@ -14,17 +14,17 @@ public class CTouchDispatcher : CComponent, IDragHandler, IPointerUpHandler, IPo
 
 	#region 인터페이스
 	//! 터치를 시작했을 경우
-	public void OnPointerDown(PointerEventData a_oEventData) {
+	public virtual void OnPointerDown(PointerEventData a_oEventData) {
 		this.BeginCallback?.Invoke(this, a_oEventData);
 	}
 
 	//! 터치를 움직였을 경우
-	public void OnDrag(PointerEventData a_oEventData) {
+	public virtual void OnDrag(PointerEventData a_oEventData) {
 		this.MoveCallback?.Invoke(this, a_oEventData);
 	}
 
 	//! 터치를 종료했을 경우
-	public void OnPointerUp(PointerEventData a_oEventData) {
+	public virtual void OnPointerUp(PointerEventData a_oEventData) {
 		this.EndCallback?.Invoke(this, a_oEventData);
 	}
 	#endregion			// 인터페이스

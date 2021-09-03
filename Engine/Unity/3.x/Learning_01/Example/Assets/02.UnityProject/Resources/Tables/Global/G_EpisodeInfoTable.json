@@ -7,12 +7,14 @@
             "ID": "0",
             "StageID": "0",
             "ChapterID": "0",
-            "NumTargets": "0",
-            "UnlockNumTargets": "0",
             "LevelMode": "-1",
             "LevelKinds": "-1",
             "RewardKinds": "-1",
             "TutorialKinds": "-1",
+            "NumTargets_01": "0",
+            "TargetKinds_01": "-1",
+            "UnlockNumTargets_01": "0",
+            "UnlockTargetKinds_01": "-1",
             "Description": "샘플 레벨 정보"
         }
     ],
@@ -23,11 +25,13 @@
             "Replace": "0",
             "ID": "0",
             "ChapterID": "0",
-            "NumTargets": "0",
-            "UnlockNumTargets": "0",
             "StageKinds": "-1",
             "RewardKinds": "-1",
             "TutorialKinds": "-1",
+            "NumTargets_01": "0",
+            "TargetKinds_01": "-1",
+            "UnlockNumTargets_01": "0",
+            "UnlockTargetKinds_01": "-1",
             "Description": "샘플 스테이지 정보"
         }
     ],
@@ -37,11 +41,13 @@
             "Desc": "Sample",
             "Replace": "0",
             "ID": "0",
-            "NumTargets": "0",
-            "UnlockNumTargets": "0",
             "ChapterKinds": "-1",
             "RewardKinds": "-1",
             "TutorialKinds": "-1",
+            "NumTargets_01": "0",
+            "TargetKinds_01": "-1",
+            "UnlockNumTargets_01": "0",
+            "UnlockTargetKinds_01": "-1",
             "Description": "샘플 챕터 정보"
         }
     ]

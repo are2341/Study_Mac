@@ -7,15 +7,14 @@ using UnityEngine.UI;
 public abstract class CComponent : MonoBehaviour {
 	#region 프로퍼티
 	public bool IsDestroy { get; private set; } = false;
-	
+
+	public bool IsIgnoreAni { get; set; } = false;
 	public bool IsIgnoreEnableEvent { get; set; } = false;
 	public bool IsIgnoreNavStackEvent { get; set; } = false;
 
 	public System.Action<CComponent> DestroyCallback { get; set; } = null;
 	public System.Action<CComponent> ScheduleCallback { get; set; } = null;
 	public System.Action<CComponent> NavStackCallback { get; set; } = null;
-
-	public virtual bool IsIgnoreAni => false;
 	#endregion			// 프로퍼티
 
 	#region 함수

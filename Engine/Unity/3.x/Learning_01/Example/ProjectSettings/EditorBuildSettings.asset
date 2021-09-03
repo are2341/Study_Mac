@@ -7,44 +7,44 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
-    guid: 9dc24297629044861bc69b38a03375e5
+    guid: 9a2daf7b9fd6746e781f1d84399de4e0
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
-    guid: 3357c3c8043a643858eb7dae0c5bdec3
+    guid: 39b4c9b15dd6b4c8da12fc827861c993
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
-    guid: cc3255eed4b224e45bf95b7c535241d7
+    guid: e5938797f318743cf8ff49ac9b48db6f
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
-    guid: a9a58f67cd3a044398fddbe9c31298d7
+    guid: bf8e61c84ab884ea6acbed34832b2935
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
-    guid: d16ea03ab6fce4f52bffb812d18e1cf0
+    guid: 57af163ed79b44cc9991cc214da6f106
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
-    guid: b971e4d65a4f0478995bf301708f65f6
+    guid: 715a7b07518e24bb0b66d689e1f9b393
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.PermissionScene.unity
-    guid: 970e9f4de7ba849c6b27fabd36738ffc
+    guid: d713999fe84e14129b245129be645f7c
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
-    guid: 79513feb858fe430a81483715f92a6c2
+    guid: be9ef59b1426849ea858e0afc885e7df
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
-    guid: 4e69b5c2e2b5c4d0b9a74ea1a80ecf3c
+    guid: 4acc6f14e2b494cabb9dfcdec8ab5d92
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/00.OverlayScene.unity
-    guid: 5e340a20a8dd84029994ec8a6f2b15a2
+    guid: d36f328f656374683ac95ac05f1fb29d
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/01.LoadingScene.unity
-    guid: ccffb914941b549e4acacc9f4d80bc45
+    guid: a3611a985b61842ce843a3ec7c809e4b
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/02.TitleScene.unity
-    guid: 6a457b97aa215404d9a319fc0c6a263b
+    guid: dc8330f8954424fd78a3d7e3e063eb10
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/03.GameScene.unity
-    guid: c2e0404bf9df142ed9db9d0ecd4f0d59
+    guid: 9910a104b47d142d4852023feb4f7ac6
   - enabled: 1
     path: Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
-    guid: 0a1cc12b9fe5d4842a42ee3905bcc9b5
+    guid: e939a9b26a1f2468c86ec288f0ce5b21
   m_configObjects: {}

@@ -36,6 +36,10 @@ public class CSubMenuSceneManager : CMenuSceneManager {
 		}
 	}
 	#endregion			// 함수
+
+	#region 추가 함수
+
+	#endregion			// 추가 함수
 }
 #endif			// #if STUDY_MODULE_ENABLE
 #endif			// #if NEVER_USE_THIS

@@ -20,6 +20,8 @@ public abstract class CScriptableObj<T> : ScriptableObject where T : CScriptable
 
 				CScriptableObj<T>.m_tInst = CResManager.Inst.GetScriptableObj<T>(oFilePath);
 				CAccess.Assert(CScriptableObj<T>.m_tInst != null);
+
+				CScriptableObj<T>.m_tInst.Awake();
 			}
 
 			return CScriptableObj<T>.m_tInst;

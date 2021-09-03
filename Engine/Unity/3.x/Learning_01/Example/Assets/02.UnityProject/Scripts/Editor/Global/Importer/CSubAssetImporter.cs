@@ -10,17 +10,9 @@ using UnityEditor;
 [InitializeOnLoad]
 public class CSubAssetImporter : CAssetImporter {
 	#region 함수
-	//! 사운드를 추가했을 경우
-	public override void OnPreprocessAudio() {
-		base.OnPreprocessAudio();
-	}
-
-	//! 텍스처를 추가했을 경우
-	public override void OnPreprocessTexture() {
-		base.OnPreprocessTexture();
-	}
-	#endregion			// 함수
 	
+	#endregion			// 함수
+
 	#region 추가 함수
 
 	#endregion			// 추가 함수

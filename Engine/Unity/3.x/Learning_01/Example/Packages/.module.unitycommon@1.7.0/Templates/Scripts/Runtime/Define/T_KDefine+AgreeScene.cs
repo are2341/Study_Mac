@@ -14,4 +14,5 @@ public static partial class KDefine {
 
 	#endregion			// 추가 상수
 }
+
 #endif			// #if NEVER_USE_THIS

@@ -65,7 +65,7 @@ public class CProjInfoTable : CScriptableObj<CProjInfoTable> {
 	//! 초기화
 	public override void Awake() {
 		base.Awake();
-
+		
 #if UNITY_IOS
 		this.ProjInfo = m_stiOSProjInfo;
 #elif UNITY_ANDROID

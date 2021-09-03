@@ -14,25 +14,20 @@ public class CCommonAppInfo : CCommonBaseInfo {
 	private const string KEY_IS_AGREE_TRACKING = "IsAgreeTracking";
 
 	private const string KEY_IS_FIRST_PLAY = "IsFirstPlay";
-	private const string KEY_IS_ENABLE_SHOW_DESC_POPUP = "IsEnableShowDescPopup";
+	private const string KEY_IS_ENABLE_SHOW_TRACKING_DP = "IsEnableShowTrackingDescPopup";
 
 	private const string KEY_APP_RUNNING_TIMES = "AppRunningTimes";
 
 	private const string KEY_LANGUAGE = "Language";
 	private const string KEY_DEVICE_ID = "DeviceID";
 	private const string KEY_INSTALL_TIME = "InstallTime";
-	private const string KEY_LAST_PLAY_TIME = "LastPlayTime";
+	private const string KEY_PREV_PLAY_TIME = "PrevPlayTime";
 
 #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	private const string KEY_APPLE_USER_ID = "AppleUserID";
 	private const string KEY_APPLE_ID_TOKEN = "AppleIDToken";
 #endif			// #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	#endregion			// 상수
-
-	#region 변수
-	[IgnoreMember] public System.DateTime m_stInstallTime = System.DateTime.Now;
-	[IgnoreMember] public System.DateTime m_stLastPlayTime = System.DateTime.Now;
-	#endregion			// 변수
 
 	#region 프로퍼티
 	[IgnoreMember] public bool IsAgree {
@@ -50,19 +45,14 @@ public class CCommonAppInfo : CCommonBaseInfo {
 		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_FIRST_PLAY, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
-	[IgnoreMember] public bool IsEnableShowDescPopup {
-		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; }
-		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_DESC_POPUP, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
+	[IgnoreMember] public bool IsEnableShowTrackingDescPopup {
+		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_TRACKING_DP, KCDefine.B_VAL_0_INT) != KCDefine.B_VAL_0_INT; }
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_IS_ENABLE_SHOW_TRACKING_DP, value ? KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT); }
 	}
 
 	[IgnoreMember] public int AppRunningTimes { 
 		get { return m_oIntDict.ExGetVal(CCommonAppInfo.KEY_APP_RUNNING_TIMES, KCDefine.B_VAL_0_INT); }
 		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_APP_RUNNING_TIMES, value); }
-	}
-	
-	[IgnoreMember] public SystemLanguage Language {
-		get { return (SystemLanguage)m_oIntDict.ExGetVal(CCommonAppInfo.KEY_LANGUAGE, (int)SystemLanguage.Unknown); } 
-		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_LANGUAGE, (int)value); }
 	}
 
 	[IgnoreMember] public string DeviceID {
@@ -70,11 +60,29 @@ public class CCommonAppInfo : CCommonBaseInfo {
 		set { m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_DEVICE_ID, value); }
 	}
 
-	[IgnoreMember] public System.DateTime PSTInstallTime => m_stInstallTime.ExToPSTTime();
-	[IgnoreMember] public System.DateTime UTCInstallTime => m_stInstallTime.ToUniversalTime();
+	[IgnoreMember] public SystemLanguage Language {
+		get { return (SystemLanguage)m_oIntDict.ExGetVal(CCommonAppInfo.KEY_LANGUAGE, (int)SystemLanguage.Unknown); } 
+		set { m_oIntDict.ExReplaceVal(CCommonAppInfo.KEY_LANGUAGE, (int)value); }
+	}
+
+	[IgnoreMember] public System.DateTime InstallTime {
+		get { return this.InstallTimeStr.ExIsValid() ? this.CorrectInstallTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_SLASH_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now; }
+		set { m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_INSTALL_TIME, value.ExToLongStr()); }
+	}
+
+	[IgnoreMember] public System.DateTime PrevPlayTime {
+		get { return this.PrevPlayTimeStr.ExIsValid() ? this.CorrectPrevPlayTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_SLASH_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now; }
+		set { m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_PREV_PLAY_TIME, value.ExToLongStr()); }
+	}
+
+	[IgnoreMember] public System.DateTime PSTInstallTime => InstallTime.ExToPSTTime();
+	[IgnoreMember] public System.DateTime UTCInstallTime => InstallTime.ToUniversalTime();
 
 	[IgnoreMember] private string InstallTimeStr => m_oStrDict.ExGetVal(CCommonAppInfo.KEY_INSTALL_TIME, string.Empty);
-	[IgnoreMember] private string LastPlayTimeStr => m_oStrDict.ExGetVal(CCommonAppInfo.KEY_LAST_PLAY_TIME, string.Empty);
+	[IgnoreMember] private string PrevPlayTimeStr => m_oStrDict.ExGetVal(CCommonAppInfo.KEY_PREV_PLAY_TIME, string.Empty);
+
+	[IgnoreMember] private string CorrectInstallTimeStr => this.InstallTimeStr.Contains(KCDefine.B_TOKEN_SPLASH_STR) ? this.InstallTimeStr : this.InstallTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS).ExToLongStr();
+	[IgnoreMember] private string CorrectPrevPlayTimeStr => this.PrevPlayTimeStr.Contains(KCDefine.B_TOKEN_SPLASH_STR) ? this.PrevPlayTimeStr : this.PrevPlayTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS).ExToLongStr();
 
 #if UNITY_IOS && APPLE_LOGIN_ENABLE
 	[IgnoreMember] public string AppleUserID {
@@ -93,17 +101,12 @@ public class CCommonAppInfo : CCommonBaseInfo {
 	//! 직렬화 될 경우
 	public override void OnBeforeSerialize() {
 		base.OnBeforeSerialize();
-		
-		m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_INSTALL_TIME, m_stInstallTime.ExToLongStr());
-		m_oStrDict.ExReplaceVal(CCommonAppInfo.KEY_LAST_PLAY_TIME, m_stLastPlayTime.ExToLongStr());
 	}
 	
 	//! 역직렬화 되었을 경우
 	public override void OnAfterDeserialize() {
 		base.OnAfterDeserialize();
-
-		m_stInstallTime = m_stInstallTime.ExIsValid() ? this.InstallTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now;
-		m_stLastPlayTime = m_stLastPlayTime.ExIsValid() ? this.LastPlayTimeStr.ExToTime(KCDefine.B_DATE_T_FMT_YYYY_MM_DD_HH_MM_SS) : System.DateTime.Now;
+		this.PrevPlayTime = System.DateTime.Now;
 	}
 	#endregion			// 인터페이스
 }
@@ -127,7 +130,10 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 	
 	public CCommonAppInfo AppInfo { get; private set; } = new CCommonAppInfo() {
 		IsFirstPlay = true,
-		IsEnableShowDescPopup = true
+		IsEnableShowTrackingDescPopup = true,
+
+		InstallTime = System.DateTime.Now,
+		PrevPlayTime = System.DateTime.Now
 	};
 	#endregion			// 프로퍼티
 
@@ -186,7 +192,7 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 	//! 약관 동의 필요 여부를 검사한다
 	public bool IsNeedAgree(string a_oCountryCode) {
 		string oCountryCode = a_oCountryCode.ToUpper();
-		return oCountryCode.ExIsEU() || oCountryCode.ExIsEquals(KCDefine.B_KOREA_COUNTRY_CODE);
+		return oCountryCode.ExIsEU() || oCountryCode.Equals(KCDefine.B_KOREA_COUNTRY_CODE);
 	}
 
 	//! 테스트 디바이스 여부를 검사한다
@@ -205,7 +211,7 @@ public class CCommonAppInfoStorage : CSingleton<CCommonAppInfoStorage> {
 		oAdsIDList.ExAddVals(this.DeviceConfig.m_oAndroidAdsIDList);
 #endif			// #if UNITY_IOS
 
-		int nIdx = oAdsIDList.ExFindVal((a_oTestAdsID) => a_oAdsID.ExIsEquals(a_oTestAdsID));
+		int nIdx = oAdsIDList.ExFindVal((a_oTestAdsID) => a_oAdsID.Equals(a_oTestAdsID));
 		return oAdsIDList.ExIsValidIdx(nIdx);
 	}
 

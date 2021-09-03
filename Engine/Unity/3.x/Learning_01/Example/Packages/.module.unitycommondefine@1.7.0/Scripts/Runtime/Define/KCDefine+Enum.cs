@@ -153,6 +153,17 @@ public enum EVSyncType {
 	MAX_VAL
 }
 
+//! 분석 타입
+public enum EAnalyticsType {
+	NONE = -1,
+	FLURRY,
+	FIREBASE,
+	APPS_FLYER,
+	GAME_ANALYTICS,
+	SINGULAR,
+	MAX_VAL
+}
+
 //! 진동 타입
 public enum EVibrateType {
 	NONE = -1,

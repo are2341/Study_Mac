@@ -13,3 +13,4 @@ public static partial class KDefine {
 
 	#endregion			// 추가 상수
 }
+

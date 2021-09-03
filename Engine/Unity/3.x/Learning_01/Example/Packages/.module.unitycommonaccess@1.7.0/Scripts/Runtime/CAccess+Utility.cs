@@ -25,44 +25,43 @@ public static partial class CAccess {
 	#region 클래스 프로퍼티
 	public static bool IsEnableShowConsentView {
 		get {
-#if UNITY_EDITOR || !UNITY_IOS
-			return false;
-#else
+#if !UNITY_EDITOR && UNITY_IOS
 			var oVer = new System.Version(Device.systemVersion);
 			return oVer.CompareTo(KCDefine.U_MIN_VER_CONSENT_VIEW) >= KCDefine.B_COMPARE_EQUALS;
-#endif			// #if UNITY_EDITOR || !UNITY_IOS
+#elif !UNITY_EDITOR && UNITY_ANDROID
+			return false;
+#else
+			return true;
+#endif			// #if !UNITY_EDITOR && UNITY_IOS
 		}
 	}
 
 	public static bool IsSupportsHapticFeedback {
 		get {
-#if HAPTIC_FEEDBACK_ENABLE && (UNITY_IOS || UNITY_ANDROID)
-#if UNITY_IOS
+#if (!UNITY_EDITOR && UNITY_IOS) && HAPTIC_FEEDBACK_ENABLE
 			var oVer = new System.Version(Device.systemVersion);
 			int nCompare = oVer.CompareTo(KCDefine.U_MIN_VER_HAPTIC_FEEDBACK);
 
 			// 햅틱 피드백 지원 버전 일 경우
 			if(nCompare >= KCDefine.B_COMPARE_EQUALS) {
 				string oModel = Device.generation.ToString();
-				bool bIsiPhone = oModel.Contains(KCDefine.U_MODEL_N_IPHONE);
-
+				
 				for(int i = 0; i < KCDefine.U_HAPTIC_FEEDBACK_SUPPORTS_MODELS.Length; ++i) {
 					var eModel = KCDefine.U_HAPTIC_FEEDBACK_SUPPORTS_MODELS[i];
 
 					// 햅틱 피드백 지원 모델 일 경우
-					if(bIsiPhone && eModel == Device.generation) {
+					if(eModel == Device.generation && oModel.Contains(KCDefine.U_MODEL_N_IPHONE)) {
 						return true;
 					}
 				}
 			}
 
 			return false;
-#else
+#elif (!UNITY_EDITOR && UNITY_ANDROID) && HAPTIC_FEEDBACK_ENABLE
 			return true;
-#endif			// #if UNITY_IOS
 #else
 			return false;
-#endif			// #if HAPTIC_FEEDBACK_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#endif			// #if (!UNITY_EDITOR && UNITY_IOS) && HAPTIC_FEEDBACK_ENABLE
 		}
 	}
 
@@ -84,21 +83,17 @@ public static partial class CAccess {
 		get {
 #if UNITY_IOS
 			string oModel = Device.generation.ToString();
-			bool bIsiPhone = oModel.Contains(KCDefine.U_MODEL_N_IPHONE);
-
-			// iPhone, iPad 일 경우
-			if(bIsiPhone || oModel.Contains(KCDefine.U_MODEL_N_IPAD)) {
-				return bIsiPhone ? EDeviceType.PHONE : EDeviceType.TABLET;
-			}
+			return oModel.Contains(KCDefine.U_MODEL_N_IPAD) ? EDeviceType.TABLET : EDeviceType.PHONE;
+#else
+			return EDeviceType.PHONE;
 #endif			// #if UNITY_IOS
 
-			float fMaxLength = Mathf.Max(CAccess.ScreenSize.x, CAccess.ScreenSize.y);
-			float fMinLength = Mathf.Min(CAccess.ScreenSize.x, CAccess.ScreenSize.y);
+			// FIXME: 추후 테블릿 여부 검사 로직 수정 필요
+			// float fScreenWidth = CAccess.ScreenSize.x / Screen.dpi;
+			// float fScreenHeight = CAccess.ScreenSize.y / Screen.dpi;
+			// float fDiagonalInches = Mathf.Sqrt(Mathf.Pow(fScreenWidth, KCDefine.B_VAL_2_FLT) + Mathf.Pow(fScreenHeight, KCDefine.B_VAL_2_FLT));
 
-			float fAspect = fMaxLength / fMinLength;
-			bool bIsTablet = CAccess.ScreenInches.ExIsGreate(KCDefine.U_UNIT_TABLET_INCHES) && fAspect.ExIsLess(KCDefine.U_UNIT_TABLET_ASPECT);
-
-			return bIsTablet ? EDeviceType.TABLET : EDeviceType.PHONE;
+			// return fDiagonalInches.ExIsGreate(KCDefine.U_UNIT_TABLET_INCHES) ? EDeviceType.TABLET : EDeviceType.PHONE;
 		}
 	}
 
@@ -133,14 +128,12 @@ public static partial class CAccess {
 	public static bool IsConsole => Application.platform == RuntimePlatform.PS4 || Application.platform == RuntimePlatform.XboxOne;
 	public static bool IsHandheldConsole => Application.platform == RuntimePlatform.Stadia || Application.platform == RuntimePlatform.Switch;
 
-	public static float DPI => Screen.dpi;
-	public static float ScreenInches => (CAccess.ScreenSize / Screen.dpi).magnitude;
-
 	public static float UpScreenScale => (CAccess.ScreenSize.y - (CAccess.SafeArea.y + CAccess.SafeArea.height)) / CAccess.ScreenSize.y;
 	public static float DownScreenScale => CAccess.SafeArea.y / CAccess.ScreenSize.y;
 	public static float LeftScreenScale => CAccess.SafeArea.x / CAccess.ScreenSize.x;
 	public static float RightScreenScale => (CAccess.ScreenSize.x - (CAccess.SafeArea.x + CAccess.SafeArea.width)) / CAccess.ScreenSize.x;
 
+	public static float DPI => Screen.dpi;
 	public static Vector3 Resolution => KCDefine.B_SCREEN_SIZE * CAccess.ResolutionScale;
 	#endregion			// 클래스 프로퍼티
 
@@ -160,7 +153,7 @@ public static partial class CAccess {
 	public static float GetBannerAdsHeight(float a_fHeight) {
 		CAccess.Assert(a_fHeight.ExIsGreateEquals(KCDefine.B_VAL_0_FLT));
 
-		float fPercent = KCDefine.B_SCREEN_HEIGHT / (float)Screen.height;
+		float fPercent = KCDefine.B_SCREEN_HEIGHT / CAccess.ScreenSize.y;
 		float fBannerAdsHeight = CAccess.GetBannerAdsScreenHeight(a_fHeight);
 		
 		return (fBannerAdsHeight * fPercent) / CAccess.ResolutionScale;
@@ -249,7 +242,7 @@ public static partial class CAccess {
 #if UNITY_EDITOR
 			return false;
 #else
-		var oVer = new System.Version(Device.systemVersion);
+			var oVer = new System.Version(Device.systemVersion);
 			int nCompare = oVer.CompareTo(KCDefine.U_MIN_VER_LOGIN_WITH_APPLE);
 			
 			return nCompare >= KCDefine.B_COMPARE_EQUALS;

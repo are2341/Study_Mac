@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 //! 메뉴 씬 관리자
 public class CMenuSceneManager : CSceneManager {
 	#region 변수
-	// UI
+	// =====> UI <=====
 	protected ScrollRect m_oScrollRect = null;
 	protected List<Text> m_oEmptyTextList = new List<Text>();
 	#endregion			// 변수
@@ -40,7 +40,7 @@ public class CMenuSceneManager : CSceneManager {
 				oText.text = oSceneName;
 
 				// 빈 텍스트 일 경우
-				if(oSceneName.ExIsEquals(KCDefine.B_SCENE_N_LEVEL_EDITOR) || i >= SceneManager.sceneCountInBuildSettings) {
+				if(oSceneName.Equals(KCDefine.B_SCENE_N_LEVEL_EDITOR) || i >= SceneManager.sceneCountInBuildSettings) {
 					m_oEmptyTextList.Add(oText);
 
 					oText.name = KCDefine.U_OBJ_N_EMPTY;

@@ -272,8 +272,7 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 				m_oLeaveCallback = (a_oPopupSender) => { m_bIsLeave = true; this.LoadNextLevel(); }
 			};
 
-			var oContinuePopup = a_oSender as CContinuePopup;
-			oContinuePopup.Init(stParams, stCallbackParams);
+			(a_oSender as CContinuePopup).Init(stParams, stCallbackParams);
 		});
 	}
 
@@ -294,8 +293,7 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 				m_oLeaveCallback = (a_oPopupSender) => { m_bIsLeave = true; this.LoadNextLevel(); }
 			};
 
-			var oResultPopup = a_oSender as CResultPopup;
-			oResultPopup.Init(stParams, stCallbackParams);
+			(a_oSender as CResultPopup).Init(stParams, stCallbackParams);
 		});
 	}
 	#endregion			// 함수
@@ -320,14 +318,6 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 	}
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
 	#endregion			// 조건부 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-	
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 #if DEBUG || DEVELOPMENT_BUILD

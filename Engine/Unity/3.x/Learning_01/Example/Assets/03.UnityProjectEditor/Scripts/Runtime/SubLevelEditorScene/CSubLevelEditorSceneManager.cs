@@ -18,7 +18,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	private CTouchDispatcher m_oBGTouchDispatcher = null;
 	private Dictionary<SampleEngineName.EBlockKinds, SpriteRenderer>[,] m_oBlockSpriteDicts = null;
 
-	// UI {
+	// =====> UI <=====
 	private EnhancedScroller m_oSelScroller = null;
 
 	private EnhancedScrollerCellView m_oOriginLevelScrollerCellView = null;
@@ -48,12 +48,11 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	private Button m_oMEUIsMoveLevelBtn = null;
 	private Button m_oMEUIsRemoveLevelBtn = null;
 	// 중앙 에디터 UI }
-	// UI }
 	#endregion			// 변수
 
 	#region 인터페이스
 	//! 셀 개수를 반환한다
-	public int GetNumberOfCells(EnhancedScroller a_oSender) {
+	public virtual int GetNumberOfCells(EnhancedScroller a_oSender) {
 		// 챕터 스크롤러 일 경우
 		if(m_oLEUIsChapterScroller == a_oSender) {
 			return CLevelInfoTable.Inst.NumChapterInfos;
@@ -63,7 +62,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	}
 
 	//! 셀 뷰 크기를 반환한다
-	public float GetCellViewSize(EnhancedScroller a_oSender, int a_nDataIdx) {
+	public virtual float GetCellViewSize(EnhancedScroller a_oSender, int a_nDataIdx) {
 		// 챕터 스크롤러 일 경우
 		if(m_oLEUIsChapterScroller == a_oSender) {
 			return (m_oOriginChapterScrollerCellView.transform as RectTransform).sizeDelta.y;
@@ -73,7 +72,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	}
 
 	//! 셀 뷰를 반환한다
-	public EnhancedScrollerCellView GetCellView(EnhancedScroller a_oSender, int a_nDataIdx, int a_nCellIdx) {
+	public virtual EnhancedScrollerCellView GetCellView(EnhancedScroller a_oSender, int a_nDataIdx, int a_nCellIdx) {
 		long nNumInfos = CLevelInfoTable.Inst.NumChapterInfos;
 
 		Color stColor = (m_oSelLevelInfo.m_stIDInfo.m_nChapterID == a_nDataIdx) ? KCDefine.U_COLOR_NORM : KCDefine.U_COLOR_DISABLE;
@@ -250,6 +249,10 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	private void OnReceiveEditorQuitPopupResult(CAlertPopup a_oSender, bool a_bIsOK) {
 		// 확인 버튼을 눌렀을 경우
 		if(a_bIsOK) {
+#if UNITY_STANDALONE
+			CLevelInfoTable.Inst.SaveLevelInfos();
+#endif			// #if UNITY_STANDALONE
+
 			CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_TITLE);
 		}
 	}
@@ -466,8 +469,11 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	//! 왼쪽 에디터 UI 레벨 추가 버튼을 눌렀을 경우
 	private void OnTouchLEUIsAddLevelBtn() {
 		Func.ShowEditorLevelCreatePopup(this.SubPopupUIs, (a_oSender) => {
-			var oEditorLevelCreatePopup = a_oSender as CEditorLevelCreatePopup;
-			oEditorLevelCreatePopup.Init(this.OnReceiveEditorLevelCreatePopupResult);
+			var stCallbackParams = new CEditorLevelCreatePopup.STCallbackParams() {
+				m_oCallback = this.OnReceiveEditorLevelCreatePopupResult
+			};
+
+			(a_oSender as CEditorLevelCreatePopup).Init(stCallbackParams);
 		});
 	}
 
@@ -563,8 +569,11 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		m_oSelScroller = m_oLEUIsLevelScroller;
 
 		Func.ShowEditorInputPopup(this.SubPopupUIs, (a_oSender) => {
-			var oEditorInputPopup = a_oSender as CEditorInputPopup;
-			oEditorInputPopup.Init(this.OnReceiveEditorInputPopupResult);
+			var stCallbackParams = new CEditorInputPopup.STCallbackParams() {
+				m_oCallback = this.OnReceiveEditorInputPopupResult
+			};
+
+			(a_oSender as CEditorInputPopup).Init(stCallbackParams);
 		});
 	}
 
@@ -631,8 +640,11 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		m_oSelScroller = a_oSender.Scroller;
 
 		Func.ShowEditorInputPopup(this.SubPopupUIs, (a_oSender) => {
-			var oEditorInputPopup = a_oSender as CEditorInputPopup;
-			oEditorInputPopup.Init(this.OnReceiveEditorInputPopupResult);
+			var stCallbackParams = new CEditorInputPopup.STCallbackParams() {
+				m_oCallback = this.OnReceiveEditorInputPopupResult
+			};
+
+			(a_oSender as CEditorInputPopup).Init(stCallbackParams);
 		});
 	}
 
@@ -835,14 +847,6 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	}
 #endif			// #if UNITY_STANDALONE
 	#endregion			// 조건부 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

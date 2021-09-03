@@ -64,14 +64,14 @@ public static partial class CEditorSceneManager {
 					CEditorSceneManager.m_bIsEnableSetup = false;
 					CEditorSceneManager.m_oListRequest = Client.List();
 
+					CEditorSceneManager.SetupCallbacks();
+
 					EditorFactory.CreateSaleItemInfoTable();
 					EditorFactory.CreateSaleProductInfoTable();
 					EditorFactory.CreateMissionInfoTable();
 					EditorFactory.CreateRewardInfoTable();
 					EditorFactory.CreateEpisodeInfoTable();
 					EditorFactory.CreateTutorialInfoTable();
-
-					CEditorSceneManager.SetupCallbacks();
 				}
 				
 				CFunc.EnumerateScenes((a_stScene) => {
@@ -112,7 +112,7 @@ public static partial class CEditorSceneManager {
 		if(bIsEnableUpdate && CEditorAccess.IsEnableUpdateState) {
 			CEditorSceneManager.m_fDefineSymbolSkipTime += Time.deltaTime;
 
-			var oAsset = AssetDatabase.LoadAssetAtPath<ScriptableObject>(KCEditorDefine.B_ASSET_P_DEFINE_SYMBOL_TABLE);
+			var oAsset = CEditorFunc.FindAsset<ScriptableObject>(KCEditorDefine.B_ASSET_P_DEFINE_SYMBOL_TABLE);
 			bool bIsEnable = oAsset != null && CEditorSceneManager.m_fDefineSymbolSkipTime.ExIsGreateEquals(KEditorDefine.B_DELAY_DEFINE_S_UPDATE);
 
 			// 전처리기 심볼 테이블 갱신이 가능 할 경우
@@ -160,16 +160,8 @@ public static partial class CEditorSceneManager {
 	}
 	#endregion			// 클래스 함수
 
-	#region 추가 클래스 변수
+	#region 추가 함수
 
-	#endregion			// 추가 클래스 변수
-
-	#region 추가 클래스 프로퍼티
-
-	#endregion			// 추가 클래스 프로퍼티
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
+	#endregion			// 추가 함수
 }
 #endif			// #if UNITY_EDITOR

@@ -6,13 +6,8 @@ using UnityEngine.UI;
 //! 약관 동의 씬 상수
 public static partial class KCDefine {
 	#region 기본
-	// 약관 동의 팝업 {
+	// 약관 동의 팝업
 	public const string AS_OBJ_N_AGREE_POPUP = "AgreePopup";
-
-	public const string AS_OBJ_N_AGREE_P_AGREE_BTN = "AgreeBtn";
-	public const string AS_OBJ_N_AGREE_P_SERVICES_BTN = "ServicesBtn";
-	public const string AS_OBJ_N_AGREE_P_PRIVACY_BTN = "PrivacyBtn";
-	// 약관 동의 팝업 }
 	#endregion			// 기본
 
 	#region 런타임 상수

@@ -14,11 +14,16 @@ public class CAlertPopup : CPopup {
 		public string m_oCancelBtnText;
 	}
 
+	//! 콜백 매개 변수
+	public struct STCallbackParams {
+		public System.Action<CAlertPopup, bool> m_oCallback;
+	}
+
 	#region 변수
 	private STParams m_stParams;
-	private System.Action<CAlertPopup, bool> m_oCallback = null;
+	private STCallbackParams m_stCallbackParams;
 
-	// UI {
+	// =====> UI <=====
 	protected Text m_oTitleText = null;
 	protected Text m_oMsgText = null;
 
@@ -28,7 +33,6 @@ public class CAlertPopup : CPopup {
 	protected Button m_oCancelBtn = null;
 
 	protected HorizontalLayoutGroup m_oBMUIsLayoutGroup = null;
-	// UI }
 	#endregion			// 변수
 
 	#region 함수
@@ -56,11 +60,11 @@ public class CAlertPopup : CPopup {
 	}
 
 	//! 초기화
-	public virtual void Init(STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback) {
+	public virtual void Init(STParams a_stParams, STCallbackParams a_stCallbackParams) {
 		base.Init();
 
 		m_stParams = a_stParams;
-		m_oCallback = a_oCallback;
+		m_stCallbackParams = a_stCallbackParams;
 	}
 
 	//! 팝업 컨텐츠를 설정한다
@@ -104,13 +108,13 @@ public class CAlertPopup : CPopup {
 
 	//! 확인 버튼을 눌렀을 경우
 	protected virtual void OnTouchOKBtn() {
-		CFunc.Invoke(ref m_oCallback, this, true);
+		CFunc.Invoke(ref m_stCallbackParams.m_oCallback, this, true);
 		this.OnTouchCloseBtn();
 	}
 
 	//! 취소 버튼을 눌렀을 경우
 	protected virtual void OnTouchCancelBtn() {
-		CFunc.Invoke(ref m_oCallback, this, false);
+		CFunc.Invoke(ref m_stCallbackParams.m_oCallback, this, false);
 		this.OnTouchCloseBtn();
 	}
 
@@ -132,31 +136,31 @@ public class CAlertPopup : CPopup {
 
 	#region 제네릭 클래스 함수
 	//! 경고 팝업을 생성한다
-	public static T Create<T>(string a_oName, string a_oObjPath, GameObject a_oParent, STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback) where T : CAlertPopup {
+	public static T Create<T>(string a_oName, string a_oObjPath, GameObject a_oParent, STParams a_stParams, STCallbackParams a_stCallbackParams) where T : CAlertPopup {
 		CAccess.Assert(a_oName.ExIsValid() && a_oObjPath.ExIsValid());
-		return CAlertPopup.Create<T>(a_oName, a_oObjPath, a_oParent, a_stParams, a_oCallback, KCDefine.B_POS_POPUP);
+		return CAlertPopup.Create<T>(a_oName, a_oObjPath, a_oParent, a_stParams, a_stCallbackParams, KCDefine.B_POS_POPUP);
 	}
 
 	//! 경고 팝업을 생성한다
-	public static T Create<T>(string a_oName, string a_oObjPath, GameObject a_oParent, STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback, Vector3 a_stPos) where T : CAlertPopup {
+	public static T Create<T>(string a_oName, string a_oObjPath, GameObject a_oParent, STParams a_stParams, STCallbackParams a_stCallbackParams, Vector3 a_stPos) where T : CAlertPopup {
 		CAccess.Assert(a_oName.ExIsValid() && a_oObjPath.ExIsValid());
 		var oObj = CResManager.Inst.GetRes<GameObject>(a_oObjPath);
 
-		return CAlertPopup.Create<T>(a_oName, oObj, a_oParent, a_stParams, a_oCallback, a_stPos);
+		return CAlertPopup.Create<T>(a_oName, oObj, a_oParent, a_stParams, a_stCallbackParams, a_stPos);
 	}
 
 	//! 경고 팝업을 생성한다
-	public static T Create<T>(string a_oName, GameObject a_oOrigin, GameObject a_oParent, STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback) where T : CAlertPopup {
+	public static T Create<T>(string a_oName, GameObject a_oOrigin, GameObject a_oParent, STParams a_stParams, STCallbackParams a_stCallbackParams) where T : CAlertPopup {
 		CAccess.Assert(a_oOrigin != null && a_oName.ExIsValid());
-		return CAlertPopup.Create<T>(a_oName, a_oOrigin, a_oParent, a_stParams, a_oCallback, KCDefine.B_POS_POPUP);
+		return CAlertPopup.Create<T>(a_oName, a_oOrigin, a_oParent, a_stParams, a_stCallbackParams, KCDefine.B_POS_POPUP);
 	}
 
 	//! 경고 팝업을 생성한다
-	public static T Create<T>(string a_oName, GameObject a_oOrigin, GameObject a_oParent, STParams a_stParams, System.Action<CAlertPopup, bool> a_oCallback, Vector3 a_stPos) where T : CAlertPopup {
+	public static T Create<T>(string a_oName, GameObject a_oOrigin, GameObject a_oParent, STParams a_stParams, STCallbackParams a_stCallbackParams, Vector3 a_stPos) where T : CAlertPopup {
 		CAccess.Assert(a_oOrigin != null && a_oName.ExIsValid());
 
 		var oAlertPopup = CPopup.Create<T>(a_oName, a_oOrigin, a_oParent, a_stPos);
-		oAlertPopup?.Init(a_stParams, a_oCallback);
+		oAlertPopup?.Init(a_stParams, a_stCallbackParams);
 		
 		return oAlertPopup;
 	}

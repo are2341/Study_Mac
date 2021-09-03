@@ -21,21 +21,19 @@ public struct STRewardInfo {
 		m_oName = a_oRewardInfo[KCDefine.U_KEY_NAME];
 		m_oDesc = a_oRewardInfo[KCDefine.U_KEY_DESC];
 
-		m_eRewardKinds = (ERewardKinds)a_oRewardInfo[KDefine.G_KEY_REWARD_IT_REWARD_KINDS].AsInt;
-		m_eRewardQuality = (ERewardQuality)a_oRewardInfo[KDefine.G_KEY_REWARD_IT_REWARD_QUALITY].AsInt;
+		m_eRewardKinds = (ERewardKinds)a_oRewardInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt;
+		m_eRewardQuality = (ERewardQuality)a_oRewardInfo[KCDefine.U_KEY_REWARD_QUALITY].AsInt;
 
 		m_oItemInfoList = new List<STItemInfo>();
 
 		for(int i = 0; i < KDefine.G_MAX_NUM_REWARD_ITEM_INFOS; ++i) {
-			string oNumItemsKey = string.Format(KDefine.G_KEY_FMT_REWARD_IT_NUM_ITEMS, i + KCDefine.B_VAL_1_INT);
-			string oItemKindsKey = string.Format(KDefine.G_KEY_FMT_REWARD_IT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
+			string oNumItemsKey = string.Format(KCDefine.U_KEY_FMT_NUM_ITEMS, i + KCDefine.B_VAL_1_INT);
+			string oItemKindsKey = string.Format(KCDefine.U_KEY_FMT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
 
-			var stItemInfo = new STItemInfo() {
+			m_oItemInfoList.Add(new STItemInfo() {
 				m_nNumItems = a_oRewardInfo[oNumItemsKey].AsInt,
 				m_eItemKinds = (EItemKinds)a_oRewardInfo[oItemKindsKey].AsInt
-			};
-
-			m_oItemInfoList.Add(stItemInfo);
+			});
 		}
 	}
 	#endregion			// 함수
@@ -72,7 +70,7 @@ public class CRewardInfoTable : CScriptableObj<CRewardInfoTable> {
 		oRewardInfoList.AddRange(m_oClearRewardInfoList);
 
 		for(int i = 0; i < oRewardInfoList.Count; ++i) {
-			this.RewardInfoDict.Add(oRewardInfoList[i].m_eRewardKinds, oRewardInfoList[i]);
+			this.RewardInfoDict.ExAddVal(oRewardInfoList[i].m_eRewardKinds, oRewardInfoList[i]);
 		}
 	}
 
@@ -93,7 +91,7 @@ public class CRewardInfoTable : CScriptableObj<CRewardInfoTable> {
 	//! 보상 정보를 로드한다
 	public Dictionary<ERewardKinds, STRewardInfo> LoadRewardInfos() {
 #if UNITY_EDITOR || UNITY_STANDALONE
-		return this.LoadRewardInfos(KDefine.G_RUNTIME_TABLE_P_REWARD_INFO);
+		return this.LoadRewardInfos(KCDefine.U_RUNTIME_TABLE_P_G_REWARD_INFO);
 #else
 		return this.LoadRewardInfos(KCDefine.U_TABLE_P_G_REWARD_INFO);
 #endif			// #if UNITY_EDITOR || UNITY_STANDALONE
@@ -122,10 +120,10 @@ public class CRewardInfoTable : CScriptableObj<CRewardInfoTable> {
 		var oJSONNode = SimpleJSON.JSON.Parse(a_oJSONStr) as SimpleJSON.JSONClass;
 
 		var oRewardInfosList = new List<SimpleJSON.JSONNode>() {
-			oJSONNode[KDefine.G_KEY_REWARD_IT_FREE],
-			oJSONNode[KDefine.G_KEY_REWARD_IT_DAILY],
-			oJSONNode[KDefine.G_KEY_REWARD_IT_EVENT],
-			oJSONNode[KDefine.G_KEY_REWARD_IT_CLEAR]
+			oJSONNode[KCDefine.U_KEY_FREE],
+			oJSONNode[KCDefine.U_KEY_DAILY],
+			oJSONNode[KCDefine.U_KEY_EVENT],
+			oJSONNode[KCDefine.U_KEY_CLEAR]
 		};
 
 		for(int i = 0; i < oRewardInfosList.Count; ++i) {
@@ -143,14 +141,6 @@ public class CRewardInfoTable : CScriptableObj<CRewardInfoTable> {
 		return this.RewardInfoDict;
 	}
 	#endregion			// 함수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 추가 함수
 

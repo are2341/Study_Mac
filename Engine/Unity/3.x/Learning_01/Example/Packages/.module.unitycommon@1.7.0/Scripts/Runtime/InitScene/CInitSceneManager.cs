@@ -10,7 +10,7 @@ using UnityEngine.iOS;
 //! 초기화 씬 관리자
 public abstract partial class CInitSceneManager : CSceneManager {
 	#region 클래스 변수
-	// 객체
+	// =====> 객체 <=====
 	private static GameObject m_oBlindUIs = null;
 	#endregion			// 클래스 변수
 
@@ -45,14 +45,11 @@ public abstract partial class CInitSceneManager : CSceneManager {
 		CCommonAppInfoStorage.Inst.LoadAppInfo();
 		CCommonUserInfoStorage.Inst.LoadUserInfo();
 		CCommonGameInfoStorage.Inst.LoadGameInfo();
-
+		
 		// 열거형 문자열을 로드한다
 		CStrTable.Inst.LoadEnumStrs<EUserType>();
-
-		// 공용 앱 정보 저장소를 설정한다
-		CCommonAppInfoStorage.Inst.AppInfo.m_stLastPlayTime = System.DateTime.Now;
-		CCommonAppInfoStorage.Inst.SaveAppInfo();
-
+		CStrTable.Inst.LoadEnumStrs<EDeviceType>();
+		
 		// 사운드 관리자를 설정한다 {
 		CSndManager.Inst.BGSndVolume = CCommonGameInfoStorage.Inst.GameInfo.BGSndVolume;
 		CSndManager.Inst.FXSndsVolume = CCommonGameInfoStorage.Inst.GameInfo.FXSndsVolume;
@@ -139,9 +136,9 @@ public abstract partial class CInitSceneManager : CSceneManager {
 		CProjInfoTable.Create(KCDefine.U_ASSET_P_G_PROJ_INFO_TABLE);
 		CDeviceInfoTable.Create(KCDefine.U_ASSET_P_G_DEVICE_INFO_TABLE);
 
-#if ADS_MODULE_ENABLE || FLURRY_MODULE_ENABLE || FIREBASE_MODULE_ENABLE || SINGULAR_MODULE_ENABLE
+#if ADS_MODULE_ENABLE || FLURRY_MODULE_ENABLE || FIREBASE_MODULE_ENABLE || APPS_FLYER_MODULE_ENABLE || SINGULAR_MODULE_ENABLE
 		CPluginInfoTable.Create(KCDefine.U_ASSET_P_G_PLUGIN_INFO_TABLE);
-#endif			// #if ADS_MODULE_ENABLE || FLURRY_MODULE_ENABLE || FIREBASE_MODULE_ENABLE || SINGULAR_MODULE_ENABLE
+#endif			// #if ADS_MODULE_ENABLE || FLURRY_MODULE_ENABLE || FIREBASE_MODULE_ENABLE || APPS_FLYER_MODULE_ENABLE || SINGULAR_MODULE_ENABLE
 
 #if PURCHASE_MODULE_ENABLE
 		CProductInfoTable.Create(KCDefine.U_ASSET_P_G_PRODUCT_INFO_TABLE);

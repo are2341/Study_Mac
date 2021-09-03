@@ -8,7 +8,7 @@ using UnityEngine.UI;
 //! 애드 몹 플러그인 정보
 [System.Serializable]
 public struct STAdmobPluginInfo {
-	[HideInInspector] public string m_oAppID;
+	public string m_oAppID;
 
 	public string m_oBannerAdsID;
 	public string m_oRewardAdsID;
@@ -38,6 +38,15 @@ public struct STAppLovinPluginInfo {
 }
 #endif			// APP_LOVIN_ENABLE
 #endif			// #if ADS_MODULE_ENABLE
+
+#if APPS_FLYER_MODULE_ENABLE
+//! 앱스 플라이어 플러그인 정보
+[System.Serializable]
+public struct STAppsFlyerPluginInfo {
+	public string m_oAppID;
+	public string m_oDevKey;
+}
+#endif			// #if APPS_FLYER_MODULE_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 //! 싱귤러 플러그인 정보
@@ -82,6 +91,11 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 	[SerializeField] private string m_oAndroidFlurryAPIKey = string.Empty;
 #endif			// #if FLURRY_MODULE_ENABLE
 
+#if APPS_FLYER_MODULE_ENABLE
+	[Header("Apps Flyer Plugin Info")]
+	[SerializeField] private STAppsFlyerPluginInfo m_stAppsFlyerPluginInfo;
+#endif			// #if APPS_FLYER_MODULE_ENABLE
+
 #if SINGULAR_MODULE_ENABLE
 	[Header("Singular Plugin Info")]
 	[SerializeField] private STSingularPluginInfo m_stSingularPluginInfo;
@@ -108,8 +122,12 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 #endif			// #if ADS_MODULE_ENABLE
 
 #if FLURRY_MODULE_ENABLE
-	public string FlurryAPIKey { get; private set; }
+	public string FlurryAPIKey { get; private set; } = string.Empty;
 #endif			// #if FLURRY_MODULE_ENABLE
+
+#if APPS_FLYER_MODULE_ENABLE
+	public STAppsFlyerPluginInfo AppsFlyerPluginInfo => m_stAppsFlyerPluginInfo;
+#endif			// #if APPS_FLYER_MODULE_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 	public STSingularPluginInfo SingularPluginInfo => m_stSingularPluginInfo;
@@ -173,84 +191,63 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 	public string GetBannerAdsID(EAdsType a_eAdsType) {
 		CAccess.Assert(a_eAdsType.ExIsValid());
 
+		var oBannerAdsIDDict = new Dictionary<EAdsType, string>() {
 #if ADMOB_ENABLE
-		// 애드 몹 일 경우
-		if(a_eAdsType == EAdsType.ADMOB) {
-			return this.AdmobPluginInfo.m_oBannerAdsID;
-		}
+			[EAdsType.ADMOB] = this.AdmobPluginInfo.m_oBannerAdsID,
 #endif			// #if ADMOB_ENABLE
-		
+
 #if IRON_SRC_ENABLE
-		// 아이언 소스 일 경우
-		if(a_eAdsType == EAdsType.IRON_SRC) {
-			return this.IronSrcPluginInfo.m_oBannerAdsID;
-		}
+			[EAdsType.IRON_SRC] = this.IronSrcPluginInfo.m_oBannerAdsID,
 #endif			// #if IRON_SRC_ENABLE
 
 #if APP_LOVIN_ENABLE
-		// 앱 로빈 일 경우
-		if(a_eAdsType == EAdsType.APP_LOVIN) {
-			return this.AppLovinPluginInfo.m_oBannerAdsID;
-		}
+			[EAdsType.APP_LOVIN] = this.AppLovinPluginInfo.m_oBannerAdsID
 #endif			// #if APP_LOVIN_ENABLE
+		};
 
-		return string.Empty;
+		return oBannerAdsIDDict.ExGetVal(a_eAdsType, string.Empty);
 	}
 
 	//! 보상 광고 식별자를 반환한다
 	public string GetRewardAdsID(EAdsType a_eAdsType) {
 		CAccess.Assert(a_eAdsType.ExIsValid());
 
+		var oRewardAdsIDDict = new Dictionary<EAdsType, string>() {
 #if ADMOB_ENABLE
-		// 애드 몹 일 경우
-		if(a_eAdsType == EAdsType.ADMOB) {
-			return this.AdmobPluginInfo.m_oRewardAdsID;
-		}
+			[EAdsType.ADMOB] = this.AdmobPluginInfo.m_oRewardAdsID,
 #endif			// #if ADMOB_ENABLE
-		
+
 #if IRON_SRC_ENABLE
-		// 아이언 소스 일 경우
-		if(a_eAdsType == EAdsType.IRON_SRC) {
-			return this.IronSrcPluginInfo.m_oRewardAdsID;
-		}
+			[EAdsType.IRON_SRC] = this.IronSrcPluginInfo.m_oRewardAdsID,
 #endif			// #if IRON_SRC_ENABLE
 
 #if APP_LOVIN_ENABLE
-		// 앱 로빈 일 경우
-		if(a_eAdsType == EAdsType.APP_LOVIN) {
-			return this.AppLovinPluginInfo.m_oRewardAdsID;
-		}
+			[EAdsType.APP_LOVIN] = this.AppLovinPluginInfo.m_oRewardAdsID
 #endif			// #if APP_LOVIN_ENABLE
+		};
 
-		return string.Empty;
+		return oRewardAdsIDDict.ExGetVal(a_eAdsType, string.Empty);
 	}
 
 	//! 전면 광고 식별자를 반환한다
 	public string GetFullscreenAdsID(EAdsType a_eAdsType) {
 		CAccess.Assert(a_eAdsType.ExIsValid());
-
-#if ADMOB_ENABLE
-		// 애드 몹 일 경우
-		if(a_eAdsType == EAdsType.ADMOB) {
-			return this.AdmobPluginInfo.m_oFullscreenAdsID;
-		}
-#endif			// #if ADMOB_ENABLE
 		
+		var oFullscreenAdsIDDict = new Dictionary<EAdsType, string>() {
+#if ADMOB_ENABLE
+			[EAdsType.ADMOB] = this.AdmobPluginInfo.m_oFullscreenAdsID,
+#endif			// #if ADMOB_ENABLE
+
 #if IRON_SRC_ENABLE
-		// 아이언 소스 일 경우
-		if(a_eAdsType == EAdsType.IRON_SRC) {
-			return this.IronSrcPluginInfo.m_oFullscreenAdsID;
-		}
+			[EAdsType.IRON_SRC] = this.IronSrcPluginInfo.m_oFullscreenAdsID,
 #endif			// #if IRON_SRC_ENABLE
 
 #if APP_LOVIN_ENABLE
-		// 앱 로빈 일 경우
-		if(a_eAdsType == EAdsType.APP_LOVIN) {
-			return this.AppLovinPluginInfo.m_oFullscreenAdsID;
-		}
+			[EAdsType.APP_LOVIN] = this.AppLovinPluginInfo.m_oFullscreenAdsID
 #endif			// #if APP_LOVIN_ENABLE
+		};
 
-		return string.Empty;
+		return oFullscreenAdsIDDict.ExGetVal(a_eAdsType, string.Empty);
 	}
 #endif			// #if ADS_MODULE_ENABLE
 
@@ -319,6 +316,13 @@ public class CPluginInfoTable : CScriptableObj<CPluginInfoTable> {
 		m_oAndroidFlurryAPIKey = a_oKey;
 	}
 #endif			// #if FLURRY_MODULE_ENABLE
+
+#if APPS_FLYER_MODULE_ENABLE
+	//! 앱스 플라이어 플러그인 정보를 변경한다
+	public void SetAppsFlyerPluginInfo(STAppsFlyerPluginInfo a_stPluginInfo) {
+		m_stAppsFlyerPluginInfo = a_stPluginInfo;
+	}
+#endif			// #if APPS_FLYER_MODULE_ENABLE
 
 #if SINGULAR_MODULE_ENABLE
 	//! 싱귤러 플러그인 정보를 변경한다

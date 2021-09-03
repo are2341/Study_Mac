@@ -19,11 +19,11 @@ public abstract class CPopup : CComponent {
 	protected System.Action<CPopup> m_oShowCallback = null;
 	protected System.Action<CPopup> m_oCloseCallback = null;
 
-	// UI
+	// =====> UI <=====
 	protected Image m_oBGImg = null;
 	protected Button m_oCloseBtn = null;
 
-	// 객체
+	// =====> 객체 <=====
 	protected GameObject m_oContents = null;
 	protected GameObject m_oContentsUIs = null;
 	protected GameObject m_oTouchResponder = null;
@@ -41,8 +41,8 @@ public abstract class CPopup : CComponent {
 
 	public virtual float ShowAniDelay => KCDefine.U_DELAY_POPUP_SHOW_ANI;
 
-	public virtual Color BGColor => KCDefine.U_COLOR_POPUP_BG;
 	public virtual EAniType AniType => EAniType.DROPDOWN;
+	public virtual Color BGColor => KCDefine.U_COLOR_POPUP_BG;
 
 	private bool IsEnableShow => !this.IsShow && !this.IsClose;
 	private bool IsEnableClose => this.IsShow && !this.IsClose;

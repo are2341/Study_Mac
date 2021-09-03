@@ -69,7 +69,7 @@ public class CSndManager : CSingleton<CSndManager> {
 
 	//! 진동을 시작한다
 	public void Vibrate(float a_fDuration, EVibrateType a_eType = EVibrateType.IMPACT, EVibrateStyle a_eStyle = EVibrateStyle.LIGHT, float a_fIntensity = KCDefine.U_INTENSITY_VIBRATE) {
-#if HAPTIC_FEEDBACK_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#if (UNITY_IOS || UNITY_ANDROID) && HAPTIC_FEEDBACK_ENABLE
 		// 진동이 가능 할 경우
 		if(!this.IsDisableVibrate && SystemInfo.supportsVibration) {
 			// 햅틱 피드백을 지원 할 경우
@@ -82,7 +82,7 @@ public class CSndManager : CSingleton<CSndManager> {
 				CUnityMsgSender.Inst.SendVibrateMsg(a_eType, a_eStyle, fDuration, fIntensity);
 			}
 		}
-#endif			// #if HAPTIC_FEEDBACK_ENABLE && (UNITY_IOS || UNITY_ANDROID)
+#endif			// #if (UNITY_IOS || UNITY_ANDROID) && HAPTIC_FEEDBACK_ENABLE
 	}
 
 	//! 단일음을 재생힌다
@@ -107,7 +107,7 @@ public class CSndManager : CSingleton<CSndManager> {
 		CAccess.Assert(a_oFilePath.ExIsValid());
 
 		// 배경음 재생이 가능 할 경우
-		if(!m_oBGSnd.IsPlaying || !m_oBGSndPath.ExIsEquals(a_oFilePath)) {
+		if(!m_oBGSnd.IsPlaying || !m_oBGSndPath.Equals(a_oFilePath)) {
 			m_oBGSndPath = a_oFilePath;
 
 			m_oBGSnd.IsMute = this.IsMuteBGSnd;
