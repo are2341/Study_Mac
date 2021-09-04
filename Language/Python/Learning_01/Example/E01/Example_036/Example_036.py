@@ -3,5 +3,5 @@ class Example_036:
 	# 초기화
 	@classmethod
 	def start(cls):
-		print("Hello, World!");
+		print("Hello, World!")
 		
