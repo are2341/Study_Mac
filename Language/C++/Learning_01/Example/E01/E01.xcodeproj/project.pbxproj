@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE80BE5626E3CEB50062DE0B /* Example_014.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80BE5426E3CEB50062DE0B /* Example_014.cpp */; };
 		FECEC20926E39B23006F658E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FECEC20826E39B23006F658E /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FE80BE5126E3CE8B0062DE0B /* KGDefine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KGDefine.hpp; sourceTree = "<group>"; };
+		FE80BE5426E3CEB50062DE0B /* Example_014.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_014.cpp; sourceTree = "<group>"; };
+		FE80BE5526E3CEB50062DE0B /* Example_014.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_014.hpp; sourceTree = "<group>"; };
 		FECEC20526E39B23006F658E /* E01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E01; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECEC20826E39B23006F658E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +42,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE80BE4E26E3CE670062DE0B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				FE80BE4F26E3CE710062DE0B /* Define */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		FE80BE4F26E3CE710062DE0B /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				FE80BE5126E3CE8B0062DE0B /* KGDefine.hpp */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		FE80BE5326E3CEAB0062DE0B /* Example_014 */ = {
+			isa = PBXGroup;
+			children = (
+				FE80BE5426E3CEB50062DE0B /* Example_014.cpp */,
+				FE80BE5526E3CEB50062DE0B /* Example_014.hpp */,
+			);
+			path = Example_014;
+			sourceTree = "<group>";
+		};
 		FECEC1FC26E39B23006F658E = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +86,8 @@
 		FECEC20726E39B23006F658E /* E01 */ = {
 			isa = PBXGroup;
 			children = (
+				FE80BE5326E3CEAB0062DE0B /* Example_014 */,
+				FE80BE4E26E3CE670062DE0B /* Global */,
 				FECEC20826E39B23006F658E /* main.cpp */,
 			);
 			path = E01;
@@ -118,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE80BE5626E3CEB50062DE0B /* Example_014.cpp in Sources */,
 				FECEC20926E39B23006F658E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
