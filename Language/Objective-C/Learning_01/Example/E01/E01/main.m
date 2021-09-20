@@ -7,6 +7,7 @@
 
 #import "Example_019/Example_019.h"
 #import "Example_027/Example_027.h"
+#import "Example_035/Example_035.h"
 
 /*
  프로젝트 리스트
@@ -16,7 +17,8 @@
 //! 메인 함수
 int main(const int argc, const char **args) {
 //	[Example_019 start:argc withArgs:args];
-	[Example_027 start:argc withArgs:args];
+//	[Example_027 start:argc withArgs:args];
+	[Example_035 start:argc withArgs:args];
 	
 	return 0;
 }
