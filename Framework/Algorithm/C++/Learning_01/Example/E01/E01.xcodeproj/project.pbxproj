@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE3276F2270E06E000E93B9A /* Example_292.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3276F0270E06DF00E93B9A /* Example_292.cpp */; };
+		FE3276F6270E0ADA00E93B9A /* GFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3276F4270E0ADA00E93B9A /* GFunc.cpp */; };
 		FEFB52A5270CB38E000C1692 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEFB52A4270CB38E000C1692 /* main.cpp */; };
 		FEFB52B3270CB732000C1692 /* Example_013.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEFB52B1270CB732000C1692 /* Example_013.cpp */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FE3276F0270E06DF00E93B9A /* Example_292.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_292.cpp; sourceTree = "<group>"; };
+		FE3276F1270E06E000E93B9A /* Example_292.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_292.hpp; sourceTree = "<group>"; };
+		FE3276F4270E0ADA00E93B9A /* GFunc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GFunc.cpp; sourceTree = "<group>"; };
+		FE3276F5270E0ADA00E93B9A /* GFunc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GFunc.hpp; sourceTree = "<group>"; };
 		FEFB52A1270CB38E000C1692 /* E01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E01; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFB52A4270CB38E000C1692 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FEFB52AE270CB569000C1692 /* KGDefine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KGDefine.hpp; sourceTree = "<group>"; };
@@ -42,6 +48,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE3276EF270E06CB00E93B9A /* Example_292 */ = {
+			isa = PBXGroup;
+			children = (
+				FE3276F0270E06DF00E93B9A /* Example_292.cpp */,
+				FE3276F1270E06E000E93B9A /* Example_292.hpp */,
+			);
+			path = Example_292;
+			sourceTree = "<group>";
+		};
+		FE3276F3270E0ACC00E93B9A /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				FE3276F4270E0ADA00E93B9A /* GFunc.cpp */,
+				FE3276F5270E0ADA00E93B9A /* GFunc.hpp */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
 		FEFB5298270CB38E000C1692 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				FEFB52B0270CB71F000C1692 /* Example_013 */,
+				FE3276EF270E06CB00E93B9A /* Example_292 */,
 				FEFB52AB270CB546000C1692 /* Global */,
 				FEFB52A4270CB38E000C1692 /* main.cpp */,
 			);
@@ -72,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				FEFB52AC270CB55B000C1692 /* Define */,
+				FE3276F3270E0ACC00E93B9A /* Function */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -150,6 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3276F2270E06E000E93B9A /* Example_292.cpp in Sources */,
+				FE3276F6270E0ADA00E93B9A /* GFunc.cpp in Sources */,
 				FEFB52A5270CB38E000C1692 /* main.cpp in Sources */,
 				FEFB52B3270CB732000C1692 /* Example_013.cpp in Sources */,
 			);
