@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE0818112712DF1700E6A73E /* Example_300.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE08180F2712DF1700E6A73E /* Example_300.cpp */; };
 		FE3276F2270E06E000E93B9A /* Example_292.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3276F0270E06DF00E93B9A /* Example_292.cpp */; };
 		FE3276F6270E0ADA00E93B9A /* GFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE3276F4270E0ADA00E93B9A /* GFunc.cpp */; };
 		FEFB52A5270CB38E000C1692 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEFB52A4270CB38E000C1692 /* main.cpp */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FE08180F2712DF1700E6A73E /* Example_300.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_300.cpp; sourceTree = "<group>"; };
+		FE0818102712DF1700E6A73E /* Example_300.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_300.hpp; sourceTree = "<group>"; };
 		FE3276F0270E06DF00E93B9A /* Example_292.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Example_292.cpp; sourceTree = "<group>"; };
 		FE3276F1270E06E000E93B9A /* Example_292.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Example_292.hpp; sourceTree = "<group>"; };
 		FE3276F4270E0ADA00E93B9A /* GFunc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GFunc.cpp; sourceTree = "<group>"; };
@@ -48,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE08180E2712DF0E00E6A73E /* Example_300 */ = {
+			isa = PBXGroup;
+			children = (
+				FE08180F2712DF1700E6A73E /* Example_300.cpp */,
+				FE0818102712DF1700E6A73E /* Example_300.hpp */,
+			);
+			path = Example_300;
+			sourceTree = "<group>";
+		};
 		FE3276EF270E06CB00E93B9A /* Example_292 */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,7 @@
 			children = (
 				FEFB52B0270CB71F000C1692 /* Example_013 */,
 				FE3276EF270E06CB00E93B9A /* Example_292 */,
+				FE08180E2712DF0E00E6A73E /* Example_300 */,
 				FEFB52AB270CB546000C1692 /* Global */,
 				FEFB52A4270CB38E000C1692 /* main.cpp */,
 			);
@@ -178,6 +191,7 @@
 			files = (
 				FE3276F2270E06E000E93B9A /* Example_292.cpp in Sources */,
 				FE3276F6270E0ADA00E93B9A /* GFunc.cpp in Sources */,
+				FE0818112712DF1700E6A73E /* Example_300.cpp in Sources */,
 				FEFB52A5270CB38E000C1692 /* main.cpp in Sources */,
 				FEFB52B3270CB732000C1692 /* Example_013.cpp in Sources */,
 			);

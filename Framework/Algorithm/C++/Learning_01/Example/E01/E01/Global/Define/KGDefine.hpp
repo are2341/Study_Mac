@@ -10,5 +10,8 @@
 
 #include <iostream>
 #include <cassert>
+#include <memory>
+
+#define SAFE_FREE(TARGET)				if((TARGET) != nullptr) { free((TARGET)); (TARGET) = nullptr; }
 
 #endif /* KGDefine_hpp */

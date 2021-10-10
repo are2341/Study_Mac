@@ -9,23 +9,25 @@
 #include "../Global/Function/GFunc.hpp"
 
 namespace E292 {
-	//! 서브 문자열 여부를 검사한다
-	int IsSubStr(const char *a_pszStr, const char *a_pszSubStr) {
-		int i = 0;
-		int j = 0;
-		
-		while(i < strlen(a_pszStr) && j < strlen(a_pszSubStr)) {
-			// 문자가 동일 할 경우
-			if(a_pszStr[i] == a_pszSubStr[j]) {
-				i += 1;
-				j += 1;
-			} else {
-				i = (i - j) + 1;
-				j = 0;
+	//! 포함 여부를 검사한다
+	int IsContains(const char *a_pszStr, const char *a_pszSubStr) {
+		for(int i = 0; i < strlen(a_pszStr); ++i) {
+			int j = 0;
+			
+			for(j = 0; j < strlen(a_pszSubStr); ++j) {
+				// 문자가 다를 경우
+				if(a_pszStr[i + j] != a_pszSubStr[j]) {
+					break;
+				}
+			}
+			
+			// 문자열이 존재 할 경우
+			if(j >= strlen(a_pszSubStr)) {
+				return i;
 			}
 		}
 		
-		return (j >= strlen(a_pszSubStr)) ? i - j : -1;
+		return -1;
 	}
 	
 	//! Example 292
@@ -36,9 +38,9 @@ namespace E292 {
 		printf("문자열 입력 : ");
 		GFunc::GetStr(szStr, sizeof(szStr), stdin);
 		
-		printf("패턴 입력 : ");
+		printf("서브 문자열 입력 : ");
 		GFunc::GetStr(szSubStr, sizeof(szSubStr), stdin);
 		
-		printf("\n결과 : %d\n", IsSubStr(szStr, szSubStr));
+		printf("\n결과 : %d\n", IsContains(szStr, szSubStr));
 	}
 }
