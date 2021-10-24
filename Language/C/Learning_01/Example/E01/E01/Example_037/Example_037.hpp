@@ -11,7 +11,7 @@
 #include "../Global/Define/KGDefine.hpp"
 
 namespace E037 {
-	//! Example 37
+	/** Example 37 */
 	void Example_037(const int argc, const char **args);
 }
 

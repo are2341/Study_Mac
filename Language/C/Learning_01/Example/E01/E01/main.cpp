@@ -7,7 +7,7 @@
 
 #include "Example_037/Example_037.hpp"
 
-//! 메인 함수
+/** 메인 함수 */
 int main(const int argc, const char **args) {
 	E037::Example_037(argc, args);
 	return 0;

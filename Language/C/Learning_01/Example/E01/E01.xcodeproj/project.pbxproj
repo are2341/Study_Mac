@@ -61,8 +61,8 @@
 		FEE0E7EA26F8DD9C0085E53D /* E01 */ = {
 			isa = PBXGroup;
 			children = (
-				FEE0E7F626F8DDEA0085E53D /* Global */,
 				FEE0E7F226F8DDC70085E53D /* Example_037 */,
+				FEE0E7F626F8DDEA0085E53D /* Global */,
 				FEE0E7EB26F8DD9C0085E53D /* main.cpp */,
 			);
 			path = E01;

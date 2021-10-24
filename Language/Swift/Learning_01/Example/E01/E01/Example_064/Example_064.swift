@@ -7,9 +7,9 @@
 
 import Cocoa
 
-//! Example 62
+/** Example 62 */
 class Example_064: NSObject {
-	//! 초기화
+	/** 초기화 */
 	static func Start(args:[String]) {
 		print("Hello, World!")
 	}

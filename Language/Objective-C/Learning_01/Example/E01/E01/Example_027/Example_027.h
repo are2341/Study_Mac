@@ -9,12 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//! Example 27
+/** Example 27 */
 @interface Example_027 : NSObject {
 	
 }
 
-//! 초기화
+/** 초기화 */
 + (void)start:(const int)argc withArgs:(const char **)args;
 @end			// Example_027
 

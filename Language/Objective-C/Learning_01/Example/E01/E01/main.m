@@ -14,7 +14,7 @@
  :
  - E01 (아이폰과 맥 OS X 개발을 위한 Objective-C)
  */
-//! 메인 함수
+/** 메인 함수 */
 int main(const int argc, const char **args) {
 //	[Example_019 start:argc withArgs:args];
 //	[Example_027 start:argc withArgs:args];

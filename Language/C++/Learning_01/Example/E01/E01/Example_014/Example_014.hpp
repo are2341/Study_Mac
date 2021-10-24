@@ -11,7 +11,7 @@
 #include "../Global/Define/KGDefine.hpp"
 
 namespace E014 {
-	//! Example 14
+	/** Example 14 */
 	void Example_014(const int argc, const char **args);
 }
 
