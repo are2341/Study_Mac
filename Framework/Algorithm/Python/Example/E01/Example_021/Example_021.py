@@ -3,4 +3,19 @@ import sys
 
 # Example 21
 def Example_021(args:[str]):
-	print(f"{args}")
+	oOperatorList = [
+		"+", "-", "*", "/", ""
+	]
+	
+	for i in range(1000, 10000):
+		oStr = str(i)
+		
+		for oOperatorA in oOperatorList:
+			for oOperatorB in oOperatorList:
+				for oOperatorC in oOperatorList:
+					oCalc = oStr[0] + oOperatorA + oStr[1] + oOperatorB + oStr[2] + oOperatorC + oStr[3]
+					
+					# 결과가 동일 할 경우
+					if oStr == eval(oCalc):
+						print(f"{oCalc} = {oStr}")
+						
