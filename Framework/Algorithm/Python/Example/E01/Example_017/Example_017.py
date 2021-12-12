@@ -3,16 +3,18 @@ import sys
 
 # Example 17
 def Example_017(args:[str]):
-	for i in range(10, 1000):
-		oStrA = str(i)
-		oStrB = "{0:o}".format(i)
-		oStrC = "{0:b}".format(i)
+	nVal = 10
+	
+	while True:
+		oStrA = str(nVal)
+		oStrB = "{0:o}".format(nVal)
+		oStrC = "{0:b}".format(nVal)
 		
-		bIsPalindromeA = oStrA == oStrA[::-1]
-		bIsPalindromeB = oStrB == oStrB[::-1]
-		bIsPalindromeC = oStrC == oStrC[::-1]
+		# 회문 일 경우
+		if oStrA == oStrA[::-1] and oStrB == oStrB[::-1] and oStrC == oStrC[::-1]:
+			break
 		
-		# 대칭 수 일 경우
-		if bIsPalindromeA and bIsPalindromeB and bIsPalindromeC:
-			print(f"{i}")
-			
+		nVal += 1
+		
+	print(f"{nVal}")
+	
