@@ -14,9 +14,6 @@ def GetNumCombinations(a_oValList:[int], a_nIdx:int, a_nVal:int, a_nMaxNumVals:i
 	# 값을 벗어났을 경우
 	if a_nIdx >= len(a_oValList):
 		return 1 if a_nVal == 0 and a_nMaxNumVals >= 0 else 0
-	# 조합이 완료 되었을 경우
-	elif a_nVal == 0 or a_nMaxNumVals <= 0:
-		return 1 if a_nVal == 0 and a_nMaxNumVals >= 0 else 0
 	
 	nNumCombinations = 0
 	
