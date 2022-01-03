@@ -3,14 +3,16 @@ import sys
 
 # Example 26
 def Example_026(args:[str]):
-	oFlagList = [False] * 100
+	nMinVal = 1
+	nMaxVal = 100
 	
-	for i in range(1, len(oFlagList)):
-		for j in range(i, len(oFlagList), i + 1):
-			oFlagList[j] = not oFlagList[j]
+	for i in range(nMinVal, nMaxVal + 1):
+		bIsOpen = True
+		
+		for j in range(nMinVal + 1, i + 1):
+			bIsOpen = not bIsOpen if i % j == 0 else bIsOpen
 			
-	for i in range(0, len(oFlagList)):
-		# 출력이 가능 할 경우
-		if not oFlagList[i]:
-			print(i + 1)
+		# 오픈 상태 일 경우
+		if bIsOpen:
+			print(f"{i}, ")
 			

@@ -3,13 +3,14 @@ import sys
 
 # Example 30
 def Example_030(args:[str]):
-	print(GetCutTimes(3, 1, 20))
-	print(GetCutTimes(5, 1, 100))
-
-# 자르기 횟수를 반환한다
-def GetCutTimes(a_nNumWorkers:int, a_nNumBars:int, a_nLength:int):
-	if a_nNumBars > a_nLength:
+	print(GetDivideTimes(3, 1, 20))
+	print(GetDivideTimes(5, 1, 100))
+	
+# 나누기 횟수를 반환한다
+def GetDivideTimes(a_nDivide, a_nNumVals, a_nMaxNumVals):
+	# 나누기가 불가능 할 경우
+	if a_nNumVals > a_nMaxNumVals:
 		return 0
 	
-	a_nNumBars = a_nNumBars * 2 if a_nNumBars < a_nNumWorkers else a_nNumBars + a_nNumWorkers
-	return 1 + GetCutTimes(a_nNumWorkers, a_nNumBars, a_nLength)
+	nNumVals = a_nNumVals * 2 if a_nNumVals < a_nDivide else a_nNumVals + a_nDivide
+	return 1 + GetDivideTimes(a_nDivide, nNumVals, a_nMaxNumVals)

@@ -6,15 +6,14 @@ def Example_017(args:[str]):
 	nVal = 10
 	
 	while True:
-		oStrA = str(nVal)
-		oStrB = "{0:o}".format(nVal)
-		oStrC = "{0:b}".format(nVal)
+		oStrA = f"{nVal}"
+		oStrB = f"{nVal:o}"
+		oStrC = f"{nVal:b}"
 		
 		# 회문 일 경우
 		if oStrA == oStrA[::-1] and oStrB == oStrB[::-1] and oStrC == oStrC[::-1]:
+			print(f"{nVal}")
 			break
 		
 		nVal += 1
 		
-	print(f"{nVal}")
-	
