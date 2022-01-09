@@ -8,7 +8,7 @@ def Example_030(args:[str]):
 	
 # 나누기 횟수를 반환한다
 def GetDivideTimes(a_nDivide, a_nNumVals, a_nMaxNumVals):
-	# 나누기가 불가능 할 경우
+	# 조건을 만족 할 경우
 	if a_nNumVals > a_nMaxNumVals:
 		return 0
 	

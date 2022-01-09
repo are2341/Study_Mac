@@ -3,17 +3,15 @@ import sys
 
 # Example 17
 def Example_017(args:[str]):
-	nVal = 10
+	nMinVal = 10
 	
-	while True:
-		oStrA = f"{nVal}"
-		oStrB = f"{nVal:o}"
-		oStrC = f"{nVal:b}"
+	for i in range(nMinVal, sys.maxsize):
+		oStrA = f"{i}"
+		oStrB = f"{i:o}"
+		oStrC = f"{i:b}"
 		
-		# 회문 일 경우
+		# 조건을 만족 할 경우
 		if oStrA == oStrA[::-1] and oStrB == oStrB[::-1] and oStrC == oStrC[::-1]:
-			print(f"{nVal}")
+			print(i)
 			break
-		
-		nVal += 1
-		
+			

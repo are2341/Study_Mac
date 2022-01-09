@@ -11,8 +11,8 @@ def Example_026(args:[str]):
 		
 		for j in range(nMinVal + 1, i + 1):
 			bIsOpen = not bIsOpen if i % j == 0 else bIsOpen
-			
-		# 오픈 상태 일 경우
+		
+		# 조건을 만족 할 경우
 		if bIsOpen:
-			print(f"{i}, ")
+			print(i)
 			

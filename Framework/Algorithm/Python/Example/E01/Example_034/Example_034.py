@@ -11,7 +11,7 @@ def Example_034(args:[str]):
 	
 # 조합 개수를 반환한다
 def GetNumCombinations(a_oValList, a_nVal, a_nMaxNumVals):
-	# 조합이 불가능 할 경우
+	# 조건을 만족 할 경우
 	if len(a_oValList) <= 1:
 		nDivide = a_nVal // a_oValList[0]
 		return 1 if a_nVal - (nDivide * a_oValList[0]) == 0 and nDivide <= a_nMaxNumVals else 0

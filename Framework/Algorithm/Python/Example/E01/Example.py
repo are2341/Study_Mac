@@ -13,6 +13,11 @@ from Example_046.Example_046 import Example_046
 from Example_050.Example_050 import Example_050
 from Example_057.Example_057 import Example_057
 from Example_062.Example_062 import Example_062
+from Example_066.Example_066 import Example_066
+from Example_071.Example_071 import Example_071
+from Example_074.Example_074 import Example_074
+from Example_079.Example_079 import Example_079
+from Example_083.Example_083 import Example_083
 
 # 메인 모듈 일 경우
 if __name__ == "__main__":
@@ -27,5 +32,10 @@ if __name__ == "__main__":
 	# Example_046(sys.argv)
 	# Example_050(sys.argv)
 	# Example_057(sys.argv)
-	Example_062(sys.argv)
+	# Example_062(sys.argv)
+	# Example_066(sys.argv)
+	# Example_071(sys.argv)
+	Example_074(sys.argv)
+	# Example_079(sys.argv)
+	# Example_083(sys.argv)
 	
