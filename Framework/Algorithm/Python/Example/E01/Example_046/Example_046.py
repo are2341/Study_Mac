@@ -13,8 +13,6 @@ def Example_046(args:[str]):
 		oValList.append([0] * (nNumCols + 1))
 
 	oValList[0][0] = 1
-	
-	print(f"{len(oValList)}, {len(oValList[0])}, {oValList}")
 
 	for i in range(nMinVal, len(oValList)):
 		for j in range(nMinVal, len(oValList[i])):

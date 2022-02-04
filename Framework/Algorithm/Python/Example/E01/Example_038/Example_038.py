@@ -3,12 +3,13 @@ import sys
 
 # Example 38
 def Example_038(args:[str]):
+	nOffset = 2
+	nNumVals = 0
+	
 	nMinVal = 2
 	nMaxVal = 10000
 	
-	nNumVals = 0
-	
-	for i in range(nMinVal, nMaxVal + 1, 2):
+	for i in range(nMinVal, nMaxVal + 1, nOffset):
 		nNumVals += 1 if IsCollatzVal((i * 3) + 1, i) else 0
 		
 	print(nNumVals)

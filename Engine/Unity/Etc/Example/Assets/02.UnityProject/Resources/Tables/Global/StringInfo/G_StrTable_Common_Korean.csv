@@ -1,0 +1,77 @@
+ID,Replace,Description,Str
+EDITOR_QUIT_P_MSG,0,에디터 종료 팝업 메세지,에디터를 종료하시겠습니까?
+EDITOR_RESET_P_MSG,0,에디터 리셋 팝업 메세지,에디터를 리셋하시겠습니까?
+EDITOR_A_SET_P_MSG,0,에디터 세트 A 팝업 메세지,A 세트 를 설정하시겠습니까?
+EDITOR_B_SET_P_MSG,0,에디터 세트 B 팝업 메세지,B 세트 를 설정하시겠습니까?
+EDITOR_TABLE_RL_MSG,0,에디터 테이블 다시 로드 메세지,테이블을 다시 로드하시겠습니까?
+EDITOR_REMOVE_LP_MSG,0,에디터 레벨 제거 팝업 메세지,레벨을 제거하시겠습니까?
+EDITOR_REMOVE_SP_MSG,0,에디터 스테이지 제거 팝업 메세지,스테이지를 제거하시겠습니까?
+EDITOR_REMOVE_CP_MSG,0,에디터 챕터 제거 팝업 메세지,챕터를 제거하시겠습니까?
+QUIT_P_MSG,0,종료 팝업 메세지,게임을 종료하시겠습니까?
+LEAVE_P_MSG,0,그만두기 팝업 메세지,게임을 그만두시겠습니까?
+UPDATE_P_MSG,0,업데이트 팝업 메세지,새로운 버전이 출시되었습니다.\n업데이트 하시겠습니까?
+LOAD_P_MSG,0,로드 팝업 메세지,진행 상황을 로드하시겠습니까?\n<color=#ff0000ff><size=24>(로드 시 현재 진행 상황은 복구 할 수 없습니다)</size></color>
+SAVE_P_MSG,0,저장 팝업 메세지,진행 상황을 저장하시겠습니까?\n<color=#ff0000ff><size=24>(저장 시 이전 진행 상황은 복구 할 수 없습니다)</size></color>
+TRACKING_DP_TITLE,0,추적 설명 팝업 제목,알림
+TRACKING_DP_MSG,0,추적 설명 팝업 메세지,앱 추적 승인
+TRACKING_DP_DESC_MSG_01,0,추적 설명 팝업 설명 메세지 1,특별한 프로모션을 제공해\n드립니다
+TRACKING_DP_DESC_MSG_02,0,추적 설명 팝업 설명 메세지 2,관심사에 맞는 광고를 보여\n드립니다
+TRACKING_DP_DESC_MSG_03,0,추적 설명 팝업 설명 메세지 3,개인화 된 경험을 향상 시켜\n드립니다
+COMMON_LOGIN_SUCCESS_MSG,0,공용 로그인 성공 메세지,로그인했습니다
+COMMON_LOGIN_FAIL_MSG,0,공용 로그인 실패 메세지,로그인에 실패했습니다
+COMMON_LOGOUT_SUCCESS_MSG,0,공용 로그아웃 성공 메세지,로그아웃했습니다
+COMMON_LOGOUT_FAIL_MSG,0,공용 로그아웃 실패 메세지,로그아웃에 실패했습니다
+COMMON_LOAD_SUCCESS_MSG,0,공용 로드 성공 메세지,진행 상황을 로드했습니다
+COMMON_LOAD_FAIL_MSG,0,공용 로드 실패 메세지,진행 상황 로드에 실패했습니다
+COMMON_SAVE_SUCCESS_MSG,0,공용 저장 성공 메세지,진행 상황을 저장했습니다
+COMMON_SAVE_FAIL_MSG,0,공용 저장 실패 메세지,진행 상황 저장에 실패했습니다
+COMMON_PURCHASE_SUCCESS_MSG,0,공용 결제 성공 메세지,해당 상품을 구입했습니다
+COMMON_PURCHASE_FAIL_MSG,0,공용 결제 실패 메세지,해당 상품 구입에 실패했습니다
+COMMON_RESTORE_SUCCESS_MSG,0,공용 복원 성공 메세지,상품을 복원했습니다
+COMMON_RESTORE_FAIL_MSG,0,공용 복원 실패 메세지,상품 복원에 실패했습니다
+COMMON_OK_TEXT,0,공용 확인 텍스트,확인
+COMMON_CANCEL_TEXT,0,공용 취소 텍스트,취소
+COMMON_AGREE_TEXT,0,공용 동의 텍스트,동의
+COMMON_RESULT_TEXT,0,공용 결과 텍스트,결과
+COMMON_GET_TEXT,0,공용 획득 텍스트,획득
+COMMON_STORE_TEXT,0,공용 상점 텍스트,상점
+COMMON_EVENT_TEXT,0,공용 이벤트 텍스트,이벤트
+COMMON_NEXT_TEXT,0,공용 다음 텍스트,다음
+COMMON_HOME_TEXT,0,공용 홈 텍스트,홈
+COMMON_PLAY_TEXT,0,공용 플레이 텍스트,플레이
+COMMON_RETRY_TEXT,0,공용 재시도 텍스트,재시도
+COMMON_LEAVE_TEXT,0,공용 나가기 텍스트,나가기
+COMMON_SYNC_TEXT,0,공용 동기화 텍스트,동기화
+COMMON_LOGIN_TEXT,0,공용 로그인 텍스트,로그인
+COMMON_APPLE_LOGIN_TEXT,0,공용 애플 로그인 텍스트,애플 로그인
+COMMON_FACEBOOK_LOGIN_TEXT,0,공용 페이스 북 로그인,페이스 북 로그인
+COMMON_LOGOUT_TEXT,0,공용 로그아웃 텍스트,로그아웃
+COMMON_DISCONNECT_TEXT,0,공용 연결 해제 텍스트,연결 해제
+COMMON_LOAD_TEXT,0,공용 로드 텍스트,불러오기
+COMMON_SAVE_TEXT,0,공용 저장 텍스트,저장하기
+COMMON_CONTINUE_TEXT,0,공용 이어하기 텍스트,이어하기
+COMMON_NOTI_TEXT,0,공용 알림 텍스트,알림
+COMMON_REVIEW_TEXT,0,공용 평가 텍스트,평가
+COMMON_SUPPORTS_TEXT,0,공용 지원 텍스트,문의
+COMMON_BG_SND_TEXT,0,공용 배경음 텍스트,배경음
+COMMON_FX_SNDS_TEXT,0,공용 효과음 텍스트,효과음
+COMMON_WATCH_ADS_TEXT,0,공용 광고 시청 텍스트,광고 시청
+COMMON_RESTORE_PAYMENT_TEXT,0,공용 결제 복원 텍스트,결제 복원
+COMMON_LEVEL_TEXT,0,공용 레벨 텍스트,레벨
+COMMON_STAGE_TEXT,0,공용 스테이지 텍스트,스테이지
+COMMON_CHAPTER_TEXT,0,공용 챕터 텍스트,챕터
+COMMON_LEVEL_NUM_TEXT_FMT,0,공용 레벨 번호 텍스트 형식,레벨 {0}
+COMMON_STAGE_NUM_TEXT_FMT,0,공용 스테이지 번호 텍스트 형식,스테이지 {0}
+COMMON_CHAPTER_NUM_TEXT_FMT,0,공용 챕터 번호 텍스트 형식,챕터 {0}
+COMMON_LEVEL_PAGE_TEXT_FMT,0,공용 레벨 페이지 텍스트 형식,레벨 {0}/{1}
+COMMON_STAGE_PAGE_TEXT_FMT,0,공용 스테이지 페이지 텍스트 형식,스테이지 {0}/{1}
+COMMON_CHAPTER_PAGE_TEXT_FMT,0,공용 챕터 페이지 텍스트 형식,챕터 {0}/{1}
+STORE_P_TITLE,0,상점 팝업 타이틀,상점
+SETTINGS_P_TITLE,0,설정 팝업 타이틀,설정
+SYNC_P_TITLE,0,동기화 팝업 타이틀,동기화
+DAILY_MP_TITLE,0,일일 미션 팝업 타이틀,일일 미션
+FREE_RP_TITLE,0,무료 보상 팝업 타이틀,무료 보상
+DAILY_RP_TITLE,0,일일 보상 팝업 타이틀,일일 보상
+SALE_CP_TITLE,0,판매 코인 팝업 타이틀,판매 코인
+CONTINUE_P_TITLE,0,이어하기 팝업 타이틀,이어하기
+RESULT_P_TITLE,0,결과 팝업 제목,결과

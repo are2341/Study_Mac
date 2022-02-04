@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5454e4835d96348168664f3a27864cda, type: 3}
+  m_Name: G_DefineSymbolInfoTable
+  m_EditorClassIdentifier: 
+  m_oCommonDefineSymbolList:
+  - DOTWEEN_ENABLE
+  - MSG_PACK_ENABLE
+  - SCENE_TEMPLATES_MODULE_ENABLE
+  - EDITOR_SCENE_TEMPLATES_MODULE_ENABLE
+  - PREFAB_TEMPLATES_MODULE_ENABLE
+  - ENGINE_TEMPLATES_MODULE_ENABLE
+  - RUNTIME_TEMPLATES_MODULE_ENABLE
+  - STUDY_MODULE_ENABLE
+  m_oSubCommonDefineSymbolList:
+  - MODULE_VER_2_0_0_OR_NEWER
+  - MODULE_VER_2_0_1_OR_NEWER
+  - MODULE_VER_2_0_2_OR_NEWER
+  m_oiOSAppleDefineSymbolList: []
+  m_oAndroidGoogleDefineSymbolList: []
+  m_oAndroidAmazonDefineSymbolList: []
+  m_oAndroidOneStoreDefineSymbolList: []
+  m_oStandaloneMacAppleDefineSymbolList: []
+  m_oStandaloneMacSteamDefineSymbolList: []
+  m_oStandaloneWndsSteamDefineSymbolList: []

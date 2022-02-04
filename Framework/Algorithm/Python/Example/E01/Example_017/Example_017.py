@@ -3,6 +3,7 @@ import sys
 
 # Example 17
 def Example_017(args:[str]):
+	nOffset = 2
 	nMinVal = 10
 	
 	for i in range(nMinVal, sys.maxsize):

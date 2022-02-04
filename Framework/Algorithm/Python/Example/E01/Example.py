@@ -21,7 +21,7 @@ from Example_083.Example_083 import Example_083
 
 # 메인 모듈 일 경우
 if __name__ == "__main__":
-	# Example_017(sys.argv)
+	Example_017(sys.argv)
 	# Example_021(sys.argv)
 	# Example_026(sys.argv)
 	# Example_030(sys.argv)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 	# Example_062(sys.argv)
 	# Example_066(sys.argv)
 	# Example_071(sys.argv)
-	Example_074(sys.argv)
+	# Example_074(sys.argv)
 	# Example_079(sys.argv)
 	# Example_083(sys.argv)
 	

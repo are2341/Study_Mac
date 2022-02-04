@@ -1,0 +1,12 @@
+{
+  "name": "module.unitystudydefine",
+  "version": "2.0.2",
+  "displayName": "Module.UnityStudyDefine",
+  "author": {
+    "name": "dante",
+    "email": "are2341@nate.com"
+  },
+  "dependencies": {
+    "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/02000001.module_unitycommondefine_client.git#2.0.2"
+  }
+}
