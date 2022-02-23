@@ -1,0 +1,23 @@
+{
+    "name": "Module.UnityStudyUtility",
+    "rootNamespace": "",
+    "references": [
+        "Module.UnityStudyDefine",
+        "Module.UnityCommonDefine",
+        "Module.UnityCommonAccess",
+        "Module.UnityCommonFactory",
+        "Module.UnityCommonExtension",
+        "Module.UnityCommonFunc",
+        "Module.UnityCommonUtility",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
