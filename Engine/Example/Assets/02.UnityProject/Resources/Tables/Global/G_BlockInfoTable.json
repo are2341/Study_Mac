@@ -1,0 +1,10 @@
+{
+    "Common": [
+        {
+            "Name": "Sample",
+            "Desc": "Sample",
+            "BlockKinds": "0",
+            "Description": "샘플 블럭 정보"
+        }
+    ]
+}

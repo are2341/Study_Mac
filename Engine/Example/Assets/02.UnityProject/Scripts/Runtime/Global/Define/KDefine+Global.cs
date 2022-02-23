@@ -232,7 +232,12 @@ public static partial class KDefine {
 	#endregion			// 런타임 상수
 
 	#region 추가 상수
-	
+	// 3x
+	public const string G_3X_E01_EXAMPLE_052 = "3xE01_Example_052";
+
+	// 기타
+	public const string G_ETC_E01_EXAMPLE_278 = "EtcE01_Example_278";
+	public const string G_ETC_E02_EXAMPLE_033 = "EtcE02_Example_033";
 	#endregion			// 추가 상수
 
 	#region 추가 런타임 상수

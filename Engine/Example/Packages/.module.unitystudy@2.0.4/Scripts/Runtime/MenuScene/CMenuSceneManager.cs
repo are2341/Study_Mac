@@ -70,10 +70,6 @@ public class CMenuSceneManager : CSceneManager {
 		m_oScrollRect = this.UIsBase.ExFindComponent<ScrollRect>(KSDefine.MS_OBJ_N_SCROLL_VIEW);
 		var oContents = m_oScrollRect.gameObject.ExFindChild(KCDefine.U_OBJ_N_CONTENTS);
 
-		for(int i = 0; i < KCDefine.B_VAL_2_INT; ++i) {
-			m_oEmptyTextList.Add(CFactory.CreateCloneObj<TMP_Text>(KCDefine.U_OBJ_N_EMPTY, KSDefine.MS_OBJ_P_TEXT, oContents));
-		}
-
 		for(int i = KSDefine.MS_DEF_SCENE_NAMES.Count; i < SceneManager.sceneCountInBuildSettings; ++i) {
 			string oSceneName = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i));
 
@@ -98,6 +94,10 @@ public class CMenuSceneManager : CSceneManager {
 				int nIdx = i;
 				oText.GetComponentInChildren<Button>().onClick.AddListener(() => this.OnTouchText(nIdx));
 			}
+		}
+
+		for(int i = 0; i < KCDefine.B_UNIT_DIGITS_PER_TEN; ++i) {
+			m_oEmptyTextList.Add(CFactory.CreateCloneObj<TMP_Text>(KCDefine.U_OBJ_N_EMPTY, KSDefine.MS_OBJ_P_TEXT, oContents));
 		}
 	}
 

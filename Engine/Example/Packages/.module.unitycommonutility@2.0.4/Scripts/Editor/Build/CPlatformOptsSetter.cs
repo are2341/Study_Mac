@@ -132,8 +132,6 @@ public static partial class CPlatformOptsSetter {
 							stKeyVal.Value.ExAddVal(oExtraDefineSymbolInfoListA[i].Item2);
 						}
 					}
-
-					stKeyVal.Value.ExAddVal(KCEditorDefine.DS_DEFINE_S_LOCALIZE_TEST_ENABLE);
 				}
 
 				// 스터디 전처리기 심볼이 존재 할 경우
@@ -142,7 +140,7 @@ public static partial class CPlatformOptsSetter {
 						stKeyVal.Value.ExAddVal(oExtraDefineSymbolList[i]);
 					}
 				}
-
+				
 				for(int i = 0; i < oExtraDefineSymbolInfoListB.Count; ++i) {
 					// 전처리기 심볼이 존재 할 경우
 					if(stKeyVal.Value.Contains(oExtraDefineSymbolInfoListB[i].Item1)) {

@@ -72,7 +72,7 @@ public abstract class CStudySceneManager : CSceneManager {
 
 		// 컨텐츠가 존재 할 경우
 		if(m_oContents != null) {
-			for(int i = 0; i < KCDefine.B_VAL_4_INT; ++i) {
+			for(int i = 0; i < KCDefine.B_UNIT_DIGITS_PER_TEN; ++i) {
 				m_oEmptyTextList.Add(CFactory.CreateCloneObj<TMP_Text>(KCDefine.U_OBJ_N_EMPTY, KSDefine.SS_OBJ_P_TEXT, m_oContents));
 			}
 		}

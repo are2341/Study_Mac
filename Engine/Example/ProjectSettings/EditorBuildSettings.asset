@@ -51,6 +51,27 @@ EditorBuildSettings:
     path: Assets/03.SubUnityProject/Scenes/00.Test/91.TestScene.unity
     guid: c7eb7aa26a9574242807711e6b2b53c0
   - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/3x/E01/00.===== \uC655\uCD08\uBCF4 \uB530\uB77C\uD558\uC5EC
+      \uAC8C\uC784 \uB9CC\uB4E4\uAE30 =====.unity"
+    guid: 3ea70754b8f534bf3b84a70fa1c4c5ab
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/3x/E01/3xE01_Example_052.unity
+    guid: 98d6cd7ee2f4e40ba94c10132f05a302
+  - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/Etc/E01/00.===== \uC720\uB2C8\uD2F0 \uADF8\uB798\uD53D\uC2A4
+      \uCD5C\uC801\uD654 \uC2A4\uD0C0\uD2B8\uC5C5 =====.unity"
+    guid: 9efc455ce8696424fa6c3c2f0ee99483
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/Etc/E01/EtcE01_Example_278.unity
+    guid: 4ff8cc088aa384b63a18d51278ca51d0
+  - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/Etc/E02/00.===== \uC720\uB2C8\uD2F0 UI
+      \uB514\uC790\uC778 \uAD50\uACFC\uC11C =====.unity"
+    guid: 5edc686cb9bb848f0bb3d2702027f96f
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/Etc/E02/EtcE02_Example_033.unity
+    guid: 6d904b347f1f949dab0cc9d1f81aa2f4
+  - enabled: 1
     path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
     guid: 402a8a554dfa843c6bdd8a25185a483d
   m_configObjects: {}
