@@ -83,7 +83,10 @@ public abstract class CStudySceneManager : CSceneManager {
 		for(int i = 0; i < m_oEmptyTextList.Count; ++i) {
 			m_oEmptyTextList[i].transform.SetAsLastSibling();
 			m_oEmptyTextList[i].gameObject.ExSetEnableComponent<Button>(false, false);
+
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 			m_oEmptyTextList[i].ExSetText(string.Empty, CLocalizeInfoTable.Inst.GetFontSetInfo(EFontSet.A));
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 		}
 	}
 	#endregion			// 함수

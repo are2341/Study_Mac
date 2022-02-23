@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if NEVER_USE_THIS
+#if SCRIPT_TEMPLATE_ONLY
 #if STUDY_MODULE_ENABLE && SCENE_TEMPLATES_MODULE_ENABLE
 /** 서브 메뉴 씬 관리자 */
 public class CSubMenuSceneManager : CMenuSceneManager {
@@ -56,4 +56,4 @@ public class CSubMenuSceneManager : CMenuSceneManager {
 	#endregion			// 추가 함수
 }
 #endif			// #if STUDY_MODULE_ENABLE && SCENE_TEMPLATES_MODULE_ENABLE
-#endif			// #if NEVER_USE_THIS
+#endif			// #if SCRIPT_TEMPLATE_ONLY

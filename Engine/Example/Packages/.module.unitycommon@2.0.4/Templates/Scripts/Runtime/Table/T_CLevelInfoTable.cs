@@ -4,10 +4,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
+
+#if SCRIPT_TEMPLATE_ONLY
+#if RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
-#if NEVER_USE_THIS
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 셀 정보 */
 [MessagePackObject][System.Serializable]
 public class CCellInfo : CBaseInfo, System.ICloneable {
@@ -648,4 +649,4 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 	#endregion			// 추가 함수
 }
 #endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
-#endif			// #if NEVER_USE_THIS
+#endif			// #if SCRIPT_TEMPLATE_ONLY

@@ -77,10 +77,14 @@ public class CMenuSceneManager : CSceneManager {
 		for(int i = KSDefine.MS_DEF_SCENE_NAMES.Count; i < SceneManager.sceneCountInBuildSettings; ++i) {
 			string oSceneName = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i));
 
-			// 텍스트를 설정한다
+			// 텍스트를 설정한다 {
 			var oText = CFactory.CreateCloneObj<TMP_Text>(string.Format(KSDefine.MS_OBJ_N_FMT_TEXT, i), KSDefine.MS_OBJ_P_TEXT, oContents);
 			oText.color = oSceneName.Contains(KSDefine.MS_TOKEN_TITLE) ? KSDefine.MS_COLOR_TITLE : oText.color;
+
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 			oText.ExSetText(oSceneName, CLocalizeInfoTable.Inst.GetFontSetInfo(EFontSet.A));
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
+			// 텍스트를 설정한다 }
 			
 			// 레벨 에디터 씬 일 경우
 			if(oSceneName.Equals(KCDefine.B_SCENE_N_LEVEL_EDITOR)) {
@@ -102,7 +106,10 @@ public class CMenuSceneManager : CSceneManager {
 		for(int i = 0; i < m_oEmptyTextList.Count; ++i) {
 			m_oEmptyTextList[i].transform.SetAsLastSibling();
 			m_oEmptyTextList[i].gameObject.ExSetEnableComponent<Button>(false, false);
+
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 			m_oEmptyTextList[i].ExSetText(string.Empty, CLocalizeInfoTable.Inst.GetFontSetInfo(EFontSet.A));
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 		}
 	}
 	

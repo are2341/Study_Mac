@@ -8,13 +8,16 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using TMPro;
 using Unity.Linq;
 using DG.Tweening;
-using Coffee.UIExtensions;
 using MessagePack;
-using TMPro;
-using Newtonsoft.Json;
+using Coffee.UIExtensions;
 using DanielLochner.Assets.SimpleScrollSnap;
+
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
+using Newtonsoft.Json;
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 
 /** 유틸리티 확장 클래스 */
 public static partial class CExtension {
@@ -1200,15 +1203,6 @@ public static partial class CExtension {
 	}
 
 	/** 객체 => JSON 문자열로 변환한다 */
-	public static string ExToJSONStr<T>(this T a_tSender, bool a_bIsNeedRoot = false, bool a_bIsPretty = false) {
-		object oObj = !a_bIsNeedRoot ? a_tSender as object : new Dictionary<string, object>() {
-			[KCDefine.B_KEY_JSON_ROOT_DATA] = a_tSender
-		};
-
-		return JsonConvert.SerializeObject(oObj, a_bIsPretty ? Formatting.Indented : Formatting.None);
-	}
-
-	/** 객체 => JSON 문자열로 변환한다 */
 	public static string ExToMsgPackJSONStr<T>(this T a_tSender) {
 		return MessagePackSerializer.ConvertToJson(MessagePackSerializer.Serialize<T>(a_tSender));
 	}
@@ -1216,12 +1210,6 @@ public static partial class CExtension {
 	/** 객체 => Base64 문자열로 변환한다 */
 	public static string ExToMsgPackBase64Str<T>(this T a_tSender) {
 		return System.Convert.ToBase64String(MessagePackSerializer.Serialize<T>(a_tSender));
-	}
-
-	/** JSON 문자열 => 객체로 변환한다 */
-	public static T ExJSONStrToObj<T>(this string a_oSender) {
-		CAccess.Assert(a_oSender.ExIsValid());
-		return JsonConvert.DeserializeObject<T>(a_oSender);
 	}
 
 	/** JSON 문자열 => 객체로 변환한다 */
@@ -1396,4 +1384,23 @@ EXIT_ENUMERATE_COMPONENTS:
 	}
 #endif			// #if DOTWEEN_ENABLE
 	#endregion			// 조건부 클래스 함수
+
+	#region 조건부 제네릭 클래스 함수
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
+	/** 객체 => JSON 문자열로 변환한다 */
+	public static string ExToJSONStr<T>(this T a_tSender, bool a_bIsNeedRoot = false, bool a_bIsPretty = false) {
+		object oObj = !a_bIsNeedRoot ? a_tSender as object : new Dictionary<string, object>() {
+			[KCDefine.B_KEY_JSON_ROOT_DATA] = a_tSender
+		};
+
+		return JsonConvert.SerializeObject(oObj, a_bIsPretty ? Formatting.Indented : Formatting.None);
+	}
+	
+	/** JSON 문자열 => 객체로 변환한다 */
+	public static T ExJSONStrToObj<T>(this string a_oSender) {
+		CAccess.Assert(a_oSender.ExIsValid());
+		return JsonConvert.DeserializeObject<T>(a_oSender);
+	}
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
+	#endregion			// 조건부 제네릭 클래스 함수
 }

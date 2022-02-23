@@ -4,10 +4,11 @@ using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
+
+#if SCRIPT_TEMPLATE_ONLY
+#if RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
-#if NEVER_USE_THIS
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 기본 정보 */
 [Union(0, typeof(CAppInfo))]
 [Union(1, typeof(CUserInfo))]
@@ -86,4 +87,4 @@ public abstract class CBaseInfo : IMessagePackSerializationCallbackReceiver {
 	#endregion			// 함수
 }
 #endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
-#endif			// #if NEVER_USE_THIS
+#endif			// #if SCRIPT_TEMPLATE_ONLY

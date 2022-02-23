@@ -2,7 +2,7 @@
     "dependencies": [
         {
             "name": "module.unitystudy",
-            "hash": "bb56a4e2a4c0092a05b5d6f07bad66fc2d1063af",
+            "hash": "00008b202c12c47b51d53dc7903eba4b85fa6548",
             "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudy_client.git#2.0.4"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "name": "module.unitycommon",
-            "hash": "332a24534442bd771200f39ed878b266c1c9d15f",
+            "hash": "29eb44bad73eea15f8755c119e0657f0e81beff3",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommon_client.git#2.0.4"
         },
         {
@@ -22,12 +22,12 @@
         },
         {
             "name": "module.unitystudyutility",
-            "hash": "32facdd1fc9f6a23ff6f4f5643ddcd8529367053",
+            "hash": "a0c013f14a86bf7a21c07a8f4fa1f8e96445fcb8",
             "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudyutility_client.git#2.0.4"
         },
         {
             "name": "module.unitycommondefine",
-            "hash": "74a837a8678c508fc6ec42e9617596da56658aa3",
+            "hash": "efff960fed2c5a0a116fb801a447443b0f317909",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommondefine_client.git#2.0.4"
         },
         {
@@ -42,13 +42,18 @@
         },
         {
             "name": "module.unitycommonextension",
-            "hash": "ef37a2aeb7d0051f092b34f6d55f868be011e37c",
+            "hash": "a4eb42e7b686b8c08e2706b667e5be17dca1222e",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonextension_client.git#2.0.4"
         },
         {
             "name": "module.unitycommonfunc",
-            "hash": "7da45bc8e3b472b03db623677d7fd946617c0cc2",
+            "hash": "e63512d34e5712f78ee1f68418584d66fdcea823",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfunc_client.git#2.0.4"
+        },
+        {
+            "name": "module.unitycommonutility",
+            "hash": "911cc9f4f2d41ce88680767925dd7ad7b8e61684",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonutility_client.git#2.0.4"
         },
         {
             "name": "module.unitycommonexternals",

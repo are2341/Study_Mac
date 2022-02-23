@@ -13,12 +13,12 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: LKStudio
-  productName: Etc_Example
+  productName: Example
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 1
+  m_ShowUnitySplashScreen: 0
+  m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 1
@@ -233,7 +233,7 @@ PlayerSettings:
   appleEnableAutomaticSigning: 2
   iOSRequireARKit: 0
   iOSAutomaticallyDetectAndAddCapabilities: 1
-  appleEnableProMotion: 0
+  appleEnableProMotion: 1
   shaderPrecisionModel: 0
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@8.1.0
@@ -273,42 +273,42 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 1024
       m_Height: 1024
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 512
       m_Height: 512
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 256
       m_Height: 256
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 64
       m_Height: 64
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 32
       m_Height: 32
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 995e8135cda754bcdb294acef24b248a, type: 3}
+      m_Icon: {fileID: 2800000, guid: a4f59f15ffe6c4c72b20e4f4db3d2832, type: 3}
       m_Width: 16
       m_Height: 16
       m_Kind: 0
@@ -853,9 +853,9 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN_ENABLE;MSG_PACK_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_0_1_OR_NEWER;MODULE_VER_2_0_2_OR_NEWER;MSAA_ENABLE;LIGHT_ENABLE;REALTIME_GI_ENABLE;LINEAR_PIPELINE_ENABLE;DEFERRED_RENDERING_ENABLE;ULTRA_QUALITY_LEVEL_ENABLE;REALTIME_REFLECTION_PROBES_ENABLE;REALTIME_ENVIRONMENT_LIGHTING_ENABLE;LIGHTMAP_SHADOW_BAKE_SHADOW_MASK_ENABLE;ENABLE_IL2CPP;RECEIPT_CHECK_ENABLE
-    Standalone: 
-    iPhone: DOTWEEN_ENABLE;MSG_PACK_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_0_1_OR_NEWER;MODULE_VER_2_0_2_OR_NEWER;MSAA_ENABLE;LIGHT_ENABLE;REALTIME_GI_ENABLE;LINEAR_PIPELINE_ENABLE;DEFERRED_RENDERING_ENABLE;ULTRA_QUALITY_LEVEL_ENABLE;REALTIME_REFLECTION_PROBES_ENABLE;REALTIME_ENVIRONMENT_LIGHTING_ENABLE;LIGHTMAP_SHADOW_BAKE_SHADOW_MASK_ENABLE;ENABLE_IL2CPP;RECEIPT_CHECK_ENABLE
+    Android: DOTWEEN_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MSAA_ENABLE;LINEAR_PIPELINE_ENABLE;DEFERRED_RENDERING_ENABLE;ENABLE_IL2CPP;RECEIPT_CHECK_ENABLE
+    Standalone: DOTWEEN_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MSAA_ENABLE;LINEAR_PIPELINE_ENABLE;DEFERRED_RENDERING_ENABLE;ENABLE_IL2CPP;RECEIPT_CHECK_ENABLE
+    iPhone: DOTWEEN_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MSAA_ENABLE;LINEAR_PIPELINE_ENABLE;DEFERRED_RENDERING_ENABLE;ENABLE_IL2CPP;RECEIPT_CHECK_ENABLE
   additionalCompilerArguments: {}
   platformArchitecture:
     iPhone: 1

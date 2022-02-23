@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if NEVER_USE_THIS
+#if SCRIPT_TEMPLATE_ONLY
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -34,10 +34,6 @@ public static partial class KEditorDefine {
 		[typeof(CUnityMsgSender)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CDeviceMsgReceiver)] = KCDefine.U_SCRIPT_O_SINGLETON,
 
-		[typeof(CCommonAppInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
-		[typeof(CCommonUserInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
-		[typeof(CCommonGameInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
-
 		[typeof(CSndManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CResManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CTaskManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
@@ -45,6 +41,12 @@ public static partial class KEditorDefine {
 		[typeof(CNavStackManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CIndicatorManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CCollectionManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
+
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
+		[typeof(CCommonAppInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CCommonUserInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CCommonGameInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 
 #if SCENE_TEMPLATES_MODULE_ENABLE
 		[typeof(CSubInitSceneManager)] = KCDefine.U_SCRIPT_O_INIT_SCENE_MANAGER,
@@ -155,15 +157,13 @@ public static partial class KEditorDefine {
 		// 기본
 		["com.unity.2d.sprite"] = "1.0.0",
 		["com.unity.2d.tilemap"] = "1.0.0",
+		["com.unity.localization"] = "1.0.5",
+		["com.unity.addressables"] = "1.19.18",
 		["com.unity.terrain-tools"] = "4.0.3",
 		["com.unity.2d.spriteshape"] = "7.0.3",
 		["com.unity.2d.tilemap.extras"] = "2.2.1",
 
 #if SAMPLE_PROJ || DEVELOPMENT_PROJ
-		// 렌더링
-		["com.unity.visualeffectgraph"] = "12.1.4",
-		["com.unity.render-pipelines.universal"] = "12.1.4",
-
 		// 분석
 		["com.unity.mobile.android-logcat"] = "1.2.3",
 		["com.unity.performance.profile-analyzer"] = "1.1.1",
@@ -177,7 +177,6 @@ public static partial class KEditorDefine {
 		["com.unity.formats.fbx"] = "4.1.2",
 		["com.unity.mathematics"] = "1.2.5",
 		["com.unity.localization"] = "1.0.5",
-		["com.unity.addressables"] = "1.19.18",
 		["com.unity.ads.ios-support"] = "1.0.0",
 
 #if ML_AGENTS_ENABLE || ML_AGENTS_MODULE_ENABLE
@@ -195,6 +194,11 @@ public static partial class KEditorDefine {
 #if POST_PROCESSING_ENABLE || POST_PROCESSING_MODULE_ENABLE
     	["com.unity.postprocessing"] = "3.2.0",
 #endif			// #if POST_PROCESSING_ENABLE || POST_PROCESSING_MODULE_ENABLE
+
+#if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
+		["com.unity.visualeffectgraph"] = "12.1.4",
+		["com.unity.render-pipelines.universal"] = "12.1.4",
+#endif			// #if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
 
 #if ANIMATION_2D_ENABLE || ANIMATION_2D_MODULE_ENABLE
 		["com.unity.2d.animation"] = "7.0.3",
@@ -425,4 +429,4 @@ public static partial class KEditorDefine {
 	#endregion			// 추가 런타임 상수
 }
 #endif			// #if UNITY_EDITOR
-#endif			// #if NEVER_USE_THIS
+#endif			// #if SCRIPT_TEMPLATE_ONLY

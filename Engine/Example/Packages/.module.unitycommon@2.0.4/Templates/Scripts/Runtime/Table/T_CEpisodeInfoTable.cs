@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+
+#if SCRIPT_TEMPLATE_ONLY
+#if RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
-#if NEVER_USE_THIS
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 레벨 정보 */
 [System.Serializable]
 public struct STLevelInfo {
@@ -564,4 +565,4 @@ public class CEpisodeInfoTable : CScriptableObj<CEpisodeInfoTable> {
 	#endregion			// 추가 함수
 }
 #endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
-#endif			// #if NEVER_USE_THIS
+#endif			// #if SCRIPT_TEMPLATE_ONLY

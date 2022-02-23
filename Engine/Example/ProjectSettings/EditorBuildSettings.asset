@@ -4,5 +4,53 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
+    guid: cf2edae44ff7d425397921ac9b0d89f6
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
+    guid: 7147da465d38c48a68496863079a25c0
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
+    guid: 14de6077716f744169709ac50834ad7e
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
+    guid: 04626f7d5f07b403d82a74d1c1ee79fc
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
+    guid: d9823dacc448147858b7449ef8179077
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
+    guid: 84e50984f58614763892245b05e080d0
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
+    guid: c670027be29534bffa207d84900d2a9c
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
+    guid: fa19462a3869c46c5a60d844f70b50f0
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/01.TitleScene.unity
+    guid: e3fec6f9d31724d149939cb03d3db137
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/02.MainScene.unity
+    guid: 04b1d104e4be44287a05f95a50387df0
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/03.GameScene.unity
+    guid: 8c0546e7728714d32bfa08189701be3e
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/91.LoadingScene.unity
+    guid: 729e65eed3a944c87af216217a2248e9
+  - enabled: 1
+    path: Assets/02.UnityProject/Scenes/92.OverlayScene.unity
+    guid: 8ec10a7568aa14bbc9570d35e305c57b
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/00.Test/00.===== Test =====.unity
+    guid: 333fcb7d9aa664a6695d525c6d8c4336
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/00.Test/91.TestScene.unity
+    guid: c7eb7aa26a9574242807711e6b2b53c0
+  - enabled: 1
+    path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
+    guid: 402a8a554dfa843c6bdd8a25185a483d
   m_configObjects: {}
