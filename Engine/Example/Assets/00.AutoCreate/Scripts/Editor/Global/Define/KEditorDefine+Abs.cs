@@ -30,9 +30,6 @@ public static partial class KEditorDefine {
 		[typeof(CValTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CStrTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 
-		[typeof(CUnityMsgSender)] = KCDefine.U_SCRIPT_O_SINGLETON,
-		[typeof(CDeviceMsgReceiver)] = KCDefine.U_SCRIPT_O_SINGLETON,
-
 		[typeof(CSndManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CResManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CTaskManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
@@ -40,6 +37,9 @@ public static partial class KEditorDefine {
 		[typeof(CNavStackManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CIndicatorManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CCollectionManager)] = KCDefine.U_SCRIPT_O_SINGLETON,
+
+		[typeof(CUnityMsgSender)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CDeviceMsgReceiver)] = KCDefine.U_SCRIPT_O_SINGLETON,
 
 #if NEWTON_SOFT_JSON_MODULE_ENABLE
 		[typeof(CCommonAppInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
@@ -66,8 +66,13 @@ public static partial class KEditorDefine {
 		[typeof(CSaleItemInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CSaleProductInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CMissionInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		
 		[typeof(CRewardInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CEpisodeInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CTutorialInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CFXInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CBlockInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
+
 		[typeof(CAppInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CUserInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CGameInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
@@ -155,12 +160,11 @@ public static partial class KEditorDefine {
 	public static readonly Dictionary<string, string> B_UNITY_PKGS_DEPENDENCY_DICT = new Dictionary<string, string>() {
 		// 기본
 		["com.unity.2d.sprite"] = "1.0.0",
-		["com.unity.2d.tilemap"] = "1.0.0",
 		["com.unity.localization"] = "1.0.5",
-		["com.unity.addressables"] = "1.19.18",
 		["com.unity.terrain-tools"] = "4.0.3",
-		["com.unity.2d.spriteshape"] = "7.0.3",
+		["com.unity.2d.spriteshape"] = "7.0.4",
 		["com.unity.2d.tilemap.extras"] = "2.2.1",
+		["com.unity.animation.rigging"] = "1.1.1",
 
 #if SAMPLE_PROJ || DEVELOPMENT_PROJ
 		// 분석
@@ -168,14 +172,10 @@ public static partial class KEditorDefine {
 		["com.unity.performance.profile-analyzer"] = "1.1.1",
 
 		// 기타
-		["com.unity.burst"] = "1.6.4",
-		["com.unity.recorder"] = "3.0.3",
 		["com.unity.sequences"] = "1.0.4",
 		["com.unity.polybrush"] = "1.1.2",
 		["com.unity.probuilder"] = "5.0.4",
 		["com.unity.formats.fbx"] = "4.1.2",
-		["com.unity.mathematics"] = "1.2.5",
-		["com.unity.localization"] = "1.0.5",
 		["com.unity.ads.ios-support"] = "1.0.0",
 
 #if ML_AGENTS_ENABLE || ML_AGENTS_MODULE_ENABLE
@@ -191,52 +191,50 @@ public static partial class KEditorDefine {
 #endif			// #if INPUT_SYSTEM_ENABLE || INPUT_SYSTEM_MODULE_ENABLE
 
 #if POST_PROCESSING_ENABLE || POST_PROCESSING_MODULE_ENABLE
-    	["com.unity.postprocessing"] = "3.2.0",
+    	["com.unity.postprocessing"] = "3.2.1",
 #endif			// #if POST_PROCESSING_ENABLE || POST_PROCESSING_MODULE_ENABLE
 
 #if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
-		["com.unity.visualeffectgraph"] = "12.1.4",
-		["com.unity.render-pipelines.universal"] = "12.1.4",
+		["com.unity.visualeffectgraph"] = "12.1.5",
+		["com.unity.render-pipelines.universal"] = "12.1.5",
 #endif			// #if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
 
 #if ANIMATION_2D_ENABLE || ANIMATION_2D_MODULE_ENABLE
-		["com.unity.2d.animation"] = "7.0.3",
-		["com.unity.2d.psdimporter"] = "6.0.2",
-		["com.unity.animation.rigging"] = "1.1.1",
+		["com.unity.2d.psdimporter"] = "6.0.3",
 #endif			// #if ANIMATION_2D_ENABLE || ANIMATION_2D_MODULE_ENABLE
 
 #if ADS_ENABLE || ADS_MODULE_ENABLE
-		["module.unitycommonads"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonads_client.git#2.0.4",
+		["module.unitycommonads"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonads_client.git#2.0.11",
 #endif			// #if ADS_ENABLE || ADS_MODULE_ENABLE
 
 #if FLURRY_ENABLE || FLURRY_MODULE_ENABLE
-		["module.unitycommonflurry"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonflurry_client.git#2.0.4",
+		["module.unitycommonflurry"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonflurry_client.git#2.0.11",
 #endif			// #if FLURRY_ENABLE || FLURRY_MODULE_ENABLE
 
 #if FACEBOOK_ENABLE || FACEBOOK_MODULE_ENABLE
-		["module.unitycommonfacebook"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfacebook_client.git#2.0.4",
+		["module.unitycommonfacebook"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfacebook_client.git#2.0.11",
 #endif			// #if FACEBOOK_ENABLE || FACEBOOK_MODULE_ENABLE
 
 #if FIREBASE_ENABLE || FIREBASE_MODULE_ENABLE
-		["module.unitycommonfirebase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfirebase_client.git#2.0.4",
+		["module.unitycommonfirebase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfirebase_client.git#2.0.11",
 #endif			// #if FIREBASE_ENABLE || FIREBASE_MODULE_ENABLE
 
 #if APPS_FLYER_ENABLE || APPS_FLYER_MODULE_ENABLE
-		["module.unitycommonappsflyer"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonappsflyer_client.git#2.0.4",
+		["module.unitycommonappsflyer"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonappsflyer_client.git#2.0.11",
 #endif			// #if APPS_FLYER_ENABLE || APPS_FLYER_MODULE_ENABLE
 
 #if GAME_CENTER_ENABLE || GAME_CENTER_MODULE_ENABLE
-		["module.unitycommongamecenter"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommongamecenter_client.git#2.0.4",
+		["module.unitycommongamecenter"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommongamecenter_client.git#2.0.11",
 #endif			// #if GAME_CENTER_ENABLE || GAME_CENTER_MODULE_ENABLE
 
 #if PURCHASE_ENABLE || PURCHASE_MODULE_ENABLE
-		["com.unity.purchasing"] = "4.1.2",
-		["module.unitycommonpurchase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonpurchase_client.git#2.0.4",
+		["com.unity.purchasing"] = "4.1.3",
+		["module.unitycommonpurchase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonpurchase_client.git#2.0.11",
 #endif			// #if PURCHASE_ENABLE || PURCHASE_MODULE_ENABLE
 
 #if NOTI_ENABLE || NOTI_MODULE_ENABLE
-		["com.unity.mobile.notifications"] = "1.4.2",
-		["module.unitycommon.Noti"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommon_Noti_client.git#2.0.4"
+		["com.unity.mobile.notifications"] = "2.0.0",
+		["module.unitycommon.Noti"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommon_Noti_client.git#2.0.11"
 #endif			// #if NOTI_ENABLE || NOTI_MODULE_ENABLE
 #endif			// #if SAMPLE_PROJ || DEVELOPMENT_PROJ
 	};

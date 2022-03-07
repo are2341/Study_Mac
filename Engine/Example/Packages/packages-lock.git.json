@@ -2,63 +2,63 @@
     "dependencies": [
         {
             "name": "module.unitystudy",
-            "hash": "00008b202c12c47b51d53dc7903eba4b85fa6548",
-            "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudy_client.git#2.0.4"
+            "hash": "6e3ddb6878376194259171ed331e94cb70cb114c",
+            "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudy_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonimporter",
-            "hash": "fbd20e25e2ce47f05f636b764d1dae3fe26165a2",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonimporter_client.git#2.0.4"
+            "hash": "43ea13b0ae16f38de8b56ce1d73b86f2c8e758e0",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonimporter_client.git#2.0.11"
         },
         {
             "name": "module.unitycommon",
-            "hash": "29eb44bad73eea15f8755c119e0657f0e81beff3",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommon_client.git#2.0.4"
+            "hash": "12deaa58479ff9121b3dff05b19211657c2afa53",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommon_client.git#2.0.11"
         },
         {
             "name": "module.unitystudydefine",
-            "hash": "b2ce173f7ae14f9b58fc48881ba184f67d0cf94b",
-            "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudydefine_client.git#2.0.4"
+            "hash": "8e96b28b3ffc30d01c5ee1b4e9a1db0eeb246f2b",
+            "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudydefine_client.git#2.0.11"
         },
         {
             "name": "module.unitystudyutility",
-            "hash": "a0c013f14a86bf7a21c07a8f4fa1f8e96445fcb8",
-            "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudyutility_client.git#2.0.4"
+            "hash": "1984527a3d5aca15f6861ef43eaecf4948f74fed",
+            "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/03000001.module_unitystudyutility_client.git#2.0.11"
         },
         {
             "name": "module.unitycommondefine",
-            "hash": "efff960fed2c5a0a116fb801a447443b0f317909",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommondefine_client.git#2.0.4"
+            "hash": "6f053e314a72007f175d87a7d750c5abd9714cca",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommondefine_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonaccess",
-            "hash": "8e1e38e1a6611ddddba08baf107c2e7878679de1",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonaccess_client.git#2.0.4"
+            "hash": "6871cbc1fd0a9bffd58d73c94c68d42f2b7808a6",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonaccess_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonfactory",
-            "hash": "f48505496ed967aadee5096f847b7468836aec15",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfactory_client.git#2.0.4"
+            "hash": "ea41bb535f02a3518dcc09a3d28e8b4b0e524bbf",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfactory_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonextension",
-            "hash": "a4eb42e7b686b8c08e2706b667e5be17dca1222e",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonextension_client.git#2.0.4"
+            "hash": "488ccf9f048342175992bc520f4cb3fd4f81569e",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonextension_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonfunc",
-            "hash": "e63512d34e5712f78ee1f68418584d66fdcea823",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfunc_client.git#2.0.4"
+            "hash": "9f44e31c2fc11de3f1bbb6136316269d9605d9b9",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonfunc_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonutility",
-            "hash": "911cc9f4f2d41ce88680767925dd7ad7b8e61684",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonutility_client.git#2.0.4"
+            "hash": "1fa8bf78a2045aa7c2381c0da5b747d67ca02c2e",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonutility_client.git#2.0.11"
         },
         {
             "name": "module.unitycommonexternals",
-            "hash": "0dce482646a07c35e0d82f211438263188cc78b0",
-            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonexternals_client.git#2.0.4"
+            "hash": "924afd92effdacd202558cbcdb0fe4ec803247b8",
+            "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonexternals_client.git#2.0.11"
         }
     ]
 }

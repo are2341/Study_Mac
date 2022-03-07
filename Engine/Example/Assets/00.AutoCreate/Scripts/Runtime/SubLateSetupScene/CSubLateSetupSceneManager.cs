@@ -37,33 +37,40 @@ public class CSubLateSetupSceneManager : CLateSetupSceneManager {
 	/** 씬을 설정한다 */
 	protected override void Setup() {
 		base.Setup();
-		
-#if ADS_MODULE_ENABLE
+
+#if ADS_MODULE_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 		CAdsManager.Inst.IsEnableBannerAds = !CCommonUserInfoStorage.Inst.UserInfo.IsRemoveAds;
 		CAdsManager.Inst.IsEnableFullscreenAds = !CCommonUserInfoStorage.Inst.UserInfo.IsRemoveAds;
-#endif			// #if ADS_MODULE_ENABLE
+#endif			// #if ADS_MODULE_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 	}
 
 	/** 추적 설명 팝업을 출력한다 */
 	protected override void ShowTrackingDescPopup() {
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 		// 추적 설명 팝업 출력이 가능 할 경우
 		if(CCommonAppInfoStorage.Inst.AppInfo.IsEnableShowTrackingDescPopup) {
-			var stCallbackParams = new CTrackingDescPopup.STCallbackParams() {
-				m_oCallback = this.OnReceiveTrackingDescPopupResult
+			var stParams = new CTrackingDescPopup.STParams() {
+				m_oCallbackDict = new Dictionary<CTrackingDescPopup.ECallback, System.Action<CTrackingDescPopup>>() {
+					[CTrackingDescPopup.ECallback.NEXT] = this.OnReceiveTrackingDescPopupResult
+				}
 			};
 
 			var oTrackingDescPopup = CPopup.Create<CTrackingDescPopup>(KCDefine.LSS_OBJ_N_TRACKING_DESC_POPUP, KCDefine.LSS_OBJ_P_TRACKING_DESC_POPUP, this.PopupUIs);
-			oTrackingDescPopup.Init(stCallbackParams);
+			oTrackingDescPopup.Init(stParams);
 			oTrackingDescPopup.Show(null, null);
 		} else {
 			this.OnReceiveTrackingDescPopupResult(null);
 		}
+#else
+		this.OnReceiveTrackingDescPopupResult(null);
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 	}
 
 	/** 씬을 설정한다 */
 	private void SetupAwake() {
 		this.IsAutoInitManager = true;
 
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 #if UNITY_EDITOR
 		// 유저 타입이 유효 할 경우
 		if(m_eUserType.ExIsValid()) {
@@ -82,6 +89,7 @@ public class CSubLateSetupSceneManager : CLateSetupSceneManager {
 #endif			// #if AB_TEST_ENABLE
 		}
 #endif			// #if UNITY_EDITOR
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 
 #if UNITY_ANDROID
 		m_oPermissionList.ExAddVal(Permission.ExternalStorageRead);
@@ -94,8 +102,10 @@ public class CSubLateSetupSceneManager : CLateSetupSceneManager {
 		CLateSetupSceneManager.IsAutoLoadFullscreenAds = true;
 #endif			// #if ADS_MODULE_ENABLE && (!SAMPLE_PROJ && !CREATIVE_DIST_BUILD && !STUDY_MODULE_ENABLE)
 
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 		CCommonAppInfoStorage.Inst.DeviceConfig = CDeviceInfoTable.Inst.DeviceConfig;
 		CCommonUserInfoStorage.Inst.SaveUserInfo();
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 	}
 
 	/** 추적 설명 팝업 결과를 수신했을 경우 */

@@ -11,26 +11,38 @@ using UnityEngine.Purchasing;
 
 /** 상점 팝업 */
 public class CStorePopup : CSubPopup {
-	/** 매개 변수 */
-	public struct STParams {
-		public List<STSaleProductInfo> m_oSaleProductInfoList;
-	}
+	/** 콜백 */
+	public enum ECallback {
+		NONE = -1,
 
-	/** 콜백 매개 변수 */
-	public struct STCallbackParams {
 #if ADS_MODULE_ENABLE
-		public System.Action<CAdsManager, STAdsRewardInfo, bool> m_oAdsCallback;
+		ADS,
 #endif			// #if ADS_MODULE_ENABLE
 
 #if PURCHASE_MODULE_ENABLE
-		public System.Action<CPurchaseManager, string, bool> m_oPurchaseCallback;
-		public System.Action<CPurchaseManager, List<Product>, bool> m_oRestoreCallback;
+		PURCHASE,
+		RESTORE,
+#endif			// #if PURCHASE_MODULE_ENABLE
+
+		[HideInInspector] MAX_VAL
+	}
+
+	/** 매개 변수 */
+	public struct STParams {
+		public List<STSaleProductInfo> m_oSaleProductInfoList;
+
+#if ADS_MODULE_ENABLE
+		public Dictionary<ECallback, System.Action<CAdsManager, STAdsRewardInfo, bool>> m_oAdsCallbackDictA;
+#endif			// #if ADS_MODULE_ENABLE
+
+#if PURCHASE_MODULE_ENABLE
+		public Dictionary<ECallback, System.Action<CPurchaseManager, string, bool>> m_oPurchaseCallbackDictA;
+		public Dictionary<ECallback, System.Action<CPurchaseManager, List<Product>, bool>> m_oPurchaseCallbackDictB;
 #endif			// #if PURCHASE_MODULE_ENABLE
 	}
 
 	#region 변수
 	private STParams m_stParams;
-	private STCallbackParams m_stCallbackParams;
 	private ESaleProductKinds m_eSelSaleProductKinds = ESaleProductKinds.NONE;
 
 	/** =====> 객체 <===== */
@@ -60,11 +72,9 @@ public class CStorePopup : CSubPopup {
 	}
 	
 	/** 초기화 */
-	public virtual void Init(STParams a_stParams, STCallbackParams a_stCallbackParams) {
+	public virtual void Init(STParams a_stParams) {
 		base.Init();
-
 		m_stParams = a_stParams;
-		m_stCallbackParams = a_stCallbackParams;
 	}
 
 	/** 팝업 컨텐츠를 설정한다 */
@@ -201,9 +211,50 @@ public class CStorePopup : CSubPopup {
 		}
 
 		this.UpdateUIsState();
-		m_stCallbackParams.m_oAdsCallback?.Invoke(a_oSender, a_stAdsRewardInfo, a_bIsSuccess);
+		m_stParams.m_oAdsCallbackDictA.GetValueOrDefault(ECallback.ADS, null)?.Invoke(a_oSender, a_stAdsRewardInfo, a_bIsSuccess);
 	}
 #endif			// #if ADS_MODULE_ENABLE
+
+#if PURCHASE_MODULE_ENABLE
+	/** 상품이 결제 되었을 경우 */
+	private void OnPurchaseProduct(CPurchaseManager a_oSender, string a_oProductID, bool a_bIsSuccess) {
+		// 결제 되었을 경우
+		if(a_bIsSuccess) {
+			Func.AcquireProduct(a_oProductID);
+
+#if FIREBASE_MODULE_ENABLE
+			m_oPurchaseProductID = a_oProductID;
+			this.ExLateCallFunc((a_oCallFuncSender) => Func.SaveUserInfo(this.OnSaveUserInfo));
+#else
+			Func.OnPurchaseProduct(a_oSender, a_oProductID, a_bIsSuccess, null);
+#endif			// #if FIREBASE_MODULE_ENABLE
+		} else {
+			Func.OnPurchaseProduct(a_oSender, a_oProductID, a_bIsSuccess, null);
+		}
+
+		this.UpdateUIsState();
+		m_stParams.m_oPurchaseCallbackDictA.GetValueOrDefault(ECallback.PURCHASE, null)?.Invoke(a_oSender, a_oProductID, a_bIsSuccess);
+	}
+
+	/** 상품이 복원 되었을 경우 */
+	public void OnRestoreProducts(CPurchaseManager a_oSender, List<Product> a_oProductList, bool a_bIsSuccess) {
+		// 복원 되었을 경우
+		if(a_bIsSuccess) {
+			Func.AcquireRestoreProducts(a_oProductList);
+
+#if FIREBASE_MODULE_ENABLE
+			m_oRestoreProductList = a_oProductList;
+			this.ExLateCallFunc((a_oCallFuncSender) => Func.LoadPostItemInfos(this.OnLoadPostItemInfos));
+#else
+			Func.OnRestoreProducts(a_oSender, a_oProductList, a_bIsSuccess, null);
+#endif			// #if FIREBASE_MODULE_ENABLE
+		} else {
+			Func.OnRestoreProducts(a_oSender, a_oProductList, a_bIsSuccess, null);
+		}
+
+		this.UpdateUIsState();
+		m_stParams.m_oPurchaseCallbackDictB.GetValueOrDefault(ECallback.RESTORE, null)?.Invoke(a_oSender, a_oProductList, a_bIsSuccess);
+	}
 
 #if FIREBASE_MODULE_ENABLE
 	/** 결제 정보를 로드했을 경우 */
@@ -252,47 +303,6 @@ public class CStorePopup : CSubPopup {
 		Func.OnPurchaseProduct(CPurchaseManager.Inst, m_oPurchaseProductID, true, null);
 	}
 #endif			// #if FIREBASE_MODULE_ENABLE
-
-#if PURCHASE_MODULE_ENABLE
-	/** 상품이 결제 되었을 경우 */
-	private void OnPurchaseProduct(CPurchaseManager a_oSender, string a_oProductID, bool a_bIsSuccess) {
-		// 결제 되었을 경우
-		if(a_bIsSuccess) {
-			Func.AcquireProduct(a_oProductID);
-
-#if FIREBASE_MODULE_ENABLE
-			m_oPurchaseProductID = a_oProductID;
-			this.ExLateCallFunc((a_oCallFuncSender) => Func.SaveUserInfo(this.OnSaveUserInfo));
-#else
-			Func.OnPurchaseProduct(a_oSender, a_oProductID, a_bIsSuccess, null);
-#endif			// #if FIREBASE_MODULE_ENABLE
-		} else {
-			Func.OnPurchaseProduct(a_oSender, a_oProductID, a_bIsSuccess, null);
-		}
-
-		this.UpdateUIsState();
-		m_stCallbackParams.m_oPurchaseCallback?.Invoke(a_oSender, a_oProductID, a_bIsSuccess);
-	}
-
-	/** 상품이 복원 되었을 경우 */
-	public void OnRestoreProducts(CPurchaseManager a_oSender, List<Product> a_oProductList, bool a_bIsSuccess) {
-		// 복원 되었을 경우
-		if(a_bIsSuccess) {
-			Func.AcquireRestoreProducts(a_oProductList);
-
-#if FIREBASE_MODULE_ENABLE
-			m_oRestoreProductList = a_oProductList;
-			this.ExLateCallFunc((a_oCallFuncSender) => Func.LoadPostItemInfos(this.OnLoadPostItemInfos));
-#else
-			Func.OnRestoreProducts(a_oSender, a_oProductList, a_bIsSuccess, null);
-#endif			// #if FIREBASE_MODULE_ENABLE
-		} else {
-			Func.OnRestoreProducts(a_oSender, a_oProductList, a_bIsSuccess, null);
-		}
-
-		this.UpdateUIsState();
-		m_stCallbackParams.m_oRestoreCallback?.Invoke(a_oSender, a_oProductList, a_bIsSuccess);
-	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 함수
 

@@ -13,6 +13,7 @@ public static partial class LogFunc {
 	#region 클래스 함수
 	/** 로그를 전송한다 */
 	public static void SendLog(string a_oName, Dictionary<string, object> a_oDataDict, float? a_oVal = null) {
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 #if ANALYTICS_TEST_ENABLE
 		bool bIsEnableSendLog = true;
 #else
@@ -21,12 +22,31 @@ public static partial class LogFunc {
 
 		// 로그 전송이 가능 할 경우
 		if(bIsEnableSendLog || !CCommonAppInfoStorage.Inst.IsTestDevice()) {
-			CServicesManager.Inst.SendLog(a_oName, a_oDataDict);
+			var oDataDict = a_oDataDict ?? new Dictionary<string, object>();
+
+			oDataDict.TryAdd(KCDefine.L_LOG_KEY_PLATFORM, CCommonAppInfoStorage.Inst.Platform);
+			oDataDict.TryAdd(KCDefine.L_LOG_KEY_DEVICE_ID, CCommonAppInfoStorage.Inst.AppInfo.DeviceID);
+
+#if AUTO_LOG_PARAMS_ENABLE
+#if ANALYTICS_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+			oDataDict.TryAdd(KCDefine.L_LOG_KEY_USER_TYPE, KCDefine.B_TEXT_UNKNOWN);
+#else
+			oDataDict.TryAdd(KCDefine.L_LOG_KEY_USER_TYPE, CCommonUserInfoStorage.Inst.UserInfo.UserType.ToString());
+#endif			// #if ANALYTICS_TEST_ENABLE || (DEBUG || DEVELOPMENT_BUILD)
+
+			oDataDict.TryAdd(KCDefine.L_LOG_KEY_LOG_TIME, System.DateTime.UtcNow.ExToLongStr());
+
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
+			oDataDict.TryAdd(KCDefine.L_LOG_KEY_INSTALL_TIME, CCommonAppInfoStorage.Inst.AppInfo.UTCInstallTime.ExToLongStr());
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
+#endif			// #if AUTO_LOG_PARAMS_ENABLE
+
+			CServicesManager.Inst.SendLog(a_oName, oDataDict);
 
 #if FLURRY_MODULE_ENABLE
 			// 플러리 분석이 가능 할 경우
 			if(KDefine.G_ANALYTICS_TYPE_LOG_ENABLE_LIST.Contains(EAnalyticsType.FLURRY)) {
-				var oFlurryDataDict = (a_oDataDict != null) ? a_oDataDict.ExToTypes<string, object, string, string>() : null;
+				var oFlurryDataDict = (oDataDict != null) ? oDataDict.ExToTypes<string, object, string, string>() : null;
 				CFlurryManager.Inst.SendLog(a_oName, oFlurryDataDict);
 			}
 #endif			// #if FLURRY_MODULE_ENABLE
@@ -34,7 +54,7 @@ public static partial class LogFunc {
 #if FIREBASE_MODULE_ENABLE
 			// 파이어 베이스 분석이 가능 할 경우
 			if(KDefine.G_ANALYTICS_TYPE_LOG_ENABLE_LIST.Contains(EAnalyticsType.FIREBASE)) {
-				var oFirebaseDataDict = (a_oDataDict != null) ? a_oDataDict.ExToTypes<string, object, string, string>() : null;
+				var oFirebaseDataDict = (oDataDict != null) ? oDataDict.ExToTypes<string, object, string, string>() : null;
 				CFirebaseManager.Inst.SendLog(a_oName, oFirebaseDataDict);
 			}
 #endif			// #if FIREBASE_MODULE_ENABLE
@@ -42,11 +62,12 @@ public static partial class LogFunc {
 #if APPS_FLYER_MODULE_ENABLE
 			// 앱스 플라이어 분석이 가능 할 경우
 			if(KDefine.G_ANALYTICS_TYPE_LOG_ENABLE_LIST.Contains(EAnalyticsType.APPS_FLYER)) {
-				var oAppsFlyerDataDict = (a_oDataDict != null) ? a_oDataDict.ExToTypes<string, object, string, string>() : null;
+				var oAppsFlyerDataDict = (oDataDict != null) ? oDataDict.ExToTypes<string, object, string, string>() : null;
 				CAppsFlyerManager.Inst.SendLog(a_oName, oAppsFlyerDataDict);
 			}
 #endif			// #if APPS_FLYER_MODULE_ENABLE
 		}
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 	}
 	#endregion			// 클래스 함수
 
@@ -54,6 +75,7 @@ public static partial class LogFunc {
 #if PURCHASE_MODULE_ENABLE
 	/** 결제 로그를 전송한다 */
 	public static void SendPurchaseLog(Product a_oProduct, int a_nNumProducts = KCDefine.B_VAL_1_INT) {
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 #if ANALYTICS_TEST_ENABLE
 		bool bIsEnableSendLog = true;
 #else
@@ -85,6 +107,7 @@ public static partial class LogFunc {
 			}
 #endif			// #if APPS_FLYER_MODULE_ENABLE
 		}
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수

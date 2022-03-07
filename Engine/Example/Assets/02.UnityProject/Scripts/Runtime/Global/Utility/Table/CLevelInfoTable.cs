@@ -114,7 +114,7 @@ public class CLevelInfo : CBaseInfo, System.ICloneable {
 		set { m_oStrDict.ExReplaceVal(CLevelInfo.KEY_CELL_VER, value.ToString(KCDefine.B_VAL_3_INT)); }
 	}
 
-	[JsonIgnore][IgnoreMember] public long LevelID => CFactory.MakeUniqueLevelID(m_stIDInfo.m_nID, m_stIDInfo.m_nStageID, m_stIDInfo.m_nChapterID);
+	[JsonIgnore][IgnoreMember] public long UniqueLevelID => CFactory.MakeUniqueLevelID(m_stIDInfo.m_nID, m_stIDInfo.m_nStageID, m_stIDInfo.m_nChapterID);
 	#endregion			// 프로퍼티
 
 	#region ICloneable
@@ -226,7 +226,7 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 
 	public string LevelInfoTablePath {
 		get {
-#if AB_TEST_ENABLE
+#if AB_TEST_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
 			return (CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.A) ? KCDefine.U_RUNTIME_TABLE_P_G_LEVEL_INFO_SET_A : KCDefine.U_RUNTIME_TABLE_P_G_LEVEL_INFO_SET_B;
 #else
@@ -238,7 +238,7 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 #else
 			return KCDefine.U_TABLE_P_G_LEVEL_INFO;
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-#endif			// #if AB_TEST_ENABLE
+#endif			// #if AB_TEST_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 		}
 	}
 	
@@ -292,21 +292,25 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 
 	/** 레벨 정보 경로를 반환한다 */
 	private string GetLevelInfoPath(int a_nID, int a_nStageID = KCDefine.B_VAL_0_INT, int a_nChapterID = KCDefine.B_VAL_0_INT) {
-		long nLevelID = CFactory.MakeUniqueLevelID(a_nID, a_nStageID, a_nChapterID);
+		long nUniqueLevelID = CFactory.MakeUniqueLevelID(a_nID, a_nStageID, a_nChapterID);
 
-#if AB_TEST_ENABLE
+#if MSG_PACK_ENABLE || NEWTON_SOFT_JSON_MODULE_ENABLE
+#if AB_TEST_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-		return string.Format((CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.A) ? KCDefine.U_RUNTIME_DATA_P_FMT_G_LEVEL_INFO_SET_A : KCDefine.U_RUNTIME_DATA_P_FMT_G_LEVEL_INFO_SET_B, nLevelID + KCDefine.B_VAL_1_INT);
+		return string.Format((CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.A) ? KCDefine.U_RUNTIME_DATA_P_FMT_G_LEVEL_INFO_SET_A : KCDefine.U_RUNTIME_DATA_P_FMT_G_LEVEL_INFO_SET_B, nUniqueLevelID + KCDefine.B_VAL_1_INT);
 #else
-		return string.Format((CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.A) ? KCDefine.U_DATA_P_FMT_G_LEVEL_INFO_SET_A : KCDefine.U_DATA_P_FMT_G_LEVEL_INFO_SET_B, nLevelID + KCDefine.B_VAL_1_INT);
+		return string.Format((CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.A) ? KCDefine.U_DATA_P_FMT_G_LEVEL_INFO_SET_A : KCDefine.U_DATA_P_FMT_G_LEVEL_INFO_SET_B, nUniqueLevelID + KCDefine.B_VAL_1_INT);
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
 #else
 #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-		return string.Format(KCDefine.U_RUNTIME_DATA_P_FMT_G_LEVEL_INFO, nLevelID + KCDefine.B_VAL_1_INT);
+		return string.Format(KCDefine.U_RUNTIME_DATA_P_FMT_G_LEVEL_INFO, nUniqueLevelID + KCDefine.B_VAL_1_INT);
 #else
-		return string.Format(KCDefine.U_DATA_P_FMT_G_LEVEL_INFO, nLevelID + KCDefine.B_VAL_1_INT);
+		return string.Format(KCDefine.U_DATA_P_FMT_G_LEVEL_INFO, nUniqueLevelID + KCDefine.B_VAL_1_INT);
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-#endif			// #if AB_TEST_ENABLE
+#endif			// #if AB_TEST_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
+#else
+		return null;
+#endif			// #if MSG_PACK_ENABLE || NEWTON_SOFT_JSON_MODULE_ENABLE
 	}
 
 	/** 레벨 정보를 로드한다 */
@@ -319,7 +323,7 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 #else
 		oLevelInfo = CFunc.ReadMsgPackObjFromRes<CLevelInfo>(a_oFilePath, null, false);
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-#else
+#elif NEWTON_SOFT_JSON_MODULE_ENABLE
 #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
 		oLevelInfo = CFunc.ReadJSONObj<CLevelInfo>(a_oFilePath, null, false);
 #else
@@ -606,7 +610,7 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 	private void SaveLevelInfo(CLevelInfo a_oLevelInfo, List<long> a_oOutLevelIDList) {
 		CAccess.Assert(a_oLevelInfo != null && a_oOutLevelIDList != null);
 
-		a_oOutLevelIDList.Add(a_oLevelInfo.LevelID);
+		a_oOutLevelIDList.Add(a_oLevelInfo.UniqueLevelID);
 		CEpisodeInfoTable.Inst.TryGetLevelInfo(a_oLevelInfo.m_stIDInfo.m_nID, out STLevelInfo stLevelInfo, a_oLevelInfo.m_stIDInfo.m_nStageID, a_oLevelInfo.m_stIDInfo.m_nChapterID);
 
 		var stReplaceLevelInfo = new STLevelInfo() {
@@ -632,11 +636,11 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 		stLevelInfo.m_stEpisodeInfo.m_oNumTargetsDict?.ExCopyTo(stReplaceLevelInfo.m_stEpisodeInfo.m_oNumTargetsDict, (a_nNumTargets) => a_nNumTargets);
 		stLevelInfo.m_stEpisodeInfo.m_oNumUnlockTargetsDict?.ExCopyTo(stReplaceLevelInfo.m_stEpisodeInfo.m_oNumUnlockTargetsDict, (a_nNumUnlockTargets) => a_nNumUnlockTargets);
 
-		CEpisodeInfoTable.Inst.LevelInfoDict.ExReplaceVal(a_oLevelInfo.LevelID, stReplaceLevelInfo);
+		CEpisodeInfoTable.Inst.LevelInfoDict.ExReplaceVal(a_oLevelInfo.UniqueLevelID, stReplaceLevelInfo);
 
 #if MSG_PACK_ENABLE
 		CFunc.WriteMsgPackObj(this.GetLevelInfoPath(a_oLevelInfo.m_stIDInfo.m_nID, a_oLevelInfo.m_stIDInfo.m_nStageID, a_oLevelInfo.m_stIDInfo.m_nChapterID), a_oLevelInfo, null, false, false);
-#else
+#elif NEWTON_SOFT_JSON_MODULE_ENABLE
 		CFunc.WriteJSONObj(this.GetLevelInfoPath(a_oLevelInfo.m_stIDInfo.m_nID, a_oLevelInfo.m_stIDInfo.m_nStageID, a_oLevelInfo.m_stIDInfo.m_nChapterID), a_oLevelInfo, null, false, false, false, false);
 #endif			// #if MSG_PACK_ENABLE
 	}

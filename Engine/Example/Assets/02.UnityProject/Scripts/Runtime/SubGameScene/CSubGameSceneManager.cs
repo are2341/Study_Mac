@@ -77,7 +77,7 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 				if(!CLevelInfoTable.Inst.LevelInfoDictContainer.ExIsValid()) {
 					var oLevelInfo = Factory.MakeLevelInfo(KCDefine.B_VAL_0_INT);
 
-					Func.EditorSetupLevelInfo(oLevelInfo, new CSubEditorLevelCreateInfo() {
+					Func.SetupEditorLevelInfo(oLevelInfo, new CSubEditorLevelCreateInfo() {
 						m_nNumLevels = KCDefine.B_VAL_0_INT, m_stMinNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS, m_stMaxNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS
 					});
 					
@@ -205,15 +205,18 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 		bool bIsValid = CGameInfoStorage.Inst.TryGetClearInfo(CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo.m_nID, out CClearInfo oClearInfo, CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo.m_nStageID, CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo.m_nChapterID);
 
 		var stParams = new SampleEngineName.CEngine.STParams() {
-			m_oLevelInfo = CGameInfoStorage.Inst.PlayLevelInfo, m_oClearInfo = bIsValid ? oClearInfo : null, m_oBlockObjs = this.m_oBlockObjs
-		};
+			m_oLevelInfo = CGameInfoStorage.Inst.PlayLevelInfo,
+			m_oClearInfo = bIsValid ? oClearInfo : null,
+			m_oBlockObjs = this.m_oBlockObjs,
 
-		var stCallbackParams = new SampleEngineName.CEngine.STCallbackParams() {
-			m_oClearCallback = this.OnClearLevel, m_oClearFailCallback = this.OnClearFailLevel
+			m_oCallbackDict = new Dictionary<SampleEngineName.CEngine.ECallback, System.Action<SampleEngineName.CEngine>>() {
+				[SampleEngineName.CEngine.ECallback.CLEAR] = this.OnClearLevel,
+				[SampleEngineName.CEngine.ECallback.CLEAR_FAIL] = this.OnClearFailLevel
+			}
 		};
 
 		m_oEngine = CFactory.CreateObj<SampleEngineName.CEngine>(KDefine.GS_OBJ_N_ENGINE, this.gameObject);
-		m_oEngine.Init(stParams, stCallbackParams);
+		m_oEngine.Init(stParams);
 #endif			// #if ENGINE_TEMPLATES_MODULE_ENABLE
 	}
 
@@ -373,16 +376,17 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 #if RUNTIME_TEMPLATES_MODULE_ENABLE
 		Func.ShowContinuePopup(this.PopupUIs, (a_oSender) => {
 			var stParams = new CContinuePopup.STParams() {
-				m_nContinueTimes = this.m_nContinueTimes, m_oLevelInfo = this.m_oLevelInfo
+				m_nContinueTimes = this.m_nContinueTimes,
+				m_oLevelInfo = this.m_oLevelInfo,
+
+				m_oCallbackDict = new Dictionary<CContinuePopup.ECallback, System.Action<CContinuePopup>>() {
+					[CContinuePopup.ECallback.RETRY] = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.RETRY),
+					[CContinuePopup.ECallback.CONTINUE] = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.CONTINUE),
+					[CContinuePopup.ECallback.LEAVE] = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.LEAVE)
+				}
 			};
 
-			var stCallbackParams = new CContinuePopup.STCallbackParams() {
-				m_oRetryCallback = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.RETRY),
-				m_oContinueCallback = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.CONTINUE),
-				m_oLeaveCallback = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.LEAVE)
-			};
-
-			(a_oSender as CContinuePopup).Init(stParams, stCallbackParams);
+			(a_oSender as CContinuePopup).Init(stParams);
 		});
 #endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
 	}
@@ -396,21 +400,21 @@ public partial class CSubGameSceneManager : CGameSceneManager {
 					m_bIsSuccess = a_bIsClear,
 
 #if ENGINE_TEMPLATES_MODULE_ENABLE
-					m_nIntRecord = m_oEngine.IntRecord,
-					m_dblRealRecord = m_oEngine.RealRecord
+					m_nIntRecord = m_oEngine.IntRecord, m_dblRealRecord = m_oEngine.RealRecord
 #endif			// #if ENGINE_TEMPLATES_MODULE_ENABLE
 				},
 				
-				m_oLevelInfo = this.m_oLevelInfo, m_oClearInfo = this.m_oClearInfo
+				m_oLevelInfo = this.m_oLevelInfo,
+				m_oClearInfo = this.m_oClearInfo,
+
+				m_oCallbackDict = new Dictionary<CResultPopup.ECallback, System.Action<CResultPopup>>() {
+					[CResultPopup.ECallback.NEXT] = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.NEXT),
+					[CResultPopup.ECallback.RETRY] = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.RETRY),
+					[CResultPopup.ECallback.LEAVE] = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.LEAVE)
+				}
 			};
 
-			var stCallbackParams = new CResultPopup.STCallbackParams() {
-				m_oNextCallback = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.NEXT),
-				m_oRetryCallback = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.RETRY),
-				m_oLeaveCallback = (a_oPopupSender) => this.OnReceivePopupResult(a_oPopupSender, EPopupResult.LEAVE)
-			};
-
-			(a_oSender as CResultPopup).Init(stParams, stCallbackParams);
+			(a_oSender as CResultPopup).Init(stParams);
 		});
 #endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
 	}

@@ -4,6 +4,7 @@
             "Name": "Sample",
             "Desc": "Sample",
             "BlockKinds": "0",
+            "NextBlockKinds": "-1",
             "Description": "샘플 블럭 정보"
         }
     ]

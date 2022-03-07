@@ -173,6 +173,10 @@ public static partial class KDefine {
 		m_eRewardKinds = ERewardKinds.NONE, m_eTutorialKinds = ETutorialKinds.NONE, m_eNextTutorialKinds = ETutorialKinds.NONE
 	};
 
+	public static readonly STFXInfo G_INVALID_FX_INFO = new STFXInfo() {
+		m_eFXKinds = EFXKinds.NONE
+	};
+
 	public static readonly STBlockInfo G_INVALID_BLOCK_INFO = new STBlockInfo() {
 		m_eBlockKinds = EBlockKinds.NONE
 	};
@@ -198,7 +202,7 @@ public static partial class KDefine {
 	public static readonly string G_DATA_P_APP_INFO = $"{KCDefine.B_DIR_P_WRITABLE}AppInfo.bytes";
 	public static readonly string G_DATA_P_USER_INFO = $"{KCDefine.B_DIR_P_WRITABLE}UserInfo.bytes";
 	public static readonly string G_DATA_P_GAME_INFO = $"{KCDefine.B_DIR_P_WRITABLE}GameInfo.bytes";
-#else
+#elif NEWTON_SOFT_JSON_MODULE_ENABLE
 	public static readonly string G_DATA_P_APP_INFO = $"{KCDefine.B_DIR_P_WRITABLE}AppInfo.json";
 	public static readonly string G_DATA_P_USER_INFO = $"{KCDefine.B_DIR_P_WRITABLE}UserInfo.json";
 	public static readonly string G_DATA_P_GAME_INFO = $"{KCDefine.B_DIR_P_WRITABLE}GameInfo.json";
@@ -232,12 +236,7 @@ public static partial class KDefine {
 	#endregion			// 런타임 상수
 
 	#region 추가 상수
-	// 3x
-	public const string G_3X_E01_EXAMPLE_052 = "3xE01_Example_052";
-
-	// 기타
-	public const string G_ETC_E01_EXAMPLE_278 = "EtcE01_Example_278";
-	public const string G_ETC_E02_EXAMPLE_033 = "EtcE02_Example_033";
+	
 	#endregion			// 추가 상수
 
 	#region 추가 런타임 상수

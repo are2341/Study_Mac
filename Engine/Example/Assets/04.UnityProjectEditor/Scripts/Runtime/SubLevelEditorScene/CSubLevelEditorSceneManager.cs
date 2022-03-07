@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -13,8 +14,16 @@ using UnityEngine.InputSystem;
 #if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE && (DEBUG || DEVELOPMENT_BUILD)
 /** 서브 레벨 에디터 씬 관리자 */
 public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEnhancedScrollerDelegate {
-	/** 스크롤러 타입 */
-	private enum EScrollerType {
+	/** 입력 */
+	private enum EInput {
+		NONE = -1,
+		MOVE_LEVEL,
+		REMOVE_LEVEL,
+		[HideInInspector] MAX_VAL
+	}
+
+	/** 스크롤러 */
+	private enum EScroller {
 		NONE = -1,
 		LEVEL,
 		STAGE,
@@ -23,6 +32,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	}
 
 	#region 변수
+	private EInput m_eInput = EInput.NONE;
 	private EUserType m_eSelUserType = EUserType.NONE;
 
 	private SpriteRenderer m_oSelBlockSprite = null;
@@ -55,8 +65,8 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	private Button m_oLEUIsASetBtn = null;
 	private Button m_oLEUIsBSetBtn = null;
 
-	private Dictionary<EScrollerType, EnhancedScroller> m_oLEUIsScrollerDict = new Dictionary<EScrollerType, EnhancedScroller>();
-	private Dictionary<EScrollerType, EnhancedScrollerCellView> m_oLEUIsOriginScrollerCellViewDict = new Dictionary<EScrollerType, EnhancedScrollerCellView>();
+	private Dictionary<EScroller, EnhancedScroller> m_oLEUIsScrollerDict = new Dictionary<EScroller, EnhancedScroller>();
+	private Dictionary<EScroller, EnhancedScrollerCellView> m_oLEUIsOriginScrollerCellViewDict = new Dictionary<EScroller, EnhancedScrollerCellView>();
 	// 왼쪽 에디터 UI }
 	
 	// 오른쪽 에디터 UI {
@@ -65,6 +75,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 	private Button m_oREUIsPrevBtn = null;
 	private Button m_oREUIsNextBtn = null;
+	private Button m_oREUIsRemoveLevelBtn = null;
 
 	private InputField m_oREUIsLevelInput = null;
 	private InputField m_oREUIsNumCellsXInput = null;
@@ -87,11 +98,11 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	public virtual int GetNumberOfCells(EnhancedScroller a_oSender) {
 #if RUNTIME_TEMPLATES_MODULE_ENABLE
 		// 레벨 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oSender) {
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oSender) {
 			return CLevelInfoTable.Inst.GetNumLevelInfos(m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
 		}
 
-		return (m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oSender) ? CLevelInfoTable.Inst.GetNumStageInfos(m_oSelLevelInfo.m_stIDInfo.m_nChapterID) : CLevelInfoTable.Inst.NumChapterInfos;
+		return (m_oLEUIsScrollerDict[EScroller.STAGE] == a_oSender) ? CLevelInfoTable.Inst.GetNumStageInfos(m_oSelLevelInfo.m_stIDInfo.m_nChapterID) : CLevelInfoTable.Inst.NumChapterInfos;
 #else
 		return KCDefine.B_VAL_0_INT;
 #endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
@@ -100,11 +111,11 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	/** 셀 뷰 크기를 반환한다 */
 	public virtual float GetCellViewSize(EnhancedScroller a_oSender, int a_nDataIdx) {
 		// 레벨 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oSender) {
-			return (m_oLEUIsOriginScrollerCellViewDict[EScrollerType.LEVEL].transform as RectTransform).sizeDelta.y;
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oSender) {
+			return (m_oLEUIsOriginScrollerCellViewDict[EScroller.LEVEL].transform as RectTransform).sizeDelta.y;
 		}
 
-		return (m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oSender) ? (m_oLEUIsOriginScrollerCellViewDict[EScrollerType.STAGE].transform as RectTransform).sizeDelta.y : (m_oLEUIsOriginScrollerCellViewDict[EScrollerType.CHAPTER].transform as RectTransform).sizeDelta.y;
+		return (m_oLEUIsScrollerDict[EScroller.STAGE] == a_oSender) ? (m_oLEUIsOriginScrollerCellViewDict[EScroller.STAGE].transform as RectTransform).sizeDelta.y : (m_oLEUIsOriginScrollerCellViewDict[EScroller.CHAPTER].transform as RectTransform).sizeDelta.y;
 	}
 
 	/** 셀 뷰를 반환한다 */
@@ -117,10 +128,10 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 		var stColor = (m_oSelLevelInfo.m_stIDInfo.m_nID == a_nDataIdx) ? KCDefine.U_COLOR_NORM : KCDefine.U_COLOR_DISABLE;
 		var stIDInfo = CFactory.MakeIDInfo(a_nDataIdx, m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
-		var oOriginScrollerCellView = m_oLEUIsOriginScrollerCellViewDict[EScrollerType.LEVEL];
+		var oOriginScrollerCellView = m_oLEUIsOriginScrollerCellViewDict[EScroller.LEVEL];
 
 		// 스테이지 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oSender) {
+		if(m_oLEUIsScrollerDict[EScroller.STAGE] == a_oSender) {
 			nNumInfos = CLevelInfoTable.Inst.GetNumStageInfos(m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
 
 			oNameFmt = KCDefine.B_TEXT_FMT_STAGE;
@@ -128,10 +139,10 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 			stColor = (m_oSelLevelInfo.m_stIDInfo.m_nStageID == a_nDataIdx) ? KCDefine.U_COLOR_NORM : KCDefine.U_COLOR_DISABLE;
 			stIDInfo = CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT, a_nDataIdx, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
-			oOriginScrollerCellView = m_oLEUIsOriginScrollerCellViewDict[EScrollerType.STAGE];
+			oOriginScrollerCellView = m_oLEUIsOriginScrollerCellViewDict[EScroller.STAGE];
 		}
 		// 챕터 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oSender) {
+		else if(m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oSender) {
 			nNumInfos = CLevelInfoTable.Inst.NumChapterInfos;
 
 			oNameFmt = KCDefine.B_TEXT_FMT_CHAPTER;
@@ -139,32 +150,33 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 			stColor = (m_oSelLevelInfo.m_stIDInfo.m_nChapterID == a_nDataIdx) ? KCDefine.U_COLOR_NORM : KCDefine.U_COLOR_DISABLE;
 			stIDInfo = CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT, KCDefine.B_VAL_0_INT, a_nDataIdx);
-			oOriginScrollerCellView = m_oLEUIsOriginScrollerCellViewDict[EScrollerType.CHAPTER];
+			oOriginScrollerCellView = m_oLEUIsOriginScrollerCellViewDict[EScroller.CHAPTER];
 		}
 
 		var stParams = new CEditorScrollerCellView.STParams() {
 			m_stBaseParams = new CScrollerCellView.STParams() {
-				m_nID = CFactory.MakeUniqueLevelID(stIDInfo.m_nID, stIDInfo.m_nStageID, stIDInfo.m_nChapterID), m_oScroller = a_oSender
-			}
-		};
+				m_nID = CFactory.MakeUniqueLevelID(stIDInfo.m_nID, stIDInfo.m_nStageID, stIDInfo.m_nChapterID),
+				m_oScroller = a_oSender,
 
-		var stCallbackParams = new CEditorScrollerCellView.STCallbackParams() {
-			m_stBaseCallbackParams = new CScrollerCellView.STCallbackParams() {
+				m_oCallbackDict = new Dictionary<CScrollerCellView.ECallback, System.Action<CScrollerCellView, long>>() {
 #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-				m_oSelCallback = this.OnTouchSCVSelBtn
+					[CScrollerCellView.ECallback.SEL] = this.OnTouchSCVSelBtn
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
+				}
 			},
 
-#if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
-			m_oCopyCallback = this.OnTouchSCVCopyBtn, m_oMoveCallback = this.OnTouchSCVMoveBtn, m_oRemoveCallback = this.OnTouchSCVRemoveBtn
-#endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
+			m_oCallbackDict = new Dictionary<CEditorScrollerCellView.ECallback, System.Action<CEditorScrollerCellView, long>>() {
+				[CEditorScrollerCellView.ECallback.COPY] = this.OnTouchSCVCopyBtn,
+				[CEditorScrollerCellView.ECallback.MOVE] = this.OnTouchSCVMoveBtn,
+				[CEditorScrollerCellView.ECallback.REMOVE] = this.OnTouchSCVRemoveBtn
+			}
 		};
 
 		string oName = string.Format(oNameFmt, a_nDataIdx + KCDefine.B_VAL_1_INT);
 		string oScrollerCellViewName = string.Format(KCDefine.B_TEXT_FMT_2_SPACE_COMBINE, oName, oNumInfosStr);
 
 		var oScrollerCellView = a_oSender.GetCellView(oOriginScrollerCellView) as CEditorScrollerCellView;
-		oScrollerCellView.Init(stParams, stCallbackParams);
+		oScrollerCellView.Init(stParams);
 		oScrollerCellView.transform.localScale = Vector3.one;
 
 		oScrollerCellView.MoveBtn?.ExSetInteractable(nNumInfos > KCDefine.B_VAL_1_INT, false);
@@ -192,7 +204,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			if(!CLevelInfoTable.Inst.LevelInfoDictContainer.ExIsValid()) {
 				var oLevelInfo = Factory.MakeLevelInfo(KCDefine.B_VAL_0_INT);
 
-				Func.EditorSetupLevelInfo(oLevelInfo, new CSubEditorLevelCreateInfo() {
+				Func.SetupEditorLevelInfo(oLevelInfo, new CSubEditorLevelCreateInfo() {
 					m_nNumLevels = KCDefine.B_VAL_0_INT, m_stMinNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS, m_stMaxNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS
 				});
 
@@ -282,9 +294,9 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		var oStageScrollerCellView = CResManager.Inst.GetRes<GameObject>(KCDefine.E_OBJ_P_STAGE_EDITOR_SCROLLER_CELL_VIEW);
 		var oChapterScrollerCellView = CResManager.Inst.GetRes<GameObject>(KCDefine.E_OBJ_P_CHAPTER_EDITOR_SCROLLER_CELL_VIEW);
 
-		m_oLEUIsOriginScrollerCellViewDict.Add(EScrollerType.LEVEL, oLevelScrollerCellView?.GetComponentInChildren<EnhancedScrollerCellView>());
-		m_oLEUIsOriginScrollerCellViewDict.Add(EScrollerType.STAGE, oStageScrollerCellView?.GetComponentInChildren<EnhancedScrollerCellView>());
-		m_oLEUIsOriginScrollerCellViewDict.Add(EScrollerType.CHAPTER, oChapterScrollerCellView?.GetComponentInChildren<EnhancedScrollerCellView>());
+		m_oLEUIsOriginScrollerCellViewDict.Add(EScroller.LEVEL, oLevelScrollerCellView?.GetComponentInChildren<EnhancedScrollerCellView>());
+		m_oLEUIsOriginScrollerCellViewDict.Add(EScroller.STAGE, oStageScrollerCellView?.GetComponentInChildren<EnhancedScrollerCellView>());
+		m_oLEUIsOriginScrollerCellViewDict.Add(EScroller.CHAPTER, oChapterScrollerCellView?.GetComponentInChildren<EnhancedScrollerCellView>());
 		// 스크롤 뷰를 설정한다 }
 
 #if UNITY_STANDALONE && RUNTIME_TEMPLATES_MODULE_ENABLE
@@ -394,7 +406,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 				var oLevelInfo = Factory.MakeLevelInfo(KCDefine.B_VAL_0_INT);
 				CLevelInfoTable.Inst.AddLevelInfo(oLevelInfo);
 
-				Func.EditorSetupLevelInfo(oLevelInfo, new CSubEditorLevelCreateInfo() {
+				Func.SetupEditorLevelInfo(oLevelInfo, new CSubEditorLevelCreateInfo() {
 					m_nNumLevels = KCDefine.B_VAL_0_INT, m_stMinNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS, m_stMaxNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS
 				});
 			}
@@ -408,8 +420,10 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	private void OnReceiveEditorSetPopupResult(CAlertPopup a_oSender, bool a_bIsOK) {
 		// 확인 버튼을 눌렀을 경우
 		if(a_bIsOK) {
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 			CCommonUserInfoStorage.Inst.UserInfo.UserType = m_eSelUserType;
 			CCommonUserInfoStorage.Inst.SaveUserInfo();
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 
 			this.OnReceiveEditorResetPopupResult(null, true);
 			this.OnReceiveEditorTableReloadPopupResult(null, true);
@@ -439,30 +453,37 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	}
 
 	/** 에디터 입력 팝업 결과를 수신했을 경우 */
-	private void OnReceiveEditorInputPopupResult(CEditorInputPopup a_oSender, string a_oStr) {
-		// 식별자가 유효 할 경우
-		if(int.TryParse(a_oStr, out int nID)) {
-			this.MoveLevelInfos(m_oSelScroller, m_oSelLevelInfo.m_stIDInfo, nID);
-			this.UpdateUIsState();
-		}
-	}
-
-	/** 에디터 레벨 생성 팝업 결과를 수신했을 경우 */
-	private void OnReceiveEditorLevelCreatePopupResult(CEditorLevelCreatePopup a_oSender, CEditorLevelCreateInfo a_oCreateInfo) {
-#if ENGINE_TEMPLATES_MODULE_ENABLE
-		int nNumLevelInfos = CLevelInfoTable.Inst.GetNumLevelInfos(m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
-		int nNumCreateLevelInfos = (nNumLevelInfos + a_oCreateInfo.m_nNumLevels < KCDefine.U_MAX_NUM_LEVEL_INFOS) ? a_oCreateInfo.m_nNumLevels : KCDefine.U_MAX_NUM_LEVEL_INFOS - nNumLevelInfos;
-
-		for(int i = 0; i < nNumCreateLevelInfos; ++i) {
-			var oLevelInfo = Factory.MakeLevelInfo(i + nNumLevelInfos, m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
-			m_oSelLevelInfo = oLevelInfo;
-
-			CLevelInfoTable.Inst.AddLevelInfo(oLevelInfo);
-			Func.EditorSetupLevelInfo(oLevelInfo, a_oCreateInfo);
+	private void OnReceiveEditorInputPopupResult(CEditorInputPopup a_oSender, string a_oStr, bool a_bIsOK) {
+		// 확인 버튼을 눌렀을 경우
+		if(a_bIsOK) {
+			switch(m_eInput) {
+				case EInput.MOVE_LEVEL: this.HandleMoveLevelInputPopupResult(a_oStr); break;
+				case EInput.REMOVE_LEVEL: this.HandleRemoveLevelInputPopupResult(a_oStr); break;
+			}
 		}
 
 		this.UpdateUIsState();
+	}
+
+	/** 에디터 레벨 생성 팝업 결과를 수신했을 경우 */
+	private void OnReceiveEditorLevelCreatePopupResult(CEditorLevelCreatePopup a_oSender, CEditorLevelCreateInfo a_oCreateInfo, bool a_bIsOK) {
+		// 확인 버튼을 눌렀을 경우
+		if(a_bIsOK) {
+#if ENGINE_TEMPLATES_MODULE_ENABLE
+			int nNumLevelInfos = CLevelInfoTable.Inst.GetNumLevelInfos(m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
+			int nNumCreateLevelInfos = (nNumLevelInfos + a_oCreateInfo.m_nNumLevels < KCDefine.U_MAX_NUM_LEVEL_INFOS) ? a_oCreateInfo.m_nNumLevels : KCDefine.U_MAX_NUM_LEVEL_INFOS - nNumLevelInfos;
+
+			for(int i = 0; i < nNumCreateLevelInfos; ++i) {
+				var oLevelInfo = Factory.MakeLevelInfo(i + nNumLevelInfos, m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
+				m_oSelLevelInfo = oLevelInfo;
+
+				CLevelInfoTable.Inst.AddLevelInfo(oLevelInfo);
+				Func.SetupEditorLevelInfo(oLevelInfo, a_oCreateInfo);
+			}
+
+			this.UpdateUIsState();
 #endif			// #if ENGINE_TEMPLATES_MODULE_ENABLE
+		}
 	}
 
 	/** 터치를 시작했을 경우 */
@@ -504,7 +525,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		m_oSelLevelInfo = Factory.MakeLevelInfo(a_nID, a_nStageID, a_nChapterID);
 		CLevelInfoTable.Inst.AddLevelInfo(m_oSelLevelInfo);
 
-		Func.EditorSetupLevelInfo(m_oSelLevelInfo, new CSubEditorLevelCreateInfo() {
+		Func.SetupEditorLevelInfo(m_oSelLevelInfo, new CSubEditorLevelCreateInfo() {
 			m_nNumLevels = KCDefine.B_VAL_0_INT, m_stMinNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS, m_stMaxNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS
 		});
 
@@ -517,15 +538,15 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		var oLevelInfo = CLevelInfoTable.Inst.GetLevelInfo(a_stIDInfo.m_nID, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 
 		// 레벨 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oScroller) {
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oScroller) {
 			CLevelInfoTable.Inst.RemoveLevelInfo(a_stIDInfo.m_nID, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 		}
 		// 스테이지 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oScroller) {
+		else if(m_oLEUIsScrollerDict[EScroller.STAGE] == a_oScroller) {
 			CLevelInfoTable.Inst.RemoveStageLevelInfos(a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 		}
 		// 챕터 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oScroller) {
+		else if(m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oScroller) {
 			CLevelInfoTable.Inst.RemoveChapterLevelInfos(a_stIDInfo.m_nChapterID);
 		}
 		
@@ -534,14 +555,14 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			m_oSelLevelInfo = Factory.MakeLevelInfo(KCDefine.B_VAL_0_INT);
 			CLevelInfoTable.Inst.AddLevelInfo(m_oSelLevelInfo);
 
-			Func.EditorSetupLevelInfo(m_oSelLevelInfo, new CSubEditorLevelCreateInfo() {
+			Func.SetupEditorLevelInfo(m_oSelLevelInfo, new CSubEditorLevelCreateInfo() {
 				m_nNumLevels = KCDefine.B_VAL_0_INT, m_stMinNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS, m_stMaxNumCells = SampleEngineName.KDefine.E_MIN_NUM_CELLS
 			});
 		} else {
 			CLevelInfo oSelLevelInfo = null;
 
 			// 레벨 스크롤러 일 경우
-			if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oScroller) {
+			if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oScroller) {
 				var stPrevIDInfo = CFactory.MakeIDInfo(a_stIDInfo.m_nID - KCDefine.B_VAL_1_INT, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 				var stNextIDInfo = CFactory.MakeIDInfo(a_stIDInfo.m_nID, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 
@@ -549,7 +570,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			}
 
 			// 스테이지 스크롤러 일 경우
-			if(oSelLevelInfo == null || m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oScroller) {
+			if(oSelLevelInfo == null || m_oLEUIsScrollerDict[EScroller.STAGE] == a_oScroller) {
 				var stPrevIDInfo = CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT, a_stIDInfo.m_nStageID - KCDefine.B_VAL_1_INT, a_stIDInfo.m_nChapterID);
 				var stNextIDInfo = CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 
@@ -557,7 +578,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			}
 
 			// 챕터 스크롤러 일 경우
-			if(oSelLevelInfo == null || m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oScroller) {
+			if(oSelLevelInfo == null || m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oScroller) {
 				var stPrevIDInfo = CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT, KCDefine.B_VAL_0_INT, a_stIDInfo.m_nChapterID - KCDefine.B_VAL_1_INT);
 				var stNextIDInfo = CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT, KCDefine.B_VAL_0_INT, a_stIDInfo.m_nChapterID);
 
@@ -573,7 +594,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	/** 레벨 정보를 복사한다 */
 	private void CopyLevelInfos(EnhancedScroller a_oScroller, STIDInfo a_stIDInfo) {
 		// 레벨 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oScroller) {
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oScroller) {
 			var oLevelInfo = CLevelInfoTable.Inst.GetLevelInfo(a_stIDInfo.m_nID, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 
 			var oCloneLevelInfo = oLevelInfo.Clone() as CLevelInfo;
@@ -583,7 +604,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			CLevelInfoTable.Inst.AddLevelInfo(oCloneLevelInfo);
 		} else {
 			// 스테이지 스크롤러 일 경우
-			if(m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oScroller) {
+			if(m_oLEUIsScrollerDict[EScroller.STAGE] == a_oScroller) {
 				int nNumStageInfos = CLevelInfoTable.Inst.GetNumStageInfos(a_stIDInfo.m_nChapterID);
 				var oStageLevelInfoDict = CLevelInfoTable.Inst.GetStageLevelInfos(a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 
@@ -595,7 +616,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 				}
 			}
 			// 챕터 스크롤러 일 경우
-			else if(m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oScroller) {
+			else if(m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oScroller) {
 				int nNumChapterInfos = CLevelInfoTable.Inst.NumChapterInfos;
 				var oChapterLevelInfoDictContainer = CLevelInfoTable.Inst.GetChapterLevelInfos(a_stIDInfo.m_nChapterID);
 
@@ -610,8 +631,8 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			}
 
 			int nID = KCDefine.B_VAL_0_INT;
-			int nStageID = (m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oScroller) ? CLevelInfoTable.Inst.GetNumStageInfos(a_stIDInfo.m_nChapterID) - KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT;
-			int nChapterID = (m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oScroller) ? CLevelInfoTable.Inst.NumChapterInfos - KCDefine.B_VAL_1_INT : a_stIDInfo.m_nChapterID;
+			int nStageID = (m_oLEUIsScrollerDict[EScroller.STAGE] == a_oScroller) ? CLevelInfoTable.Inst.GetNumStageInfos(a_stIDInfo.m_nChapterID) - KCDefine.B_VAL_1_INT : KCDefine.B_VAL_0_INT;
+			int nChapterID = (m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oScroller) ? CLevelInfoTable.Inst.NumChapterInfos - KCDefine.B_VAL_1_INT : a_stIDInfo.m_nChapterID;
 
 			m_oSelLevelInfo = CLevelInfoTable.Inst.GetLevelInfo(nID, nStageID, nChapterID);
 		}
@@ -623,17 +644,17 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	/** 레벨 정보를 이동한다 */
 	private void MoveLevelInfos(EnhancedScroller a_oScroller, STIDInfo a_stIDInfo, int a_nToID) {
 		// 레벨 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oScroller) {
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oScroller) {
 			int nNumLevelInfos = CLevelInfoTable.Inst.GetNumLevelInfos(a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 			CLevelInfoTable.Inst.MoveLevelInfo(a_stIDInfo.m_nID, Mathf.Clamp(a_nToID, KCDefine.B_VAL_1_INT, nNumLevelInfos) - KCDefine.B_VAL_1_INT, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
 		}
 		// 스테이지 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oScroller) {
+		else if(m_oLEUIsScrollerDict[EScroller.STAGE] == a_oScroller) {
 			int nNumStageInfos = CLevelInfoTable.Inst.GetNumStageInfos(a_stIDInfo.m_nChapterID);
 			CLevelInfoTable.Inst.MoveStageLevelInfos(a_stIDInfo.m_nStageID, Mathf.Clamp(a_nToID, KCDefine.B_VAL_1_INT, nNumStageInfos) - KCDefine.B_VAL_1_INT, a_stIDInfo.m_nChapterID);
 		}
 		// 챕터 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oScroller) {
+		else if(m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oScroller) {
 			int nNumChapterInfos = CLevelInfoTable.Inst.NumChapterInfos;
 			CLevelInfoTable.Inst.MoveChapterLevelInfos(a_stIDInfo.m_nChapterID, Mathf.Clamp(a_nToID, KCDefine.B_VAL_1_INT, nNumChapterInfos) - KCDefine.B_VAL_1_INT);
 		}
@@ -646,6 +667,32 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 		CScheduleManager.Inst.RemoveTimer(this);
 		CScheduleManager.Inst.AddTimer(this, KCDefine.B_VAL_5_FLT, KCDefine.B_VAL_1_INT, () => m_oMEUIsMsgUIs?.SetActive(false));
+	}
+
+	/** 에디터 레벨 이동 입력 팝업 결과를 처리한다 */
+	private void HandleMoveLevelInputPopupResult(string a_oStr) {
+		// 식별자가 유효 할 경우
+		if(int.TryParse(a_oStr, out int nID)) {
+			this.MoveLevelInfos(m_oSelScroller, m_oSelLevelInfo.m_stIDInfo, nID);
+		}
+	}
+
+	/** 에디터 레벨 제거 입력 팝업 결과를 처리한다 */
+	private void HandleRemoveLevelInputPopupResult(string a_oStr) {
+		var oTokenList = a_oStr.Split(KCDefine.B_TOKEN_DASH).ToList();
+
+		// 식별자가 유효 할 경우
+		if(oTokenList.Count >= KCDefine.B_VAL_2_INT && int.TryParse(oTokenList[KCDefine.B_VAL_0_INT], out int nMinID) && int.TryParse(oTokenList[KCDefine.B_VAL_1_INT], out int nMaxID)) {
+			CFunc.LessCorrectSwap(ref nMinID, ref nMaxID);
+			var stIDInfo = CFactory.MakeIDInfo(nMinID - KCDefine.B_VAL_1_INT, m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
+
+			for(int i = nMinID; i <= nMaxID; ++i) {
+				// 레벨 정보가 존재 할 경우
+				if(CLevelInfoTable.Inst.TryGetLevelInfo(stIDInfo.m_nID, out CLevelInfo oLevelInfo, stIDInfo.m_nStageID, stIDInfo.m_nChapterID)) {
+					this.RemoveLevelInfos(m_oSelScroller, stIDInfo);
+				}
+			}
+		}
 	}
 #endif			// #if UNITY_STANDALONE && RUNTIME_TEMPLATES_MODULE_ENABLE
 	#endregion			// 조건부 함수
@@ -748,26 +795,29 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		// 레벨 추가가 가능 할 경우
 		if(nNumLevelInfos < KCDefine.U_MAX_NUM_LEVEL_INFOS) {
 			var stIDInfo = CFactory.MakeIDInfo(m_oSelLevelInfo.m_stIDInfo.m_nID, m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
-			this.CopyLevelInfos(m_oLEUIsScrollerDict[EScrollerType.LEVEL], stIDInfo);
+			this.CopyLevelInfos(m_oLEUIsScrollerDict[EScroller.LEVEL], stIDInfo);
 		}
 	}
 
 	/** 중앙 에디터 UI 레벨 이동 버튼을 눌렀을 경우 */
 	private void OnTouchMEUIsMoveLevelBtn() {
-		m_oSelScroller = m_oLEUIsScrollerDict[EScrollerType.LEVEL];
+		m_eInput = EInput.MOVE_LEVEL;
+		m_oSelScroller = m_oLEUIsScrollerDict[EScroller.LEVEL];
 
 		Func.ShowEditorInputPopup(this.PopupUIs, (a_oSender) => {
-			var stCallbackParams = new CEditorInputPopup.STCallbackParams() {
-				m_oCallback = this.OnReceiveEditorInputPopupResult
+			var stParams = new CEditorInputPopup.STParams() {
+				m_oCallbackDict = new Dictionary<CEditorInputPopup.ECallback, System.Action<CEditorInputPopup, string, bool>>() {
+					[CEditorInputPopup.ECallback.OK_CANCEL] = this.OnReceiveEditorInputPopupResult
+				}
 			};
 
-			(a_oSender as CEditorInputPopup).Init(stCallbackParams);
+			(a_oSender as CEditorInputPopup).Init(stParams);
 		});
 	}
 
 	/** 중앙 에디터 UI 레벨 제거 버튼을 눌렀을 경우 */
 	private void OnTouchMEUIsRemoveLevelBtn() {
-		m_oSelScroller = m_oLEUIsScrollerDict[EScrollerType.LEVEL];
+		m_oSelScroller = m_oLEUIsScrollerDict[EScroller.LEVEL];
 		Func.ShowEditorLevelRemovePopup(this.OnReceiveEditorRemovePopupResult);
 	}
 #endif			// #if UNITY_STANDALONE && RUNTIME_TEMPLATES_MODULE_ENABLE
@@ -797,9 +847,9 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		var oChapterScroller = m_oLeftEditorUIs.ExFindComponent<EnhancedScroller>(KCDefine.U_OBJ_N_CHAPTER_SCROLL_VIEW);
 		oChapterScroller?.gameObject.SetActive(false);
 
-		m_oLEUIsScrollerDict.Add(EScrollerType.LEVEL, oLevelScroller);
-		m_oLEUIsScrollerDict.Add(EScrollerType.STAGE, oStageScrollerA);
-		m_oLEUIsScrollerDict.Add(EScrollerType.CHAPTER, oChapterScroller);
+		m_oLEUIsScrollerDict.Add(EScroller.LEVEL, oLevelScroller);
+		m_oLEUIsScrollerDict.Add(EScroller.STAGE, oStageScrollerA);
+		m_oLEUIsScrollerDict.Add(EScroller.CHAPTER, oChapterScroller);
 
 		foreach(var stKeyVal in m_oLEUIsScrollerDict) {
 			stKeyVal.Value?.ExSetDelegate(this, false);	
@@ -834,14 +884,17 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 	/** 왼쪽 에디터 UI 상태를 갱신한다 */
 	private void UpdateLeftEditorUIsState() {
-		// 버튼을 설정한다
+		// 버튼을 설정한다 {
+#if NEWTON_SOFT_JSON_MODULE_ENABLE
 		m_oLEUIsASetBtn?.image.ExSetColor<Image>((CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.A) ? Color.cyan : Color.white, false);
 		m_oLEUIsBSetBtn?.image.ExSetColor<Image>((CCommonUserInfoStorage.Inst.UserInfo.UserType == EUserType.B) ? Color.cyan : Color.white, false);
+#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
+		// 버튼을 설정한다 }
 
 		// 스크롤 뷰를 갱신한다
-		m_oLEUIsScrollerDict[EScrollerType.LEVEL]?.ExReloadData(m_oSelLevelInfo.m_stIDInfo.m_nID - KCDefine.B_VAL_1_INT, false);
-		m_oLEUIsScrollerDict[EScrollerType.STAGE]?.ExReloadData(m_oSelLevelInfo.m_stIDInfo.m_nStageID - KCDefine.B_VAL_1_INT, false);
-		m_oLEUIsScrollerDict[EScrollerType.CHAPTER]?.ExReloadData(m_oSelLevelInfo.m_stIDInfo.m_nChapterID - KCDefine.B_VAL_1_INT, false);
+		m_oLEUIsScrollerDict[EScroller.LEVEL]?.ExReloadData(m_oSelLevelInfo.m_stIDInfo.m_nID - KCDefine.B_VAL_1_INT, false);
+		m_oLEUIsScrollerDict[EScroller.STAGE]?.ExReloadData(m_oSelLevelInfo.m_stIDInfo.m_nStageID - KCDefine.B_VAL_1_INT, false);
+		m_oLEUIsScrollerDict[EScroller.CHAPTER]?.ExReloadData(m_oSelLevelInfo.m_stIDInfo.m_nChapterID - KCDefine.B_VAL_1_INT, false);
 	}
 
 	/** 왼쪽 에디터 UI A 세트 버튼을 눌렀을 경우 */
@@ -859,11 +912,13 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 	/** 왼쪽 에디터 UI 레벨 추가 버튼을 눌렀을 경우 */
 	private void OnTouchLEUIsAddLevelBtn() {
 		Func.ShowEditorLevelCreatePopup(this.PopupUIs, (a_oSender) => {
-			var stCallbackParams = new CEditorLevelCreatePopup.STCallbackParams() {
-				m_oCallback = this.OnReceiveEditorLevelCreatePopupResult
+			var stParams = new CEditorLevelCreatePopup.STParams() {
+				m_oCallbackDict = new Dictionary<CEditorLevelCreatePopup.ECallback, System.Action<CEditorLevelCreatePopup, CEditorLevelCreateInfo, bool>>() {
+					[CEditorLevelCreatePopup.ECallback.OK_CANCEL] = this.OnReceiveEditorLevelCreatePopupResult
+				}
 			};
 
-			(a_oSender as CEditorLevelCreatePopup).Init(stCallbackParams);
+			(a_oSender as CEditorLevelCreatePopup).Init(stParams);
 		});
 	}
 
@@ -908,6 +963,9 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		m_oREUIsPrevBtn = m_oRightEditorUIs.ExFindComponent<Button>(KCDefine.LES_OBJ_N_RE_UIS_PREV_BTN);
 		m_oREUIsNextBtn = m_oRightEditorUIs.ExFindComponent<Button>(KCDefine.LES_OBJ_N_RE_UIS_NEXT_BTN);
 
+		m_oREUIsRemoveLevelBtn = m_oRightEditorUIs.ExFindComponent<Button>(KCDefine.LES_OBJ_N_RE_UIS_REMOVE_LEVEL_BTN);
+		m_oREUIsRemoveLevelBtn?.onClick.AddListener(this.OnTouchREUIsRemoveLevelBtn);
+
 		m_oRightEditorUIs.ExFindComponent<Button>(KCDefine.LES_OBJ_N_RE_UIS_APPLY_BTN)?.onClick.AddListener(this.OnTouchREUIsApplyBtn);
 		m_oRightEditorUIs.ExFindComponent<Button>(KCDefine.LES_OBJ_N_RE_UIS_LOAD_LEVEL_BTN)?.onClick.AddListener(this.OnTouchREUIsLoadLevelBtn);
 		// 버튼을 설정한다 }
@@ -926,9 +984,13 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 	/** 오른쪽 에디터 UI 상태를 갱신한다 */
 	private void UpdateRightEditorUIsState() {
-		// 텍스트를 설정한다
 		int nNumLevelInfos = CLevelInfoTable.Inst.GetNumLevelInfos(m_oSelLevelInfo.m_stIDInfo.m_nStageID, m_oSelLevelInfo.m_stIDInfo.m_nChapterID);
+
+		// 텍스트를 설정한다
 		m_oREUIsTitleText?.ExSetText<Text>(string.Format(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LEVEL_PAGE_TEXT_FMT), m_oSelLevelInfo.m_stIDInfo.m_nID + KCDefine.B_VAL_1_INT, nNumLevelInfos), false);
+
+		// 버튼을 설정한다
+		m_oREUIsRemoveLevelBtn?.ExSetInteractable(nNumLevelInfos > KCDefine.B_VAL_1_INT, false);
 		
 		// 입력 필드를 갱신한다 {
 		m_oREUIsLevelInput?.ExSetText<InputField>($"{m_oSelLevelInfo.m_stIDInfo.m_nID + KCDefine.B_VAL_1_INT}", false);
@@ -959,7 +1021,7 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 
 		// 셀 개수가 유효 할 경우
 		if(bIsValidA && bIsValidB && (bIsValidNumCellsX || bIsValidNumCellsY)) {
-			Func.EditorSetupLevelInfo(m_oSelLevelInfo, new CSubEditorLevelCreateInfo() {
+			Func.SetupEditorLevelInfo(m_oSelLevelInfo, new CSubEditorLevelCreateInfo() {
 				m_nNumLevels = KCDefine.B_VAL_0_INT, m_stMinNumCells = new Vector3Int(nNumCellsX, nNumCellsY, KCDefine.B_VAL_0_INT), m_stMaxNumCells = new Vector3Int(nNumCellsX, nNumCellsY, KCDefine.B_VAL_0_INT)
 			});
 			
@@ -977,6 +1039,22 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 			
 			this.UpdateUIsState();
 		}
+	}
+
+	/** 오른쪽 에디터 UI 레벨 제거 버튼을 눌렀을 경우 */
+	private void OnTouchREUIsRemoveLevelBtn() {
+		m_eInput = EInput.REMOVE_LEVEL;
+		m_oSelScroller = m_oLEUIsScrollerDict[EScroller.LEVEL];
+
+		Func.ShowEditorInputPopup(this.PopupUIs, (a_oSender) => {
+			var stParams = new CEditorInputPopup.STParams() {
+				m_oCallbackDict = new Dictionary<CEditorInputPopup.ECallback, System.Action<CEditorInputPopup, string, bool>>() {
+					[CEditorInputPopup.ECallback.OK_CANCEL] = this.OnReceiveEditorInputPopupResult
+				}
+			};
+
+			(a_oSender as CEditorInputPopup).Init(stParams);
+		});
 	}
 #endif			// #if UNITY_STANDALONE && RUNTIME_TEMPLATES_MODULE_ENABLE
 	#endregion			// 조건부 함수
@@ -1002,9 +1080,9 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		int nMaxNumInfos = KCDefine.U_MAX_NUM_LEVEL_INFOS;
 
 		// 레벨 스크롤러가 아닐 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] != a_oSender.Scroller) {
-			nNumInfos = (m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oSender.Scroller) ? CLevelInfoTable.Inst.GetNumStageInfos(a_nID.ExUniqueLevelIDToChapterID()) : CLevelInfoTable.Inst.NumChapterInfos;
-			nMaxNumInfos = (m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oSender.Scroller) ? KCDefine.U_MAX_NUM_STAGE_INFOS : KCDefine.U_MAX_NUM_CHAPTER_INFOS;
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] != a_oSender.Scroller) {
+			nNumInfos = (m_oLEUIsScrollerDict[EScroller.STAGE] == a_oSender.Scroller) ? CLevelInfoTable.Inst.GetNumStageInfos(a_nID.ExUniqueLevelIDToChapterID()) : CLevelInfoTable.Inst.NumChapterInfos;
+			nMaxNumInfos = (m_oLEUIsScrollerDict[EScroller.STAGE] == a_oSender.Scroller) ? KCDefine.U_MAX_NUM_STAGE_INFOS : KCDefine.U_MAX_NUM_CHAPTER_INFOS;
 		}
 
 		// 복사가 가능 할 경우
@@ -1018,11 +1096,13 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		m_oSelScroller = a_oSender.Scroller;
 
 		Func.ShowEditorInputPopup(this.PopupUIs, (a_oSender) => {
-			var stCallbackParams = new CEditorInputPopup.STCallbackParams() {
-				m_oCallback = this.OnReceiveEditorInputPopupResult
+			var stParams = new CEditorInputPopup.STParams() {
+				m_oCallbackDict = new Dictionary<CEditorInputPopup.ECallback, System.Action<CEditorInputPopup, string, bool>>() {
+					[CEditorInputPopup.ECallback.OK_CANCEL] = this.OnReceiveEditorInputPopupResult
+				}
 			};
 			
-			(a_oSender as CEditorInputPopup).Init(stCallbackParams);
+			(a_oSender as CEditorInputPopup).Init(stParams);
 		});
 	}
 
@@ -1031,15 +1111,15 @@ public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEn
 		m_oSelScroller = a_oSender.Scroller;
 
 		// 레벨 스크롤러 일 경우
-		if(m_oLEUIsScrollerDict[EScrollerType.LEVEL] == a_oSender.Scroller) {
+		if(m_oLEUIsScrollerDict[EScroller.LEVEL] == a_oSender.Scroller) {
 			Func.ShowEditorLevelRemovePopup(this.OnReceiveEditorRemovePopupResult);
 		}
 		// 스테이지 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.STAGE] == a_oSender.Scroller) {
+		else if(m_oLEUIsScrollerDict[EScroller.STAGE] == a_oSender.Scroller) {
 			Func.ShowEditorStageRemovePopup(this.OnReceiveEditorRemovePopupResult);
 		}
 		// 챕터 스크롤러 일 경우
-		else if(m_oLEUIsScrollerDict[EScrollerType.CHAPTER] == a_oSender.Scroller) {
+		else if(m_oLEUIsScrollerDict[EScroller.CHAPTER] == a_oSender.Scroller) {
 			Func.ShowEditorChapterRemovePopup(this.OnReceiveEditorRemovePopupResult);
 		}
 	}

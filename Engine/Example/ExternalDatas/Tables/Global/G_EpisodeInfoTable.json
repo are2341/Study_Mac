@@ -1,59 +1,38 @@
 {
-    "Level": [
-        {
-            "Name": "Sample",
-            "Desc": "Sample",
-            "Replace": "0",
-            "ID": "0",
-            "StageID": "0",
-            "ChapterID": "0",
-            "Difficulty": "-1",
-            "LevelKinds": "-1",
-            "RewardKinds": "-1",
-            "TutorialKinds": "-1",
-            "Record_01": "0",
-            "TargetKinds_01": "-1",
-            "NumTargets_01": "0",
-            "UnlockTargetKinds_01": "-1",
-            "NumUnlockTargets_01": "0",
-            "Description": "샘플 레벨 정보"
-        }
-    ],
-    "Stage": [
-        {
-            "Name": "Sample",
-            "Desc": "Sample",
-            "Replace": "0",
-            "ID": "0",
-            "ChapterID": "0",
-            "Difficulty": "0",
-            "StageKinds": "-1",
-            "RewardKinds": "-1",
-            "TutorialKinds": "-1",
-            "Record_01": "0",
-            "TargetKinds_01": "-1",
-            "NumTargets_01": "0",
-            "UnlockTargetKinds_01": "-1",
-            "NumUnlockTargets_01": "0",
-            "Description": "샘플 스테이지 정보"
-        }
-    ],
-    "Chapter": [
-        {
-            "Name": "Sample",
-            "Desc": "Sample",
-            "Replace": "0",
-            "ID": "0",
-            "Difficulty": "0",
-            "ChapterKinds": "-1",
-            "RewardKinds": "-1",
-            "TutorialKinds": "-1",
-            "Record_01": "0",
-            "TargetKinds_01": "-1",
-            "NumTargets_01": "0",
-            "UnlockTargetKinds_01": "-1",
-            "NumUnlockTargets_01": "0",
-            "Description": "샘플 챕터 정보"
-        }
-    ]
+  "Level": [
+    {
+      "ID": "0",
+      "StageID": "0",
+      "ChapterID": "0",
+      "LevelKinds": "-1",
+      "Name": "Sample",
+      "Desc": "Sample",
+      "Difficulty": "-1",
+      "RewardKinds": "-1",
+      "TutorialKinds": "-1"
+    }
+  ],
+  "Stage": [
+    {
+      "ID": "0",
+      "ChapterID": "0",
+      "StageKinds": "-1",
+      "Name": "Sample",
+      "Desc": "Sample",
+      "Difficulty": "0",
+      "RewardKinds": "-1",
+      "TutorialKinds": "-1"
+    }
+  ],
+  "Chapter": [
+    {
+      "ID": "0",
+      "ChapterKinds": "-1",
+      "Name": "Sample",
+      "Desc": "Sample",
+      "Difficulty": "0",
+      "RewardKinds": "-1",
+      "TutorialKinds": "-1"
+    }
+  ]
 }
