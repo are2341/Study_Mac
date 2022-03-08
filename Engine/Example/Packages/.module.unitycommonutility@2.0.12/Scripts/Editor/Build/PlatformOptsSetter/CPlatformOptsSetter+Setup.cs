@@ -646,7 +646,10 @@ public static partial class CPlatformOptsSetter {
 			PlayerSettings.bakeCollisionMeshes = CPlatformOptsSetter.OptsInfoTable.BuildOptsInfo.m_bIsPreBakeCollisionMesh;
 			PlayerSettings.preserveFramebufferAlpha = CPlatformOptsSetter.OptsInfoTable.BuildOptsInfo.m_bIsPreserveFrameBufferAlpha;
 
-			PlayerSettings.colorSpace = CPlatformOptsSetter.OptsInfoTable.BuildOptsInfo.m_eColorSpace;
+			// 색상 모드 설정이 필요 할 경우
+			if(PlayerSettings.colorSpace != CPlatformOptsSetter.OptsInfoTable.BuildOptsInfo.m_eColorSpace) {
+				PlayerSettings.colorSpace = CPlatformOptsSetter.OptsInfoTable.BuildOptsInfo.m_eColorSpace;
+			}
 		}
 
 		// 프로젝트 정보 테이블이 존재 할 경우
