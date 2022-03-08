@@ -51,6 +51,33 @@ EditorBuildSettings:
     path: Assets/03.SubUnityProject/Scenes/00.Test/91.TestScene.unity
     guid: d9e793e697b6b494e8f2b03119d03e9e
   - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/3x/E01/00.===== \uC655\uCD08\uBCF4 \uB530\uB77C\uD558\uC5EC
+      \uAC8C\uC784 \uB9CC\uB4E4\uAE30 =====.unity"
+    guid: 8fc9c1adcc23b4b2abea19239f03d7d7
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/3x/E01/_3xE01_Example_052.unity
+    guid: 01787d6d4a5bd478b9a947b9f29e5dfd
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/3x/E01/_3xE01_Example_124.unity
+    guid: 379b97a57cce1438d856d23493166486
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/3x/E01/_3xE01_Example_150.unity
+    guid: 7b95750f2714b4c2294570ea85ebb223
+  - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/FX/E01/00.===== \uC720\uB2C8\uD2F0 \uAC8C\uC784
+      \uC774\uD399\uD2B8 \uC785\uBB38 =====.unity"
+    guid: 90ec15b8a9d264e7b8fac52c29281db3
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/FX/E01/FXE01_Example_120.unity
+    guid: 5d121b1e6ffeb4f4a9f0d2db2bcd7ad7
+  - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/Shader/E01/00.===== \uC720\uB2C8\uD2F0
+      \uC250\uC774\uB354 \uC2A4\uD0C0\uD2B8\uC5C5 =====.unity"
+    guid: 08faa626da5854a3d899d40f9cf36263
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/Shader/E01/ShaderE01_Example_136.unity
+    guid: 22ef4edac9b034288a4cee53a4f73189
+  - enabled: 1
     path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
     guid: e00a99c918ee242558c86215931806ab
   m_configObjects: {}
