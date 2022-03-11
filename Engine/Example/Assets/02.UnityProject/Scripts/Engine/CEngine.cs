@@ -43,10 +43,6 @@ namespace SampleEngineName {
 		private Dictionary<EBlockKinds, GameObject>[,] m_oBlockDicts = null;
 		#endregion			// 변수
 
-		#region 추가 변수
-
-		#endregion			// 추가 변수
-
 		#region 프로퍼티
 		public long IntRecord { get; private set; } = 0;
 		public double RealRecord { get; private set; } = 0.0;
@@ -56,6 +52,10 @@ namespace SampleEngineName {
 		
 		public GameObject BlockObjs => m_stParams.m_oBlockObjs;
 		#endregion			// 프로퍼티
+
+		#region 추가 변수
+
+		#endregion			// 추가 변수
 
 		#region 추가 프로퍼티
 		
