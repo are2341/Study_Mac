@@ -6,6 +6,10 @@ using UnityEngine.UI;
 #if STUDY_MODULE_ENABLE && SCENE_TEMPLATES_MODULE_ENABLE
 /** 서브 메뉴 씬 관리자 */
 public class CSubMenuSceneManager : CMenuSceneManager {
+	#region 프로퍼티
+	public override bool IsIgnoreOverlayScene => false;
+	#endregion			// 프로퍼티
+
 	#region 추가 변수
 
 	#endregion			// 추가 변수

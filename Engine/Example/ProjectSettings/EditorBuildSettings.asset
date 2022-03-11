@@ -7,43 +7,43 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
-    guid: e7032e824f91c4ca587b18ec9ad061ff
+    guid: 64d9361c0eb6647e78777f65943ae9c1
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
-    guid: a305f72ba1b12470aa3274cce7d53080
+    guid: e46cfcea0aae347f5913c6dd40590b84
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
-    guid: 4d9cac6c0e8ea4754b9e7f693e86730b
+    guid: e69f8bbce01b949ea82de895d3e02758
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
-    guid: c357940ad64834b8d98f3f0203d022d2
+    guid: a8ded24a97a504950a26c2566e33792e
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
-    guid: c88f08b9b7a4b4a3cbda5e8e3981436f
+    guid: 12eaebefcc4464166aa35f248ab93150
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
-    guid: 1f58bffd020764fcd822b606cf417c96
+    guid: 86b33f522979e4b6fa4a21d530d5bc8c
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
-    guid: 8e013d7c6188a4378a04480b90d7b89b
+    guid: e891fe13a76b0478c907950784ce2ad1
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
-    guid: ef91baf08cf9a4aceb86b70e8f62df9e
+    guid: a901409fcfd58488a922ebee2245b372
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/01.TitleScene.unity
-    guid: b5c3193455cf349aeba25ecfa50f830a
+    guid: 8b7ea8d7426db4413ac07f784046c6d7
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/02.MainScene.unity
-    guid: 24c6a1245b6664e498f3a5b87ef9d1a5
+    guid: 9f2f9972e5da94ae989b18f5823a66e1
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/03.GameScene.unity
-    guid: 018d05fdfa6154e4a8602fbe71196c65
+    guid: 808cf3c276b6c439fb54a71bc53cf60c
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/91.LoadingScene.unity
-    guid: 1ab7153c623d44869aca76078350fc50
+    guid: 4d068aaf8741446e3882a97445d45bc2
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/92.OverlayScene.unity
-    guid: 2054895f62cff405299c84233267a6a0
+    guid: 3f748962228794bd59f4301ab4144494
   - enabled: 1
     path: Assets/03.SubUnityProject/Scenes/00.Test/91.TestScene.unity
     guid: 2be6b23eadb4c45c1af71d7427478d68
@@ -61,20 +61,27 @@ EditorBuildSettings:
     path: Assets/03.SubUnityProject/Scenes/3x/E01/_3xE01_Example_150.unity
     guid: 7b95750f2714b4c2294570ea85ebb223
   - enabled: 1
-    path: "Assets/03.SubUnityProject/Scenes/FX/E01/00.===== \uC720\uB2C8\uD2F0 \uAC8C\uC784
+    path: "Assets/03.SubUnityProject/Scenes/Etc/E01/00.===== \uC720\uB2C8\uD2F0 \uAC8C\uC784
       \uC774\uD399\uD2B8 \uC785\uBB38 =====.unity"
     guid: 90ec15b8a9d264e7b8fac52c29281db3
   - enabled: 1
-    path: Assets/03.SubUnityProject/Scenes/FX/E01/FXE01_Example_120.unity
+    path: Assets/03.SubUnityProject/Scenes/Etc/E01/EtcE01_Example_120.unity
     guid: 5d121b1e6ffeb4f4a9f0d2db2bcd7ad7
   - enabled: 1
-    path: "Assets/03.SubUnityProject/Scenes/Shader/E01/00.===== \uC720\uB2C8\uD2F0
-      \uC250\uC774\uB354 \uC2A4\uD0C0\uD2B8\uC5C5 =====.unity"
+    path: "Assets/03.SubUnityProject/Scenes/Etc/E02/00.===== \uC720\uB2C8\uD2F0 \uC250\uC774\uB354
+      \uC2A4\uD0C0\uD2B8\uC5C5 =====.unity"
     guid: 08faa626da5854a3d899d40f9cf36263
   - enabled: 1
-    path: Assets/03.SubUnityProject/Scenes/Shader/E01/ShaderE01_Example_136.unity
+    path: Assets/03.SubUnityProject/Scenes/Etc/E02/EtcE02_Example_136.unity
     guid: 22ef4edac9b034288a4cee53a4f73189
   - enabled: 1
+    path: "Assets/03.SubUnityProject/Scenes/Etc/E03/00.===== \uC720\uB2C8\uD2F0 UI
+      \uB514\uC790\uC778 \uAD50\uACFC\uC11C =====.unity"
+    guid: 7d63bf26285764554978babbbce7d9fc
+  - enabled: 1
+    path: Assets/03.SubUnityProject/Scenes/Etc/E03/EtcE03_Example_113.unity
+    guid: b2e41dc84c5694881be47ce8ac6728d0
+  - enabled: 1
     path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
-    guid: c23d83ae2428d45c7bcc3963401e97bb
+    guid: 18246404188404df09e007992987ef67
   m_configObjects: {}

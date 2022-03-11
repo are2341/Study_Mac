@@ -10,8 +10,9 @@ public static partial class KDefine {
 	public const string G_SCENE_N_3X_E01_EXAMPLE_124 = "_3xE01_Example_124";
 	public const string G_SCENE_N_3X_E01_EXAMPLE_150 = "_3xE01_Example_150";
 
-	public const string G_SCENE_N_FX_E01_EXAMPLE_120 = "FXE01_Example_120";
-	public const string G_SCENE_N_SHADER_E01_EXAMPLE_136 = "ShaderE01_Example_136";
+	public const string G_SCENE_N_ETC_E01_EXAMPLE_120 = "EtcE01_Example_120";
+	public const string G_SCENE_N_ETC_E02_EXAMPLE_136 = "EtcE02_Example_136";
+	public const string G_SCENE_N_ETC_E03_EXAMPLE_113 = "EtcE03_Example_113";
 	// 씬 이름 }
 	#endregion			// 기본
 
