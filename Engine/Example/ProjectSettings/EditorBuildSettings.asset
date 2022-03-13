@@ -7,43 +7,43 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
-    guid: 64d9361c0eb6647e78777f65943ae9c1
+    guid: e6ed84ee9a994426083351412aefe555
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
-    guid: e46cfcea0aae347f5913c6dd40590b84
+    guid: a162483c3bce348f4a913730d627db63
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
-    guid: e69f8bbce01b949ea82de895d3e02758
+    guid: 4fc31c333b9d548938affd7faeeb8c09
   - enabled: 1
     path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
-    guid: a8ded24a97a504950a26c2566e33792e
+    guid: c45bfba3f1fcb4f35971231c6cb62466
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
-    guid: 12eaebefcc4464166aa35f248ab93150
+    guid: 7e725518432404484b15620ba3e8021c
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
-    guid: 86b33f522979e4b6fa4a21d530d5bc8c
+    guid: c90e89fc68dc4486c9cd2a03dcb35f11
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
-    guid: e891fe13a76b0478c907950784ce2ad1
+    guid: b4cfe3da4772948f598659c68bf9f815
   - enabled: 1
     path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
-    guid: a901409fcfd58488a922ebee2245b372
+    guid: 81e864ea3ec0a426d8ee13edb9ed4949
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/01.TitleScene.unity
-    guid: 8b7ea8d7426db4413ac07f784046c6d7
+    guid: e590084d8e0c447b397b4ee629136dcc
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/02.MainScene.unity
-    guid: 9f2f9972e5da94ae989b18f5823a66e1
+    guid: 259e0a6b878ab4d2bb7bccb8a7424187
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/03.GameScene.unity
-    guid: 808cf3c276b6c439fb54a71bc53cf60c
+    guid: 23e39a42504b04d9ebca1ce4fab1e24a
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/91.LoadingScene.unity
-    guid: 4d068aaf8741446e3882a97445d45bc2
+    guid: a32e0a9bb05224d218d8e9842099e203
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/92.OverlayScene.unity
-    guid: 3f748962228794bd59f4301ab4144494
+    guid: b17de2b5bee894b2eaf65cc8b0244a35
   - enabled: 1
     path: Assets/03.SubUnityProject/Scenes/00.Test/91.TestScene.unity
     guid: 2be6b23eadb4c45c1af71d7427478d68
@@ -83,5 +83,5 @@ EditorBuildSettings:
     guid: b2e41dc84c5694881be47ce8ac6728d0
   - enabled: 1
     path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
-    guid: 18246404188404df09e007992987ef67
+    guid: 4da95a0a6473948a7a63794f321b2371
   m_configObjects: {}

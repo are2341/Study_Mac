@@ -22,6 +22,8 @@ MonoBehaviour:
     m_bIsPreBakeCollisionMesh: 0
     m_bIsPreserveFrameBufferAlpha: 0
     m_eColorSpace: 0
+    m_eNormapMapEncoding: 1
+    m_eLightmapper: 0
     m_stiOSBuildOptsInfo:
       m_bIsEnableMotion: 0
       m_oCameraDescription: 
@@ -35,7 +37,6 @@ MonoBehaviour:
     m_bIsEnableRealtimeEnvironmentLighting: 0
     m_eQualityLevel: 2
     m_eMixedLightingMode: 1
-    m_eLightmapper: 0
     m_stNormQualityRenderingOptsInfo:
       m_stLightOptsInfo:
         m_eLightmapMaxSize: 2048
