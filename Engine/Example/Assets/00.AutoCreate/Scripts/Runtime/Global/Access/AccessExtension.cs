@@ -118,7 +118,7 @@ public static partial class AccessExtension {
 	}
 
 	/** 텍스트를 변경한다 */
-	public static void ExSetText(this Text a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet.A, bool a_bIsEnableAssert = true) {
+	public static void ExSetText(this Text a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet._1, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_eFontSet.ExIsValid()));
 
 		// 텍스트가 존재 할 경우
@@ -130,7 +130,7 @@ public static partial class AccessExtension {
 	}
 
 	/** 텍스트를 변경한다 */
-	public static void ExSetText(this TMP_Text a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet.A, bool a_bIsEnableAssert = true) {
+	public static void ExSetText(this TMP_Text a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet._1, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_eFontSet.ExIsValid()));
 
 		// 텍스트가 존재 할 경우
@@ -142,7 +142,7 @@ public static partial class AccessExtension {
 	}
 
 	/** 텍스트를 변경한다 */
-	public static void ExSetText(this InputField a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet.A, bool a_bIsEnableAssert = true) {
+	public static void ExSetText(this InputField a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet._1, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_eFontSet.ExIsValid()));
 
 		// 텍스트가 존재 할 경우
@@ -154,7 +154,7 @@ public static partial class AccessExtension {
 	}
 
 	/** 텍스트를 변경한다 */
-	public static void ExSetText(this TMP_InputField a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet.A, bool a_bIsEnableAssert = true) {
+	public static void ExSetText(this TMP_InputField a_oSender, string a_oStr, EFontSet a_eFontSet = EFontSet._1, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oSender != null && a_eFontSet.ExIsValid()));
 
 		// 텍스트가 존재 할 경우

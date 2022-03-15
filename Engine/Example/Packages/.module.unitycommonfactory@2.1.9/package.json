@@ -1,0 +1,14 @@
+{
+  "name": "module.unitycommonfactory",
+  "version": "2.1.9",
+  "displayName": "Module.UnityCommonFactory",
+  "author": {
+    "name": "dante",
+    "email": "are2341@nate.com"
+  },
+  "dependencies": {
+    "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommondefine_client.git#2.1.9",
+    "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonaccess_client.git#2.1.9",
+    "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/03000001.module_unitycommonexternals_client.git#2.1.9"
+  }
+}

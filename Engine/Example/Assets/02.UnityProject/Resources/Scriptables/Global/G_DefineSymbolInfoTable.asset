@@ -23,6 +23,7 @@ MonoBehaviour:
   - STUDY_MODULE_ENABLE
   m_oSubCommonDefineSymbolList:
   - MODULE_VER_2_0_0_OR_NEWER
+  - MODULE_VER_2_1_0_OR_NEWER
   m_oiOSAppleDefineSymbolList: []
   m_oAndroidGoogleDefineSymbolList: []
   m_oAndroidAmazonDefineSymbolList: []
