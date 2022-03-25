@@ -7,20 +7,35 @@ using TMPro;
 #if RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 보상 획득 팝업 */
 public class CRewardAcquirePopup : CSubPopup {
+	/** 식별자 */
+	private enum EKey {
+		NONE = -1,
+		ACQUIRE_BTN,
+		REWARD_ADS_BTN,
+		[HideInInspector] MAX_VAL
+	}
+
 	/** 매개 변수 */
 	public struct STParams {
 		public ERewardQuality m_eQuality;
-		public ERewardAcquirePopupType m_ePopupType;
+		public ERewardAcquirePopupType m_eAgreePopup;
 		
 		public List<STItemInfo> m_oItemInfoList;
 	}
+
+	#region 상수
+	private const string KEY_ACQUIRE_BTN = "BlindBtn";
+	private const string KEY_REWARD_ADS_BTN = "BlindBtn";
+	#endregion			// 상수
 
 	#region 변수
 	private STParams m_stParams;
 
 	/** =====> UI <===== */
-	private Button m_oAcquireBtn = null;
-	private Button m_oRewardAdsBtn = null;
+	private Dictionary<EKey, Button> m_oBtnDict = new Dictionary<EKey, Button>() {
+		[EKey.ACQUIRE_BTN] = null,
+		[EKey.REWARD_ADS_BTN] = null
+	};
 
 	/** =====> 객체 <===== */
 	[SerializeField] private GameObject m_oRewardUIs = null;
@@ -44,11 +59,11 @@ public class CRewardAcquirePopup : CSubPopup {
 		this.IsIgnoreNavStackEvent = true;
 
 		// 버튼을 설정한다 {
-		m_oAcquireBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ACQUIRE_BTN);
-		m_oAcquireBtn?.onClick.AddListener(this.OnTouchAcquireBtn);
+		m_oBtnDict[EKey.ACQUIRE_BTN] = this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ACQUIRE_BTN);
+		m_oBtnDict[EKey.ACQUIRE_BTN]?.onClick.AddListener(this.OnTouchAcquireBtn);
 
-		m_oRewardAdsBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_REWARD_ADS_BTN);
-		m_oRewardAdsBtn?.onClick.AddListener(this.OnTouchRewardAdsBtn);
+		m_oBtnDict[EKey.REWARD_ADS_BTN] = this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_REWARD_ADS_BTN);
+		m_oBtnDict[EKey.REWARD_ADS_BTN]?.onClick.AddListener(this.OnTouchRewardAdsBtn);
 		// 버튼을 설정한다 }
 	}
 	
@@ -98,11 +113,11 @@ public class CRewardAcquirePopup : CSubPopup {
 
 	/** 아이템을 획득한다 */
 	private void AcquireItems(bool a_bIsWatchRewardAds) {
-		m_oAcquireBtn?.ExSetInteractable(false);
-		m_oRewardAdsBtn?.ExSetInteractable(false);
+		m_oBtnDict[EKey.ACQUIRE_BTN]?.ExSetInteractable(false);
+		m_oBtnDict[EKey.REWARD_ADS_BTN]?.ExSetInteractable(false);
 
 #if ADS_MODULE_ENABLE
-		m_oRewardAdsBtn?.gameObject.ExRemoveComponent<CRewardAdsTouchInteractable>();
+		m_oBtnDict[EKey.REWARD_ADS_BTN]?.gameObject.ExRemoveComponent<CRewardAdsTouchInteractable>();
 #endif			// #if ADS_MODULE_ENABLE
 
 		for(int i = 0; i < m_stParams.m_oItemInfoList.Count; ++i) {

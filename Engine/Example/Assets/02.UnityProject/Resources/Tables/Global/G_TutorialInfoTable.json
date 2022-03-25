@@ -1,22 +1,22 @@
 {
     "Play": [
         {
+            "Description": "샘플 플레이 튜토리얼 정보",
             "Replace": "0",
             "RewardKinds": "-1",
             "TutorialKinds": "0",
             "NextTutorialKinds": "-1",
-            "Str_01": "Sample",
-            "Description": "샘플 플레이 튜토리얼 정보"
+            "Str_01": "Sample"
         }
     ],
     "Help": [
         {
+            "Description": "샘플 도움말 튜토리얼 정보",
             "Replace": "0",
             "RewardKinds": "-1",
             "TutorialKinds": "10000000",
             "NextTutorialKinds": "-1",
-            "Str_01": "Sample",
-            "Description": "샘플 도움말 튜토리얼 정보"
+            "Str_01": "Sample"
         }
     ]
 }

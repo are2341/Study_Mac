@@ -1,11 +1,12 @@
 {
     "Common": [
         {
+            "Description": "샘플 효과 정보",
+            "Replace": "0",
             "Name": "Sample",
             "Desc": "Sample",
             "FXKinds": "0",
-            "NextFXKinds": "-1",
-            "Description": "샘플 효과 정보"
+            "NextFXKinds": "-1"
         }
     ]
 }

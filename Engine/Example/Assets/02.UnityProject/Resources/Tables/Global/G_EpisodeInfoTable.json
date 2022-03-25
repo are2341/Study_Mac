@@ -1,9 +1,10 @@
 {
     "Level": [
         {
+            "Description": "샘플 레벨 정보",
+            "Replace": "0",
             "Name": "Sample",
             "Desc": "Sample",
-            "Replace": "0",
             "ID": "0",
             "StageID": "0",
             "ChapterID": "0",
@@ -15,15 +16,15 @@
             "TargetKinds_01": "-1",
             "NumTargets_01": "0",
             "UnlockTargetKinds_01": "-1",
-            "NumUnlockTargets_01": "0",
-            "Description": "샘플 레벨 정보"
+            "NumUnlockTargets_01": "0"
         }
     ],
     "Stage": [
         {
+            "Description": "샘플 스테이지 정보",
+            "Replace": "0",
             "Name": "Sample",
             "Desc": "Sample",
-            "Replace": "0",
             "ID": "0",
             "ChapterID": "0",
             "Difficulty": "0",
@@ -34,15 +35,15 @@
             "TargetKinds_01": "-1",
             "NumTargets_01": "0",
             "UnlockTargetKinds_01": "-1",
-            "NumUnlockTargets_01": "0",
-            "Description": "샘플 스테이지 정보"
+            "NumUnlockTargets_01": "0"
         }
     ],
     "Chapter": [
         {
+            "Description": "샘플 챕터 정보",
+            "Replace": "0",
             "Name": "Sample",
             "Desc": "Sample",
-            "Replace": "0",
             "ID": "0",
             "Difficulty": "0",
             "ChapterKinds": "-1",
@@ -52,8 +53,7 @@
             "TargetKinds_01": "-1",
             "NumTargets_01": "0",
             "UnlockTargetKinds_01": "-1",
-            "NumUnlockTargets_01": "0",
-            "Description": "샘플 챕터 정보"
+            "NumUnlockTargets_01": "0"
         }
     ]
 }

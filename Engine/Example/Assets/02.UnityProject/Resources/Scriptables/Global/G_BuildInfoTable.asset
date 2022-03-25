@@ -15,7 +15,7 @@ MonoBehaviour:
   m_stJenkinsInfo:
     m_oUserID: 9tap
     m_oBranch: main
-    m_oSrc: 00000000.Common/03000111.Sample_Unity
+    m_oSrc: 0000000000.Common/0300010101.Sample_Unity
     m_oWorkspace: /Volumes/LaCie/jenkins/workspace
     m_oBuildToken: JenkinsBuild
     m_oAccessToken: 111e9bf7eda996ab2ad9620e0dd0e15220
@@ -28,8 +28,8 @@ MonoBehaviour:
   m_stAndroidBuildInfo:
     m_oKeystorePath: Keystore.keystore
     m_oKeyaliasName: Keystore
-    m_oKeystorePassword: NT9studio!
-    m_oKeyaliasPassword: NT9studio!
+    m_oKeystorePassword: NSString132!
+    m_oKeyaliasPassword: NSString132!
     m_eMinSDKVer: 22
     m_eTargetSDKVer: 30
   m_stStandaloneBuildInfo:

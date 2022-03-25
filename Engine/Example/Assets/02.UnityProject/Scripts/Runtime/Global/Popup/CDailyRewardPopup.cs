@@ -6,10 +6,20 @@ using UnityEngine.UI;
 #if RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 일일 보상 팝업 */
 public class CDailyRewardPopup : CSubPopup {
+	/** 식별자 */
+	private enum EKey {
+		NONE = -1,
+		ACQUIRE_BTN,
+		REWARD_ADS_BTN,
+		[HideInInspector] MAX_VAL
+	}
+
 	#region 변수
 	/** =====> UI <===== */
-	private Button m_oAcquireBtn = null;
-	private Button m_oRewardAdsBtn = null;
+	private Dictionary<EKey, Button> m_oBtnDict = new Dictionary<EKey, Button>() {
+		[EKey.ACQUIRE_BTN] = null,
+		[EKey.REWARD_ADS_BTN] = null
+	};
 
 	/** =====> 객체 <===== */
 	[SerializeField] private List<GameObject> m_oRewardUIsList = new List<GameObject>();
@@ -29,11 +39,11 @@ public class CDailyRewardPopup : CSubPopup {
 		base.Awake();
 
 		// 버튼을 설정한다 {
-		m_oAcquireBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ACQUIRE_BTN);
-		m_oAcquireBtn?.onClick.AddListener(this.OnTouchAcquireBtn);
+		m_oBtnDict[EKey.ACQUIRE_BTN] = this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_ACQUIRE_BTN);
+		m_oBtnDict[EKey.ACQUIRE_BTN]?.onClick.AddListener(this.OnTouchAcquireBtn);
 
-		m_oRewardAdsBtn = m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_REWARD_ADS_BTN);
-		m_oRewardAdsBtn?.onClick.AddListener(this.OnTouchRewardAdsBtn);
+		m_oBtnDict[EKey.REWARD_ADS_BTN] = this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_REWARD_ADS_BTN);
+		m_oBtnDict[EKey.REWARD_ADS_BTN]?.onClick.AddListener(this.OnTouchRewardAdsBtn);
 		// 버튼을 설정한다 }
 	}
 	
@@ -51,6 +61,10 @@ public class CDailyRewardPopup : CSubPopup {
 	/** UI 상태를 갱신한다 */
 	private new void UpdateUIsState() {
 		base.UpdateUIsState();
+
+		// 버튼을 갱신한다
+		m_oBtnDict[EKey.ACQUIRE_BTN]?.ExSetInteractable(CGameInfoStorage.Inst.IsEnableGetDailyReward);
+		m_oBtnDict[EKey.REWARD_ADS_BTN]?.ExSetInteractable(CGameInfoStorage.Inst.IsEnableGetDailyReward);
 		
 		// 보상 UI 상태를 갱신한다
 		for(int i = 0; i < m_oRewardUIsList.Count; ++i) {
@@ -104,7 +118,7 @@ public class CDailyRewardPopup : CSubPopup {
 		
 		Func.ShowRewardAcquirePopup(this.transform.parent.gameObject, (a_oSender) => {
 			var stParams = new CRewardAcquirePopup.STParams() {
-				m_eQuality = stRewardInfo.m_eRewardQuality, m_ePopupType = ERewardAcquirePopupType.DAILY, m_oItemInfoList = stRewardInfo.m_oItemInfoList
+				m_eQuality = stRewardInfo.m_eRewardQuality, m_eAgreePopup = ERewardAcquirePopupType.DAILY, m_oItemInfoList = stRewardInfo.m_oItemInfoList
 			};
 
 			(a_oSender as CRewardAcquirePopup).Init(stParams);

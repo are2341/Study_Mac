@@ -7,6 +7,13 @@ using TMPro;
 #if RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 이어하기 팝업 */
 public class CContinuePopup : CSubPopup {
+	/** 식별자 */
+	private enum EKey {
+		NONE = -1,
+		PRICE_TEXT,
+		[HideInInspector] MAX_VAL
+	}
+
 	/** 콜백 */
 	public enum ECallback {
 		NONE = -1,
@@ -27,7 +34,9 @@ public class CContinuePopup : CSubPopup {
 	private STParams m_stParams;
 
 	/** =====> UI <===== */
-	private TMP_Text m_oPriceText = null;
+	private Dictionary<EKey, TMP_Text> m_oTextDict = new Dictionary<EKey, TMP_Text>() {
+		[EKey.PRICE_TEXT] = null
+	};
 	#endregion			// 변수
 
 	#region 프로퍼티
@@ -48,12 +57,12 @@ public class CContinuePopup : CSubPopup {
 		base.Awake();
 
 		// 텍스트를 설정한다
-		m_oPriceText = m_oContents.ExFindComponent<TMP_Text>(KCDefine.U_OBJ_N_PRICE_TEXT);
+		m_oTextDict[EKey.PRICE_TEXT] = this.Contents.ExFindComponent<TMP_Text>(KCDefine.U_OBJ_N_PRICE_TEXT);
 
 		// 버튼을 설정한다
-		m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_RETRY_BTN)?.onClick.AddListener(this.OnTouchRetryBtn);
-		m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_CONTINUE_BTN)?.onClick.AddListener(this.OnTouchContinueBtn);
-		m_oContents.ExFindComponent<Button>(KCDefine.U_OBJ_N_LEAVE_BTN)?.onClick.AddListener(this.OnTouchLeaveBtn);
+		this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_RETRY_BTN)?.onClick.AddListener(this.OnTouchRetryBtn);
+		this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_CONTINUE_BTN)?.onClick.AddListener(this.OnTouchContinueBtn);
+		this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_LEAVE_BTN)?.onClick.AddListener(this.OnTouchLeaveBtn);
 	}
 
 	/** 초기화 */
@@ -79,7 +88,7 @@ public class CContinuePopup : CSubPopup {
 		base.UpdateUIsState();
 		
 		// 텍스트를 갱신한다
-		m_oPriceText?.ExSetText($"{CSaleItemInfoTable.Inst.GetSaleItemInfo(ESaleItemKinds.CONSUMABLE_CONTINUE).IntPrice}", EFontSet._1, false);
+		m_oTextDict[EKey.PRICE_TEXT]?.ExSetText($"{CSaleItemInfoTable.Inst.GetSaleItemInfo(ESaleItemKinds.CONSUMABLE_CONTINUE).IntPrice}", EFontSet._1, false);
 	}
 	
 	/** 재시도 버튼을 눌렀을 경우 */

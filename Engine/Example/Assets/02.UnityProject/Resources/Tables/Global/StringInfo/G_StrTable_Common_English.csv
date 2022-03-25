@@ -1,77 +1,77 @@
-ID,Replace,Description,Str
-EDITOR_QUIT_P_MSG,0,에디터 종료 팝업 메세지,Do you want to quit the editor?
-EDITOR_RESET_P_MSG,0,에디터 리셋 팝업 메세지,Do you want to reset the editor?
-EDITOR_A_SET_P_MSG,0,에디터 세트 A 팝업 메세지,Do you want to set up the A set?
-EDITOR_B_SET_P_MSG,0,에디터 세트 B 팝업 메세지,Do you want to set up the B set?
-EDITOR_TABLE_RL_MSG,0,에디터 테이블 다시 로드 메세지,Do you want to reload the table?
-EDITOR_REMOVE_LP_MSG,0,에디터 레벨 제거 팝업 메세지,Do you want to remove the level?
-EDITOR_REMOVE_SP_MSG,0,에디터 스테이지 제거 팝업 메세지,Do you want to remove the stage?
-EDITOR_REMOVE_CP_MSG,0,에디터 챕터 제거 팝업 메세지,Do you want to remove the chapter?
-QUIT_P_MSG,0,종료 팝업 메세지,Do you want to quit the game?
-LEAVE_P_MSG,0,그만두기 팝업 메세지,Do you want to leave the game?
-UPDATE_P_MSG,0,업데이트 팝업 메세지,A new version has been released.\nWould you like to update it?
-LOAD_P_MSG,0,로드 팝업 메세지,"Do you want to load progress?\n<color=#ff0000ff><size=24>(When loading, current progress cannot be recovered)</size></color>"
-SAVE_P_MSG,0,저장 팝업 메세지,"Do you want to save progress?\n<color=#ff0000ff><size=24>(When saving, previous progress cannot be recovered)</size></color>"
-TRACKING_DP_TITLE,0,추적 설명 팝업 제목,Notice
-TRACKING_DP_MSG,0,추적 설명 팝업 메세지,Allow tracking on the\nnext screen for
-TRACKING_DP_DESC_MSG_01,0,추적 설명 팝업 설명 메세지 1,Special offers and promotions\njust for you
-TRACKING_DP_DESC_MSG_02,0,추적 설명 팝업 설명 메세지 2,Advertisements that match\nyour interests
-TRACKING_DP_DESC_MSG_03,0,추적 설명 팝업 설명 메세지 3,An improved personalized\nexperience over time
-COMMON_LOGIN_SUCCESS_MSG,0,공용 로그인 성공 메세지,You have successfully login
-COMMON_LOGIN_FAIL_MSG,0,공용 로그인 실패 메세지,You have failed to login
-COMMON_LOGOUT_SUCCESS_MSG,0,공용 로그아웃 성공 메세지,You have successfully logout
-COMMON_LOGOUT_FAIL_MSG,0,공용 로그아웃 실패 메세지,You have failed to logout
-COMMON_LOAD_SUCCESS_MSG,0,공용 로드 성공 메세지,You have successfully loaded progress
-COMMON_LOAD_FAIL_MSG,0,공용 로드 실패 메세지,You have failed to load progress
-COMMON_SAVE_SUCCESS_MSG,0,공용 저장 성공 메세지,You have successfully saved progress
-COMMON_SAVE_FAIL_MSG,0,공용 저장 실패 메세지,You have failed to save progress
-COMMON_PURCHASE_SUCCESS_MSG,0,공용 결제 성공 메세지,You have successfully purchased this product
-COMMON_PURCHASE_FAIL_MSG,0,공용 결제 실패 메세지,You have failed to purchase this product
-COMMON_RESTORE_SUCCESS_MSG,0,공용 복원 성공 메세지,The product has been restored
-COMMON_RESTORE_FAIL_MSG,0,공용 복원 실패 메세지,Failed to restore the product
-COMMON_OK_TEXT,0,공용 확인 텍스트,OK
-COMMON_CANCEL_TEXT,0,공용 취소 텍스트,Cancel
-COMMON_AGREE_TEXT,0,공용 동의 텍스트,Agree
-COMMON_RESULT_TEXT,0,공용 결과 텍스트,Result
-COMMON_GET_TEXT,0,공용 획득 텍스트,Get
-COMMON_STORE_TEXT,0,공용 상점 텍스트,Store
-COMMON_EVENT_TEXT,0,공용 이벤트 텍스트,Event
-COMMON_NEXT_TEXT,0,공용 다음 텍스트,Next
-COMMON_HOME_TEXT,0,공용 홈 텍스트,Home
-COMMON_PLAY_TEXT,0,공용 플레이 텍스트,Play
-COMMON_RETRY_TEXT,0,공용 재시도 텍스트,Retry
-COMMON_LEAVE_TEXT,0,공용 나가기 텍스트,Leave
-COMMON_SYNC_TEXT,0,공용 동기화 텍스트,Sync
-COMMON_LOGIN_TEXT,0,공용 로그인 텍스트,Login
-COMMON_APPLE_LOGIN_TEXT,0,공용 애플 로그인 텍스트,Sign in with Apple
-COMMON_FACEBOOK_LOGIN_TEXT,0,공용 페이스 북 로그인,Sign in with Facebook
-COMMON_LOGOUT_TEXT,0,공용 로그아웃 텍스트,Logout
-COMMON_DISCONNECT_TEXT,0,공용 연결 해제 텍스트,Disconnect
-COMMON_LOAD_TEXT,0,공용 로드 텍스트,Load
-COMMON_SAVE_TEXT,0,공용 저장 텍스트,Save
-COMMON_CONTINUE_TEXT,0,공용 이어하기 텍스트,Continue
-COMMON_NOTI_TEXT,0,공용 알림 텍스트,Notice
-COMMON_REVIEW_TEXT,0,공용 평가 텍스트,Review
-COMMON_SUPPORTS_TEXT,0,공용 지원 텍스트,Supports
-COMMON_BG_SND_TEXT,0,공용 배경음 텍스트,BGM
-COMMON_FX_SNDS_TEXT,0,공용 효과음 텍스트,SFX
-COMMON_WATCH_ADS_TEXT,0,공용 광고 시청 텍스트,Watch Ads
-COMMON_RESTORE_PAYMENT_TEXT,0,공용 결제 복원 텍스트,Restore Payment
-COMMON_LEVEL_TEXT,0,공용 레벨 텍스트,Level
-COMMON_STAGE_TEXT,0,공용 스테이지 텍스트,Stage
-COMMON_CHAPTER_TEXT,0,공용 챕터 텍스트,Chapter
-COMMON_LEVEL_NUM_TEXT_FMT,0,공용 레벨 번호 텍스트 형식,Level {0}
-COMMON_STAGE_NUM_TEXT_FMT,0,공용 스테이지 번호 텍스트 형식,Stage {0}
-COMMON_CHAPTER_NUM_TEXT_FMT,0,공용 챕터 번호 텍스트 형식,Chapter {0}
-COMMON_LEVEL_PAGE_TEXT_FMT,0,공용 레벨 페이지 텍스트 형식,Level {0}/{1}
-COMMON_STAGE_PAGE_TEXT_FMT,0,공용 스테이지 페이지 텍스트 형식,Stage {0}/{1}
-COMMON_CHAPTER_PAGE_TEXT_FMT,0,공용 챕터 페이지 텍스트 형식,Chapter {0}/{1}
-STORE_P_TITLE,0,상점 팝업 타이틀,Store
-SETTINGS_P_TITLE,0,설정 팝업 타이틀,Settings
-SYNC_P_TITLE,0,동기화 팝업 타이틀,Sync
-DAILY_MP_TITLE,0,일일 미션 팝업 타이틀,Daily Mission
-FREE_RP_TITLE,0,무료 보상 팝업 타이틀,Free Reward
-DAILY_RP_TITLE,0,일일 보상 팝업 타이틀,Daily Reward
-SALE_CP_TITLE,0,판매 코인 팝업 타이틀,Sale Coins
-CONTINUE_P_TITLE,0,이어하기 팝업 타이틀,Continue
-RESULT_P_TITLE,0,결과 팝업 제목,Result
+Description,Replace,ID,Str
+에디터 종료 팝업 메세지,0,EDITOR_QUIT_P_MSG,Do you want to quit the editor?
+에디터 리셋 팝업 메세지,0,EDITOR_RESET_P_MSG,Do you want to reset the editor?
+에디터 세트 A 팝업 메세지,0,EDITOR_A_SET_P_MSG,Do you want to set up the A set?
+에디터 세트 B 팝업 메세지,0,EDITOR_B_SET_P_MSG,Do you want to set up the B set?
+에디터 테이블 로드 메세지,0,EDITOR_TABLE_LP_MSG,Do you want to load the table?
+에디터 레벨 제거 팝업 메세지,0,EDITOR_REMOVE_LP_MSG,Do you want to remove the level?
+에디터 스테이지 제거 팝업 메세지,0,EDITOR_REMOVE_SP_MSG,Do you want to remove the stage?
+에디터 챕터 제거 팝업 메세지,0,EDITOR_REMOVE_CP_MSG,Do you want to remove the chapter?
+종료 팝업 메세지,0,QUIT_P_MSG,Do you want to quit the game?
+그만두기 팝업 메세지,0,LEAVE_P_MSG,Do you want to leave the game?
+업데이트 팝업 메세지,0,UPDATE_P_MSG,A new version has been released.\nWould you like to update it?
+로드 팝업 메세지,0,LOAD_P_MSG,"Do you want to load progress?\n<color=#ff0000ff><size=24>(When loading, current progress cannot be recovered)</size></color>"
+저장 팝업 메세지,0,SAVE_P_MSG,"Do you want to save progress?\n<color=#ff0000ff><size=24>(When saving, previous progress cannot be recovered)</size></color>"
+추적 설명 팝업 제목,0,TRACKING_DP_TITLE,Notice
+추적 설명 팝업 메세지,0,TRACKING_DP_MSG,Allow tracking on the\nnext screen for
+추적 설명 팝업 설명 메세지 1,0,TRACKING_DP_DESC_MSG_01,Special offers and promotions\njust for you
+추적 설명 팝업 설명 메세지 2,0,TRACKING_DP_DESC_MSG_02,Advertisements that match\nyour interests
+추적 설명 팝업 설명 메세지 3,0,TRACKING_DP_DESC_MSG_03,An improved personalized\nexperience over time
+공용 로그인 성공 메세지,0,COMMON_LOGIN_SUCCESS_MSG,You have successfully login
+공용 로그인 실패 메세지,0,COMMON_LOGIN_FAIL_MSG,You have failed to login
+공용 로그아웃 성공 메세지,0,COMMON_LOGOUT_SUCCESS_MSG,You have successfully logout
+공용 로그아웃 실패 메세지,0,COMMON_LOGOUT_FAIL_MSG,You have failed to logout
+공용 로드 성공 메세지,0,COMMON_LOAD_SUCCESS_MSG,You have successfully loaded progress
+공용 로드 실패 메세지,0,COMMON_LOAD_FAIL_MSG,You have failed to load progress
+공용 저장 성공 메세지,0,COMMON_SAVE_SUCCESS_MSG,You have successfully saved progress
+공용 저장 실패 메세지,0,COMMON_SAVE_FAIL_MSG,You have failed to save progress
+공용 결제 성공 메세지,0,COMMON_PURCHASE_SUCCESS_MSG,You have successfully purchased this product
+공용 결제 실패 메세지,0,COMMON_PURCHASE_FAIL_MSG,You have failed to purchase this product
+공용 복원 성공 메세지,0,COMMON_RESTORE_SUCCESS_MSG,The product has been restored
+공용 복원 실패 메세지,0,COMMON_RESTORE_FAIL_MSG,Failed to restore the product
+공용 확인 텍스트,0,COMMON_OK_TEXT,OK
+공용 취소 텍스트,0,COMMON_CANCEL_TEXT,Cancel
+공용 동의 텍스트,0,COMMON_AGREE_TEXT,Agree
+공용 결과 텍스트,0,COMMON_RESULT_TEXT,Result
+공용 획득 텍스트,0,COMMON_GET_TEXT,Get
+공용 상점 텍스트,0,COMMON_STORE_TEXT,Store
+공용 이벤트 텍스트,0,COMMON_EVENT_TEXT,Event
+공용 다음 텍스트,0,COMMON_NEXT_TEXT,Next
+공용 홈 텍스트,0,COMMON_HOME_TEXT,Home
+공용 플레이 텍스트,0,COMMON_PLAY_TEXT,Play
+공용 재시도 텍스트,0,COMMON_RETRY_TEXT,Retry
+공용 나가기 텍스트,0,COMMON_LEAVE_TEXT,Leave
+공용 동기화 텍스트,0,COMMON_SYNC_TEXT,Sync
+공용 로그인 텍스트,0,COMMON_LOGIN_TEXT,Login
+공용 애플 로그인 텍스트,0,COMMON_APPLE_LOGIN_TEXT,Sign in with Apple
+공용 페이스 북 로그인,0,COMMON_FACEBOOK_LOGIN_TEXT,Sign in with Facebook
+공용 로그아웃 텍스트,0,COMMON_LOGOUT_TEXT,Logout
+공용 연결 해제 텍스트,0,COMMON_DISCONNECT_TEXT,Disconnect
+공용 로드 텍스트,0,COMMON_LOAD_TEXT,Load
+공용 저장 텍스트,0,COMMON_SAVE_TEXT,Save
+공용 이어하기 텍스트,0,COMMON_CONTINUE_TEXT,Continue
+공용 알림 텍스트,0,COMMON_NOTI_TEXT,Notice
+공용 평가 텍스트,0,COMMON_REVIEW_TEXT,Review
+공용 지원 텍스트,0,COMMON_SUPPORTS_TEXT,Supports
+공용 배경음 텍스트,0,COMMON_BG_SND_TEXT,BGM
+공용 효과음 텍스트,0,COMMON_FX_SNDS_TEXT,SFX
+공용 광고 시청 텍스트,0,COMMON_WATCH_ADS_TEXT,Watch Ads
+공용 결제 복원 텍스트,0,COMMON_RESTORE_PAYMENT_TEXT,Restore Payment
+공용 레벨 텍스트,0,COMMON_LEVEL_TEXT,Level
+공용 스테이지 텍스트,0,COMMON_STAGE_TEXT,Stage
+공용 챕터 텍스트,0,COMMON_CHAPTER_TEXT,Chapter
+공용 레벨 번호 텍스트 형식,0,COMMON_LEVEL_NUM_TEXT_FMT,Level {0}
+공용 스테이지 번호 텍스트 형식,0,COMMON_STAGE_NUM_TEXT_FMT,Stage {0}
+공용 챕터 번호 텍스트 형식,0,COMMON_CHAPTER_NUM_TEXT_FMT,Chapter {0}
+공용 레벨 페이지 텍스트 형식,0,COMMON_LEVEL_PAGE_TEXT_FMT,Level {0}/{1}
+공용 스테이지 페이지 텍스트 형식,0,COMMON_STAGE_PAGE_TEXT_FMT,Stage {0}/{1}
+공용 챕터 페이지 텍스트 형식,0,COMMON_CHAPTER_PAGE_TEXT_FMT,Chapter {0}/{1}
+상점 팝업 타이틀,0,STORE_P_TITLE,Store
+설정 팝업 타이틀,0,SETTINGS_P_TITLE,Settings
+동기화 팝업 타이틀,0,SYNC_P_TITLE,Sync
+일일 미션 팝업 타이틀,0,DAILY_MP_TITLE,Daily Mission
+무료 보상 팝업 타이틀,0,FREE_RP_TITLE,Free Reward
+일일 보상 팝업 타이틀,0,DAILY_RP_TITLE,Daily Reward
+판매 코인 팝업 타이틀,0,SALE_CP_TITLE,Sale Coins
+이어하기 팝업 타이틀,0,CONTINUE_P_TITLE,Continue
+결과 팝업 제목,0,RESULT_P_TITLE,Result
