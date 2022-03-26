@@ -180,6 +180,14 @@ public enum EDirection {
 	[HideInInspector] MAX_VAL
 }
 
+/** 투영 */
+public enum EProjection {
+	NONE = -1,
+	_2D,
+	_3D,
+	[HideInInspector] MAX_VAL,
+}
+
 /** 직교 */
 public enum EOrthogonal {
 	NONE = -1,

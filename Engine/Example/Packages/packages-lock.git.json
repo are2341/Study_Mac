@@ -2,7 +2,7 @@
     "dependencies": [
         {
             "name": "module.unitystudy",
-            "hash": "14f96d8f20f63396b11fd32ce7bf98b9ad88844c",
+            "hash": "719e6697c50474ffbf0f057336fb66b675dc73f8",
             "url": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudy_client.git#2.2.0"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "name": "module.unitycommon",
-            "hash": "6781e441dc52beba3a837c3bf71ecb91da88e27b",
+            "hash": "f0d0ba34e01027fd2394bb23ca03f333a9fae6b4",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_client.git#2.2.0"
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "name": "module.unitycommondefine",
-            "hash": "22f008d61b1158eba4cf908c82bb9890a8f6df79",
+            "hash": "b74247a1ac5afe1aa5ff15550e1fe9356085cdf3",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.2.0"
         },
         {
@@ -52,7 +52,7 @@
         },
         {
             "name": "module.unitycommonutility",
-            "hash": "3e5f044302e714331399c9ab3a1978aa0f0ca774",
+            "hash": "4a98d57b0dd237fe2c3c68d39b43a6e52ffeccd9",
             "url": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.2.0"
         },
         {

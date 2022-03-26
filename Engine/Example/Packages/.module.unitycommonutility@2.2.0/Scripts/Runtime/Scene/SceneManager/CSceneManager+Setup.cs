@@ -346,11 +346,8 @@ public abstract partial class CSceneManager : CComponent {
 #if UNITY_EDITOR
 				a_oLight.lightmapBakeType = LightmapBakeType.Realtime;
 				a_oLight.ExSetCullingMask(KCDefine.U_LAYER_MASKS_LIGHT);
-
-				// 태양 광원이 없을 경우
-				if(RenderSettings.sun == null || RenderSettings.sun != a_oLight) {
-					RenderSettings.sun = a_oLight;
-				}
+				
+				RenderSettings.sun = (RenderSettings.sun != a_oLight) ? a_oLight : RenderSettings.sun;
 #endif			// #if UNITY_EDITOR
 			} else {
 #if UNITY_EDITOR
@@ -637,23 +634,20 @@ public abstract partial class CSceneManager : CComponent {
 
 		// 카메라가 존재 할 경우
 		if(a_oCamera != null) {
-			// 트랜스 폼을 설정한다 {
+			// 트랜스 폼을 설정한다
 			a_oCamera.transform.localScale = Vector3.one;
+			a_oCamera.transform.localEulerAngles = (this.MainCameraProjection == EProjection._2D) ? Vector3.zero : a_oCamera.transform.localEulerAngles;
 			a_oCamera.transform.localPosition = this.IsResetMainCameraPos ? Vector3.zero : a_oCamera.transform.localPosition;
-
-#if MODE_2D_ENABLE
-			a_oCamera.transform.localEulerAngles = Vector3.zero;
-#endif			// #if MODE_2D_ENABLE
-			// 트랜스 폼을 설정한다 }
 			
 			// 카메라 투영을 설정한다 {
 			a_oCamera.depth = this.MainCameraDepth;
-
-#if MODE_2D_ENABLE
-			a_oCamera.ExSetup2D(this.ScreenHeight * KCDefine.B_UNIT_SCALE);
-#else
-			a_oCamera.ExSetup3D(this.ScreenHeight * KCDefine.B_UNIT_SCALE, this.PlaneDistance);
-#endif			// #if MODE_2D_ENABLE
+			
+			// 2 차원 투영 일 경우
+			if(this.MainCameraProjection == EProjection._2D) {
+				a_oCamera.ExSetup2D(this.ScreenHeight * KCDefine.B_UNIT_SCALE);
+			} else {
+				a_oCamera.ExSetup3D(this.ScreenHeight * KCDefine.B_UNIT_SCALE, this.PlaneDistance);
+			}
 			// 카메라 투영을 설정한다 }
 		}
 	}

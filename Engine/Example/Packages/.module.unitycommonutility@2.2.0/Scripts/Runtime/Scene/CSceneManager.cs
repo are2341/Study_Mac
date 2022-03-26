@@ -330,6 +330,12 @@ public abstract partial class CSceneManager : CComponent {
 	public GameObject LeftObjs => m_oObjDict[EKey.LEFT_OBJS];
 	public GameObject RightObjs => m_oObjDict[EKey.RIGHT_OBJS];
 
+#if MODE_2D_ENABLE
+	public virtual EProjection MainCameraProjection => EProjection._2D;
+#else
+	public virtual EProjection MainCameraProjection => EProjection._3D;
+#endif			// #if MODE_2D_ENABLE
+
 #if MODE_PORTRAIT_ENABLE
 	public virtual bool IsIgnoreBlindV => true;
 	public virtual bool IsIgnoreBlindH => false;

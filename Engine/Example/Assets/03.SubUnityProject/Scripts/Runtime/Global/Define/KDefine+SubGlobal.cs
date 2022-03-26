@@ -8,6 +8,9 @@ using UnityEngine.UI;
 public static partial class KDefine {
 	#region 기본
 	// 씬 이름 {
+	public const string G_SCENE_N_3X_E01_EXAMPLE_052 = "_3xE01Example_052";
+	public const string G_SCENE_N_3X_E01_EXAMPLE_124 = "_3xE01Example_124";
+
 	public const string G_SCENE_N_4X_E01_EXAMPLE_048 = "_4xE01Example_048";
 
 	public const string G_SCENE_N_5X_E01_EXAMPLE_042 = "_5xE01Example_042";

@@ -14,7 +14,7 @@ public abstract class CStudySceneManager : CSceneManager {
 	/** =====> 객체 <===== */
 	protected GameObject m_oScrollViewContents = null;
 	#endregion			// 변수
-	
+
 	#region 프로퍼티
 	public override bool IsIgnoreOverlayScene => false;
 	#endregion			// 프로퍼티

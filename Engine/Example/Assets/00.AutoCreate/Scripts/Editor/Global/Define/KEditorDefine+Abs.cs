@@ -125,7 +125,7 @@ public static partial class KEditorDefine {
 #endif			// #if NOTI_MODULE_ENABLE
 	};
 
-	// 데이터 타입
+	// 클래스 타입
 	public static readonly Dictionary<string, System.Type> B_SCENE_MANAGER_TYPE_DICT = new Dictionary<string, System.Type>() {
 #if SCENE_TEMPLATES_MODULE_ENABLE
 		[KCDefine.B_SCENE_N_INIT] = typeof(CSubInitSceneManager),
@@ -163,18 +163,8 @@ public static partial class KEditorDefine {
 		["com.unity.terrain-tools"] = "4.0.3",
 		["com.unity.2d.spriteshape"] = "7.0.4",
 		["com.unity.2d.tilemap.extras"] = "2.2.1",
-
-#if SAMPLE_PROJ || DEVELOPMENT_PROJ
-		// 분석
 		["com.unity.mobile.android-logcat"] = "1.2.3",
 		["com.unity.performance.profile-analyzer"] = "1.1.1",
-
-		// 기타
-		["com.unity.sequences"] = "1.0.4",
-		["com.unity.polybrush"] = "1.1.2",
-		["com.unity.probuilder"] = "5.0.4",
-		["com.unity.formats.fbx"] = "4.1.2",
-		["com.unity.ads.ios-support"] = "1.0.0",
 
 #if ML_AGENTS_ENABLE || ML_AGENTS_MODULE_ENABLE
 		["com.unity.ml-agents"] = "2.0.1",
@@ -196,6 +186,13 @@ public static partial class KEditorDefine {
 		["com.unity.visualeffectgraph"] = "12.1.6",
 		["com.unity.render-pipelines.universal"] = "12.1.6",
 #endif			// #if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
+
+#if SAMPLE_PROJ || DEVELOPMENT_PROJ
+		["com.unity.sequences"] = "1.0.4",
+		["com.unity.polybrush"] = "1.1.3",
+		["com.unity.probuilder"] = "5.0.4",
+		["com.unity.formats.fbx"] = "4.1.2",
+		["com.unity.ads.ios-support"] = "1.0.0",
 
 #if ADS_ENABLE || ADS_MODULE_ENABLE
 		["module.unitycommonads"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonads_client.git#2.2.0",
