@@ -284,7 +284,7 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 		return oNumChapterLevelInfosDict.Count;
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
 	}
-
+	
 	/** 레벨 정보를 로드한다 */
 	public CLevelInfo LoadLevelInfo(int a_nID, int a_nStageID = KCDefine.B_VAL_0_INT, int a_nChapterID = KCDefine.B_VAL_0_INT) {
 		return this.LoadLevelInfo(this.GetLevelInfoPath(a_nID, a_nStageID, a_nChapterID), a_nID, a_nStageID, a_nChapterID);
@@ -638,7 +638,7 @@ public class CLevelInfoTable : CSingleton<CLevelInfoTable> {
 			m_nChapterID = a_oLevelInfo.m_stIDInfo.m_nChapterID,
 			m_eLevelKinds = stLevelInfo.m_eLevelKinds,
 
-			m_stEpisodeInfo = new STCommonEpisodeInfo() {
+			m_stEpisodeInfo = new STEpisodeInfo() {
 				m_oName = stLevelInfo.m_stEpisodeInfo.m_oName ?? string.Empty,
 				m_oDesc = stLevelInfo.m_stEpisodeInfo.m_oDesc ?? string.Empty,
 

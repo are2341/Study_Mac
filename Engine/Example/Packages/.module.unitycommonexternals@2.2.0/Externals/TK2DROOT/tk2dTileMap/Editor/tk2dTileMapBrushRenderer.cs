@@ -252,7 +252,7 @@ namespace tk2dEditor
 			{
 				Matrix4x4 mat = new Matrix4x4();
 				var spriteDef = tileMap.SpriteCollectionInst.spriteDefinitions[0];
-				mat.SetTRS(new Vector3(rect.x,
+				mat.SetTRS(new Vector3(rect.x, 
 									   rect.y + height, 0), Quaternion.identity, new Vector3(scale / spriteDef.texelSize.x, -scale / spriteDef.texelSize.y, 1));
 					
 				for (int i = 0; i < dictData.materials.Length; ++i)

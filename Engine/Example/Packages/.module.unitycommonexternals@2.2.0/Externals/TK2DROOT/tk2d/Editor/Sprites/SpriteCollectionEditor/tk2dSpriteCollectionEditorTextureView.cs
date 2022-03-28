@@ -526,7 +526,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 
 					tk2dSpriteCollectionDefinition.ColliderData data = param.colliderData[i];
 					if (data.type == tk2dSpriteCollectionDefinition.ColliderData.Type.Circle) {
-						tk2dGuiUtility.TweakableCircle( thisControlId, origin + data.origin * editorDisplayScale, data.size.x * editorDisplayScale,
+						tk2dGuiUtility.TweakableCircle( thisControlId, origin + data.origin * editorDisplayScale, data.size.x * editorDisplayScale, 
 							delegate(Vector2 pos, float radius) {
 								data.origin = ( pos - origin ) / editorDisplayScale;
 								radius /= editorDisplayScale;
@@ -697,7 +697,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 				}
 				
 				bool alphaBlend = true;
-				textureScrollPos = GUI.BeginScrollView(rect, textureScrollPos,
+				textureScrollPos = GUI.BeginScrollView(rect, textureScrollPos, 
 					new Rect(0, 0, textureBorderPixels * 2 + (texture.width) * editorDisplayScale, textureBorderPixels * 2 + (texture.height) * editorDisplayScale));
 				Rect textureRect = new Rect(textureBorderPixels, textureBorderPixels, texture.width * editorDisplayScale, texture.height * editorDisplayScale);
 				texture.filterMode = FilterMode.Point;

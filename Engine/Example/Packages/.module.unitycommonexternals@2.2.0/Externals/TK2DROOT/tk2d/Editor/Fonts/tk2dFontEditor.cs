@@ -38,8 +38,8 @@ public class tk2dFontEditor : Editor
 				if ((buttonPressed = tk2dGuiUtility.InfoBoxWithButtons(
 					"Font texture appears to be compressed. " +
 					"Quality will be lost and the texture may appear blocky in game.\n" +
-					"Do you wish to change the format?",
-					tk2dGuiUtility.WarningLevel.Warning,
+					"Do you wish to change the format?", 
+					tk2dGuiUtility.WarningLevel.Warning, 
 					new string[] { "Truecolor" }
 					)) != -1)
 				{

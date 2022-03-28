@@ -133,7 +133,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 								
 								if (inUse)
 								{
-									if (EditorUtility.DisplayDialog("Delete material",
+									if (EditorUtility.DisplayDialog("Delete material", 
 										"This material is in use. Deleting it will reset materials on " +
 										"sprites that use this material.\n" +
 										"Do you wish to proceed?", "Yes", "Cancel"))
@@ -446,7 +446,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 			if (SpriteCollection.padAmount == 0 && SpriteCollection.filterMode != FilterMode.Point)
 			{
 				tk2dGuiUtility.InfoBox("Filter mode is not set to Point." + 
-					" Some bleeding will occur at sprite edges.",
+					" Some bleeding will occur at sprite edges.", 
 					tk2dGuiUtility.WarningLevel.Info);
 			}
 
@@ -529,7 +529,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 					
 					if (SpriteCollection.fonts.Count > 0 || hasDicing)
 					{
-						EditorUtility.DisplayDialog("Multiple atlases",
+						EditorUtility.DisplayDialog("Multiple atlases", 
 									"Multiple atlases not allowed. This sprite collection contains fonts and/or " +
 									"contains diced sprites.", "Ok");
 						allowMultipleAtlases = false;

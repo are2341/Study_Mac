@@ -13,6 +13,13 @@ public struct STTaskInfo {
 	public System.Action<Task> m_oCallback;
 }
 
+/** 기록 정보 */
+public struct STRecordInfo {
+	public bool m_bIsSuccess;
+	public long m_nIntRecord;
+	public double m_dblRealRecord;
+}
+
 /** 콜백 정보 */
 public struct STCallbackInfo {
 	public string m_oKey;

@@ -24,9 +24,26 @@ public class CAssetImporter : AssetPostprocessor {
 	#endregion			// 변수
 
 	#region 함수
-	/** 사운드를 추가 할 경우 */
-	public virtual void OnPreprocessAudio() {
-		var oAudioImporter = this.assetImporter as AudioImporter;
+	/** 에셋을 추가 할 경우 */
+	public virtual void OnPreprocessAsset() {
+		var oAssetImporterInfoList = new List<(bool, System.Action<AssetImporter>)>() {
+			(this.assetImporter as AudioImporter != null, this.SetupAudioImporter),
+			(this.assetImporter as ModelImporter != null, this.SetupModelImporter),
+			(this.assetImporter as ShaderImporter != null, this.SetupShaderImporter),
+			(this.assetImporter as TextureImporter != null, this.SetupTextureImporter)
+		};
+
+		for(int i = 0; i < oAssetImporterInfoList.Count; ++i) {
+			// 에셋 임포터가 존재 할 경우
+			if(oAssetImporterInfoList[i].Item1) {
+				oAssetImporterInfoList[i].Item2(this.assetImporter);
+			}
+		}
+	}
+
+	/** 오디오 임포터를 설정한다 */
+	protected virtual void SetupAudioImporter(AssetImporter a_oImporter) {
+		var oAudioImporter = a_oImporter as AudioImporter;
 		oAudioImporter.ambisonic = true;
 		oAudioImporter.forceToMono = false;
 		oAudioImporter.preloadAudioData = true;
@@ -51,15 +68,24 @@ public class CAssetImporter : AssetPostprocessor {
 		// 오디오 임포터 샘플을 설정한다 }
 	}
 
-	/** 모델을 추가 할 경우 */
-	public virtual void OnPreprocessModel() {
-		var oModelImporter = this.assetImporter as ModelImporter;
+	/** 모델 임포터를 설정한다 */
+	protected virtual void SetupModelImporter(AssetImporter a_oImporter) {
+		var oModelImporter = a_oImporter as ModelImporter;
 		oModelImporter.generateSecondaryUV = true;
 	}
 
-	/** 텍스처를 추가 할 경우 */
-	public virtual void OnPreprocessTexture() {
-		var oTextureImporter = this.assetImporter as TextureImporter;
+	/** 쉐이더 임포터를 설정한다 */
+	protected virtual void SetupShaderImporter(AssetImporter a_oImporter) {
+#if SAMPLE_PROJ
+		Shader.EnableKeyword(KCEditorDefine.DS_DEFINE_S_SAMPLE_PROJ);
+#else
+		Shader.DisableKeyword(KCEditorDefine.DS_DEFINE_S_SAMPLE_PROJ);
+#endif			// #if SAMPLE_PROJ
+	}
+
+	/** 텍스처 임포터를 설정한다 */
+	protected virtual void SetupTextureImporter(AssetImporter a_oImporter) {
+		var oTextureImporter = a_oImporter as TextureImporter;
 		oTextureImporter.mipmapEnabled = true;
 		oTextureImporter.alphaIsTransparency = KCEditorDefine.B_ENABLE_ALPHA_TRANSPARENCY_TEXTURE_TYPE_LIST.Contains(oTextureImporter.textureType);
 
@@ -114,11 +140,16 @@ public class CAssetImporter : AssetPostprocessor {
 	/** 에셋을 추가했을 경우 */
 	private static void OnPostprocessAllAssets(string[] a_oImportAssets, string[] a_oRemoveAssets, string[] a_oMoveAssets, string[] a_oMoveAssetPaths) {
 		for(int i = 0; i < a_oImportAssets.Length; ++i) {
+			var oMaterial = CEditorFunc.FindAsset<Material>(a_oImportAssets[i]);
 			var oSpriteAtlas = CEditorFunc.FindAsset<SpriteAtlas>(a_oImportAssets[i]);
 			var oTMPFontAsset = CEditorFunc.FindAsset<TMP_FontAsset>(a_oImportAssets[i]);
-
+			
+			// 재질 일 경우
+			if(oMaterial != null && a_oImportAssets[i].Contains(KCDefine.B_FILE_EXTENSION_MAT)) {
+				CAssetImporter.SetupMaterial(oMaterial, a_oImportAssets[i], a_oRemoveAssets, a_oMoveAssets, a_oMoveAssetPaths);
+			}
 			// 스프라이트 아틀라스 일 경우
-			if(oSpriteAtlas != null && a_oImportAssets[i].Contains(KCDefine.B_FILE_EXTENSION_SPRITE_ATLAS)) {
+			else if(oSpriteAtlas != null && a_oImportAssets[i].Contains(KCDefine.B_FILE_EXTENSION_SPRITE_ATLAS)) {
 				CAssetImporter.SetupSpriteAtlas(oSpriteAtlas, a_oImportAssets[i], a_oRemoveAssets, a_oMoveAssets, a_oMoveAssetPaths);
 			}
 			// TMP 폰트 에셋 일 경우
@@ -126,6 +157,15 @@ public class CAssetImporter : AssetPostprocessor {
 				CAssetImporter.SetupTMPFontAsset(oTMPFontAsset, a_oImportAssets[i], a_oRemoveAssets, a_oMoveAssets, a_oMoveAssetPaths);
 			}
 		}
+	}
+
+	/** 재질을 설정한다 */
+	private static void SetupMaterial(Material a_oMaterial, string a_oImportAsset, string[] a_oRemoveAssets, string[] a_oMoveAssets, string[] a_oMoveAssetPaths) {
+#if SAMPLE_PROJ
+		a_oMaterial.EnableKeyword(KCEditorDefine.DS_DEFINE_S_SAMPLE_PROJ);
+#else
+		a_oMaterial.DisableKeyword(KCEditorDefine.DS_DEFINE_S_SAMPLE_PROJ);
+#endif			// #if SAMPLE_PROJ
 	}
 
 	/** 스프라이트 아틀라스를 설정한다 */

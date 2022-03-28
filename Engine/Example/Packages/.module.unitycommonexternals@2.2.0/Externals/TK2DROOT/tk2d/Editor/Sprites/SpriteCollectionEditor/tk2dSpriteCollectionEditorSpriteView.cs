@@ -250,7 +250,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 				EditorGUI.indentLevel--;
 				EditorGUILayout.Separator();
 				
-				HandleMultiSelection(entries,
+				HandleMultiSelection(entries, 
 					(a,b) => (a.anchor == b.anchor && a.anchorX == b.anchorX && a.anchorY == b.anchorY),
 					delegate(tk2dSpriteCollectionDefinition a, tk2dSpriteCollectionDefinition b) {
 						b.anchor = a.anchor;
@@ -281,7 +281,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 				EditorGUI.indentLevel--;
 				EditorGUILayout.Separator();
 
-				HandleMultiSelection(entries,
+				HandleMultiSelection(entries, 
 					(a,b) => (a.colliderType == b.colliderType && a.boxColliderMin == b.boxColliderMin && a.boxColliderMax == b.boxColliderMax),
 					delegate(tk2dSpriteCollectionDefinition a, tk2dSpriteCollectionDefinition b) {
 						b.colliderType = a.colliderType;
@@ -298,7 +298,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 				EditorGUI.indentLevel--;
 				EditorGUILayout.Separator();
 
-				HandleMultiSelection(entries,
+				HandleMultiSelection(entries, 
 					(a,b) => (a.colliderType == b.colliderType && a.polyColliderCap == b.polyColliderCap 
 							&& a.colliderConvex == b.colliderConvex && a.colliderSmoothSphereCollisions == b.colliderSmoothSphereCollisions
 							&& ComparePolyCollider(a.polyColliderIslands, b.polyColliderIslands)),
@@ -346,7 +346,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 			// Sanity check dicing & multiple atlases
             if (!SpriteCollection.allowSpannedDicing && param.dice && SpriteCollection.allowMultipleAtlases)
 			{
-				EditorUtility.DisplayDialog("Sprite dicing",
+				EditorUtility.DisplayDialog("Sprite dicing", 
 					"Sprite dicing is unavailable when multiple atlases is enabled. " +
 					"Please disable it and try again.", "Ok");
 				param.dice = false;
@@ -358,7 +358,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 				EditorGUI.indentLevel++;
 				param.diceUnitX = EditorGUILayout.IntField("Dice X", param.diceUnitX);
 				param.diceUnitY = EditorGUILayout.IntField("Dice Y", param.diceUnitY);
-				GUIContent diceFilter = new GUIContent("Dice Filter",
+				GUIContent diceFilter = new GUIContent("Dice Filter", 
 					"Dice Filter lets you dice and only store a subset of the dices. This lets you perform more optimizations, drawing solid dices with a solid shader.\n\n"+
 					"Complete - Draw all dices (Default).\nSolidOnly - Only draw the solid dices.\nTransparent Only - Only draw transparent dices.");
 				param.diceFilter = (tk2dSpriteCollectionDefinition.DiceFilter)EditorGUILayout.EnumPopup(diceFilter, param.diceFilter);
@@ -366,8 +366,8 @@ namespace tk2dEditor.SpriteCollectionEditor
 				EditorGUILayout.Separator();
 			}
 			
-			HandleMultiSelection(entries,
-				(a,b) => a.customSpriteGeometry == b.customSpriteGeometry && a.dice == b.dice && a.diceUnitX == b.diceUnitX && a.diceUnitY == b.diceUnitY && a.diceFilter == b.diceFilter,
+			HandleMultiSelection(entries, 
+				(a,b) => a.customSpriteGeometry == b.customSpriteGeometry && a.dice == b.dice && a.diceUnitX == b.diceUnitX && a.diceUnitY == b.diceUnitY && a.diceFilter == b.diceFilter, 
 				delegate(tk2dSpriteCollectionDefinition a, tk2dSpriteCollectionDefinition b) {
 					b.customSpriteGeometry = a.customSpriteGeometry;
 					b.dice = a.dice;

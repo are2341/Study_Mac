@@ -9,7 +9,6 @@ using Timers;
 public class CScheduleManager : CSingleton<CScheduleManager> {
 	#region 변수
 	private float m_fUpdateSkipTime = 0.0f;
-	
 	private CListWrapper<STCallbackInfo> m_oCallbackInfoListWrapper = new CListWrapper<STCallbackInfo>();
 	private CListWrapper<STComponentInfo> m_oComponentInfoListWrapper = new CListWrapper<STComponentInfo>();
 	#endregion			// 변수

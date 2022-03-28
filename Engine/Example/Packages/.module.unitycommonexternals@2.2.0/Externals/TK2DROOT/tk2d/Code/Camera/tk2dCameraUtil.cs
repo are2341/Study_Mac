@@ -95,25 +95,25 @@ public class tk2dCameraResolutionOverride {
 	public enum AutoScaleMode
 	{
 		/// <summary> explicitly use the scale parameter </summary>
-		None,
+		None, 
 		
 		/// <summary> fits the width to the current resolution </summary>
-		FitWidth,
+		FitWidth, 
 		
 		/// <summary> fits the height to the current resolution </summary>
-		FitHeight,
+		FitHeight, 
 		
 		/// <summary> best fit (either width or height) </summary>
-		FitVisible,
+		FitVisible, 
 		
 		/// <summary> stretch to fit, could be non-uniform and/or very ugly </summary>
-		StretchToFit,
+		StretchToFit, 
 		
 		/// <summary> fits to the closest power of two </summary>
-		ClosestMultipleOfTwo,
+		ClosestMultipleOfTwo, 
 		
 		/// <summary> keeps this pixel perfect always </summary>
-		PixelPerfect,
+		PixelPerfect, 
 		
 		/// <summary> crop to fit </summary>
 		Fill,

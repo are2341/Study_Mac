@@ -47,7 +47,7 @@ namespace _3xE01 {
 				var oContents = m_oBulletList[i].ExFindChild("Contents");
 
 				// 화면 범위를 벗어났을 경우
-				if(stPos.y.ExIsEquals(CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT)) {
+				if(stPos.y.ExIsGreateEquals(CSceneManager.CanvasSize.y / KCDefine.B_VAL_2_FLT)) {
 					oRemoveBulletList.ExAddVal(m_oBulletList[i]);
 				} else {
 					m_oBulletList[i].ExAddLocalPosY(1500.0f * a_fDeltaTime);
@@ -56,7 +56,10 @@ namespace _3xE01 {
 
 			// 발사 키를 눌렀을 경우
 			if(Input.GetKeyDown(KeyCode.Space)) {
-				m_oBulletList.ExAddVal(CFactory.CreateCloneObj("Bullet", m_oOriginBullet, this.Objs, m_oPlayer.transform.localPosition));
+				var oBullet = CFactory.CreateCloneObj("Bullet", m_oOriginBullet, this.Objs, m_oPlayer.transform.localPosition);
+				oBullet.ExAddLocalPosY(m_oPlayer.ExFindChild("Contents").transform.localScale.y / KCDefine.B_VAL_2_FLT);
+
+				m_oBulletList.ExAddVal(oBullet);
 			}
 			
 			try {

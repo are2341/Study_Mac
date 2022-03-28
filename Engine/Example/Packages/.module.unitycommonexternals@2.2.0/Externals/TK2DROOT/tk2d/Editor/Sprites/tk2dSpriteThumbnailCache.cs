@@ -85,8 +85,8 @@ public static class tk2dSpriteThumbnailCache
 				mat.SetVector("_Clip", clipRegion);
 
 				Matrix4x4 m = new Matrix4x4();
-				m.SetTRS(new Vector3(rect.x + position.x * scale.y, rect.y + position.y * scale.y, 0),
-					Quaternion.Euler(0, 0, -angle),
+				m.SetTRS(new Vector3(rect.x + position.x * scale.y, rect.y + position.y * scale.y, 0), 
+					Quaternion.Euler(0, 0, -angle), 
 					new Vector3(pixelSize.x * scale.x, -pixelSize.y * scale.y, 1));
 
 				mat.SetPass(0);
@@ -128,8 +128,8 @@ public static class tk2dSpriteThumbnailCache
 				mat.SetVector("_Clip", clipRegion);
 
 				Matrix4x4 m = new Matrix4x4();
-				m.SetTRS(new Vector3(rect.x + t.x * pixelSize.x, rect.y + (tq - t.y) * pixelSize.y, 0),
-					Quaternion.identity,
+				m.SetTRS(new Vector3(rect.x + t.x * pixelSize.x, rect.y + (tq - t.y) * pixelSize.y, 0), 
+					Quaternion.identity, 
 					new Vector3(pixelSize.x, -pixelSize.y, 1));
 
 				mat.SetPass(0);
@@ -170,8 +170,8 @@ public static class tk2dSpriteThumbnailCache
 			mat.SetVector("_Clip", clipRegion);
 
 			Matrix4x4 m = new Matrix4x4();
-			m.SetTRS(new Vector3(rect.x + rect.width / 2.0f + translate.x, rect.y + rect.height / 2.0f + translate.y, 0),
-				Quaternion.identity,
+			m.SetTRS(new Vector3(rect.x + rect.width / 2.0f + translate.x, rect.y + rect.height / 2.0f + translate.y, 0), 
+				Quaternion.identity, 
 				new Vector3(pixelSize.x * scale, -pixelSize.y * scale, 1));
 
 			mat.SetPass(0);

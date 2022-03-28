@@ -558,7 +558,7 @@ public abstract partial class CSceneManager : CComponent {
 		}
 
 #if DEBUG || DEVELOPMENT_BUILD
-		// 초기화 되었을 경우
+		// 앱이 초기화 되었을 경우
 		if(CSceneManager.IsAppInit) {
 			this.SetupDebugUIsState(CSceneManager.ScreenDebugUIs, false);
 		}
@@ -668,7 +668,7 @@ public abstract partial class CSceneManager : CComponent {
 
 					Resources.UnloadUnusedAssets();
 					CSceneManager.CollectionManager?.Reset();
-					System.GC.Collect(System.GC.MaxGeneration, System.GCCollectionMode.Default, true, true);
+					System.GC.Collect(System.GC.MaxGeneration, System.GCCollectionMode.Default, false, true);
 
 					// 터치 응답자가 존재 할 경우
 					if(CSceneManager.m_oTouchResponderInfoDict.TryGetValue(KCDefine.U_OBJ_N_SCREEN_FADE_TOUCH_RESPONDER, out STTouchResponderInfo stTouchResponderInfo)) {

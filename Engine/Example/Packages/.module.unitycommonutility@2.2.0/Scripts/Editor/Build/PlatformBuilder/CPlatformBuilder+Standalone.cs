@@ -95,7 +95,7 @@ public static partial class CPlatformBuilder {
 		// 빌드 옵션을 설정한다 }
 
 		// 플랫폼을 빌드한다
-		CFactory.MakeDirs(string.Format(KCEditorDefine.B_ABS_BUILD_P_FMT_STANDALONE, oPlatform));
+		CFactory.MakeDirectories(string.Format(KCEditorDefine.B_ABS_BUILD_P_FMT_STANDALONE, oPlatform));
 		CPlatformBuilder.BuildPlatform(a_oPlayerOpts);
 	}
 

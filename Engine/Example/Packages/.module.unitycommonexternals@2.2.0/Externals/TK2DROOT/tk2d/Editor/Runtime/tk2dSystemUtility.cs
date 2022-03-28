@@ -9,7 +9,7 @@ public class tk2dSystemUtility
 
 	// Make this asset loadable at runtime, using the guid and the given name
 	// The guid MUST match the GUID of the object.
-	// The name is arbitrary and should be unique to make all assets findable using name,
+	// The name is arbitrary and should be unique to make all assets findable using name, 
 	// but doesn't have to be. Name can be an empty string, but not null.
 	public static bool MakeLoadableAsset(Object obj, string name)
 	{

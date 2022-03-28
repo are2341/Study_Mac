@@ -36,7 +36,7 @@ public static partial class CFactory {
 	}
 
 	/** 디렉토리를 생성한다 */
-	public static DirectoryInfo MakeDirs(string a_oDirPath) {
+	public static DirectoryInfo MakeDirectories(string a_oDirPath) {
 		CAccess.Assert(a_oDirPath.ExIsValid());
 
 		// 디렉토리가 없을 경우

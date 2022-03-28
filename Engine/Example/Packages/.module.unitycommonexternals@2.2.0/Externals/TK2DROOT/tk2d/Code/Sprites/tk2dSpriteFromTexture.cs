@@ -56,8 +56,8 @@ public class tk2dSpriteFromTexture : MonoBehaviour {
 			
 			Vector2 anchorPos = tk2dSpriteGeomGen.GetAnchorOffset( anchor, texture.width, texture.height );
 			spriteCollection = tk2dRuntime.SpriteCollectionGenerator.CreateFromTexture(
-				go,
-				texture,
+				go, 
+				texture, 
 				spriteCollectionSize,
 				new Vector2(texture.width, texture.height),
 				new string[] { "unnamed" } ,

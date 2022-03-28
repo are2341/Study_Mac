@@ -165,7 +165,7 @@ public class tk2dSpriteDefinition
 	
 
     /// <summary>
-    /// If not null or empty, this will be the material id [0], followed by the start index [1] into the index buffer,
+    /// If not null or empty, this will be the material id [0], followed by the start index [1] into the index buffer, 
     /// and number of indices [3] for this material allowing the reconstruction of submesh indices. Must be a multiple 
     /// of 3 for obvious reasons
     /// </summary>
@@ -678,8 +678,8 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 #endif
 				)) {
 					if (UnityEditor.EditorUtility.DisplayDialog(
-							"Atlas texture incompatibility",
-							string.Format("Atlas texture '{0}' for sprite collection '{1}' must be reimported to display correctly in Unity 4.3 when in 2D mode.", materialInsts[0].mainTexture.name, name),
+							"Atlas texture incompatibility", 
+							string.Format("Atlas texture '{0}' for sprite collection '{1}' must be reimported to display correctly in Unity 4.3 when in 2D mode.", materialInsts[0].mainTexture.name, name), 
 							"Reimport")) {
 						List<Texture> textures = new List<Texture>();
 						for (int i = 0; i < materialInsts.Length; ++i) {

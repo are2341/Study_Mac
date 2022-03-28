@@ -246,7 +246,7 @@ public class tk2dSpriteAnimationEditorPopup : EditorWindow
 		{
 			int res = EditorUtility.DisplayDialogComplex("Commit",
 				"Duplicate names found in animation library. You won't be able to select duplicates in the interface.\n" +
-				"Duplicates: " + dupNameString,
+				"Duplicates: " + dupNameString, 
 				"Auto-rename",
 				"Cancel",
 				"Force commit");
@@ -331,8 +331,8 @@ public class tk2dSpriteAnimationEditorPopup : EditorWindow
 		GUILayout.EndScrollView();
 
 		Rect viewRect = GUILayoutUtility.GetLastRect();
-		leftBarWidth = (int)tk2dGuiUtility.DragableHandle(4819283,
-			viewRect, leftBarWidth,
+		leftBarWidth = (int)tk2dGuiUtility.DragableHandle(4819283, 
+			viewRect, leftBarWidth, 
 			tk2dGuiUtility.DragDirection.Horizontal);
 	}
 
@@ -414,7 +414,7 @@ public class tk2dSpriteAnimationEditorPopup : EditorWindow
 		if (GUI.Button(createButtonRect, createButton, EditorStyles.toolbarDropDown) && anim != null)
 		{
 			GUIUtility.hotControl = 0;
-			EditorUtility.DisplayCustomMenu(createButtonRect, menuItems, -1,
+			EditorUtility.DisplayCustomMenu(createButtonRect, menuItems, -1, 
 				delegate(object userData, string[] options, int selected) {
 					if (selected == 0)
 					{

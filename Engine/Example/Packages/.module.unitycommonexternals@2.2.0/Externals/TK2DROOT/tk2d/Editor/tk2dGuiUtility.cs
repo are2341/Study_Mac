@@ -302,9 +302,9 @@ public static class tk2dGuiUtility
 		switch (direction)
 		{
 			case DragDirection.Horizontal: 
-				controlRect = new Rect(controlRect.x + offset - resizeBarHotSpotSize,
-									   controlRect.y,
-									   resizeBarHotSpotSize * 2 + 1.0f,
+				controlRect = new Rect(controlRect.x + offset - resizeBarHotSpotSize, 
+									   controlRect.y, 
+									   resizeBarHotSpotSize * 2 + 1.0f, 
 									   controlRect.height); 
 				positionFilter.x = 1.0f;
 				break;
@@ -324,7 +324,7 @@ public static class tk2dGuiUtility
 			if (Event.current.type == EventType.MouseDrag)
 			{
 				Vector2 mousePosition = Event.current.mousePosition;
-				Vector2 handleOffset = new Vector2((mousePosition.x - windowRect.x) * positionFilter.x,
+				Vector2 handleOffset = new Vector2((mousePosition.x - windowRect.x) * positionFilter.x, 
 												   (mousePosition.y - windowRect.y) * positionFilter.y);
 				offset = handleOffset.x + handleOffset.y;
 				HandleUtility.Repaint();

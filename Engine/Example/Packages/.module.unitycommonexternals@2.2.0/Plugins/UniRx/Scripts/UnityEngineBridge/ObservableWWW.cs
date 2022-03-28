@@ -19,7 +19,7 @@ namespace UniRx
     using HashEntry = System.Collections.DictionaryEntry;    
 #else
     // Unity 4.5 release notes: 
-    // WWW: deprecated 'WWW(string url, byte[] postData, Hashtable headers)',
+    // WWW: deprecated 'WWW(string url, byte[] postData, Hashtable headers)', 
     // use 'public WWW(string url, byte[] postData, Dictionary<string, string> headers)' instead.
     using Hash = System.Collections.Generic.Dictionary<string, string>;
     using HashEntry = System.Collections.Generic.KeyValuePair<string, string>;

@@ -313,31 +313,31 @@ public class AudioSubscription {
 		switch(act)
 		{
 		case AudioSourceAction.Play:
-			methodinfo = typeof(AudioSourcePro).GetMethod( "PlayHandler",
-												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
-												Type.DefaultBinder,
-												new Type[] {},
+			methodinfo = typeof(AudioSourcePro).GetMethod( "PlayHandler", 
+												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, 
+												Type.DefaultBinder, 
+												new Type[] {}, 
 												null) as MethodInfo;
 			break;
 		case AudioSourceAction.PlayCapped:
-			methodinfo = typeof(AudioSourcePro).GetMethod( "PlayCappedHandler",
-												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
-												Type.DefaultBinder,
-												new[] {typeof(string)},
+			methodinfo = typeof(AudioSourcePro).GetMethod( "PlayCappedHandler", 
+												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, 
+												Type.DefaultBinder, 
+												new[] {typeof(string)}, 
 												null) as MethodInfo;
 			break;
 		case AudioSourceAction.PlayLoop:
-			methodinfo = typeof(AudioSourcePro).GetMethod( "PlayLoopHandler",
-												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
-												Type.DefaultBinder,
-												new Type[] {},
+			methodinfo = typeof(AudioSourcePro).GetMethod( "PlayLoopHandler", 
+												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, 
+												Type.DefaultBinder, 
+												new Type[] {}, 
 												null) as MethodInfo;
 			break;
 		case AudioSourceAction.Stop:
-			methodinfo = typeof(AudioSourcePro).GetMethod( "StopHandler",
-												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
-												Type.DefaultBinder,
-												new Type[] {},
+			methodinfo = typeof(AudioSourcePro).GetMethod( "StopHandler", 
+												BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, 
+												Type.DefaultBinder, 
+												new Type[] {}, 
 												null) as MethodInfo;
 			break;
 		case AudioSourceAction.None:

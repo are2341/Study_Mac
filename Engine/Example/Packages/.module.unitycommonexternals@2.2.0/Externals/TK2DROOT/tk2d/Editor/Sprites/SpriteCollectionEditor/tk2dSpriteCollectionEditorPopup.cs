@@ -362,7 +362,7 @@ public class tk2dSpriteCollectionEditorPopup : EditorWindow, IEditorHost
 				new GUIContent("Font")
 			};
 			
-			EditorUtility.DisplayCustomMenu(createButtonRect, menuItems, -1,
+			EditorUtility.DisplayCustomMenu(createButtonRect, menuItems, -1, 
 				delegate(object userData, string[] options, int selected) {
 					switch (selected)
 					{
@@ -380,7 +380,7 @@ public class tk2dSpriteCollectionEditorPopup : EditorWindow, IEditorHost
 						case 1:
 							if (SpriteCollection.allowMultipleAtlases)
 							{
-								EditorUtility.DisplayDialog("Create Font",
+								EditorUtility.DisplayDialog("Create Font", 
 											"Adding fonts to sprite collections isn't allowed when multi atlas spanning is enabled. " +
 											"Please disable it and try again.", "Ok");
 							}
@@ -464,7 +464,7 @@ public class tk2dSpriteCollectionEditorPopup : EditorWindow, IEditorHost
 		spriteCollectionProxy.CopyToTarget();
 		tk2dSpriteCollectionBuilder.ResetCurrentBuild();
 		if (!tk2dSpriteCollectionBuilder.Rebuild(_spriteCollection)) {
-			EditorUtility.DisplayDialog("Failed to commit sprite collection",
+			EditorUtility.DisplayDialog("Failed to commit sprite collection", 
 				"Please check the console for more details.", "Ok");
 		}
 		spriteCollectionProxy.CopyFromSource();
@@ -664,8 +664,8 @@ public class tk2dSpriteCollectionEditorPopup : EditorWindow, IEditorHost
 		GUILayout.EndScrollView();
 
 		Rect viewRect = GUILayoutUtility.GetLastRect();
-		tk2dPreferences.inst.spriteCollectionListWidth = (int)tk2dGuiUtility.DragableHandle(4819283,
-			viewRect, tk2dPreferences.inst.spriteCollectionListWidth,
+		tk2dPreferences.inst.spriteCollectionListWidth = (int)tk2dGuiUtility.DragableHandle(4819283, 
+			viewRect, tk2dPreferences.inst.spriteCollectionListWidth, 
 			tk2dGuiUtility.DragDirection.Horizontal);
 	}
 	
@@ -726,7 +726,7 @@ public class tk2dSpriteCollectionEditorPopup : EditorWindow, IEditorHost
 
 		bool cloneDuplicates = false;
 		if (hasDuplicates && EditorUtility.DisplayDialog("Duplicate textures detected.",
-				"One or more textures is already in the collection. What do you want to do with the duplicates?",
+				"One or more textures is already in the collection. What do you want to do with the duplicates?", 
 				"Clone", "Ignore")) {
 			cloneDuplicates = true;
 		}

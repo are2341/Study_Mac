@@ -995,9 +995,9 @@ public class tk2dSpriteCollectionBuilder
 
 					int cy = (int)( (font.flipTextureY ? c.y : (fontInfo.scaleH - c.y - c.height)) * texScale );
 					Texture2D dest = ProcessTexture(gen, false, tk2dSpriteCollectionDefinition.Pad.BlackZeroAlpha, false, true, false,
-						(rescaledTexture != null) ? rescaledTexture : font.texture,
-						(int)(c.x * texScale), cy,
-						(int)(c.width * texScale), (int)(c.height * texScale),
+						(rescaledTexture != null) ? rescaledTexture : font.texture, 
+						(int)(c.x * texScale), cy, 
+						(int)(c.width * texScale), (int)(c.height * texScale), 
 						ref lut, GetPadAmount(gen, -1));
 					if (dest == null)
 					{

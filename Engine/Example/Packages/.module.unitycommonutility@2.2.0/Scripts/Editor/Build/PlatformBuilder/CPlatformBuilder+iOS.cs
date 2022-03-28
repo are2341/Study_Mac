@@ -97,7 +97,7 @@ public static partial class CPlatformBuilder {
 		// 빌드 옵션을 설정한다 }
 
 		// 플랫폼을 빌드한다
-		CFactory.MakeDirs(KCEditorDefine.B_ABS_BUILD_P_IOS);
+		CFactory.MakeDirectories(KCEditorDefine.B_ABS_BUILD_P_IOS);
 		CPlatformBuilder.BuildPlatform(a_oPlayerOpts);
 	}
 

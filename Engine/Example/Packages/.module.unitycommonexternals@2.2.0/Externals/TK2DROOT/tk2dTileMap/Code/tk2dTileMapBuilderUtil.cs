@@ -344,7 +344,7 @@ namespace tk2dRuntime.TileMap
 				
 				int x0, x1, dx;
 				int y0, y1, dy;
-				BuilderUtil.GetLoopOrder(tileMap.data.sortMethod,
+				BuilderUtil.GetLoopOrder(tileMap.data.sortMethod, 
 					layer.numColumns, layer.numRows,
 					out x0, out x1, out dx,
 					out y0, out y1, out dy);

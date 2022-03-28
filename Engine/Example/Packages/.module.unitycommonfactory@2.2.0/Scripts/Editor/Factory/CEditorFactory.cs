@@ -12,7 +12,7 @@ using UnityEditor;
 public static class CEditorFactory {
 	#region 클래스 함수
 	/** 디렉토리를 생성한다 */
-	public static void MakeDirs(string a_oDirPath, bool a_bIsEnableAssert = true) {
+	public static void MakeDirectories(string a_oDirPath, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || (a_oDirPath.ExIsValid() && a_oDirPath.Contains(KCEditorDefine.B_DIR_P_ASSETS)));
 
 		// 경로가 유효 할 경우
@@ -106,7 +106,7 @@ public static class CEditorFactory {
 	/** 스크립트 객체를 생성한다 */
 	public static T CreateScriptableObj<T>(string a_oFilePath = KCDefine.B_TEXT_EMPTY) where T : ScriptableObject {
 		string oFilePath = a_oFilePath.ExIsValid() ? a_oFilePath : string.Format(KCEditorDefine.B_ASSET_P_FMT_SCRIPTABLE_OBJ, typeof(T).ToString());
-		CEditorFactory.MakeDirs(Path.GetDirectoryName(oFilePath), false);
+		CEditorFactory.MakeDirectories(Path.GetDirectoryName(oFilePath), false);
 
 		return CEditorFactory.CreateAsset<T>(ScriptableObject.CreateInstance<T>(), oFilePath);
 	}

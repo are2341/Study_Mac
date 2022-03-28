@@ -35,13 +35,13 @@ namespace tk2dEditor
 				int ty0 = (tileSelection_y0 < tileSelection_y1)?tileSelection_y0:tileSelection_y1;
 				int ty1 = (tileSelection_y0 < tileSelection_y1)?tileSelection_y1:tileSelection_y0;
 				
-				Rect highlightRect = new Rect(rect.x + tx0 * tileSize.width,
-											  rect.y + ty0 * tileSize.height,
-											  (tx1 - tx0 + 1) * tileSize.width,
+				Rect highlightRect = new Rect(rect.x + tx0 * tileSize.width, 
+											  rect.y + ty0 * tileSize.height, 
+											  (tx1 - tx0 + 1) * tileSize.width, 
 											  (ty1 - ty0 + 1) * tileSize.height);
-				Vector3[] rectVerts = { new Vector3(highlightRect.x, highlightRect.y, 0),
-										new Vector3(highlightRect.x + highlightRect.width, highlightRect.y, 0),
-										new Vector3(highlightRect.x + highlightRect.width, highlightRect.y + highlightRect.height, 0),
+				Vector3[] rectVerts = { new Vector3(highlightRect.x, highlightRect.y, 0), 
+										new Vector3(highlightRect.x + highlightRect.width, highlightRect.y, 0), 
+										new Vector3(highlightRect.x + highlightRect.width, highlightRect.y + highlightRect.height, 0), 
 										new Vector3(highlightRect.x, highlightRect.y + highlightRect.height, 0) };
 				Handles.DrawSolidRectangleWithOutline(rectVerts, new Color(0,0,0,0.2f), new Color(0,0,0,1));
 			}
@@ -52,13 +52,13 @@ namespace tk2dEditor
 					int tx0 = selectedTile % tilesPerRow;
 					int ty0 = selectedTile / tilesPerRow;
 					
-					Rect highlightRect = new Rect(rect.x + tx0 * tileSize.width,
-												  rect.y + ty0 * tileSize.height,
-												  tileSize.width,
+					Rect highlightRect = new Rect(rect.x + tx0 * tileSize.width, 
+												  rect.y + ty0 * tileSize.height, 
+												  tileSize.width, 
 												  tileSize.height);
-					Vector3[] rectVerts = { new Vector3(highlightRect.x, highlightRect.y, 0),
-											new Vector3(highlightRect.x + highlightRect.width, highlightRect.y, 0),
-											new Vector3(highlightRect.x + highlightRect.width, highlightRect.y + highlightRect.height, 0),
+					Vector3[] rectVerts = { new Vector3(highlightRect.x, highlightRect.y, 0), 
+											new Vector3(highlightRect.x + highlightRect.width, highlightRect.y, 0), 
+											new Vector3(highlightRect.x + highlightRect.width, highlightRect.y + highlightRect.height, 0), 
 											new Vector3(highlightRect.x, highlightRect.y + highlightRect.height, 0) };
 					Handles.DrawSolidRectangleWithOutline(rectVerts, new Color(0,0,0,0.2f), new Color(0,0,0,1));
 				}

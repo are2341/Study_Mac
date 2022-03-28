@@ -201,9 +201,12 @@ public static partial class KCDefine {
 
 	public const string B_FILE_EXTENSION_CSV = ".csv";
 	public const string B_FILE_EXTENSION_TXT = ".txt";
+	public const string B_FILE_EXTENSION_MAT = ".mat";
+	public const string B_FILE_EXTENSION_HLSL = ".hlsl";
 	public const string B_FILE_EXTENSION_JSON = ".json";
 	public const string B_FILE_EXTENSION_ASSET = ".asset";
 	public const string B_FILE_EXTENSION_BYTES = ".bytes";
+	public const string B_FILE_EXTENSION_SHADER = ".shader";
 	public const string B_FILE_EXTENSION_SPRITE_ATLAS = ".spriteatlas";
 	public const string B_FILE_EXTENSION_TMP_FONT_ASSET = KCDefine.B_FILE_EXTENSION_ASSET;
 

@@ -408,8 +408,8 @@ public static class tk2dSpriteGuiUtility
 					}
 					else if (newData.Count == 0)
 					{
-						EditorUtility.DisplayDialog("Error",
-							string.Format("Sprite collection '{0}' has no sprites", newData.name),
+						EditorUtility.DisplayDialog("Error", 
+							string.Format("Sprite collection '{0}' has no sprites", newData.name), 
 							"Ok");						
 					}
 					else if (newData != currentValue)

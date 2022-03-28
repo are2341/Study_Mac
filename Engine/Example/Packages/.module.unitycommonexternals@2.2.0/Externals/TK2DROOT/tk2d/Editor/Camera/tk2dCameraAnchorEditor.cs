@@ -59,8 +59,8 @@ public class tk2dCameraAnchorEditor : Editor
 	{
 		if (Selection.activeGameObject == null || Selection.activeGameObject.GetComponent<Camera>() == null) {
 			EditorUtility.DisplayDialog(
-				"Camera Anchor Error",
-				"You will need to select a camera before creating an anchor attached to it",
+				"Camera Anchor Error", 
+				"You will need to select a camera before creating an anchor attached to it", 
 				"Ok");
 		}
 		else {

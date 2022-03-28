@@ -13,7 +13,7 @@ namespace tk2dEditor.SpriteAnimationEditor
 
 			public enum Type
 			{
-				None,
+				None, 
 				// All pending actions
 				MoveHandle,  
 
@@ -208,7 +208,7 @@ namespace tk2dEditor.SpriteAnimationEditor
 			foreach (ClipEditor.FrameGroup fg in frameGroups)
 			{
 				Rect r = GetRectForFrameGroup(frameGroupRect, fg);
-				DrawFrameGroupEx(r, clip, fg,
+				DrawFrameGroupEx(r, clip, fg, 
 					/* highlighted: */	 currrentFrameGroup == state.selectedFrame,
 					/* showTime: */		 currrentFrameGroup == state.selectedFrame,
 					/* playHighlight: */ clipTimeMarker >= fg.startFrame && clipTimeMarker < fg.startFrame + fg.frames.Count);

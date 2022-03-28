@@ -124,7 +124,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 				if (tk2dGuiUtility.InfoBoxWithButtons(
 					"A data object is required to build a font. " +
 					"Please create one or drag an existing data object into the inspector slot.\n",
-					tk2dGuiUtility.WarningLevel.Info,
+					tk2dGuiUtility.WarningLevel.Info, 
 					"Create") != -1)
 				{
 					// make data folder

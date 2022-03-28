@@ -531,7 +531,7 @@ public class tk2dCamera : MonoBehaviour
 		switch (currentOverride.fitMode) {
 			case tk2dCameraResolutionOverride.FitMode.Center:
 				if (settings.cameraSettings.orthographicOrigin == tk2dCameraSettings.OrthographicOrigin.BottomLeft) {
-					offset = new Vector2(Mathf.Round((settings.nativeResolutionWidth  * scale.x - width ) / 2.0f),
+					offset = new Vector2(Mathf.Round((settings.nativeResolutionWidth  * scale.x - width ) / 2.0f), 
 										 Mathf.Round((settings.nativeResolutionHeight * scale.y - height) / 2.0f));
 				}
 				break;
@@ -686,15 +686,15 @@ public class tk2dCamera : MonoBehaviour
 		}
 
 		float s = orthoSize * zoomScale;
-		screenExtents = new Rect(left * s / scale.x, bottom * s / scale.y,
+		screenExtents = new Rect(left * s / scale.x, bottom * s / scale.y, 
 						   		 (right - left) * s / scale.x, (top - bottom) * s / scale.y);
 
 		unscaledScreenExtents = new Rect(nativeResolutionOffset.x * s, nativeResolutionOffset.y * s,
 										 nativeResolutionWidth * s, nativeResolutionHeight * s);
 
 		// Near and far clip planes are tweakable per camera, so we pull from current camera instance regardless of inherited values
-		return OrthoOffCenter(scale, orthoSize * (left + halfTexel) * zoomScale, orthoSize * (right + halfTexel) * zoomScale,
-									 orthoSize * (bottom - halfTexel) * zoomScale, orthoSize * (top - halfTexel) * zoomScale,
+		return OrthoOffCenter(scale, orthoSize * (left + halfTexel) * zoomScale, orthoSize * (right + halfTexel) * zoomScale, 
+									 orthoSize * (bottom - halfTexel) * zoomScale, orthoSize * (top - halfTexel) * zoomScale, 
 									 UnityCamera.nearClipPlane, UnityCamera.farClipPlane);
 	}
 

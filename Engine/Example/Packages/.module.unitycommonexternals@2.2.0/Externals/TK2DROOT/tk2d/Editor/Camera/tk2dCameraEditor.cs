@@ -208,7 +208,7 @@ public class tk2dCameraEditor : Editor
 			EditorGUILayout.LabelField("Preview Resolution");
 			EditorGUI.indentLevel++;
 
-			GUIContent toggleLabel = new GUIContent("Force Resolution",
+			GUIContent toggleLabel = new GUIContent("Force Resolution", 
 				"When enabled, forces the resolution in the editor regardless of the size of the game window.");
 
 			if (gameViewReflectionError) {

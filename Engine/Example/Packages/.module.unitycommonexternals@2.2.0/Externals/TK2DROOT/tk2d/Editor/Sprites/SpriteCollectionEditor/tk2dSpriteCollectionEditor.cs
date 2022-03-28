@@ -23,8 +23,8 @@ public class tk2dSpriteCollectionEditor : Editor
 		if (gen.managedSpriteCollection)
 		{
 			string label = showDefaultInspector?"Hide Default Inspector":"Show Default Inspector";
-			int buttonPressed = tk2dGuiUtility.InfoBoxWithButtons("This is a managed sprite collection. Please do not modify.",
-																  tk2dGuiUtility.WarningLevel.Info,
+			int buttonPressed = tk2dGuiUtility.InfoBoxWithButtons("This is a managed sprite collection. Please do not modify.", 
+																  tk2dGuiUtility.WarningLevel.Info, 
 																  new string[] { label } );
 			if (buttonPressed == 0) showDefaultInspector = !showDefaultInspector;
 			if (showDefaultInspector) 
@@ -47,53 +47,34 @@ public class tk2dSpriteCollectionEditor : Editor
 			}
 			else 
 			{
-				// FIXME: dante (버튼 입력 처리 변경) {
-				string message = @"Due to changes in the prefab system in Unity 2018.3, the edit functionality has been moved." + 
+                string message = @"Due to changes in the prefab system in Unity 2018.3, the edit functionality has been moved." + 
                                   "Exit prefab edit mode, select your sprite collection and click 2D Toolikt / Edit... in the main menu";
-								  
+
+
                 tk2dGuiUtility.InfoBox(message, tk2dGuiUtility.WarningLevel.Warning);
-				
-				GUILayout.BeginHorizontal();
+
+                GUILayout.BeginHorizontal();
 				GUILayout.FlexibleSpace();
 
-				// 버튼을 눌렀을 경우
-				if(GUILayout.Button("Open Editor...", GUILayout.MinWidth(120))) {
-					tk2dEditorUtility.Edit();
-				}
+				if (GUILayout.Button("Open Editor...", GUILayout.MinWidth(120)))
+				{
+                    UnityEditor.EditorUtility.DisplayDialog("Open Editor has moved",
+                        message,
+                        "Ok");
 
-				GUILayout.FlexibleSpace();
+                    //if (gen.name == defaultSpriteCollectionName)
+                    //{
+                    //	EditorUtility.DisplayDialog("Invalid Sprite Collection name", "Please rename sprite collection before proceeding", "Ok");
+                    //}
+                    //else
+                    //{
+                    //	tk2dSpriteCollectionEditorPopup v = EditorWindow.GetWindow( typeof(tk2dSpriteCollectionEditorPopup), false, "SpriteCollection" ) as tk2dSpriteCollectionEditorPopup;
+                    //	v.SetGenerator(gen);
+                    //	v.Show();
+                    //}
+                }
+                GUILayout.FlexibleSpace();
 				GUILayout.EndHorizontal();
-
-				// 기존 로직
-                // string message = @"Due to changes in the prefab system in Unity 2018.3, the edit functionality has been moved." + 
-                //                   "Exit prefab edit mode, select your sprite collection and click 2D Toolikt / Edit... in the main menu";
-
-
-                // tk2dGuiUtility.InfoBox(message, tk2dGuiUtility.WarningLevel.Warning);
-
-                // GUILayout.BeginHorizontal();
-				// GUILayout.FlexibleSpace();
-
-				// if (GUILayout.Button("Open Editor...", GUILayout.MinWidth(120)))
-				// {
-                //     UnityEditor.EditorUtility.DisplayDialog("Open Editor has moved",
-                //         message,
-                //         "Ok");
-
-                //     //if (gen.name == defaultSpriteCollectionName)
-                //     //{
-                //     //	EditorUtility.DisplayDialog("Invalid Sprite Collection name", "Please rename sprite collection before proceeding", "Ok");
-                //     //}
-                //     //else
-                //     //{
-                //     //	tk2dSpriteCollectionEditorPopup v = EditorWindow.GetWindow( typeof(tk2dSpriteCollectionEditorPopup), false, "SpriteCollection" ) as tk2dSpriteCollectionEditorPopup;
-                //     //	v.SetGenerator(gen);
-                //     //	v.Show();
-                //     //}
-                // }
-                // GUILayout.FlexibleSpace();
-				// GUILayout.EndHorizontal();
-				// FIXME: dante (버튼 입력 처리 변경) }
 			}
 		}
 

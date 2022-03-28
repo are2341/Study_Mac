@@ -189,13 +189,13 @@ public class tk2dTileMapEditor : Editor, ITileMapEditorHost
 	
 	void HighlightTile(Rect rect, Rect tileSize, int tilesPerRow, int x, int y, Color fillColor, Color outlineColor)
 	{
-		Rect highlightRect = new Rect(rect.x + x * tileSize.width,
-									  rect.y + y * tileSize.height,
-									  tileSize.width,
+		Rect highlightRect = new Rect(rect.x + x * tileSize.width, 
+									  rect.y + y * tileSize.height, 
+									  tileSize.width, 
 									  tileSize.height);
-		Vector3[] rectVerts = { new Vector3(highlightRect.x, highlightRect.y, 0),
-								new Vector3(highlightRect.x + highlightRect.width, highlightRect.y, 0),
-								new Vector3(highlightRect.x + highlightRect.width, highlightRect.y + highlightRect.height, 0),
+		Vector3[] rectVerts = { new Vector3(highlightRect.x, highlightRect.y, 0), 
+								new Vector3(highlightRect.x + highlightRect.width, highlightRect.y, 0), 
+								new Vector3(highlightRect.x + highlightRect.width, highlightRect.y + highlightRect.height, 0), 
 								new Vector3(highlightRect.x, highlightRect.y + highlightRect.height, 0) };
 		Handles.DrawSolidRectangleWithOutline(rectVerts, fillColor, outlineColor);
 	}
@@ -528,7 +528,7 @@ public class tk2dTileMapEditor : Editor, ITileMapEditorHost
 			if (tk2dGuiUtility.InfoBoxWithButtons(
 				"TileMap needs an data object to proceed. " +
 				"Please create one or drag an existing data object into the inspector slot.\n",
-				tk2dGuiUtility.WarningLevel.Info,
+				tk2dGuiUtility.WarningLevel.Info, 
 				"Create") != -1)
 			{
 				string assetPath = EditorUtility.SaveFilePanelInProject("Save Tile Map Data", "tileMapData", "asset", "");
@@ -572,7 +572,7 @@ public class tk2dTileMapEditor : Editor, ITileMapEditorHost
 			if (tk2dGuiUtility.InfoBoxWithButtons(
 				"TileMap needs an editor data object to proceed. " +
 				"Please create one or drag an existing data object into the inspector slot.\n",
-				tk2dGuiUtility.WarningLevel.Info,
+				tk2dGuiUtility.WarningLevel.Info, 
 				"Create") != -1)
 			{
 				string assetPath = EditorUtility.SaveFilePanelInProject("Save Tile Map Editor Data", "tileMapEditorData", "asset", "");

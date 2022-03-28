@@ -261,7 +261,7 @@ namespace tk2dRuntime
 			}
 
 			return CreateFromTexture( 
-				texture,
+				texture, 
 				spriteCollectionSize,
 				textureDimensions,
 				names.ToArray(),
