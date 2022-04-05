@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
 /** 기본 정보 */
@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 [Union(4, typeof(CClearInfo))]
 [Union(5, typeof(CLevelInfo))]
 [MessagePackObject][System.Serializable]
-public abstract class CBaseInfo : IMessagePackSerializationCallbackReceiver {
+public abstract partial class CBaseInfo : IMessagePackSerializationCallbackReceiver {
 	#region 상수
 	private const string KEY_VER = "Ver";
 	private const string KEY_SAVE_TIME = "SaveTime";
@@ -85,4 +85,4 @@ public abstract class CBaseInfo : IMessagePackSerializationCallbackReceiver {
 	}
 	#endregion			// 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

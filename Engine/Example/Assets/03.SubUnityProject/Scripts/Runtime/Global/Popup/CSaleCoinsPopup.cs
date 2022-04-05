@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 판매 코인 팝업 */
-public class CSaleCoinsPopup : CSubPopup {
+public partial class CSaleCoinsPopup : CSubPopup {
 	/** 식별자 */
 	private enum EKey {
 		NONE = -1,
@@ -33,13 +33,9 @@ public class CSaleCoinsPopup : CSubPopup {
 		// 텍스트를 설정한다
 		m_oTextDict[EKey.NUM_SALE_COINS_TEXT] = this.Contents.ExFindComponent<TMP_Text>(KCDefine.U_OBJ_N_NUM_SALE_COINS_TEXT);
 
-		// 버튼을 설정한다 {
-		var oOKBtn = this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_OK_BTN);
-		oOKBtn?.onClick.AddListener(this.OnTouchOKBtn);
-
-		var oPurchaseBtn = this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_PURCHASE_BTN);
-		oPurchaseBtn?.onClick.AddListener(this.OnTouchPurchaseBtn);
-		// 버튼을 설정한다 }
+		// 버튼을 설정한다
+		this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_OK_BTN)?.onClick.AddListener(this.OnTouchOKBtn);
+		this.Contents.ExFindComponent<Button>(KCDefine.U_OBJ_N_PURCHASE_BTN)?.onClick.AddListener(this.OnTouchPurchaseBtn);
 	}
 
 	/** 초기화 */
@@ -93,4 +89,4 @@ public class CSaleCoinsPopup : CSubPopup {
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

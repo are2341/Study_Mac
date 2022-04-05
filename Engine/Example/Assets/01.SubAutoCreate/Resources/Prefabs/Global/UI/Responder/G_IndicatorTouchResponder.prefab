@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6127443639007278092}
   - component: {fileID: -4029436317842451443}
   m_Layer: 5
-  m_Name: T_TouchResponder
+  m_Name: G_IndicatorTouchResponder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

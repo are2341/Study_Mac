@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 전역 확장 클래스 */
 public static partial class Extension {
 	#region 클래스 함수
 	/** 효과를 재생한다 */
-	public static void ExPlay(this ParticleSystem a_oSender, System.Action<CEventDispatcher> a_oCallback, bool a_bIsRemoveChildren = false, bool a_bIsEnableAssert = true) {
+	public static void ExPlay(this ParticleSystem a_oSender, System.Action<CEventDispatcher> a_oCallback, bool a_bIsPlayChildren = true, bool a_bIsStopChildren = true, bool a_bIsEnableAssert = true) {
 		CAccess.Assert(!a_bIsEnableAssert || a_oSender != null);
 		var oEventDispatcher = a_oSender?.GetComponentInChildren<CEventDispatcher>();
 
@@ -18,7 +18,7 @@ public static partial class Extension {
 			oEventDispatcher.ParticleEventCallback = a_oCallback;
 		}
 
-		a_oSender?.ExPlay(a_bIsRemoveChildren, a_bIsEnableAssert);
+		a_oSender?.ExPlay(a_bIsPlayChildren, a_bIsStopChildren, a_bIsEnableAssert);
 	}
 
 	/** 게이지 애니메이션을 시작한다 */
@@ -27,9 +27,5 @@ public static partial class Extension {
 		return CFactory.MakeSequence(CFactory.MakeAni(() => a_oSender.Percent, (a_fVal) => a_oSender.Percent = a_fVal, () => a_oSender.Percent = a_fStartVal, a_oCallback, a_fEndVal, a_fDuration, a_eEase, a_bIsRealtime), (a_oSequenceSender) => CFunc.Invoke(ref a_oCompleteCallback, a_oSender, a_oSequenceSender), a_fDelay, false, a_bIsRealtime);
 	}
 	#endregion			// 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

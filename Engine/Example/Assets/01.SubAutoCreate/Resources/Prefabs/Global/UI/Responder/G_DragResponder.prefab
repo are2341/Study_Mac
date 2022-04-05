@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3000285408706837424}
   - component: {fileID: -3111094514649338842}
   m_Layer: 5
-  m_Name: T_DragResponder
+  m_Name: G_DragResponder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

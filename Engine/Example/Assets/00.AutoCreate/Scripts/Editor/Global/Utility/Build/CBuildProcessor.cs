@@ -189,9 +189,5 @@ public static partial class CBuildProcessor {
 #endif			// #if UNITY_STANDALONE
 	}
 	#endregion			// 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
 #endif			// #if UNITY_EDITOR

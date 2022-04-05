@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 6884252962769875887}
   - component: {fileID: 5068876056728972675}
   m_Layer: 5
-  m_Name: T_EditorLevelCreatePopup
+  m_Name: G_EditorLevelCreatePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

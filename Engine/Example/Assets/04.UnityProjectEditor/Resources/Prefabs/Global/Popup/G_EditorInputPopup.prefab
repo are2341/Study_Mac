@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 6884252962769875887}
   - component: {fileID: 8680051425809364983}
   m_Layer: 5
-  m_Name: T_EditorInputPopup
+  m_Name: G_EditorInputPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

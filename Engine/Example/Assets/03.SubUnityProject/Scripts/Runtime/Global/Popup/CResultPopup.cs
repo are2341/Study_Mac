@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 결과 팝업 */
-public class CResultPopup : CSubPopup {
+public partial class CResultPopup : CSubPopup {
 	/** 식별자 */
 	private enum EKey {
 		NONE = -1,
@@ -57,14 +57,6 @@ public class CResultPopup : CSubPopup {
 	#region 프로퍼티
 	public override bool IsIgnoreCloseBtn => true;
 	#endregion			// 프로퍼티
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 초기화 */
@@ -130,9 +122,5 @@ public class CResultPopup : CSubPopup {
 		m_stParams.m_oCallbackDict?.GetValueOrDefault(ECallback.LEAVE)?.Invoke(this);
 	}
 	#endregion			// 함수
-	
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

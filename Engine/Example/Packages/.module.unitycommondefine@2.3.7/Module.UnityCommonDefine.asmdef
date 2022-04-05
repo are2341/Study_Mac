@@ -1,0 +1,23 @@
+{
+    "name": "Module.UnityCommonDefine",
+    "rootNamespace": "",
+    "references": [
+        "Module.UnityIronSrc",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.Notifications.iOS",
+        "Unity.Notifications.Android",
+        "DOTween.Modules",
+        "DOTweenPro.Scripts",
+        "MessagePack",
+        "MessagePack.Annotations"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

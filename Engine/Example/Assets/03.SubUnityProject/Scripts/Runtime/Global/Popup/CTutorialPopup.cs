@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 튜토리얼 팝업 */
-public class CTutorialPopup : CFocusPopup {
+public partial class CTutorialPopup : CFocusPopup {
 	/** 매개 변수 */
 	public new struct STParams {
 		public CFocusPopup.STParams m_stBaseParams;
@@ -15,14 +15,6 @@ public class CTutorialPopup : CFocusPopup {
 	#region 변수
 	private STParams m_stParams;
 	#endregion			// 변수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 초기화 */
@@ -47,9 +39,5 @@ public class CTutorialPopup : CFocusPopup {
 		base.UpdateUIsState();
 	}
 	#endregion			// 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

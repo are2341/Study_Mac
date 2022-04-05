@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #region 기본
 /** 플레이 모드 */
 public enum EPlayMode {
@@ -153,7 +153,7 @@ public enum ESaleProductKinds {
 	[HideInInspector] PKGS_SALE_PRODUCT = EEnumVal.TYPE * 0,
 
 	// 초보자 0
-	PKGS_START = ESaleProductKinds.PKGS_SALE_PRODUCT + (EEnumVal.KINDS_TYPE * 0),
+	PKGS_BEGINNER = ESaleProductKinds.PKGS_SALE_PRODUCT + (EEnumVal.KINDS_TYPE * 0),
 
 	// 숙련자 10,000
 	PKGS_EXPERT = ESaleProductKinds.PKGS_SALE_PRODUCT + (EEnumVal.KINDS_TYPE * 1),
@@ -470,8 +470,4 @@ public enum EBlockKinds {
 	[HideInInspector] MAX_VAL
 }
 #endregion			// 기본
-
-#region 추가 상수
-
-#endregion			// 추가 상수
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

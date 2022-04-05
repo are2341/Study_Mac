@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 블럭 정보 */
 [System.Serializable]
 public struct STBlockInfo {
 	public string m_oName;
 	public string m_oDesc;
 
+	public long m_nResID;
 	public EBlockKinds m_eBlockKinds;
 	public EBlockKinds m_eNextBlockKinds;
 
@@ -21,6 +22,7 @@ public struct STBlockInfo {
 		m_oName = a_oBlockInfo[KCDefine.U_KEY_NAME];
 		m_oDesc = a_oBlockInfo[KCDefine.U_KEY_DESC];
 
+		m_nResID = long.TryParse(a_oBlockInfo[KCDefine.U_KEY_RES_ID], out long nResID) ? nResID : KCDefine.B_VAL_0_LONG;
 		m_eBlockKinds = (EBlockKinds)a_oBlockInfo[KCDefine.U_KEY_BLOCK_KINDS].AsInt;
 		m_eNextBlockKinds = (EBlockKinds)a_oBlockInfo[KCDefine.U_KEY_NEXT_BLOCK_KINDS].AsInt;
 
@@ -36,7 +38,7 @@ public struct STBlockInfo {
 }
 
 /** 블럭 정보 테이블 */
-public class CBlockInfoTable : CScriptableObj<CBlockInfoTable> {
+public partial class CBlockInfoTable : CScriptableObj<CBlockInfoTable> {
 	#region 변수
 	[Header("=====> Block Info <=====")]
 	[SerializeField] private List<STBlockInfo> m_oBlockInfoInfoList = new List<STBlockInfo>();
@@ -55,10 +57,6 @@ public class CBlockInfoTable : CScriptableObj<CBlockInfoTable> {
 		}
 	}
 	#endregion			// 프로퍼티
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 초기화 */
@@ -125,9 +123,5 @@ public class CBlockInfoTable : CScriptableObj<CBlockInfoTable> {
 		return this.BlockInfoDict;
 	}
 	#endregion			// 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -12,10 +12,10 @@ using UnityEngine.Purchasing;
 public static partial class Func {
 	#region 클래스 함수
 	/** 아이템을 획득한다 */
-	public static void AcquireItem(STItemInfo a_stItemInfo, long a_nExtraNumItems = KCDefine.B_VAL_0_INT) {
+	public static void AcquireItem(STItemInfo a_stItemInfo, long a_nNumExtraItems = KCDefine.B_VAL_0_INT) {
 		switch(a_stItemInfo.m_eItemKinds) {
 			case EItemKinds.GOODS_COINS: {
-				CUserInfoStorage.Inst.AddNumCoins(a_stItemInfo.m_nNumItems + a_nExtraNumItems);
+				CUserInfoStorage.Inst.AddNumCoins(a_stItemInfo.m_nNumItems + a_nNumExtraItems);
 			} break;
 			case EItemKinds.NON_CONSUMABLE_REMOVE_ADS: {
 #if NEWTON_SOFT_JSON_MODULE_ENABLE
@@ -32,7 +32,7 @@ public static partial class Func {
 			default: {
 				// 소모품 일 경우
 				if(a_stItemInfo.m_eItemKinds.ExKindsToType() == EItemType.CONSUMABLE) {
-					CUserInfoStorage.Inst.AddNumItems(a_stItemInfo.m_eItemKinds, a_stItemInfo.m_nNumItems + a_nExtraNumItems);
+					CUserInfoStorage.Inst.AddNumItems(a_stItemInfo.m_eItemKinds, a_stItemInfo.m_nNumItems + a_nNumExtraItems);
 				}
 			} break;
 		}
@@ -45,11 +45,11 @@ public static partial class Func {
 	}
 
 	/** 아이템을 구입한다 */
-	public static void BuyItem(STSaleItemInfo a_stSaleItemInfo, List<long> a_oExtraNumItemsList = null, long a_nExtraPrice = KCDefine.B_VAL_0_INT, bool a_bIsIgnoreAcquire = false) {
+	public static void BuyItem(STSaleItemInfo a_stSaleItemInfo, List<long> a_oNumExtraItemsList = null, long a_nExtraPrice = KCDefine.B_VAL_0_INT, bool a_bIsIgnoreAcquire = false) {
 		// 아이템 획득이 가능 할 경우
 		if(!a_bIsIgnoreAcquire) {
 			for(int i = 0; i < a_stSaleItemInfo.m_oItemInfoList.Count; ++i) {
-				Func.AcquireItem(a_stSaleItemInfo.m_oItemInfoList[i], a_oExtraNumItemsList.ExIsValid() ? a_oExtraNumItemsList.ExGetVal(i, KCDefine.B_VAL_0_INT) : KCDefine.B_VAL_0_INT);
+				Func.AcquireItem(a_stSaleItemInfo.m_oItemInfoList[i], a_oNumExtraItemsList.ExIsValid() ? a_oNumExtraItemsList.ExGetVal(i, KCDefine.B_VAL_0_INT) : KCDefine.B_VAL_0_INT);
 			}
 		}
 
@@ -114,6 +114,21 @@ public static partial class Func {
 	/** 결과 팝업을 출력한다 */
 	public static void ShowResultPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
 		Func.ShowPopup<CResultPopup>(KDefine.G_OBJ_N_RESULT_POPUP, KCDefine.U_OBJ_P_G_RESULT_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	}
+
+	/** 재개 팝업을 출력한다 */
+	public static void ShowResumePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CResumePopup>(KDefine.G_OBJ_N_RESUME_POPUP, KCDefine.U_OBJ_P_G_RESUME_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	}
+
+	/** 정지 팝업을 출력한다 */
+	public static void ShowPausePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CPausePopup>(KDefine.G_OBJ_N_PAUSE_POPUP, KCDefine.U_OBJ_P_G_PAUSE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	}
+
+	/** 판매 상품 팝업을 출력한다 */
+	public static void ShowSaleProductPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CSaleProductPopup>(KDefine.G_OBJ_N_SALE_PRODUCT_POPUP, KCDefine.U_OBJ_P_G_SALE_PRODUCT_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
 	/** 포커스 팝업을 출력한다 */
@@ -245,9 +260,5 @@ public static partial class Func {
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 7290533661618601248}
   - component: {fileID: 5274675263856951031}
   m_Layer: 5
-  m_Name: T_ImgTextScaleBtn
+  m_Name: U_ImgTextScaleBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
 /** 앱 정보 */
 [MessagePackObject][System.Serializable]
-public class CAppInfo : CBaseInfo {
+public partial class CAppInfo : CBaseInfo {
 	#region 상수
 #if ADS_MODULE_ENABLE
 	private const string KEY_REWARD_ADS_WATCH_TIMES = "RewardAdsWatchTimes";
@@ -58,7 +58,7 @@ public class CAppInfo : CBaseInfo {
 }
 
 /** 앱 정보 저장소 */
-public class CAppInfoStorage : CSingleton<CAppInfoStorage> {
+public partial class CAppInfoStorage : CSingleton<CAppInfoStorage> {
 	#region 프로퍼티
 	public bool IsIgnoreUpdate { get; set; } = false;
 	public bool IsCloseAgreePopup { get; set; } = false;
@@ -87,10 +87,6 @@ public class CAppInfoStorage : CSingleton<CAppInfoStorage> {
 	public bool IsEnableUpdateAdsSkipTimes => true;
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 프로퍼티
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 앱 정보를 로드한다 */
@@ -153,9 +149,5 @@ public class CAppInfoStorage : CSingleton<CAppInfoStorage> {
 	}
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

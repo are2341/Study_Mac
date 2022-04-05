@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4384549188664570568}
   - component: {fileID: 7207767017826218679}
   m_Layer: 5
-  m_Name: T_LocalizeTextBtn
+  m_Name: U_LocalizeTextBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

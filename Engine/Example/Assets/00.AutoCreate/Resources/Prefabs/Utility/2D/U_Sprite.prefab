@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 151844525167847962}
   - component: {fileID: 151844525167847961}
   m_Layer: 0
-  m_Name: T_Sprite
+  m_Name: U_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

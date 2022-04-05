@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 로그 상수 */
 public static partial class KDefine {
 	#region 기본
@@ -27,13 +27,5 @@ public static partial class KDefine {
 	public const string L_LOG_KEY_OPTS_09 = "Opts_09";
 	// 식별자 }
 	#endregion			// 기본
-
-	#region 추가 상수
-
-	#endregion			// 추가 상수
-
-	#region 추가 런타임 상수
-
-	#endregion			// 추가 런타임 상수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

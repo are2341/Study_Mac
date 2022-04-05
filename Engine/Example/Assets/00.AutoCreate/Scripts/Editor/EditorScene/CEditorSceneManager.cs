@@ -43,7 +43,7 @@ public static partial class CEditorSceneManager {
 	private static void Update() {
 		// 상태 갱신이 가능 할 경우
 		if(CEditorAccess.IsEnableUpdateState) {
-			CEditorSceneManager.m_fUpdateSkipTime += Mathf.Clamp01(Time.unscaledDeltaTime);
+			CEditorSceneManager.m_fUpdateSkipTime += Mathf.Clamp01(Time.deltaTime);
 
 			// 상태 갱신이 가능 할 경우
 			if(CEditorSceneManager.m_bIsEnableSetup) {
@@ -55,7 +55,7 @@ public static partial class CEditorSceneManager {
 
 				CEditorSceneManager.SetupCallbacks();
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 				EditorFactory.CreateSaleItemInfoTable();
 				EditorFactory.CreateSaleProductInfoTable();
 				EditorFactory.CreateMissionInfoTable();
@@ -64,12 +64,15 @@ public static partial class CEditorSceneManager {
 				EditorFactory.CreateTutorialInfoTable();
 				EditorFactory.CreateFXInfoTable();
 				EditorFactory.CreateBlockInfoTable();
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+				EditorFactory.CreateResInfoTable();
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 			}
 
 			// 갱신 주기가 지났을 경우
 			if(CEditorSceneManager.m_fUpdateSkipTime.ExIsGreateEquals(KCEditorDefine.B_DELTA_T_SCENE_M_SCRIPT_UPDATE)) {
 				CEditorSceneManager.m_fUpdateSkipTime = KCDefine.B_VAL_0_FLT;
+				CEditorSceneManager.SetupExtraPreloadAssets();
+
 				CFunc.EnumerateScenes((a_stScene) => { CSampleSceneManager.SetupSceneManager(a_stScene, KEditorDefine.B_SCENE_MANAGER_TYPE_DICT); return true; });
 
 #if EXTRA_SCRIPT_ENABLE
@@ -179,9 +182,5 @@ public static partial class CEditorSceneManager {
 		}
 	}
 	#endregion			// 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
 #endif			// #if UNITY_EDITOR

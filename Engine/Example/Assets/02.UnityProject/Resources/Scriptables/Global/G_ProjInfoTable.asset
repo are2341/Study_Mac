@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: G_ProjInfoTable
   m_EditorClassIdentifier: 
   m_stCompanyInfo:
-    m_oCompany: LKStudio
+    m_oCompany: 9tap
     m_oPrivacyURL: https://www.ninetap.com/privacy_policy.html
     m_oServicesURL: https://www.ninetap.com/terms_of_service.html
-    m_oSupportsMail: are2341@nate.com
+    m_oSupportsMail: cs@ninetap.com
   m_stCommonProjInfo:
-    m_oAppID: dante.distribution.sample
-    m_oProjName: 0300010101.Sample_Unity
-    m_oProductName: Sample_Unity
-    m_oShortProductName: Sample_Unity
+    m_oAppID: dante.distribution.example
+    m_oProjName: Example
+    m_oProductName: Example
+    m_oShortProductName: Example
   m_stiOSAppleProjInfo:
     m_oAppID: 
     m_oStoreAppID: 1309472470

@@ -11,7 +11,7 @@ public static partial class Func {
 	#endregion			// 클래스 함수
 
 	#region 조건부 클래스 함수
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 	/** 에디터 종료 팝업을 출력한다 */
 	public static void ShowEditorQuitPopup(System.Action<CAlertPopup, bool> a_oCallback) {
 		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_EDITOR_QUIT_P_MSG), a_oCallback);
@@ -140,11 +140,7 @@ public static partial class Func {
 		// Do Something
 	}
 #endif			// #if ENGINE_TEMPLATES_MODULE_ENABLE
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
 #endif			// #if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE && (DEBUG || DEVELOPMENT_BUILD)

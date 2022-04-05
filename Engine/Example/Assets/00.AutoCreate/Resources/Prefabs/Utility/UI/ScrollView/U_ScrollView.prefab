@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1515028129432522433}
   - component: {fileID: 8037950981793500101}
   m_Layer: 5
-  m_Name: T_ScrollView
+  m_Name: U_ScrollView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

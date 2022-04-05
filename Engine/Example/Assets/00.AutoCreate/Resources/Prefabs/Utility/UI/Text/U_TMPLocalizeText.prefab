@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2454151896034854396}
   - component: {fileID: 6556877605171287627}
   m_Layer: 5
-  m_Name: T_TMPLocalizeText
+  m_Name: U_TMPLocalizeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1496786531}
-  m_IndirectSpecularColor: {r: 0.1815458, g: 0.22718853, b: 0.30740678, a: 1}
+  m_IndirectSpecularColor: {r: 0.18145283, g: 0.22707175, b: 0.30727056, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 3d628ab4134f4410a945439dbd6c5f26, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 4c98a3066e48745058895b60e949fbb6, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 34cb6b199b9984a1d90300f4eb9f07a8, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -592,7 +592,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 720}
+  m_SizeDelta: {x: 1280, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!1 &552680326
 GameObject:
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062098936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
@@ -1471,7 +1471,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062098936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
@@ -1744,7 +1744,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276200340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b179830a77c5c44b5bc6a8e8f55273c6, type: 3}
+  m_Script: {fileID: 11500000, guid: dfc6a2d0b32184e7287a7c8325e3e7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1376964104
@@ -2162,7 +2162,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 720}
+  m_SizeDelta: {x: 1280, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1570661204
 GameObject:

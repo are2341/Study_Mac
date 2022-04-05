@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8019310881588900475}
   m_Layer: 5
-  m_Name: T_Popup
+  m_Name: G_ResumePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

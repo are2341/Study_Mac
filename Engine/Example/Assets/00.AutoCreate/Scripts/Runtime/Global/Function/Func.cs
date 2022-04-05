@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -40,7 +40,6 @@ public static partial class Func {
 
 #if GAME_CENTER_MODULE_ENABLE
 		GAME_CENTER_LOGIN,
-		GAME_CENTER_LOGOUT,
 
 		UPDATE_RECORD,
 		UPDATE_ACHIEVEMENT,
@@ -130,7 +129,7 @@ public static partial class Func {
 	public static void ShowAlertPopup(CAlertPopup.STParams a_stParams) {
 		// 경고 팝업이 없을 경우
 		if(CSceneManager.ScreenPopupUIs.ExFindChild(KCDefine.U_OBJ_N_ALERT_POPUP) == null) {
-			var oAlertPopup = CAlertPopup.Create<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP, KCDefine.U_OBJ_P_G_ALERT_POPUP, CSceneManager.ScreenPopupUIs, a_stParams);
+			var oAlertPopup = CAlertPopup.Create<CAlertPopup>(KCDefine.U_OBJ_N_ALERT_POPUP, CResManager.Inst.GetRes<GameObject>(KCDefine.U_OBJ_P_G_ALERT_POPUP), CSceneManager.ScreenPopupUIs, a_stParams);
 			oAlertPopup.Show(null, null);
 		}
 	}
@@ -328,7 +327,7 @@ public static partial class Func {
 
 	/** 배너 광고가 출력 되었을 경우 */
 	private static void OnShowBannerAds(CAdsManager a_oSender, bool a_bIsSuccess) {
-		m_oAdsCallbackDictA.GetValueOrDefault(ECallback.BANNER_ADS)?.Invoke(a_oSender, a_bIsSuccess);
+		Func.m_oAdsCallbackDictA.GetValueOrDefault(ECallback.BANNER_ADS)?.Invoke(a_oSender, a_bIsSuccess);
 	}
 
 	/** 보상 광고가 닫혔을 경우 */
@@ -629,14 +628,6 @@ public static partial class Func {
 		CGameCenterManager.Inst.Login(Func.OnGameCenterLogin);
 	}
 
-	/** 게임 센터 로그아웃을 처리한다 */
-	public static void GameCenterLogout(System.Action<CGameCenterManager> a_oCallback) {
-		CIndicatorManager.Inst.Show();
-		Func.m_oGameCenterCallbackDictA.ExReplaceVal(ECallback.GAME_CENTER_LOGOUT, a_oCallback);
-
-		CGameCenterManager.Inst.Logout(Func.OnGameCenterLogout);
-	}
-
 	/** 기록을 갱신한다 */
 	public static void UpdateRecord(string a_oLeaderboardID, long a_nRecord, System.Action<CGameCenterManager, bool> a_oCallback) {
 		CIndicatorManager.Inst.Show();
@@ -658,13 +649,7 @@ public static partial class Func {
 		CIndicatorManager.Inst.Close();
 		Func.m_oGameCenterCallbackDictB.GetValueOrDefault(ECallback.GAME_CENTER_LOGIN)?.Invoke(a_oSender, a_bIsSuccess);
 	}
-
-	/** 게임 센터에서 로그아웃 되었을 경우 */
-	private static void OnGameCenterLogout(CGameCenterManager a_oSender) {
-		CIndicatorManager.Inst.Close();
-		Func.m_oGameCenterCallbackDictA.GetValueOrDefault(ECallback.GAME_CENTER_LOGOUT)?.Invoke(a_oSender);
-	}
-
+	
 	/** 기록이 갱신 되었을 경우 */
 	private static void OnUpdateRecord(CGameCenterManager a_oSender, bool a_bIsSuccess) {
 		CIndicatorManager.Inst.Close();
@@ -680,9 +665,8 @@ public static partial class Func {
 
 #if PURCHASE_MODULE_ENABLE
 	/** 상품을 결제한다 */
-	public static void PurchaseProduct(int a_nID, System.Action<CPurchaseManager, string, bool> a_oCallback) {
-		var stProductInfo = CProductInfoTable.Inst.GetProductInfo(a_nID);
-		Func.PurchaseProduct(stProductInfo.m_oID, a_oCallback);
+	public static void PurchaseProduct(int a_nID, System.Action<CPurchaseManager, string, bool> a_oCallback, bool a_bIsEnableAssert = true) {
+		Func.PurchaseProduct(CProductInfoTable.Inst.GetProductInfo(a_nID).m_oID, a_oCallback, a_bIsEnableAssert);
 	}
 
 	/** 상품을 결제한다 */
@@ -692,7 +676,7 @@ public static partial class Func {
 
 		// 상품이 존재 할 경우
 		if(KDefine.G_KINDS_SALE_PIT_SALE_PRODUCT_LIST.ExIsValidIdx(nID)) {
-			Func.PurchaseProduct(nID, a_oCallback);
+			Func.PurchaseProduct(nID, a_oCallback, a_bIsEnableAssert);
 		}
 	}
 	
@@ -719,19 +703,10 @@ public static partial class Func {
 
 	/** 상품이 결제 되었을 경우 */
 	private static void OnPurchaseProduct(CPurchaseManager a_oSender, string a_oProductID, bool a_bIsSuccess) {
-		CIndicatorManager.Inst.Close();
-
-		// 결제 되었을 경우
-		if(a_bIsSuccess) {
-			CIndicatorManager.Inst.Show();
-
-			CPurchaseManager.Inst.ConfirmPurchase(a_oProductID, (a_oSender, a_oConfirmProductID, a_bIsSuccess) => {
-				CIndicatorManager.Inst.Close();
-				Func.m_oPurchaseCallbackDictA.GetValueOrDefault(ECallback.PURCHASE)?.Invoke(a_oSender, a_oConfirmProductID, a_bIsSuccess);
-			});
-		} else {
-			Func.m_oPurchaseCallbackDictA.GetValueOrDefault(ECallback.PURCHASE)?.Invoke(a_oSender, a_oProductID, a_bIsSuccess);
-		}
+		CPurchaseManager.Inst.ConfirmPurchase(a_oProductID, (a_oSender, a_oConfirmProductID, a_bIsSuccess) => {
+			CIndicatorManager.Inst.Close();
+			Func.m_oPurchaseCallbackDictA.GetValueOrDefault(ECallback.PURCHASE)?.Invoke(a_oSender, a_oConfirmProductID, a_bIsSuccess);
+		});
 	}
 
 	/** 상품이 복원 되었을 경우 */
@@ -741,9 +716,5 @@ public static partial class Func {
 	}
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

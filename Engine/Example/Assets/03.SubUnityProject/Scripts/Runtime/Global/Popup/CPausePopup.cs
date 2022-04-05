@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
-/** 일시 정지 팝업 */
-public class CPausePopup : CSubPopup {
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+/** 정지 팝업 */
+public partial class CPausePopup : CSubPopup {
 	/** 콜백 */
 	public enum ECallback {
 		NONE = -1,
@@ -46,4 +46,4 @@ public class CPausePopup : CSubPopup {
 	}
 	#endregion			// 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

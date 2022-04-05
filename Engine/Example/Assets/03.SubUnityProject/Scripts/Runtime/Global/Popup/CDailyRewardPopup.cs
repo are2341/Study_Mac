@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 일일 보상 팝업 */
-public class CDailyRewardPopup : CSubPopup {
+public partial class CDailyRewardPopup : CSubPopup {
 	/** 식별자 */
 	private enum EKey {
 		NONE = -1,
@@ -24,14 +24,6 @@ public class CDailyRewardPopup : CSubPopup {
 	/** =====> 객체 <===== */
 	[SerializeField] private List<GameObject> m_oRewardUIsList = new List<GameObject>();
 	#endregion			// 변수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 초기화 */
@@ -137,9 +129,5 @@ public class CDailyRewardPopup : CSubPopup {
 	}
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

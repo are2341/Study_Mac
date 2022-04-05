@@ -48,20 +48,20 @@ public static partial class KEditorDefine {
 #endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
 
 #if SCENE_TEMPLATES_MODULE_ENABLE
-		[typeof(CSubInitSceneManager)] = KCDefine.U_SCRIPT_O_INIT_SCENE_MANAGER,
-		[typeof(CSubSetupSceneManager)] = KCDefine.U_SCRIPT_O_SETUP_SCENE_MANAGER,
-		[typeof(CSubAgreeSceneManager)] = KCDefine.U_SCRIPT_O_AGREE_SCENE_MANAGER,
-		[typeof(CSubLateSetupSceneManager)] = KCDefine.U_SCRIPT_O_LATE_SETUP_SCENE_MANAGER,
-		[typeof(CSubStartSceneManager)] = KCDefine.U_SCRIPT_O_START_SCENE_MANAGER,
-		[typeof(CSubSplashSceneManager)] = KCDefine.U_SCRIPT_O_SPLASH_SCENE_MANAGER,
-		[typeof(CSubIntroSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+		[typeof(InitScene.CSubInitSceneManager)] = KCDefine.U_SCRIPT_O_INIT_SCENE_MANAGER,
+		[typeof(SetupScene.CSubSetupSceneManager)] = KCDefine.U_SCRIPT_O_SETUP_SCENE_MANAGER,
+		[typeof(AgreeScene.CSubAgreeSceneManager)] = KCDefine.U_SCRIPT_O_AGREE_SCENE_MANAGER,
+		[typeof(LateSetupScene.CSubLateSetupSceneManager)] = KCDefine.U_SCRIPT_O_LATE_SETUP_SCENE_MANAGER,
+		[typeof(StartScene.CSubStartSceneManager)] = KCDefine.U_SCRIPT_O_START_SCENE_MANAGER,
+		[typeof(SplashScene.CSubSplashSceneManager)] = KCDefine.U_SCRIPT_O_SPLASH_SCENE_MANAGER,
+		[typeof(IntroScene.CSubIntroSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
 
 #if STUDY_MODULE_ENABLE
-		[typeof(CSubMenuSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+		[typeof(MenuScene.CSubMenuSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
 #endif			// #if STUDY_MODULE_ENABLE
 #endif			// #if SCENE_TEMPLATES_MODULE_ENABLE
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 		[typeof(CLevelInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CSaleItemInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CSaleProductInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
@@ -72,21 +72,22 @@ public static partial class KEditorDefine {
 		[typeof(CTutorialInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CFXInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CBlockInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
+		[typeof(CResInfoTable)] = KCDefine.U_SCRIPT_O_SINGLETON,
 
 		[typeof(CAppInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CUserInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		[typeof(CGameInfoStorage)] = KCDefine.U_SCRIPT_O_SINGLETON,
 		
-		[typeof(CSubTitleSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
-		[typeof(CSubMainSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
-		[typeof(CSubGameSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
-		[typeof(CSubLoadingSceneManager)] = KCDefine.U_SCRIPT_O_LOADING_SCENE_MANAGER,
-		[typeof(CSubOverlaySceneManager)] = KCDefine.U_SCRIPT_O_OVERLAY_SCENE_MANAGER,
-		[typeof(CSubTestSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+		[typeof(TitleScene.CSubTitleSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+		[typeof(MainScene.CSubMainSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+		[typeof(GameScene.CSubGameSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+		[typeof(LoadingScene.CSubLoadingSceneManager)] = KCDefine.U_SCRIPT_O_LOADING_SCENE_MANAGER,
+		[typeof(OverlayScene.CSubOverlaySceneManager)] = KCDefine.U_SCRIPT_O_OVERLAY_SCENE_MANAGER,
+		[typeof(TestScene.CSubTestSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 
 #if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE
-		[typeof(CSubLevelEditorSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
+		[typeof(LevelEditorScene.CSubLevelEditorSceneManager)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
 #endif			// #if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE
 
 #if ADS_MODULE_ENABLE
@@ -128,31 +129,31 @@ public static partial class KEditorDefine {
 	// 클래스 타입
 	public static readonly Dictionary<string, System.Type> B_SCENE_MANAGER_TYPE_DICT = new Dictionary<string, System.Type>() {
 #if SCENE_TEMPLATES_MODULE_ENABLE
-		[KCDefine.B_SCENE_N_INIT] = typeof(CSubInitSceneManager),
-		[KCDefine.B_SCENE_N_SETUP] = typeof(CSubSetupSceneManager),
-		[KCDefine.B_SCENE_N_AGREE] = typeof(CSubAgreeSceneManager),
-		[KCDefine.B_SCENE_N_LATE_SETUP] = typeof(CSubLateSetupSceneManager),
+		[KCDefine.B_SCENE_N_INIT] = typeof(InitScene.CSubInitSceneManager),
+		[KCDefine.B_SCENE_N_SETUP] = typeof(SetupScene.CSubSetupSceneManager),
+		[KCDefine.B_SCENE_N_AGREE] = typeof(AgreeScene.CSubAgreeSceneManager),
+		[KCDefine.B_SCENE_N_LATE_SETUP] = typeof(LateSetupScene.CSubLateSetupSceneManager),
 
-		[KCDefine.B_SCENE_N_START] = typeof(CSubStartSceneManager),
-		[KCDefine.B_SCENE_N_SPLASH] = typeof(CSubSplashSceneManager),
-		[KCDefine.B_SCENE_N_INTRO] = typeof(CSubIntroSceneManager),
+		[KCDefine.B_SCENE_N_START] = typeof(StartScene.CSubStartSceneManager),
+		[KCDefine.B_SCENE_N_SPLASH] = typeof(SplashScene.CSubSplashSceneManager),
+		[KCDefine.B_SCENE_N_INTRO] = typeof(IntroScene.CSubIntroSceneManager),
 
 #if STUDY_MODULE_ENABLE
-		[KCDefine.B_SCENE_N_MENU] = typeof(CSubMenuSceneManager),
+		[KCDefine.B_SCENE_N_MENU] = typeof(MenuScene.CSubMenuSceneManager),
 #endif			// #if STUDY_MODULE_ENABLE
 #endif			// #if SCENE_TEMPLATES_MODULE_ENABLE
 		
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
-		[KCDefine.B_SCENE_N_TITLE] = typeof(CSubTitleSceneManager),
-		[KCDefine.B_SCENE_N_MAIN] = typeof(CSubMainSceneManager),
-		[KCDefine.B_SCENE_N_GAME] = typeof(CSubGameSceneManager),
-		[KCDefine.B_SCENE_N_LOADING] = typeof(CSubLoadingSceneManager),
-		[KCDefine.B_SCENE_N_OVERLAY] = typeof(CSubOverlaySceneManager),
-		[KCDefine.B_SCENE_N_TEST] = typeof(CSubTestSceneManager),
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+		[KCDefine.B_SCENE_N_TITLE] = typeof(TitleScene.CSubTitleSceneManager),
+		[KCDefine.B_SCENE_N_MAIN] = typeof(MainScene.CSubMainSceneManager),
+		[KCDefine.B_SCENE_N_GAME] = typeof(GameScene.CSubGameSceneManager),
+		[KCDefine.B_SCENE_N_LOADING] = typeof(LoadingScene.CSubLoadingSceneManager),
+		[KCDefine.B_SCENE_N_OVERLAY] = typeof(OverlayScene.CSubOverlaySceneManager),
+		[KCDefine.B_SCENE_N_TEST] = typeof(TestScene.CSubTestSceneManager),
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 
 #if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE
-		[KCDefine.B_SCENE_N_LEVEL_EDITOR] = typeof(CSubLevelEditorSceneManager)
+		[KCDefine.B_SCENE_N_LEVEL_EDITOR] = typeof(LevelEditorScene.CSubLevelEditorSceneManager)
 #endif			// #if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE
 	};
 
@@ -182,8 +183,15 @@ public static partial class KEditorDefine {
     	["com.unity.postprocessing"] = "3.2.1",
 #endif			// #if POST_PROCESSING_ENABLE || POST_PROCESSING_MODULE_ENABLE
 
-#if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
+#if SKELETON_ANI_2D_ENABLE || SKELETON_ANI_2D_MODULE_ENABLE
+		["com.unity.2d.psdimporter"] = "6.0.3",
+#endif			// #if SKELETON_ANI_2D_ENABLE || SKELETON_ANI_2D_MODULE_ENABLE
+
+#if VISUAL_FX_GRAPH_ENABLE || VISUAL_FX_GRAPH_MODULE_ENABLE
 		["com.unity.visualeffectgraph"] = "12.1.6",
+#endif			// #if VISUAL_FX_GRAPH_ENABLE || VISUAL_FX_GRAPH_MODULE_ENABLE
+
+#if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
 		["com.unity.render-pipelines.universal"] = "12.1.6",
 #endif			// #if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
 
@@ -195,37 +203,37 @@ public static partial class KEditorDefine {
 		["com.unity.ads.ios-support"] = "1.0.0",
 
 #if ADS_ENABLE || ADS_MODULE_ENABLE
-		["module.unitycommonads"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonads_client.git#2.2.0",
+		["module.unitycommonads"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonads_client.git#2.3.7",
 #endif			// #if ADS_ENABLE || ADS_MODULE_ENABLE
 
 #if FLURRY_ENABLE || FLURRY_MODULE_ENABLE
-		["module.unitycommonflurry"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonflurry_client.git#2.2.0",
+		["module.unitycommonflurry"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonflurry_client.git#2.3.7",
 #endif			// #if FLURRY_ENABLE || FLURRY_MODULE_ENABLE
 
 #if FACEBOOK_ENABLE || FACEBOOK_MODULE_ENABLE
-		["module.unitycommonfacebook"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfacebook_client.git#2.2.0",
+		["module.unitycommonfacebook"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfacebook_client.git#2.3.7",
 #endif			// #if FACEBOOK_ENABLE || FACEBOOK_MODULE_ENABLE
 
 #if FIREBASE_ENABLE || FIREBASE_MODULE_ENABLE
-		["module.unitycommonfirebase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfirebase_client.git#2.2.0",
+		["module.unitycommonfirebase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfirebase_client.git#2.3.7",
 #endif			// #if FIREBASE_ENABLE || FIREBASE_MODULE_ENABLE
 
 #if APPS_FLYER_ENABLE || APPS_FLYER_MODULE_ENABLE
-		["module.unitycommonappsflyer"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonappsflyer_client.git#2.2.0",
+		["module.unitycommonappsflyer"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonappsflyer_client.git#2.3.7",
 #endif			// #if APPS_FLYER_ENABLE || APPS_FLYER_MODULE_ENABLE
 
 #if GAME_CENTER_ENABLE || GAME_CENTER_MODULE_ENABLE
-		["module.unitycommongamecenter"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommongamecenter_client.git#2.2.0",
+		["module.unitycommongamecenter"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommongamecenter_client.git#2.3.7",
 #endif			// #if GAME_CENTER_ENABLE || GAME_CENTER_MODULE_ENABLE
 
 #if PURCHASE_ENABLE || PURCHASE_MODULE_ENABLE
 		["com.unity.purchasing"] = "4.1.3",
-		["module.unitycommonpurchase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonpurchase_client.git#2.2.0",
+		["module.unitycommonpurchase"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonpurchase_client.git#2.3.7",
 #endif			// #if PURCHASE_ENABLE || PURCHASE_MODULE_ENABLE
 
 #if NOTI_ENABLE || NOTI_MODULE_ENABLE
 		["com.unity.mobile.notifications"] = "2.0.0",
-		["module.unitycommon.Noti"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_Noti_client.git#2.2.0"
+		["module.unitycommon.Noti"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_Noti_client.git#2.3.7"
 #endif			// #if NOTI_ENABLE || NOTI_MODULE_ENABLE
 #endif			// #if SAMPLE_PROJ || DEVELOPMENT_PROJ
 	};
@@ -407,13 +415,5 @@ public static partial class KEditorDefine {
 	};
 #endif			// #if UNITY_IOS
 	#endregion			// 조건부 런타임 상수
-
-	#region 추가 상수
-
-	#endregion			// 추가 상수
-
-	#region 추가 런타임 상수
-
-	#endregion			// 추가 런타임 상수
 }
 #endif			// #if UNITY_EDITOR

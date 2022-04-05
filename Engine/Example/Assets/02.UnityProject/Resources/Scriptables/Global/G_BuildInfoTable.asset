@@ -28,8 +28,8 @@ MonoBehaviour:
   m_stAndroidBuildInfo:
     m_oKeystorePath: Keystore.keystore
     m_oKeyaliasName: Keystore
-    m_oKeystorePassword: NSString132!
-    m_oKeyaliasPassword: NSString132!
+    m_oKeystorePassword: NT9studio!
+    m_oKeyaliasPassword: NT9studio!
     m_eMinSDKVer: 22
     m_eTargetSDKVer: 30
   m_stStandaloneBuildInfo:

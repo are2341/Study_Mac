@@ -3,21 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 난이도 보정자 */
-public class CDifficultyCorrector : CComponent {
+public partial class CDifficultyCorrector : CComponent {
 	#region 변수
 	[SerializeField] private string m_oBasePath = string.Empty;
 	[SerializeField] private EDifficulty m_eDifficulty = EDifficulty.NONE;
 	#endregion			// 변수
-
-	#region 추가 변수
-
-	#endregion			// 추가 변수
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 초기화 */
@@ -53,9 +45,5 @@ public class CDifficultyCorrector : CComponent {
 		// Do Something
 	}
 	#endregion			// 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

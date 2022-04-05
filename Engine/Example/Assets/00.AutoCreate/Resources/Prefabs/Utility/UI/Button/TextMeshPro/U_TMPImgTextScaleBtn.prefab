@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2611107188585206407}
   - component: {fileID: 3667403800283297906}
   m_Layer: 5
-  m_Name: T_TMPImgTextScaleBtn
+  m_Name: U_TMPImgTextScaleBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

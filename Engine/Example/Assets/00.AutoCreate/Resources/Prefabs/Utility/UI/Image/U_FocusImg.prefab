@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1971558561948930711}
   - component: {fileID: 2797990347556869962}
   m_Layer: 5
-  m_Name: T_FocusImg
+  m_Name: U_FocusImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

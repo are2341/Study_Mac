@@ -5,7 +5,7 @@ using UnityEngine;
 #if EXTRA_SCRIPT_ENABLE
 namespace _3xE01 {
 	/** Example 52 */
-	public class _3xE01Example_052 : CStudySceneManager {
+	public class _3xE01Example_052 : StudyScene.CStudySceneManager {
 		#region 변수
 		/** =====> 객체 <===== */
 		[SerializeField] private GameObject m_oPlayer = null;

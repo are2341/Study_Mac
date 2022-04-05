@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using MessagePack;
 using MessagePack.Resolvers;
 
-#if MSG_PACK_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
+#if MSG_PACK_ENABLE && EXTRA_SCRIPT_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 #if UNITY_EDITOR
 using UnityEditor;
 #endif			// #if UNITY_EDITOR
 
 /** 메세지 팩 등록자 */
-public static class CMsgPackRegister {
+public static partial class CMsgPackRegister {
 	#region 클래스 변수
 	private static bool m_bIsRegister = false;
 	#endregion			// 클래스 변수
@@ -43,9 +43,5 @@ public static class CMsgPackRegister {
 	}
 #endif			// #if UNITY_EDITOR
 	#endregion			// 조건부 클래스 함수
-
-	#region 추가 클래스 함수
-
-	#endregion			// 추가 클래스 함수
 }
-#endif			// #if MSG_PACK_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
+#endif			// #if MSG_PACK_ENABLE && EXTRA_SCRIPT_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE

@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
 /** 유저 정보 */
 [MessagePackObject][System.Serializable]
-public class CUserInfo : CBaseInfo {
+public partial class CUserInfo : CBaseInfo {
 	#region 상수
 	private const string KEY_NUM_COINS = "NumCoins";
 	private const string KEY_NUM_SALE_COINS = "NumSaleCoins";
@@ -58,14 +58,10 @@ public class CUserInfo : CBaseInfo {
 }
 
 /** 유저 정보 저장소 */
-public class CUserInfoStorage : CSingleton<CUserInfoStorage> {
+public partial class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 	#region 프로퍼티
 	public CUserInfo UserInfo { get; private set; } = new CUserInfo();
 	#endregion            // 프로퍼티
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 유저 정보를 리셋한다 */
@@ -139,9 +135,5 @@ public class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 #endif			// #if MSG_PACK_ENABLE
 	}
 	#endregion			// 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

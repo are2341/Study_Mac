@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 효과 정보 */
 [System.Serializable]
 public struct STFXInfo {
 	public string m_oName;
 	public string m_oDesc;
 
+	public long m_nResID;
 	public EFXKinds m_eFXKinds;
 	public EFXKinds m_eNextFXKinds;
 
@@ -19,6 +20,7 @@ public struct STFXInfo {
 		m_oName = a_oFXInfo[KCDefine.U_KEY_NAME];
 		m_oDesc = a_oFXInfo[KCDefine.U_KEY_DESC];
 
+		m_nResID = long.TryParse(a_oFXInfo[KCDefine.U_KEY_RES_ID], out long nResID) ? nResID : KCDefine.B_VAL_0_LONG;
 		m_eFXKinds = (EFXKinds)a_oFXInfo[KCDefine.U_KEY_FX_KINDS].AsInt;
 		m_eNextFXKinds = (EFXKinds)a_oFXInfo[KCDefine.U_KEY_NEXT_FX_KINDS].AsInt;
 	}
@@ -26,7 +28,7 @@ public struct STFXInfo {
 }
 
 /** 효과 정보 테이블 */
-public class CFXInfoTable : CScriptableObj<CFXInfoTable> {
+public partial class CFXInfoTable : CScriptableObj<CFXInfoTable> {
 	#region 변수
 	[Header("=====> FX Info <=====")]
 	[SerializeField] private List<STFXInfo> m_oFXInfoInfoList = new List<STFXInfo>();
@@ -45,10 +47,6 @@ public class CFXInfoTable : CScriptableObj<CFXInfoTable> {
 		}
 	}
 	#endregion			// 프로퍼티
-
-	#region 추가 프로퍼티
-
-	#endregion			// 추가 프로퍼티
 
 	#region 함수
 	/** 초기화 */
@@ -115,9 +113,5 @@ public class CFXInfoTable : CScriptableObj<CFXInfoTable> {
 		return this.FXInfoDict;
 	}
 	#endregion			// 함수
-
-	#region 추가 함수
-
-	#endregion			// 추가 함수
 }
-#endif			// #if RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
