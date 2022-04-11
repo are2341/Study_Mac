@@ -26,10 +26,12 @@ namespace MenuScene {
 		public override void OnReceiveNavStackEvent(ENavStackEvent a_eEvent) {
 			base.OnReceiveNavStackEvent(a_eEvent);
 
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 			// 백 키 눌림 이벤트 일 경우
 			if(a_eEvent == ENavStackEvent.BACK_KEY_DOWN) {
 				Func.ShowQuitPopup(this.OnReceiveQuitPopupResult);
 			}
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 		}
 
 		/** 씬을 설정한다 */

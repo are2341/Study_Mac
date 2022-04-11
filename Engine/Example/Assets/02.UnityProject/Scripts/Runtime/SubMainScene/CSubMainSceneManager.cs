@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using EnhancedUI.EnhancedScroller;
+using TMPro;
 
 #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 namespace MainScene {
@@ -143,6 +144,7 @@ namespace MainScene {
 #endif			// #if CREATIVE_DIST_BUILD
 
 				this.SetupAwake();
+				CGameInfoStorage.Inst.ResetSelItems();
 			}
 		}
 		
@@ -228,6 +230,10 @@ namespace MainScene {
 #if DEBUG || DEVELOPMENT_BUILD
 			this.SetupTestUIs();
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
+
+#if AB_TEST_ENABLE && (DEBUG || DEVELOPMENT_BUILD || PLAY_TEST_ENABLE)
+			this.SetupABTestUIs();
+#endif			// #if AB_TEST_ENABLE && (DEBUG || DEVELOPMENT_BUILD || PLAY_TEST_ENABLE)
 		}
 
 		/** 씬을 설정한다 */
@@ -323,6 +329,61 @@ namespace MainScene {
 			// Do Something
 		}
 #endif			// #if DEBUG || DEVELOPMENT_BUILD
+
+#if AB_TEST_ENABLE && (DEBUG || DEVELOPMENT_BUILD || PLAY_TEST_ENABLE)
+		/** AB 테스트 UI 를 설정한다 */
+		private void SetupABTestUIs() {
+			var oABTUIsSetUIsLayoutGroup = CFactory.CreateObj<HorizontalLayoutGroup>(KCDefine.MS_OBJ_N_AB_T_UIS_SET_UIS, this.UpUIs);
+			oABTUIsSetUIsLayoutGroup.spacing = KCDefine.B_VAL_4_FLT * KCDefine.B_VAL_5_FLT;
+			oABTUIsSetUIsLayoutGroup.ExReset();
+
+			(oABTUIsSetUIsLayoutGroup.transform as RectTransform).pivot = KCDefine.B_ANCHOR_UP_CENTER;
+			(oABTUIsSetUIsLayoutGroup.transform as RectTransform).anchorMin = KCDefine.B_ANCHOR_UP_CENTER;
+			(oABTUIsSetUIsLayoutGroup.transform as RectTransform).anchorMax = KCDefine.B_ANCHOR_UP_CENTER;
+			(oABTUIsSetUIsLayoutGroup.transform as RectTransform).anchoredPosition = Vector3.zero;
+
+			var oContentsSizeFitter = oABTUIsSetUIsLayoutGroup.gameObject.ExAddComponent<ContentSizeFitter>();
+			oContentsSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+			oContentsSizeFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+			// 텍스트를 설정한다 {
+			var oASetText = CFactory.CreateCloneObj<TMP_Text>(KCDefine.U_OBJ_N_A_SET_BTN, CResManager.Inst.GetRes<GameObject>(KCDefine.U_OBJ_P_TMP_TEXT_BTN), oABTUIsSetUIsLayoutGroup.gameObject);
+			oASetText.fontSize = KCDefine.U_DEF_SIZE_FONT;
+			oASetText.ExSetText(CStrTable.Inst.GetStr(KCDefine.ST_KEY_MAIN_SM_A_SET_TEXT), EFontSet._1);
+
+			var oBSetText = CFactory.CreateCloneObj<TMP_Text>(KCDefine.U_OBJ_N_B_SET_BTN, CResManager.Inst.GetRes<GameObject>(KCDefine.U_OBJ_P_TMP_TEXT_BTN), oABTUIsSetUIsLayoutGroup.gameObject);
+			oBSetText.fontSize = KCDefine.U_DEF_SIZE_FONT;
+			oBSetText.ExSetText(CStrTable.Inst.GetStr(KCDefine.ST_KEY_MAIN_SM_B_SET_TEXT), EFontSet._1);
+			// 텍스트를 설정한다 }
+
+			// 버튼을 설정한다
+			oASetText.GetComponentInChildren<Button>().onClick.AddListener(() => this.OnTouchABTUIsSetBtn(EUserType.A));
+			oBSetText.GetComponentInChildren<Button>().onClick.AddListener(() => this.OnTouchABTUIsSetBtn(EUserType.B));
+		}
+
+		/** AB 테스트 UI 세트 버튼을 눌렀을 경우 */
+		private void OnTouchABTUIsSetBtn(EUserType a_eUserType) {
+			// 유저 타입이 다를 경우
+			if(CCommonUserInfoStorage.Inst.UserInfo.UserType != a_eUserType) {
+				CCommonUserInfoStorage.Inst.UserInfo.UserType = a_eUserType;
+				CCommonUserInfoStorage.Inst.SaveUserInfo();
+
+				// 에피소드 정보 테이블을 리셋한다 {
+				CEpisodeInfoTable.Inst.LevelInfoDict.Clear();
+				CEpisodeInfoTable.Inst.StageInfoDict.Clear();
+				CEpisodeInfoTable.Inst.ChapterInfoDict.Clear();
+
+				CEpisodeInfoTable.Inst.LoadEpisodeInfos();
+				// 에피소드 정보 테이블을 리셋한다 }
+
+				// 레벨 정보 테이블을 리셋한다
+				CLevelInfoTable.Inst.LevelInfoDictContainer.Clear();
+				CLevelInfoTable.Inst.LoadLevelInfos();
+
+				CSceneLoader.Inst.LoadScene(KCDefine.B_SCENE_N_MAIN);
+			}
+		}
+#endif			// #if AB_TEST_ENABLE && (DEBUG || DEVELOPMENT_BUILD || PLAY_TEST_ENABLE)
 		#endregion			// 조건부 함수
 	}
 }

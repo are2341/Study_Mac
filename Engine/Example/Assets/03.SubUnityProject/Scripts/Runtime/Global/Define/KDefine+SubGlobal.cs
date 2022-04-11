@@ -74,6 +74,8 @@ public static partial class KDefine {
 
 	#region 추가 상수
 	// 씬 이름 {
+	public const string G_SCENE_N_ETC_E01_EXAMPLE_122 = "EtcE01Example_122";
+
 	public const string G_SCENE_N_3X_E01_EXAMPLE_052 = "_3xE01Example_052";
 	public const string G_SCENE_N_3X_E01_EXAMPLE_124 = "_3xE01Example_124";
 

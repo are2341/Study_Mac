@@ -7,11 +7,13 @@ using UnityEngine.EventSystems;
 using EnhancedUI.EnhancedScroller;
 using DanielLochner.Assets.SimpleScrollSnap;
 
+#if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE && (DEBUG || DEVELOPMENT_BUILD)
+using GoogleSheetsToUnity;
+
 #if INPUT_SYSTEM_MODULE_ENABLE
 using UnityEngine.InputSystem;
 #endif			// #if INPUT_SYSTEM_MODULE_ENABLE
 
-#if UNITY_STANDALONE && EDITOR_SCENE_TEMPLATES_MODULE_ENABLE && (DEBUG || DEVELOPMENT_BUILD)
 namespace LevelEditorScene {
 	/** 서브 레벨 에디터 씬 관리자 */
 	public partial class CSubLevelEditorSceneManager : CLevelEditorSceneManager, IEnhancedScrollerDelegate {
@@ -88,16 +90,7 @@ namespace LevelEditorScene {
 			[EKey.BG_TOUCH_DISPATCHER] = null
 		};
 
-#if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
-		private SampleEngineName.STGridInfo m_stGridInfo;
-		private Dictionary<EBlockType, List<(EBlockKinds, SpriteRenderer)>>[,] m_oBlockSpriteInfoDictContainers = null;
-#endif			// #if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
-
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
-		private Dictionary<EKey, CLevelInfo> m_oLevelInfoDict = new Dictionary<EKey, CLevelInfo>() {
-			[EKey.SEL_LEVEL_INFO] = null
-		};
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+		[SerializeField] private string m_oEpisodeInfoTableGoogleSheetID = string.Empty;
 
 		/** =====> UI <===== */
 		private Dictionary<EKey, Text> m_oTextDict = new Dictionary<EKey, Text>() {
@@ -144,6 +137,17 @@ namespace LevelEditorScene {
 
 		/** =====> 객체 <===== */
 		private Dictionary<EKey, GameObject> m_oUIsDict = new Dictionary<EKey, GameObject>();
+
+#if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
+		private SampleEngineName.STGridInfo m_stGridInfo;
+		private Dictionary<EBlockType, List<(EBlockKinds, SpriteRenderer)>>[,] m_oBlockSpriteInfoDictContainers = null;
+#endif			// #if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
+
+#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+		private Dictionary<EKey, CLevelInfo> m_oLevelInfoDict = new Dictionary<EKey, CLevelInfo>() {
+			[EKey.SEL_LEVEL_INFO] = null
+		};
+#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 		#endregion			// 변수
 
 		#region IEnhancedScrollerDelegate
@@ -435,12 +439,18 @@ namespace LevelEditorScene {
 		private void OnReceiveEditorTableLoadPopupResult(CAlertPopup a_oSender, bool a_bIsOK) {
 			// 확인 버튼을 눌렀을 경우
 			if(a_bIsOK) {
+#if GOOGLE_SHEET_ENABLE
+				Func.LoadGoogleSheet(m_oEpisodeInfoTableGoogleSheetID, new List<(string, int)>() {
+					(KCDefine.U_KEY_LEVEL, CLevelInfoTable.Inst.TotalNumLevelInfos + KCDefine.B_VAL_1_INT), (KCDefine.U_KEY_STAGE, CLevelInfoTable.Inst.TotalNumStageInfos + KCDefine.B_VAL_1_INT), (KCDefine.U_KEY_CHAPTER, CLevelInfoTable.Inst.NumChapterInfos + KCDefine.B_VAL_1_INT)
+				}, this.OnLoadGoogleSheetEpisodeInfos);
+#else
 				CEpisodeInfoTable.Inst.LevelInfoDict.Clear();
 				CEpisodeInfoTable.Inst.StageInfoDict.Clear();
 				CEpisodeInfoTable.Inst.ChapterInfoDict.Clear();
 
 				CEpisodeInfoTable.Inst.LoadEpisodeInfos();
 				this.UpdateUIsState();
+#endif			// #if GOOGLE_SHEET_ENABLE
 			}
 		}
 
@@ -515,7 +525,7 @@ namespace LevelEditorScene {
 		private bool TryGetLevelInfo(STIDInfo a_stPrevIDInfo, STIDInfo a_stNextIDInfo, out CLevelInfo a_oOutLevelInfo) {
 			CLevelInfoTable.Inst.TryGetLevelInfo(a_stPrevIDInfo.m_nID, out CLevelInfo oPrevLevelInfo, a_stPrevIDInfo.m_nStageID, a_stPrevIDInfo.m_nChapterID);
 			CLevelInfoTable.Inst.TryGetLevelInfo(a_stNextIDInfo.m_nID, out CLevelInfo oNextLevelInfo, a_stNextIDInfo.m_nStageID, a_stNextIDInfo.m_nChapterID);
-
+			
 			a_oOutLevelInfo = oPrevLevelInfo ?? oNextLevelInfo;
 			return oPrevLevelInfo != null || oNextLevelInfo != null;
 		}
@@ -669,7 +679,7 @@ namespace LevelEditorScene {
 			var oTokenList = a_oStr.Split(KCDefine.B_TOKEN_DASH).ToList();
 
 			// 식별자가 유효 할 경우
-			if(oTokenList.Count >= KCDefine.B_VAL_2_INT && (int.TryParse(oTokenList[KCDefine.B_VAL_0_INT], out int nMinID) && int.TryParse(oTokenList[KCDefine.B_VAL_1_INT], out int nMaxID))) {
+			if(oTokenList.Count > KCDefine.B_VAL_1_INT && (int.TryParse(oTokenList[KCDefine.B_VAL_0_INT], out int nMinID) && int.TryParse(oTokenList[KCDefine.B_VAL_1_INT], out int nMaxID))) {
 				nMinID = Mathf.Clamp(nMinID, KCDefine.B_VAL_1_INT, KCDefine.U_MAX_NUM_LEVEL_INFOS);
 				nMaxID = Mathf.Clamp(nMaxID, KCDefine.B_VAL_1_INT, KCDefine.U_MAX_NUM_LEVEL_INFOS);
 
@@ -684,6 +694,23 @@ namespace LevelEditorScene {
 				}
 			}
 		}
+
+#if GOOGLE_SHEET_ENABLE
+		/** 에피소드 정보 구글 시트를 로드했을 경우 */
+		private void OnLoadGoogleSheetEpisodeInfos(CServicesManager a_oSender, GstuSpreadSheet a_oGoogleSheet, string a_oID, Dictionary<string, SimpleJSON.JSONNode> a_oJSONNodeDict, bool a_bIsSuccess) {
+			// 로드 되었을 경우
+			if(a_bIsSuccess) {
+				var oJSONNode = new SimpleJSON.JSONClass();
+
+				foreach(var stKeyVal in a_oJSONNodeDict) {
+					oJSONNode.Add(stKeyVal.Key, stKeyVal.Value);
+				}
+
+				CEpisodeInfoTable.Inst.ResetEpisodeInfos(oJSONNode.ToString());
+				this.UpdateUIsState();
+			}
+		}
+#endif			// #if GOOGLE_SHEET_ENABLE
 
 #if ENGINE_TEMPLATES_MODULE_ENABLE
 		/** 블럭 스프라이트를 리셋한다 */
@@ -1153,8 +1180,8 @@ namespace LevelEditorScene {
 
 		/** 오른쪽 에디터 UI 레벨 제거 버튼을 눌렀을 경우 */
 		private void OnTouchREUIsRemoveLevelBtn() {
-			m_oScrollerDict[EKey.SEL_SCROLLER] = m_oScrollerInfoDict[EKey.LE_UIS_LEVEL_SCROLLER_INFO].Item1;
 			m_eSelInputPopup = EInputPopup.REMOVE_LEVEL;
+			m_oScrollerDict[EKey.SEL_SCROLLER] = m_oScrollerInfoDict[EKey.LE_UIS_LEVEL_SCROLLER_INFO].Item1;
 
 			Func.ShowEditorInputPopup(this.PopupUIs, (a_oSender) => {
 				var stParams = new CEditorInputPopup.STParams() {
@@ -1199,6 +1226,7 @@ namespace LevelEditorScene {
 
 		/** 스크롤러 셀 뷰 이동 버튼을 눌렀을 경우 */
 		private void OnTouchSCVMoveBtn(CScrollerCellView a_oSender, long a_nID) {
+			m_eSelInputPopup = EInputPopup.MOVE_LEVEL;
 			m_oScrollerDict[EKey.SEL_SCROLLER] = a_oSender.Scroller;
 
 			Func.ShowEditorInputPopup(this.PopupUIs, (a_oSender) => {

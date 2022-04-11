@@ -55,7 +55,7 @@ public static partial class CEditorSceneManager {
 		
 		// JSON 노드가 존재 할 경우
 		if(oJSONNode != null) {
-			bool bIsNeedUpdate = false;
+			bool bIsNeedsUpdate = false;
 
 			var oScopedRegistryList = oJSONNode[KEditorDefine.B_UNITY_PKGS_SCOPED_REGISTRY_DICT_KEY].AsArray;
 			oScopedRegistryList = oScopedRegistryList ?? new SimpleJSON.JSONArray();
@@ -70,14 +70,14 @@ public static partial class CEditorSceneManager {
 
 					// 패키지 레지스트리 노드가 존재 할 경우
 					if(oScopedRegistryNode != null) {
-						bIsNeedUpdate = true;
+						bIsNeedsUpdate = true;
 						oScopedRegistryList.Add(oScopedRegistryNode);
 					}
 				}
 			}
 
 			// 패키지 레지스트리 갱신이 필요 할 경우
-			if(bIsNeedUpdate && oScopedRegistryList.Count > KCDefine.B_VAL_0_INT) {
+			if(bIsNeedsUpdate && oScopedRegistryList.Count > KCDefine.B_VAL_0_INT) {
 				oJSONNode.Add(KEditorDefine.B_UNITY_PKGS_SCOPED_REGISTRY_DICT_KEY, oScopedRegistryList);
 				CFunc.WriteStr(KCEditorDefine.B_DATA_P_UNITY_PKGS, oJSONNode.ToString());
 
@@ -98,11 +98,9 @@ public static partial class CEditorSceneManager {
 					var oAssetList = CEditorFunc.FindAssets<Object>(string.Empty, new List<string>() { KEditorDefine.G_EXTRA_DIR_P_PRELOAD_ASSET_LIST[i] });
 
 					for(int j = 0; j < oAssetList.Count; ++j) {
-						int nIdx = oPreloadAssetList.FindIndex((a_oAsset) => a_oAsset != null && oAssetList[j].name.Equals(a_oAsset.name));
-
-						// 에셋이 없을 경우
-						if(!oPreloadAssetList.ExIsValidIdx(nIdx) && oAssetList[j].GetType() != typeof(DefaultAsset)) {
-							oPreloadAssetList.ExAddVal(oAssetList[j]);
+						// 디렉토리 에셋이 아닐 경우
+						if(oAssetList[j].GetType() != typeof(DefaultAsset)) {
+							oPreloadAssetList.ExAddVal(oAssetList[j], (a_oAsset) => a_oAsset != null && oAssetList[j].name.Equals(a_oAsset.name));
 						}
 					}
 				}
@@ -110,12 +108,7 @@ public static partial class CEditorSceneManager {
 
 			for(int i = 0; i < KEditorDefine.G_EXTRA_ASSET_P_PRELOAD_ASSET_LIST.Count; ++i) {
 				var oAsset = CEditorFunc.FindAsset<Object>(KEditorDefine.G_EXTRA_ASSET_P_PRELOAD_ASSET_LIST[i]);
-				int nIdx = oPreloadAssetList.FindIndex((a_oAsset) => a_oAsset != null && oAsset.name.Equals(a_oAsset.name));
-
-				// 에셋이 없을 경우
-				if(!oPreloadAssetList.ExIsValidIdx(nIdx)) {
-					oPreloadAssetList.ExAddVal(oAsset);
-				}
+				oPreloadAssetList.ExAddVal(oAsset, (a_oAsset) => a_oAsset != null && oAsset.name.Equals(a_oAsset.name));
 			}
 		} finally {
 			PlayerSettings.SetPreloadedAssets(oPreloadAssetList.ToArray());
