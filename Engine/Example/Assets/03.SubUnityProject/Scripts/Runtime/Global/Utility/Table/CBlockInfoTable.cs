@@ -27,9 +27,9 @@ public struct STBlockInfo {
 		m_eNextBlockKinds = (EBlockKinds)a_oBlockInfo[KCDefine.U_KEY_NEXT_BLOCK_KINDS].AsInt;
 
 		// 크기를 설정한다 {
-		float fSizeX = (a_oBlockInfo[KCDefine.U_KEY_SIZE_X] != null) ? a_oBlockInfo[KCDefine.U_KEY_SIZE_X].AsFloat : KCDefine.B_VAL_0_FLT;
-		float fSizeY = (a_oBlockInfo[KCDefine.U_KEY_SIZE_Y] != null) ? a_oBlockInfo[KCDefine.U_KEY_SIZE_Y].AsFloat : KCDefine.B_VAL_0_FLT;
-		float fSizeZ = (a_oBlockInfo[KCDefine.U_KEY_SIZE_Z] != null) ? a_oBlockInfo[KCDefine.U_KEY_SIZE_Z].AsFloat : KCDefine.B_VAL_0_FLT;
+		float fSizeX = a_oBlockInfo[KCDefine.U_KEY_SIZE_X].Value.ExIsValid() ? a_oBlockInfo[KCDefine.U_KEY_SIZE_X].AsFloat : KCDefine.B_VAL_0_FLT;
+		float fSizeY = a_oBlockInfo[KCDefine.U_KEY_SIZE_Y].Value.ExIsValid() ? a_oBlockInfo[KCDefine.U_KEY_SIZE_Y].AsFloat : KCDefine.B_VAL_0_FLT;
+		float fSizeZ = a_oBlockInfo[KCDefine.U_KEY_SIZE_Z].Value.ExIsValid() ? a_oBlockInfo[KCDefine.U_KEY_SIZE_Z].AsFloat : KCDefine.B_VAL_0_FLT;
 
 		m_stSize = new Vector3(fSizeX, fSizeY, fSizeZ);
 		// 크기를 설정한다 }
@@ -78,7 +78,7 @@ public partial class CBlockInfoTable : CScriptableObj<CBlockInfoTable> {
 
 	/** 블럭 정보를 반환한다 */
 	public bool TryGetBlockInfo(EBlockKinds a_eBlockKinds, out STBlockInfo a_stOutBlockInfo) {
-		a_stOutBlockInfo = this.BlockInfoDict.GetValueOrDefault(a_eBlockKinds, KDefine.G_INVALID_BLOCK_INFO);
+		a_stOutBlockInfo = this.BlockInfoDict.GetValueOrDefault(a_eBlockKinds, default(STBlockInfo));
 		return this.BlockInfoDict.ContainsKey(a_eBlockKinds);
 	}
 

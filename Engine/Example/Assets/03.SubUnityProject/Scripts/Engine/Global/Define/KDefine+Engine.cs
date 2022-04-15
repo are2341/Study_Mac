@@ -15,6 +15,9 @@ namespace SampleEngineName {
 		#endregion			// 기본
 
 		#region 런타임 상수
+		// 기타
+		public static readonly (EBlockKinds, CBlock) E_INVALID_BLOCK_INFO = (EBlockKinds.NONE, null);
+
 		// 크기
 		public static readonly Vector3 E_SIZE_CELL = new Vector3(0.0f, 0.0f, 0.0f);
 		public static readonly Vector3 E_MAX_SIZE_GRID = new Vector3(KCDefine.B_SCREEN_WIDTH - 20.0f, KCDefine.B_SCREEN_WIDTH - 20.0f, 0.0f);
@@ -29,7 +32,7 @@ namespace SampleEngineName {
 		// 정렬 순서
 		public static readonly Dictionary<EBlockKinds, STSortingOrderInfo> E_SORTING_OI_BLOCK_DICT = new Dictionary<EBlockKinds, STSortingOrderInfo>() {
 			[EBlockKinds.BG_EMPTY] = new STSortingOrderInfo() {
-				m_nOrder = 0, m_oLayer = KCDefine.U_SORTING_L_BACKGROUND
+				m_nOrder = sbyte.MaxValue * 0, m_oLayer = KCDefine.U_SORTING_L_DEF
 			}
 		};
 

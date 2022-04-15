@@ -6,9 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Obstacle
-  - UIsCamera
+  - MainLight
+  - AdditionalLight
+  - AdditionalCamera
   - SceneManager
-  - MainDirectionalLight
   layers:
   - Default
   - TransparentFX

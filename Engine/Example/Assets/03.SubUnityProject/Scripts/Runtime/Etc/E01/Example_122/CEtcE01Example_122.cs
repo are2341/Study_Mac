@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+#if EXTRA_SCRIPT_ENABLE
 namespace EtcE01 {
 	/** Example 144 */
 	public class CEtcE01Example_122 : StudyScene.CStudySceneManager {
@@ -11,3 +12,4 @@ namespace EtcE01 {
 		#endregion			// 프로퍼티
 	}
 }
+#endif			// #if EXTRA_SCRIPT_ENABLE

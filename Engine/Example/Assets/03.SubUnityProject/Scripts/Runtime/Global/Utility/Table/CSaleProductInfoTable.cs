@@ -46,7 +46,7 @@ public struct STSaleProductInfo {
 			string oItemKindsKey = string.Format(KCDefine.U_KEY_FMT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
 
 			// 아이템 정보가 존재 할 경우
-			if(a_oSaleProductInfo[oNumItemsKey] != null && a_oSaleProductInfo[oItemKindsKey] != null) {
+			if(a_oSaleProductInfo[oNumItemsKey].Value.ExIsValid() && a_oSaleProductInfo[oItemKindsKey].Value.ExIsValid()) {
 				m_oItemInfoList.Add(new STItemInfo() {
 					m_nNumItems = long.Parse(a_oSaleProductInfo[oNumItemsKey]), m_eItemKinds = (EItemKinds)a_oSaleProductInfo[oItemKindsKey].AsInt
 				});
@@ -115,7 +115,7 @@ public partial class CSaleProductInfoTable : CScriptableObj<CSaleProductInfoTabl
 
 	/** 판매 상품 정보를 반환한다 */
 	public bool TryGetSaleProductInfo(ESaleProductKinds a_eSaleProductKinds, out STSaleProductInfo a_stOutSaleProductInfo) {
-		a_stOutSaleProductInfo = this.SaleProductInfoDict.GetValueOrDefault(a_eSaleProductKinds, KDefine.G_INVALID_SALE_PRODUCT_INFO);
+		a_stOutSaleProductInfo = this.SaleProductInfoDict.GetValueOrDefault(a_eSaleProductKinds, default(STSaleProductInfo));
 		return this.SaleProductInfoDict.ContainsKey(a_eSaleProductKinds);
 	}
 
@@ -124,12 +124,12 @@ public partial class CSaleProductInfoTable : CScriptableObj<CSaleProductInfoTabl
 		// 판매 상품 정보가 존재 할 경우
 		if(this.TryGetSaleProductInfo(a_eSaleProductKinds, out STSaleProductInfo stSaleProductInfo)) {
 			int nIdx = stSaleProductInfo.m_oItemInfoList.FindIndex((a_stItemInfo) => a_stItemInfo.m_eItemKinds == a_eItemKinds);
-			a_stOutItemInfo = stSaleProductInfo.m_oItemInfoList.ExIsValidIdx(nIdx) ? stSaleProductInfo.m_oItemInfoList[nIdx] : KDefine.G_INVALID_ITEM_INFO;
+			a_stOutItemInfo = stSaleProductInfo.m_oItemInfoList.ExIsValidIdx(nIdx) ? stSaleProductInfo.m_oItemInfoList[nIdx] : default(STItemInfo);
 
 			return stSaleProductInfo.m_oItemInfoList.ExIsValidIdx(nIdx);
 		}
 
-		a_stOutItemInfo = KDefine.G_INVALID_ITEM_INFO;
+		a_stOutItemInfo = default(STItemInfo);
 		return false;
 	}
 

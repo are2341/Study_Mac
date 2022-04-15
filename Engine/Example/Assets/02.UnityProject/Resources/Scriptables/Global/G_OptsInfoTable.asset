@@ -22,7 +22,7 @@ MonoBehaviour:
     m_bIsPreBakeCollisionMesh: 0
     m_bIsPreserveFrameBufferAlpha: 0
     m_eNormapMapEncoding: 1
-    m_eLightmapper: 0
+    m_eLightmapper: 2
     m_stiOSBuildOptsInfo:
       m_bIsEnableProMotion: 0
       m_bIsEnableInputSystemMotion: 0
@@ -34,9 +34,11 @@ MonoBehaviour:
       m_bIsUseAPKExpansionFiles: 0
   m_stQualityOptsInfo:
     m_bIsEnableRealtimeGI: 0
+    m_bIsEnableRealtimeReflectionProbes: 0
     m_bIsEnableRealtimeEnvironmentLighting: 0
     m_eQualityLevel: 2
     m_eMixedLightingMode: 1
+    m_eLightmapEncodingQuality: 1
     m_stNormQualityRenderingOptsInfo:
       m_stLightOptsInfo:
         m_eLightmapMaxSize: 1024

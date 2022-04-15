@@ -55,10 +55,10 @@ namespace MessagePack.Resolvers
                 { typeof(global::System.Collections.Generic.Dictionary<global::EBlockType, global::System.Collections.Generic.List<global::EBlockKinds>>), 0 },
                 { typeof(global::System.Collections.Generic.Dictionary<global::EItemKinds, long>), 1 },
                 { typeof(global::System.Collections.Generic.Dictionary<int, float>), 2 },
-                { typeof(global::System.Collections.Generic.Dictionary<int, global::CCellInfo>), 3 },
-                { typeof(global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>), 4 },
-                { typeof(global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CCellInfo>>), 5 },
-                { typeof(global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>>), 6 },
+                { typeof(global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>), 3 },
+                { typeof(global::System.Collections.Generic.Dictionary<int, global::STCellInfo>), 4 },
+                { typeof(global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>>), 5 },
+                { typeof(global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::STCellInfo>>), 6 },
                 { typeof(global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>>>), 7 },
                 { typeof(global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, int>>), 8 },
                 { typeof(global::System.Collections.Generic.Dictionary<int, int>), 9 },
@@ -85,15 +85,15 @@ namespace MessagePack.Resolvers
                 { typeof(global::CBaseInfo), 30 },
                 { typeof(global::CCommonBaseInfo), 31 },
                 { typeof(global::CAppInfo), 32 },
-                { typeof(global::CCellInfo), 33 },
-                { typeof(global::CClearInfo), 34 },
-                { typeof(global::CCommonAppInfo), 35 },
-                { typeof(global::CCommonGameInfo), 36 },
-                { typeof(global::CCommonUserInfo), 37 },
-                { typeof(global::CGameInfo), 38 },
-                { typeof(global::CLevelInfo), 39 },
-                { typeof(global::CUserInfo), 40 },
-                { typeof(global::SampleEngineName.STEngineTypeWrapper), 41 },
+                { typeof(global::CClearInfo), 33 },
+                { typeof(global::CCommonAppInfo), 34 },
+                { typeof(global::CCommonGameInfo), 35 },
+                { typeof(global::CCommonUserInfo), 36 },
+                { typeof(global::CGameInfo), 37 },
+                { typeof(global::CLevelInfo), 38 },
+                { typeof(global::CUserInfo), 39 },
+                { typeof(global::SampleEngineName.STEngineTypeWrapper), 40 },
+                { typeof(global::STCellInfo), 41 },
                 { typeof(global::STCommonTypeWrapper), 42 },
                 { typeof(global::STIDInfo), 43 },
                 { typeof(global::STIdxInfo), 44 },
@@ -115,10 +115,10 @@ namespace MessagePack.Resolvers
                 case 0: return new global::MessagePack.Formatters.DictionaryFormatter<global::EBlockType, global::System.Collections.Generic.List<global::EBlockKinds>>();
                 case 1: return new global::MessagePack.Formatters.DictionaryFormatter<global::EItemKinds, long>();
                 case 2: return new global::MessagePack.Formatters.DictionaryFormatter<int, float>();
-                case 3: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::CCellInfo>();
-                case 4: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::CLevelInfo>();
-                case 5: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::System.Collections.Generic.Dictionary<int, global::CCellInfo>>();
-                case 6: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>>();
+                case 3: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::CLevelInfo>();
+                case 4: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::STCellInfo>();
+                case 5: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>>();
+                case 6: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::System.Collections.Generic.Dictionary<int, global::STCellInfo>>();
                 case 7: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CLevelInfo>>>();
                 case 8: return new global::MessagePack.Formatters.DictionaryFormatter<int, global::System.Collections.Generic.Dictionary<int, int>>();
                 case 9: return new global::MessagePack.Formatters.DictionaryFormatter<int, int>();
@@ -145,15 +145,15 @@ namespace MessagePack.Resolvers
                 case 30: return new MessagePack.Formatters.CBaseInfoFormatter();
                 case 31: return new MessagePack.Formatters.CCommonBaseInfoFormatter();
                 case 32: return new MessagePack.Formatters.CAppInfoFormatter();
-                case 33: return new MessagePack.Formatters.CCellInfoFormatter();
-                case 34: return new MessagePack.Formatters.CClearInfoFormatter();
-                case 35: return new MessagePack.Formatters.CCommonAppInfoFormatter();
-                case 36: return new MessagePack.Formatters.CCommonGameInfoFormatter();
-                case 37: return new MessagePack.Formatters.CCommonUserInfoFormatter();
-                case 38: return new MessagePack.Formatters.CGameInfoFormatter();
-                case 39: return new MessagePack.Formatters.CLevelInfoFormatter();
-                case 40: return new MessagePack.Formatters.CUserInfoFormatter();
-                case 41: return new MessagePack.Formatters.SampleEngineName.STEngineTypeWrapperFormatter();
+                case 33: return new MessagePack.Formatters.CClearInfoFormatter();
+                case 34: return new MessagePack.Formatters.CCommonAppInfoFormatter();
+                case 35: return new MessagePack.Formatters.CCommonGameInfoFormatter();
+                case 36: return new MessagePack.Formatters.CCommonUserInfoFormatter();
+                case 37: return new MessagePack.Formatters.CGameInfoFormatter();
+                case 38: return new MessagePack.Formatters.CLevelInfoFormatter();
+                case 39: return new MessagePack.Formatters.CUserInfoFormatter();
+                case 40: return new MessagePack.Formatters.SampleEngineName.STEngineTypeWrapperFormatter();
+                case 41: return new MessagePack.Formatters.STCellInfoFormatter();
                 case 42: return new MessagePack.Formatters.STCommonTypeWrapperFormatter();
                 case 43: return new MessagePack.Formatters.STIDInfoFormatter();
                 case 44: return new MessagePack.Formatters.STIdxInfoFormatter();
@@ -297,23 +297,21 @@ namespace MessagePack.Formatters
 
         public CBaseInfoFormatter()
         {
-            this.typeToKeyAndJumpMap = new Dictionary<RuntimeTypeHandle, KeyValuePair<int, int>>(6, global::MessagePack.Internal.RuntimeTypeHandleEqualityComparer.Default)
+            this.typeToKeyAndJumpMap = new Dictionary<RuntimeTypeHandle, KeyValuePair<int, int>>(5, global::MessagePack.Internal.RuntimeTypeHandleEqualityComparer.Default)
             {
                 { typeof(global::CAppInfo).TypeHandle, new KeyValuePair<int, int>(0, 0) },
                 { typeof(global::CUserInfo).TypeHandle, new KeyValuePair<int, int>(1, 1) },
                 { typeof(global::CGameInfo).TypeHandle, new KeyValuePair<int, int>(2, 2) },
-                { typeof(global::CCellInfo).TypeHandle, new KeyValuePair<int, int>(3, 3) },
-                { typeof(global::CClearInfo).TypeHandle, new KeyValuePair<int, int>(4, 4) },
-                { typeof(global::CLevelInfo).TypeHandle, new KeyValuePair<int, int>(5, 5) },
+                { typeof(global::CClearInfo).TypeHandle, new KeyValuePair<int, int>(3, 3) },
+                { typeof(global::CLevelInfo).TypeHandle, new KeyValuePair<int, int>(4, 4) },
             };
-            this.keyToJumpMap = new Dictionary<int, int>(6)
+            this.keyToJumpMap = new Dictionary<int, int>(5)
             {
                 { 0, 0 },
                 { 1, 1 },
                 { 2, 2 },
                 { 3, 3 },
                 { 4, 4 },
-                { 5, 5 },
             };
         }
 
@@ -336,12 +334,9 @@ namespace MessagePack.Formatters
                         options.Resolver.GetFormatterWithVerify<global::CGameInfo>().Serialize(ref writer, (global::CGameInfo)value, options);
                         break;
                     case 3:
-                        options.Resolver.GetFormatterWithVerify<global::CCellInfo>().Serialize(ref writer, (global::CCellInfo)value, options);
-                        break;
-                    case 4:
                         options.Resolver.GetFormatterWithVerify<global::CClearInfo>().Serialize(ref writer, (global::CClearInfo)value, options);
                         break;
-                    case 5:
+                    case 4:
                         options.Resolver.GetFormatterWithVerify<global::CLevelInfo>().Serialize(ref writer, (global::CLevelInfo)value, options);
                         break;
                     default:
@@ -387,12 +382,9 @@ namespace MessagePack.Formatters
                     result = (global::CBaseInfo)options.Resolver.GetFormatterWithVerify<global::CGameInfo>().Deserialize(ref reader, options);
                     break;
                 case 3:
-                    result = (global::CBaseInfo)options.Resolver.GetFormatterWithVerify<global::CCellInfo>().Deserialize(ref reader, options);
-                    break;
-                case 4:
                     result = (global::CBaseInfo)options.Resolver.GetFormatterWithVerify<global::CClearInfo>().Deserialize(ref reader, options);
                     break;
-                case 5:
+                case 4:
                     result = (global::CBaseInfo)options.Resolver.GetFormatterWithVerify<global::CLevelInfo>().Deserialize(ref reader, options);
                     break;
                 default:
@@ -565,218 +557,6 @@ namespace MessagePack.Formatters
                 {
                     case 0:
                         ____result.m_oStrDict = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<string, string>>().Deserialize(ref reader, options);
-                        break;
-                    default:
-                        reader.Skip();
-                        break;
-                }
-            }
-
-            ____result.OnAfterDeserialize();
-            reader.Depth--;
-            return ____result;
-        }
-    }
-
-    public sealed class CCellInfoFormatter : global::MessagePack.Formatters.IMessagePackFormatter<global::CCellInfo>
-    {
-
-        public void Serialize(ref global::MessagePack.MessagePackWriter writer, global::CCellInfo value, global::MessagePack.MessagePackSerializerOptions options)
-        {
-            if (value == null)
-            {
-                writer.WriteNil();
-                return;
-            }
-
-            global::MessagePack.IFormatterResolver formatterResolver = options.Resolver;
-            value.OnBeforeSerialize();
-            writer.WriteArrayHeader(162);
-            formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<string, string>>().Serialize(ref writer, value.m_oStrDict, options);
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            writer.WriteNil();
-            formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<global::EBlockType, global::System.Collections.Generic.List<global::EBlockKinds>>>().Serialize(ref writer, value.m_oBlockKindsDictContainer, options);
-        }
-
-        public global::CCellInfo Deserialize(ref global::MessagePack.MessagePackReader reader, global::MessagePack.MessagePackSerializerOptions options)
-        {
-            if (reader.TryReadNil())
-            {
-                return null;
-            }
-
-            options.Security.DepthStep(ref reader);
-            global::MessagePack.IFormatterResolver formatterResolver = options.Resolver;
-            var length = reader.ReadArrayHeader();
-            var ____result = new global::CCellInfo();
-
-            for (int i = 0; i < length; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        ____result.m_oStrDict = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<string, string>>().Deserialize(ref reader, options);
-                        break;
-                    case 161:
-                        ____result.m_oBlockKindsDictContainer = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<global::EBlockType, global::System.Collections.Generic.List<global::EBlockKinds>>>().Deserialize(ref reader, options);
                         break;
                     default:
                         reader.Skip();
@@ -1474,7 +1254,7 @@ namespace MessagePack.Formatters
             writer.WriteNil();
             writer.WriteNil();
             writer.WriteNil();
-            formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CCellInfo>>>().Serialize(ref writer, value.m_oCellInfoDictContainer, options);
+            formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::STCellInfo>>>().Serialize(ref writer, value.m_oCellInfoDictContainer, options);
         }
 
         public global::CLevelInfo Deserialize(ref global::MessagePack.MessagePackReader reader, global::MessagePack.MessagePackSerializerOptions options)
@@ -1497,7 +1277,7 @@ namespace MessagePack.Formatters
                         ____result.m_oStrDict = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<string, string>>().Deserialize(ref reader, options);
                         break;
                     case 165:
-                        ____result.m_oCellInfoDictContainer = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::CCellInfo>>>().Deserialize(ref reader, options);
+                        ____result.m_oCellInfoDictContainer = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, global::STCellInfo>>>().Deserialize(ref reader, options);
                         break;
                     default:
                         reader.Skip();
@@ -1660,6 +1440,209 @@ namespace MessagePack.Formatters
                         break;
                     case 111:
                         ____result.m_oNumItemsDict = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<global::EItemKinds, long>>().Deserialize(ref reader, options);
+                        break;
+                    default:
+                        reader.Skip();
+                        break;
+                }
+            }
+
+            ____result.OnAfterDeserialize();
+            reader.Depth--;
+            return ____result;
+        }
+    }
+
+    public sealed class STCellInfoFormatter : global::MessagePack.Formatters.IMessagePackFormatter<global::STCellInfo>
+    {
+
+        public void Serialize(ref global::MessagePack.MessagePackWriter writer, global::STCellInfo value, global::MessagePack.MessagePackSerializerOptions options)
+        {
+            global::MessagePack.IFormatterResolver formatterResolver = options.Resolver;
+            value.OnBeforeSerialize();
+            writer.WriteArrayHeader(162);
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            writer.WriteNil();
+            formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<global::EBlockType, global::System.Collections.Generic.List<global::EBlockKinds>>>().Serialize(ref writer, value.m_oBlockKindsDictContainer, options);
+        }
+
+        public global::STCellInfo Deserialize(ref global::MessagePack.MessagePackReader reader, global::MessagePack.MessagePackSerializerOptions options)
+        {
+            if (reader.TryReadNil())
+            {
+                throw new global::System.InvalidOperationException("typecode is null, struct not supported");
+            }
+
+            options.Security.DepthStep(ref reader);
+            global::MessagePack.IFormatterResolver formatterResolver = options.Resolver;
+            var length = reader.ReadArrayHeader();
+            var ____result = new global::STCellInfo();
+
+            for (int i = 0; i < length; i++)
+            {
+                switch (i)
+                {
+                    case 161:
+                        ____result.m_oBlockKindsDictContainer = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.Dictionary<global::EBlockType, global::System.Collections.Generic.List<global::EBlockKinds>>>().Deserialize(ref reader, options);
                         break;
                     default:
                         reader.Skip();

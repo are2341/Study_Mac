@@ -26,7 +26,7 @@ public struct STTutorialInfo {
 			string oStrKey = string.Format(KCDefine.U_KEY_FMT_STRS, i + KCDefine.B_VAL_1_INT);
 
 			// 문자열이 존재 할 경우
-			if(a_oTutorialInfo[oStrKey] != null) {
+			if(a_oTutorialInfo[oStrKey].Value.ExIsValid()) {
 				m_oStrList.Add(a_oTutorialInfo[oStrKey]);
 			}
 		}
@@ -81,7 +81,7 @@ public partial class CTutorialInfoTable : CScriptableObj<CTutorialInfoTable> {
 
 	/** 튜토리얼 정보를 반환한다 */
 	public bool TryGetTutorialInfo(ETutorialKinds a_eTutorialKinds, out STTutorialInfo a_stOutTutorialInfo) {
-		a_stOutTutorialInfo = this.TutorialInfoDict.GetValueOrDefault(a_eTutorialKinds, KDefine.G_INVALID_TUTORIAL_INFO);
+		a_stOutTutorialInfo = this.TutorialInfoDict.GetValueOrDefault(a_eTutorialKinds, default(STTutorialInfo));
 		return this.TutorialInfoDict.ContainsKey(a_eTutorialKinds);
 	}
 

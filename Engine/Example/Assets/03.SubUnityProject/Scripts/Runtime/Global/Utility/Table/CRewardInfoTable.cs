@@ -31,7 +31,7 @@ public struct STRewardInfo {
 			string oItemKindsKey = string.Format(KCDefine.U_KEY_FMT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
 
 			// 아이템 정보가 존재 할 경우
-			if(a_oRewardInfo[oNumItemsKey] != null && a_oRewardInfo[oItemKindsKey] != null) {
+			if(a_oRewardInfo[oNumItemsKey].Value.ExIsValid() && a_oRewardInfo[oItemKindsKey].Value.ExIsValid()) {
 				m_oItemInfoList.Add(new STItemInfo() {
 					m_nNumItems = long.Parse(a_oRewardInfo[oNumItemsKey]), m_eItemKinds = (EItemKinds)a_oRewardInfo[oItemKindsKey].AsInt
 				});
@@ -104,7 +104,7 @@ public partial class CRewardInfoTable : CScriptableObj<CRewardInfoTable> {
 
 	/** 보상 정보를 반환한다 */
 	public bool TryGetRewardInfo(ERewardKinds a_eRewardKinds, out STRewardInfo a_stOutRewardInfo) {
-		a_stOutRewardInfo = this.RewardInfoDict.GetValueOrDefault(a_eRewardKinds, KDefine.G_INVALID_REWARD_INFO);
+		a_stOutRewardInfo = this.RewardInfoDict.GetValueOrDefault(a_eRewardKinds, default(STRewardInfo));
 		return this.RewardInfoDict.ContainsKey(a_eRewardKinds);
 	}
 
