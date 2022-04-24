@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 레벨 스크롤러 셀 뷰 */
@@ -14,7 +15,7 @@ public partial class CLevelScrollerCellView : CScrollerCellView {
 	#region 변수
 	private STParams m_stParams;
 	#endregion			// 변수
-
+	
 	#region 함수
 	/** 초기화 */
 	public override void Awake() {
@@ -28,20 +29,35 @@ public partial class CLevelScrollerCellView : CScrollerCellView {
 
 		for(int i = 0; i < this.ScrollerCellList.Count; ++i) {
 			var stIDInfo = CFactory.MakeIDInfo(i + m_stParams.m_stBaseParams.m_nID.ExUniqueLevelIDToID(), m_stParams.m_stBaseParams.m_nID.ExUniqueLevelIDToStageID(), m_stParams.m_stBaseParams.m_nID.ExUniqueLevelIDToChapterID());
-			int nNumLevelInfos = CLevelInfoTable.Inst.GetNumLevelInfos(stIDInfo.m_nStageID, stIDInfo.m_nChapterID);
 
-			this.ScrollerCellList[i]?.SetActive(stIDInfo.m_nID < nNumLevelInfos);
-
-			// 레벨 정보가 존재 할 경우
-			if(stIDInfo.m_nID < nNumLevelInfos) {
-				this.UpdateScrollerCellState(this.ScrollerCellList[i], stIDInfo);
-			}
+			this.UpdateScrollerCellState(this.ScrollerCellList[i], stIDInfo);
+			this.ScrollerCellList[i]?.SetActive(stIDInfo.m_nID < CLevelInfoTable.Inst.GetNumLevelInfos(stIDInfo.m_nStageID, stIDInfo.m_nChapterID));
 		}
 	}
 
 	/** 스크롤러 셀 상태를 갱신한다 */
-	protected virtual void UpdateScrollerCellState(GameObject a_oScrollerCell, STIDInfo a_stIDInfo) {
-		// Do Something
+	private void UpdateScrollerCellState(GameObject a_oScrollerCell, STIDInfo a_stIDInfo) {
+		int nNumLevelClearInfos = CGameInfoStorage.Inst.GetNumLevelClearInfos(a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
+
+		// 버튼을 갱신한다 {
+		var oSelBtn = a_oScrollerCell.GetComponentInChildren<Button>();
+		oSelBtn?.ExAddListener(() => m_stParams.m_stBaseParams.m_oCallbackDict.GetValueOrDefault(ECallback.SEL)?.Invoke(this, CFactory.MakeUniqueLevelID(a_stIDInfo.m_nID, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID)), true, false);
+
+#if PLAY_TEST_ENABLE
+		oSelBtn?.ExSetInteractable(true, false);
+#else
+		oSelBtn?.ExSetInteractable(a_stIDInfo.m_nID <= nNumLevelClearInfos, false);
+#endif			// #if PLAY_TEST_ENABLE
+		// 버튼을 갱신한다 }
+
+		// 레벨 정보가 존재 할 경우
+		if(a_stIDInfo.m_nID < CLevelInfoTable.Inst.GetNumLevelInfos(a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID)) {
+			CEpisodeInfoTable.Inst.TryGetLevelInfo(a_stIDInfo.m_nID, out STLevelInfo stLevelInfo, a_stIDInfo.m_nStageID, a_stIDInfo.m_nChapterID);
+
+			// 텍스트를 갱신한다
+			var oLevelText = a_oScrollerCell.ExFindComponent<TMP_Text>(KCDefine.U_OBJ_N_LEVEL_TEXT);
+			oLevelText?.ExSetText($"{a_stIDInfo.m_nID + KCDefine.B_VAL_1_INT}", EFontSet._1, false);
+		}
 	}
 	#endregion			// 함수
 }

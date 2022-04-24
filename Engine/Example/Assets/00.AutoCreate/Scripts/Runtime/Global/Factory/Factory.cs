@@ -10,11 +10,11 @@ public static partial class Factory {
 	/** 클리어 정보를 생성한다 */
 	public static CClearInfo MakeClearInfo(int a_nID, int a_nStageID = KCDefine.B_VAL_0_INT, int a_nChapterID = KCDefine.B_VAL_0_INT) {
 		return new CClearInfo() {
+			NumMarks = KCDefine.B_VAL_0_INT,
+			Record = KCDefine.B_STR_0_INT,
+			BestRecord = KCDefine.B_STR_0_INT,
+
 			m_stIDInfo = CFactory.MakeIDInfo(a_nID, a_nStageID, a_nChapterID),
-			
-			NumClearMarks = KCDefine.B_VAL_0_INT,
-			ClearRecord = $"{KCDefine.B_VAL_0_INT}",
-			BestClearRecord = $"{KCDefine.B_VAL_0_INT}"
 		};
 	}
 	#endregion			// 클래스 함수
@@ -31,9 +31,9 @@ public static partial class Factory {
 		return CFactory.MakePurchaseInfoNodes();
 	}
 
-	/** 지급 아이템 정보 노드를 생성한다 */
-	public static List<string> MakePostItemInfoNodes() {
-		return CFactory.MakePostItemInfoNodes();
+	/** 획득 아이템 정보 노드를 생성한다 */
+	public static List<string> MakeAcquireItemInfoNodes() {
+		return CFactory.MakeAcquireItemInfoNodes();
 	}
 #endif			// #if FIREBASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수

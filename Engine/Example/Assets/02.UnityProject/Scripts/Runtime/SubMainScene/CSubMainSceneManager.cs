@@ -130,11 +130,11 @@ namespace MainScene {
 						for(int k = 0; k < CLevelInfoTable.Inst.NumLevelInfosDictContainer[i][j]; ++k) {
 							// 클리어 정보가 없을 경우
 							if(!CGameInfoStorage.Inst.IsClearLevel(k, j, i)) {
-								CGameInfoStorage.Inst.AddClearInfo(Factory.MakeClearInfo(k, j, i));
+								CGameInfoStorage.Inst.AddLevelClearInfo(Factory.MakeClearInfo(k, j, i));
 							}
 
-							var oClearInfo = CGameInfoStorage.Inst.GetClearInfo(k, j, i);
-							oClearInfo.NumClearMarks = KDefine.G_MAX_NUM_LEVEL_CLEAR_MARKS;
+							var oLevelClearInfo = CGameInfoStorage.Inst.GetLevelClearInfo(k, j, i);
+							oLevelClearInfo.NumMarks = KDefine.G_MAX_NUM_LEVEL_MARKS;
 						}
 					}
 				}
@@ -156,6 +156,8 @@ namespace MainScene {
 			if(CSceneManager.IsAppInit) {
 				this.SetupStart();
 				this.UpdateUIsState();
+
+				Func.PlayBGSnd(EResKinds.SND_BG_SCENE_MAIN);
 			}
 		}
 

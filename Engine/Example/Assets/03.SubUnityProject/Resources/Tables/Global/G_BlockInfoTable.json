@@ -1,15 +1,47 @@
 {
-    "Common": [
-        {
-            "Description": "샘플 블럭 정보",
-            "Replace": "0",
-            "Name": "Sample",
-            "Desc": "Sample",
-            "BlockKinds": "0",
-            "NextBlockKinds": "-1",
-            "SizeX": "0",
-            "SizeY": "0",
-            "SizeZ": "0"
-        }
-    ]
-}
+	"BG": [
+	  {
+		"Description": "빈 블럭",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"BlockKinds": "0",
+		"PrevBlockKinds": "-1",
+		"NextBlockKinds": "-1",
+		"BlockResKinds": "-1",
+		"SizeX": "1",
+		"SizeY": "1",
+		"SizeZ": "1"
+	  }
+	],
+	"Norm": [
+	  {
+		"Description": "일반 블럭 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"BlockKinds": "10000000",
+		"PrevBlockKinds": "-1",
+		"NextBlockKinds": "-1",
+		"BlockResKinds": "-1",
+		"SizeX": "1",
+		"SizeY": "1",
+		"SizeZ": "1"
+	  }
+	],
+	"Overlay": [
+	  {
+		"Description": "중첩 블럭 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"BlockKinds": "20000000",
+		"PrevBlockKinds": "-1",
+		"NextBlockKinds": "-1",
+		"BlockResKinds": "-1",
+		"SizeX": "1",
+		"SizeY": "1",
+		"SizeZ": "1"
+	  }
+	]
+  }

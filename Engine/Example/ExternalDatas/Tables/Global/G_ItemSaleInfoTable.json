@@ -1,0 +1,52 @@
+{
+	"Goods": [
+	  {
+		"Description": "재화 아이템 판매 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"ItemSaleKinds": "0",
+		"Price": "0",
+		"PriceKinds": "-1",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  }
+	],
+	"Consumable": [
+	  {
+		"Description": "힌트",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"ItemSaleKinds": "10010000",
+		"Price": "0",
+		"PriceKinds": "-1",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  },
+	  {
+		"Description": "이어하기",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"ItemSaleKinds": "10010100",
+		"Price": "0",
+		"PriceKinds": "-1",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  }
+	],
+	"NonConsumable": [
+	  {
+		"Description": "비소모 아이템 판매 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"ItemSaleKinds": "20000000",
+		"Price": "0",
+		"PriceKinds": "-1",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  }
+	]
+  }

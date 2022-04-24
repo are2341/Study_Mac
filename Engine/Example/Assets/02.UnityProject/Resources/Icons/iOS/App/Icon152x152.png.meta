@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9238d4e51c85d4ad7889742cea7a6d08
+guid: 422daca06c3c949d7be5581a01b8a0b9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -68,7 +68,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 2
     compressionQuality: 100
     crunchedCompression: 1
@@ -80,7 +80,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 2
     compressionQuality: 100
     crunchedCompression: 1
@@ -92,7 +92,7 @@ TextureImporter:
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 2
     compressionQuality: 100
     crunchedCompression: 1
@@ -104,7 +104,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 2
     compressionQuality: 100
     crunchedCompression: 1

@@ -49,7 +49,7 @@ namespace SampleEngineName {
 		private List<LineRenderer> m_oGridLineList = new List<LineRenderer>();
 
 		/** =====> 객체 <===== */
-		private Dictionary<EBlockType, List<(EBlockKinds, CBlock)>>[,] m_oBlockInfoDictContainers = null;
+		private Dictionary<EBlockType, List<(EBlockKinds, CEBlock)>>[,] m_oBlockInfoDictContainers = null;
 		#endregion			// 변수
 
 		#region 프로퍼티
@@ -61,15 +61,7 @@ namespace SampleEngineName {
 		public GameObject FXObjs => m_stParams.m_oFXObjs;
 		public GameObject BlockObjs => m_stParams.m_oBlockObjs;
 		#endregion			// 프로퍼티
-
-		#region 추가 변수
-
-		#endregion			// 추가 변수
-
-		#region 추가 프로퍼티
-
-		#endregion			// 추가 프로퍼티
-
+		
 		#region 함수
 		/** 초기화 */
 		public virtual void Init(STParams a_stParams) {

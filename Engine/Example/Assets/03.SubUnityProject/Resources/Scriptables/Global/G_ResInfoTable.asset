@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ffe2deac0c84646ac9612758e2c73f, type: 3}
+  m_Script: {fileID: 11500000, guid: 577504b58bdfa42269f2c4ee37951f59, type: 3}
   m_Name: G_ResInfoTable
   m_EditorClassIdentifier: 
-  m_oResInfoList: []
+  m_oSndResInfoList: []
+  m_oFontResInfoList: []
+  m_oSpriteResInfoList: []
+  m_oTextureResInfoList: []

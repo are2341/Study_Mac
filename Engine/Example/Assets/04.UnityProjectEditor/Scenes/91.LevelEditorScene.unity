@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1296374611}
-  m_IndirectSpecularColor: {r: 0.18145283, g: 0.22707175, b: 0.30727056, a: 1}
+  m_IndirectSpecularColor: {r: 0.1815458, g: 0.22718853, b: 0.30740678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 8374234a1c0a74f2787970bfc4d7f63c, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: b93a136894bca4c718daabe7e0ac94d3, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -350,8 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &47162491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +656,7 @@ GameObject:
   - component: {fileID: 124976469}
   - component: {fileID: 124976468}
   m_Layer: 5
-  m_Name: StageScrollView_B
+  m_Name: StageScrollView_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,8 +972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &179721070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,8 +1348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &194742499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,8 +2468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &427903653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,8 +2692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &436739882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,8 +3579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &672199644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,8 +3727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &675373056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4316,8 +4302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &749592972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4728,7 +4712,7 @@ GameObject:
   - component: {fileID: 837286175}
   - component: {fileID: 837286174}
   m_Layer: 5
-  m_Name: StageScrollView_A
+  m_Name: StageScrollView_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6752,8 +6736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1132338932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7311,8 +7293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1225394156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7531,7 +7511,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276200340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d01d6ea40a99c42e3bebc49d1354c4d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 81fcd34427e64462cb9e2f5eca699b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_oEpisodeInfoTableGoogleSheetID: 
@@ -7934,8 +7914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1394409899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8215,8 +8193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1421376078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8400,8 +8376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1447745460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8629,8 +8603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1474923802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9185,8 +9157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1556318491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9719,8 +9689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1633188578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9869,8 +9837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1638237412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10019,8 +9985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1648248581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10264,8 +10228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1687862036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11152,8 +11114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d994b2cfc4aa4c81abfc36a1948f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_oBeginSndPath: Sounds/Global/G_TouchBegin
-  m_oEndSndPath: Sounds/Global/G_TouchEnd
 --- !u!114 &1937742888
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,16 +7,17 @@ Description,Replace,ID,Str
 에디터 레벨 제거 팝업 메세지,0,EDITOR_REMOVE_LP_MSG,레벨을 제거하시겠습니까?
 에디터 스테이지 제거 팝업 메세지,0,EDITOR_REMOVE_SP_MSG,스테이지를 제거하시겠습니까?
 에디터 챕터 제거 팝업 메세지,0,EDITOR_REMOVE_CP_MSG,챕터를 제거하시겠습니까?
+에디터 구글 시트 로드 팝업 메세지,0,EDITOR_GOOGLE_SLP_MSG,구글 시트 로드에 실패했습니다
 종료 팝업 메세지,0,QUIT_P_MSG,게임을 종료하시겠습니까?
 그만두기 팝업 메세지,0,LEAVE_P_MSG,게임을 그만두시겠습니까?
 업데이트 팝업 메세지,0,UPDATE_P_MSG,새로운 버전이 출시되었습니다.\n업데이트 하시겠습니까?
 로드 팝업 메세지,0,LOAD_P_MSG,진행 상황을 로드하시겠습니까?\n<color=#ff0000ff><size=24>(로드 시 현재 진행 상황은 복구 할 수 없습니다)</size></color>
 저장 팝업 메세지,0,SAVE_P_MSG,진행 상황을 저장하시겠습니까?\n<color=#ff0000ff><size=24>(저장 시 이전 진행 상황은 복구 할 수 없습니다)</size></color>
 추적 설명 팝업 제목,0,TRACKING_DP_TITLE,알림
-추적 설명 팝업 메세지,0,TRACKING_DP_MSG,앱 추적 승인
-추적 설명 팝업 설명 메세지 1,0,TRACKING_DP_DESC_MSG_01,특별한 프로모션을 제공해\n드립니다
-추적 설명 팝업 설명 메세지 2,0,TRACKING_DP_DESC_MSG_02,관심사에 맞는 광고를 보여\n드립니다
-추적 설명 팝업 설명 메세지 3,0,TRACKING_DP_DESC_MSG_03,개인화 된 경험을 향상 시켜\n드립니다
+추적 설명 팝업 메세지,0,TRACKING_DP_MSG,다음 화면에서\n추적 허용
+추적 설명 팝업 설명 메세지 1,0,TRACKING_DP_DESC_MSG_01,- 특별한 프로모션을 제공해\n드립니다
+추적 설명 팝업 설명 메세지 2,0,TRACKING_DP_DESC_MSG_02,- 관심사에 맞는 광고를 보여\n드립니다
+추적 설명 팝업 설명 메세지 3,0,TRACKING_DP_DESC_MSG_03,- 개인화 된 경험을 향상 시켜\n드립니다
 공용 로그인 성공 메세지,0,COMMON_LOGIN_SUCCESS_MSG,로그인했습니다
 공용 로그인 실패 메세지,0,COMMON_LOGIN_FAIL_MSG,로그인에 실패했습니다
 공용 로그아웃 성공 메세지,0,COMMON_LOGOUT_SUCCESS_MSG,로그아웃했습니다
@@ -60,18 +61,23 @@ Description,Replace,ID,Str
 공용 레벨 텍스트,0,COMMON_LEVEL_TEXT,레벨
 공용 스테이지 텍스트,0,COMMON_STAGE_TEXT,스테이지
 공용 챕터 텍스트,0,COMMON_CHAPTER_TEXT,챕터
+공용 초보자 패키지 텍스트,0,COMMON_BEGINNER_PKGS_TEXT,초보자 패키지
+공용 숙련자 패키지 텍스트,0,COMMON_EXPERT_PKGS_TEXT,숙련자 패키지
+공용 전문가 패키지 텍스트,0,COMMON_PRO_PKGS_TEXT,전문가 패키지
 공용 레벨 번호 텍스트 형식,0,COMMON_LEVEL_NUM_TEXT_FMT,레벨 {0}
 공용 스테이지 번호 텍스트 형식,0,COMMON_STAGE_NUM_TEXT_FMT,스테이지 {0}
 공용 챕터 번호 텍스트 형식,0,COMMON_CHAPTER_NUM_TEXT_FMT,챕터 {0}
 공용 레벨 페이지 텍스트 형식,0,COMMON_LEVEL_PAGE_TEXT_FMT,레벨 {0}/{1}
 공용 스테이지 페이지 텍스트 형식,0,COMMON_STAGE_PAGE_TEXT_FMT,스테이지 {0}/{1}
 공용 챕터 페이지 텍스트 형식,0,COMMON_CHAPTER_PAGE_TEXT_FMT,챕터 {0}/{1}
-상점 팝업 타이틀,0,STORE_P_TITLE,상점
-설정 팝업 타이틀,0,SETTINGS_P_TITLE,설정
-동기화 팝업 타이틀,0,SYNC_P_TITLE,동기화
-일일 미션 팝업 타이틀,0,DAILY_MP_TITLE,일일 미션
-무료 보상 팝업 타이틀,0,FREE_RP_TITLE,무료 보상
-일일 보상 팝업 타이틀,0,DAILY_RP_TITLE,일일 보상
-판매 코인 팝업 타이틀,0,SALE_CP_TITLE,판매 코인
-이어하기 팝업 타이틀,0,CONTINUE_P_TITLE,이어하기
+상점 팝업 제목,0,STORE_P_TITLE,상점
+설정 팝업 제목,0,SETTINGS_P_TITLE,설정
+동기화 팝업 제목,0,SYNC_P_TITLE,동기화
+일일 미션 팝업 제목,0,DAILY_MP_TITLE,일일 미션
+무료 보상 팝업 제목,0,FREE_RP_TITLE,무료 보상
+일일 보상 팝업 제목,0,DAILY_RP_TITLE,일일 보상
+판매 코인 팝업 제목,0,SALE_CP_TITLE,코인 상자
+이어하기 팝업 제목,0,CONTINUE_P_TITLE,이어하기
 결과 팝업 제목,0,RESULT_P_TITLE,결과
+재개 팝업 제목,0,RESUME_P_TITLE,다시하기
+정지 팝업 제목,0,PAUSE_P_TITLE,일시정지

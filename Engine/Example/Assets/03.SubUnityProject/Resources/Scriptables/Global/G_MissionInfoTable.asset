@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e8cde93adb24773a2afd1853dfee83, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a61d87225f1645f688ff54cb4ffa60b, type: 3}
   m_Name: G_MissionInfoTable
   m_EditorClassIdentifier: 
   m_oFreeMissionInfoList: []

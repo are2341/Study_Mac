@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 587e29d68b0344731a453541fa6a2a64, type: 3}
+  m_Script: {fileID: 11500000, guid: cf6b8ccca134d4eb68e560bb76a50a56, type: 3}
   m_Name: G_BlockInfoTable
   m_EditorClassIdentifier: 
-  m_oBlockInfoInfoList: []
+  m_oBGBlockInfoList: []
+  m_oNormBlockInfoList: []
+  m_oOverlayBlockInfoList: []

@@ -22,12 +22,12 @@ public partial class CUserInfo : CBaseInfo {
 
 	#region 프로퍼티
 	[JsonIgnore][IgnoreMember] public long NumCoins {
-		get { return long.Parse(m_oStrDict.GetValueOrDefault(KEY_NUM_COINS, $"{KCDefine.B_VAL_0_INT}")); }
+		get { return long.Parse(m_oStrDict.GetValueOrDefault(KEY_NUM_COINS, KCDefine.B_STR_0_INT)); }
 		set { m_oStrDict.ExReplaceVal(KEY_NUM_COINS, $"{value}"); }
 	}
 
 	[JsonIgnore][IgnoreMember] public long NumSaleCoins {
-		get { return long.Parse(m_oStrDict.GetValueOrDefault(KEY_NUM_SALE_COINS, $"{KCDefine.B_VAL_0_INT}")); }
+		get { return long.Parse(m_oStrDict.GetValueOrDefault(KEY_NUM_SALE_COINS, KCDefine.B_STR_0_INT)); }
 		set { m_oStrDict.ExReplaceVal(KEY_NUM_SALE_COINS, $"{value}"); }
 	}
 	#endregion			// 프로퍼티
@@ -61,6 +61,7 @@ public partial class CUserInfo : CBaseInfo {
 public partial class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 	#region 프로퍼티
 	public CUserInfo UserInfo { get; private set; } = new CUserInfo();
+	public bool IsPurchaseRemoveAds => this.UserInfo.m_oNumItemsDict.ContainsKey(EItemKinds.NON_CONSUMABLE_REMOVE_ADS);
 	#endregion            // 프로퍼티
 
 	#region 함수
@@ -69,7 +70,7 @@ public partial class CUserInfoStorage : CSingleton<CUserInfoStorage> {
 		CFunc.ShowLog($"CUserInfoStorage.ResetUserInfo: {a_oJSONStr}");
 		CAccess.Assert(a_oJSONStr.ExIsValid());
 
-		this.UserInfo = a_oJSONStr.ExMsgPackJSONStrToObj<CUserInfo>();
+		this.UserInfo = a_oJSONStr.ExMsgPackBase64StrToObj<CUserInfo>();
 		CAccess.Assert(this.UserInfo != null);
 	}
 

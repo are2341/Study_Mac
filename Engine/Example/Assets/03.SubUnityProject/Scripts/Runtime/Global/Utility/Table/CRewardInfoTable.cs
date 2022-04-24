@@ -7,35 +7,35 @@ using UnityEngine.UI;
 /** 보상 정보 */
 [System.Serializable]
 public struct STRewardInfo {
-	public string m_oName;
-	public string m_oDesc;
+	public STDescInfo m_stDescInfo;
 
 	public ERewardKinds m_eRewardKinds;
 	public ERewardQuality m_eRewardQuality;
 
-	public List<STItemInfo> m_oItemInfoList;
+	public List<STNumItemsInfo> m_oNumItemsInfoList;
+
+	#region 프로퍼티
+	public ERewardType RewardType => (ERewardType)((int)m_eRewardKinds).ExKindsToType();
+	public ERewardKinds BaseRewardKinds => (ERewardKinds)((int)m_eRewardKinds).ExKindsToSubKindsType();
+	#endregion			// 프로퍼티
 
 	#region 함수
 	/** 생성자 */
 	public STRewardInfo(SimpleJSON.JSONNode a_oRewardInfo) {
-		m_oName = a_oRewardInfo[KCDefine.U_KEY_NAME];
-		m_oDesc = a_oRewardInfo[KCDefine.U_KEY_DESC];
+		m_stDescInfo = new STDescInfo(a_oRewardInfo);
+		
+		m_eRewardKinds = a_oRewardInfo[KCDefine.U_KEY_REWARD_KINDS].ExIsValid() ? (ERewardKinds)a_oRewardInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt : ERewardKinds.NONE;
+		m_eRewardQuality = a_oRewardInfo[KCDefine.U_KEY_REWARD_QUALITY].ExIsValid() ? (ERewardQuality)a_oRewardInfo[KCDefine.U_KEY_REWARD_QUALITY].AsInt : ERewardQuality.NONE;
 
-		m_eRewardKinds = (ERewardKinds)a_oRewardInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt;
-		m_eRewardQuality = (ERewardQuality)a_oRewardInfo[KCDefine.U_KEY_REWARD_QUALITY].AsInt;
-
-		m_oItemInfoList = new List<STItemInfo>();
+		m_oNumItemsInfoList = new List<STNumItemsInfo>();
 
 		for(int i = 0; i < KDefine.G_MAX_NUM_REWARD_ITEM_INFOS; ++i) {
 			string oNumItemsKey = string.Format(KCDefine.U_KEY_FMT_NUM_ITEMS, i + KCDefine.B_VAL_1_INT);
 			string oItemKindsKey = string.Format(KCDefine.U_KEY_FMT_ITEM_KINDS, i + KCDefine.B_VAL_1_INT);
 
-			// 아이템 정보가 존재 할 경우
-			if(a_oRewardInfo[oNumItemsKey].Value.ExIsValid() && a_oRewardInfo[oItemKindsKey].Value.ExIsValid()) {
-				m_oItemInfoList.Add(new STItemInfo() {
-					m_nNumItems = long.Parse(a_oRewardInfo[oNumItemsKey]), m_eItemKinds = (EItemKinds)a_oRewardInfo[oItemKindsKey].AsInt
-				});
-			}
+			m_oNumItemsInfoList.Add(new STNumItemsInfo() {
+				m_nNumItems = a_oRewardInfo[oNumItemsKey].AsInt, m_eItemKinds = a_oRewardInfo[oItemKindsKey].ExIsValid() ? (EItemKinds)a_oRewardInfo[oItemKindsKey].AsInt : EItemKinds.NONE
+			});
 		}
 	}
 	#endregion			// 함수
@@ -141,10 +141,9 @@ public partial class CRewardInfoTable : CScriptableObj<CRewardInfoTable> {
 		for(int i = 0; i < oRewardInfosList.Count; ++i) {
 			for(int j = 0; j < oRewardInfosList[i].Count; ++j) {
 				var stRewardInfo = new STRewardInfo(oRewardInfosList[i][j]);
-				bool bIsReplace = oRewardInfosList[i][j][KCDefine.U_KEY_REPLACE].AsInt != KCDefine.B_VAL_0_INT;
 
 				// 보상 정보가 추가 가능 할 경우
-				if(bIsReplace || !this.RewardInfoDict.ContainsKey(stRewardInfo.m_eRewardKinds)) {
+				if(!this.RewardInfoDict.ContainsKey(stRewardInfo.m_eRewardKinds) || oRewardInfosList[i][j][KCDefine.U_KEY_REPLACE].AsInt != KCDefine.B_VAL_0_INT) {
 					this.RewardInfoDict.ExReplaceVal(stRewardInfo.m_eRewardKinds, stRewardInfo);
 				}
 			}

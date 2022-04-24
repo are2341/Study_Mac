@@ -7,6 +7,7 @@ Description,Replace,ID,Str
 에디터 레벨 제거 팝업 메세지,0,EDITOR_REMOVE_LP_MSG,Do you want to remove the level?
 에디터 스테이지 제거 팝업 메세지,0,EDITOR_REMOVE_SP_MSG,Do you want to remove the stage?
 에디터 챕터 제거 팝업 메세지,0,EDITOR_REMOVE_CP_MSG,Do you want to remove the chapter?
+에디터 구글 시트 로드 팝업 메세지,0,EDITOR_GOOGLE_SLP_MSG,You have failed to load google sheet
 종료 팝업 메세지,0,QUIT_P_MSG,Do you want to quit the game?
 그만두기 팝업 메세지,0,LEAVE_P_MSG,Do you want to leave the game?
 업데이트 팝업 메세지,0,UPDATE_P_MSG,A new version has been released.\nWould you like to update it?
@@ -14,9 +15,9 @@ Description,Replace,ID,Str
 저장 팝업 메세지,0,SAVE_P_MSG,"Do you want to save progress?\n<color=#ff0000ff><size=24>(When saving, previous progress cannot be recovered)</size></color>"
 추적 설명 팝업 제목,0,TRACKING_DP_TITLE,Notice
 추적 설명 팝업 메세지,0,TRACKING_DP_MSG,Allow tracking on the\nnext screen for
-추적 설명 팝업 설명 메세지 1,0,TRACKING_DP_DESC_MSG_01,Special offers and promotions\njust for you
-추적 설명 팝업 설명 메세지 2,0,TRACKING_DP_DESC_MSG_02,Advertisements that match\nyour interests
-추적 설명 팝업 설명 메세지 3,0,TRACKING_DP_DESC_MSG_03,An improved personalized\nexperience over time
+추적 설명 팝업 설명 메세지 1,0,TRACKING_DP_DESC_MSG_01,- Special offers and promotions\njust for you
+추적 설명 팝업 설명 메세지 2,0,TRACKING_DP_DESC_MSG_02,- Advertisements that match\nyour interests
+추적 설명 팝업 설명 메세지 3,0,TRACKING_DP_DESC_MSG_03,- An improved personalized\nexperience over time
 공용 로그인 성공 메세지,0,COMMON_LOGIN_SUCCESS_MSG,You have successfully login
 공용 로그인 실패 메세지,0,COMMON_LOGIN_FAIL_MSG,You have failed to login
 공용 로그아웃 성공 메세지,0,COMMON_LOGOUT_SUCCESS_MSG,You have successfully logout
@@ -60,18 +61,23 @@ Description,Replace,ID,Str
 공용 레벨 텍스트,0,COMMON_LEVEL_TEXT,Level
 공용 스테이지 텍스트,0,COMMON_STAGE_TEXT,Stage
 공용 챕터 텍스트,0,COMMON_CHAPTER_TEXT,Chapter
+공용 초보자 패키지 텍스트,0,COMMON_BEGINNER_PKGS_TEXT,Beginner Pack
+공용 숙련자 패키지 텍스트,0,COMMON_EXPERT_PKGS_TEXT,Expert Pack
+공용 전문가 패키지 텍스트,0,COMMON_PRO_PKGS_TEXT,Pro Pack
 공용 레벨 번호 텍스트 형식,0,COMMON_LEVEL_NUM_TEXT_FMT,Level {0}
 공용 스테이지 번호 텍스트 형식,0,COMMON_STAGE_NUM_TEXT_FMT,Stage {0}
 공용 챕터 번호 텍스트 형식,0,COMMON_CHAPTER_NUM_TEXT_FMT,Chapter {0}
 공용 레벨 페이지 텍스트 형식,0,COMMON_LEVEL_PAGE_TEXT_FMT,Level {0}/{1}
 공용 스테이지 페이지 텍스트 형식,0,COMMON_STAGE_PAGE_TEXT_FMT,Stage {0}/{1}
 공용 챕터 페이지 텍스트 형식,0,COMMON_CHAPTER_PAGE_TEXT_FMT,Chapter {0}/{1}
-상점 팝업 타이틀,0,STORE_P_TITLE,Store
-설정 팝업 타이틀,0,SETTINGS_P_TITLE,Settings
-동기화 팝업 타이틀,0,SYNC_P_TITLE,Sync
-일일 미션 팝업 타이틀,0,DAILY_MP_TITLE,Daily Mission
-무료 보상 팝업 타이틀,0,FREE_RP_TITLE,Free Reward
-일일 보상 팝업 타이틀,0,DAILY_RP_TITLE,Daily Reward
-판매 코인 팝업 타이틀,0,SALE_CP_TITLE,Sale Coins
-이어하기 팝업 타이틀,0,CONTINUE_P_TITLE,Continue
+상점 팝업 제목,0,STORE_P_TITLE,Store
+설정 팝업 제목,0,SETTINGS_P_TITLE,Settings
+동기화 팝업 제목,0,SYNC_P_TITLE,Sync
+일일 미션 팝업 제목,0,DAILY_MP_TITLE,Daily Mission
+무료 보상 팝업 제목,0,FREE_RP_TITLE,Free Reward
+일일 보상 팝업 제목,0,DAILY_RP_TITLE,Daily Reward
+판매 코인 팝업 제목,0,SALE_CP_TITLE,Coins Box
+이어하기 팝업 제목,0,CONTINUE_P_TITLE,Continue
 결과 팝업 제목,0,RESULT_P_TITLE,Result
+재개 팝업 제목,0,RESUME_P_TITLE,Resume
+정지 팝업 제목,0,PAUSE_P_TITLE,Pause

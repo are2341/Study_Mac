@@ -1,32 +1,38 @@
 {
-    "Free": [
-        {
-            "Description": "샘플 자유 미션 정보",
-            "Replace": "0",
-            "Name": "Sample",
-            "Desc": "Sample",
-            "MissionKinds": "0",
-            "RewardKinds": "-1"
-        }
-    ],
-    "Daily": [
-        {
-            "Description": "샘플 일일 미션 정보",
-            "Replace": "0",
-            "Name": "Sample",
-            "Desc": "Sample",
-            "MissionKinds": "10000000",
-            "RewardKinds": "-1"
-        }
-    ],
-    "Event": [
-        {
-            "Description": "샘플 이벤트 미션 정보",
-            "Replace": "0",
-            "Name": "Sample",
-            "Desc": "Sample",
-            "MissionKinds": "20000000",
-            "RewardKinds": "-1"
-        }
-    ]
-}
+	"Free": [
+	  {
+		"Description": "자유 미션 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"MissionKinds": "0",
+		"PrevMissionKinds": "-1",
+		"NextMissionKinds": "-1",
+		"RewardKinds": "-1"
+	  }
+	],
+	"Daily": [
+	  {
+		"Description": "일일 미션 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"MissionKinds": "10000000",
+		"PrevMissionKinds": "-1",
+		"NextMissionKinds": "-1",
+		"RewardKinds": "-1"
+	  }
+	],
+	"Event": [
+	  {
+		"Description": "이벤트 미션 샘플",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"MissionKinds": "20000000",
+		"PrevMissionKinds": "-1",
+		"NextMissionKinds": "-1",
+		"RewardKinds": "-1"
+	  }
+	]
+  }

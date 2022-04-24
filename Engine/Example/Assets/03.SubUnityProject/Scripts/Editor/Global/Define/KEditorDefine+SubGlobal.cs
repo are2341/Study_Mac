@@ -19,7 +19,6 @@ public static partial class KEditorDefine {
 		Path.GetDirectoryName($"{KCEditorDefine.B_DIR_P_SUB_UNITY_PROJ_RESOURCES}{KCDefine.B_DIR_P_SCRIPTABLES}"),
 
 		$"{KCEditorDefine.B_DIR_P_PACKAGES}Module.UnityCommon/Resources/Fonts",
-		$"{KCEditorDefine.B_DIR_P_PACKAGES}Module.UnityCommon/Resources/Pipelines",
 		$"{KCEditorDefine.B_DIR_P_PACKAGES}Module.UnityCommon/Resources/Prefabs",
 		$"{KCEditorDefine.B_DIR_P_PACKAGES}Module.UnityCommon/Resources/SpriteAtlases"
 	};
@@ -31,19 +30,13 @@ public static partial class KEditorDefine {
 
 	// 스크립트 순서
 	public static Dictionary<System.Type, int> G_EXTRA_SCRIPT_ORDER_DICT = new Dictionary<System.Type, int>() {
-		[typeof(_3xE01._3xE01Example_052)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
-		[typeof(_3xE01._3xE01Example_124)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER
+		[typeof(_5xE01._5xE01Example_058)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER
 	};
 
 	// 클래스 타입
 	public static readonly Dictionary<string, System.Type> G_EXTRA_SCENE_MANAGER_TYPE_DICT = new Dictionary<string, System.Type>() {
-		[KDefine.G_SCENE_N_3X_E01_EXAMPLE_052] = typeof(_3xE01._3xE01Example_052),
-		[KDefine.G_SCENE_N_3X_E01_EXAMPLE_124] = typeof(_3xE01._3xE01Example_124)
+		[KDefine.G_SCENE_N_5x_E01_EXAMPLE_058] = typeof(_5xE01._5xE01Example_058)
 	};
 	#endregion			// 런타임 상수
-
-	#region 추가 런타임 상수
-
-	#endregion			// 추가 런타임 상수
 }
 #endif			// #if UNITY_EDITOR && EXTRA_SCRIPT_ENABLE

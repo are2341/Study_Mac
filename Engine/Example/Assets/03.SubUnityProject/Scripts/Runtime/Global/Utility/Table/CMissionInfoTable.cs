@@ -7,20 +7,29 @@ using UnityEngine.UI;
 /** 미션 정보 */
 [System.Serializable]
 public struct STMissionInfo {
-	public string m_oName;
-	public string m_oDesc;
+	public STDescInfo m_stDescInfo;
 
 	public EMissionKinds m_eMissionKinds;
+	public EMissionKinds m_ePrevMissionKinds;
+	public EMissionKinds m_eNextMissionKinds;
+
 	public ERewardKinds m_eRewardKinds;
+
+	#region 프로퍼티
+	public EMissionType MissionType => (EMissionType)((int)m_eMissionKinds).ExKindsToType();
+	public EMissionKinds BaseMissionKinds => (EMissionKinds)((int)m_eMissionKinds).ExKindsToSubKindsType();
+	#endregion			// 프로퍼티
 
 	#region 함수
 	/** 생성자 */
 	public STMissionInfo(SimpleJSON.JSONNode a_oMissionInfo) {
-		m_oName = a_oMissionInfo[KCDefine.U_KEY_NAME];
-		m_oDesc = a_oMissionInfo[KCDefine.U_KEY_DESC];
+		m_stDescInfo = new STDescInfo(a_oMissionInfo);
+		
+		m_eMissionKinds = a_oMissionInfo[KCDefine.U_KEY_MISSION_KINDS].ExIsValid() ? (EMissionKinds)a_oMissionInfo[KCDefine.U_KEY_MISSION_KINDS].AsInt : EMissionKinds.NONE;
+		m_ePrevMissionKinds = a_oMissionInfo[KCDefine.U_KEY_PREV_MISSION_KINDS].ExIsValid() ? (EMissionKinds)a_oMissionInfo[KCDefine.U_KEY_PREV_MISSION_KINDS].AsInt : EMissionKinds.NONE;
+		m_eNextMissionKinds = a_oMissionInfo[KCDefine.U_KEY_NEXT_MISSION_KINDS].ExIsValid() ? (EMissionKinds)a_oMissionInfo[KCDefine.U_KEY_NEXT_MISSION_KINDS].AsInt : EMissionKinds.NONE;
 
-		m_eMissionKinds = (EMissionKinds)a_oMissionInfo[KCDefine.U_KEY_MISSION_KINDS].AsInt;
-		m_eRewardKinds = (ERewardKinds)a_oMissionInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt;
+		m_eRewardKinds = a_oMissionInfo[KCDefine.U_KEY_REWARD_KINDS].ExIsValid() ? (ERewardKinds)a_oMissionInfo[KCDefine.U_KEY_REWARD_KINDS].AsInt : ERewardKinds.NONE;
 	}
 	#endregion			// 함수
 }
@@ -113,10 +122,9 @@ public partial class CMissionInfoTable : CScriptableObj<CMissionInfoTable> {
 		for(int i = 0; i < oMissionInfosList.Count; ++i) {
 			for(int j = 0; j < oMissionInfosList[i].Count; ++j) {
 				var stMissionInfo = new STMissionInfo(oMissionInfosList[i][j]);
-				bool bIsReplace = oMissionInfosList[i][j][KCDefine.U_KEY_REPLACE].AsInt != KCDefine.B_VAL_0_INT;
 
 				// 미션 정보가 추가 가능 할 경우
-				if(bIsReplace || !this.MissionInfoDict.ContainsKey(stMissionInfo.m_eMissionKinds)) {
+				if(!this.MissionInfoDict.ContainsKey(stMissionInfo.m_eMissionKinds) || oMissionInfosList[i][j][KCDefine.U_KEY_REPLACE].AsInt != KCDefine.B_VAL_0_INT) {
 					this.MissionInfoDict.ExReplaceVal(stMissionInfo.m_eMissionKinds, stMissionInfo);
 				}
 			}

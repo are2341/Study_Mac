@@ -1,0 +1,61 @@
+{
+	"Pkgs": [
+	  {
+		"Description": "초보자 패키지",
+		"Replace": "0",
+		"Name": "COMMON_BEGINNER_PKGS_TEXT",
+		"Desc": null,
+		"ProductSaleKinds": "0",
+		"Price": "0",
+		"PriceKinds": "20000000",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  },
+	  {
+		"Description": "숙련자 패키지",
+		"Replace": "0",
+		"Name": "COMMON_EXPERT_PKGS_TEXT",
+		"Desc": null,
+		"ProductSaleKinds": "100",
+		"Price": "0",
+		"PriceKinds": "20000000",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  },
+	  {
+		"Description": "전문가 패키지",
+		"Replace": "0",
+		"Name": "COMMON_PRO_PKGS_TEXT",
+		"Desc": null,
+		"ProductSaleKinds": "200",
+		"Price": "0",
+		"PriceKinds": "20000000",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  }
+	],
+	"Single": [
+	  {
+		"Description": "코인 상자",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"ProductSaleKinds": "10000000",
+		"Price": "0",
+		"PriceKinds": "20000000",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  },
+	  {
+		"Description": "광고 제거",
+		"Replace": "0",
+		"Name": null,
+		"Desc": null,
+		"ProductSaleKinds": "10010000",
+		"Price": "0",
+		"PriceKinds": "20000000",
+		"NumItems_01": "0",
+		"ItemKinds_01": "-1"
+	  }
+	]
+  }

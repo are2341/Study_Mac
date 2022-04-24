@@ -77,15 +77,15 @@ namespace OverlayScene {
 		public void ShowStorePopup() {
 #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 			Func.ShowStorePopup(CSceneManager.ActiveScenePopupUIs, (a_oSender) => {
-				var oSaleProductInfoList = new List<STSaleProductInfo>();
+				var oProductSaleInfoList = new List<STProductSaleInfo>();
 
-				for(int i = 0; i < KDefine.G_SALE_PRODUCT_KINDS_PRODUCT_LIST.Count; ++i) {
-					var eSaleProductKinds = KDefine.G_SALE_PRODUCT_KINDS_PRODUCT_LIST[i];
-					oSaleProductInfoList.Add(CSaleProductInfoTable.Inst.GetSaleProductInfo(eSaleProductKinds));
+				for(int i = 0; i < KDefine.G_STORE_PRODUCT_SALE_KINDS_LIST.Count; ++i) {
+					var eProductSaleKinds = KDefine.G_STORE_PRODUCT_SALE_KINDS_LIST[i];
+					oProductSaleInfoList.Add(CProductSaleInfoTable.Inst.GetProductSaleInfo(eProductSaleKinds));
 				}
 
 				(a_oSender as CStorePopup).Init(new CStorePopup.STParams() {
-					m_oSaleProductInfoList = oSaleProductInfoList,
+					m_oProductSaleInfoList = oProductSaleInfoList,
 
 #if ADS_MODULE_ENABLE
 					m_oAdsCallbackDict = new Dictionary<CStorePopup.ECallback, System.Action<CAdsManager, STAdsRewardInfo, bool>>() {
@@ -94,11 +94,11 @@ namespace OverlayScene {
 #endif			// #if ADS_MODULE_ENABLE
 
 #if PURCHASE_MODULE_ENABLE
-					m_oPurchaseCallbackDictA = new Dictionary<CStorePopup.ECallback, System.Action<CPurchaseManager, string, bool>>() {
+					m_oPurchaseCallbackDict01 = new Dictionary<CStorePopup.ECallback, System.Action<CPurchaseManager, string, bool>>() {
 						[CStorePopup.ECallback.PURCHASE] = (a_oPurchaseSender, a_oProductID, a_bIsSuccess) => this.UpdateUIsState()
 					},
 
-					m_oPurchaseCallbackDictB = new Dictionary<CStorePopup.ECallback, System.Action<CPurchaseManager, List<Product>, bool>>() {
+					m_oPurchaseCallbackDict02 = new Dictionary<CStorePopup.ECallback, System.Action<CPurchaseManager, List<Product>, bool>>() {
 						[CStorePopup.ECallback.RESTORE] = (a_oRestoreSender, a_oProductList, a_bIsSuccess) => this.UpdateUIsState()
 					}
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -171,9 +171,9 @@ namespace OverlayScene {
 		}
 
 		/** 상품을 결제한다 */
-		public void PurchaseProduct(ESaleProductKinds a_eSaleProductKinds, System.Action<CPurchaseManager, string, bool> a_oCallback) {
+		public void PurchaseProduct(EProductSaleKinds a_eProductSaleKinds, System.Action<CPurchaseManager, string, bool> a_oCallback) {
 			m_oCallbackDict.ExReplaceVal(ECallback.PURCHASE, a_oCallback);
-			Func.PurchaseProduct(a_eSaleProductKinds, this.OnPurchaseProduct);
+			Func.PurchaseProduct(a_eProductSaleKinds, this.OnPurchaseProduct);
 		}
 
 		/** 상품이 결제 되었을 경우 */

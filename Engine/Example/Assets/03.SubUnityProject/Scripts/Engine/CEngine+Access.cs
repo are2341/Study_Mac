@@ -9,20 +9,20 @@ namespace SampleEngineName {
 	public partial class CEngine : CComponent {
 		#region 함수
 		/** 블럭 정보를 반환한다 */
-		private (EBlockKinds, CBlock) FindBlockInfo(EBlockType a_eBlockType, EBlockKinds a_eBlockKinds, Vector3Int a_stIdx) {
-			bool bIsValid = this.TryFindBlockInfo(a_eBlockType, a_eBlockKinds, a_stIdx, out (EBlockKinds, CBlock) stBlockInfo);
+		public (EBlockKinds, CEBlock) FindBlockInfo(EBlockType a_eBlockType, EBlockKinds a_eBlockKinds, Vector3Int a_stIdx) {
+			bool bIsValid = this.TryFindBlockInfo(a_eBlockType, a_eBlockKinds, a_stIdx, out (EBlockKinds, CEBlock) stBlockInfo);
 			CAccess.Assert(bIsValid);
 
 			return stBlockInfo;
 		}
 
 		/** 블럭 정보를 반환한다 */
-		private List<(EBlockKinds, CBlock)> FindBlockInfos(EBlockType a_eBlockType, Vector3Int a_stIdx) {
+		public List<(EBlockKinds, CEBlock)> FindBlockInfos(EBlockType a_eBlockType, Vector3Int a_stIdx) {
 			return m_oBlockInfoDictContainers.ExIsValidIdx(a_stIdx) ? m_oBlockInfoDictContainers[a_stIdx.y, a_stIdx.x].GetValueOrDefault(a_eBlockType) : null;
 		}
 
 		/** 최상단 블럭 정보를 반환한다 */
-		private (EBlockKinds, CBlock) FindTopBlockInfo(EBlockKinds a_eBlockKinds, Vector3Int a_stIdx) {
+		public (EBlockKinds, CEBlock) FindTopBlockInfo(EBlockKinds a_eBlockKinds, Vector3Int a_stIdx) {
 			for(int i = (int)EBlockType.MAX_VAL - KCDefine.B_VAL_1_INT; i > (int)EBlockType.NONE; --i) {
 				var oBlockInfo = this.FindBlockInfo((EBlockType)i, a_eBlockKinds, a_stIdx);
 
@@ -36,7 +36,7 @@ namespace SampleEngineName {
 		}
 
 		/** 최상단 블럭 정보를 반환한다 */
-		private List<(EBlockKinds, CBlock)> FindTopBlockInfos(Vector3Int a_stIdx) {
+		public List<(EBlockKinds, CEBlock)> FindTopBlockInfos(Vector3Int a_stIdx) {
 			for(int i = (int)EBlockType.MAX_VAL - KCDefine.B_VAL_1_INT; i > (int)EBlockType.NONE; --i) {
 				var oBlockInfoList = this.FindBlockInfos((EBlockType)i, a_stIdx);
 
@@ -50,9 +50,9 @@ namespace SampleEngineName {
 		}
 
 		/** 블럭 정보를 반환한다 */
-		private bool TryFindBlockInfo(EBlockType a_eBlockType, EBlockKinds a_eBlockKinds, Vector3Int a_stIdx, out (EBlockKinds, CBlock) a_oOutBlockInfo) {
+		public bool TryFindBlockInfo(EBlockType a_eBlockType, EBlockKinds a_eBlockKinds, Vector3Int a_stIdx, out (EBlockKinds, CEBlock) a_oOutBlockInfo) {
 			// 블럭 정보가 존재 할 경우
-			if(this.TryFindBlockInfos(a_eBlockType, a_stIdx, out List<(EBlockKinds, CBlock)> oBlockInfoList)) {
+			if(this.TryFindBlockInfos(a_eBlockType, a_stIdx, out List<(EBlockKinds, CEBlock)> oBlockInfoList)) {
 				a_oOutBlockInfo = oBlockInfoList.ExGetVal((a_oBlockInfo) => a_oBlockInfo.Item1 == a_eBlockKinds, KDefine.E_INVALID_BLOCK_INFO);
 				return true;
 			}
@@ -62,13 +62,13 @@ namespace SampleEngineName {
 		}
 
 		/** 블럭 정보를 반환한다 */
-		private bool TryFindBlockInfos(EBlockType a_eBlockType, Vector3Int a_stIdx, out List<(EBlockKinds, CBlock)> a_oOutBlockInfoList) {
+		public bool TryFindBlockInfos(EBlockType a_eBlockType, Vector3Int a_stIdx, out List<(EBlockKinds, CEBlock)> a_oOutBlockInfoList) {
 			a_oOutBlockInfoList = m_oBlockInfoDictContainers.ExGetVal(a_stIdx, null)?.GetValueOrDefault(a_eBlockType);
 			return a_oOutBlockInfoList != null;
 		}
 
 		/** 최상단 블럭 정보를 반환한다 */
-		private bool TryFindTopBlockInfo(EBlockKinds a_eBlockKinds, Vector3Int a_stIdx, out (EBlockKinds, CBlock) a_oOutTopBlockInfo) {
+		public bool TryFindTopBlockInfo(EBlockKinds a_eBlockKinds, Vector3Int a_stIdx, out (EBlockKinds, CEBlock) a_oOutTopBlockInfo) {
 			for(int i = (int)EBlockType.MAX_VAL - KCDefine.B_VAL_1_INT; i > (int)EBlockType.NONE; --i) {
 				// 블럭 정보가 존재 할 경우
 				if(this.TryFindBlockInfo((EBlockType)i, a_eBlockKinds, a_stIdx, out a_oOutTopBlockInfo)) {
@@ -81,7 +81,7 @@ namespace SampleEngineName {
 		}
 
 		/** 블럭 정보를 반환한다 */
-		private bool TryFindTopBlockInfos(Vector3Int a_stIdx, out List<(EBlockKinds, CBlock)> a_oOutTopBlockInfoList) {
+		public bool TryFindTopBlockInfos(Vector3Int a_stIdx, out List<(EBlockKinds, CEBlock)> a_oOutTopBlockInfoList) {
 			for(int i = (int)EBlockType.MAX_VAL - KCDefine.B_VAL_1_INT; i > (int)EBlockType.NONE; --i) {
 				// 블럭 정보가 존재 할 경우
 				if(this.TryFindBlockInfos((EBlockType)i, a_stIdx, out a_oOutTopBlockInfoList)) {

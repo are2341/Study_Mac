@@ -11,12 +11,11 @@ namespace SampleEngineName {
 		// 이름
 		public const string E_OBJ_N_FX = "FX";
 		public const string E_OBJ_N_BLOCK = "Block";
-		public const string E_OBJ_N_BLOCK_SPRITE = "BlockSprite";
 		#endregion			// 기본
 
 		#region 런타임 상수
 		// 기타
-		public static readonly (EBlockKinds, CBlock) E_INVALID_BLOCK_INFO = (EBlockKinds.NONE, null);
+		public static readonly (EBlockKinds, CEBlock) E_INVALID_BLOCK_INFO = (EBlockKinds.NONE, null);
 
 		// 크기
 		public static readonly Vector3 E_SIZE_CELL = new Vector3(0.0f, 0.0f, 0.0f);
@@ -45,14 +44,6 @@ namespace SampleEngineName {
 		};
 		// 경로 }
 		#endregion			// 런타임 상수
-
-		#region 추가 상수
-
-		#endregion			// 추가 상수
-
-		#region 추가 런타임 상수
-
-		#endregion			// 추가 런타임 상수
 	}
 }
 #endif			// #if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE

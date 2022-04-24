@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_oCommonDefineSymbolList:
   - MSG_PACK_ENABLE
+  - UNIVERSAL_RENDERING_PIPELINE_ENABLE
+  - ADDRESSABLES_MODULE_ENABLE
+  - BURST_COMPILER_MODULE_ENABLE
   - TEXTURE_COMPRESS_ENABLE
   - SCENE_TEMPLATES_MODULE_ENABLE
   - EDITOR_SCENE_TEMPLATES_MODULE_ENABLE
@@ -21,7 +24,8 @@ MonoBehaviour:
   - ENGINE_TEMPLATES_MODULE_ENABLE
   - RUNTIME_TEMPLATES_MODULE_ENABLE
   - STUDY_MODULE_ENABLE
-  m_oSubCommonDefineSymbolList: []
+  m_oSubCommonDefineSymbolList:
+  - SERVICES_ANALYTICS_ENABLE
   m_oiOSAppleDefineSymbolList: []
   m_oAndroidGoogleDefineSymbolList: []
   m_oAndroidAmazonDefineSymbolList: []

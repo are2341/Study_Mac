@@ -10,7 +10,7 @@ namespace SampleEngineName {
 		#region 클래스 함수
 		/** 블럭 스프라이트를 반환한다 */
 		public static Sprite GetBlockSprite(EBlockKinds a_eBlockKinds) {
-			bool bIsValid = KDefine.E_IMG_P_BLOCK_DICT.TryGetValue(a_eBlockKinds.ExKindsToKindsType(), out string oImgPath);
+			bool bIsValid = KDefine.E_IMG_P_BLOCK_DICT.TryGetValue((EBlockKinds)((int)a_eBlockKinds).ExKindsToKindsType(), out string oImgPath);
 			return (bIsValid && oImgPath.ExIsValid()) ? CResManager.Inst.GetRes<Sprite>(oImgPath) : null;
 		}
 		
@@ -28,10 +28,6 @@ namespace SampleEngineName {
 			return KDefine.E_SORTING_OI_BLOCK_DICT.ContainsKey(a_eBlockKinds);
 		}
 		#endregion			// 클래스 함수
-
-		#region 추가 클래스 함수
-
-		#endregion			// 추가 클래스 함수
 	}
 }
 #endif			// #if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE

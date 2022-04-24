@@ -11,22 +11,26 @@ using UnityEditor.PackageManager;
 /** 에디터 씬 관리자 - 설정 */
 public static partial class CEditorSceneManager {
 	#region 클래스 함수
+	/** 에디터 씬 관리자를 설정한다 */
+	private static IEnumerator SetupEditorSceneManager() {
+		do {
+			yield return null;
+		} while(!CEditorAccess.IsEnableUpdateState);
+
+		yield return CFactory.CreateWaitForSecs(KCDefine.B_VAL_1_FLT);
+		CEditorSceneManager.m_bIsEnableSetup = true;
+	}
+
 	/** 콜백을 설정한다 */
 	private static void SetupCallbacks() {
 		EditorApplication.update -= CEditorSceneManager.Update;
 		EditorApplication.update += CEditorSceneManager.Update;
 
-		EditorApplication.update -= CEditorSceneManager.UpdateDependencyState;
-		EditorApplication.update += CEditorSceneManager.UpdateDependencyState;
-
-		EditorApplication.update -= CEditorSceneManager.UpdateScopedRegistryState;
-		EditorApplication.update += CEditorSceneManager.UpdateScopedRegistryState;
-
 		EditorApplication.update -= CEditorSceneManager.LateUpdate;
 		EditorApplication.update += CEditorSceneManager.LateUpdate;
 	}
 
-	/** 독립 패키지를 설정한다 */
+	/** 종속 패키지를 설정한다 */
 	private static void SetupDependencies() {
 		var oPkgsInfoList = CEditorSceneManager.m_oListRequest.Result.ToList();
 
@@ -44,43 +48,6 @@ public static partial class CEditorSceneManager {
 					CEditorSceneManager.m_oAddRequestList.ExAddVal(Client.Add(stKeyVal.Value));
 #endif			// #if !SAMPLE_PROJ
 				}
-			}
-		}
-	}
-
-	/** 패키지 레지스트리를 설정한다 */
-	private static void SetupScopedRegistries() {
-		string oStr = CFunc.ReadStr(KCEditorDefine.B_DATA_P_UNITY_PKGS);
-		var oJSONNode = SimpleJSON.JSON.Parse(oStr) as SimpleJSON.JSONClass;
-		
-		// JSON 노드가 존재 할 경우
-		if(oJSONNode != null) {
-			bool bIsNeedsUpdate = false;
-
-			var oScopedRegistryList = oJSONNode[KEditorDefine.B_UNITY_PKGS_SCOPED_REGISTRY_DICT_KEY].AsArray;
-			oScopedRegistryList = oScopedRegistryList ?? new SimpleJSON.JSONArray();
-
-			foreach(var stKeyVal in KEditorDefine.B_UNITY_PKGS_SCOPED_REGISTRY_DICT) {
-				int nIdx = oScopedRegistryList.AsArray.ExFindVal((a_oJSONNode) => stKeyVal.Key.Equals(a_oJSONNode[KEditorDefine.B_UNITY_PKGS_N_KEY]));
-
-				// 패키지 레지스트리가 없을 경우
-				if(!oScopedRegistryList.ExIsValidIdx(nIdx)) {
-					var oScopedRegistryNode = SimpleJSON.JSON.Parse(CFunc.ReadStr(stKeyVal.Value)) as SimpleJSON.JSONClass;
-
-					// 패키지 레지스트리 노드가 존재 할 경우
-					if(oScopedRegistryNode != null) {
-						bIsNeedsUpdate = true;
-						oScopedRegistryList.Add(oScopedRegistryNode);
-					}
-				}
-			}
-
-			// 패키지 레지스트리 갱신이 필요 할 경우
-			if(bIsNeedsUpdate && oScopedRegistryList.Count > KCDefine.B_VAL_0_INT) {
-				oJSONNode.Add(KEditorDefine.B_UNITY_PKGS_SCOPED_REGISTRY_DICT_KEY, oScopedRegistryList);
-				CFunc.WriteStr(KCEditorDefine.B_DATA_P_UNITY_PKGS, oJSONNode.ToString());
-
-				CEditorFunc.UpdateAssetDBState();
 			}
 		}
 	}

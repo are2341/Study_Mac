@@ -12,28 +12,22 @@ using UnityEngine.Purchasing;
 public static partial class Func {
 	#region 클래스 함수
 	/** 아이템을 획득한다 */
-	public static void AcquireItem(STItemInfo a_stItemInfo, long a_nNumExtraItems = KCDefine.B_VAL_0_INT) {
-		switch(a_stItemInfo.m_eItemKinds) {
+	public static void AcquireItem(STNumItemsInfo a_stNumItemsInfo, long a_nNumExtraItems = KCDefine.B_VAL_0_INT) {
+		switch(a_stNumItemsInfo.m_eItemKinds) {
 			case EItemKinds.GOODS_COINS: {
-				CUserInfoStorage.Inst.AddNumCoins(a_stItemInfo.m_nNumItems + a_nNumExtraItems);
-			} break;
-			case EItemKinds.NON_CONSUMABLE_REMOVE_ADS: {
-#if NEWTON_SOFT_JSON_MODULE_ENABLE
-				CCommonUserInfoStorage.Inst.UserInfo.IsRemoveAds = true;
-#endif			// #if NEWTON_SOFT_JSON_MODULE_ENABLE
-
-#if ADS_MODULE_ENABLE
-				CAdsManager.Inst.CloseBannerAds(CPluginInfoTable.Inst.AdsPlatform);
-
-				CAdsManager.Inst.IsEnableBannerAds = false;
-				CAdsManager.Inst.IsEnableFullscreenAds = false;
-#endif			// #if ADS_MODULE_ENABLE
+				CUserInfoStorage.Inst.AddNumCoins(a_stNumItemsInfo.m_nNumItems + a_nNumExtraItems);
 			} break;
 			default: {
-				// 소모품 일 경우
-				if(a_stItemInfo.m_eItemKinds.ExKindsToType() == EItemType.CONSUMABLE) {
-					CUserInfoStorage.Inst.AddNumItems(a_stItemInfo.m_eItemKinds, a_stItemInfo.m_nNumItems + a_nNumExtraItems);
+				// 광고 제거 일 경우
+				if(a_stNumItemsInfo.m_eItemKinds == EItemKinds.NON_CONSUMABLE_REMOVE_ADS) {
+#if ADS_MODULE_ENABLE
+					CAdsManager.Inst.CloseBannerAds(CPluginInfoTable.Inst.AdsPlatform);
+					CAdsManager.Inst.IsEnableBannerAds = false;
+					CAdsManager.Inst.IsEnableFullscreenAds = false;
+#endif			// #if ADS_MODULE_ENABLE
 				}
+
+				CUserInfoStorage.Inst.AddNumItems(a_stNumItemsInfo.m_eItemKinds, a_stNumItemsInfo.m_nNumItems + a_nNumExtraItems);
 			} break;
 		}
 
@@ -45,17 +39,17 @@ public static partial class Func {
 	}
 
 	/** 아이템을 구입한다 */
-	public static void BuyItem(STSaleItemInfo a_stSaleItemInfo, List<long> a_oNumExtraItemsList = null, long a_nExtraPrice = KCDefine.B_VAL_0_INT, bool a_bIsIgnoreAcquire = false) {
+	public static void BuyItem(STItemSaleInfo a_stItemSaleInfo, List<long> a_oNumExtraItemsList = null, long a_nExtraPrice = KCDefine.B_VAL_0_INT, bool a_bIsIgnoreAcquire = false) {
 		// 아이템 획득이 가능 할 경우
 		if(!a_bIsIgnoreAcquire) {
-			for(int i = 0; i < a_stSaleItemInfo.m_oItemInfoList.Count; ++i) {
-				Func.AcquireItem(a_stSaleItemInfo.m_oItemInfoList[i], a_oNumExtraItemsList.ExIsValid() ? a_oNumExtraItemsList.ExGetVal(i, KCDefine.B_VAL_0_INT) : KCDefine.B_VAL_0_INT);
+			for(int i = 0; i < a_stItemSaleInfo.m_oNumItemsInfoList.Count; ++i) {
+				Func.AcquireItem(a_stItemSaleInfo.m_oNumItemsInfoList[i], a_oNumExtraItemsList.ExIsValid() ? a_oNumExtraItemsList.ExGetVal(i, KCDefine.B_VAL_0_INT) : KCDefine.B_VAL_0_INT);
 			}
 		}
 
 		// 코인 비용이 존재 할 경우
-		if(a_stSaleItemInfo.m_ePriceKinds == EPriceKinds.GOODS_COINS && a_stSaleItemInfo.IntPrice + a_nExtraPrice > KCDefine.B_VAL_0_INT) {
-			CUserInfoStorage.Inst.AddNumCoins(-(a_stSaleItemInfo.IntPrice + a_nExtraPrice));
+		if(a_stItemSaleInfo.m_ePriceKinds == EPriceKinds.GOODS_COINS && a_stItemSaleInfo.IntPrice + a_nExtraPrice > KCDefine.B_VAL_0_INT) {
+			CUserInfoStorage.Inst.AddNumCoins(-(a_stItemSaleInfo.IntPrice + a_nExtraPrice));
 		}
 
 		CUserInfoStorage.Inst.SaveUserInfo();
@@ -126,9 +120,9 @@ public static partial class Func {
 		Func.ShowPopup<CPausePopup>(KDefine.G_OBJ_N_PAUSE_POPUP, KCDefine.U_OBJ_P_G_PAUSE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
-	/** 판매 상품 팝업을 출력한다 */
-	public static void ShowSaleProductPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
-		Func.ShowPopup<CSaleProductPopup>(KDefine.G_OBJ_N_SALE_PRODUCT_POPUP, KCDefine.U_OBJ_P_G_SALE_PRODUCT_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	/** 상품 판매 팝업을 출력한다 */
+	public static void ShowProductSalePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CProductSalePopup>(KDefine.G_OBJ_N_PRODUCT_SALE_POPUP, KCDefine.U_OBJ_P_G_PRODUCT_SALE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
 	/** 포커스 팝업을 출력한다 */
@@ -215,11 +209,11 @@ public static partial class Func {
 			int nIdx = CProductInfoTable.Inst.GetProductInfoIdx(a_oProductID);
 
 			var oProduct = CPurchaseManager.Inst.GetProduct(a_oProductID);
-			var eSaleProductKinds = KDefine.G_KINDS_SALE_PIT_SALE_PRODUCT_LIST[nIdx];
-			var stSaleProductInfo = CSaleProductInfoTable.Inst.GetSaleProductInfo(eSaleProductKinds);
+			var eProductSaleKinds = KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST[nIdx];
+			var stProductSaleInfo = CProductSaleInfoTable.Inst.GetProductSaleInfo(eProductSaleKinds);
 
-			for(int i = 0; i < stSaleProductInfo.m_oItemInfoList.Count; ++i) {
-				Func.AcquireItem(stSaleProductInfo.m_oItemInfoList[i]);
+			for(int i = 0; i < stProductSaleInfo.m_oNumItemsInfoList.Count; ++i) {
+				Func.AcquireItem(stProductSaleInfo.m_oNumItemsInfoList[i]);
 			}
 
 #if NEWTON_SOFT_JSON_MODULE_ENABLE
@@ -243,11 +237,11 @@ public static partial class Func {
 				// 상품 복원이 가능 할 경우
 				if(!CCommonUserInfoStorage.Inst.IsRestoreProduct(a_oProductList[i].definition.id)) {
 					int nIdx = CProductInfoTable.Inst.GetProductInfoIdx(a_oProductList[i].definition.id);
-					var eSaleProductKinds = KDefine.G_KINDS_SALE_PIT_SALE_PRODUCT_LIST[nIdx];
-					var stSaleProductInfo = CSaleProductInfoTable.Inst.GetSaleProductInfo(eSaleProductKinds);
+					var eProductSaleKinds = KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST[nIdx];
+					var stProductSaleInfo = CProductSaleInfoTable.Inst.GetProductSaleInfo(eProductSaleKinds);
 
-					for(int j = 0; j < stSaleProductInfo.m_oItemInfoList.Count; ++j) {
-						Func.AcquireItem(stSaleProductInfo.m_oItemInfoList[j]);
+					for(int j = 0; j < stProductSaleInfo.m_oNumItemsInfoList.Count; ++j) {
+						Func.AcquireItem(stProductSaleInfo.m_oNumItemsInfoList[j]);
 					}
 
 					CCommonUserInfoStorage.Inst.AddRestoreProductID(a_oProductList[i].definition.id);
