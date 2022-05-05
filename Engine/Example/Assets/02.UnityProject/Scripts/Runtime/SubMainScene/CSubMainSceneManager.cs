@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using EnhancedUI.EnhancedScroller;
 using TMPro;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 namespace MainScene {
 	/** 서브 메인 씬 관리자 */
 	public partial class CSubMainSceneManager : CMainSceneManager, IEnhancedScrollerDelegate {
@@ -204,9 +204,10 @@ namespace MainScene {
 			m_stSelIDInfo = (ePlayMode == EPlayMode.NORM && CGameInfoStorage.Inst.PlayLevelInfo != null) ? CGameInfoStorage.Inst.PlayLevelInfo.m_stIDInfo : CFactory.MakeIDInfo(KCDefine.B_VAL_0_INT);
 
 			// 버튼을 설정한다
-			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_PLAY_BTN)?.ExAddListener(this.OnTouchPlayBtn, true, false);
-			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_STORE_BTN)?.ExAddListener(this.OnTouchStoreBtn, true, false);
-			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_SETTINGS_BTN)?.ExAddListener(this.OnTouchSettingsBtn, true, false);
+			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_PLAY_BTN)?.onClick.AddListener(this.OnTouchPlayBtn);
+			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_STORE_BTN)?.onClick.AddListener(this.OnTouchStoreBtn);
+			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_REVIEW_BTN)?.onClick.AddListener(this.OnTouchReviewBtn);
+			this.UIsBase.ExFindComponent<Button>(KCDefine.U_OBJ_N_SETTINGS_BTN)?.onClick.AddListener(this.OnTouchSettingsBtn);
 
 			// 스크롤 뷰를 설정한다 {
 			m_oScrollerInfoDict[EKey.LEVEL_SCROLLER_INFO] = (
@@ -306,6 +307,11 @@ namespace MainScene {
 			CSceneManager.GetSceneManager<OverlayScene.CSubOverlaySceneManager>(KCDefine.B_SCENE_N_OVERLAY)?.ShowStorePopup();
 		}
 
+		/** 평가 버튼을 눌렀을 경우 */
+		private void OnTouchReviewBtn() {
+			CUnityMsgSender.Inst.SendShowReviewMsg();
+		}
+
 		/** 설정 버튼을 눌렀을 경우 */
 		private void OnTouchSettingsBtn() {
 			Func.ShowSettingsPopup(this.PopupUIs, (a_oSender) => {
@@ -367,6 +373,14 @@ namespace MainScene {
 		private void OnTouchABTUIsSetBtn(EUserType a_eUserType) {
 			// 유저 타입이 다를 경우
 			if(CCommonUserInfoStorage.Inst.UserInfo.UserType != a_eUserType) {
+				Func.ShowAlertPopup(CStrTable.Inst.GetStr((a_eUserType == EUserType.A) ? KCDefine.ST_KEY_EDITOR_A_SET_P_MSG : KCDefine.ST_KEY_EDITOR_B_SET_P_MSG), (a_oSender, a_bIsOK) => this.OnReceiveABSetPopupResult(a_oSender, a_bIsOK, a_eUserType));
+			}
+		}
+
+		/** AB 세트 팝업 결과를 수신했을 경우 */
+		private void OnReceiveABSetPopupResult(CAlertPopup a_oSender, bool a_bIsOK, EUserType a_eUserType) {
+			// 확인 버튼을 눌렀을 경우
+			if(a_bIsOK) {
 				CCommonUserInfoStorage.Inst.UserInfo.UserType = a_eUserType;
 				CCommonUserInfoStorage.Inst.SaveUserInfo();
 
@@ -389,4 +403,4 @@ namespace MainScene {
 		#endregion			// 조건부 함수
 	}
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

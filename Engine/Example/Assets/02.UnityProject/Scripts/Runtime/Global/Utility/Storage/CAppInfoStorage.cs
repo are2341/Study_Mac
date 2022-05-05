@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
 /** 앱 정보 */
@@ -150,4 +150,4 @@ public partial class CAppInfoStorage : CSingleton<CAppInfoStorage> {
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

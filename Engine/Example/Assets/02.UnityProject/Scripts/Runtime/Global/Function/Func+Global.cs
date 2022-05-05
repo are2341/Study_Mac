@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -85,9 +85,9 @@ public static partial class Func {
 		Func.ShowPopup<CDailyRewardPopup>(KDefine.G_OBJ_N_DAILY_REWARD_POPUP, KCDefine.U_OBJ_P_G_DAILY_REWARD_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
-	/** 판매 코인 팝업을 출력한다 */
-	public static void ShowSaleCoinsPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
-		Func.ShowPopup<CSaleCoinsPopup>(KDefine.G_OBJ_N_SALE_COINS_POPUP, KCDefine.U_OBJ_P_G_SALE_COINS_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	/** 코인 상자 팝업을 출력한다 */
+	public static void ShowCoinsBoxPopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CCoinsBoxPopup>(KDefine.G_OBJ_N_COINS_BOX_POPUP, KCDefine.U_OBJ_P_G_COINS_BOX_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
 	/** 보상 획득 팝업을 출력한다 */
@@ -95,9 +95,9 @@ public static partial class Func {
 		Func.ShowPopup<CRewardAcquirePopup>(KDefine.G_OBJ_N_REWARD_ACQUIRE_POPUP, KCDefine.U_OBJ_P_G_REWARD_ACQUIRE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
-	/** 판매 코인 획득 팝업을 출력한다 */
-	public static void ShowSaleCoinsAcquirePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
-		Func.ShowPopup<CSaleCoinsAcquirePopup>(KDefine.G_OBJ_N_SALE_COINS_ACQUIRE_POPUP, KCDefine.U_OBJ_P_G_SALE_COINS_ACQUIRE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
+	/** 코인 상자 코인 획득 팝업을 출력한다 */
+	public static void ShowCoinsBoxCoinsAcquirePopup(GameObject a_oParent, System.Action<CPopup> a_oInitCallback, System.Action<CPopup> a_oShowCallback = null, System.Action<CPopup> a_oCloseCallback = null) {
+		Func.ShowPopup<CCoinsBoxCoinsAcquirePopup>(KDefine.G_OBJ_N_COINS_BOX_COINS_ACQUIRE_POPUP, KCDefine.U_OBJ_P_G_COINS_BOX_COINS_ACQUIRE_POPUP, a_oParent, a_oInitCallback, a_oShowCallback, a_oCloseCallback);
 	}
 
 	/** 이어하기 팝업을 출력한다 */
@@ -207,10 +207,8 @@ public static partial class Func {
 		// 상품이 존재 할 경우
 		if(a_oProductID.ExIsValid()) {
 			int nIdx = CProductInfoTable.Inst.GetProductInfoIdx(a_oProductID);
-
 			var oProduct = CPurchaseManager.Inst.GetProduct(a_oProductID);
-			var eProductSaleKinds = KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST[nIdx];
-			var stProductSaleInfo = CProductSaleInfoTable.Inst.GetProductSaleInfo(eProductSaleKinds);
+			var stProductSaleInfo = CProductSaleInfoTable.Inst.GetProductSaleInfo(nIdx);
 
 			for(int i = 0; i < stProductSaleInfo.m_oNumItemsInfoList.Count; ++i) {
 				Func.AcquireItem(stProductSaleInfo.m_oNumItemsInfoList[i]);
@@ -237,8 +235,7 @@ public static partial class Func {
 				// 상품 복원이 가능 할 경우
 				if(!CCommonUserInfoStorage.Inst.IsRestoreProduct(a_oProductList[i].definition.id)) {
 					int nIdx = CProductInfoTable.Inst.GetProductInfoIdx(a_oProductList[i].definition.id);
-					var eProductSaleKinds = KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST[nIdx];
-					var stProductSaleInfo = CProductSaleInfoTable.Inst.GetProductSaleInfo(eProductSaleKinds);
+					var stProductSaleInfo = CProductSaleInfoTable.Inst.GetProductSaleInfo(nIdx);
 
 					for(int j = 0; j < stProductSaleInfo.m_oNumItemsInfoList.Count; ++j) {
 						Func.AcquireItem(stProductSaleInfo.m_oNumItemsInfoList[j]);
@@ -255,4 +252,4 @@ public static partial class Func {
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

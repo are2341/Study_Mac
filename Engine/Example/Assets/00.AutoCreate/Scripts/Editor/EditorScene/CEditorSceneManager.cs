@@ -25,13 +25,21 @@ public static partial class CEditorSceneManager {
 	private static float m_fDefineSymbolSkipTime = 0.0f;
 
 	private static ListRequest m_oListRequest = null;
+	private static List<string> m_oSampleSceneNameList = new List<string>();
 	private static List<AddRequest> m_oAddRequestList = new List<AddRequest>();
 	#endregion			// 클래스 변수
 	
 	#region 클래스 함수
 	/** 생성자 */
 	static CEditorSceneManager() {
-		CEditorSceneManager.SetupCallbacks();
+		// 플레이 모드가 아닐 경우
+		if(!EditorApplication.isPlayingOrWillChangePlaymode) {
+			CEditorSceneManager.m_oSampleSceneNameList.ExAddVal(KCDefine.B_SCENE_N_SAMPLE);
+			CEditorSceneManager.m_oSampleSceneNameList.ExAddVal(KCDefine.B_SCENE_N_EDITOR_SAMPLE);
+			CEditorSceneManager.m_oSampleSceneNameList.ExAddVal(KCDefine.B_SCENE_N_STUDY_SAMPLE);
+
+			CEditorSceneManager.SetupCallbacks();
+		}
 	}
 
 	/** 스크립트가 로드 되었을 경우 */
@@ -64,7 +72,8 @@ public static partial class CEditorSceneManager {
 				EditorApplication.update -= CEditorSceneManager.UpdateDependencyState;
 				EditorApplication.update += CEditorSceneManager.UpdateDependencyState;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+				EditorFactory.CreateItemInfoTable();
 				EditorFactory.CreateItemSaleInfoTable();
 				EditorFactory.CreateProductSaleInfoTable();
 				EditorFactory.CreateMissionInfoTable();
@@ -72,9 +81,10 @@ public static partial class CEditorSceneManager {
 				EditorFactory.CreateEpisodeInfoTable();
 				EditorFactory.CreateTutorialInfoTable();
 				EditorFactory.CreateFXInfoTable();
+				EditorFactory.CreateSkillInfoTable();
 				EditorFactory.CreateBlockInfoTable();
 				EditorFactory.CreateResInfoTable();
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 			}
 
 			// 갱신 주기가 지났을 경우
@@ -82,11 +92,20 @@ public static partial class CEditorSceneManager {
 				CEditorSceneManager.m_fUpdateSkipTime = KCDefine.B_VAL_0_FLT;
 				CEditorSceneManager.SetupExtraPreloadAssets();
 
+				CFunc.EnumerateRootObjs((a_oObj) => {
+					// 프리팹 최상단 객체 일 경우
+					if(KCEditorDefine.B_OBJ_N_PREFAB_ROOT_OBJ_LIST.Contains(a_oObj.name) && !CEditorSceneManager.m_oSampleSceneNameList.Contains(a_oObj.scene.name)) {
+						CEditorSceneManager.SetupPrefabObjs(a_oObj);
+					}
+
+					return true;
+				});
+
 				CFunc.EnumerateScenes((a_stScene) => { CSampleSceneManager.SetupSceneManager(a_stScene, KEditorDefine.B_SCENE_MANAGER_TYPE_DICT); return true; });
 
-#if EXTRA_SCRIPT_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE
 				CFunc.EnumerateScenes((a_stScene) => { CSampleSceneManager.SetupSceneManager(a_stScene, KEditorDefine.G_EXTRA_SCENE_MANAGER_TYPE_DICT); return true; });
-#endif			// #if EXTRA_SCRIPT_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE
 
 				var oMonoScripts = MonoImporter.GetAllRuntimeMonoScripts();
 
@@ -100,12 +119,12 @@ public static partial class CEditorSceneManager {
 							CAccess.SetScriptOrder(oMonoScripts[i], nOrder);
 						}
 
-#if EXTRA_SCRIPT_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE
 						// 스크립트 순서 설정이 가능 할 경우
 						if(oType != null && KEditorDefine.G_EXTRA_SCRIPT_ORDER_DICT.TryGetValue(oType, out int nExtraOrder)) {
 							CAccess.SetScriptOrder(oMonoScripts[i], nExtraOrder);
 						}
-#endif			// #if EXTRA_SCRIPT_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE
 					}
 				}
 			}
@@ -170,7 +189,7 @@ public static partial class CEditorSceneManager {
 	private static void UpdateDependencyState() {
 		// 상태 갱신이 가능 할 경우
 		if(CEditorAccess.IsEnableUpdateState) {
-			bool bIsEnableSetup = CEditorSceneManager.m_bIsEnableSetupDependencies && (CEditorSceneManager.m_oListRequest != null && CEditorSceneManager.m_oListRequest.IsCompleted);
+			bool bIsEnableSetup = CEditorSceneManager.m_bIsEnableSetupDependencies && (CEditorSceneManager.m_oListRequest != null && CEditorSceneManager.m_oListRequest.Result != null && CEditorSceneManager.m_oListRequest.IsCompleted);
 			CEditorSceneManager.m_fDependencySkipTime += Mathf.Clamp01(Time.deltaTime);
 
 			// 갱신 주기가 지났을 경우

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #region 기본
 /** 플레이 모드 */
 public enum EPlayMode {
@@ -142,7 +142,7 @@ public enum EProductSaleKinds {
 
 	#region 단일
 	[HideInInspector] SINGLE_PRODUCT_SALE = EEnumVal.TYPE * 1,
-	SINGLE_SALE_COINS = EProductSaleKinds.SINGLE_PRODUCT_SALE + (EEnumVal.KINDS_TYPE * 0),			//!< 판매 코인 10,000,000
+	SINGLE_COINS_BOX = EProductSaleKinds.SINGLE_PRODUCT_SALE + (EEnumVal.KINDS_TYPE * 0),			//!< 코인 상자 10,000,000
 	SINGLE_REMOVE_ADS = EProductSaleKinds.SINGLE_PRODUCT_SALE + (EEnumVal.KINDS_TYPE * 1),			//!< 광고 제거 10,010,000
 	#endregion			// 단일
 
@@ -474,4 +474,4 @@ public enum EResKinds {
 	[HideInInspector] MAX_VAL
 }
 #endregion			// 기본
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

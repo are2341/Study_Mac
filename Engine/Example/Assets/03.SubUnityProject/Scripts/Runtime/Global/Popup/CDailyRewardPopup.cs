@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 일일 보상 팝업 */
 public partial class CDailyRewardPopup : CSubPopup {
 	/** 식별자 */
@@ -130,4 +130,4 @@ public partial class CDailyRewardPopup : CSubPopup {
 #endif			// #if ADS_MODULE_ENABLE
 	#endregion			// 조건부 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

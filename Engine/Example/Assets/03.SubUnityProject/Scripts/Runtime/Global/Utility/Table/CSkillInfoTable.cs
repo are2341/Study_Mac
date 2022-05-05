@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 스킬 정보 */
 [System.Serializable]
 public struct STSkillInfo {
@@ -71,7 +71,7 @@ public partial class CSkillInfoTable : CScriptableObj<CSkillInfoTable> {
 		}
 	}
 
-	/** 효과 정보를 반환한다 */
+	/** 스킬 정보를 반환한다 */
 	public STSkillInfo GetSkillInfo(ESkillKinds a_ESkillKinds) {
 		bool bIsValid = this.TryGetSkillInfo(a_ESkillKinds, out STSkillInfo stSkillInfo);
 		CAccess.Assert(bIsValid);
@@ -79,18 +79,18 @@ public partial class CSkillInfoTable : CScriptableObj<CSkillInfoTable> {
 		return stSkillInfo;
 	}
 
-	/** 효과 정보를 반환한다 */
+	/** 스킬 정보를 반환한다 */
 	public bool TryGetSkillInfo(ESkillKinds a_ESkillKinds, out STSkillInfo a_stOutSkillInfo) {
 		a_stOutSkillInfo = this.SkillInfoDict.GetValueOrDefault(a_ESkillKinds, default(STSkillInfo));
 		return this.SkillInfoDict.ContainsKey(a_ESkillKinds);
 	}
 
-	/** 효과 정보를 로드한다 */
+	/** 스킬 정보를 로드한다 */
 	public Dictionary<ESkillKinds, STSkillInfo> LoadSkillInfos() {
 		return this.LoadSkillInfos(this.SkillInfoTablePath);
 	}
 
-	/** 효과 정보를 로드한다 */
+	/** 스킬 정보를 로드한다 */
 	private Dictionary<ESkillKinds, STSkillInfo> LoadSkillInfos(string a_oFilePath) {
 		CAccess.Assert(a_oFilePath.ExIsValid());
 		
@@ -105,7 +105,7 @@ public partial class CSkillInfoTable : CScriptableObj<CSkillInfoTable> {
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
 	}
 
-	/** 효과 정보를 로드한다 */
+	/** 스킬 정보를 로드한다 */
 	private Dictionary<ESkillKinds, STSkillInfo> DoLoadSkillInfos(string a_oJSONStr) {
 		CAccess.Assert(a_oJSONStr.ExIsValid());
 		var oJSONNode = SimpleJSON.JSONNode.Parse(a_oJSONStr);
@@ -118,7 +118,7 @@ public partial class CSkillInfoTable : CScriptableObj<CSkillInfoTable> {
 			for(int j = 0; j < oSkillInfosList[i].Count; ++j) {
 				var stSkillInfo = new STSkillInfo(oSkillInfosList[i][j]);
 
-				// 효과 정보가 추가 가능 할 경우
+				// 스킬 정보가 추가 가능 할 경우
 				if(!this.SkillInfoDict.ContainsKey(stSkillInfo.m_eSkillKinds) || oSkillInfosList[i][j][KCDefine.U_KEY_REPLACE].AsInt != KCDefine.B_VAL_0_INT) {
 					this.SkillInfoDict.ExReplaceVal(stSkillInfo.m_eSkillKinds, stSkillInfo);
 				}
@@ -129,4 +129,4 @@ public partial class CSkillInfoTable : CScriptableObj<CSkillInfoTable> {
 	}
 	#endregion			// 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

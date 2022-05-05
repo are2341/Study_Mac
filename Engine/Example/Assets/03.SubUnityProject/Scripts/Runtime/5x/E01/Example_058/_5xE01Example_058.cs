@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+#if EXTRA_SCRIPT_MODULE_ENABLE
 namespace _5xE01 {
 	/** Example 58 */
 	public class _5xE01Example_058 : StudyScene.CStudySceneManager {
@@ -23,3 +24,4 @@ namespace _5xE01 {
 		#endregion			// 함수
 	}
 }
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE

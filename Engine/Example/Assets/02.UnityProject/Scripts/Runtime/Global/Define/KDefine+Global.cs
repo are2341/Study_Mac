@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 전역 상수 */
 public static partial class KDefine {
 	#region 기본
 	// 개수 {
-	public const int G_MAX_NUM_SALE_COINS = 0;
 	public const int G_MAX_NUM_TUTORIAL_STRS = 9;
+	public const int G_MAX_NUM_COINS_BOX_COINS = 0;
 
 	public const int G_MAX_NUM_FX_KINDS = 9;
 	public const int G_MAX_NUM_ITEMS_INFOS = 9;
@@ -108,26 +108,6 @@ public static partial class KDefine {
 		EAnalytics.FLURRY, EAnalytics.FIREBASE, EAnalytics.APPS_FLYER
 	};
 	// 분석 }
-
-	// 일일 보상
-	public static readonly List<ERewardKinds> G_REWARDS_KINDS_DAILY_REWARD_LIST = new List<ERewardKinds>() {
-		// Do Something
-	};
-
-	// 상점 상품 판매
-	public static readonly List<EProductSaleKinds> G_STORE_PRODUCT_SALE_KINDS_LIST = new List<EProductSaleKinds>() {
-		// Do Something
-	};
-
-	// 특수 패키지 상품 판매
-	public static readonly List<EProductSaleKinds> G_PRODUCT_SALE_KINDS_PRODUCT_SPECIAL_PKGS_LIST = new List<EProductSaleKinds>() {
-		// Do Something
-	};
-
-	// 상품 판매 정보 테이블
-	public static readonly List<EProductSaleKinds> G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST = new List<EProductSaleKinds>() {
-		// Do Something
-	};
 	#endregion			// 런타임 상수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

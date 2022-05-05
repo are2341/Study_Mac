@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -115,9 +115,8 @@ public partial class CStorePopup : CSubPopup {
 
 #if !UNITY_EDITOR && PURCHASE_MODULE_ENABLE
 		// 결제 비용 타입 일 경우
-		if(ePriceType == EPriceType.PURCHASE && Access.GetProduct(Access.GetProductSaleID(a_stProductSaleInfo.m_eProductSaleKinds)) != null) {
-			int nID = Access.GetProductSaleID(a_stProductSaleInfo.m_eProductSaleKinds);
-			oPriceText?.ExSetText(Access.GetPriceStr(nID), EFontSet._1, false);
+		if(ePriceType == EPriceType.PURCHASE && Access.GetProduct(a_stProductSaleInfo.m_nID) != null) {
+			oPriceText?.ExSetText(Access.GetPriceStr(a_stProductSaleInfo.m_nID), EFontSet._1, false);
 		}
 #endif			// #if !UNITY_EDITOR && PURCHASE_MODULE_ENABLE
 		// 텍스트를 설정한다 }
@@ -135,9 +134,10 @@ public partial class CStorePopup : CSubPopup {
 #endif			// #if ADS_MODULE_ENABLE
 
 #if PURCHASE_MODULE_ENABLE
+		var stProductInfo = CProductInfoTable.Inst.GetProductInfo(a_stProductSaleInfo.m_nID);
+
 		// 비소모 상품 일 경우
-		if(a_stProductSaleInfo.m_eProductType == ProductType.NonConsumable) {
-			var stProductInfo = CProductInfoTable.Inst.GetProductInfo(Access.GetProductSaleID(a_stProductSaleInfo.m_eProductSaleKinds));
+		if(stProductInfo.m_eProductType == ProductType.NonConsumable) {
 			oPurchaseBtn?.ExSetInteractable(!CPurchaseManager.Inst.IsPurchaseNonConsumableProduct(stProductInfo.m_oID));
 		}
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -247,15 +247,7 @@ public partial class CStorePopup : CSubPopup {
 			var oAcquireItemInfoList = a_oJSONStr.ExJSONStrToAcquireItemInfos();
 
 			for(int i = 0; i < oAcquireItemInfoList.Count; ++i) {
-				bool bIsValid01 = long.TryParse(oAcquireItemInfoList[i].m_oNumItems, out long nNumItems);
-				bool bIsValid02 = oAcquireItemInfoList[i].m_oItemKinds.ExToTryEnumVal<EItemKinds>(out EItemKinds eItemKinds);
-
-				// 획득 아이템 정보가 유효 할 경우
-				if(bIsValid01 && bIsValid02 && eItemKinds.ExIsValid()) {
-					Func.AcquireItem(new STNumItemsInfo() {
-						m_nNumItems = nNumItems, m_eItemKinds = eItemKinds
-					});
-				}
+				Func.AcquireItem(oAcquireItemInfoList[i]);
 			}
 
 			this.ExLateCallFunc((a_oCallFuncSender) => { oAcquireItemInfoList.Clear(); Func.SaveAcquireItemInfos(oAcquireItemInfoList, this.OnSaveAcquireItemInfos); });
@@ -274,4 +266,4 @@ public partial class CStorePopup : CSubPopup {
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

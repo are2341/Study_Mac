@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 아이템 정보 */
 [System.Serializable]
 public struct STItemInfo {
@@ -62,7 +62,7 @@ public partial class CItemInfoTable : CScriptableObj<CItemInfoTable> {
 		}
 	}
 
-	/** 효과 정보를 반환한다 */
+	/** 아이템 정보를 반환한다 */
 	public STItemInfo GetItemInfo(EItemKinds a_EItemKinds) {
 		bool bIsValid = this.TryGetItemInfo(a_EItemKinds, out STItemInfo stItemInfo);
 		CAccess.Assert(bIsValid);
@@ -70,18 +70,18 @@ public partial class CItemInfoTable : CScriptableObj<CItemInfoTable> {
 		return stItemInfo;
 	}
 
-	/** 효과 정보를 반환한다 */
+	/** 아이템 정보를 반환한다 */
 	public bool TryGetItemInfo(EItemKinds a_EItemKinds, out STItemInfo a_stOutItemInfo) {
 		a_stOutItemInfo = this.ItemInfoDict.GetValueOrDefault(a_EItemKinds, default(STItemInfo));
 		return this.ItemInfoDict.ContainsKey(a_EItemKinds);
 	}
 
-	/** 효과 정보를 로드한다 */
+	/** 아이템 정보를 로드한다 */
 	public Dictionary<EItemKinds, STItemInfo> LoadItemInfos() {
 		return this.LoadItemInfos(this.ItemInfoTablePath);
 	}
 
-	/** 효과 정보를 로드한다 */
+	/** 아이템 정보를 로드한다 */
 	private Dictionary<EItemKinds, STItemInfo> LoadItemInfos(string a_oFilePath) {
 		CAccess.Assert(a_oFilePath.ExIsValid());
 		
@@ -96,7 +96,7 @@ public partial class CItemInfoTable : CScriptableObj<CItemInfoTable> {
 #endif			// #if UNITY_STANDALONE && (DEBUG || DEVELOPMENT_BUILD)
 	}
 
-	/** 효과 정보를 로드한다 */
+	/** 아이템 정보를 로드한다 */
 	private Dictionary<EItemKinds, STItemInfo> DoLoadItemInfos(string a_oJSONStr) {
 		CAccess.Assert(a_oJSONStr.ExIsValid());
 		var oJSONNode = SimpleJSON.JSONNode.Parse(a_oJSONStr);
@@ -109,7 +109,7 @@ public partial class CItemInfoTable : CScriptableObj<CItemInfoTable> {
 			for(int j = 0; j < oItemInfosList[i].Count; ++j) {
 				var stItemInfo = new STItemInfo(oItemInfosList[i][j]);
 
-				// 효과 정보가 추가 가능 할 경우
+				// 아이템 정보가 추가 가능 할 경우
 				if(!this.ItemInfoDict.ContainsKey(stItemInfo.m_eItemKinds) || oItemInfosList[i][j][KCDefine.U_KEY_REPLACE].AsInt != KCDefine.B_VAL_0_INT) {
 					this.ItemInfoDict.ExReplaceVal(stItemInfo.m_eItemKinds, stItemInfo);
 				}
@@ -120,4 +120,4 @@ public partial class CItemInfoTable : CScriptableObj<CItemInfoTable> {
 	}
 	#endregion			// 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

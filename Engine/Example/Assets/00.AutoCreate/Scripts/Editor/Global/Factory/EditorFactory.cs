@@ -13,11 +13,11 @@ public static partial class EditorFactory {
 	#endregion			// 클래스 함수
 
 	#region 조건부 클래스 함수
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 	/** 아이템 정보 테이블을 생성한다 */
 	[MenuItem(KCEditorDefine.B_MENU_TOOLS_SUB_CREATE_BASE + "ItemInfoTable", false, KCEditorDefine.B_SORTING_O_SUB_CREATE_MENU + 1)]
 	public static void CreateItemInfoTable() {
-		CEditorFactory.CreateScriptableObj<CItemSaleInfoTable>(KCEditorDefine.B_ASSET_P_ITEM_INFO_TABLE);
+		CEditorFactory.CreateScriptableObj<CItemInfoTable>(KCEditorDefine.B_ASSET_P_ITEM_INFO_TABLE);
 	}
 
 	/** 아이템 판매 정보 테이블을 생성한다 */
@@ -61,6 +61,12 @@ public static partial class EditorFactory {
 	public static void CreateFXInfoTable() {
 		CEditorFactory.CreateScriptableObj<CFXInfoTable>(KCEditorDefine.B_ASSET_P_FX_INFO_TABLE);
 	}
+
+	/** 스킬 정보 테이블을 생성한다 */
+	[MenuItem(KCEditorDefine.B_MENU_TOOLS_SUB_CREATE_BASE + "SkillInfoTable", false, KCEditorDefine.B_SORTING_O_SUB_CREATE_MENU + 1)]
+	public static void CreateSkillInfoTable() {
+		CEditorFactory.CreateScriptableObj<CSkillInfoTable>(KCEditorDefine.B_ASSET_P_SKILL_INFO_TABLE);
+	}
 	
 	/** 블럭 정보 테이블을 생성한다 */
 	[MenuItem(KCEditorDefine.B_MENU_TOOLS_SUB_CREATE_BASE + "BlockInfoTable", false, KCEditorDefine.B_SORTING_O_SUB_CREATE_MENU + 1)]
@@ -73,7 +79,7 @@ public static partial class EditorFactory {
 	public static void CreateResInfoTable() {
 		CEditorFactory.CreateScriptableObj<CResInfoTable>(KCEditorDefine.B_ASSET_P_RES_INFO_TABLE);
 	}
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
 }
 #endif			// #if UNITY_EDITOR

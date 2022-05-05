@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -160,9 +160,9 @@ public static partial class Func {
 	public static void ShowAlertPopup(string a_oMsg, System.Action<CAlertPopup, bool> a_oCallback, bool a_bIsEnableCancelBtn = true) {
 		var stParams = new CAlertPopup.STParams() {
 			m_oStrDict = new Dictionary<CAlertPopup.EStr, string>() {
-				[CAlertPopup.EStr.TITLE] = CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_NOTI_TEXT),
+				[CAlertPopup.EStr.TITLE] = CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_NOTI_TEXT),
 				[CAlertPopup.EStr.MSG] = a_oMsg,
-				[CAlertPopup.EStr.OK_BTN] = CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_OK_TEXT),
+				[CAlertPopup.EStr.OK_BTN] = CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_OK_TEXT),
 			},
 
 			m_oCallbackDict = new Dictionary<CAlertPopup.ECallback, System.Action<CAlertPopup, bool>>() {
@@ -172,7 +172,7 @@ public static partial class Func {
 
 		// 취소 버튼 가능 모드 일 경우
 		if(a_bIsEnableCancelBtn) {
-			stParams.m_oStrDict.TryAdd(CAlertPopup.EStr.CANCEL_BTN, CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_CANCEL_TEXT));
+			stParams.m_oStrDict.TryAdd(CAlertPopup.EStr.CANCEL_BTN, CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_CANCEL_TEXT));
 		}
 
 		Func.ShowAlertPopup(stParams);
@@ -214,62 +214,62 @@ public static partial class Func {
 
 	/** 로그인 성공 팝업을 출력한다 */
 	public static void ShowLoginSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGIN_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_LOGIN_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 로그인 실패 팝업을 출력한다 */
 	public static void ShowLoginFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGIN_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_LOGIN_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 로그아웃 성공 팝업을 출력한다 */
 	public static void ShowLogoutSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGOUT_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_LOGOUT_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 로그아웃 실패 팝업을 출력한다 */
 	public static void ShowLogoutFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOGOUT_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_LOGOUT_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 로드 성공 팝업을 출력한다 */
 	public static void ShowLoadSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOAD_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_LOAD_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 로드 실패 팝업을 출력한다 */
 	public static void ShowLoadFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_LOAD_FAIL_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_LOAD_FAIL_MSG), a_oCallback, false);
 	}
 
 	/** 저장 성공 팝업을 출력한다 */
 	public static void ShowSaveSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_SAVE_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 저장 실패 팝업을 출력한다 */
 	public static void ShowSaveFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_SAVE_FAIL_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_SAVE_FAIL_MSG), a_oCallback, false);
 	}
 
 	/** 결제 성공 팝업을 출력한다 */
 	public static void ShowPurchaseSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_PURCHASE_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_PURCHASE_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 결제 실패 팝업을 출력한다 */
 	public static void ShowPurchaseFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_PURCHASE_FAIL_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_PURCHASE_FAIL_MSG), a_oCallback, false);
 	}
 
 	/** 복원 성공 팝업을 출력한다 */
 	public static void ShowRestoreSuccessPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_RESTORE_SUCCESS_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_RESTORE_SUCCESS_MSG), a_oCallback, false);
 	}
 
 	/** 복원 실패 팝업을 출력한다 */
 	public static void ShowRestoreFailPopup(System.Action<CAlertPopup, bool> a_oCallback) {
-		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_COMMON_RESTORE_FAIL_MSG), a_oCallback, false);
+		Func.ShowAlertPopup(CStrTable.Inst.GetStr(KCDefine.ST_KEY_C_RESTORE_FAIL_MSG), a_oCallback, false);
 	}
 	#endregion			// 클래스 함수
 
@@ -370,7 +370,7 @@ public static partial class Func {
 					CIndicatorManager.Inst.Close();
 					CFunc.Invoke(ref a_oCallback, CAdsManager.Inst, false);
 				}
-			}, KCDefine.B_VAL_1_FLT, true);
+			}, KCDefine.B_VAL_2_FLT, true);
 		} else {
 			// 광고 누적 횟수 갱신이 가능 할 경우
 			if(CAppInfoStorage.Inst.IsEnableUpdateAdsSkipTimes) {
@@ -726,7 +726,7 @@ public static partial class Func {
 		CIndicatorManager.Inst.Show();
 		Func.m_oGameCenterCallbackDict02.ExReplaceVal(ECallback.UPDATE_ACHIEVEMENT, a_oCallback);
 
-		CGameCenterManager.Inst.UpdateAchievement(a_oAchievementID, a_dblPercent, Func.OnUpdateAchievement);
+		CGameCenterManager.Inst.UpdateAchievement(a_oAchievementID, a_dblPercent * KCDefine.B_UNIT_NORM_VAL_TO_PERCENT, Func.OnUpdateAchievement);
 	}
 
 	/** 게임 센터에 로그인 되었을 경우 */
@@ -762,12 +762,12 @@ public static partial class Func {
 
 	/** 상품을 결제한다 */
 	public static void PurchaseProduct(EProductSaleKinds a_eProductSaleKinds, System.Action<CPurchaseManager, string, bool> a_oCallback, bool a_bIsEnableAssert = true) {
-		int nID = Access.GetProductSaleID(a_eProductSaleKinds);
-		CAccess.Assert(!a_bIsEnableAssert || KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST.ExIsValidIdx(nID));
-
+		bool bIsValid = CProductSaleInfoTable.Inst.TryGetProductSaleInfo(a_eProductSaleKinds, out STProductSaleInfo stProductSaleInfo);
+		CAccess.Assert(!a_bIsEnableAssert || bIsValid);
+		
 		// 상품이 존재 할 경우
-		if(KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST.ExIsValidIdx(nID)) {
-			Func.PurchaseProduct(nID, a_oCallback, a_bIsEnableAssert);
+		if(bIsValid) {
+			Func.PurchaseProduct(stProductSaleInfo.m_nID, a_oCallback, a_bIsEnableAssert);
 		}
 	}
 	
@@ -880,4 +880,4 @@ public static partial class Func {
 #endif			// #if (UNITY_STANDALONE && GOOGLE_SHEET_ENABLE) && (DEBUG || DEVELOPMENT_BUILD)
 	#endregion			// 조건부 클래스 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

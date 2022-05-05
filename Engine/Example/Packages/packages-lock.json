@@ -184,6 +184,28 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.remote-config": {
+      "version": "2.1.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.remote-config-runtime": "2.1.2"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.remote-config-runtime": {
+      "version": "2.1.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.unityanalytics": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.19.6",
       "depth": 2,
@@ -279,142 +301,142 @@
       "url": "https://packages.unity.com"
     },
     "module.unitycommon": {
-      "version": "file:.module.unitycommon@2.3.21",
+      "version": "file:.module.unitycommon@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.21",
-        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.21",
-        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.21",
-        "module.unitycommonutility": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.3.21",
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.22",
+        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.22",
+        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.22",
+        "module.unitycommonutility": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.3.22",
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitycommonaccess": {
-      "version": "file:.module.unitycommonaccess@2.3.21",
+      "version": "file:.module.unitycommonaccess@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitycommondefine": {
-      "version": "file:.module.unitycommondefine@2.3.21",
+      "version": "file:.module.unitycommondefine@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitycommonextension": {
-      "version": "file:.module.unitycommonextension@2.3.21",
+      "version": "file:.module.unitycommonextension@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.21",
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.22",
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitycommonexternals": {
-      "version": "file:.module.unitycommonexternals@2.3.21",
+      "version": "file:.module.unitycommonexternals@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
     },
     "module.unitycommonfactory": {
-      "version": "file:.module.unitycommonfactory@2.3.21",
+      "version": "file:.module.unitycommonfactory@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitycommonfunc": {
-      "version": "file:.module.unitycommonfunc@2.3.21",
+      "version": "file:.module.unitycommonfunc@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.21",
-        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.21",
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.22",
+        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.22",
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitycommonimporter": {
-      "version": "file:.module.unitycommonimporter@2.3.21",
+      "version": "file:.module.unitycommonimporter@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommon": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_client.git#2.3.21"
+        "module.unitycommon": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_client.git#2.3.22"
       }
     },
     "module.unitycommonutility": {
-      "version": "file:.module.unitycommonutility@2.3.21",
+      "version": "file:.module.unitycommonutility@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.21",
-        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.21",
-        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.21",
-        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.22",
+        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.22",
+        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.22",
+        "module.unitycommonexternals": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonexternals_client.git#2.3.22"
       }
     },
     "module.unitystudy": {
-      "version": "file:.module.unitystudy@2.3.21",
+      "version": "file:.module.unitystudy@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitystudydefine": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudydefine_client.git#2.3.21",
-        "module.unitystudyutility": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudyutility_client.git#2.3.21",
-        "module.unitycommon": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_client.git#2.3.21",
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.21",
-        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.21",
-        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.21",
-        "module.unitycommonutility": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.3.21"
+        "module.unitystudydefine": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudydefine_client.git#2.3.22",
+        "module.unitystudyutility": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudyutility_client.git#2.3.22",
+        "module.unitycommon": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommon_client.git#2.3.22",
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.22",
+        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.22",
+        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.22",
+        "module.unitycommonutility": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.3.22"
       }
     },
     "module.unitystudydefine": {
-      "version": "file:.module.unitystudydefine@2.3.21",
+      "version": "file:.module.unitystudydefine@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21"
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22"
       }
     },
     "module.unitystudyimporter": {
-      "version": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudyimporter_client.git#2.3.21",
+      "version": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudyimporter_client.git#2.3.22",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "module.unitystudy": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudy_client.git#2.3.21",
-        "module.unitycommonimporter": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonimporter_client.git#2.3.21"
+        "module.unitystudy": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudy_client.git#2.3.22",
+        "module.unitycommonimporter": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonimporter_client.git#2.3.22"
       },
-      "hash": "cb66702c5a23d05b8116b656e2ffd4612a4a24d5"
+      "hash": "9742c393cf8d81c8b8a4c693f1f51be2d5caf27e"
     },
     "module.unitystudyutility": {
-      "version": "file:.module.unitystudyutility@2.3.21",
+      "version": "file:.module.unitystudyutility@2.3.22",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "module.unitystudydefine": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudydefine_client.git#2.3.21",
-        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.21",
-        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.21",
-        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.21",
-        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.21",
-        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.21",
-        "module.unitycommonutility": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.3.21"
+        "module.unitystudydefine": "https://are2341:NSString132!@gitlab.com/dante.distribution.individual/0300000001.module_unitystudydefine_client.git#2.3.22",
+        "module.unitycommondefine": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommondefine_client.git#2.3.22",
+        "module.unitycommonaccess": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonaccess_client.git#2.3.22",
+        "module.unitycommonfactory": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfactory_client.git#2.3.22",
+        "module.unitycommonextension": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonextension_client.git#2.3.22",
+        "module.unitycommonfunc": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonfunc_client.git#2.3.22",
+        "module.unitycommonutility": "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonutility_client.git#2.3.22"
       }
     },
     "com.unity.modules.ai": {

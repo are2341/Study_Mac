@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
 namespace SampleEngineName {
 	#region 기본
 	/** 그리드 정보 */
@@ -23,4 +23,4 @@ namespace SampleEngineName {
 	}
 	#endregion			// 기본
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && ENGINE_TEMPLATES_MODULE_ENABLE

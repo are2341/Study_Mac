@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 #if PURCHASE_MODULE_ENABLE
 using UnityEngine.Purchasing;
 #endif			// #if PURCHASE_MODULE_ENABLE
@@ -24,14 +24,6 @@ public static partial class Access {
 	
 	#region 조건부 클래스 함수
 #if PURCHASE_MODULE_ENABLE
-	/** 상품 판매 식별자를 반환한다 */
-	public static int GetProductSaleID(EProductSaleKinds a_eProductSaleKinds) {
-		int nIdx = KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST.FindIndex((a_eCompareProductSaleKinds) => a_eProductSaleKinds == a_eCompareProductSaleKinds);
-		CAccess.Assert(KDefine.G_PRODUCT_SIT_PRODUCT_SALE_KINDS_LIST.ExIsValidIdx(nIdx));
-
-		return nIdx;
-	}
-	
 	/** 가격 문자열을 반환한다 */
 	public static string GetPriceStr(int a_nID) {
 		var oProduct = Access.GetProduct(a_nID);
@@ -48,4 +40,4 @@ public static partial class Access {
 #endif			// #if PURCHASE_MODULE_ENABLE
 	#endregion			// 조건부 클래스 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

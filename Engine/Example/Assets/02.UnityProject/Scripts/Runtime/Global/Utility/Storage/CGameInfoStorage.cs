@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 using Newtonsoft.Json;
 
 /** 클리어 정보 */
@@ -525,4 +525,4 @@ public partial class CGameInfoStorage : CSingleton<CGameInfoStorage> {
 	}
 	#endregion			// 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

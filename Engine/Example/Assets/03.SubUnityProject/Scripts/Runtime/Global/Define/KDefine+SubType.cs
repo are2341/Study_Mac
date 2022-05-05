@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MessagePack;
 
-#if EXTRA_SCRIPT_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE
 #region 기본
 /** 서브 타입 랩퍼 */
 [MessagePackObject]
@@ -12,4 +12,4 @@ public struct STSubTypeWrapper {
 	// Do Something
 }
 #endregion			// 기본
-#endif			// #if EXTRA_SCRIPT_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE

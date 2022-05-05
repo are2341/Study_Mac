@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 /** 챕터 스크롤러 셀 뷰 */
 public partial class CChapterScrollerCellView : CScrollerCellView {
 	/** 매개 변수 */
@@ -59,4 +59,4 @@ public partial class CChapterScrollerCellView : CScrollerCellView {
 	}
 	#endregion			// 함수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE

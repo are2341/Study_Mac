@@ -16,7 +16,7 @@ namespace SetupScene {
 		protected override void Setup() {
 			base.Setup();
 
-#if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 			// 저장소를 로드한다
 			CAppInfoStorage.Inst.LoadAppInfo();
 			CUserInfoStorage.Inst.LoadUserInfo();
@@ -24,6 +24,7 @@ namespace SetupScene {
 			
 			// 테이블을 로드한다
 			CLevelInfoTable.Inst.LoadLevelInfos();
+			CItemInfoTable.Inst.LoadItemInfos();
 			CItemSaleInfoTable.Inst.LoadItemSaleInfos();
 			CProductSaleInfoTable.Inst.LoadProductSaleInfos();
 			CMissionInfoTable.Inst.LoadMissionInfos();
@@ -31,11 +32,13 @@ namespace SetupScene {
 			CEpisodeInfoTable.Inst.LoadEpisodeInfos();
 			CTutorialInfoTable.Inst.LoadTutorialInfos();
 			CFXInfoTable.Inst.LoadFXInfos();
+			CSkillInfoTable.Inst.LoadSkillInfos();
 			CBlockInfoTable.Inst.LoadBlockInfos();
-#endif			// #if EXTRA_SCRIPT_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
+			CResInfoTable.Inst.LoadResInfos();
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && RUNTIME_TEMPLATES_MODULE_ENABLE
 
 			// 공용 앱 정보를 설정한다 {
-#if EXTRA_SCRIPT_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 			CCommonAppInfoStorage.Inst.StoreURL = Access.StoreURL;
 			
 #if LOCALIZE_TEST_ENABLE
@@ -43,7 +46,7 @@ namespace SetupScene {
 #else
 			CCommonAppInfoStorage.Inst.SystemLanguage = Application.systemLanguage;
 #endif			// #if LOCALIZE_TEST_ENABLE
-#endif			// #if EXTRA_SCRIPT_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE && NEWTON_SOFT_JSON_MODULE_ENABLE
 			// 공용 앱 정보를 설정한다 }
 		}
 		#endregion			// 함수

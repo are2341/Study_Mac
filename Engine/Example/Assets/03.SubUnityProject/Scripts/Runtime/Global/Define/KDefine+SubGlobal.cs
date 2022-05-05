@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXTRA_SCRIPT_ENABLE
+#if EXTRA_SCRIPT_MODULE_ENABLE
 /** 서브 전역 상수 */
 public static partial class KDefine {
 	#region 기본
@@ -14,9 +14,9 @@ public static partial class KDefine {
 	public const string G_OBJ_N_DAILY_MISSION_POPUP = "DailyMissionPopup";
 	public const string G_OBJ_N_FREE_REWARD_POPUP = "FreeRewardPopup";
 	public const string G_OBJ_N_DAILY_REWARD_POPUP = "DailyRewardPopup";
-	public const string G_OBJ_N_SALE_COINS_POPUP = "SaleCoinsPopup";
+	public const string G_OBJ_N_COINS_BOX_POPUP = "CoinsBoxPopup";
 	public const string G_OBJ_N_REWARD_ACQUIRE_POPUP = "RewardAcquirePopup";
-	public const string G_OBJ_N_SALE_COINS_ACQUIRE_POPUP = "SaleCoinsAcquirePopup";
+	public const string G_OBJ_N_COINS_BOX_COINS_ACQUIRE_POPUP = "CoinsBoxCoinsAcquirePopup";
 	public const string G_OBJ_N_CONTINUE_POPUP = "ContinuePopup";
 	public const string G_OBJ_N_RESULT_POPUP = "ResultPopup";
 	public const string G_OBJ_N_PAUSE_POPUP = "PausePopup";
@@ -24,11 +24,7 @@ public static partial class KDefine {
 	public const string G_OBJ_N_PRODUCT_SALE_POPUP = "ProductSalePopup";
 	public const string G_OBJ_N_FOCUS_POPUP = "FocusPopup";
 	public const string G_OBJ_N_TUTORIAL_POPUP = "TutorialPopup";
-
-	// 식별자
-	public const int G_PRODUCT_ID_SALE_COINS = 0;
-	public const int G_PRODUCT_ID_REMOVE_ADS = 1;
-
+	
 	// 설정 팝업 {
 	public const string G_IMG_P_SETTINGS_P_SND_ON = "G_SndOn";
 	public const string G_IMG_P_SETTINGS_P_SND_OFF = "G_SndOff";
@@ -48,6 +44,24 @@ public static partial class KDefine {
 
 	// 씬 이름
 	public const string G_SCENE_N_5x_E01_EXAMPLE_058 = "_5xE01Example_058";
+	public const string G_SCENE_N_ETC_E01_EXAMPLE_042 = "EtcE01Example_042";
 	#endregion			// 기본
+	
+	#region 런타임 상수
+	// 일일 보상
+	public static readonly List<ERewardKinds> G_REWARDS_KINDS_DAILY_REWARD_LIST = new List<ERewardKinds>() {
+		// Do Something
+	};
+
+	// 상점 상품 판매
+	public static readonly List<EProductSaleKinds> G_STORE_PRODUCT_SALE_KINDS_LIST = new List<EProductSaleKinds>() {
+		// Do Something
+	};
+
+	// 특수 패키지 상품 판매
+	public static readonly List<EProductSaleKinds> G_PRODUCT_SALE_KINDS_PRODUCT_SPECIAL_PKGS_LIST = new List<EProductSaleKinds>() {
+		// Do Something
+	};
+	#endregion			// 런타임 상수
 }
-#endif			// #if EXTRA_SCRIPT_ENABLE
+#endif			// #if EXTRA_SCRIPT_MODULE_ENABLE

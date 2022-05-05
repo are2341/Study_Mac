@@ -1,0 +1,47 @@
+{
+	"Common": [
+	  {
+		"Description": "초보자 패키지",
+		"Replace": "0",
+		"Name": "C_BEGINNER_PKGS_TEXT",
+		"Desc": null,
+		"ID": "dante.distribution.sample.iap.nc.pkgs.beginner",
+		"ProductType": "1"
+	  },
+	  {
+		"Description": "숙련자 패키지",
+		"Replace": "0",
+		"Name": "C_EXPERT_PKGS_TEXT",
+		"Desc": null,
+		"ID": "dante.distribution.sample.iap.nc.pkgs.expert",
+		"ProductType": "1"
+	  },
+	  {
+		"Description": "전문가 패키지",
+		"Replace": "0",
+		"Name": "C_PRO_PKGS_TEXT",
+		"Desc": null,
+		"ID": "dante.distribution.sample.iap.nc.pkgs.pro",
+		"ProductType": "1"
+	  },
+	  {
+		"Description": "코인 상자",
+		"Replace": "0",
+		"Name": "C_COINS_BOX_TEXT",
+		"Desc": null,
+		"ID": "dante.distribution.sample.iap.c.single.coinsbox",
+		"ProductType": "0"
+	  },
+	  {
+		"Description": "광고 제거",
+		"Replace": "0",
+		"Name": "C_REMOVE_ADS_TEXT",
+		"Desc": null,
+		"ID": "dante.distribution.sample.iap.nc.single.removeads",
+		"ProductType": "1"
+	  }
+	],
+	"iOSApple": [],
+	"AndroidGoogle": [],
+	"AndroidAmazon": []
+  }
