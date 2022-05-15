@@ -45,9 +45,7 @@
 		C3BC26C727F7C5E000E93DB5 = {
 			isa = PBXGroup;
 			children = (
-				C3BC26DD27F7C6C800E93DB5 /* Global */,
-				C3BC26D227F7C5E000E93DB5 /* Example_029 */,
-				C3BC26D327F7C5E000E93DB5 /* main.cpp */,
+				FE84CF442830996600765CFE /* E02 */,
 				C3BC26D127F7C5E000E93DB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,6 +81,16 @@
 				C3BC26E027F7C6D900E93DB5 /* KGDefine.hpp */,
 			);
 			path = Define;
+			sourceTree = "<group>";
+		};
+		FE84CF442830996600765CFE /* E02 */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC26DD27F7C6C800E93DB5 /* Global */,
+				C3BC26D227F7C5E000E93DB5 /* Example_029 */,
+				C3BC26D327F7C5E000E93DB5 /* main.cpp */,
+			);
+			path = E02;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

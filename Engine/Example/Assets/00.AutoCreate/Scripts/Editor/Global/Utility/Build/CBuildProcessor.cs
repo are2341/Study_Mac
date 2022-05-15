@@ -19,7 +19,6 @@ public static partial class CBuildProcessor {
 	private static Dictionary<BuildTarget, System.Action<BuildTarget, string>> m_oPostProcessHandlerDict = new Dictionary<BuildTarget, System.Action<BuildTarget, string>>() {
 		[BuildTarget.iOS] = CBuildProcessor.HandleiOSPostProcessBuild,
 		[BuildTarget.Android] = CBuildProcessor.HandleAndroidPostProcessBuild,
-		
 		[BuildTarget.StandaloneOSX] = CBuildProcessor.HandleStandalonePostProcessBuild,
 		[BuildTarget.StandaloneWindows] = CBuildProcessor.HandleStandalonePostProcessBuild,
 		[BuildTarget.StandaloneWindows64] = CBuildProcessor.HandleStandalonePostProcessBuild
@@ -69,6 +68,8 @@ public static partial class CBuildProcessor {
 			// 코코아 포드 파일이 존재 할 경우
 			if(File.Exists(oPodsPath)) {
 				CEditorFunc.ExecuteCmdLine(string.Format(KCEditorDefine.B_BUILD_CMD_FMT_IOS_COCOA_PODS, a_oPath), false);
+				
+				oPBXProj.SetBuildProperty(oPBXProj.ProjectGuid(), KCEditorDefine.B_PROPERTY_N_IOS_ENABLE_BITCODE, KCEditorDefine.B_TEXT_IOS_FALSE);
 				oPBXProj.AddBuildProperty(oPBXProj.ProjectGuid(), KCEditorDefine.B_PROPERTY_N_IOS_USER_HEADER_SEARCH_PATHS, KCEditorDefine.B_SEARCH_P_IOS_PODS);
 			}
 
@@ -88,7 +89,9 @@ public static partial class CBuildProcessor {
 			var oDoc = new PlistDocument();
 			oDoc.ReadFromFile(oPlistPath);
 
-			oDoc.root.SetBoolean(KCEditorDefine.B_KEY_IOS_ENCRYPTION_ENABLE, KEditorDefine.B_IOS_ENCRYPTION_ENABLE);
+			oDoc.root.SetBoolean(KCEditorDefine.B_KEY_IOS_FIREBASE_APP_STORE_RECEIPT_URL_CHECK_ENABLE, false);
+			
+			oDoc.root.SetString(KCEditorDefine.B_KEY_IOS_ENCRYPTION_ENABLE, KCEditorDefine.B_TEXT_IOS_FALSE);
 			oDoc.root.SetString(KCEditorDefine.B_KEY_IOS_USER_TRACKING_USAGE_DESC, KEditorDefine.B_IOS_USER_TRACKING_USAGE_DESC);
 
 			var oDeviceCapabilityList = oDoc.ExGetArray(KCEditorDefine.B_KEY_IOS_DEVICE_CAPABILITIES);
@@ -115,19 +118,20 @@ public static partial class CBuildProcessor {
 			string oMainGUID = oPBXProj.GetUnityMainTargetGuid();
 			string oFrameworkGUID = oPBXProj.GetUnityFrameworkTargetGuid();
 
-			oPBXProj.SetBuildProperty(oMainGUID, KCEditorDefine.B_PROPERTY_N_IOS_ENABLE_BITCODE, KCEditorDefine.B_TEXT_IOS_TRUE);
-			oPBXProj.SetBuildProperty(oFrameworkGUID, KCEditorDefine.B_PROPERTY_N_IOS_ENABLE_BITCODE, KCEditorDefine.B_TEXT_IOS_TRUE);
+			oPBXProj.SetBuildProperty(oMainGUID, KCEditorDefine.B_PROPERTY_N_IOS_ENABLE_BITCODE, KCEditorDefine.B_TEXT_IOS_FALSE);
+			oPBXProj.SetBuildProperty(oFrameworkGUID, KCEditorDefine.B_PROPERTY_N_IOS_ENABLE_BITCODE, KCEditorDefine.B_TEXT_IOS_FALSE);
 
 			for(int i = 0; i < KEditorDefine.B_IOS_EXTRA_FRAMEWORK_LIST.Count; ++i) {
 				oPBXProj.AddFrameworkToProject(oMainGUID, KEditorDefine.B_IOS_EXTRA_FRAMEWORK_LIST[i], false);
 				oPBXProj.AddFrameworkToProject(oFrameworkGUID, KEditorDefine.B_IOS_EXTRA_FRAMEWORK_LIST[i], false);
 			}
 
-			/* FIXME: 주석 처리 (필요 시 활성 및 사용 가능)
+#if NEVER_USE_THIS
+			// FIXME: 비활성 처리 (필요 시 활성 및 사용 가능)
 			for(int i = 0; i < KEditorDefine.B_IOS_EXTRA_CAPABILITY_TYPE_LIST.Count; ++i) {
 				oPBXProj.AddCapability(oMainGUID, KEditorDefine.B_IOS_EXTRA_CAPABILITY_TYPE_LIST[i]);
 			}
-			*/
+#endif			// #if NEVER_USE_THIS
 
 			// 전처리기 심볼 정보 테이블이 존재 할 경우
 			if(CPlatformOptsSetter.DefineSymbolDictContainer != null && CPlatformOptsSetter.DefineSymbolDictContainer.TryGetValue(BuildTargetGroup.iOS, out List<string> oDefineSymbolList)) {
@@ -139,7 +143,8 @@ public static partial class CBuildProcessor {
 
 			oPBXProj.WriteToFile(oPBXProjPath);
 
-			/* FIXME: 주석 처리 (필요 시 활성 및 사용 가능)
+#if NEVER_USE_THIS
+			// FIXME: 비활성 처리 (필요 시 활성 및 사용 가능)
 			var oCapability = new ProjectCapabilityManager(oPBXProjPath, KCEditorDefine.B_ENTITLEMENTS_P_CAPABILITY_IOS, null, oMainGUID);
 			
 			for(int i = 0; i < KEditorDefine.B_IOS_EXTRA_CAPABILITY_TYPE_LIST.Count; ++i) {
@@ -164,7 +169,7 @@ public static partial class CBuildProcessor {
 			}
 
 			oCapability.WriteToFile();
-			*/
+#endif			// #if NEVER_USE_THIS
 		}
 #endif			// #if UNITY_IOS
 	}
@@ -188,3 +193,4 @@ public static partial class CBuildProcessor {
 	#endregion			// 클래스 함수
 }
 #endif			// #if UNITY_EDITOR
+ 

@@ -6,30 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
-    guid: 1e74ccc9a26224523821ec9ee5e89e06
-  - enabled: 1
-    path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
-    guid: d0a192be1e75f4016afedb7a38d737e5
-  - enabled: 1
-    path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
-    guid: 3039a381dafe74c89bc03c4a02692d93
-  - enabled: 1
-    path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
-    guid: 6e748235a28684b3f91ad970da301303
-  - enabled: 1
-    path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
-    guid: 777b47913fae64bb987ea5b70c509a87
-  - enabled: 1
-    path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
-    guid: cd2e4921312f14af78dac0a71b2b2ea7
-  - enabled: 1
-    path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
-    guid: 0185b490ee0444de694cb2e438ed8d3f
-  - enabled: 1
-    path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
-    guid: 602a6d1c953f043faa00fdc3abdcbb4a
-  - enabled: 1
     path: Assets/02.UnityProject/Scenes/01.TitleScene.unity
     guid: c07966c1626b44610bbb1d450bcd6088
   - enabled: 1
@@ -61,7 +37,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/03.SubUnityProject/Scenes/Etc/E01/EtcE01Example_042.unity
     guid: daaa5bfffbbc74a47b1e5a3af82fc922
-  - enabled: 1
-    path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
-    guid: 994b1fbf9113b46a7b69aa373c5883da
   m_configObjects: {}
