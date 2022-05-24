@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 23
-  productGUID: 8e867fa8f202c43988a8f2686844202a
+  productGUID: 1b71a1edfa28f41ef9e051c68c942caf
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -17,8 +17,8 @@ PlayerSettings:
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  m_ShowUnitySplashScreen: 0
-  m_ShowUnitySplashLogo: 0
+  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 1
@@ -113,7 +113,7 @@ PlayerSettings:
   xboxOneDisableEsram: 0
   xboxOneEnableTypeOptimization: 0
   xboxOnePresentImmediateThreshold: 0
-  switchQueueCommandMemory: 0
+  switchQueueCommandMemory: 1048576
   switchQueueControlMemory: 16384
   switchQueueComputeMemory: 262144
   switchNVNShaderPoolsGranularity: 33554432
@@ -134,32 +134,39 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1.0
   preloadedAssets:
-  - {fileID: 102900000, guid: 44748885412d847feb13574f2e8baee6, type: 3}
-  - {fileID: 2591743716635408597, guid: fe567e1123ca64a17b674cdfb16ca387, type: 3}
-  - {fileID: 102900000, guid: 33723909fcf9d4a65b4045cbbaf75c30, type: 3}
-  - {fileID: 102900000, guid: a0cd1fbec88f94ff488bd4e4223dc94d, type: 3}
-  - {fileID: 2989041605506208401, guid: 791d9c9572c7e40d192171dcc13563b4, type: 3}
-  - {fileID: 5147525995688385540, guid: 21a5824b8a7ee40a39af1d77194ed331, type: 3}
-  - {fileID: 1817623556078558402, guid: c7541020b79ba4a2aaf16d49b45227c4, type: 3}
-  - {fileID: 6128490779958065557, guid: ecd5939dd67934b4a9462fd9f94a6828, type: 3}
-  - {fileID: 7070679199445834543, guid: 8597dec10383840eead95de36964c177, type: 3}
-  - {fileID: 4356027495233071737, guid: 2e0ee215dca8e4fe5a069cebf57c1002, type: 3}
-  - {fileID: 352738984198777281, guid: cf12ca31206ca4a579fd2acade7f05e0, type: 3}
-  - {fileID: 7311286439954195960, guid: 3d5dee10aa0c746c89077d109a227c35, type: 3}
-  - {fileID: 102900000, guid: c07966c1626b44610bbb1d450bcd6088, type: 3}
-  - {fileID: 767217715193520608, guid: b9f7b0d2f04764532a8492c5fe6a5c99, type: 3}
-  - {fileID: 102900000, guid: ca5ab82970ca44b2788c36e09cf61463, type: 3}
-  - {fileID: 4243302819017278949, guid: 317b4b7cb1d3f4de9a309b6c4adb464b, type: 3}
-  - {fileID: 102900000, guid: 20eb5961948fa4dec86a8507681af441, type: 3}
-  - {fileID: 2867284614367050963, guid: 067d95860d39749ee8802806a24aea49, type: 3}
-  - {fileID: 102900000, guid: 031ecf6256a7f41d0af466f53ec10853, type: 3}
-  - {fileID: 5810649357601479692, guid: 4062d874e6ec24ceaa34a05c9f052c12, type: 3}
-  - {fileID: 102900000, guid: f9d807ffdf4624c298db9e6b13f991c5, type: 3}
-  - {fileID: 7541034260736799721, guid: 51fc667cfa504479db37c3f77a5f6d64, type: 3}
-  - {fileID: 102900000, guid: a3305b51e8cff4c67934ec0c0c407175, type: 3}
-  - {fileID: 6888459842325200426, guid: 506257304142340769b1faf09c7bc0e3, type: 3}
+  - {fileID: 102900000, guid: 31dc8b395cb0e40c38a235bde9549d26, type: 3}
+  - {fileID: 102900000, guid: 28dcab6f52c6040e1b8206ee8b875e44, type: 3}
+  - {fileID: 4771243152378657707, guid: 791d9c9572c7e40d192171dcc13563b4, type: 3}
+  - {fileID: 102900000, guid: b4e6e12ab03fb455b85c7d6fff778319, type: 3}
+  - {fileID: 5967987957151316886, guid: 21a5824b8a7ee40a39af1d77194ed331, type: 3}
+  - {fileID: 102900000, guid: e1c9cabc072ea4cafb9f789aa3bc1ace, type: 3}
+  - {fileID: 1261217541635425642, guid: 153c89ba16b524727a8b5cd0554910f9, type: 3}
+  - {fileID: 102900000, guid: 3b7edb955cbce45bdaf7f58283a9a4ea, type: 3}
+  - {fileID: 7346965520814304041, guid: ecd5939dd67934b4a9462fd9f94a6828, type: 3}
+  - {fileID: 102900000, guid: 7de6fb16c08f84fc3abd4f7726a4a01f, type: 3}
+  - {fileID: 1969020096691969630, guid: 8c382a0d8e19c4e85b4705106379d086, type: 3}
+  - {fileID: 102900000, guid: 8270a382bcea4402d86abf3f6cb3b908, type: 3}
+  - {fileID: 3221113377858451817, guid: 2e0ee215dca8e4fe5a069cebf57c1002, type: 3}
+  - {fileID: 102900000, guid: fcd50bd2055754ba684039793c67a2ba, type: 3}
+  - {fileID: 6751287250337544440, guid: 3552f1f42e2844e77b61724756564963, type: 3}
+  - {fileID: 102900000, guid: 223f53b0e0f0144ef83e6e51bf56dacd, type: 3}
+  - {fileID: 1745469006624604674, guid: 986e80b55a6b6425f9760d9f0a5f35c7, type: 3}
+  - {fileID: 102900000, guid: 0ffc4d5fab2a649d18ca6e9afe6c2fc8, type: 3}
+  - {fileID: 8401250314637498411, guid: 29b05e86254124ca0a6ab29703796e52, type: 3}
+  - {fileID: 102900000, guid: c354e6cc3ef2d43629f99bb4f2afd17d, type: 3}
+  - {fileID: 2337316395687297725, guid: 9b31a05c2cea14a24b3f5a9deedc8ba7, type: 3}
+  - {fileID: 102900000, guid: 428352f61827046e39e4ffa1e9aafa92, type: 3}
+  - {fileID: 7687658109722788030, guid: 655fb79eab5c54e0b839ce9b49c3dc58, type: 3}
+  - {fileID: 102900000, guid: 1c55d50dcdcd64199bfbed873f909824, type: 3}
+  - {fileID: 1226731126021862000, guid: 7052463bd5bb84e75883f41a6ac7b6fa, type: 3}
+  - {fileID: 102900000, guid: 5d77712224bb74b90a92a2e9f7b4c7a9, type: 3}
+  - {fileID: 7790714469785242240, guid: a40b70da66a4b47c08f26505f73ed643, type: 3}
+  - {fileID: 102900000, guid: 072a0a007162349e3a84d5af22c9eef8, type: 3}
+  - {fileID: 7396638005952301779, guid: 5468e62b2cfed42da8c2b86f597fef23, type: 3}
+  - {fileID: 8019310881375038877, guid: 0b8d898a0988e4b8094500aab0ae2a3c, type: 3}
+  - {fileID: 8019310881375038877, guid: 5e9d2032aadf745fba2486f0b74d287d, type: 3}
   - {fileID: 4343727234628468602, guid: 1a69cbca17c934afd8f6c07e7b7a5181, type: 2}
   - {fileID: 4343727234628468602, guid: d2a7c00fb2220422184b099bd1f70b80, type: 2}
   - {fileID: 4343727234628468602, guid: cf79e305536fa4e09b902f259b9d0bd0, type: 2}
@@ -169,11 +176,14 @@ PlayerSettings:
   - {fileID: 4343727234628468602, guid: 60138dd3858a4422599445172ea6bcc0, type: 2}
   - {fileID: 4343727234628468602, guid: d4990bb78b812431eb95ec407c0cd645, type: 2}
   - {fileID: 4343727234628468602, guid: 08be6e238dd81463f83de531bef8db7a, type: 2}
-  - {fileID: 102900000, guid: daaa5bfffbbc74a47b1e5a3af82fc922, type: 3}
-  - {fileID: 3744352095385989077, guid: 13b0d76e78fe4409281a1fd842151909, type: 3}
+  - {fileID: 102900000, guid: d5bf03e89929146b88dbe58c5335130e, type: 3}
+  - {fileID: 7329298977906232958, guid: 2961f769b51ba43d592c197211f75de8, type: 3}
   - {fileID: 6884252962769875886, guid: f1e8a373beef4446a931bd51676c9798, type: 3}
   - {fileID: 2183824002408205911, guid: e04a15437e15f46b997f8d392bea62b3, type: 3}
+  - {fileID: 2163081430555252783, guid: f58cb8e50099648c68254007b2c7c87c, type: 3}
+  - {fileID: 11400000, guid: 62c235d1907e24a7f8b07000379260c5, type: 2}
   - {fileID: 11400000, guid: d8ab60325bcac4ad4bf8ee334e345192, type: 2}
+  - {fileID: 8334246944251894886, guid: f06e137aff1da4f6eaeb1ea07e421f01, type: 3}
   - {fileID: 8019310881375038877, guid: aa444623484364d1885a171f1f82b9b6, type: 3}
   - {fileID: 8019310881375038877, guid: ec74778639c4e45ac99f523e2af6b865, type: 3}
   - {fileID: 8019310881375038877, guid: b7fc330eca622495a913ef3591a7004c, type: 3}
@@ -181,24 +191,40 @@ PlayerSettings:
   - {fileID: 8019310881375038877, guid: 9daae7e69d4e84bfebac9c04b4875af1, type: 3}
   - {fileID: 11400000, guid: 36ef3cadee28544e08dc204a8ef3f7ed, type: 2}
   - {fileID: 11400000, guid: 5db9df904fb5845eca9bb51a20a38c08, type: 2}
+  - {fileID: 4164878208595072810, guid: 4a240d0fe49164735813e1ea7572ed11, type: 3}
+  - {fileID: 6884252962769875886, guid: 96554153a392a4681861631f7820195e, type: 3}
+  - {fileID: 6884252962769875886, guid: ffc271bdad8f14526a19f557e350bb61, type: 3}
   - {fileID: 11400000, guid: 1ba9e5314791548adb5fdb50da12acd6, type: 2}
+  - {fileID: 11400000, guid: 9ea7be70b564b458ea129d75eed49132, type: 2}
   - {fileID: 8019310881375038877, guid: 251e76c1c466a43c98967ea49eeb9bbb, type: 3}
   - {fileID: 8019310881375038877, guid: c33dd2494e8ac40c486362300dad65c4, type: 3}
+  - {fileID: 11400000, guid: e1f692b7280814ae5bf47d9a488a0631, type: 2}
+  - {fileID: 2163081430555252783, guid: 5cf8ce1efdb2849a581f840c72ae12cb, type: 3}
   - {fileID: 4890085278179872738, guid: 20396502c5756408fa1829d87ae714c3, type: 2}
+  - {fileID: 7854453751169407068, guid: 295e38cc7832743fab1b8e8e8b9fde9c, type: 3}
   - {fileID: 7282889018440753118, guid: d9dfc6dc1b4e14979bee9784de3ba44d, type: 3}
+  - {fileID: 11400000, guid: 3b38939b67cc54e63ba08d5be2a75c97, type: 2}
+  - {fileID: 11400000, guid: e18f6d5811ec34a9bbea601a52e89213, type: 2}
   - {fileID: 11400000, guid: 5d4bd960b187d495b9eec0bd43aad8b0, type: 2}
+  - {fileID: 8334246944251894886, guid: 0a13402e9c6b246eaa4d431041c15b59, type: 3}
   - {fileID: 11400000, guid: cb47fbff6619d4d3190bddbde7db847f, type: 2}
+  - {fileID: 11400000, guid: be202c1cb9bbf4005907f2f8b6beb9d3, type: 2}
   - {fileID: 4890085278179872738, guid: 7f6fd553d9e764215a788f01bfc148b5, type: 2}
   - {fileID: 11400000, guid: 5a1cb768ccc984cb4a913bc104b99537, type: 2}
   - {fileID: 8019310881375038877, guid: 2626bf121216a4d0f84aa9e56553678b, type: 3}
+  - {fileID: 11400000, guid: b84b63d2020ce40028d9a3499378f622, type: 2}
   - {fileID: 8019310881375038877, guid: 3850d48af840c44e49bfc4ad60a05c69, type: 3}
   - {fileID: 11400000, guid: 389f559f240f049028a2ae88cac668b3, type: 2}
+  - {fileID: 11400000, guid: 096649a2c1d3d4870aa0144cc68a6648, type: 2}
   - {fileID: 8019310881375038877, guid: 3b8440313be1344a4bea0522eac34ab5, type: 3}
   - {fileID: 8019310881375038877, guid: fcd183334f2834df68f28847071e5ed6, type: 3}
   - {fileID: 8019310881375038877, guid: eebcf6b83ba8b445dac1f1410daec455, type: 3}
+  - {fileID: 11400000, guid: f77b5af94cae24055bbca5d240eddaeb, type: 2}
   - {fileID: 8019310881375038877, guid: 139c015f2faf8412bb8e621ab054b4cc, type: 3}
   - {fileID: 8019310881375038877, guid: c594ddbec45b84fa297183e7158ce031, type: 3}
+  - {fileID: 7854453751169407068, guid: b6b9eccf311324982a40ecdab101bcef, type: 3}
   - {fileID: 8019310881375038877, guid: b62058a3d93254046a227577c6012b42, type: 3}
+  - {fileID: 11400000, guid: 1878a410a559646b19bed2f2287b0ffe, type: 2}
   - {fileID: 4343727234628468602, guid: 8d4a62370a5f545539adcfd0d5877a6c, type: 2}
   - {fileID: 4343727234628468602, guid: 28672cde2f23c4ed98b700fde4864543, type: 2}
   - {fileID: 4343727234628468602, guid: 63819fa72dc95467c85b62812e3263fb, type: 2}
@@ -208,17 +234,46 @@ PlayerSettings:
   - {fileID: 4343727234628468602, guid: 80311b73cd1d94a44a094e3c9ebe182f, type: 2}
   - {fileID: 4343727234628468602, guid: 92ea9d0a5f78a4b3eb48a70b8abbae35, type: 2}
   - {fileID: 4343727234628468602, guid: cc0b8a7fa0e0848a3b954fadc1fb1718, type: 2}
+  - {fileID: 8334246944251894886, guid: b68dca424e2e44ddda1a38ab0710e5fc, type: 3}
   - {fileID: 8019310881375038877, guid: 9fe8608f1990a47c4a602a4576ac1c4f, type: 3}
   - {fileID: 8019310881375038877, guid: a70fcb0c3809a457daad0f06621d2ed1, type: 3}
+  - {fileID: 7854453751169407068, guid: 0d55d7e72dbf9458ab48aad21fc79731, type: 3}
+  - {fileID: 11400000, guid: 21f2fc25273d14fd4918974681928698, type: 2}
   - {fileID: 8019310881375038877, guid: 977775aa8df5e4ea8a7cf2c7360755dd, type: 3}
   - {fileID: 4890085278179872738, guid: 82aa3612cdb564ab49499786d51295e2, type: 2}
   - {fileID: 8113187388039015871, guid: da92b7170575c46c8a7eaf4afa14073c, type: 3}
   - {fileID: 2429724377936249959, guid: 8d93d9d989bd74c4c828ffda97d318cc, type: 3}
   - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 7947261922413523823, guid: 83f7113f082d9422f9a6c0329572fbbe, type: 3}
+  - {fileID: 2263259457666090574, guid: 295babf3951e54d2e861f4a1ff052fed, type: 3}
+  - {fileID: 4956034379125523778, guid: 16095cbeeda39491e96788ae434c5a23, type: 3}
   - {fileID: 2429724377936249959, guid: c30148b79fb434d219397a243def3f80, type: 3}
   - {fileID: 2429724377936249959, guid: 01c69b87205e64feb99a7a458a90fcfd, type: 3}
   - {fileID: 2429724377936249959, guid: cc104030c159545d0b759d004286d880, type: 3}
   - {fileID: 2429724377936249959, guid: f25fc0d4ffc7d4350b9f6ccda3c98d7b, type: 3}
+  - {fileID: 8639127690170192487, guid: fe7bed5820367479fadc006f8da1c788, type: 3}
+  - {fileID: 1971558561948930709, guid: 63775fc990dcb430db70744e2ba6c697, type: 3}
+  - {fileID: 9210985311794052919, guid: 92ba76c0828cd4555ad1a1909f9acb1e, type: 3}
+  - {fileID: 1971558561948930709, guid: eb190c42ec61443509e9d23578de4718, type: 3}
+  - {fileID: 5385870261330512964, guid: ffd9a0a57a16940758cfa49d73c1353c, type: 3}
+  - {fileID: 759473308918110982, guid: 561aa94ec11684e72b90c9d6aa5b6e9c, type: 3}
+  - {fileID: 8656266775954721300, guid: 705123052a7f146948984a24a6dcafb3, type: 3}
+  - {fileID: 5947302547315598640, guid: 8d30072f709164101a3e2700e0993f0b, type: 3}
+  - {fileID: 2646406680100093907, guid: 30d5f8c2c01204924be4cc710d04486c, type: 3}
+  - {fileID: 7325180939113123956, guid: db18011d1a85b46898481f4536fa538e, type: 3}
+  - {fileID: 1180476629471329341, guid: 34470c823126f4881831b6c42761f0d4, type: 3}
+  - {fileID: 4499622193224579806, guid: ee41da02ed72a48faae18949d6770404, type: 3}
+  - {fileID: 1439637183281735831, guid: 7fc01ac9ebe1a4f09abaed6199b50668, type: 3}
+  - {fileID: 2454151896034854386, guid: 36503976760fa4c72a837d78b7bceb39, type: 3}
+  - {fileID: 7996696830925552140, guid: 6c4330b87b8ee479bad78a78b7fbeed4, type: 3}
+  - {fileID: 1235555001808888983, guid: 69d35734c44534761a17032303c13c39, type: 3}
+  - {fileID: 2238885011981083450, guid: bfabd89ad6b324b1bb8ca2e20abaa709, type: 3}
+  - {fileID: 4050771938323619927, guid: b3a93340eb1ee43d1bbebbc1cc635e28, type: 3}
+  - {fileID: 8963748004643733711, guid: 0ff85ff4c0d184a20bbdf7d91c51c266, type: 3}
+  - {fileID: 1515028129432522447, guid: 71c38a4729f5147729e76d2b79300563, type: 3}
+  - {fileID: 1684748006710989416, guid: ec45a9970100a4899aed62fe9c92075a, type: 3}
+  - {fileID: 1515028129432522447, guid: 7b601b603cbab44d4b40671bf554c08a, type: 3}
+  - {fileID: 151844525167847963, guid: 66b5e236c027f426ea6822b2d7b410cf, type: 3}
   - {fileID: 4343727234628468602, guid: ac9327439fdef4212b356ddd254145e2, type: 2}
   - {fileID: 4343727234628468602, guid: 513b3ae36f05347a1bade433e3d5db13, type: 2}
   - {fileID: 4343727234628468602, guid: ad19c260d586a466ea8c86d8d003d11d, type: 2}
@@ -228,7 +283,22 @@ PlayerSettings:
   - {fileID: 4343727234628468602, guid: 75932c8bce6df4a2ba17a3314cd138db, type: 2}
   - {fileID: 4343727234628468602, guid: 37e4f0e35e32d486a96febd8fb0da4b9, type: 2}
   - {fileID: 4343727234628468602, guid: 0b64f847148ad444698de2edc210a314, type: 2}
+  - {fileID: 2454151896034854386, guid: 143e19513705a4f2589809303252a1d8, type: 3}
+  - {fileID: 9122242653978104542, guid: da6f76799c5074eb0b7c084ef5b3e422, type: 3}
+  - {fileID: 8644315326884589452, guid: 0cc13f87ecec34da2b3cffbbfe45fa19, type: 3}
   - {fileID: 100000, guid: ddf1094355a2e498d86cbec7e2771b88, type: 3}
+  - {fileID: 5099610047447571317, guid: 54518861bf6054d389998b836f0ad818, type: 3}
+  - {fileID: 759473308918110982, guid: 6a5d6f6581f984e48966af964b1f92fd, type: 3}
+  - {fileID: 759473308918110982, guid: ef8d30c6d38a446449d19b0be1611ca4, type: 3}
+  - {fileID: 2646406680100093907, guid: ac04884f78ea5437ba498b11ada75eb1, type: 3}
+  - {fileID: 2646406680100093907, guid: f08ef4151a68f47c8a8ce1b0b80c2f04, type: 3}
+  - {fileID: 7148794856681158532, guid: a623f27eb881247e290fa55f1fadfff7, type: 3}
+  - {fileID: 2454151896034854386, guid: d4e5ee074ff0142878d8c04745eea703, type: 3}
+  - {fileID: 9122242653978104542, guid: 79b5c2673cbda4c89a2e5f78a11ff91f, type: 3}
+  - {fileID: 9122242653978104542, guid: fabae3be2ae264446bfc6cb5c7d1aff4, type: 3}
+  - {fileID: 2454151896034854386, guid: 90e059da99dfc465da4f99ac9a71e103, type: 3}
+  - {fileID: 9122242653978104542, guid: 81f40adce3ff54c14b63b34b434fd5c3, type: 3}
+  - {fileID: 9122242653978104542, guid: 8e38d6c0fd1b84052a2e2f97bfeb0ff3, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -244,6 +314,7 @@ PlayerSettings:
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
   resolutionScalingMode: 0
+  resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
@@ -324,14 +395,14 @@ PlayerSettings:
   tvOSManualSigningProvisioningProfileID: 
   iOSManualSigningProvisioningProfileType: 0
   tvOSManualSigningProvisioningProfileType: 0
-  appleEnableAutomaticSigning: 0
+  appleEnableAutomaticSigning: 2
   iOSRequireARKit: 0
   iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
-  clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
-  templatePackageId: com.unity.template.3d@8.1.0
-  templateDefaultScene: Assets/Scenes/SampleScene.unity
+  clonedFromGUID: 00000000000000000000000000000000
+  templatePackageId: 
+  templateDefaultScene: 
   useCustomMainManifest: 0
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
@@ -597,72 +668,21 @@ PlayerSettings:
       m_Kind: 0
       m_SubKind: 
   m_BuildTargetBatching:
-  - m_BuildTarget: Standalone
-    m_StaticBatching: 1
-    m_DynamicBatching: 1
-  - m_BuildTarget: tvOS
-    m_StaticBatching: 1
-    m_DynamicBatching: 0
-  - m_BuildTarget: Android
-    m_StaticBatching: 1
-    m_DynamicBatching: 1
   - m_BuildTarget: iPhone
     m_StaticBatching: 1
     m_DynamicBatching: 1
-  - m_BuildTarget: WebGL
-    m_StaticBatching: 0
-    m_DynamicBatching: 0
+  - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
+  - m_BuildTarget: Standalone
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
     m_GraphicsJobs: 0
-  - m_BuildTarget: Switch
-    m_GraphicsJobs: 1
-  - m_BuildTarget: MetroSupport
-    m_GraphicsJobs: 1
-  - m_BuildTarget: AppleTVSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: BJMSupport
-    m_GraphicsJobs: 1
-  - m_BuildTarget: LinuxStandaloneSupport
-    m_GraphicsJobs: 1
-  - m_BuildTarget: PS4Player
-    m_GraphicsJobs: 1
-  - m_BuildTarget: iOSSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: WindowsStandaloneSupport
-    m_GraphicsJobs: 1
-  - m_BuildTarget: XboxOnePlayer
-    m_GraphicsJobs: 1
-  - m_BuildTarget: LuminSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: AndroidPlayer
-    m_GraphicsJobs: 0
-  - m_BuildTarget: WebGLSupport
-    m_GraphicsJobs: 0
-  m_BuildTargetGraphicsJobMode:
-  - m_BuildTarget: PS4Player
-    m_GraphicsJobMode: 0
-  - m_BuildTarget: XboxOnePlayer
-    m_GraphicsJobMode: 0
-  m_BuildTargetGraphicsAPIs:
-  - m_BuildTarget: AndroidPlayer
-    m_APIs: 150000000b000000
-    m_Automatic: 1
-  - m_BuildTarget: iOSSupport
-    m_APIs: 10000000
-    m_Automatic: 1
-  - m_BuildTarget: AppleTVSupport
-    m_APIs: 10000000
-    m_Automatic: 1
-  - m_BuildTarget: WebGLSupport
-    m_APIs: 0b000000
-    m_Automatic: 1
-  m_BuildTargetVRSettings:
-  - m_BuildTarget: Standalone
-    m_Enabled: 0
-    m_Devices:
-    - Oculus
-    - OpenVR
+  m_BuildTargetGraphicsJobMode: []
+  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetVRSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
@@ -672,11 +692,9 @@ PlayerSettings:
     iPhone: 1
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality:
-  - m_BuildTarget: Android
-    m_EncodingQuality: 1
   - m_BuildTarget: iPhone
     m_EncodingQuality: 1
-  - m_BuildTarget: tvOS
+  - m_BuildTarget: Android
     m_EncodingQuality: 1
   - m_BuildTarget: Standalone
     m_EncodingQuality: 1
@@ -691,15 +709,11 @@ PlayerSettings:
     m_TextureStreamingEnabled: 1
     m_TextureStreamingPriority: 0
   m_BuildTargetNormalMapEncoding:
-  - m_BuildTarget: Android
-    m_Encoding: 1
   - m_BuildTarget: iPhone
     m_Encoding: 1
-  - m_BuildTarget: tvOS
-    m_Encoding: 1
-  m_BuildTargetDefaultTextureCompressionFormat:
   - m_BuildTarget: Android
-    m_Format: 3
+    m_Encoding: 1
+  m_BuildTargetDefaultTextureCompressionFormat: []
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -883,7 +897,7 @@ PlayerSettings:
   ps4RemotePlayKeyAssignment: -1
   ps4RemotePlayKeyMappingDir: 
   ps4PlayTogetherPlayerCount: 0
-  ps4EnterButtonAssignment: 1
+  ps4EnterButtonAssignment: 2
   ps4ApplicationParam1: 0
   ps4ApplicationParam2: 0
   ps4ApplicationParam3: 0
@@ -892,7 +906,7 @@ PlayerSettings:
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
   playerPrefsMaxSize: 32768
-  ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
+  ps4Passcode: HPMcO9CNq4Jy2lNdCSgxqxv6r6Z0ZO8x
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -906,7 +920,7 @@ PlayerSettings:
   ps4UseAudio3dBackend: 0
   ps4UseLowGarlicFragmentationMode: 1
   ps4SocialScreenEnabled: 0
-  ps4ScriptOptimizationLevel: 0
+  ps4ScriptOptimizationLevel: 2
   ps4Audio3dVirtualSpeakerCount: 14
   ps4attribCpuUsage: 0
   ps4PatchPkgPath: 
@@ -931,7 +945,7 @@ PlayerSettings:
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   blurSplashScreenBackground: 0
   spritePackerPolicy: 
-  webGLMemorySize: 16
+  webGLMemorySize: 32
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 1
@@ -941,15 +955,15 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
+  webGLCompressionFormat: 0
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: MSG_PACK_ENABLE;ADDRESSABLES_MODULE_ENABLE;BURST_COMPILER_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;SERVICES_ANALYTICS_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_1_0_OR_NEWER;MODULE_VER_2_2_0_OR_NEWER;MODULE_VER_2_3_0_OR_NEWER;LIGHT_ENABLE;EXTRA_SCRIPT_MODULE_ENABLE;DOTWEEN_MODULE_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;ENABLE_IL2CPP;ODIN_INSPECTOR;ODIN_INSPECTOR_3;RECEIPT_CHECK_ENABLE;EDITOR_COROUTINE_ENABLE
-    Standalone: 
-    iPhone: MSG_PACK_ENABLE;ADDRESSABLES_MODULE_ENABLE;BURST_COMPILER_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;SERVICES_ANALYTICS_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_1_0_OR_NEWER;MODULE_VER_2_2_0_OR_NEWER;MODULE_VER_2_3_0_OR_NEWER;LIGHT_ENABLE;EXTRA_SCRIPT_MODULE_ENABLE;DOTWEEN_MODULE_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;ENABLE_IL2CPP;ODIN_INSPECTOR;ODIN_INSPECTOR_3;RECEIPT_CHECK_ENABLE;EDITOR_COROUTINE_ENABLE
+    Android: MSG_PACK_ENABLE;UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE;ADDRESSABLES_MODULE_ENABLE;BURST_COMPILER_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;SERVICES_ANALYTICS_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_1_0_OR_NEWER;MODULE_VER_2_2_0_OR_NEWER;MODULE_VER_2_3_0_OR_NEWER;MODULE_VER_2_4_0_OR_NEWER;LIGHT_ENABLE;CAMERA_STACKING_ENABLE;EXTRA_SCRIPT_MODULE_ENABLE;DOTWEEN_MODULE_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;ENABLE_IL2CPP;ODIN_INSPECTOR;ODIN_INSPECTOR_3;RECEIPT_CHECK_ENABLE;EDITOR_COROUTINE_ENABLE
+    Standalone: MSG_PACK_ENABLE;UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE;ADDRESSABLES_MODULE_ENABLE;BURST_COMPILER_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;SERVICES_ANALYTICS_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_1_0_OR_NEWER;MODULE_VER_2_2_0_OR_NEWER;MODULE_VER_2_3_0_OR_NEWER;MODULE_VER_2_4_0_OR_NEWER;LIGHT_ENABLE;CAMERA_STACKING_ENABLE;EXTRA_SCRIPT_MODULE_ENABLE;DOTWEEN_MODULE_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;ENABLE_IL2CPP;ODIN_INSPECTOR;ODIN_INSPECTOR_3;RECEIPT_CHECK_ENABLE;EDITOR_COROUTINE_ENABLE
+    iPhone: MSG_PACK_ENABLE;UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE;ADDRESSABLES_MODULE_ENABLE;BURST_COMPILER_MODULE_ENABLE;TEXTURE_COMPRESS_ENABLE;SCENE_TEMPLATES_MODULE_ENABLE;EDITOR_SCENE_TEMPLATES_MODULE_ENABLE;PREFAB_TEMPLATES_MODULE_ENABLE;ENGINE_TEMPLATES_MODULE_ENABLE;RUNTIME_TEMPLATES_MODULE_ENABLE;STUDY_MODULE_ENABLE;SERVICES_ANALYTICS_ENABLE;MODULE_VER_2_0_0_OR_NEWER;MODULE_VER_2_1_0_OR_NEWER;MODULE_VER_2_2_0_OR_NEWER;MODULE_VER_2_3_0_OR_NEWER;MODULE_VER_2_4_0_OR_NEWER;LIGHT_ENABLE;CAMERA_STACKING_ENABLE;EXTRA_SCRIPT_MODULE_ENABLE;DOTWEEN_MODULE_ENABLE;NEWTON_SOFT_JSON_MODULE_ENABLE;ENABLE_IL2CPP;ODIN_INSPECTOR;ODIN_INSPECTOR_3;RECEIPT_CHECK_ENABLE;EDITOR_COROUTINE_ENABLE
   additionalCompilerArguments: {}
   platformArchitecture:
     iPhone: 1
@@ -980,14 +994,14 @@ PlayerSettings:
     iPhone: 3
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Template_3D
+  metroPackageName: Example
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Template_3D
+  metroApplicationDescription: Example
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -1035,8 +1049,7 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled:
-    UNet: 1
+  cloudServicesEnabled: {}
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 

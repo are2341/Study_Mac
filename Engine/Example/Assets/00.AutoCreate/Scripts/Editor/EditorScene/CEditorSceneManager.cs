@@ -133,7 +133,7 @@ public static partial class CEditorSceneManager {
 
 	/** 상태를 갱신한다 */
 	private static void LateUpdate() {
-		bool bIsEnableUpdate = CEditorAccess.IsEnableUpdateState && CEditorSceneManager.m_oAddRequestList.Count <= KCDefine.B_VAL_0_INT;
+		bool bIsEnableUpdate = CEditorAccess.IsEnableUpdateState && !CEditorSceneManager.m_oAddRequestList.ExIsValid();
 		CEditorSceneManager.m_fDefineSymbolSkipTime = bIsEnableUpdate ? CEditorSceneManager.m_fDefineSymbolSkipTime + Time.deltaTime : KCDefine.B_VAL_0_FLT;
 
 		for(int i = 0; i < CEditorSceneManager.m_oAddRequestList.Count; ++i) {
@@ -161,9 +161,11 @@ public static partial class CEditorSceneManager {
 
 						oDefineSymbolInfoTable.EditoriOSAppleDefineSymbolList,
 
+						oDefineSymbolInfoTable.EditorAndroidDefineSymbolList,
 						oDefineSymbolInfoTable.EditorAndroidGoogleDefineSymbolList,
 						oDefineSymbolInfoTable.EditorAndroidAmazonDefineSymbolList,
 						
+						oDefineSymbolInfoTable.EditorStandaloneDefineSymbolList,
 						oDefineSymbolInfoTable.EditorStandaloneMacSteamDefineSymbolList,
 						oDefineSymbolInfoTable.EditorStandaloneWndsSteamDefineSymbolList
 					};

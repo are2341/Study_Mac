@@ -164,6 +164,8 @@ public static partial class KEditorDefine {
 		["com.unity.2d.tilemap.extras"] = "2.2.2",
 		["com.unity.mobile.android-logcat"] = "1.2.3",
 		["com.unity.performance.profile-analyzer"] = "1.1.1",
+		["com.unity.render-pipelines.universal"] = "12.1.6",
+		["com.unity.visualeffectgraph"] = "12.1.6",
 
 #if SAMPLE_PROJ || DEVELOPMENT_PROJ
 		["com.unity.sequences"] = "1.0.4",
@@ -191,11 +193,6 @@ public static partial class KEditorDefine {
 #if SKELETON_ANI_2D_ENABLE || SKELETON_ANI_2D_MODULE_ENABLE
 		["com.unity.2d.psdimporter"] = "6.0.3",
 #endif			// #if SKELETON_ANI_2D_ENABLE || SKELETON_ANI_2D_MODULE_ENABLE
-
-#if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
-		["com.unity.visualeffectgraph"] = "12.1.6",
-		["com.unity.render-pipelines.universal"] = "12.1.6",
-#endif			// #if UNIVERSAL_RENDERING_PIPELINE_ENABLE || UNIVERSAL_RENDERING_PIPELINE_MODULE_ENABLE
 
 #if ADS_ENABLE || ADS_MODULE_ENABLE
 		["module.unitycommonads"] = "https://9tap:NT9studio!@gitlab.com/9tapmodule.repository/0300000001.module_unitycommonads_client.git#2.3.24",

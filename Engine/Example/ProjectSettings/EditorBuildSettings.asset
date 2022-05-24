@@ -6,35 +6,55 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
+    guid: 28dcab6f52c6040e1b8206ee8b875e44
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
+    guid: b4e6e12ab03fb455b85c7d6fff778319
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
+    guid: 3b7edb955cbce45bdaf7f58283a9a4ea
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
+    guid: 8270a382bcea4402d86abf3f6cb3b908
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.IntroScene.unity
+    guid: e1c9cabc072ea4cafb9f789aa3bc1ace
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.MenuScene.unity
+    guid: 7de6fb16c08f84fc3abd4f7726a4a01f
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.SplashScene.unity
+    guid: fcd50bd2055754ba684039793c67a2ba
+  - enabled: 1
+    path: Assets/01.SubAutoCreate/Scenes/01.StartScene.unity
+    guid: 223f53b0e0f0144ef83e6e51bf56dacd
+  - enabled: 1
     path: Assets/02.UnityProject/Scenes/01.TitleScene.unity
-    guid: c07966c1626b44610bbb1d450bcd6088
+    guid: 0ffc4d5fab2a649d18ca6e9afe6c2fc8
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/02.MainScene.unity
-    guid: ca5ab82970ca44b2788c36e09cf61463
+    guid: c354e6cc3ef2d43629f99bb4f2afd17d
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/03.GameScene.unity
-    guid: 20eb5961948fa4dec86a8507681af441
+    guid: 428352f61827046e39e4ffa1e9aafa92
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/91.LoadingScene.unity
-    guid: 031ecf6256a7f41d0af466f53ec10853
+    guid: 1c55d50dcdcd64199bfbed873f909824
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/92.OverlayScene.unity
-    guid: f9d807ffdf4624c298db9e6b13f991c5
+    guid: 5d77712224bb74b90a92a2e9f7b4c7a9
   - enabled: 1
     path: Assets/02.UnityProject/Scenes/99.TestScene.unity
-    guid: a3305b51e8cff4c67934ec0c0c407175
+    guid: 072a0a007162349e3a84d5af22c9eef8
   - enabled: 1
-    path: "Assets/03.SubUnityProject/Scenes/5x/E01/00.===== \uC808\uB300\uAC15\uC88C
-      \uC720\uB2C8\uD2F0 5 =====.unity"
-    guid: a0cd1fbec88f94ff488bd4e4223dc94d
+    path: "Assets/03.SubUnityProject/Scenes/Etc/E01/00.===== \uC720\uB2C8\uD2F0 URP
+      \uC250\uC774\uB354 \uC785\uBB38 =====.unity"
+    guid: 31dc8b395cb0e40c38a235bde9549d26
   - enabled: 1
-    path: Assets/03.SubUnityProject/Scenes/5x/E01/_5xE01Example_058.unity
-    guid: 44748885412d847feb13574f2e8baee6
+    path: Assets/03.SubUnityProject/Scenes/Etc/E01/EtcE01Example_220.unity
+    guid: d5bf03e89929146b88dbe58c5335130e
   - enabled: 1
-    path: "Assets/03.SubUnityProject/Scenes/Etc/E01/00.===== \uC720\uB2C8\uD2F0\uB85C
-      \uBC30\uC6B0\uB294 \uAC8C\uC784 \uC218\uD559 =====.unity"
-    guid: 33723909fcf9d4a65b4045cbbaf75c30
-  - enabled: 1
-    path: Assets/03.SubUnityProject/Scenes/Etc/E01/EtcE01Example_042.unity
-    guid: daaa5bfffbbc74a47b1e5a3af82fc922
+    path: Assets/04.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
+    guid: 09330d4b449a446d48a6215a3191918e
   m_configObjects: {}

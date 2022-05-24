@@ -85,7 +85,7 @@ QualitySettings:
     shadowResolution: 1
     shadowProjection: 1
     shadowCascades: 4
-    shadowDistance: 50000
+    shadowDistance: 2500
     shadowNearPlaneOffset: 0.1
     shadowCascade2Split: 0.25
     shadowCascade4Split: {x: 0.075, y: 0.2, z: 0.45}
@@ -112,7 +112,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: 53a14715d1f514edcba24e2d3082210d, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: High
@@ -121,7 +121,7 @@ QualitySettings:
     shadowResolution: 2
     shadowProjection: 1
     shadowCascades: 4
-    shadowDistance: 50000
+    shadowDistance: 2500
     shadowNearPlaneOffset: 0.1
     shadowCascade2Split: 0.25
     shadowCascade4Split: {x: 0.075, y: 0.2, z: 0.45}
@@ -148,7 +148,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: b3eaef4ac5dc044db8b14b29a93ade15, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Very High
@@ -193,7 +193,7 @@ QualitySettings:
     shadowResolution: 3
     shadowProjection: 1
     shadowCascades: 4
-    shadowDistance: 50000
+    shadowDistance: 2500
     shadowNearPlaneOffset: 0.1
     shadowCascade2Split: 0.25
     shadowCascade4Split: {x: 0.075, y: 0.2, z: 0.45}
@@ -220,16 +220,19 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: 37236326c16dd414daea8a8ba85b0e12, type: 2}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2
+    CloudRendering: 5
+    EmbeddedLinux: 5
+    GameCoreScarlett: 5
+    GameCoreXboxOne: 5
     Lumin: 5
-    Nintendo 3DS: 5
     Nintendo Switch: 5
     PS4: 5
-    PSP2: 2
-    Server: 0
+    PS5: 5
+    Server: 5
     Stadia: 5
     Standalone: 5
     WebGL: 3

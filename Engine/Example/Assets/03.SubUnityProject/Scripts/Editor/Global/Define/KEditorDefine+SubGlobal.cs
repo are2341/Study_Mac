@@ -30,14 +30,12 @@ public static partial class KEditorDefine {
 
 	// 스크립트 순서
 	public static Dictionary<System.Type, int> G_EXTRA_SCRIPT_ORDER_DICT = new Dictionary<System.Type, int>() {
-		[typeof(_5xE01._5xE01Example_058)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER,
-		[typeof(EtcE01.EtcE01Example_042)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER
+		[typeof(Etc.E01.EtcE01Example_220)] = KCDefine.U_SCRIPT_O_SCENE_MANAGER
 	};
 
 	// 클래스 타입
 	public static readonly Dictionary<string, System.Type> G_EXTRA_SCENE_MANAGER_TYPE_DICT = new Dictionary<string, System.Type>() {
-		[KDefine.G_SCENE_N_5x_E01_EXAMPLE_058] = typeof(_5xE01._5xE01Example_058),
-		[KDefine.G_SCENE_N_ETC_E01_EXAMPLE_042] = typeof(EtcE01.EtcE01Example_042)
+		[KDefine.G_SCENE_N_ETC_E01_EXAMPLE_220] = typeof(Etc.E01.EtcE01Example_220)
 	};
 	#endregion			// 런타임 상수
 }

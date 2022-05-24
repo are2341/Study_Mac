@@ -89,7 +89,7 @@ public static partial class CEditorSceneManager {
 		// 프리팹 설정이 가능 할 경우
 		if(!PrefabUtility.IsPrefabAssetMissing(a_oObj) && CFunc.FindComponent<CSampleSceneManager>(a_oObj.scene) == null) {
 			string oDirPath = (!a_oObj.scene.name.Contains(KCDefine.B_EDITOR_SCENE_N_PATTERN_01) && !a_oObj.scene.name.Contains(KCDefine.B_EDITOR_SCENE_N_PATTERN_02)) ? KCEditorDefine.B_DIR_P_SUB_UNITY_PROJ_PREFABS : KCEditorDefine.B_DIR_P_SUB_UNITY_PROJ_EDITOR_PREFABS;
-			string oPrefabPath = string.Format(KCDefine.B_TEXT_FMT_3_SLASH_COMBINE, Path.GetDirectoryName(oDirPath), Path.GetDirectoryName(KCEditorDefine.B_DIR_P_AUTO_CREATE), string.Format(KCDefine.B_TEXT_FMT_2_UNDER_SCORE_COMBINE, a_oObj.scene.name, a_oObj.name));
+			string oPrefabPath = string.Format(KCDefine.B_TEXT_FMT_3_SLASH_COMBINE, Path.GetDirectoryName(oDirPath), CEditorAccess.GetSceneDirName(a_oObj.scene), string.Format(KCDefine.B_TEXT_FMT_2_UNDER_SCORE_COMBINE, a_oObj.scene.name, a_oObj.name));
 			string oFinalPrefabPath = string.Format(KCDefine.B_TEXT_FMT_2_COMBINE, oPrefabPath, KCDefine.B_FILE_EXTENSION_PREFAB);
 
 			// 프리팹이 없을 경우
@@ -98,6 +98,15 @@ public static partial class CEditorSceneManager {
 				CEditorFactory.MakeDirectories(Path.GetDirectoryName(oPrefabPath));
 
 				PrefabUtility.SaveAsPrefabAssetAndConnect(a_oObj, oFinalPrefabPath, InteractionMode.AutomatedAction);
+			}
+			
+			// 베리언트 프리팹 일 경우
+			if(PrefabUtility.GetPrefabAssetType(a_oObj) == PrefabAssetType.Variant) {
+				do {
+					PrefabUtility.UnpackPrefabInstance(a_oObj, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
+				} while(PrefabUtility.GetPrefabAssetType(a_oObj) != PrefabAssetType.NotAPrefab);
+
+				CEditorFactory.RemoveAsset(oFinalPrefabPath);
 			}
 		}
 	}

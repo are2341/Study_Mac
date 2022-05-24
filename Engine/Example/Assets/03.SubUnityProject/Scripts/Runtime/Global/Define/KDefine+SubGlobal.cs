@@ -43,8 +43,7 @@ public static partial class KDefine {
 	// 설정 팝업 }
 
 	// 씬 이름
-	public const string G_SCENE_N_5x_E01_EXAMPLE_058 = "_5xE01Example_058";
-	public const string G_SCENE_N_ETC_E01_EXAMPLE_042 = "EtcE01Example_042";
+	public const string G_SCENE_N_ETC_E01_EXAMPLE_220 = "EtcE01Example_220";
 	#endregion			// 기본
 	
 	#region 런타임 상수
