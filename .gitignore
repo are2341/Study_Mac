@@ -1,5 +1,3 @@
-*.pyc
-
 Engine/Example/.vs
 Engine/Example/.vscode
 Engine/Example/Builds

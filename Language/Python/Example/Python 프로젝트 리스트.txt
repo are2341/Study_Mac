@@ -1,2 +1,3 @@
-Python 프로젝트 리스트:
+Python 프로젝트 리스트
 - E01 (점프 투 파이썬)
+- E02 (Head First Python)
