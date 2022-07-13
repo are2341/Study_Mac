@@ -9,3 +9,6 @@ Engine/Unity/Example/obj
 Engine/Unity/Example/NativePlugins
 Engine/Unity/Example/UnityPackages
 Engine/Unity/Example/SerializedBuildInfo
+
+Language/C#/Example/E01/bin
+Language/C#/Example/E01/obj
