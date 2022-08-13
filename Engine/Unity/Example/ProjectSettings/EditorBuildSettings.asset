@@ -4,5 +4,55 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/00.InitScene.unity
+    guid: 5f310ee2476ec4555bda09d8c0f2d8a5
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/00.StartScene.unity
+    guid: d78c52927ac2f4942aef5a963d3b1f3b
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.AgreeScene.unity
+    guid: fa5c3045f8f3b4cc08f2abc5e2dcb73c
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.LateSetupScene.unity
+    guid: 19ac28f1140184a8993360899a5b15c7
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/01.SetupScene.unity
+    guid: c68aafba4b531431da25f1121dde9041
+  - enabled: 1
+    path: Assets/00.AutoCreate/Scenes/02.MenuScene.unity
+    guid: 7b4b08e8f4201449fb8b48a13005ad13
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/01.TitleScene.unity
+    guid: a5233339bba6b40a1bc74b2b231d335e
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/02.MainScene.unity
+    guid: 4a0bf0df91a674e42ba9ee3a75d470dc
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/03.GameScene.unity
+    guid: 195ad3465671c4809b0aa72a98ecb712
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/91.LoadingScene.unity
+    guid: c4a3ccad696c6446a8cbebe669f87e19
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/92.OverlayScene.unity
+    guid: 28da07daa150c42d1a31ca6aa2b81997
+  - enabled: 1
+    path: Assets/01.UnityProject/Scenes/99.TestScene.unity
+    guid: 4f4db04d24239464f813084436227c99
+  - enabled: 1
+    path: "Assets/02.SubUnityProject/Scenes/Etc/E01/===== \uC720\uB2C8\uD2F0 \uAC8C\uC784
+      \uC774\uD399\uD2B8 \uC785\uBB38 =====.unity"
+    guid: 7e9e67e50091d43cb8362635f82cbeaa
+  - enabled: 1
+    path: Assets/02.SubUnityProject/Scenes/Etc/E01/E_E01Example_046.unity
+    guid: ff1f822bc5a0f47f383e7cdb47a45dbd
+  - enabled: 1
+    path: Assets/02.SubUnityProject/Scenes/Etc/E01/E_E01Example_072.unity
+    guid: e8eac0eafb4d2460ea00aaf5cfc4006e
+  - enabled: 1
+    path: Assets/03.UnityProjectEditor/Scenes/91.LevelEditorScene.unity
+    guid: 29f0e71f74f364b009669651ff719fbe
+  m_configObjects:
+    com.unity.localization.settings: {fileID: 11400000, guid: a75f2f49bbdeb4eb7ad94a5b894d2d1b, type: 2}
